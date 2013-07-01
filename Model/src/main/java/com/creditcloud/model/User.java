@@ -4,8 +4,10 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.constraints.EmailAddress;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
+import com.creditcloud.model.constraints.MobileNumber;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -31,9 +33,10 @@ public class User extends BaseObject {
     @IdNumber
     protected String idNumber;
     
-    @NotNull
+    @MobileNumber
     protected String mobile;
     
+    @EmailAddress
     protected String email;
     
     public User(String id,
