@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.constraints.ClientCode;
 import java.util.Locale;
 import javax.validation.constraints.NotNull;
 
@@ -20,7 +21,7 @@ public class Client extends BaseObject {
     /**
      * 4 characters codes
      */
-    @NotNull
+    @ClientCode
     protected String code;
     /**
      * url
@@ -35,6 +36,15 @@ public class Client extends BaseObject {
     
     public Client(){
     }
+
+    public Client(String name, String code, String url, Locale locale) {
+        this.name = name;
+        this.code = code;
+        this.url = url;
+        this.locale = locale;
+    }
+    
+    
 
     public String getName() {
         return name;
