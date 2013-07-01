@@ -63,5 +63,9 @@ public class ClientCodeTest extends BaseTest {
         client.setCode("abcd");
         violations = validator.validateProperty(client, "code");
         assertEquals(0, violations.size());
+        
+        client.setCode("1234");
+        violations = validator.validateProperty(client, "code");
+        assertEquals(1, violations.size());
     }
 }
