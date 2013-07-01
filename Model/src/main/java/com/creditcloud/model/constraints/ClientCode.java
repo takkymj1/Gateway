@@ -26,7 +26,7 @@ import javax.validation.constraints.Pattern;
 @Documented
 public @interface ClientCode {
 
-    String message() default "common.clientCode.Pattern";
+    String message() default "{common.clientCode.Pattern}";
 
     Class<?>[] groups() default {};
 

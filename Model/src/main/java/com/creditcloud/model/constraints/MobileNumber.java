@@ -18,15 +18,15 @@ import javax.validation.constraints.Pattern;
  *
  * @author rooseek
  */
-@Pattern(regexp =  "^[1][3|5|8][0-9]{9}$", message = "{common.mobileNumber.Pattern}")
+@Pattern(regexp =  "[1][3|5|8][0-9]{9}", message = "{common.mobileNumber.Pattern}")
 @Constraint(validatedBy = {})
-@NotNull(message="common.mobileNumber.NotNull")
+@NotNull(message="{common.mobileNumber.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MobileNumber {
         
-    String message() default "common.mobileNumber.Pattern";
+    String message() default "{common.mobileNumber.Pattern}";
 
     Class<?>[] groups() default {};
 
