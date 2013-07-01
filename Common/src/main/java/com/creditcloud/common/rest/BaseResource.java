@@ -4,7 +4,10 @@
  */
 package com.creditcloud.common.rest;
 
+import com.creditcloud.common.validation.ValidatorWrapper;
 import java.io.Serializable;
+import javax.annotation.Resource;
+import javax.validation.Validator;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -18,6 +21,9 @@ public abstract class BaseResource implements Serializable {
 
     @Context
     UriInfo uriInfo;
+    
+    @Resource
+    protected Validator validator;
 
     protected Response forward(String path) {
         return forward(path, null);
@@ -29,5 +35,9 @@ public abstract class BaseResource implements Serializable {
 
     protected Response redirect(String path) {
         return Response.seeOther(uriInfo.getBaseUriBuilder().path(path).build()).build();
+    }
+    
+    protected ValidatorWrapper getValidatorWrapper() {
+        return new ValidatorWrapper(validator);
     }
 }
