@@ -18,15 +18,15 @@ import javax.validation.constraints.Pattern;
  *
  * @author rooseek
  */
-@Pattern(regexp = "^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+$", message = "{common.emailAddress.Pattern}")
+@Pattern(regexp = "[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)+", message = "{common.emailAddress.Pattern}")
 @Constraint(validatedBy = {})
-@NotNull(message="common.emailAddress.NotNull")
+@NotNull(message="{common.emailAddress.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface EmailAddress {
     
-    String message() default "common.emailAddress.Pattern";
+    String message() default "{common.emailAddress.Pattern}";
 
     Class<?>[] groups() default {};
 
