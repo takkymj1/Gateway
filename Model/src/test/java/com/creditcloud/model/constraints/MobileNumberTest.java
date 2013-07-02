@@ -18,10 +18,7 @@ import org.junit.Test;
  *
  * @author rooseek
  */
-public class MobileNumberTest extends BaseTest {
-
-    public MobileNumberTest() {
-    }
+public class MobileNumberTest extends BaseTest<User> {
 
     @BeforeClass
     public static void setUpClass() {
@@ -34,7 +31,7 @@ public class MobileNumberTest extends BaseTest {
 
     @Before
     public void setUp() {
-        user = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123");
     }
 
     @After
@@ -44,34 +41,34 @@ public class MobileNumberTest extends BaseTest {
 
     @Test
     public void notNull() {
-        user.setMobile(null);
-        constraintViolations = validator.validateProperty(user, "mobile");
+        object.setMobile(null);
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
     }
     
     @Test
     public void pattern(){
-        constraintViolations = validator.validateProperty(user, "mobile");
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
         
         //11 numbers
-        user.setMobile("13912345678");
-        constraintViolations = validator.validateProperty(user, "mobile");
+        object.setMobile("13912345678");
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(0, constraintViolations.size());
         
         //10 numbers
-        user.setMobile("1391234567");
-        constraintViolations = validator.validateProperty(user, "mobile");
+        object.setMobile("1391234567");
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
         
         //12 numbers
-        user.setMobile("139123456789");
-        constraintViolations = validator.validateProperty(user, "mobile");
+        object.setMobile("139123456789");
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
         
         //wrong head
-        user.setMobile("23112345678");
-        constraintViolations = validator.validateProperty(user, "mobile");
+        object.setMobile("23112345678");
+        constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
         
     }

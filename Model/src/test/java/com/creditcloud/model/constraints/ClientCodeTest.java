@@ -12,8 +12,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import java.util.Locale;
-import java.util.Set;
-import javax.validation.ConstraintViolation;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -21,13 +19,7 @@ import org.junit.Test;
  *
  * @author rooseek
  */
-public class ClientCodeTest extends BaseTest {
-
-    private Client client;
-    private Set<ConstraintViolation<Client>> violations;
-
-    public ClientCodeTest() {
-    }
+public class ClientCodeTest extends BaseTest<Client> {
 
     @BeforeClass
     public static void setUpClass() {
@@ -40,32 +32,36 @@ public class ClientCodeTest extends BaseTest {
 
     @Before
     public void setUp() {
-        client = new Client("CreditCloud", "ABCD", "www.creditcloud.com", Locale.CHINESE);
+        object = new Client("CreditCloud", "ABCD", "www.creditcloud.com", Locale.CHINESE);
     }
 
     @After
     public void tearDown() {
-        violations.clear();
+        constraintViolations.clear();
     }
 
     @Test
     public void notNull() {
-        violations = validator.validateProperty(client, "code");
-        assertEquals(0, violations.size());
+        constraintViolations = validator.validateProperty(object, "code");
+        assertEquals(0, constraintViolations.size());
 
-        client.setCode(null);
-        violations = validator.validateProperty(client, "code");
-        assertEquals(1, violations.size());
+        object.setCode(null);
+        constraintViolations = validator.validateProperty(object, "code");
+        assertEquals(1, constraintViolations.size());
     }
 
     @Test
     public void pattern() {
-        client.setCode("abcd");
-        violations = validator.validateProperty(client, "code");
-        assertEquals(0, violations.size());
-        
-        client.setCode("1234");
-        violations = validator.validateProperty(client, "code");
-        assertEquals(1, violations.size());
+        object.setCode("abcd");
+        constraintViolations = validator.validateProperty(object, "code");
+        assertEquals(1, constraintViolations.size());
+
+        object.setCode("1234");
+        constraintViolations = validator.validateProperty(object, "code");
+        assertEquals(0, constraintViolations.size());
+
+        object.setCode("DAFY");
+        constraintViolations = validator.validateProperty(object, "code");
+        assertEquals(0, constraintViolations.size());
     }
 }

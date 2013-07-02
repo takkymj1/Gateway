@@ -18,7 +18,7 @@ import javax.validation.constraints.Pattern;
  *
  * @author rooseek
  */
-@Pattern(regexp = "[a-zA-Z]{4}", message = "{common.clientCode.Pattern}")
+@Pattern(regexp = "[A-Z0-9]{4}", message = "{common.clientCode.Pattern}")
 @NotNull(message = "{common.clientCode.NotNull}")
 @Constraint(validatedBy = {})
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})

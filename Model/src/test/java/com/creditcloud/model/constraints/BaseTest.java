@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.User;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
@@ -16,7 +15,7 @@ import org.apache.log4j.Logger;
  *
  * @author sobranie
  */
-public abstract class BaseTest {
+public abstract class BaseTest<T> {
     
     static {
         BasicConfigurator.configure();
@@ -25,7 +24,7 @@ public abstract class BaseTest {
 
     protected static Validator validator;
     
-    protected Set<ConstraintViolation<User>> constraintViolations;
+    protected Set<ConstraintViolation<T>> constraintViolations;
     
-    protected User user;
+    protected T object;
 }

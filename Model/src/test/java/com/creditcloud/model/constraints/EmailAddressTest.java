@@ -18,7 +18,7 @@ import org.junit.Test;
  *
  * @author rooseek
  */
-public class EmailAddressTest extends BaseTest {
+public class EmailAddressTest extends BaseTest<User> {
 
     public EmailAddressTest() {
     }
@@ -34,7 +34,7 @@ public class EmailAddressTest extends BaseTest {
 
     @Before
     public void setUp() {
-        user = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123");
     }
 
     @After
@@ -44,62 +44,62 @@ public class EmailAddressTest extends BaseTest {
 
     @Test
     public void notNull() {
-        user.setEmail(null);
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail(null);
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
     }
     
     @Test
     public void pattern(){
-        constraintViolations = validator.validateProperty(user, "email");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
         
         /**
          * accepted email
          */
-        user.setEmail("noreply@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("noreply@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(0, constraintViolations.size());
         
-        user.setEmail("123noreply@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("123noreply@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(0, constraintViolations.size());
         
-        user.setEmail("no-replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("no-replay@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(0, constraintViolations.size());
         
-        user.setEmail("no.replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("no.replay@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(0, constraintViolations.size());
         
-        user.setEmail("no_replay@creditcloud.com.cn");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("no_replay@creditcloud.com.cn");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(0, constraintViolations.size());
         
         
         /**
          * illegal email
          */
-        user.setEmail("no@replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("no@replay@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
         
         
-        user.setEmail("$noreplay@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("$noreplay@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
         
-        user.setEmail("n$oreplay@creditcloud.com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("n$oreplay@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
         
-        user.setEmail("noreplay@creditcloud..com");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("noreplay@creditcloud..com");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
         
-        user.setEmail("noreplay@creditcloud.com.");
-        constraintViolations = validator.validateProperty(user, "email");
+        object.setEmail("noreplay@creditcloud.com.");
+        constraintViolations = validator.validateProperty(object, "email");
         assertEquals(1, constraintViolations.size());
     }
 }
