@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.entities.facade;
 
+import com.creditcloud.common.validation.ValidatorWrapper;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -30,6 +31,10 @@ public abstract class AbstractFacade<T> {
     }
 
     protected abstract EntityManager getEntityManager();
+    
+    protected ValidatorWrapper getValidatorWrapper() {
+        return new ValidatorWrapper(validator);
+    }
 
     public T create(T entity) {
         EntityManager em = getEntityManager();

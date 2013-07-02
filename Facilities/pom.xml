@@ -14,6 +14,12 @@
             <type>ejb</type>
         </dependency>
         <dependency>
+            <groupId>com.creditcloud.client</groupId>
+            <artifactId>ClientService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
             <groupId>com.creditcloud.sms</groupId>
             <artifactId>SMSService</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -48,12 +54,15 @@
                 <version>2.8</version>
                 <configuration>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
-                    <includeLibInApplicationXml>true</includeLibInApplicationXml>
                     <initializeInOrder>true</initializeInOrder>
                     <modules>
                         <ejbModule>
                             <groupId>com.creditcloud.config</groupId>
                             <artifactId>ConfigService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.client</groupId>
+                            <artifactId>ClientService</artifactId>
                         </ejbModule>
                         <ejbModule>
                             <groupId>com.creditcloud.sms</groupId>

@@ -5,6 +5,7 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.User;
+import com.creditcloud.model.constraints.ClientCode;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -15,6 +16,6 @@ import javax.ejb.Remote;
 @Remote
 public interface UserService {
     
-    List<? extends User> listAllUsers();
+    List<User> listAllUsers(@ClientCode String clientCodeI);
     
 }
