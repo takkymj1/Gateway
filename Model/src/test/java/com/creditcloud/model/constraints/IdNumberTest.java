@@ -6,8 +6,6 @@ package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
 import static com.creditcloud.model.constraints.BaseTest.validator;
-import java.util.Set;
-import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @author sobranie
  */
-public class IdNumberTest extends BaseTest {
+public class IdNumberTest extends BaseTest<User> {
 
     public IdNumberTest() {
     }
@@ -36,7 +34,7 @@ public class IdNumberTest extends BaseTest {
     
     @Before
     public void setUp() {
-        user = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123");
     }
     
     @After
@@ -46,23 +44,23 @@ public class IdNumberTest extends BaseTest {
 
     @Test
     public void notNull() {
-        user.setIdNumber(null);
-        constraintViolations = validator.validateProperty(user, "idNumber");
+        object.setIdNumber(null);
+        constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
     }
     
     @Test
     public void pattern() {
-        user.setIdNumber("110105198304289999");
-        constraintViolations = validator.validateProperty(user, "idNumber");
+        object.setIdNumber("110105198304289999");
+        constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
         //ending with x/X
-        user.setIdNumber("11010519830428999X");
-        constraintViolations = validator.validateProperty(user, "idNumber");
+        object.setIdNumber("11010519830428999X");
+        constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
         //length
-        user.setIdNumber("1101051983042899X");
-        constraintViolations = validator.validateProperty(user, "idNumber");
+        object.setIdNumber("1101051983042899X");
+        constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
     }
 }

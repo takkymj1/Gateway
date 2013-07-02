@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @author sobranie
  */
-public class LoginNameTest extends BaseTest {
+public class LoginNameTest extends BaseTest<User> {
 
     @BeforeClass
     public static void setUpClass() {
@@ -31,7 +31,7 @@ public class LoginNameTest extends BaseTest {
 
     @Before
     public void setUp() {
-        user = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123");
     }
 
     @After
@@ -41,25 +41,25 @@ public class LoginNameTest extends BaseTest {
 
     @Test
     public void notNull() {
-        user.setLoginName(null);
-        constraintViolations = validator.validateProperty(user, "loginName");
+        object.setLoginName(null);
+        constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
     
     @Test
     public void size() {
-        user.setLoginName("1");
-        constraintViolations = validator.validateProperty(user, "loginName");
+        object.setLoginName("1");
+        constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
-        user.setLoginName("test1234test1234test1234test1234");
-        constraintViolations = validator.validateProperty(user, "loginName");
+        object.setLoginName("test1234test1234test1234test1234");
+        constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
     
     @Test
     public void character() {
-        user.setLoginName("+-123");
-        constraintViolations = validator.validateProperty(user, "loginName");
+        object.setLoginName("+-123");
+        constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
 }
