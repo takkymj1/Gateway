@@ -44,7 +44,7 @@
             <artifactId>eclipselink</artifactId>
             <version>2.5.0</version>
             <type>jar</type>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <!-- Commons -->
         <dependency>
