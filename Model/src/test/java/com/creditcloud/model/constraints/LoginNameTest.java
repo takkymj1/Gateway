@@ -5,6 +5,7 @@
 package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
+import static com.creditcloud.model.constraints.BaseTest.validator;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -61,5 +62,19 @@ public class LoginNameTest extends BaseTest<User> {
         object.setLoginName("+-123");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
+    }
+    
+    @Test
+    public void chinese() {
+        object.setLoginName("陈忞");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
+    }
+    
+    @Test
+    public void complicate() {
+        object.setLoginName("陈忞1983_Test");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
     }
 }

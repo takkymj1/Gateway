@@ -5,17 +5,24 @@
 package com.creditcloud.common.validation;
 
 import java.util.Set;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.ValidationException;
 import javax.validation.Validator;
 import javax.validation.executable.ExecutableValidator;
 import javax.validation.metadata.BeanDescriptor;
+import org.slf4j.Logger;
 
 /**
  *
  * @author sobranie
  */
 public class ValidatorWrapper implements Validator {
+    
+    @Inject
+    Logger logger;
     
     private final Validator validator;
     
@@ -56,6 +63,22 @@ public class ValidatorWrapper implements Validator {
         }
         if (cv != null && cv.size() > 0) {
             throw InvalidException.create(cv);
+        }
+    }
+    
+    /**
+     * Convenient method for 'quick' validate a string value against a Regex.
+     * 
+     * @param regex
+     * @param value 
+     */
+    public void tryValidateRegex(String regex, String value) {
+        try {
+            if (!Pattern.compile(regex).matcher(value).matches()) {
+                throw InvalidException.create(regex, value);
+            }
+        } catch (PatternSyntaxException ex) {
+            logger.error("Regex {} has syntax error.", regex);
         }
     }
     

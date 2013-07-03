@@ -8,8 +8,8 @@ import com.creditcloud.model.constraints.EmailAddress;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
+import com.creditcloud.model.constraints.RealName;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -19,26 +19,25 @@ public class User extends BaseObject {
 
     @NotNull
     protected String id;
-    
+
     /**
      * The real name of this person
      */
-    @NotNull
-    @Size(min = 1, max = 30)
+    @RealName
     protected String name;
-    
+
     @LoginName
     protected String loginName;
-    
+
     @IdNumber
     protected String idNumber;
-    
+
     @MobileNumber
     protected String mobile;
-    
+
     @EmailAddress
     protected String email;
-    
+
     public User(String id,
                 String name,
                 String loginName,
