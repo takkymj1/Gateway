@@ -24,6 +24,8 @@ public abstract class BaseResource implements Serializable {
     
     @Resource
     protected Validator validator;
+    
+    private ValidatorWrapper validatorWrapper;
 
     protected Response forward(String path) {
         return forward(path, null);
@@ -38,6 +40,9 @@ public abstract class BaseResource implements Serializable {
     }
     
     protected ValidatorWrapper getValidatorWrapper() {
-        return new ValidatorWrapper(validator);
+        if (validatorWrapper == null) {
+            validatorWrapper = new ValidatorWrapper(validator); 
+        }
+        return validatorWrapper;
     }
 }

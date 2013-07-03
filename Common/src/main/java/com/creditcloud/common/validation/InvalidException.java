@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.validation;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -15,19 +16,28 @@ import javax.validation.ConstraintViolation;
 public class InvalidException extends RuntimeException {
 
     private final Set<Violation> violations;
-    
-    private InvalidException (Set<Violation> violations) {
+
+    private InvalidException(Set<Violation> violations) {
         this.violations = violations;
     }
 
     public Set<Violation> getViolations() {
         return violations;
     }
-    
+
     public int getViolationCount() {
         return violations.size();
     }
     
+    @Override
+    public String getMessage() {
+        StringBuilder sb = new StringBuilder();
+        for (Violation violation : violations) {
+            sb.append(violation.getMessage() + "\n");
+        }
+        return sb.toString();
+    }
+
     static <T> InvalidException create(Set<ConstraintViolation<T>> cvs) {
         Set<Violation> result = new HashSet<>();
         if (cvs != null && cvs.size() > 0) {
@@ -36,5 +46,9 @@ public class InvalidException extends RuntimeException {
             }
         }
         return new InvalidException(result);
+    }
+
+    static InvalidException create(String regex, String value) {
+        return new InvalidException(Collections.singleton(new Violation(String.format("Value %s not matching the regex %s.", value, regex), value, regex)));
     }
 }
