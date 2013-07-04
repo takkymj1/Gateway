@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
@@ -19,14 +20,18 @@ public final class SecurityUtils {
     private static final Base64 b64 = new Base64();
 
     /**
-     * Salt is Base64(now + empId)
+     * Salt is Base64(now + identity)
      * 
-     * @param empId
+     * Identity can be null, will generate a random alphanumeric instead.
+     * 
+     * @param identity can be null
      * @return 
      */
-    public static String getSalt(String empId) {
+    public static String getSalt(String identity) {
         String now = df.format(new Date());
-        return Base64.encodeBase64String(now.concat(empId).getBytes());
+        return Base64.encodeBase64String(now.concat(identity == null 
+                                                    ? RandomStringUtils.randomAlphanumeric(20) 
+                                                    : identity).getBytes());
     }
     
     /**
