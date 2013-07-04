@@ -7,6 +7,7 @@ package com.creditcloud.common.entities;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -25,16 +26,35 @@ public abstract class Authenticatable extends ClientScopeEntity {
      */
     @Column(nullable = false, length = 40)
     protected String passphrase;
+
     /**
      * salt value in hex
      */
     @Column(nullable = false, length = 120)
     protected String salt;
+
     /**
      * The timestamp that last successfully login
      */
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLoginDate;
+    protected Date lastLoginDate;
+
+    /**
+     * The time that this guy registered, the value is immutable
+     */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false, updatable = false)
+    protected Date registerDate;
+    
+    /**
+     * Setup when the entity been created.
+     * 
+     * We setup the registerDate here.
+     */
+    @PrePersist
+    private void setup() {
+        this.registerDate = new Date();
+    }
 
     public String getSalt() {
         return this.salt;
@@ -58,5 +78,13 @@ public abstract class Authenticatable extends ClientScopeEntity {
 
     public void setLastLoginDate(Date lastLoginDate) {
         this.lastLoginDate = lastLoginDate;
+    }
+    
+    public Date getRegisterDate() {
+        return registerDate;
+    }
+    
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
     }
 }
