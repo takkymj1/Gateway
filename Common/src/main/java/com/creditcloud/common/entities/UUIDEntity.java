@@ -21,7 +21,7 @@ public abstract class UUIDEntity extends BaseEntity {
     @UuidGenerator(name = "UUID_GEN")
     @Id
     @GeneratedValue(generator = "UUID_GEN")
-    @Column(name = "ID")
+    @Column(name = "ID", length = 36)
     private String id;
 
     public String getId() {
