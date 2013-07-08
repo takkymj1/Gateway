@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.criteria;
 
+import com.creditcloud.model.BaseObject;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
  *
  * @author sobranie
  */
-public final class ParamInfo {
+public final class ParamInfo extends BaseObject {
 
     private final Set<ParamItem> paramItems;
 

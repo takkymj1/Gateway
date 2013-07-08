@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.criteria;
 
+import com.creditcloud.model.BaseObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author sobranie
  */
-public final class SortInfo {
+public final class SortInfo extends BaseObject {
 
     private final List<SortItem> sortItems;
 

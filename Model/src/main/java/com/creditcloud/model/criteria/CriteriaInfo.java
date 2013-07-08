@@ -4,11 +4,13 @@
  */
 package com.creditcloud.model.criteria;
 
+import com.creditcloud.model.BaseObject;
+
 /**
  *
  * @author sobranie
  */
-public class CriteriaInfo {
+public class CriteriaInfo extends BaseObject {
 
     private final ParamInfo paramInfo;
 

@@ -4,11 +4,13 @@
  */
 package com.creditcloud.model.criteria;
 
+import com.creditcloud.model.BaseObject;
+
 /**
  *
  * @author sobranie
  */
-public class PageInfo {
+public class PageInfo extends BaseObject {
 
     /**
      * offset x means start from number (x + 1)
