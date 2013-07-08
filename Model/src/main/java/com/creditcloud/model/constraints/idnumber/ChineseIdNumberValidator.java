@@ -5,6 +5,7 @@
 package com.creditcloud.model.constraints.idnumber;
 
 import com.creditcloud.model.constraints.IdNumber;
+import com.creditcloud.model.constant.IdNumberConstant;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,7 +46,7 @@ import javax.validation.ConstraintValidatorContext;
  * </p>
  *
  * <p>
- * 对于15位身份证,不需要判断最后一位验证码,最后一位代表性别，奇数表示男性，偶数表示女性
+ * 对于15位身份证,不需要判断最后一位验证码,最后一位代表性别，奇数表示男性，偶数表示女性 默认使用18位身份证号，15位暂不支持
  * </p>
  *
  * @author rooseek
@@ -74,7 +75,10 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
     private static boolean isProvince[] = new boolean[100];
 
+    private static GregorianCalendar calendar;
+
     static {
+        calendar = (GregorianCalendar) GregorianCalendar.getInstance();
         for (String[] code : provinceCode) {
             int offset = Integer.parseInt(code[0]);
             isProvince[offset] = true;
@@ -101,7 +105,9 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
 
         if (idNumber.length() == 15) {
-            return isValid15(idNumber);
+            return false;
+            //15 idNumbers is disabled 
+            //return isValid15(idNumber);
         } else if (idNumber.length() == 18) {
             return isValid18(idNumber);
         }
@@ -126,7 +132,6 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
         //check birthday
         String birthday = idNumber.substring(6, 12);
-        int year = Integer.parseInt(idNumber.substring(6, 8));
         int month = Integer.parseInt(idNumber.substring(8, 10));
         int day = Integer.parseInt(idNumber.substring(10, 12));
 
@@ -142,7 +147,11 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
 
         //check year, month, day
-        //TODO put a limit on the year
+        calendar.setTime(birthDate);
+        if (calendar.get(Calendar.YEAR) < IdNumberConstant.MIN_YEAR) {
+            return false;
+        }
+
         if (month < 1 || month > 12) {
             return false;
         }
@@ -165,8 +174,6 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                     return false;
                 }
             case 2:
-                GregorianCalendar calendar = new GregorianCalendar();
-                calendar.setTime(birthDate);
                 if (calendar.isLeapYear(calendar.get(Calendar.YEAR))) {
                     if (day < 1 || day > 29) {
                         return false;
@@ -199,7 +206,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
         //check the sum of prefix 17 numbers mutilplied by weighted factor equals the last check code
         if (null != charArray) {
-            if (!idNumber18Code.equalsIgnoreCase(
+            if (!idNumber18Code.equals(
                     getCheckCode(
                     getPowerSum(
                     char2Int(charArray))))) {
@@ -232,7 +239,10 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
 
         //check year, month, day
-        //TODO put a limit on the year
+        if (year < IdNumberConstant.MIN_YEAR) {
+            return false;
+        }
+
         if (month < 1 || month > 12) {
             return false;
         }
@@ -255,7 +265,6 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                     return false;
                 }
             case 2:
-                GregorianCalendar calendar = new GregorianCalendar();
                 if (calendar.isLeapYear(year)) {
                     if (day < 1 || day > 29) {
                         return false;
@@ -270,6 +279,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         return true;
     }
 
+    @SuppressWarnings("unused")
     private String convert15To18(String idNumber) {
         if (idNumber.length() != 15) {
             return null;
@@ -285,7 +295,6 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                 Logger.getLogger(ChineseIdNumberValidator.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            GregorianCalendar calendar = new GregorianCalendar();
             calendar.setTime(birthdate);
             String year = String.valueOf(calendar.get(Calendar.YEAR));
             idNumber17 = idNumber.substring(0, 6) + year + idNumber.substring(8);
@@ -319,7 +328,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         return checkCode[sum17 % 11];
     }
 
-    public int[] char2Int(char[] charArray) throws NumberFormatException {
+    private int[] char2Int(char[] charArray) throws NumberFormatException {
         int[] array = new int[charArray.length];
         int k = 0;
         for (char temp : charArray) {

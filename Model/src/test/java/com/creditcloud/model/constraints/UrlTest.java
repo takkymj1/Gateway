@@ -60,23 +60,7 @@ public class UrlTest extends BaseTest<Client> {
         constraintViolations = validator.validateProperty(object, "url");
         assertEquals(0, constraintViolations.size());
 
-        object.setUrl("http://www.creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "url");
-        assertEquals(0, constraintViolations.size());
-        
-        object.setUrl("http://creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "url");
-        assertEquals(0, constraintViolations.size());
-
-        object.setUrl("https://www.creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "url");
-        assertEquals(0, constraintViolations.size());
-
-        object.setUrl("www.creditcloud.com.cn.bj.hd.xzm");
-        constraintViolations = validator.validateProperty(object, "url");
-        assertEquals(0, constraintViolations.size());
-
-        object.setUrl("www.creditcloud.com/hello");
+        object.setUrl("www.creditcloud.com.cn");
         constraintViolations = validator.validateProperty(object, "url");
         assertEquals(0, constraintViolations.size());
 
@@ -88,6 +72,22 @@ public class UrlTest extends BaseTest<Client> {
 
         //illegal url
         object.setUrl("12");
+        constraintViolations = validator.validateProperty(object, "url");
+        assertEquals(1, constraintViolations.size());
+        
+        object.setUrl("www.creditcloud.com/hello");
+        constraintViolations = validator.validateProperty(object, "url");
+        assertEquals(1, constraintViolations.size());
+        
+        object.setUrl("http://www.creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "url");
+        assertEquals(1, constraintViolations.size());
+        
+        object.setUrl("http://creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "url");
+        assertEquals(1, constraintViolations.size());
+
+        object.setUrl("https://www.creditcloud.com");
         constraintViolations = validator.validateProperty(object, "url");
         assertEquals(1, constraintViolations.size());
 

@@ -60,15 +60,12 @@ public class IdNumberTest extends BaseTest<User> {
         assertEquals(0, constraintViolations.size());
 
         //15 numbers;
-        object.setIdNumber("510105880806202");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
+//        object.setIdNumber("510105880806202");
+//        constraintViolations = validator.validateProperty(object, "idNumber");
+//        assertEquals(0, constraintViolations.size());
 
         //last number is X
         object.setIdNumber("42010619620204815X");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
-        object.setIdNumber("42010619620204815x");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
 
@@ -105,13 +102,14 @@ public class IdNumberTest extends BaseTest<User> {
         object.setIdNumber("5901051988080620222");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
-        object.setIdNumber("590105880806202");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(1, constraintViolations.size());
-
 
         //wrong year;
         object.setIdNumber("510105229908062022");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong year;
+        object.setIdNumber("510105189908062022");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
 
@@ -119,15 +117,14 @@ public class IdNumberTest extends BaseTest<User> {
         object.setIdNumber("510105198813062022");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
-        object.setIdNumber("510105881306202");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(1, constraintViolations.size());
 
         //wrong day
         object.setIdNumber("510105198809312022");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
-        object.setIdNumber("510105880832202");
+
+        //last 'X' must be upper case
+        object.setIdNumber("42010619620204815x");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
 

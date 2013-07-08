@@ -36,9 +36,9 @@ public class ChineseIdNumber {
 
     private boolean male;
 
-    private static ChineseIdNumberValidator validator = new ChineseIdNumberValidator();
+    private static final ChineseIdNumberValidator validator = new ChineseIdNumberValidator();
 
-    private static GregorianCalendar calendar = new GregorianCalendar();
+    private static final GregorianCalendar calendar =  (GregorianCalendar) GregorianCalendar.getInstance();
 
     private final static Map<String, String> code2Province = new HashMap<String, String>() {
         {
@@ -90,7 +90,7 @@ public class ChineseIdNumber {
     }
 
     /**
-     * factory method to get idnumber
+     * factory method to retrieve ChineseIdNumber from idNumber string
      * 
      * @param idNumber
      * @return 

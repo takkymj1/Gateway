@@ -18,7 +18,7 @@ import javax.validation.constraints.Pattern;
  *
  * @author rooseek
  */
-@Pattern(regexp = "(https?:\\/\\/)?([\\da-z]+)\\.([a-z\\.]{2,6})([\\/\\w]\\.*)*\\/?", message = "{common.url.Pattern}")
+@Pattern(regexp = "([\\da-z]+)\\.([a-z\\.]{2,6})([\\w]\\.*)*", message = "{common.url.Pattern}")
 @Constraint(validatedBy = {})
 @NotNull(message = "{common.url.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
