@@ -49,14 +49,14 @@ public class ChineseIdNumberTest {
         assertEquals(false, actual.isMale());
 
         //15 numbers;
-        idNumber = "510105880806201";
-        actual = ChineseIdNumber.create(idNumber);
-        assertEquals(idNumber, actual.getIdNumber());
-        assertEquals("四川", actual.getProvince());
-        assertEquals(1988, actual.getYear());
-        assertEquals(8, actual.getMonth());
-        assertEquals(6, actual.getDay());
-        assertEquals(true, actual.isMale());
+//        idNumber = "510105880806201";
+//        actual = ChineseIdNumber.create(idNumber);
+//        assertEquals(idNumber, actual.getIdNumber());
+//        assertEquals("四川", actual.getProvince());
+//        assertEquals(1988, actual.getYear());
+//        assertEquals(8, actual.getMonth());
+//        assertEquals(6, actual.getDay());
+//        assertEquals(true, actual.isMale());
 
     }
 }
