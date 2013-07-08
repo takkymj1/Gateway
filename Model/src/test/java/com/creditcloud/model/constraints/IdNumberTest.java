@@ -22,21 +22,21 @@ public class IdNumberTest extends BaseTest<User> {
 
     public IdNumberTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         object = new User("123", "123", "123", "123", "123", "123");
     }
-    
+
     @After
     public void tearDown() {
         constraintViolations.clear();
@@ -48,19 +48,85 @@ public class IdNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void pattern() {
-        object.setIdNumber("110105198304289999");
+        /**
+         * accepted idnumber
+         */
+        //18 numbers
+        object.setIdNumber("510105198808062022");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
-        //ending with x/X
-        object.setIdNumber("11010519830428999X");
+
+        //15 numbers;
+//        object.setIdNumber("510105880806202");
+//        constraintViolations = validator.validateProperty(object, "idNumber");
+//        assertEquals(0, constraintViolations.size());
+
+        //last number is X
+        object.setIdNumber("42010619620204815X");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
-        //length
-        object.setIdNumber("1101051983042899X");
+
+
+
+        /**
+         * illegal idnumber
+         */
+        //illegal character        
+        object.setIdNumber("510105198808x62022");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
+        object.setIdNumber("5101058808x6202");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+
+        //17 numbers
+        object.setIdNumber("51010519880806202");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //19 numbers;
+        object.setIdNumber("5101051988080620222");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong checkcode;
+        object.setIdNumber("510105198808062023");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong province;
+        object.setIdNumber("5901051988080620222");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong year;
+        object.setIdNumber("510105229908062022");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong year;
+        object.setIdNumber("510105189908062022");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong month;
+        object.setIdNumber("510105198813062022");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //wrong day
+        object.setIdNumber("510105198809312022");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //last 'X' must be upper case
+        object.setIdNumber("42010619620204815x");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
     }
 }

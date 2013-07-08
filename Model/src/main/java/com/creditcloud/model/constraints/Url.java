@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.constraints.idnumber.ChineseIdNumberValidator;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,22 +12,21 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  *
- * @author sobranie
+ * @author rooseek
  */
-
-@NotNull(message = "{common.IdNumber.NotNull}")
-@Constraint(validatedBy = ChineseIdNumberValidator.class)
-@Target({ElementType.METHOD,
-         ElementType.FIELD,
-         ElementType.PARAMETER})
+@Pattern(regexp = "([\\da-z]+)\\.([a-z\\.]{2,6})([\\w]\\.*)*", message = "{common.url.Pattern}")
+@Constraint(validatedBy = {})
+@NotNull(message = "{common.url.NotNull}")
+@Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface IdNumber {
+public @interface Url {
 
-    String message() default "{common.IdNumber.Pattern}";
+    String message() default "{common.url.Pattern}";
 
     Class<?>[] groups() default {};
 
