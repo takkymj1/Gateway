@@ -16,6 +16,6 @@ import javax.ejb.Remote;
 @Remote
 public interface UserService {
     
-    List<User> listAllUsers(@ClientCode String clientCodeI);
+    List<User> listAllUsers(@ClientCode String clientCode);
     
 }
