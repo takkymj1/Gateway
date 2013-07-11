@@ -61,9 +61,37 @@ public interface UserService {
     void updateUser(@ClientCode String clientCode, User user);
     
     /**
+     * find user by login name
      * 
      * @param clientCode
      * @param loginName 
      */
     User findByLoginName(@ClientCode String clientCode, @LoginName String loginName);
+    
+    /**
+     * find user by user Id
+     * 
+     * @param clientCode
+     * @param loginName
+     * @return 
+     */
+    User findByUserId(@ClientCode String clientCode, String userId);
+    
+    /**
+     * delete user by login name
+     * 
+     * @param clientCode
+     * @param loginName 
+     */
+    void deleteByLoginName(@ClientCode String clientCode, @LoginName String loginName);
+    
+    /**
+     * delete user by user Id
+     * 
+     * @param clientCode
+     * @param Id 
+     */
+    void deleteByUserId(@ClientCode String clientCode, String userId);
+    
+    
 }
