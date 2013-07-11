@@ -16,9 +16,13 @@ public final class ParamInfo extends BaseObject {
 
     private final Set<ParamItem> paramItems;
 
+    public ParamInfo() {
+        paramItems = new HashSet<>();
+    }
+
     public ParamInfo(final String fieldName,
                      final Object value) {
-        paramItems = new HashSet<>();
+        this();
         add(fieldName, value);
     }
 
@@ -26,6 +30,10 @@ public final class ParamInfo extends BaseObject {
                          final Object value) {
         paramItems.add(new ParamItem(fieldName, value));
         return this;
+    }
+
+    public Set<ParamItem> getParamItems() {
+        return paramItems;
     }
 
     public class ParamItem {

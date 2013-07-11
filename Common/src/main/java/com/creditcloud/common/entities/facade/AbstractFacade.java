@@ -5,13 +5,11 @@
 package com.creditcloud.common.entities.facade;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
-import com.creditcloud.model.criteria.CriteriaInfo;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
