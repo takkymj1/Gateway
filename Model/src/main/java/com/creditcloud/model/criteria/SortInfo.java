@@ -5,7 +5,8 @@
 package com.creditcloud.model.criteria;
 
 import com.creditcloud.model.BaseObject;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,10 +15,10 @@ import java.util.Set;
  */
 public final class SortInfo extends BaseObject {
 
-    private final Set<SortItem> sortItems;
+    private final List<SortItem> sortItems;
 
     public SortInfo() {
-        sortItems = new HashSet<>();
+        sortItems = new ArrayList<>();
     }
 
     public SortInfo(String fieldName) {
@@ -29,7 +30,7 @@ public final class SortInfo extends BaseObject {
         add(fieldName, descending);
     }
 
-    public Set<SortItem> getSortItems() {
+    public List<SortItem> getSortItems() {
         return sortItems;
     }
 
