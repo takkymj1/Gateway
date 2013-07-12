@@ -5,8 +5,6 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.User;
-import com.creditcloud.model.constraints.ClientCode;
-import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
@@ -25,7 +23,7 @@ public interface UserService {
      * @param clientCode
      * @return
      */
-    List<User> listAllUsers(@ClientCode String clientCode);
+    List<User> listAllUsers(String clientCode);
 
     /**
      * list all users with criteria for client
@@ -34,7 +32,7 @@ public interface UserService {
      * @param criteriaInfo
      * @return
      */
-    PagedResult<User> listUsers(@ClientCode String clientCode, CriteriaInfo criteriaInfo);
+    PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
 
     /**
      * add new user for client
@@ -42,7 +40,7 @@ public interface UserService {
      * @param clientCode
      * @param user
      */
-    void addUser(@ClientCode String clientCode, User user);
+    void addUser(String clientCode, User user);
 
     /**
      * remove user for client
@@ -50,7 +48,7 @@ public interface UserService {
      * @param clientCode
      * @param user
      */
-    void deleteUser(@ClientCode String clientCode, User user);
+    void deleteUser(String clientCode, User user);
 
     /**
      * update user information for client
@@ -58,40 +56,38 @@ public interface UserService {
      * @param clientCode
      * @param user
      */
-    void updateUser(@ClientCode String clientCode, User user);
-    
+    void updateUser(String clientCode, User user);
+
     /**
      * find user by login name
-     * 
-     * @param clientCode
-     * @param loginName 
-     */
-    User findByLoginName(@ClientCode String clientCode, @LoginName String loginName);
-    
-    /**
-     * find user by user Id
-     * 
+     *
      * @param clientCode
      * @param loginName
-     * @return 
      */
-    User findByUserId(@ClientCode String clientCode, String userId);
-    
+    User findByLoginName(String clientCode, String loginName);
+
+    /**
+     * find user by user Id
+     *
+     * @param clientCode
+     * @param loginName
+     * @return
+     */
+    User findByUserId(String clientCode, String userId);
+
     /**
      * delete user by login name
-     * 
+     *
      * @param clientCode
-     * @param loginName 
+     * @param loginName
      */
-    void deleteByLoginName(@ClientCode String clientCode, @LoginName String loginName);
-    
+    void deleteByLoginName(String clientCode, String loginName);
+
     /**
      * delete user by user Id
-     * 
+     *
      * @param clientCode
-     * @param Id 
+     * @param Id
      */
-    void deleteByUserId(@ClientCode String clientCode, String userId);
-    
-    
+    void deleteByUserId(String clientCode, String userId);
 }
