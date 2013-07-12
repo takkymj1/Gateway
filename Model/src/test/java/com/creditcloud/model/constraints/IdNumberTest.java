@@ -48,6 +48,7 @@ public class IdNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
     }
+    
 
     @Test
     public void pattern() {
@@ -69,7 +70,17 @@ public class IdNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
 
+        object.setIdNumber("340122198510246018");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
 
+        object.setIdNumber("350204198906212011");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+          
+        object.setIdNumber("610632198701310014");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
 
         /**
          * illegal idnumber

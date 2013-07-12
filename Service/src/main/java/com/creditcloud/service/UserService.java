@@ -22,76 +22,67 @@ public interface UserService {
     /**
      * list all users for client
      *
-     * @param clientCode
      * @return
      */
-    List<User> listAllUsers(@ClientCode String clientCode);
+    List<User> listAllUsers();
 
     /**
      * list all users with criteria for client
      *
-     * @param clientCode
      * @param criteriaInfo
      * @return
      */
-    PagedResult<User> listUsers(@ClientCode String clientCode, CriteriaInfo criteriaInfo);
+    PagedResult<User> listUsers(CriteriaInfo criteriaInfo);
 
     /**
      * add new user for client
      *
-     * @param clientCode
      * @param user
      */
-    void addUser(@ClientCode String clientCode, User user);
+    void addUser(User user);
 
     /**
      * remove user for client
      *
-     * @param clientCode
      * @param user
      */
-    void deleteUser(@ClientCode String clientCode, User user);
+    void deleteUser(User user);
 
     /**
      * update user information for client
      *
-     * @param clientCode
      * @param user
      */
-    void updateUser(@ClientCode String clientCode, User user);
+    void updateUser(User user);
     
     /**
      * find user by login name
      * 
-     * @param clientCode
      * @param loginName 
      */
-    User findByLoginName(@ClientCode String clientCode, @LoginName String loginName);
+    User findByLoginName(@LoginName String loginName);
     
     /**
      * find user by user Id
      * 
-     * @param clientCode
      * @param loginName
      * @return 
      */
-    User findByUserId(@ClientCode String clientCode, String userId);
+    User findByUserId(String userId);
     
     /**
      * delete user by login name
      * 
-     * @param clientCode
      * @param loginName 
      */
-    void deleteByLoginName(@ClientCode String clientCode, @LoginName String loginName);
+    void deleteByLoginName(@LoginName String loginName);
     
     /**
      * delete user by user Id
      * 
-     * @param clientCode
      * @param Id 
      */
-    void deleteByUserId(@ClientCode String clientCode, String userId);
+    void deleteByUserId(String userId);
     
     
 }

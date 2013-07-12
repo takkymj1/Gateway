@@ -257,6 +257,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                 if (day < 1 || day > 31) {
                     return false;
                 }
+                break;
             case 4:
             case 6:
             case 9:
@@ -264,6 +265,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                 if (day < 1 || day > 30) {
                     return false;
                 }
+                break;
             case 2:
                 if (calendar.isLeapYear(year)) {
                     if (day < 1 || day > 29) {
@@ -274,6 +276,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                         return false;
                     }
                 }
+                break;
         }
 
         return true;
