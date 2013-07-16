@@ -20,6 +20,58 @@ import static org.junit.Assert.*;
  */
 public class IdNumberTest extends BaseTest<User> {
 
+    private static final String[] validIdNumbers = {"42010619620204815X",
+                                                    //male idNumber   
+                                                    "230109198810127372",
+                                                    "230184198711288437",
+                                                    "620201197709074811",
+                                                    "220581198609168130",
+                                                    "652328198102125878",
+                                                    "450222198007162774",
+                                                    "320302198102025875",
+                                                    "152201198310074717",
+                                                    "210505197602227836",
+                                                    "130304198601048438",
+                                                    "130824198712177753",
+                                                    "370685198209025871",
+                                                    "421223198711056854",
+                                                    "41092819760212227X",
+                                                    "530322197606195990",
+                                                    "14102419900818403X",
+                                                    "61060119870804237X",
+                                                    "620702199307117674",
+                                                    "44051219891027845X",
+                                                    "530501199405208618",
+                                                    "140303197809262178",
+                                                    "220281198110129558",
+                                                    "520627198410203873",
+                                                    "150423198207084973",
+                                                    //female idNumber
+                                                    "430721199205271682",
+                                                    "220302198807155326",
+                                                    "130105198005174783",
+                                                    "610430198806223343",
+                                                    "530101199311131961",
+                                                    "654323199203108967",
+                                                    "341825198708145640",
+                                                    "341721198209232888",
+                                                    "320312198705096544",
+                                                    "141102198707029621",
+                                                    "653128198312158248",
+                                                    "620702198003195804",
+                                                    "230183198305095801",
+                                                    "140201198005223401",
+                                                    "141129197603199963",
+                                                    "451101198811048845",
+                                                    "370724197606112280",
+                                                    "431125198810077801",
+                                                    "650204198107019929",
+                                                    "231084198603031349",
+                                                    "320506197804088004",
+                                                    "610729198403225169",
+                                                    "371623198207156626",
+                                                    "13092719800814598X"};
+
     public IdNumberTest() {
     }
 
@@ -48,7 +100,6 @@ public class IdNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
     }
-    
 
     @Test
     public void pattern() {
@@ -56,31 +107,11 @@ public class IdNumberTest extends BaseTest<User> {
          * accepted idnumber
          */
         //18 numbers
-        object.setIdNumber("510105198808062022");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
-
-        //15 numbers;
-//        object.setIdNumber("510105880806202");
-//        constraintViolations = validator.validateProperty(object, "idNumber");
-//        assertEquals(0, constraintViolations.size());
-
-        //last number is X
-        object.setIdNumber("42010619620204815X");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
-
-        object.setIdNumber("340122198510246018");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
-
-        object.setIdNumber("350204198906212011");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
-          
-        object.setIdNumber("610632198701310014");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(0, constraintViolations.size());
+        for (String idNumber : validIdNumbers) {
+            object.setIdNumber(idNumber);
+            constraintViolations = validator.validateProperty(object, "idNumber");
+            assertEquals(0, constraintViolations.size());
+        }
 
         /**
          * illegal idnumber

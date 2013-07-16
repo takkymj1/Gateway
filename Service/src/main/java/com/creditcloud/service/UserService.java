@@ -21,7 +21,9 @@ public interface UserService {
      * list all users for client
      *
      * @param clientCode
-     * @return null if clientCode do not match local client, empty list if no user found
+     * @return empty list if no user found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     List<User> listAllUsers(String clientCode);
 
@@ -30,7 +32,9 @@ public interface UserService {
      *
      * @param clientCode
      * @param criteriaInfo
-     * @return null if clientCode do not match local client, empty result is no user found
+     * @return empty result is no user found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
 
@@ -39,6 +43,8 @@ public interface UserService {
      *
      * @param clientCode
      * @param user
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     void addUser(String clientCode, User user);
 
@@ -47,6 +53,8 @@ public interface UserService {
      *
      * @param clientCode
      * @param user
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     void deleteUser(String clientCode, User user);
 
@@ -55,6 +63,8 @@ public interface UserService {
      *
      * @param clientCode
      * @param user
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     void updateUser(String clientCode, User user);
 
@@ -65,6 +75,8 @@ public interface UserService {
      * @param clientCode
      * @param loginName
      * @return null if not found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     User findByLoginName(String clientCode, String loginName);
 
@@ -74,6 +86,8 @@ public interface UserService {
      * @param clientCode
      * @param loginName
      * @return null if not found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     User findByUserId(String clientCode, String userId);
 
@@ -83,6 +97,8 @@ public interface UserService {
      * @param clientCode
      * @param mobile
      * @return null if not found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     User findByMobile(String clientCode, String mobile);
 
@@ -92,6 +108,8 @@ public interface UserService {
      * @param clientCode
      * @param idNumber
      * @return null if not found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     User findByIdNumber(String clientCode, String idNumber);
 
@@ -101,6 +119,8 @@ public interface UserService {
      *
      * @param clientCode
      * @param loginName
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     void deleteByLoginName(String clientCode, String loginName);
 
@@ -109,6 +129,8 @@ public interface UserService {
      *
      * @param clientCode
      * @param Id
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     void deleteByUserId(String clientCode, String userId);
 
@@ -119,6 +141,8 @@ public interface UserService {
      * @param clientCode
      * @param mobile
      * @return true if this mobile is available, false if already occupied.
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     boolean checkMobile(String clientCode, String mobile);
 
@@ -128,6 +152,8 @@ public interface UserService {
      * @param clientCode
      * @param idNumber
      * @return true if this idNumber is available, false if already occupied
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     boolean checkIdNumber(String clientCode, String idNumber);
 
@@ -137,6 +163,8 @@ public interface UserService {
      * @param clientCode
      * @param loginName
      * @return true if this loginName is available, false if already taken.
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     boolean checkLoginName(String clientCode, String loginName);
 }
