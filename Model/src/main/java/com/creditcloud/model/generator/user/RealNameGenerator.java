@@ -18,10 +18,14 @@ public class RealNameGenerator extends StringGenerator {
 
     private static final char[] chars;
 
+    private static final int upper = 0x9fb9;
+
+    private static final int lower = 0x4e00;
+
     static {
-        chars = new char[0x9fb9 - 0x4e00];
-        for (int i = 0x4e00; i < 0x9fb9; i++) {
-            chars[i - 0x4e00] = (char) i;
+        chars = new char[upper - lower];
+        for (int i = lower; i < upper; i++) {
+            chars[i - lower] = (char) i;
         }
     }
 
@@ -40,7 +44,8 @@ public class RealNameGenerator extends StringGenerator {
         while (i < number) {
             char first = chars[randomInt() % chars.length];
             char second = chars[randomInt() % chars.length];
-            String name = new String(new char[]{first, second});
+            char third = chars[randomInt() % chars.length];
+            String name = new String(new char[]{first, second, third});
             if (!exist.contains(name)) {
                 exist.add(name);
                 i++;

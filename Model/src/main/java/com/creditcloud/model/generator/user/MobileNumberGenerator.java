@@ -33,8 +33,8 @@ public class MobileNumberGenerator extends StringGenerator {
         Set<String> exist = new HashSet<String>();
         int i = 0;
         while (i < number) {
-            int suffix = randomInt() % mod;
-            String mobile = head[randomInt() % head.length].concat(Integer.toString(suffix));
+            String suffix = String.format("%08d", randomInt() % mod);
+            String mobile = head[randomInt() % head.length].concat(suffix);
             if (!exist.contains(mobile)) {
                 exist.add(mobile);
                 i++;

@@ -38,7 +38,9 @@ public class EmailAddressGenerator extends StringGenerator {
             char second = chars[randomInt() % chars.length];
             char third = chars[randomInt() % chars.length];
             char fourth = chars[randomInt() % chars.length];
-            String email = new String(new char[]{first, second, third, fourth})
+            char fifth = chars[randomInt() % chars.length];
+            char sixth = chars[randomInt() % chars.length];
+            String email = new String(new char[]{first, second, third, fourth, fifth, sixth})
                     .concat("@")
                     .concat(host[randomInt() % host.length]);
             if (!exist.contains(email)) {

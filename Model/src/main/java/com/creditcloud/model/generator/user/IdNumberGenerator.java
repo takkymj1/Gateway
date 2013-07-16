@@ -60,14 +60,14 @@ public class IdNumberGenerator extends StringGenerator {
         int i = 0;
         while (i < number) {
             int province = provinceCode[randomInt() % provinceCode.length];
-            int cityAndTown = randomInt() % 10000;
+            String cityAndTown = String.format("%04d", randomInt() % 10000);
             int birthday = dates[randomInt() % dates.length];
-            int rd = randomInt() % 100;
+            String rd = String.format("%02d", randomInt() % 100);
             int gender = randomInt() % 10;
             String prefix = Integer.toString(province)
-                    .concat(Integer.toString(cityAndTown))
+                    .concat(cityAndTown)
                     .concat(Integer.toString(birthday))
-                    .concat(Integer.toString(rd))
+                    .concat(rd)
                     .concat(Integer.toString(gender));
             char[] chars = prefix.toCharArray();
             int[] intArray = char2Int(chars);

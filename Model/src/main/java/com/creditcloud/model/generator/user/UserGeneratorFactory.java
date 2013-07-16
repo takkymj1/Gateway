@@ -6,7 +6,6 @@ package com.creditcloud.model.generator.user;
 
 import com.creditcloud.model.User;
 import java.util.Random;
-import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
@@ -59,31 +58,31 @@ public class UserGeneratorFactory {
         return users;
     }
 
-    public static String[] generateClientCode(int number) {
+    private static String[] generateClientCode(int number) {
         return ccGenerator.generate(number);
     }
 
-    public static String[] generateEmailAddress(int number) {
+    private static String[] generateEmailAddress(int number) {
         return eaGenerator.generate(number);
     }
 
-    public static String[] generateIdNumber(int number) {
+    private static String[] generateIdNumber(int number) {
         return idGenerator.generate(number);
     }
 
-    public static String[] generateLoginName(int number) {
+    private static String[] generateLoginName(int number) {
         return lnGenerator.generate(number);
     }
 
-    public static String[] generateMobileNumber(int number) {
+    private static String[] generateMobileNumber(int number) {
         return mbGenerator.generate(number);
     }
 
-    public static String[] generateRealName(int number) {
+    private static String[] generateRealName(int number) {
         return rnGenerator.generate(number);
     }
 
-    public static String[] generateUrl(int number) {
+    private static String[] generateUrl(int number) {
         return urlGenerator.generate(number);
     }
 }
