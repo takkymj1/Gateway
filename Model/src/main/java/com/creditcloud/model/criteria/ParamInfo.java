@@ -36,7 +36,7 @@ public final class ParamInfo extends BaseObject {
         return paramItems;
     }
 
-    public class ParamItem {
+    public class ParamItem extends BaseObject{
 
         private final String fieldName;
 
