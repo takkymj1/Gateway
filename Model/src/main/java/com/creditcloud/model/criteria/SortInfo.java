@@ -59,7 +59,7 @@ public final class SortInfo extends BaseObject {
         sortItems.add(new SortItem(fieldName, descending));
     }
 
-    public class SortItem {
+    public class SortItem extends BaseObject{
 
         private final String fieldName;
 
