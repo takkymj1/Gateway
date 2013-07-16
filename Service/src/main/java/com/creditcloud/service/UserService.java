@@ -43,30 +43,33 @@ public interface UserService {
      *
      * @param clientCode
      * @param user
+     * @return true if added successfully, false if not succeed;
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void addUser(String clientCode, User user);
+    boolean addUser(String clientCode, User user);
 
     /**
      * remove user for client
      *
      * @param clientCode
      * @param user
+     * @return true if deleted successfully, false if not succeed
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void deleteUser(String clientCode, User user);
+    boolean deleteUser(String clientCode, User user);
 
     /**
      * update user information for client
      *
      * @param clientCode
      * @param user
+     * @return true if updated successfully, false if not succeed
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void updateUser(String clientCode, User user);
+    boolean updateUser(String clientCode, User user);
 
     //find methods
     /**
@@ -119,20 +122,22 @@ public interface UserService {
      *
      * @param clientCode
      * @param loginName
+     * @return true if delete successfully, false if not succeed
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void deleteByLoginName(String clientCode, String loginName);
+    boolean deleteByLoginName(String clientCode, String loginName);
 
     /**
      * delete user by user Id
      *
      * @param clientCode
      * @param Id
+     * @return true if delete successfully, false if not succeed
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void deleteByUserId(String clientCode, String userId);
+    boolean deleteByUserId(String clientCode, String userId);
 
     //check methods used on registration
     /**
