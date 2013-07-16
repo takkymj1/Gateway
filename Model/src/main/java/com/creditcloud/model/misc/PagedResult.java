@@ -4,13 +4,14 @@
  */
 package com.creditcloud.model.misc;
 
+import com.creditcloud.model.BaseObject;
 import java.util.List;
 
 /**
  *
  * @author sobranie
  */
-public class PagedResult<T> {
+public class PagedResult<T> extends BaseObject{
 
     private final List<T> results;
 
