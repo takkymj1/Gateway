@@ -17,6 +17,7 @@ public class PageInfo extends BaseObject {
      */
     private final int offset;
 
+
     /**
      * page size
      */
@@ -35,4 +36,5 @@ public class PageInfo extends BaseObject {
     public int getSize() {
         return size;
     }
+
 }

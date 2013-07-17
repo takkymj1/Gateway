@@ -28,7 +28,13 @@ public final class ParamInfo extends BaseObject {
 
     public ParamInfo add(final String fieldName,
                          final Object value) {
-        paramItems.add(new ParamItem(fieldName, value));
+        return add(fieldName, value, ParamOperator.AND);
+    }
+
+    public ParamInfo add(final String fieldName,
+                         final Object value,
+                         final ParamOperator operator) {
+        paramItems.add(new ParamItem(fieldName, value, operator));
         return this;
     }
 
@@ -36,7 +42,9 @@ public final class ParamInfo extends BaseObject {
         return paramItems;
     }
 
-    public class ParamItem extends BaseObject{
+    public class ParamItem extends BaseObject {
+
+        private final ParamOperator operator;
 
         private final String fieldName;
 
@@ -44,8 +52,15 @@ public final class ParamInfo extends BaseObject {
 
         private ParamItem(final String fieldName,
                           final Object value) {
+            this(fieldName, value, ParamOperator.AND);
+        }
+
+        private ParamItem(final String fieldName,
+                          final Object value,
+                          final ParamOperator operator) {
             this.fieldName = fieldName;
             this.value = value;
+            this.operator = operator;
         }
 
         public String getFieldName() {
@@ -54,6 +69,10 @@ public final class ParamInfo extends BaseObject {
 
         public Object getValue() {
             return value;
+        }
+
+        public ParamOperator getOperator() {
+            return operator;
         }
     }
 }
