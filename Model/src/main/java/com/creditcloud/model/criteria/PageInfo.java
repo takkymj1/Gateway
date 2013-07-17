@@ -18,14 +18,26 @@ public class PageInfo extends BaseObject {
     private final int offset;
 
     /**
+     * number of pages
+     */
+    private final int pages;
+
+    /**
      * page size
      */
     private final int size;
 
     public PageInfo(final int offset,
                     final int size) {
+        this(offset, size, -1);
+    }
+
+    public PageInfo(final int offset,
+                    final int size,
+                    final int pages) {
         this.offset = offset;
         this.size = size;
+        this.pages = pages;
     }
 
     public int getOffset() {
@@ -34,5 +46,9 @@ public class PageInfo extends BaseObject {
 
     public int getSize() {
         return size;
+    }
+
+    public int getPages() {
+        return pages;
     }
 }
