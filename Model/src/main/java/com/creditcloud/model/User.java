@@ -10,11 +10,15 @@ import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sobranie
  */
+@XmlRootElement
 public class User extends BaseObject {
 
     @NotNull
@@ -37,6 +41,9 @@ public class User extends BaseObject {
 
     @EmailAddress
     protected String email;
+
+    public User() {
+    }
 
     public User(String id,
                 String name,
