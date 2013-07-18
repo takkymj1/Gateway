@@ -9,9 +9,9 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
+import javax.validation.constraints.Past;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -42,6 +42,12 @@ public class User extends BaseObject {
     @EmailAddress
     protected String email;
 
+    @Past
+    protected Date lastLoginDate;
+
+    @Past
+    protected Date registerDate;
+
     public User() {
     }
 
@@ -50,13 +56,17 @@ public class User extends BaseObject {
                 String loginName,
                 String idNumber,
                 String mobile,
-                String email) {
+                String email,
+                Date registerDate,
+                Date lastLoginDate) {
         this.id = id;
         this.name = name;
         this.loginName = loginName;
         this.idNumber = idNumber;
         this.mobile = mobile;
         this.email = email;
+        this.registerDate = registerDate;
+        this.lastLoginDate = lastLoginDate;
     }
 
     public String getId() {
@@ -106,4 +116,22 @@ public class User extends BaseObject {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Date getLastLoginDate() {
+        return lastLoginDate;
+    }
+
+    public Date getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setLastLoginDate(Date lastLoginDate) {
+        this.lastLoginDate = lastLoginDate;
+    }
+
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
+    }
+    
+    
 }

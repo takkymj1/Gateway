@@ -32,7 +32,7 @@ public class LoginNameTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123", null, null);
     }
 
     @After
@@ -46,7 +46,7 @@ public class LoginNameTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void size() {
         object.setLoginName("1");
@@ -56,21 +56,21 @@ public class LoginNameTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void character() {
         object.setLoginName("+-123");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
     public void chinese() {
         object.setLoginName("陈忞");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());
     }
-    
+
     @Test
     public void complicate() {
         object.setLoginName("陈忞1983_Test");
