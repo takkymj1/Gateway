@@ -31,7 +31,7 @@ public class MobileNumberTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123", null, null);
     }
 
     @After
@@ -45,31 +45,31 @@ public class MobileNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
     }
-    
+
     @Test
-    public void pattern(){
+    public void pattern() {
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
-        
+
         //11 numbers
         object.setMobile("13912345678");
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(0, constraintViolations.size());
-        
+
         //10 numbers
         object.setMobile("1391234567");
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
-        
+
         //12 numbers
         object.setMobile("139123456789");
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
-        
+
         //wrong head
         object.setMobile("23112345678");
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
-        
+
     }
 }

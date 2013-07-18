@@ -31,7 +31,7 @@ public class RealNameTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123", null, null);
     }
 
     @After
@@ -43,19 +43,19 @@ public class RealNameTest extends BaseTest<User> {
         object.setName("陈忞");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(0, constraintViolations.size());
-        
+
         object.setName("朱镕基");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(0, constraintViolations.size());
-        
+
         object.setName("闪电球");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(0, constraintViolations.size());
-        
+
         object.setName("艹尼玛");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(0, constraintViolations.size());
-        
+
         object.setName("orz");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(1, constraintViolations.size());

@@ -5,6 +5,7 @@
 package com.creditcloud.model.generator.user;
 
 import com.creditcloud.model.User;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -45,13 +46,16 @@ public class UserGeneratorFactory {
         String[] realNames = generateRealName(number);
 
         User[] users = new User[number];
+        Date now = new Date(System.currentTimeMillis());
         for (int i = 0; i < number; i++) {
             User user = new User(null,
                                  realNames[i],
                                  loginNames[i],
                                  idNumbers[i],
                                  mobileNumbers[i],
-                                 emailAddresses[i]);
+                                 emailAddresses[i],
+                                 now,
+                                 null);
             users[i] = user;
         }
 
