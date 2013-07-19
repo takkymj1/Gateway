@@ -170,5 +170,20 @@ public class IdNumberTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
 
+        //start with **0000 is province code
+        object.setIdNumber("42000019620204815x");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //start with ****00 is city code
+        object.setIdNumber("42010019620204815x");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
+        //come for taiwan
+        object.setIdNumber("71010019620204815x");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+
     }
 }
