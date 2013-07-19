@@ -47,6 +47,9 @@ public class RegionsTest {
         
         List bl2 = Regions.getRegionList("12");
         assertEquals(2,bl2.size());
+        
+        
+        List<Entry> hefei = Regions.getRegionList("3401");
 
     }
 }

@@ -70,7 +70,7 @@ public class Regions {
                 if (regionList == null) {
                     _regionList.put(String.valueOf(k), new ArrayList(Arrays.asList(new Regions.Entry(String.valueOf(id), region[1]))));
                 } else {
-                    regionList.add(new Regions.Entry(String.valueOf(k), region[1]));
+                    regionList.add(new Regions.Entry(String.valueOf(id), region[1]));
                 }
             }
         }
