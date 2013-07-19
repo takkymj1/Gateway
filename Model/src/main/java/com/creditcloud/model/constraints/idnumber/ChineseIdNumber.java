@@ -4,12 +4,15 @@
  */
 package com.creditcloud.model.constraints.idnumber;
 
+import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.util.Regions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,23 +25,7 @@ import java.util.logging.Logger;
  *
  * @author rooseek
  */
-public class ChineseIdNumber {
-
-    private String idNumber;
-
-    private String province;
-
-    private int year;
-
-    private int month;
-
-    private int day;
-
-    private boolean male;
-
-    private static final ChineseIdNumberValidator validator = new ChineseIdNumberValidator();
-
-    private static final GregorianCalendar calendar =  (GregorianCalendar) GregorianCalendar.getInstance();
+public class ChineseIdNumber extends BaseObject{
 
     private final static Map<String, String> code2Province = new HashMap<String, String>() {
         {
@@ -80,9 +67,31 @@ public class ChineseIdNumber {
         }
     };
 
-    private ChineseIdNumber(String idNumber, String province, int year, int month, int day, boolean male) {
+    private final String idNumber;
+
+    private final String province;
+
+    private final String city;
+
+    private final String county;
+
+    private final int year;
+
+    private final int month;
+
+    private final int day;
+
+    private final boolean male;
+
+    private static final ChineseIdNumberValidator validator = new ChineseIdNumberValidator();
+
+    private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
+
+    private ChineseIdNumber(String idNumber, String province, String city, String county, int year, int month, int day, boolean male) {
         this.idNumber = idNumber;
         this.province = province;
+        this.city = city;
+        this.county = county;
         this.year = year;
         this.month = month;
         this.day = day;
@@ -91,14 +100,19 @@ public class ChineseIdNumber {
 
     /**
      * factory method to retrieve ChineseIdNumber from idNumber string
-     * 
+     *
      * @param idNumber
-     * @return 
+     * @return
      */
     public static ChineseIdNumber create(String idNumber) {
         if (validator.isValid(idNumber)) {
             try {
-                String province = code2Province.get(idNumber.substring(0, 2));
+                String province = idNumber.substring(0, 2);
+                String provinceName = code2Province.get(province);
+                String city = idNumber.substring(0, 4);
+                String cityName = getRegionName(province, city);
+                String county = idNumber.substring(0, 6);
+                String countyName = getRegionName(city, county);
                 Date birthDate = null;
                 boolean male = false;
                 if (idNumber.length() == 18) {
@@ -112,7 +126,7 @@ public class ChineseIdNumber {
                 int year = calendar.get(Calendar.YEAR);
                 int month = calendar.get(Calendar.MONTH) + 1;
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
-                return new ChineseIdNumber(idNumber, province, year, month, day, male);
+                return new ChineseIdNumber(idNumber, provinceName, cityName, countyName, year, month, day, male);
             } catch (ParseException ex) {
                 Logger.getLogger(ChineseIdNumber.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -143,6 +157,26 @@ public class ChineseIdNumber {
     public String getIdNumber() {
         return idNumber;
     }
-    
-    
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+   
+
+    private static String getRegionName(String parentCode, String childCode) {
+        List<Regions.Entry> regions = Regions.getRegionList(parentCode);
+        if (regions != null) {
+            for (Regions.Entry entry : regions) {
+                if (entry.getCode().equals(childCode)) {
+                    return entry.getRegion();
+                }
+            }
+        }
+
+        return null;
+    }
 }

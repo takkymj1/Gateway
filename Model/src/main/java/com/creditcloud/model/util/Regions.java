@@ -21,7 +21,7 @@ public class Regions {
     private static final Map<String, String> _regionMap = new HashMap<>(30000);
 
     private static final Map<String, List<Regions.Entry>> _regionList = new HashMap<>(30000);
-
+    
     private static final String filename = "region.txt";
 
     static {
@@ -101,5 +101,9 @@ public class Regions {
 
     public static List<Regions.Entry> getRegionList(String id) {
         return _regionList.get(id);
+    }
+    
+    public static boolean isValidRegion(String regionId){
+        return _regionMap.containsKey(regionId);
     }
 }

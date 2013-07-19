@@ -5,6 +5,7 @@
 package com.creditcloud.model.generator.user;
 
 import com.creditcloud.model.generator.StringGenerator;
+import com.creditcloud.model.util.Regions;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -16,15 +17,7 @@ import org.apache.commons.lang3.ArrayUtils;
  */
 public class IdNumberGenerator extends StringGenerator {
 
-    private static final int provinceCode[] = new int[]{11, 12, 13, 14, 15,
-                                                        21, 22, 23,
-                                                        31, 32, 33, 34, 35, 36, 37,
-                                                        41, 42, 43, 44, 45, 46,
-                                                        50, 51, 52, 53, 54,
-                                                        61, 62, 63, 64, 65,
-                                                        71,
-                                                        81, 82,
-                                                        91};
+    private static final String regionCodes[];
 
     private static final int weightFactor[] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
@@ -44,6 +37,10 @@ public class IdNumberGenerator extends StringGenerator {
                 }
             }
         }
+
+        //then generate all valid regions
+        Set<String> regionSet = Regions.getRegionMap().keySet();
+        regionCodes = regionSet.toArray(new String[regionSet.size()]);
     }
 
     public IdNumberGenerator(Random random) {
@@ -59,13 +56,11 @@ public class IdNumberGenerator extends StringGenerator {
         Set<String> exist = new HashSet<String>();
         int i = 0;
         while (i < number) {
-            int province = provinceCode[randomInt() % provinceCode.length];
-            String cityAndTown = String.format("%04d", randomInt() % 10000);
+            String region = regionCodes[randomInt() % regionCodes.length];
             int birthday = dates[randomInt() % dates.length];
             String rd = String.format("%02d", randomInt() % 100);
             int gender = randomInt() % 10;
-            String prefix = Integer.toString(province)
-                    .concat(cityAndTown)
+            String prefix = region
                     .concat(Integer.toString(birthday))
                     .concat(rd)
                     .concat(Integer.toString(gender));

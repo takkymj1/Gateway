@@ -98,7 +98,7 @@ public class IdNumberTest extends BaseTest<User> {
     public void notNull() {
         object.setIdNumber(null);
         constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(1, constraintViolations.size());
+        assertEquals(2, constraintViolations.size());
     }
 
     @Test
