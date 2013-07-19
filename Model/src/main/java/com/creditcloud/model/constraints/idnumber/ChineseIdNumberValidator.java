@@ -61,7 +61,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
     private static final String checkCode[] = {"1", "0", "X", "9", "8", "7", "6", "5",
                                                "4", "3", "2"};
 
-    private static GregorianCalendar calendar =(GregorianCalendar) GregorianCalendar.getInstance();
+    private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
     @Override
     public void initialize(IdNumber constraintAnnotation) {
@@ -101,9 +101,9 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
             return false;
         }
 
-        //check province code
+        //check region code
         String region = idNumber.substring(0, 6);
-        if (!Regions.isValidRegion(region)) {
+        if (!isValidIdRegion(region)) {
             return false;
         }
 
@@ -181,20 +181,9 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
             return false;
         }
 
-        //check the sum of prefix 17 numbers mutilplied by weighted factor equals the last check code
-        if (null != charArray) {
-            if (!idNumber18Code.equals(
-                    getCheckCode(
-                    getPowerSum(
-                    char2Int(charArray))))) {
-                return false;
-            }
-
-        }
-
-        //check province code
+        //check region code
         String region = idNumber.substring(0, 6);
-        if (!Regions.isValidRegion(region)) {
+        if (!isValidIdRegion(region)) {
             return false;
         }
 
@@ -254,6 +243,17 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
                     }
                 }
                 break;
+        }
+
+        //check the sum of prefix 17 numbers mutilplied by weighted factor equals the last check code
+        if (null != charArray) {
+            if (!idNumber18Code.equals(
+                    getCheckCode(
+                    getPowerSum(
+                    char2Int(charArray))))) {
+                return false;
+            }
+
         }
 
         return true;
@@ -316,5 +316,29 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
         return array;
     }
- 
+
+    private boolean isValidIdRegion(String region) {
+        if (!Regions.isValidRegion(region)) {
+            return false;
+        }
+        
+        //idNumber start with something like "110000 北京市/110100 市辖区/110200 县" is not valid
+        if (region.substring(4, 6).equals(IdNumberConstant.CITY_SUFFIX)) {
+            return false;
+        }
+        
+        //台湾 香港 澳门暂时屏蔽
+        String province = region.substring(0, 2);
+        if (!isValidProvince(province)) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private boolean isValidProvince(String province) {
+        return !(province.equals(IdNumberConstant.TAIWANG)
+                 || province.equals(IdNumberConstant.HONGKONG)
+                 || province.equals(IdNumberConstant.MACAU));
+    }
 }
