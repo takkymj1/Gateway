@@ -121,6 +121,10 @@ public class ChineseIdNumber extends BaseObject {
         }
         return null;
     }
+    
+    public static boolean isValid(String idNumber){
+        return validator.isValid(idNumber);
+    }
         
     private static String getProvince(String code){
         return code2Province.get(code);
