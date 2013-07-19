@@ -4,12 +4,14 @@
  */
 package com.creditcloud.model.constraints.idnumber;
 
+import com.creditcloud.model.util.Regions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -143,6 +145,4 @@ public class ChineseIdNumber {
     public String getIdNumber() {
         return idNumber;
     }
-    
-    
 }

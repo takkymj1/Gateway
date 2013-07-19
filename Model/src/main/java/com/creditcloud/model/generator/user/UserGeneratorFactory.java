@@ -46,7 +46,6 @@ public class UserGeneratorFactory {
         String[] realNames = generateRealName(number);
 
         User[] users = new User[number];
-        Date now = new Date(System.currentTimeMillis());
         for (int i = 0; i < number; i++) {
             User user = new User(null,
                                  realNames[i],
@@ -54,7 +53,7 @@ public class UserGeneratorFactory {
                                  idNumbers[i],
                                  mobileNumbers[i],
                                  emailAddresses[i],
-                                 now,
+                                 new Date(),
                                  null);
             users[i] = user;
         }
