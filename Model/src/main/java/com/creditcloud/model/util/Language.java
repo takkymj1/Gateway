@@ -8,7 +8,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Here Language mean "中文" not "中国"
  *
  * @author rooseek
  */
