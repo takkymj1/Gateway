@@ -17,7 +17,7 @@ public class Language {
 
     private static Pattern multiChinese = Pattern.compile("[\u4E00-\u9fbb]+");
 
-    private static Pattern nonASCII = Pattern.compile("![\u0000-\u007f]");
+    private static Pattern nonASCII = Pattern.compile("[\u0080-\u7fffffff]");
 
     /**
      * check whether string contain Chinese character
