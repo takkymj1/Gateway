@@ -61,12 +61,15 @@ public class LanguageTest {
 
     @Test
     public void testContainNonASCII() {
-//        assertTrue(Language.containNonASCII("中文"));
-//        assertTrue(Language.containNonASCII("!！"));
+        assertTrue(Language.containNonASCII("中文"));
+        assertTrue(Language.containNonASCII("!！"));
+        assertTrue(Language.containNonASCII("スです"));
+        assertTrue(Language.containNonASCII("언문"));
 
         assertFalse(Language.containNonASCII("12"));
         assertFalse(Language.containNonASCII("ab"));
         assertFalse(Language.containNonASCII(" "));
         assertFalse(Language.containNonASCII("  "));
+
     }
 }
