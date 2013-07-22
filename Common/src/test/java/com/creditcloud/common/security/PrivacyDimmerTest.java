@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class PrivacyDimmerTest {
     
+    private static User user;
+    
     public PrivacyDimmerTest() {
     }
     
@@ -31,6 +33,10 @@ public class PrivacyDimmerTest {
     
     @Before
     public void setUp() {
+        user = new User();
+        user.setMobile("13901210504");
+        user.setIdNumber("110105198304288330");
+        user.setEmail("sobranie9@126.com");
     }
     
     @After
@@ -41,13 +47,23 @@ public class PrivacyDimmerTest {
      * Test of dim method, of class PrivacyDimmer.
      */
     @Test
-    public void testDim() {
-        System.out.println("dim");
-        User user = new User();
-        user.setMobile("13901210504");
-        user.setIdNumber("110105198304288330");
+    public void testDimMobile() {
+        System.out.println("dim mobile");
         user = PrivacyDimmer.dim(user);
-        assertEquals(null, user.getMobile(), "139****0504");
-        assertEquals(null, user.getIdNumber(), "11010519*********0");
+        assertEquals(null, "139****0504", user.getMobile());
+    }
+    
+    @Test
+    public void testDimIdNumber() {
+        System.out.println("dim IdNumber");
+        user = PrivacyDimmer.dim(user);
+        assertEquals(null, "11010519*********0", user.getIdNumber());
+    }
+    
+    @Test
+    public void testDimEmail() {
+        System.out.println("dim email");
+        user = PrivacyDimmer.dim(user);
+        assertEquals(null, "so*******@126.com", user.getEmail());
     }
 }
