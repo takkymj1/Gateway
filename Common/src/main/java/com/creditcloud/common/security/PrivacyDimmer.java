@@ -12,11 +12,12 @@ import com.creditcloud.model.User;
  */
 public class PrivacyDimmer {
 
-    public static<T> T dim(T obj) {
+    public static <T> T dim(T obj) {
         if (obj instanceof User) {
             User user = (User) obj;
             user.setMobile(mask(user.getMobile(), 3, 4));
             user.setIdNumber(mask(user.getIdNumber(), 8, 9));
+            user.setEmail(maskEmail(user.getEmail()));
             return (T) user;
         }
         return obj;
@@ -24,9 +25,9 @@ public class PrivacyDimmer {
 
     /**
      * 139****0504
-     * 
+     *
      * @param mobile
-     * @return 
+     * @return
      */
     private static String mask(String content, int offset, int length) {
         assert content.length() >= offset + length;
@@ -35,5 +36,15 @@ public class PrivacyDimmer {
             chars[i] = '*';
         }
         return new String(chars);
+    }
+
+    private static String maskEmail(String email) {
+        int offset = 0;
+        int length = email.indexOf('@');
+        if (length > 2) {
+            offset = 2;
+            length -= offset;
+        }
+        return mask(email, offset, length);
     }
 }

@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.rest;
 
+import com.creditcloud.common.security.PrivacyDimmer;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
 import com.creditcloud.model.misc.PagedResult;
@@ -44,9 +45,13 @@ public class TableData<T> extends BaseObject {
 
     public TableData(final PagedResult pr,
                      final int sEcho) {
-        this.results = pr.getResults();
-        this.totalResords = pr.getTotalSize();
-        this.totalDisplayRecords = pr.getTotalSize();
+        results = pr.getResults();
+        totalResords = pr.getTotalSize();
+        totalDisplayRecords = pr.getTotalSize();
         this.sEcho = sEcho;
+        //dim
+        for (T t : results) {
+            PrivacyDimmer.dim(t);
+        }
     }
 }
