@@ -34,9 +34,12 @@ public class PrivacyDimmerTest {
     @Before
     public void setUp() {
         user = new User();
+        user.setName("陈小东");
         user.setMobile("13901210504");
         user.setIdNumber("110105198304288330");
         user.setEmail("sobranie9@126.com");
+        //call dim
+        user = PrivacyDimmer.dim(user);
     }
     
     @After
@@ -49,21 +52,24 @@ public class PrivacyDimmerTest {
     @Test
     public void testDimMobile() {
         System.out.println("dim mobile");
-        user = PrivacyDimmer.dim(user);
         assertEquals(null, "139****0504", user.getMobile());
     }
     
     @Test
     public void testDimIdNumber() {
         System.out.println("dim IdNumber");
-        user = PrivacyDimmer.dim(user);
         assertEquals(null, "11010519*********0", user.getIdNumber());
     }
     
     @Test
     public void testDimEmail() {
         System.out.println("dim email");
-        user = PrivacyDimmer.dim(user);
         assertEquals(null, "so*******@126.com", user.getEmail());
+    }
+    
+    @Test
+    public void testDimName() {
+        System.out.println("dim name");
+        assertEquals(null, "陈小*", user.getName());
     }
 }

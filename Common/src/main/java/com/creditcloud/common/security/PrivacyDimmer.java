@@ -15,6 +15,7 @@ public class PrivacyDimmer {
     public static <T> T dim(T obj) {
         if (obj instanceof User) {
             User user = (User) obj;
+            user.setName(maskName(user.getName()));
             user.setMobile(mask(user.getMobile(), 3, 4));
             user.setIdNumber(mask(user.getIdNumber(), 8, 9));
             user.setEmail(maskEmail(user.getEmail()));
@@ -46,5 +47,9 @@ public class PrivacyDimmer {
             length -= offset;
         }
         return mask(email, offset, length);
+    }
+    
+    private static String maskName(String name) {
+        return mask(name, name.length() - 1, 1);
     }
 }
