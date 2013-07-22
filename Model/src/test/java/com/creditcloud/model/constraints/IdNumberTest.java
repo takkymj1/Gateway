@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
 public class IdNumberTest extends BaseTest<User> {
 
     private static final String[] validIdNumbers = {"42010619620204815X",
+                                                    "132826197909170619",
                                                     //male idNumber   
                                                     "230109198810127372",
                                                     "230184198711288437",

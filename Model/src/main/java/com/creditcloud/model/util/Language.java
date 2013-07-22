@@ -16,8 +16,8 @@ public class Language {
     private static Pattern singleChinese = Pattern.compile("[\u4E00-\u9fbb]");
 
     private static Pattern multiChinese = Pattern.compile("[\u4E00-\u9fbb]+");
-
-    private static Pattern nonASCII = Pattern.compile("[\u0080-\u7fffffff]");
+    
+    private static Pattern ASCII = Pattern.compile("[\u0000-\u007f]+");
 
     /**
      * check whether string contain Chinese character
@@ -54,8 +54,18 @@ public class Language {
      * @return true if str contain non ascii character
      */
     public static boolean containNonASCII(String str) {
-        Matcher matcher = nonASCII.matcher(str);
-        if (matcher.find()) {
+        return !isASCII(str);
+    }
+
+    /**
+     * check whether string is only consisted of ascii character
+     * 
+     * @param str
+     * @return 
+     */
+    public static boolean isASCII(String str) {
+        Matcher matcher = ASCII.matcher(str);
+        if (matcher.matches()) {
             return true;
         }
         return false;

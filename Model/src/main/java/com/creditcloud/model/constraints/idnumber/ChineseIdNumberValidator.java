@@ -12,6 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.validation.ConstraintValidatorContext;
@@ -55,6 +57,42 @@ import javax.validation.ConstraintValidatorContext;
  *
  */
 public class ChineseIdNumberValidator implements IdNumberValidator {
+
+    private final static Map<String, String> code2Province = new HashMap<String, String>() {
+        {
+            this.put("11", "北京");
+            this.put("12", "天津");
+            this.put("13", "河北");
+            this.put("14", "山西");
+            this.put("15", "内蒙古");
+            this.put("21", "辽宁");
+            this.put("22", "吉林");
+            this.put("23", "黑龙江");
+            this.put("31", "上海");
+            this.put("32", "江苏");
+            this.put("33", "浙江");
+            this.put("34", "安徽");
+            this.put("35", "福建");
+            this.put("36", "江西");
+            this.put("37", "山东");
+            this.put("41", "河南");
+            this.put("42", "湖北");
+            this.put("43", "湖南");
+            this.put("44", "广东");
+            this.put("45", "广西");
+            this.put("46", "海南");
+            this.put("50", "重庆");
+            this.put("51", "四川");
+            this.put("52", "贵州");
+            this.put("53", "云南");
+            this.put("54", "西藏");
+            this.put("61", "陕西");
+            this.put("62", "甘肃");
+            this.put("63", "青海");
+            this.put("64", "宁夏");
+            this.put("65", "新疆");
+        }
+    };
 
     private static final int weightFactor[] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
@@ -101,9 +139,9 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
             return false;
         }
 
-        //check region code
-        String region = idNumber.substring(0, 6);
-        if (!isValidIdRegion(region)) {
+        //check province code
+        String province = idNumber.substring(0, 2);
+        if (!code2Province.containsKey(province)) {
             return false;
         }
 
@@ -182,8 +220,8 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
 
         //check region code
-        String region = idNumber.substring(0, 6);
-        if (!isValidIdRegion(region)) {
+        String province = idNumber.substring(0, 2);
+        if (!code2Province.containsKey(province)) {
             return false;
         }
 
@@ -316,17 +354,17 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         }
         return array;
     }
-
+    
     private boolean isValidIdRegion(String region) {
         if (!Regions.isValidRegion(region)) {
             return false;
         }
-        
+
         //idNumber start with something like "110000 北京市/110100 市辖区/110200 县" is not valid
         if (region.substring(4, 6).equals(IdNumberConstant.CITY_SUFFIX)) {
             return false;
         }
-        
+
         //台湾 香港 澳门暂时屏蔽
         String province = region.substring(0, 2);
         if (!isValidProvince(province)) {
@@ -335,7 +373,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         
         return true;
     }
-    
+
     private boolean isValidProvince(String province) {
         return !(province.equals(IdNumberConstant.TAIWANG)
                  || province.equals(IdNumberConstant.HONGKONG)
