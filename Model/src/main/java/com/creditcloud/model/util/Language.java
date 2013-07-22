@@ -54,10 +54,20 @@ public class Language {
      * @return true if str contain non ascii character
      */
     public static boolean containNonASCII(String str) {
+        return !isASCII(str);
+    }
+
+    /**
+     * check whether string is only consisted of ascii character
+     * 
+     * @param str
+     * @return 
+     */
+    public static boolean isASCII(String str) {
         Matcher matcher = ASCII.matcher(str);
         if (matcher.matches()) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }
