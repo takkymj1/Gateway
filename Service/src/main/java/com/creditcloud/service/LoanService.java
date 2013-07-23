@@ -19,16 +19,20 @@ public interface LoanService {
      *
      * @param clientCode
      * @param loanRequest
-     * @return
+     * @return true if submit request successful, false if not
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     boolean submitLoanRequest(String clientCode, LoanRequest loanRequest);
 
     /**
-     * 
+     * list loans by user id
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return empty result is no loan found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
     List<LoanRequest> getListByUserId(String clientCode, String userId);
-
 }
