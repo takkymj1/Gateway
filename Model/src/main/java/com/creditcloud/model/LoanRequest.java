@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class LoanRequest extends BaseObject {
 
     private String id;
-    
+
     @NotNull
     private String userId;
 
@@ -50,8 +50,19 @@ public class LoanRequest extends BaseObject {
 
     @NotNull
     private String assignee;
-
-    public LoanRequest(String id, String userId, String title, LoanRequestPurpose purpose, int amount, int duration, int rate, LoanRequestMethod method, String description, LoanRequestStatus status, Date timeSubmit, String assignee) {
+    
+    public LoanRequest(String id,
+                       String userId, 
+                       String title, 
+                       LoanRequestPurpose purpose, 
+                       int amount, 
+                       int duration, 
+                       int rate, 
+                       LoanRequestMethod method, 
+                       String description, 
+                       LoanRequestStatus status, 
+                       Date timeSubmit, 
+                       String assignee) {
         this.id = id;
         this.userId = userId;
         this.title = title;
@@ -79,7 +90,7 @@ public class LoanRequest extends BaseObject {
         this.timeSubmit = timeSubmit;
         this.assignee = assignee;
     }
-    
+
     public String getUserId() {
         return userId;
     }
@@ -181,6 +192,4 @@ public class LoanRequest extends BaseObject {
     public void setId(String id) {
         this.id = id;
     }
-
-    
 }
