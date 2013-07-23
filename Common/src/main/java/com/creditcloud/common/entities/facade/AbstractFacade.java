@@ -5,13 +5,26 @@
 package com.creditcloud.common.entities.facade;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
+import com.creditcloud.model.criteria.CriteriaInfo;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.criteria.ParamInfo;
+import static com.creditcloud.model.criteria.ParamOperator.AND;
+import static com.creditcloud.model.criteria.ParamOperator.OR;
+import com.creditcloud.model.criteria.SortInfo;
+import com.creditcloud.model.misc.PagedResult;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Order;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.validation.Validator;
 
@@ -20,10 +33,10 @@ import javax.validation.Validator;
  * @author sobranie
  */
 public abstract class AbstractFacade<T> {
-    
+
     @Resource
     protected Validator validator;
-    
+
     private Class<T> entityClass;
 
     public AbstractFacade(Class<T> entityClass) {
@@ -31,11 +44,17 @@ public abstract class AbstractFacade<T> {
     }
 
     protected abstract EntityManager getEntityManager();
-    
+
     protected ValidatorWrapper getValidatorWrapper() {
         return new ValidatorWrapper(validator);
     }
 
+    /**
+     * create new entity
+     *
+     * @param entity
+     * @return
+     */
     public T create(T entity) {
         EntityManager em = getEntityManager();
         em.persist(entity);
@@ -44,15 +63,30 @@ public abstract class AbstractFacade<T> {
         return entity;
     }
 
+    /**
+     * update entity, create new if not exist
+     *
+     * @param entity
+     */
     public void edit(T entity) {
         getEntityManager().merge(entity);
     }
 
+    /**
+     * remote entity
+     *
+     * @param entity
+     */
     public void remove(T entity) {
         EntityManager em = getEntityManager();
         em.remove(em.merge(entity));
     }
-    
+
+    /**
+     * remove entity by unique id
+     *
+     * @param id
+     */
     public void removeById(Object id) {
         EntityManager em = getEntityManager();
         T t = em.find(entityClass, id);
@@ -61,10 +95,21 @@ public abstract class AbstractFacade<T> {
         }
     }
 
+    /**
+     * find entity by unique id
+     *
+     * @param id
+     * @return
+     */
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
 
+    /**
+     * list all entity
+     *
+     * @return
+     */
     public List<T> findAll() {
         EntityManager em = getEntityManager();
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -72,6 +117,12 @@ public abstract class AbstractFacade<T> {
         return em.createQuery(cq).getResultList();
     }
 
+    /**
+     * find entity in the range
+     *
+     * @param range
+     * @return
+     */
     public List<T> findRange(int[] range) {
         EntityManager em = getEntityManager();
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -81,7 +132,12 @@ public abstract class AbstractFacade<T> {
         q.setFirstResult(range[0]);
         return q.getResultList();
     }
-    
+
+    /**
+     * count all entity
+     *
+     * @return
+     */
     public int count() {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
@@ -91,5 +147,136 @@ public abstract class AbstractFacade<T> {
         Query q = em.createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
-    
+
+    /**
+     * list entity by CriteriaInfo
+     *
+     * @param criteriaInfo
+     * @return PagedResult
+     */
+    public PagedResult<T> list(CriteriaInfo criteriaInfo) {
+        EntityManager em = getEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(entityClass);
+        Root<T> userRoot = cq.from(entityClass);
+        cq.select(userRoot);
+        ParamInfo paramInfo = criteriaInfo.getParamInfo();
+        PageInfo pageInfo = criteriaInfo.getPageInfo();
+        SortInfo sortInfo = criteriaInfo.getSortInfo();
+
+        //build query for paramInfo
+        if (paramInfo != null) {
+            Set<Predicate> andCriteria = new HashSet();
+            Set<Predicate> orCriteria = new HashSet();
+
+            for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
+                Predicate predicate;
+                if (item.getValue() instanceof String) {
+                    String regExp = "%" + item.getValue() + "%";
+                    predicate = cb.like((Expression) (userRoot.get(item.getFieldName())), regExp);
+                } else {
+                    predicate = cb.equal((userRoot.get(item.getFieldName())), item.getValue());
+                }
+
+                switch (item.getOperator()) {
+                    case AND:
+                        andCriteria.add(predicate);
+                        break;
+                    case OR:
+                        orCriteria.add(predicate);
+                        break;
+                }
+            }
+            if (andCriteria.size() > 0) {
+                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
+                orCriteria.add(and);
+            }
+            if (orCriteria.size() > 0) {
+                Predicate or = cb.or(orCriteria.toArray(new Predicate[orCriteria.size()]));
+                cq.where(or);
+            }
+        }
+
+        //build query for sortInfo
+        Set<Order> orderPredicate = new HashSet<>();
+        if (sortInfo != null) {
+            for (SortInfo.SortItem item : sortInfo.getSortItems()) {
+                if (item.isDescending()) {
+                    orderPredicate.add(cb.desc(userRoot.get(item.getFieldName())));
+                } else {
+                    orderPredicate.add(cb.asc(userRoot.get(item.getFieldName())));
+                }
+            }
+        }
+        if (orderPredicate.size() > 0) {
+            cq.orderBy(orderPredicate.toArray(new Order[orderPredicate.size()]));
+        }
+
+        TypedQuery<T> query = em.createQuery(cq);
+        //set result range
+        if (pageInfo != null) {
+            query.setFirstResult(pageInfo.getOffset());
+            query.setMaxResults(pageInfo.getSize());
+        }
+
+        int totalSize;
+        if (paramInfo != null
+            && paramInfo.getParamItems().size() > 0) {
+            totalSize = count(paramInfo).intValue();
+        } else {
+            totalSize = count();
+        }
+
+        return new PagedResult(query.getResultList(), totalSize);
+    }
+
+    /**
+     * count entity by ParamInfo
+     *
+     * @param paramInfo
+     * @return
+     */
+    public Long count(ParamInfo paramInfo) {
+        EntityManager em = getEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery(entityClass);
+        Root<T> userRoot = cq.from(entityClass);
+        cq.select(cb.count(userRoot));
+
+        //build query for paramInfo
+        if (paramInfo != null) {
+            Set<Predicate> andCriteria = new HashSet();
+            Set<Predicate> orCriteria = new HashSet();
+
+            for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
+                Predicate predicate;
+                if (item.getValue() instanceof String) {
+                    String regExp = "%" + item.getValue() + "%";
+                    predicate = cb.like((Expression) (userRoot.get(item.getFieldName())), regExp);
+                } else {
+                    predicate = cb.equal((userRoot.get(item.getFieldName())), item.getValue());
+                }
+
+                switch (item.getOperator()) {
+                    case AND:
+                        andCriteria.add(predicate);
+                        break;
+                    case OR:
+                        orCriteria.add(predicate);
+                        break;
+                }
+            }
+            if (andCriteria.size() > 0) {
+                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
+                orCriteria.add(and);
+            }
+            if (orCriteria.size() > 0) {
+                Predicate or = cb.or(orCriteria.toArray(new Predicate[orCriteria.size()]));
+                cq.where(or);
+            }
+        }
+
+        TypedQuery<Long> query = em.createQuery(cq);
+        return (Long) query.getSingleResult();
+    }
 }
