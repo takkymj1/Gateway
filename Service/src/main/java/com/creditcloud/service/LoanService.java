@@ -21,7 +21,7 @@ public interface LoanService {
      * @param loanRequest
      * @return 
      */
-    boolean submitLoanRequest(String clientCode, LoanRequest loanRequest);
+    int submitLoanRequest(String clientCode, LoanRequest loanRequest);
     
     List<LoanRequest> getListByUserId(String clientCode, String userId);
 
