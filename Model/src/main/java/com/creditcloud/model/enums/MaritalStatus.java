@@ -11,5 +11,18 @@ package com.creditcloud.model.enums;
  */
 public enum MaritalStatus {
 
-    MARRIED, SINGLE, DIVORCED, WIDOWED
+    MARRIED("已婚"), 
+    SINGLE("单身"), 
+    DIVORCED("离异"),
+    WIDOWED("丧偶");
+
+    private final String key;
+
+    private MaritalStatus(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
 }

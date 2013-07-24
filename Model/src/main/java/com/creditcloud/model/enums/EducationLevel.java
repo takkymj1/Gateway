@@ -10,16 +10,18 @@ package com.creditcloud.model.enums;
  * @author sobranie
  */
 public enum EducationLevel {
-    /**
-     * 高中学历及以下
-     */
-    HIGHSCHOOL,
-    /**
-     * 本科学历
-     */
-    COLLEGE,
-    /**
-     * 研究生及以上
-     */
-    GRADUATE
+
+    HIGHSCHOOL("高中学历及以下"),
+    COLLEGE("本科学历"),
+    GRADUATE("研究生及以上");
+
+    private final String key;
+
+    private EducationLevel(String key) {
+        this.key = key;
+    }
+
+    public String getKey() {
+        return key;
+    }
 }
