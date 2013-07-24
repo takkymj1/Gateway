@@ -12,7 +12,7 @@ package com.creditcloud.model.enums;
 public enum MaritalStatus {
 
     MARRIED("已婚"), 
-    SINGLE("单身"), 
+    SINGLE("未婚"), 
     DIVORCED("离异"),
     WIDOWED("丧偶");
 
