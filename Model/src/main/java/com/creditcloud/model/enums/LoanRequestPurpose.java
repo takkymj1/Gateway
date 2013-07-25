@@ -4,13 +4,14 @@
  */
 package com.creditcloud.model.enums;
 
-/**
- * loan request purpose
- *
- */
-public enum LoanRequestPurpose {
+import java.util.HashMap;
 
-    // 短期周转,个人消费,投资创业,购车借款,购房借款,其它借款
+/**
+ * 
+ * @author rooseek
+ */
+public enum LoanRequestPurpose implements BaseEnum {
+
     SHORTTERM("短期周转"),
     PERSONAL("个人消费"),
     INVESTMENT("投资创业"),
@@ -24,7 +25,20 @@ public enum LoanRequestPurpose {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
         return key;
+    }
+
+    private static final HashMap<String, LoanRequestPurpose> key2Enum = new HashMap<String, LoanRequestPurpose>();
+
+    static {
+        for (LoanRequestPurpose method : LoanRequestPurpose.values()) {
+            key2Enum.put(method.getKey(), method);
+        }
+    }
+
+    public static LoanRequestPurpose getEnum(String key) {
+        return key2Enum.get(key);
     }
 }

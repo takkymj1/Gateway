@@ -4,10 +4,46 @@
  */
 package com.creditcloud.model.enums.user;
 
+import com.creditcloud.model.enums.BaseEnum;
+import java.util.HashMap;
+
 /**
  *
  * @author rooseek
  */
-public enum CompanyType {
-    //国家机关 事业单位 央企(包括下级单位) 地方国资委直属企业 世界500强(包括合资企业和下级单位) 外资企业(包括合资企业) 一般上市公司(包括国外上市) 一般民营企业 个体经营者 其他
+public enum CompanyType implements BaseEnum {
+
+    GOVERNMENT_OFFICES("国家机关"),
+    PUBLIC_INSTITUTION("事业单位"),
+    STATEOWNED_KEY_ENTERPRISES("央企(包括下级单位)"),
+    OVERSEAS_FUNDED_ENTERPRISE("外资企业(包括合资企业)"),
+    LOCAL_STATEOWNED_ASSETS_SUPERVISION("地方国资委直属企业"),
+    GENERAL_PUBLIC_COMPANY("一般上市公司(包括国外上市)"),
+    GENERAL_PRIVATE_ENTERPRISE("一般民营企业"),
+    WORLD_TOP500("世界500强(包括合资企业和下级单位)"),
+    SELF_EMPLOYED("个体经营者"),
+    OTHER("其他");
+
+    private final String key;
+
+    private CompanyType(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public String getKey() {
+        return key;
+    }
+
+    private static final HashMap<String, CompanyType> key2Enum = new HashMap<String, CompanyType>();
+
+    static {
+        for (CompanyType method : CompanyType.values()) {
+            key2Enum.put(method.getKey(), method);
+        }
+    }
+
+    public static CompanyType getEnum(String key) {
+        return key2Enum.get(key);
+    }
 }
