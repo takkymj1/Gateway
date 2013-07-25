@@ -17,8 +17,7 @@ public enum CompanySize implements BaseEnum {
     SIZE_101_500("101﹣500人"),
     SIZE_501_2000("501-2000人"),
     SIZE_2001_10000("2001-10000人"),
-    SIZE_10001_100000("10001-100000人"),
-    SIZE_ABOVE_100000("10万人以上");
+    SIZE_10001_100000("10000人以上");
 
     private final String key;
 
