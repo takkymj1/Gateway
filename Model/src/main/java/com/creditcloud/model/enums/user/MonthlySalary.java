@@ -12,8 +12,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum MonthlySalary implements BaseEnum {
 
-    SALARY_BELOW_1000("1000以下"),
-    SALARY_1001_2000("1001﹣2000"),
+    SALARY_BELOW_2000("2000以下"),
     SALARY_2001_50000("2001﹣5000"),
     SALARY_5001_10000("5001﹣10000"),
     SALARY_10001_20000("10001﹣20000"),
