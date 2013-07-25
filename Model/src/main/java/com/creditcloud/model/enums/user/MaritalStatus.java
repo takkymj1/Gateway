@@ -5,7 +5,6 @@
 package com.creditcloud.model.enums.user;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.HashMap;
 
 /**
  * 婚姻状况
@@ -30,15 +29,8 @@ public enum MaritalStatus implements BaseEnum {
         return key;
     }
 
-    private static final HashMap<String, MaritalStatus> key2Enum = new HashMap<String, MaritalStatus>();
-
-    static {
-        for (MaritalStatus method : MaritalStatus.values()) {
-            key2Enum.put(method.getKey(), method);
-        }
-    }
-
-    public static MaritalStatus getEnum(String key) {
-        return key2Enum.get(key);
+    @Override
+    public String toString() {
+        return key;
     }
 }

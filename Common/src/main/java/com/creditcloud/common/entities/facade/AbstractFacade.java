@@ -172,6 +172,7 @@ public abstract class AbstractFacade<T> {
             for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
                 Predicate predicate;
                 if (item.getValue() instanceof String) {
+                    //fuzy search for string
                     String regExp = "%" + item.getValue() + "%";
                     predicate = cb.like((Expression) (userRoot.get(item.getFieldName())), regExp);
                 } else {
@@ -251,6 +252,7 @@ public abstract class AbstractFacade<T> {
             for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
                 Predicate predicate;
                 if (item.getValue() instanceof String) {
+                    //fuzy search for string
                     String regExp = "%" + item.getValue() + "%";
                     predicate = cb.like((Expression) (userRoot.get(item.getFieldName())), regExp);
                 } else {

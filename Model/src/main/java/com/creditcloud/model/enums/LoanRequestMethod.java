@@ -4,8 +4,6 @@
  */
 package com.creditcloud.model.enums;
 
-import java.util.HashMap;
-
 /**
  * 
  * @author rooseek
@@ -31,15 +29,8 @@ public enum LoanRequestMethod implements BaseEnum {
         return key;
     }
 
-    private static final HashMap<String, LoanRequestMethod> key2Enum = new HashMap<String, LoanRequestMethod>();
-
-    static {
-        for (LoanRequestMethod method : LoanRequestMethod.values()) {
-            key2Enum.put(method.getKey(), method);
-        }
-    }
-
-    public static LoanRequestMethod getEnum(String key) {
-        return key2Enum.get(key);
+    @Override
+    public String toString(){
+        return key;
     }
 }

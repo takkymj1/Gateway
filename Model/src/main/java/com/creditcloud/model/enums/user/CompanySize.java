@@ -5,7 +5,6 @@
 package com.creditcloud.model.enums.user;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.HashMap;
 
 /**
  *
@@ -32,15 +31,8 @@ public enum CompanySize implements BaseEnum {
         return key;
     }
 
-    private static final HashMap<String, CompanySize> key2Enum = new HashMap<String, CompanySize>();
-
-    static {
-        for (CompanySize method : CompanySize.values()) {
-            key2Enum.put(method.getKey(), method);
-        }
-    }
-
-    public static CompanySize getEnum(String key) {
-        return key2Enum.get(key);
+    @Override
+    public String toString() {
+        return key;
     }
 }

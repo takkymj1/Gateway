@@ -2,8 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums;
+package com.creditcloud.model.util;
 
+import com.creditcloud.model.enums.LoanRequestMethod;
+import com.creditcloud.model.enums.LoanRequestPurpose;
+import com.creditcloud.model.enums.LoanRequestStatus;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
@@ -48,7 +51,7 @@ public class EnumsTest {
     public void testCompanyIndustry() {
         String key = "其他";
         CompanyIndustry expResult = CompanyIndustry.OTHER;
-        CompanyIndustry result = CompanyIndustry.getEnum(key);
+        CompanyIndustry result = Enums.getEnumByKey(CompanyIndustry.class, key);
         assertEquals(expResult, result);
     }
 
@@ -56,7 +59,7 @@ public class EnumsTest {
     public void testCareerStatus() {
         String key = "其他";
         CareerStatus expResult = CareerStatus.OTHER;
-        CareerStatus result = CareerStatus.getEnum(key);
+        CareerStatus result = Enums.getEnumByKey(CareerStatus.class, key);
         assertEquals(expResult, result);
     }
 
@@ -64,7 +67,7 @@ public class EnumsTest {
     public void testCompanySize() {
         String key = "10人以下";
         CompanySize expResult = CompanySize.SIZE_BELOW_10;
-        CompanySize result = CompanySize.getEnum(key);
+        CompanySize result = Enums.getEnumByKey(CompanySize.class, key);
         assertEquals(expResult, result);
     }
 
@@ -72,7 +75,7 @@ public class EnumsTest {
     public void testCompanyType() {
         String key = "其他";
         CompanyType expResult = CompanyType.OTHER;
-        CompanyType result = CompanyType.getEnum(key);
+        CompanyType result = Enums.getEnumByKey(CompanyType.class, key);
         assertEquals(expResult, result);
     }
 
@@ -80,7 +83,7 @@ public class EnumsTest {
     public void testEducationLevel() {
         String key = "本科学历";
         EducationLevel expResult = EducationLevel.COLLEGE;
-        EducationLevel result = EducationLevel.getEnum(key);
+        EducationLevel result = Enums.getEnumByKey(EducationLevel.class, key);
         assertEquals(expResult, result);
     }
 
@@ -88,7 +91,7 @@ public class EnumsTest {
     public void testMaritalStatus() {
         String key = "已婚";
         MaritalStatus expResult = MaritalStatus.MARRIED;
-        MaritalStatus result = MaritalStatus.getEnum(key);
+        MaritalStatus result = Enums.getEnumByKey(MaritalStatus.class, key);
         assertEquals(expResult, result);
     }
 
@@ -96,7 +99,7 @@ public class EnumsTest {
     public void testMonthlySalary() {
         String key = "1000以下";
         MonthlySalary expResult = MonthlySalary.SALARY_BELOW_1000;
-        MonthlySalary result = MonthlySalary.getEnum(key);
+        MonthlySalary result = Enums.getEnumByKey(MonthlySalary.class, key);
         assertEquals(expResult, result);
     }
 
@@ -104,7 +107,7 @@ public class EnumsTest {
     public void testYearOfService() {
         String key = "1年以下";
         YearOfService expResult = YearOfService.YEAR_BELOW_1;
-        YearOfService result = YearOfService.getEnum(key);
+        YearOfService result = Enums.getEnumByKey(YearOfService.class, key);
         assertEquals(expResult, result);
     }
 
@@ -112,7 +115,7 @@ public class EnumsTest {
     public void testLoanRequestStatus() {
         String key = "未处理";
         LoanRequestStatus expResult = LoanRequestStatus.UNASSIGNED;
-        LoanRequestStatus result = LoanRequestStatus.getEnum(key);
+        LoanRequestStatus result = Enums.getEnumByKey(LoanRequestStatus.class, key);
         assertEquals(expResult, result);
     }
 
@@ -120,7 +123,7 @@ public class EnumsTest {
     public void testLoanRequestPurpose() {
         String key = "购车借款";
         LoanRequestPurpose expResult = LoanRequestPurpose.CAR;
-        LoanRequestPurpose result = LoanRequestPurpose.getEnum(key);
+        LoanRequestPurpose result = Enums.getEnumByKey(LoanRequestPurpose.class, key);
         assertEquals(expResult, result);
     }
 
@@ -128,7 +131,7 @@ public class EnumsTest {
     public void testLoanRequestMethod() {
         String key = "按月付息到期还本";
         LoanRequestMethod expResult = LoanRequestMethod.MonthlyInterest;
-        LoanRequestMethod result = LoanRequestMethod.getEnum(key);
+        LoanRequestMethod result = Enums.getEnumByKey(LoanRequestMethod.class, key);
         assertEquals(expResult, result);
     }
 }

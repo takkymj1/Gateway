@@ -5,7 +5,6 @@
 package com.creditcloud.model.enums.user;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.HashMap;
 
 /**
  *
@@ -31,15 +30,8 @@ public enum YearOfService implements BaseEnum {
         return key;
     }
 
-    private static final HashMap<String, YearOfService> key2Enum = new HashMap<String, YearOfService>();
-
-    static {
-        for (YearOfService method : YearOfService.values()) {
-            key2Enum.put(method.getKey(), method);
-        }
-    }
-
-    public static YearOfService getEnum(String key) {
-        return key2Enum.get(key);
+    @Override
+    public String toString() {
+        return key;
     }
 }

@@ -5,7 +5,6 @@
 package com.creditcloud.model.enums.user;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.HashMap;
 
 /**
  * 学历水平
@@ -29,15 +28,8 @@ public enum EducationLevel implements BaseEnum {
         return key;
     }
 
-    private static final HashMap<String, EducationLevel> key2Enum = new HashMap<String, EducationLevel>();
-
-    static {
-        for (EducationLevel method : EducationLevel.values()) {
-            key2Enum.put(method.getKey(), method);
-        }
-    }
-
-    public static EducationLevel getEnum(String key) {
-        return key2Enum.get(key);
+    @Override
+    public String toString() {
+        return key;
     }
 }
