@@ -4,15 +4,17 @@
  */
 package com.creditcloud.model.enums.user;
 
+import com.creditcloud.model.enums.BaseEnum;
+
 /**
  * 婚姻状况
  *
  * @author sobranie
  */
-public enum MaritalStatus {
+public enum MaritalStatus implements BaseEnum {
 
-    MARRIED("已婚"), 
-    SINGLE("未婚"), 
+    MARRIED("已婚"),
+    SINGLE("未婚"),
     DIVORCED("离异"),
     WIDOWED("丧偶");
 
@@ -22,7 +24,13 @@ public enum MaritalStatus {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
+        return key;
+    }
+
+    @Override
+    public String toString() {
         return key;
     }
 }

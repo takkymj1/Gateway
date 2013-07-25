@@ -4,12 +4,14 @@
  */
 package com.creditcloud.model.enums.user;
 
+import com.creditcloud.model.enums.BaseEnum;
+
 /**
  * 学历水平
  *
  * @author sobranie
  */
-public enum EducationLevel {
+public enum EducationLevel implements BaseEnum {
 
     HIGHSCHOOL("高中学历及以下"),
     COLLEGE("本科学历"),
@@ -21,7 +23,13 @@ public enum EducationLevel {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
+        return key;
+    }
+
+    @Override
+    public String toString() {
         return key;
     }
 }

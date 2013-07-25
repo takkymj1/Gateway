@@ -5,12 +5,11 @@
 package com.creditcloud.model.enums;
 
 /**
- * loan request purpose
- *
+ * 
+ * @author rooseek
  */
-public enum LoanRequestPurpose {
+public enum LoanRequestPurpose implements BaseEnum {
 
-    // 短期周转,个人消费,投资创业,购车借款,购房借款,其它借款
     SHORTTERM("短期周转"),
     PERSONAL("个人消费"),
     INVESTMENT("投资创业"),
@@ -24,7 +23,13 @@ public enum LoanRequestPurpose {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
+        return key;
+    }
+
+    @Override
+    public String toString() {
         return key;
     }
 }

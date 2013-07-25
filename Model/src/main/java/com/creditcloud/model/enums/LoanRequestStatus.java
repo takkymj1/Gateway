@@ -5,10 +5,10 @@
 package com.creditcloud.model.enums;
 
 /**
- * LoanRequest status
  *
+ * @author rooseek
  */
-public enum LoanRequestStatus {
+public enum LoanRequestStatus implements BaseEnum {
 
     UNASSIGNED("未处理"),
     ASSIGNED("已处理"),
@@ -23,7 +23,13 @@ public enum LoanRequestStatus {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
+        return key;
+    }
+
+    @Override
+    public String toString() {
         return key;
     }
 }
