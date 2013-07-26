@@ -13,8 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum CompanyIndustry implements BaseEnum {
 
     MANUFACTURE("制造业"),
-    IT("IT"),
-    GOVERNMENT("政府部门"),
+    IT("通信/计算机/互联网"),
+    GOVERNMENT("政府部门/事业单位"),
     MEDIA_ADVERTISEMENT("媒体/广告"),
     RETAIL_WHOLESALE("零售/批发"),
     EDUCATION_TRAINING("教育/培训 "),

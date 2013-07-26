@@ -81,8 +81,8 @@ public class EnumsTest {
 
     @Test
     public void testEducationLevel() {
-        String key = "本科学历";
-        EducationLevel expResult = EducationLevel.COLLEGE;
+        String key = "高中及以下";
+        EducationLevel expResult = EducationLevel.HIGHSCHOOL;
         EducationLevel result = Enums.getEnumByKey(EducationLevel.class, key);
         assertEquals(expResult, result);
     }

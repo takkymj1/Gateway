@@ -21,7 +21,7 @@ public enum CareerType implements BaseEnum {
     TEACHER("教师"),
     PRIVATE_ENTREPRENEUR("私营企业主"),
     INTERNET_BUSINESSMAN("网商"),
-    FREELANCE("自由职业"),
+    FREELANCER("自由职业"),
     OTHER("其他");
 
     private final String key;

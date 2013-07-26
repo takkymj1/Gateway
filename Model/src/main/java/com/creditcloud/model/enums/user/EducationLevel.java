@@ -13,9 +13,12 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum EducationLevel implements BaseEnum {
 
-    HIGHSCHOOL("高中学历及以下"),
-    COLLEGE("本科学历"),
-    GRADUATE("研究生及以上");
+    HIGHSCHOOL("高中及以下"),
+    TECHNICALSCHOOL("中专"),
+    JUNIORCOLLEGE("大专"),
+    UNDERGRADUATE ("本科"),
+    MASTER("硕士"),
+    DOCTOR("博士");
 
     private final String key;
 
