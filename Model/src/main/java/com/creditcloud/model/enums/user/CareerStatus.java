@@ -10,23 +10,17 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum CareerType implements BaseEnum {
+public enum CareerStatus implements BaseEnum {
 
-    CIVIL_SERVANTS("公务员"),
-    PUBLIC_INSTITUTION("事业单位员工"),
-    STATEOWNED_ENTERPRISE("大中型国企人员"),
-    OVERSEA_ENTERPRISE("外企员工"),
-    PRIVATE_ENTERPRISE("民营企业员工"),
-    SOLDIER("军人"),
-    TEACHER("教师"),
+    EMPLOYEE("普通员工"), 
+    MANAGER("管理人员"), 
+    SHAREHOLDER("股东"), 
     PRIVATE_ENTREPRENEUR("私营企业主"),
-    INTERNET_BUSINESSMAN("网商"),
-    FREELANCER("自由职业"),
     OTHER("其他");
 
     private final String key;
 
-    private CareerType(String key) {
+    private CareerStatus(String key) {
         this.key = key;
     }
 

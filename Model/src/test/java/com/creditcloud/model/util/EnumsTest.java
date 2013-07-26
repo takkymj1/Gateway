@@ -7,7 +7,7 @@ package com.creditcloud.model.util;
 import com.creditcloud.model.enums.LoanRequestMethod;
 import com.creditcloud.model.enums.LoanRequestPurpose;
 import com.creditcloud.model.enums.LoanRequestStatus;
-import com.creditcloud.model.enums.user.CareerType;
+import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
 import com.creditcloud.model.enums.user.CompanyType;
@@ -58,8 +58,8 @@ public class EnumsTest {
     @Test
     public void testCareerStatus() {
         String key = "其他";
-        CareerType expResult = CareerType.OTHER;
-        CareerType result = Enums.getEnumByKey(CareerType.class, key);
+        CareerStatus expResult = CareerStatus.OTHER;
+        CareerStatus result = Enums.getEnumByKey(CareerStatus.class, key);
         assertEquals(expResult, result);
     }
 
