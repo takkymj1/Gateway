@@ -18,6 +18,7 @@ public enum CompanyType implements BaseEnum {
     STATEOWNED_KEY_ENTERPRISES("央企(包括下级单位)"),
     STATEOWNED_ENTERPRISES("一般国企(包括下级单位)"),
     OVERSEAS_FUNDED_ENTERPRISES("外资企业"),
+    TAIWAN_HONGKONG_MACAU("台港澳企业"),
     JOINT_VENTURE("合资企业"),
     PRIVATE_ENTERPRISES("民营企业"),
     SELF_EMPLOYED("个体经营"),
