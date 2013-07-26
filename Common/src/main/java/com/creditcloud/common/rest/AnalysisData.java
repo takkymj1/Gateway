@@ -1,16 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.creditcloud.common.rest;
 
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * This is the wrapper class for the return JSON result for jqBootstrapValidation plugin.
- * 
- * @author sobranie
+ * This is the wrapper class for the return JSON result for Analysis Data
  */
 @XmlRootElement
 public class AnalysisData {
