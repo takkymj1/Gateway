@@ -2,7 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums;
+package com.creditcloud.model.enums.loanRequest;
+
+import com.creditcloud.model.enums.BaseEnum;
 
 /**
  *
@@ -25,11 +27,6 @@ public enum LoanRequestStatus implements BaseEnum {
 
     @Override
     public String getKey() {
-        return key;
-    }
-
-    @Override
-    public String toString() {
         return key;
     }
 }

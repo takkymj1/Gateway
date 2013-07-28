@@ -4,9 +4,9 @@
  */
 package com.creditcloud.model.util;
 
-import com.creditcloud.model.enums.LoanRequestMethod;
-import com.creditcloud.model.enums.LoanRequestPurpose;
-import com.creditcloud.model.enums.LoanRequestStatus;
+import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
+import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;

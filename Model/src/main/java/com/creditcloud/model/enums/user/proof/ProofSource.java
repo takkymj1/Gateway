@@ -28,8 +28,4 @@ public enum ProofSource implements BaseEnum {
         return key;
     }
 
-    @Override
-    public String toString() {
-        return key;
-    }
 }
