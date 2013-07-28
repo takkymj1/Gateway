@@ -4,7 +4,7 @@
  */
 package com.creditcloud.common.calculator;
 
-import com.creditcloud.model.enums.LoanRequestMethod;
+import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

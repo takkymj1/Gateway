@@ -6,7 +6,7 @@ package com.creditcloud.common.calculator;
 
 import com.creditcloud.common.calculator.LoanDetail.Duration;
 import com.creditcloud.model.LoanRequest;
-import com.creditcloud.model.enums.LoanRequestMethod;
+import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 
 /**
  *

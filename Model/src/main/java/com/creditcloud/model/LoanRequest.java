@@ -4,9 +4,9 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.enums.LoanRequestStatus;
-import com.creditcloud.model.enums.LoanRequestMethod;
-import com.creditcloud.model.enums.LoanRequestPurpose;
+import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
+import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

@@ -35,9 +35,4 @@ public enum ProofType implements BaseEnum {
     public String getKey() {
         return key;
     }
-
-    @Override
-    public String toString() {
-        return key;
-    }
 }
