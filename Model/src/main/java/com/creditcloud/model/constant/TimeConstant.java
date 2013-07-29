@@ -13,4 +13,6 @@ public interface TimeConstant {
     int DAYS_PER_YEAR = 365;
 
     int DAYS_PER_MONTH  = 30;
+    
+    int MONTHS_PER_YEAR = 12;
 }
