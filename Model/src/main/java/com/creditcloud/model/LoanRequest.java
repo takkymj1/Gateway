@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
@@ -45,18 +46,21 @@ public class LoanRequest extends BaseObject {
      * 金额
      */
     @NotNull
+    @Size(min = 1000, max = 1000000)
     private int amount;
 
     /**
      * 期限
      */
     @NotNull
+    @Size(min = 1, max = 730)
     private int duration;
 
     /**
      * 年化利率（万分之几）
      */
     @NotNull
+    @Size(min = 800, max = 2400)
     private int rate;
 
     /**
@@ -81,6 +85,7 @@ public class LoanRequest extends BaseObject {
      * 提交时间
      */
     @NotNull
+    @Past
     private Date timeSubmit;
 
     /**
@@ -90,7 +95,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 
-     * @param id    LoanRequest Id
+     * @param id    LoanRequest Id, nullable
      * @param userId    用户ID
      * @param title     title
      * @param purpose   目的
@@ -101,9 +106,20 @@ public class LoanRequest extends BaseObject {
      * @param description   描述
      * @param status 状态(初始状态为：UNASSIGNED)
      * @param timeSubmit    提交时间
-     * @param assignee  员工ID
+     * @param assignee  员工ID, nullable
      */
-    public LoanRequest(String id, String userId, String title, LoanRequestPurpose purpose, int amount, int duration, int rate, LoanRequestMethod method, String description, LoanRequestStatus status, Date timeSubmit, String assignee) {
+    public LoanRequest(String id, 
+                       String userId,
+                       String title,
+                       LoanRequestPurpose purpose,
+                       int amount,
+                       int duration, 
+                       int rate,
+                       LoanRequestMethod method, 
+                       String description, 
+                       LoanRequestStatus status,
+                       Date timeSubmit, 
+                       String assignee) {
         this.id = id;
         this.userId = userId;
         this.title = title;
