@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.util;
 
+import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
 import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
@@ -133,5 +134,31 @@ public class EnumsTest {
         LoanRequestMethod expResult = LoanRequestMethod.MonthlyInterest;
         LoanRequestMethod result = Enums.getEnumByKey(LoanRequestMethod.class, key);
         assertEquals(expResult, result);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithStringClass() {
+        Enum result = Enums.getEnumByKey(String.class, "key");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithNonBaseEnumClass() {
+        Enum result = Enums.getEnumByKey(SomeEnum.class, "key");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithNonEnumClass() {
+        Enum result = Enums.getEnumByKey(SomeBaseEnum.class, "key");
+    }
+
+    private enum SomeEnum {
+    }
+
+    private class SomeBaseEnum implements BaseEnum {
+
+        @Override
+        public String getKey() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 }
