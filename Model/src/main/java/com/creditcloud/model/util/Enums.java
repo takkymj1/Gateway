@@ -51,7 +51,7 @@ public class Enums {
 
         //must be subclass of Enum
         if (!Enum.class.isAssignableFrom(enumType)) {
-            throw new IllegalArgumentException("enumType " + enumType.getName() + " must be a subclass of Enum.");
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be a subclass of Enum.");
         }
 
         //must be implementation of BaseEnum
