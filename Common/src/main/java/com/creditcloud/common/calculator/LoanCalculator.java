@@ -7,12 +7,20 @@ package com.creditcloud.common.calculator;
 import com.creditcloud.common.calculator.LoanDetail.Duration;
 import com.creditcloud.model.LoanRequest;
 import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import java.math.BigDecimal;
 
 /**
  *
  * @author sobranie
  */
 public final class LoanCalculator {
+    
+    private static final BigDecimal daysPerYear = new BigDecimal(365);
+
+    /**
+     * rate is in format like 2400 which is actually 24.00%
+     */
+    private static final BigDecimal rateScale = new BigDecimal(10000);
 
     /**
      * 计算分几期
@@ -34,8 +42,13 @@ public final class LoanCalculator {
         return result;
     }
     
-    public static LoanDetail analyze (final LoanRequest loanRequest) {
-        
+    public static LoanDetail analyze(final LoanRequest loanRequest) {
+        //get duration first
+        Duration duration = new Duration(loanRequest.getDuration());
+        //principal
+        BigDecimal principal = new BigDecimal(loanRequest.getAmount());
+        //now calc total interest
+
         return null;
     }
 }
