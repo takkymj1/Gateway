@@ -8,8 +8,7 @@ import com.creditcloud.model.enums.BaseEnum;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import org.reflections.Reflections;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
@@ -17,24 +16,7 @@ import org.reflections.Reflections;
  */
 public class Enums {
 
-    private static final Map<Class, HashMap<String, Enum>> enumCache = new HashMap<Class, HashMap<String, Enum>>();
-
-    private static final String[] enumPackages = {"com.creditcloud.model.enums"};
-
-    static {
-        for (String enumPackage : enumPackages) {
-            Reflections reflection = new Reflections(enumPackage);
-            Set<Class<? extends Enum>> set = reflection.getSubTypesOf(Enum.class);
-            for (Class<? extends Enum> clazz : set) {
-                EnumSet enums = EnumSet.allOf(clazz);
-                HashMap newEnum = new HashMap<String, Enum>();
-                for (Object object : enums) {
-                    newEnum.put(((BaseEnum) object).getKey(), object);
-                }
-                enumCache.put(clazz, newEnum);
-            }
-        }
-    }
+    private static final ConcurrentHashMap<Class, HashMap<String, Enum>> enumCache = new ConcurrentHashMap();
 
     /**
      * get enum by key
@@ -44,7 +26,7 @@ public class Enums {
      * @param key
      * @return
      */
-    public static <T extends Enum<T> & BaseEnum> T getEnumByKey(Class enumType, String key) {
+    public static <T extends Enum<T> & BaseEnum> T getEnumByKey(Class<T> enumType, String key) {
         if (enumType == null || key == null) {
             return null;
         }
@@ -71,7 +53,7 @@ public class Enums {
                     result = t;
                 }
             }
-            enumCache.put(enumType, newEnum);
+            enumCache.putIfAbsent(enumType, newEnum);
         } else {
             result = (T) cache.get(key);
         }
