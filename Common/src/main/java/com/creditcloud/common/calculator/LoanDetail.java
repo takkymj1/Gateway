@@ -4,8 +4,9 @@
  */
 package com.creditcloud.common.calculator;
 
-import com.creditcloud.model.constant.TimeConstant;
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import com.creditcloud.model.misc.Duration;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author sobranie
  */
-public class LoanDetail {
+public class LoanDetail extends BaseObject {
 
     /**
      * 本金
@@ -73,7 +74,7 @@ public class LoanDetail {
         return repayments;
     }
     
-    public static class Repayment {
+    public static class Repayment extends BaseObject {
         
         private final BigDecimal amountPrincipal;
         
@@ -107,33 +108,6 @@ public class LoanDetail {
 
         public Date getDate() {
             return dueDate;
-        }
-    }
-
-    public static class Duration {
-
-        private final int years;
-
-        private final int months;
-
-        private final int days;
-
-        public Duration(int duration) {
-            years = duration / TimeConstant.DAYS_PER_YEAR;
-            months = (duration % TimeConstant.DAYS_PER_YEAR) / TimeConstant.DAYS_PER_MONTH;
-            days = duration % TimeConstant.DAYS_PER_MONTH;
-        }
-
-        public int getYears() {
-            return years;
-        }
-
-        public int getMonths() {
-            return months;
-        }
-
-        public int getDays() {
-            return days;
         }
     }
 }
