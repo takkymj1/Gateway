@@ -26,7 +26,7 @@ public class Enums {
      * @param key
      * @return
      */
-    public static <T extends Enum<T> & BaseEnum> T getEnumByKey(Class enumType, String key) {
+    public static <T extends Enum<T> & BaseEnum> T getEnumByKey(Class<T> enumType, String key) {
         if (enumType == null || key == null) {
             return null;
         }
