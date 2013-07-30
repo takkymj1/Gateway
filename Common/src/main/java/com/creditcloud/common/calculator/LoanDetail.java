@@ -82,7 +82,7 @@ public class LoanDetail extends BaseObject {
         
         private final BigDecimal amountOutstanding;
         
-        private final Date dueDate;
+        private Date dueDate;
 
         public Repayment(BigDecimal amountPrincipal, 
                          BigDecimal amountInterest, 
