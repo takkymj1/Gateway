@@ -6,12 +6,9 @@ package com.creditcloud.common.calculator;
 
 import com.creditcloud.common.calculator.LoanDetail.Repayment;
 import com.creditcloud.common.utils.DateUtils;
-import com.creditcloud.model.LoanRequest;
 import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 import static com.creditcloud.model.enums.loanRequest.LoanRequestMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loanRequest.LoanRequestMethod.MonthlyInterest;
-import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
-import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
 import com.creditcloud.model.misc.Duration;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -58,25 +55,29 @@ public final class LoanCalculator {
     }
 
     /**
-     *
-     * @param loanRequest
+     * 
+     * @param amount
+     * @param duration
+     * @param rate 2400 means 24.00%
+     * @param method
      * @param asOfDate
-     * @return
+     * @return 
      */
-    public static LoanDetail analyze(final LoanRequest loanRequest,
+    public static LoanDetail analyze(final int amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final LoanRequestMethod method,
                                      final Date asOfDate) {
         LoanDetail result = null;
-        //get duration first
-        Duration duration = new Duration(loanRequest.getDuration());
         //principal
-        BigDecimal principal = new BigDecimal(loanRequest.getAmount());
+        BigDecimal principal = new BigDecimal(amount);
         //now get rates
-        BigDecimal rateYear = new BigDecimal(loanRequest.getRate()).divide(rateScale, mc);
+        BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
         BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
         BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
         //dealing with different methods
         BigDecimal interest;
-        switch (loanRequest.getMethod()) {
+        switch (method) {
             case BulletRepayment:
                 //add yearly interest
                 interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
