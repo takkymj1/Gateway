@@ -19,7 +19,6 @@ import javax.validation.constraints.Size;
  */
 public class Proof extends BaseObject {
 
-    @NotNull
     private String id;
 
     //the user related to this proof
@@ -87,7 +86,7 @@ public class Proof extends BaseObject {
 
     /**
      *
-     * @param id 证明Id
+     * @param id 证明Id,可以为空
      * @param userId 用戶Id
      * @param type 证明类型
      * @param title 证明标题
