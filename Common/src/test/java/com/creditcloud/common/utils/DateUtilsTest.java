@@ -8,7 +8,7 @@ import com.creditcloud.model.misc.Duration;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -64,7 +64,7 @@ public class DateUtilsTest {
 
         Date start = sdf.parse("20130601");
         Date end = sdf.parse("20130630");
-        Set result = DateUtils.listDates(start, end);
+        List result = DateUtils.listDates(start, end);
         assertEquals(result.size(), 30);
 
         start = sdf.parse("20130630");

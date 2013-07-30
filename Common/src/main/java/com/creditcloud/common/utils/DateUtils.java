@@ -5,11 +5,11 @@
 package com.creditcloud.common.utils;
 
 import com.creditcloud.model.misc.Duration;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
 
@@ -32,8 +32,8 @@ public class DateUtils {
     /*
      * list all dates between start date and end date, both day included
      */
-    public static Set<Date> listDates(Date start, Date end) {
-        Set<Date> dates = new HashSet();
+    public static List<Date> listDates(Date start, Date end) {
+        List<Date> dates = new ArrayList();
 
         Date date = start;
         calendar.setTime(start);
