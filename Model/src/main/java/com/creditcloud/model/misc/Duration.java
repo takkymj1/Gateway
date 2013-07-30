@@ -14,12 +14,15 @@ import static com.creditcloud.model.constant.TimeConstant.*;
  */
 public class Duration extends BaseObject {
 
-    private final int years;
+    private int years;
 
-    private final int months;
+    private int months;
 
-    private final int days;
-    
+    private int days;
+
+    public Duration() {
+    }
+
     public Duration(final int years,
                     final int months,
                     final int days) {
@@ -28,7 +31,7 @@ public class Duration extends BaseObject {
         this.days = days;
     }
 
-    public Duration(int duration) {
+    public Duration(final int duration) {
         years = duration / DAYS_PER_YEAR;
         months = (duration % DAYS_PER_YEAR) / DAYS_PER_MONTH;
         days = duration - years * DAYS_PER_YEAR - months * DAYS_PER_MONTH;
@@ -45,12 +48,24 @@ public class Duration extends BaseObject {
     public int getDays() {
         return days;
     }
-    
-    public int getTotalMonths () {
+
+    public void setYears(int years) {
+        this.years = years;
+    }
+
+    public void setMonths(int months) {
+        this.months = months;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
+    }
+
+    public int getTotalMonths() {
         return years * MONTHS_PER_YEAR + months;
     }
-    
-    public int getTotalDays () {
+
+    public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
     }
 }
