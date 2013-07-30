@@ -7,6 +7,7 @@ package com.creditcloud.model;
 import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
 import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
 import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
+import com.creditcloud.model.misc.Duration;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -53,8 +54,7 @@ public class LoanRequest extends BaseObject {
      * 期限
      */
     @NotNull
-    @Size(min = 1, max = 730)
-    private int duration;
+    private Duration duration;
 
     /**
      * 年化利率（万分之几）
@@ -113,7 +113,7 @@ public class LoanRequest extends BaseObject {
                        String title,
                        LoanRequestPurpose purpose,
                        int amount,
-                       int duration, 
+                       Duration duration, 
                        int rate,
                        LoanRequestMethod method, 
                        String description, 
@@ -218,7 +218,7 @@ public class LoanRequest extends BaseObject {
      * 期限
      * @return the duration
      */
-    public int getDuration() {
+    public Duration getDuration() {
         return duration;
     }
 
@@ -226,7 +226,7 @@ public class LoanRequest extends BaseObject {
      * 期限
      * @param duration the duration to set
      */
-    public void setDuration(int duration) {
+    public void setDuration(Duration duration) {
         this.duration = duration;
     }
 
