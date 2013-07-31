@@ -6,11 +6,13 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.Proof;
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
+@Remote
 public interface ProofService {
 
     /**

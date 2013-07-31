@@ -48,7 +48,7 @@ public class Enums {
             HashMap newEnum = new HashMap<String, Enum>();
             for (Object object : set) {
                 T t = (T) object;
-                newEnum.put(t.getKey(), t.name());
+                newEnum.put(t.getKey(), t);
                 if (t.getKey().equals(key)) {
                     result = t;
                 }
