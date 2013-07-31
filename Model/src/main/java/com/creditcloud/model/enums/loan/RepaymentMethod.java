@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loanRequest;
+package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
 
@@ -10,7 +10,7 @@ import com.creditcloud.model.enums.BaseEnum;
  * 
  * @author rooseek
  */
-public enum LoanRequestMethod implements BaseEnum {
+public enum RepaymentMethod implements BaseEnum {
 
     //按月付息到期还本	MonthlyInterest
     //等额本息			EqualInstallment
@@ -22,7 +22,7 @@ public enum LoanRequestMethod implements BaseEnum {
 
     private final String key;
 
-    private LoanRequestMethod(String key) {
+    private RepaymentMethod(String key) {
         this.key = key;
     }
 

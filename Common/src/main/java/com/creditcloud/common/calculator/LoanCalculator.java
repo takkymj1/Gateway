@@ -6,10 +6,10 @@ package com.creditcloud.common.calculator;
 
 import com.creditcloud.common.calculator.LoanDetail.Repayment;
 import com.creditcloud.common.utils.DateUtils;
-import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
-import static com.creditcloud.model.enums.loanRequest.LoanRequestMethod.BulletRepayment;
-import static com.creditcloud.model.enums.loanRequest.LoanRequestMethod.EqualInstallment;
-import static com.creditcloud.model.enums.loanRequest.LoanRequestMethod.MonthlyInterest;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
 import com.creditcloud.model.misc.Duration;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -45,9 +45,9 @@ public final class LoanCalculator {
      * @return
      */
     public static int amortize(final int durationInDays,
-                               final LoanRequestMethod method) {
+                               final RepaymentMethod method) {
         int result = 0;
-        if (method == LoanRequestMethod.BulletRepayment) {
+        if (method == RepaymentMethod.BulletRepayment) {
             result = 1;
         } else { //等额本息或按月付息还本
             Duration duration = new Duration(durationInDays);
@@ -69,7 +69,7 @@ public final class LoanCalculator {
     public static LoanDetail analyze(final int amount,
                                      final Duration duration,
                                      final int rate,
-                                     final LoanRequestMethod method,
+                                     final RepaymentMethod method,
                                      final Date asOfDate) {
         LoanDetail result = null;
         //principal

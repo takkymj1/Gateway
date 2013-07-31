@@ -4,7 +4,7 @@
  */
 package com.creditcloud.common.calculator;
 
-import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,15 +44,15 @@ public class LoanCalculatorTest {
     public void testAmortize() {
         System.out.println("amortize");
         int duration = 365;
-        int result = LoanCalculator.amortize(duration, LoanRequestMethod.BulletRepayment);
+        int result = LoanCalculator.amortize(duration, RepaymentMethod.BulletRepayment);
         assertEquals(1, result);
         
         duration = 365;
-        result = LoanCalculator.amortize(duration, LoanRequestMethod.EqualInstallment);
+        result = LoanCalculator.amortize(duration, RepaymentMethod.EqualInstallment);
         assertEquals(12, result);
         
         duration = 365 + 180;
-        result = LoanCalculator.amortize(duration, LoanRequestMethod.MonthlyInterest);
+        result = LoanCalculator.amortize(duration, RepaymentMethod.MonthlyInterest);
         assertEquals(18, result);
     }
 }

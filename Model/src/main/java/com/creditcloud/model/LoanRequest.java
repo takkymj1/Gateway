@@ -4,9 +4,9 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
-import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
-import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.misc.Duration;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -41,7 +41,7 @@ public class LoanRequest extends BaseObject {
      * 目的
      */
     @NotNull
-    private LoanRequestPurpose purpose;
+    private LoanPurpose purpose;
 
     /**
      * 金额
@@ -67,7 +67,7 @@ public class LoanRequest extends BaseObject {
      * 偿还方法
      */
     @NotNull
-    private LoanRequestMethod method;
+    private RepaymentMethod method;
 
     /**
      * 描述
@@ -111,11 +111,11 @@ public class LoanRequest extends BaseObject {
     public LoanRequest(String id, 
                        String userId,
                        String title,
-                       LoanRequestPurpose purpose,
+                       LoanPurpose purpose,
                        int amount,
                        Duration duration, 
                        int rate,
-                       LoanRequestMethod method, 
+                       RepaymentMethod method, 
                        String description, 
                        LoanRequestStatus status,
                        Date timeSubmit, 
@@ -186,7 +186,7 @@ public class LoanRequest extends BaseObject {
      * 目的
      * @return the purpose
      */
-    public LoanRequestPurpose getPurpose() {
+    public LoanPurpose getPurpose() {
         return purpose;
     }
 
@@ -194,7 +194,7 @@ public class LoanRequest extends BaseObject {
      * 目的
      * @param purpose the purpose to set
      */
-    public void setPurpose(LoanRequestPurpose purpose) {
+    public void setPurpose(LoanPurpose purpose) {
         this.purpose = purpose;
     }
 
@@ -250,7 +250,7 @@ public class LoanRequest extends BaseObject {
      * 偿还方法
      * @return the method
      */
-    public LoanRequestMethod getMethod() {
+    public RepaymentMethod getMethod() {
         return method;
     }
 
@@ -258,7 +258,7 @@ public class LoanRequest extends BaseObject {
      * 偿还方法
      * @param method the method to set
      */
-    public void setMethod(LoanRequestMethod method) {
+    public void setMethod(RepaymentMethod method) {
         this.method = method;
     }
 
