@@ -5,6 +5,7 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.User;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -16,6 +17,9 @@ public class UserInfo extends BaseObject {
 
     @Id
     private String userId;
+
+    @NotNull
+    private User user;
 
     @NotNull
     private PersonalInfo personal;
@@ -40,12 +44,13 @@ public class UserInfo extends BaseObject {
      * @param career 工作信息
      * @param contact 联系人信息
      */
-    public UserInfo(String userId,
+    public UserInfo(User user,
                     PersonalInfo personal,
                     FinanceInfo finance,
                     CareerInfo career,
                     ContactInfo contact) {
-        this.userId = userId;
+        this.userId = user.getId();
+        this.user = user;
         this.personal = personal;
         this.finance = finance;
         this.career = career;
@@ -90,5 +95,13 @@ public class UserInfo extends BaseObject {
 
     public void setContact(ContactInfo contact) {
         this.contact = contact;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
