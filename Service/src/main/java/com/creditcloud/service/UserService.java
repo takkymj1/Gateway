@@ -49,16 +49,6 @@ public interface UserService {
     void addUser(String clientCode, User user);
 
     /**
-     * remove user for client
-     *
-     * @param clientCode
-     * @param user
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void deleteUser(String clientCode, User user);
-
-    /**
      * update user information for client
      *
      * @param clientCode
@@ -113,16 +103,6 @@ public interface UserService {
      */
     User findByIdNumber(String clientCode, String idNumber);
 
-    //delete methods
-    /**
-     * delete user by login name
-     *
-     * @param clientCode
-     * @param loginName
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void deleteByLoginName(String clientCode, String loginName);
 
     /**
      * delete user by user Id
