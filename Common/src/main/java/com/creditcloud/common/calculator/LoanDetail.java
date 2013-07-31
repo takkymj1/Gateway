@@ -5,7 +5,7 @@
 package com.creditcloud.common.calculator;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.Duration;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class LoanDetail extends BaseObject {
     /**
      * 还款方式
      */
-    private final LoanRequestMethod method;
+    private final RepaymentMethod method;
     
     /**
      * 还款明细，包含期数
@@ -46,7 +46,7 @@ public class LoanDetail extends BaseObject {
     public LoanDetail(BigDecimal principal,
                       BigDecimal interest, 
                       Duration duration, 
-                      LoanRequestMethod method) {
+                      RepaymentMethod method) {
         this.principal = principal;
         this.interest = interest;
         this.duration = duration;
@@ -66,7 +66,7 @@ public class LoanDetail extends BaseObject {
         return duration;
     }
 
-    public LoanRequestMethod getMethod() {
+    public RepaymentMethod getMethod() {
         return method;
     }
 
