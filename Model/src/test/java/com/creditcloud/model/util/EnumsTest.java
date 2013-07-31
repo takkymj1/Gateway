@@ -134,5 +134,11 @@ public class EnumsTest {
         LoanRequestMethod expResult = LoanRequestMethod.MonthlyInterest;
         LoanRequestMethod result = Enums.getEnumByKey(LoanRequestMethod.class, key);
         assertEquals(expResult, result);
+
+        //test cache
+        key = "按月付息到期还本";
+        expResult = LoanRequestMethod.MonthlyInterest;
+        result = Enums.getEnumByKey(LoanRequestMethod.class, key);
+        assertEquals(expResult, result);
     }
 }
