@@ -41,6 +41,7 @@ public enum LoanRequestStatus implements BaseEnum {
         switch (status) {
             case UNASSIGNED:
             case ASSIGNED:
+            case CANCELED:
                 return true;
         }
 
