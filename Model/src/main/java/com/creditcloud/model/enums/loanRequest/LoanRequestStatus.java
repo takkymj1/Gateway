@@ -14,6 +14,7 @@ public enum LoanRequestStatus implements BaseEnum {
 
     UNASSIGNED("未处理"),
     ASSIGNED("已处理"),
+    CANCELED("已取消"),//只有在UNASSIGNED和ASSIGNED状态的可以取消
     APPROVED("已批准"),
     PUBLISHED("已发放"),
     ARCHIVED("已存档"),
@@ -28,5 +29,22 @@ public enum LoanRequestStatus implements BaseEnum {
     @Override
     public String getKey() {
         return key;
+    }
+
+    /**
+     * check whether a loan request can be canceled
+     *
+     * @param status
+     * @return true if UNASSIGNED or ASSIGNED, false else
+     */
+    public static boolean tryCancel(LoanRequestStatus status) {
+        switch (status) {
+            case UNASSIGNED:
+            case ASSIGNED:
+            case CANCELED:
+                return true;
+        }
+
+        return false;
     }
 }
