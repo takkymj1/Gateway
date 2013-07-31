@@ -5,9 +5,9 @@
 package com.creditcloud.model.util;
 
 import com.creditcloud.model.enums.BaseEnum;
-import com.creditcloud.model.enums.loanRequest.LoanRequestMethod;
-import com.creditcloud.model.enums.loanRequest.LoanRequestPurpose;
-import com.creditcloud.model.enums.loanRequest.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
@@ -123,22 +123,22 @@ public class EnumsTest {
     @Test
     public void testLoanRequestPurpose() {
         String key = "购车借款";
-        LoanRequestPurpose expResult = LoanRequestPurpose.CAR;
-        LoanRequestPurpose result = Enums.getEnumByKey(LoanRequestPurpose.class, key);
+        LoanPurpose expResult = LoanPurpose.CAR;
+        LoanPurpose result = Enums.getEnumByKey(LoanPurpose.class, key);
         assertEquals(expResult, result);
     }
 
     @Test
     public void testLoanRequestMethod() {
         String key = "按月付息到期还本";
-        LoanRequestMethod expResult = LoanRequestMethod.MonthlyInterest;
-        LoanRequestMethod result = Enums.getEnumByKey(LoanRequestMethod.class, key);
+        RepaymentMethod expResult = RepaymentMethod.MonthlyInterest;
+        RepaymentMethod result = Enums.getEnumByKey(RepaymentMethod.class, key);
         assertEquals(expResult, result);
 
         //test cache
         key = "按月付息到期还本";
-        expResult = LoanRequestMethod.MonthlyInterest;
-        result = Enums.getEnumByKey(LoanRequestMethod.class, key);
+        expResult = RepaymentMethod.MonthlyInterest;
+        result = Enums.getEnumByKey(RepaymentMethod.class, key);
         assertEquals(expResult, result);
     }
 }
