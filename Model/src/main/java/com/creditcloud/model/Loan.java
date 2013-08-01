@@ -5,6 +5,7 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.misc.Duration;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,32 +15,55 @@ import javax.validation.constraints.Size;
  * @author sobranie
  */
 public class Loan extends BaseObject {
-    
+
     /**
      * UUID
      */
     private String id;
-    
+
     @Size(min = 1)
     private int ordinal;
-    
+
     @Size(min = 1000, max = 1000000)
     private int amount;
-    
+
+    @NotNull
+    private Duration duration;
+
     @Size(max = 72)
     private int timeout;
-    
+
     @NotNull
     private LoanStatus status;
-    
+
     @NotNull
     private LoanRequest loanRequest;
-    
+
     private Date timeOpen;
-    
+
     private Date timeFinished;
-    
+
     public Loan() {
+    }
+
+    public Loan(String id,
+                int ordinal,
+                int amount,
+                Duration duration,
+                int timeout,
+                LoanStatus status,
+                LoanRequest loanRequest,
+                Date timeOpen,
+                Date timeFinished) {
+        this.id = id;
+        this.ordinal = ordinal;
+        this.amount = amount;
+        this.duration = duration;
+        this.timeout = timeout;
+        this.status = status;
+        this.loanRequest = loanRequest;
+        this.timeOpen = timeOpen;
+        this.timeFinished = timeFinished;
     }
 
     public String getId() {
@@ -105,5 +129,12 @@ public class Loan extends BaseObject {
     public void setTimeFinished(Date timeFinished) {
         this.timeFinished = timeFinished;
     }
-    
+
+    public Duration getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
 }
