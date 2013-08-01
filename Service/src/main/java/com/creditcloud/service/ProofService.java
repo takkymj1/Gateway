@@ -27,6 +27,16 @@ public interface ProofService {
     boolean submitProof(String clientCode, Proof proof);
 
     /**
+     * delete by proof Id,
+     *
+     * @param clientCode
+     * @param proof
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void deleteById(String clientCode, String proofId);
+
+    /**
      * list proof by user id
      *
      * @param clientCode

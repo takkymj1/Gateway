@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.Loan;
 import com.creditcloud.model.LoanRequest;
 import java.util.List;
 import javax.ejb.Remote;
@@ -26,7 +27,18 @@ public interface LoanService {
     int submitLoanRequest(String clientCode, LoanRequest loanRequest);
 
     /**
-     * list loans by user id
+     * cancel a loan request
+     *
+     * @param clientCode
+     * @param requestId
+     * @return true if successful
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    boolean cancelLoanRequest(String clientCode, String requestId);
+
+    /**
+     * list loan request by user id
      *
      * @param clientCode
      * @param userId
@@ -34,5 +46,26 @@ public interface LoanService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<LoanRequest> getListByUserId(String clientCode, String userId);
+    List<LoanRequest> listRequestByUserId(String clientCode, String userId);
+
+    /**
+     * list loan by user id
+     *
+     * @param clientCode
+     * @param userId
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    List<Loan> listLoanByUserId(String clientCode, String userId);
+
+    /**
+     *
+     * @param clientCode
+     * @param loanId
+     * @return true if successful
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    boolean cancelLoan(String clientCode, String loanId);
 }
