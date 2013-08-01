@@ -7,7 +7,9 @@ package com.creditcloud.common.utils;
 import com.creditcloud.model.misc.Duration;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -23,6 +25,8 @@ import static org.junit.Assert.*;
 public class DateUtilsTest {
 
     private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+
+    private static final GregorianCalendar calendar = (GregorianCalendar) Calendar.getInstance();
 
     public DateUtilsTest() {
     }
@@ -74,5 +78,15 @@ public class DateUtilsTest {
         start = sdf.parse("20130730");
         result = DateUtils.listDates(start, end);
         assertEquals(result.size(), 0);
+    }
+
+    @Test
+    public void testGet0OClock() {
+        calendar.set(2013, 8, 1, 1, 2, 3);
+        Date date = calendar.getTime();
+        Date result = DateUtils.get0OClock(date);
+        calendar.set(2013, 8, 1, 0, 0, 0);
+        Date exp = calendar.getTime();
+        assertEquals(result, exp);
     }
 }

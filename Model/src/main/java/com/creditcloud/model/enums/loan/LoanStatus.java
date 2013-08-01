@@ -11,7 +11,8 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author sobranie
  */
-public enum LoanStatus implements BaseEnum  {
+public enum LoanStatus implements BaseEnum {
+
     /**
      * 由LoanRequest转化后的初始状态
      */
@@ -48,10 +49,9 @@ public enum LoanStatus implements BaseEnum  {
      * 逾期未归还，任何一期还款超过dueDate都自动转为此状态
      */
     OVERDUE("逾期");
-    
-    
+
     private final String key;
-    
+
     private LoanStatus(final String key) {
         this.key = key;
     }
@@ -59,5 +59,25 @@ public enum LoanStatus implements BaseEnum  {
     @Override
     public String getKey() {
         return key;
+    }
+
+    /**
+     * check whether a loan can be canceled
+     *
+     * @param status
+     * @return
+     */
+    public static boolean tryCancel(LoanStatus status) {
+        switch (status) {
+            case INITIATED:
+            case SCHEDULED:
+            case OPENED:
+            case FAILED:
+            case FINISHED:
+            case CANCELED:
+                return true;
+        }
+
+        return false;
     }
 }

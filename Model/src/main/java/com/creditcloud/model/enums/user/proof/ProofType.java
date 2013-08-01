@@ -12,8 +12,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ProofType implements BaseEnum {
 
-    IDCARD("身份证明"),//身份证
-    FAMILY("家庭情况证明"),//家庭情况 户口本 可以上传家庭人员身份证明信息
+    ID("身份证明"),//身份证,户口本,驾照,结婚证等个人身份信息
+    CREDITREPORT("信用报告"),//个人信用报告
+    FAMILY("家庭情况证明"),//家庭情况  可以上传家庭人员身份证明信息
     EDUCATION("学历证明"),//最高学历证明
     INCOME("收入证明"),
     CAREER("工作证明"),

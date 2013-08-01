@@ -6,6 +6,7 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.userinfo.CareerInfo;
 import com.creditcloud.model.userinfo.ContactInfo;
+import com.creditcloud.model.userinfo.CreditInfo;
 import com.creditcloud.model.userinfo.FinanceInfo;
 import com.creditcloud.model.userinfo.PersonalInfo;
 import com.creditcloud.model.userinfo.UserInfo;
@@ -103,4 +104,16 @@ public interface UserInfoService {
      * the local client
      */
     void update(String clientCode, String userId, ContactInfo contact);
+
+    /**
+     *
+     * update CreditInfo of userInfo individually
+     *
+     * @param clientCode
+     * @param userId
+     * @param credit
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void update(String clientCode, String userId, CreditInfo credit);
 }
