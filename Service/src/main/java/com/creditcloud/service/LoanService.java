@@ -17,6 +17,21 @@ import javax.ejb.Remote;
 public interface LoanService {
 
     /**
+     * fail to submit loan request
+     */
+    int ADD_FAIL = 0;
+
+    /**
+     * succeed to submit loan request
+     */
+    int ADD_SUCCESS = 1;
+
+    /**
+     * exceed 3 submit in one day
+     */
+    int OUT_OF_MAX_LOAN = 2;
+
+    /**
      *
      * @param clientCode
      * @param loanRequest

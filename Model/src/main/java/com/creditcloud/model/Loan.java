@@ -5,10 +5,9 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
-import com.creditcloud.model.misc.Duration;
 import java.util.Date;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -16,78 +15,42 @@ import javax.validation.constraints.Size;
  */
 public class Loan extends BaseObject {
 
-    /**
-     * UUID
-     */
+    @Id
     private String id;
-
-    @Size(min = 1)
-    private int ordinal;
-
-    @Size(min = 1000, max = 1000000)
-    private int amount;
-
-    @NotNull
-    private Duration duration;
-
-    @Size(max = 72)
-    private int timeout;
-
-    @NotNull
-    private LoanStatus status;
 
     @NotNull
     private LoanRequest loanRequest;
 
+    @NotNull
+    private String userId;
+
+    @NotNull
+    private LoanStatus status;
+    
+    //当前已募集额
+    private int amount;
+
+    //开放募集时间，单位：小时 timeout = 24 就是募集期为1天 最长3天
+    @NotNull
+    private int timeout;
+
+    //开始募集时间
+    @NotNull
     private Date timeOpen;
 
+    //募集成功结束时间
+    @NotNull
     private Date timeFinished;
 
     public Loan() {
     }
 
-    public Loan(String id,
-                int ordinal,
-                int amount,
-                Duration duration,
-                int timeout,
-                LoanStatus status,
-                LoanRequest loanRequest,
-                Date timeOpen,
-                Date timeFinished) {
-        this.id = id;
-        this.ordinal = ordinal;
-        this.amount = amount;
-        this.duration = duration;
-        this.timeout = timeout;
-        this.status = status;
+    public Loan(LoanRequest loanRequest, LoanStatus status, int timeout) {
+        this.id = loanRequest.getId();
+        this.userId = loanRequest.getUserId();
         this.loanRequest = loanRequest;
-        this.timeOpen = timeOpen;
-        this.timeFinished = timeFinished;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getOrdinal() {
-        return ordinal;
-    }
-
-    public void setOrdinal(int ordinal) {
-        this.ordinal = ordinal;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
+        this.status = status;
+        this.timeout = timeout;
     }
 
     public int getTimeout() {
@@ -130,11 +93,28 @@ public class Loan extends BaseObject {
         this.timeFinished = timeFinished;
     }
 
-    public Duration getDuration() {
-        return duration;
+    public String getId() {
+        return id;
     }
 
-    public void setDuration(Duration duration) {
-        this.duration = duration;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
 }
