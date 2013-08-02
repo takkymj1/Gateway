@@ -48,7 +48,11 @@ public enum LoanStatus implements BaseEnum {
     /**
      * 逾期未归还，任何一期还款超过dueDate都自动转为此状态
      */
-    OVERDUE("逾期");
+    OVERDUE("逾期"),
+    /**
+     * 贷款违约,剩余贷款无法偿还
+     */
+    BREACH("违约");
 
     private final String key;
 
