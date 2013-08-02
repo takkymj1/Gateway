@@ -15,7 +15,8 @@ public enum RepaymentStatus implements BaseEnum {
     //每期还款的状态
     UNDUE("未到期"),
     OVERDUE("逾期"),
-    REPAYED("已还清"),;
+    BREACH("违约"),
+    REPAYED("已还清");
 
     private final String key;
 
