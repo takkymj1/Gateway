@@ -79,8 +79,9 @@ public final class LoanCalculator {
         BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
         BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
         //dealing with different methods
-        BigDecimal interest, amortizedInterest, amortizedPrincipal;
+        BigDecimal interest, amortizedInterest, amortizedPrincipal, outstandingPrincipal;
         Date dueDate = asOfDate;
+        int tenure;
         switch (method) {
             case BulletRepayment:
                 //add yearly interest
@@ -113,7 +114,7 @@ public final class LoanCalculator {
                 break;
             case EqualInstallment:
                 //times of repayments in months
-                int tenure = duration.getYears() * 12 + duration.getMonths();
+                tenure = duration.getYears() * 12 + duration.getMonths();
                 //pre-calc
                 BigDecimal[] is = new BigDecimal[tenure + 1];
                 for (int i = 0; i <= tenure; i++) {
@@ -129,7 +130,7 @@ public final class LoanCalculator {
                 //create loanDetail
                 result = new LoanDetail(principal, interest, duration, EqualInstallment);
                 //deal with amortized items
-                BigDecimal outstandingPrincipal = principal;
+                outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, RoundingMode.CEILING);
@@ -144,6 +145,40 @@ public final class LoanCalculator {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
                                                                  amortizedInterest,
                                                                  outstandingPrincipal,
+                                                                 dueDate));
+                    }
+                }
+                break;
+            case EqualPrincipal:
+                //times of repayments in months
+                tenure = duration.getYears() * 12 + duration.getMonths();
+                //calc amortized principal first
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, RoundingMode.CEILING);
+                //calc by each month
+                BigDecimal[] interests = new BigDecimal[tenure];
+                BigDecimal[] outstandingPrincipals = new BigDecimal[tenure];
+                outstandingPrincipal = principal;
+                interest = zero;
+                for (int i = 0; i < tenure; i++) {
+                    interests[i] = outstandingPrincipal.multiply(rateMonth, mc).setScale(2, RoundingMode.CEILING);
+                    interest = interest.add(interests[i]);
+                    outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
+                    outstandingPrincipals[i] = outstandingPrincipal;
+                }
+                //create LoanDetail
+                result = new LoanDetail(principal, interest, duration, EqualInstallment);
+                //deal with amortized items
+                for (int i = 0; i < tenure; i++) {
+                    dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    if (i == tenure - 1) {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
+                                                                 interests[i],
+                                                                 zero,
+                                                                 dueDate));
+                    } else {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 interests[i],
+                                                                 outstandingPrincipals[i],
                                                                  dueDate));
                     }
                 }
