@@ -4,13 +4,13 @@
  */
 package com.creditcloud.common.calculator;
 
-import com.creditcloud.common.calculator.LoanDetail.Repayment;
 import com.creditcloud.common.utils.DateUtils;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
-import com.creditcloud.model.misc.Duration;
+import com.creditcloud.model.loan.Duration;
+import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;

@@ -4,7 +4,7 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.model.Invest;
+import com.creditcloud.model.loan.Invest;
 import java.util.List;
 
 /**

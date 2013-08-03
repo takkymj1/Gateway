@@ -4,7 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
-import com.creditcloud.model.misc.Duration;
+import com.creditcloud.model.loan.Duration;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

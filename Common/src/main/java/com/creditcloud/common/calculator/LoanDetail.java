@@ -6,10 +6,10 @@ package com.creditcloud.common.calculator;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.misc.Duration;
+import com.creditcloud.model.loan.Duration;
+import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,42 +72,5 @@ public class LoanDetail extends BaseObject {
 
     public List<Repayment> getRepayments() {
         return repayments;
-    }
-    
-    public static class Repayment extends BaseObject {
-        
-        private final BigDecimal amountPrincipal;
-        
-        private final BigDecimal amountInterest;
-        
-        private final BigDecimal amountOutstanding;
-        
-        private Date dueDate;
-
-        public Repayment(BigDecimal amountPrincipal, 
-                         BigDecimal amountInterest, 
-                         BigDecimal amountOutstanding, 
-                         Date dueDate) {
-            this.amountPrincipal = amountPrincipal;
-            this.amountInterest = amountInterest;
-            this.amountOutstanding = amountOutstanding;
-            this.dueDate = dueDate;
-        }
-        
-        public BigDecimal getAmountPrincipal() {
-            return amountPrincipal;
-        }
-
-        public BigDecimal getAmountInterest() {
-            return amountInterest;
-        }
-
-        public BigDecimal getAmountOutstanding() {
-            return amountOutstanding;
-        }
-
-        public Date getDate() {
-            return dueDate;
-        }
     }
 }

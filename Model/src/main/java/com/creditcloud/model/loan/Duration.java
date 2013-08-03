@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.misc;
+package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import static com.creditcloud.model.constant.TimeConstant.*;

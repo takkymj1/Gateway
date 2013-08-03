@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model;
+package com.creditcloud.model.loan;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
-import com.creditcloud.model.misc.Duration;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
