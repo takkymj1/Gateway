@@ -4,9 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
-import com.creditcloud.model.constant.TimeConstant;
-import com.creditcloud.model.misc.Duration;
-import java.text.SimpleDateFormat;
+import com.creditcloud.model.loan.Duration;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
