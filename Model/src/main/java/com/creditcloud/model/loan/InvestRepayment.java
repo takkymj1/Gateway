@@ -33,6 +33,18 @@ public class InvestRepayment extends BaseObject {
     @NotNull
     private Repayment repayment;
 
+    public InvestRepayment(String id,
+                           Invest invest,
+                           int totalPeriod,
+                           int currentPeriod,
+                           Repayment repayment) {
+        this.id = id;
+        this.invest = invest;
+        this.totalPeriod = totalPeriod;
+        this.currentPeriod = currentPeriod;
+        this.repayment = repayment;
+    }
+
     public int getTotalPeriod() {
         return totalPeriod;
     }

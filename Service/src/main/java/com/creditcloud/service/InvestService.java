@@ -5,6 +5,8 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.loan.Invest;
+import com.creditcloud.model.loan.InvestRepayment;
+import com.creditcloud.model.loan.Loan;
 import java.util.List;
 
 /**
@@ -14,27 +16,65 @@ import java.util.List;
 public interface InvestService {
 
     /**
-     * 
+     * add new Invest
+     *
      * @param clientCode
      * @param invest
-     * @return 
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
-    boolean submitInvest(String clientCode, Invest invest);
+    void submitInvest(String clientCode, Invest invest);
 
     /**
-     * 
+     * update an Invest
+     *
+     * @param clientCode
+     * @param invest
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void update(String clientCode, Invest invest);
+
+    /**
+     * list Invest by user Id
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
-    List<Invest> listbyUserId(String clientCode, String userId);
+    List<Invest> listInvestbyUserId(String clientCode, String userId);
 
     /**
-     * 
+     * list Invest by loan Id
+     *
      * @param clientCode
      * @param loanId
-     * @return 
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
      */
-    List<Invest> listByLoanId(String clientCode, String loanId);
-    
+    List<Invest> listInvestByLoanId(String clientCode, String loanId);
+
+    /**
+     * list InvestRepayment by invest id
+     *
+     * @param clientCode
+     * @param investId
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    List<InvestRepayment> listRepayByInvestId(String clientCode, String investId);
+
+    /**
+     * settle invest related to a loan, generate corresponding InvestRepayment
+     *
+     * @param clientCode
+     * @param loan
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void settle(String clientCode, Loan loan);
 }
