@@ -5,7 +5,9 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.User;
 import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
@@ -21,7 +23,7 @@ public class Invest extends BaseObject {
     private String id;
 
     @NotNull
-    private String userId;
+    private User user;
 
     @NotNull
     private String loanId;
@@ -36,6 +38,9 @@ public class Invest extends BaseObject {
     private Duration duration;
 
     @NotNull
+    private RepaymentMethod method;
+
+    @NotNull
     private InvestStatus status;
 
     @NotNull
@@ -46,25 +51,23 @@ public class Invest extends BaseObject {
     }
 
     public Invest(String id,
-                  String userId,
+                  User user,
                   String loanId,
                   int amount,
                   int rate,
                   Duration duration,
+                  RepaymentMethod method,
                   InvestStatus status,
                   Date submitTime) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.loanId = loanId;
         this.amount = amount;
         this.rate = rate;
         this.duration = duration;
+        this.method = method;
         this.status = status;
         this.submitTime = submitTime;
-    }
-
-    public String getUserId() {
-        return userId;
     }
 
     public int getAmount() {
@@ -73,10 +76,6 @@ public class Invest extends BaseObject {
 
     public InvestStatus getStatus() {
         return status;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public void setAmount(int amount) {
@@ -125,5 +124,21 @@ public class Invest extends BaseObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public RepaymentMethod getMethod() {
+        return method;
+    }
+
+    public void setMethod(RepaymentMethod method) {
+        this.method = method;
     }
 }

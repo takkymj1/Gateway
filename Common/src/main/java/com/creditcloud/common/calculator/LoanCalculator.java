@@ -38,26 +38,6 @@ public final class LoanCalculator {
     private static final MathContext mc = new MathContext(16, RoundingMode.HALF_UP);
 
     /**
-     * 计算分几期
-     *
-     * @param durationInDays
-     * @param method
-     * @return
-     */
-    public static int amortize(final int durationInDays,
-                               final RepaymentMethod method) {
-        int result = 0;
-        if (method == RepaymentMethod.BulletRepayment) {
-            result = 1;
-        } else { //等额本息或按月付息还本
-            Duration duration = new Duration(durationInDays);
-            result += duration.getYears() * 12;
-            result += duration.getMonths();
-        }
-        return result;
-    }
-
-    /**
      *
      * @param amount
      * @param duration

@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
  */
 public class LoanRepayment extends BaseObject {
 
-    //贷款id
     @Id
     private String id;
 
@@ -34,6 +33,20 @@ public class LoanRepayment extends BaseObject {
     public Loan getLoan() {
         return loan;
     }
+
+    public LoanRepayment(String id, 
+                         Loan loan, 
+                         int totalPeriod, 
+                         int currentPeriod, 
+                         Repayment repayment) {
+        this.id = id;
+        this.loan = loan;
+        this.totalPeriod = totalPeriod;
+        this.currentPeriod = currentPeriod;
+        this.repayment = repayment;
+    }
+    
+    
 
     public int getTotalPeriod() {
         return totalPeriod;

@@ -17,10 +17,6 @@ public enum InvestStatus implements BaseEnum {
      */
     PROPOSED("申请投标"),
     /**
-     * 账户可用资金不足
-     */
-    INSUFFIENT("账户资金不足"),
-    /**
      * 抢标成功,资金被冻结等待募集期结束时结算
      */
     FROZEN("账户资金冻结"),
@@ -33,13 +29,17 @@ public enum InvestStatus implements BaseEnum {
      */
     FINISHED("投标成功"),
     /**
+     * 被后台取消
+     */
+    CANECELED("已取消"),
+    /**
      * 完成资金结算,借贷关系确立
      */
     SETTLED("已结算"),
     /**
-     * 正在还款中
+     * 收回所有本息
      */
-    REPAYING("还款中"),
+    CLEARED("还款完成"),
     /**
      * 还款逾期
      */
@@ -47,15 +47,7 @@ public enum InvestStatus implements BaseEnum {
     /**
      * 贷款违约,剩余贷款无法偿还
      */
-    BREACH("违约"),
-    /**
-     * 收回所有本息
-     */
-    RECLAIMED("还款完成"),
-    /**
-     * 被后台取消
-     */
-    CANECELED("已取消");
+    BREACH("违约");
 
     private final String key;
 
@@ -71,7 +63,6 @@ public enum InvestStatus implements BaseEnum {
     public static boolean tryCancel(InvestStatus status) {
         switch (status) {
             case PROPOSED:
-            case INSUFFIENT:
             case FROZEN:
             case FAILED:
             case FINISHED:
