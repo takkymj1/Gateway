@@ -6,13 +6,14 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.InvestRepayment;
-import com.creditcloud.model.loan.Loan;
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
+@Remote
 public interface InvestService {
 
     /**
@@ -67,14 +68,4 @@ public interface InvestService {
      * the local client
      */
     List<InvestRepayment> listRepayByInvestId(String clientCode, String investId);
-
-    /**
-     * settle invest related to a loan, generate corresponding InvestRepayment
-     *
-     * @param clientCode
-     * @param loan
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void settle(String clientCode, Loan loan);
 }
