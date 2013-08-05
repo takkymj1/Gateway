@@ -6,7 +6,6 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
-import com.creditcloud.model.loan.LoanRequest;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -15,65 +14,27 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface LoanService {
+public interface LoanService extends LoanRequestService {
 
     /**
-     * fail to submit loan request
-     */
-    int ADD_FAIL = 0;
-
-    /**
-     * succeed to submit loan request
-     */
-    int ADD_SUCCESS = 1;
-
-    /**
-     * exceed 3 submit in one day
-     */
-    int OUT_OF_MAX_LOAN = 2;
-
-    /**
+     * submit a new loan
      *
      * @param clientCode
-     * @param loanRequest
-     * @return 0 for failure, 1 for success, 2 for exceed 3 submit in one day
+     * @param loan
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    int submitLoanRequest(String clientCode, LoanRequest loanRequest);
+    void submitLoan(String clientCode, Loan loan);
 
     /**
-     * get LoanRequest by id
+     * update loan
      *
      * @param clientCode
-     * @param requestId
-     * @return LoanRequest
+     * @param loan
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    LoanRequest getRequestById(String clientCode, String requestId);
-
-    /**
-     * cancel a loan request
-     *
-     * @param clientCode
-     * @param requestId
-     * @return true if successful
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    boolean cancelLoanRequest(String clientCode, String requestId);
-
-    /**
-     * list loan request by user id
-     *
-     * @param clientCode
-     * @param userId
-     * @return empty result is no loan found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<LoanRequest> listRequestByUserId(String clientCode, String userId);
+    void update(String clientCode, Loan loan);
 
     /**
      * get Loan by id
@@ -128,4 +89,14 @@ public interface LoanService {
      * the local client
      */
     List<LoanRepayment> listRepayByLoanId(String clientCode, String loanId);
+
+    /**
+     * settle loan, generate corresponding LoanRepayment
+     *
+     * @param clientCode
+     * @param loanId
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void settle(String clientCode, String loanId);
 }

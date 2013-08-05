@@ -7,11 +7,13 @@ package com.creditcloud.service;
 import com.creditcloud.model.enums.loan.BidResult;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
+import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
+@Remote
 public interface BidService {
 
     /**
