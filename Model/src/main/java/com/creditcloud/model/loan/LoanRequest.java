@@ -5,6 +5,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.User;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
@@ -28,7 +29,7 @@ public class LoanRequest extends BaseObject {
      * 用户ID
      */
     @NotNull
-    private String userId;
+    private User user;
 
     /**
      * title
@@ -96,7 +97,7 @@ public class LoanRequest extends BaseObject {
     /**
      * 
      * @param id    LoanRequest Id, nullable
-     * @param userId    用户ID
+     * @param user    用户
      * @param title     title
      * @param purpose   目的
      * @param amount    金额
@@ -109,7 +110,7 @@ public class LoanRequest extends BaseObject {
      * @param assignee  员工ID, nullable
      */
     public LoanRequest(String id, 
-                       String userId,
+                       User user,
                        String title,
                        LoanPurpose purpose,
                        int amount,
@@ -121,7 +122,7 @@ public class LoanRequest extends BaseObject {
                        Date timeSubmit, 
                        String assignee) {
         this.id = id;
-        this.userId = userId;
+        this.user = user;
         this.title = title;
         this.purpose = purpose;
         this.amount = amount;
@@ -151,19 +152,19 @@ public class LoanRequest extends BaseObject {
     }
 
     /**
-     * 用户ID
-     * @return the userId
+     * 用户
+     * @return the user
      */
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * 用户ID
-     * @param userId the userId to set
+     * 用户
+     * @param user the user to set
      */
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
