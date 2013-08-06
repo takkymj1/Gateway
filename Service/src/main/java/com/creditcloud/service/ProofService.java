@@ -34,16 +34,5 @@ public interface ProofService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void deleteById(String clientCode, String proofId);
-
-    /**
-     * list proof by user id
-     *
-     * @param clientCode
-     * @param userId
-     * @return empty list if found nothing
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<Proof> listByUserId(String clientCode, String userId);
+    void deleteProofById(String clientCode, String proofId);
 }

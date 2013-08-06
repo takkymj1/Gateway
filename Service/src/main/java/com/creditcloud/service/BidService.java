@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.Invest;
 import javax.ejb.Remote;
 
 /**
+ * operations concerning cooperation between LoanService and InvestService
  *
  * @author rooseek
  */

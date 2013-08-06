@@ -4,14 +4,17 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.enums.user.proof.ProofContent;
-import com.creditcloud.model.enums.user.proof.ProofSource;
-import com.creditcloud.model.enums.user.proof.ProofStatus;
-import com.creditcloud.model.enums.user.proof.ProofType;
+import com.creditcloud.model.enums.user.credit.ProofContent;
+import com.creditcloud.model.enums.user.credit.ProofSource;
 import java.util.Date;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.ws.rs.FormParam;
 
 /**
  *
@@ -19,168 +22,49 @@ import javax.validation.constraints.Size;
  */
 public class Proof extends BaseObject {
 
-    private String id;
-
-    //the user related to this proof
-    @NotNull
-    private String userId;
-
-    // 证明类型
-    @NotNull
-    private ProofType type;
+    @ManyToOne
+    @JoinColumn(name = "CERTIFICATE_ID")
+    private Certificate certificate;
 
     //证明标题
-    @NotNull
-    @Size(min = 4, max = 60)
+    @FormParam("title")
+    @Column(nullable = false, length = 60)
     private String title;
 
     //证明内容类型
-    @NotNull
+    @FormParam("content")
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ProofContent content;
 
     //证明内容
-    @NotNull
+    @FormParam("proof")
+    @Column(nullable = false)
     private String proof;
 
     // 证明描述
-    @Size(max = 500)
+    @FormParam("description")
+    @Column(nullable = true, length = 500)
     private String description;
 
     //证明来源
-    @NotNull
+    @FormParam("source")
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ProofSource source;
 
     //提交时间
-    @NotNull
-    @Past
+    @FormParam("submitTime")
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date submitTime;
 
-    //上传证明的员工,如果是用户本人上传则为用户id,如果是员工则存储员工id
-    @NotNull
+    //上传证明的员工,如果是用户本人上传则为空
+    @FormParam("employeeId")
+    @Column(nullable = false)
     private String employee;
 
-    //证明状态
-    @NotNull
-    private ProofStatus status;
-
-    //证明信息审核人
-    private String auditor;
-
-    //审核人审核备注信息
-    @Size(max = 500)
-    private String auditInfo;
-
-    public Proof(String id,
-                 String userId,
-                 ProofType type,
-                 String title,
-                 ProofContent content,
-                 String proof,
-                 String description,
-                 ProofSource source,
-                 Date submitTime,
-                 String employee,
-                 ProofStatus status) {
-        this(id, userId, type, title, content, proof, description, source, submitTime, employee, status, null, null);
-    }
-
-    /**
-     *
-     * @param id 证明Id,可以为空
-     * @param userId 用戶Id
-     * @param type 证明类型
-     * @param title 证明标题
-     * @param content 证明内容类型
-     * @param proof 证明内容
-     * @param description 证明描述,可以为空
-     * @param source 证明来源
-     * @param submitTime 提交时间
-     * @param employee 上传证明的员工,如果是用户本人上传则为空
-     * @param status 证明状态
-     * @param auditor 证明信息审核人,可以为空
-     * @param auditInfo 审核人审核备注信息,可以为空
-     */
-    public Proof(String id,
-                 String userId,
-                 ProofType type,
-                 String title,
-                 ProofContent content,
-                 String proof,
-                 String description,
-                 ProofSource source,
-                 Date submitTime,
-                 String employee,
-                 ProofStatus status,
-                 String auditor, 
-                 String auditInfo) {
-        this.id = id;
-        this.userId = userId;
-        this.type = type;
-        this.title = title;
-        this.content = content;
-        this.proof = proof;
-        this.description = description;
-        this.source = source;
-        this.employee = employee;
-        this.status = status;
-        this.auditor = auditor;
-        this.auditInfo = auditInfo;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public ProofType getType() {
-        return type;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public ProofContent getContent() {
-        return content;
-    }
-
-    public String getProof() {
-        return proof;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public ProofSource getSource() {
-        return source;
-    }
-
-    public Date getSubmitTime() {
-        return submitTime;
-    }
-
-    public String getEmployee() {
-        return employee;
-    }
-
-    public ProofStatus getStatus() {
-        return status;
-    }
-
-    public String getAuditor() {
-        return auditor;
-    }
-
-    public String getAuditInfo() {
-        return auditInfo;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setType(ProofType type) {
-        this.type = type;
+    public Proof() {
     }
 
     public void setTitle(String title) {
@@ -203,31 +87,47 @@ public class Proof extends BaseObject {
         this.source = source;
     }
 
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
+    public String getTitle() {
+        return title;
+    }
+
+    public ProofContent getContent() {
+        return content;
+    }
+
+    public String getProof() {
+        return proof;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ProofSource getSource() {
+        return source;
+    }
+
+    public String getEmployee() {
+        return employee;
     }
 
     public void setEmployee(String employee) {
         this.employee = employee;
     }
 
-    public void setStatus(ProofStatus status) {
-        this.status = status;
+    public Date getSubmitTime() {
+        return submitTime;
     }
 
-    public void setAuditor(String auditor) {
-        this.auditor = auditor;
+    public void setSubmitTime(Date submitTime) {
+        this.submitTime = submitTime;
     }
 
-    public void setAuditInfo(String auditInfo) {
-        this.auditInfo = auditInfo;
+    public Certificate getCertificate() {
+        return certificate;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setCertificate(Certificate certificate) {
+        this.certificate = certificate;
     }
 }

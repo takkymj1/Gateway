@@ -14,7 +14,7 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanRequestService {
-    
+
     /**
      * fail to submit loan request
      */

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.user.proof;
+package com.creditcloud.model.enums.user.credit;
 
 import com.creditcloud.model.enums.BaseEnum;
 
@@ -10,8 +10,8 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum ProofStatus implements BaseEnum {
-
+public enum CertificateStatus implements BaseEnum {
+    
     UNCHECKED("未审核"),
     CHECKED("审核通过"),
     DENIED("审核未通过"),
@@ -20,7 +20,7 @@ public enum ProofStatus implements BaseEnum {
 
     private final String key;
 
-    private ProofStatus(String key) {
+    private CertificateStatus(String key) {
         this.key = key;
     }
 
