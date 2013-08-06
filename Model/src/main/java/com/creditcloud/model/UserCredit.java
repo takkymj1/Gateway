@@ -13,12 +13,13 @@ import javax.validation.constraints.NotNull;
  *
  * @author rooseek
  */
-public class Credit extends BaseObject {
+public class UserCredit extends BaseObject {
+
     @Id
-    private String id;
+    private String userId;
 
     @NotNull
-    private String userId;
+    private User user;
 
     //信用等级
     @NotNull
@@ -36,7 +37,7 @@ public class Credit extends BaseObject {
     @NotNull
     private int creditAvailable;
 
-    public Credit() {
+    public UserCredit() {
     }
 
     public CreditRank getCreditRank() {
@@ -79,7 +80,11 @@ public class Credit extends BaseObject {
         return userId;
     }
 
-    public String getId() {
-        return id;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

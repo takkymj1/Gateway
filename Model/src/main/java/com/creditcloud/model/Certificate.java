@@ -20,7 +20,7 @@ public class Certificate extends BaseObject {
     private String id;
 
     @NotNull
-    private Credit credit;
+    private UserCredit credit;
 
     //认证类型
     @NotNull
@@ -42,7 +42,7 @@ public class Certificate extends BaseObject {
     //审核人审核备注信息
     private String auditInfo;
 
-    public Credit getCredit() {
+    public UserCredit getCredit() {
         return credit;
     }
 
@@ -54,7 +54,7 @@ public class Certificate extends BaseObject {
         return score;
     }
 
-    public void setCredit(Credit credit) {
+    public void setCredit(UserCredit credit) {
         this.credit = credit;
     }
 
