@@ -34,7 +34,7 @@ public interface LoanService extends LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void update(String clientCode, Loan loan);
+    void updateLoan(String clientCode, Loan loan);
 
     /**
      * get Loan by id
@@ -98,5 +98,13 @@ public interface LoanService extends LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void settle(String clientCode, String loanId);
+    void settleLoan(String clientCode, String loanId);
+
+    /**
+     * list all loans
+     *
+     * @param clientCode
+     * @return
+     */
+    List<Loan> listAllLoans(String clientCode);
 }

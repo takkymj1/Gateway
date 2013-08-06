@@ -15,7 +15,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService {
+public interface UserService extends UserInfoService{
 
     /**
      * list all users for client

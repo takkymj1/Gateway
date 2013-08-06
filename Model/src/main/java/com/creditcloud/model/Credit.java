@@ -2,17 +2,23 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.userinfo;
+package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.CreditRank;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 用户信用及认证
  *
  * @author rooseek
  */
-public class CreditInfo extends BaseObject {
+public class Credit extends BaseObject {
+    @Id
+    private String id;
+
+    @NotNull
+    private String userId;
 
     //信用等级
     @NotNull
@@ -30,24 +36,7 @@ public class CreditInfo extends BaseObject {
     @NotNull
     private int creditAvailable;
 
-    public CreditInfo() {
-    }
-
-    /**
-     *
-     * @param creditRank 信用等级
-     * @param creditScore 信用评分
-     * @param creditLimit 信用额度
-     * @param creditAvailable 可用额度
-     */
-    public CreditInfo(CreditRank creditRank,
-                      int creditScore,
-                      int creditLimit,
-                      int creditAvailable) {
-        this.creditRank = creditRank;
-        this.creditScore = creditScore;
-        this.creditLimit = creditLimit;
-        this.creditAvailable = creditAvailable;
+    public Credit() {
     }
 
     public CreditRank getCreditRank() {
@@ -80,5 +69,17 @@ public class CreditInfo extends BaseObject {
 
     public void setCreditAvailable(int creditAvailable) {
         this.creditAvailable = creditAvailable;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getId() {
+        return id;
     }
 }

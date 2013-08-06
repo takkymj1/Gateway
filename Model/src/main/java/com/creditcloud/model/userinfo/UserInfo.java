@@ -33,9 +33,6 @@ public class UserInfo extends BaseObject {
     @NotNull
     private ContactInfo contact;
 
-    @NotNull
-    private CreditInfo credit;
-
     public UserInfo() {
     }
 
@@ -46,21 +43,18 @@ public class UserInfo extends BaseObject {
      * @param finance 个人资产及财务信息
      * @param career 工作信息
      * @param contact 联系人信息
-     * @param credit 信用信息,用戶无权设定,可以为空
      */
     public UserInfo(User user,
                     PersonalInfo personal,
                     FinanceInfo finance,
                     CareerInfo career,
-                    ContactInfo contact,
-                    CreditInfo credit) {
+                    ContactInfo contact) {
         this.userId = user.getId();
         this.user = user;
         this.personal = personal;
         this.finance = finance;
         this.career = career;
         this.contact = contact;
-        this.credit = credit;
     }
 
     public void setUserId(String userId) {
@@ -109,13 +103,5 @@ public class UserInfo extends BaseObject {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public CreditInfo getCredit() {
-        return credit;
-    }
-
-    public void setCredit(CreditInfo credit) {
-        this.credit = credit;
     }
 }
