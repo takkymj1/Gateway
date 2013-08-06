@@ -22,7 +22,7 @@ public enum CertificateType implements BaseEnum {
     LOCATION("居住地认证"),
     CAR("购车认证"),
     MOBILE("手机认证"),
-    D("实地认证"),
+    ON_THE_SPOT("实地认证"),
     OTHERS("其他认证");
 
     private final String key;
