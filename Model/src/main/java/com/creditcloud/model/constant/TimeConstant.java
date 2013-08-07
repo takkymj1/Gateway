@@ -19,4 +19,6 @@ public interface TimeConstant {
     int MONTHS_PER_YEAR = 12;
     
     SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    
+    SimpleDateFormat SIMPLE_CHINESE_DATE_FORMAT = new SimpleDateFormat("yy年M月d日");
 }

@@ -5,6 +5,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Employee;
 import com.creditcloud.model.User;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
@@ -90,9 +91,9 @@ public class LoanRequest extends BaseObject {
     private Date timeSubmit;
 
     /**
-     * 员工ID
+     * 分配员工
      */
-    private String assignee;
+    private Employee assignee;
 
     /**
      * 
@@ -107,7 +108,7 @@ public class LoanRequest extends BaseObject {
      * @param description   描述
      * @param status 状态(初始状态为：UNASSIGNED)
      * @param timeSubmit    提交时间
-     * @param assignee  员工ID, nullable
+     * @param assignee  员工, nullable
      */
     public LoanRequest(String id, 
                        User user,
@@ -120,7 +121,7 @@ public class LoanRequest extends BaseObject {
                        String description, 
                        LoanRequestStatus status,
                        Date timeSubmit, 
-                       String assignee) {
+                       Employee assignee) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -315,7 +316,7 @@ public class LoanRequest extends BaseObject {
      * 员工ID
      * @return the assignee
      */
-    public String getAssignee() {
+    public Employee getAssignee() {
         return assignee;
     }
 
@@ -323,7 +324,7 @@ public class LoanRequest extends BaseObject {
      * 员工ID
      * @param assignee the assignee to set
      */
-    public void setAssignee(String assignee) {
+    public void setAssignee(Employee assignee) {
         this.assignee = assignee;
     }
 
