@@ -10,6 +10,7 @@ import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
 import com.creditcloud.model.loan.Duration;
+import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -166,4 +167,13 @@ public final class LoanCalculator {
         }
         return result;
     }
+
+    public static LoanDetail analyze(LoanRequest request) {
+        return analyze(request.getAmount(),
+                       request.getDuration(),
+                       request.getRate(),
+                       request.getMethod(),
+                       request.getTimeSubmit());
+    }
+
 }
