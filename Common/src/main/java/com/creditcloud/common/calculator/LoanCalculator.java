@@ -168,12 +168,12 @@ public final class LoanCalculator {
         return result;
     }
 
-    public static LoanDetail analyze(LoanRequest request) {
+    public static LoanDetail analyze(LoanRequest request, Date asOfDate) {
         return analyze(request.getAmount(),
                        request.getDuration(),
                        request.getRate(),
                        request.getMethod(),
-                       request.getTimeSubmit());
+                       asOfDate);
     }
 
 }
