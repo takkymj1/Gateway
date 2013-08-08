@@ -19,11 +19,7 @@ public enum MessageType implements BaseEnum {
     /**
      * seen by sender and receiver
      */
-    MESSAGE("私信"),
-    /**
-     * seen by all
-     */
-    COMMENT("评论"),;
+    MESSAGE("私信");
 
     private final String key;
 

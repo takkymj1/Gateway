@@ -25,8 +25,17 @@ public class MessageBody extends BaseEntity {
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
+    @Column(name = "SENT_TIME", nullable = false)
     private Date sentTime;
+
+    public MessageBody() {
+    }
+
+    public MessageBody(String title, String content, Date sentTime) {
+        this.title = title;
+        this.content = content;
+        this.sentTime = sentTime;
+    }
 
     public String getContent() {
         return content;
