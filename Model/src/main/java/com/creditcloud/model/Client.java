@@ -10,32 +10,38 @@ import java.util.Locale;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * 表示客户机构
+ * 
  * @author sobranie
  */
 public class Client extends BaseObject {
+
     /**
      * full name of the client
      */
     @NotNull
     protected String name;
+
     /**
      * 4 characters codes
+     * 唯一标识
      */
     @ClientCode
     protected String code;
+
     /**
      * url
      */
     @Url
     protected String url;
+
     /**
      * locale setting for this client
      */
     @NotNull
     protected Locale locale;
-    
-    public Client(){
+
+    public Client() {
     }
 
     public Client(String name, String code, String url, Locale locale) {
@@ -44,8 +50,6 @@ public class Client extends BaseObject {
         this.url = url;
         this.locale = locale;
     }
-    
-    
 
     public String getName() {
         return name;
