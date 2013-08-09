@@ -17,6 +17,14 @@ public enum MessageType implements BaseEnum {
      */
     NOTIFICATION("系统通知"),
     /**
+     * seen by all, but only store one copy
+     */
+    GLOBAL_BROADCAST("系统广播"),
+    /**
+     * seen by a group of people, but only store one copy
+     */
+    GROUP_BROADCAST("组广播"),
+    /**
      * seen by sender and receiver
      */
     MESSAGE("私信");

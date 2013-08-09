@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.User;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.InvestRepayment;
 import java.util.List;
@@ -68,4 +69,15 @@ public interface InvestService {
      * the local client
      */
     List<InvestRepayment> listRepayByInvestId(String clientCode, String investId);
+
+    /**
+     * list all users who invest in a certain loan
+     *
+     * @param clientCode
+     * @param loanId
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    List<User> listUserByLoanId(String clientCode, String loanId);
 }
