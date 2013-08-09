@@ -19,6 +19,7 @@ public enum LoanRequestStatus implements BaseEnum {
     PENDINGRISK("风控审核"),
     PENDINGAPPORVE("待批准"),
     APPROVED("已批准"),
+    REJECTED("已驳回"),
     PUBLISHED("已发放"),
     ARCHIVED("已存档"),
     DELETED("已刪除");
