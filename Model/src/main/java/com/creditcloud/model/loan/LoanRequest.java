@@ -108,7 +108,6 @@ public class LoanRequest extends BaseObject {
      * @param description   描述
      * @param status 状态(初始状态为：UNASSIGNED)
      * @param timeSubmit    提交时间
-     * @param assignee  员工, nullable
      */
     public LoanRequest(String id, 
                        User user,
@@ -120,8 +119,7 @@ public class LoanRequest extends BaseObject {
                        RepaymentMethod method, 
                        String description, 
                        LoanRequestStatus status,
-                       Date timeSubmit, 
-                       Employee assignee) {
+                       Date timeSubmit) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -133,7 +131,6 @@ public class LoanRequest extends BaseObject {
         this.description = description;
         this.status = status;
         this.timeSubmit = timeSubmit;
-        this.assignee = assignee;
     }
 
     /**
@@ -311,21 +308,4 @@ public class LoanRequest extends BaseObject {
     public void setTimeSubmit(Date timeSubmit) {
         this.timeSubmit = timeSubmit;
     }
-
-    /**
-     * 员工ID
-     * @return the assignee
-     */
-    public Employee getAssignee() {
-        return assignee;
-    }
-
-    /**
-     * 员工ID
-     * @param assignee the assignee to set
-     */
-    public void setAssignee(Employee assignee) {
-        this.assignee = assignee;
-    }
-
 }

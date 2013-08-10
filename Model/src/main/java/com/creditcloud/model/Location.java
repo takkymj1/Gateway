@@ -13,12 +13,23 @@ import javax.validation.constraints.NotNull;
  * @author sobranie
  */
 public class Location {
+    
+    @NotNull
+    private String province;
+    
+    @NotNull
+    private String city;
 
     /**
      * 街道地址
      */
     @NotNull
-    private String address;
+    private String streetAddress;
+    
+    /**
+     * 门牌地址
+     */
+    private String roomAddress;
     
     /**
      * 经度
@@ -33,20 +44,26 @@ public class Location {
     public Location() {
     }
 
-    public Location(String address,
+    public Location(String province,
+                    String city,
+                    String streetAddress,
+                    String roomAddress,
                     BigDecimal longtitude,
                     BigDecimal latitude) {
-        this.address = address;
+        this.province = province;
+        this.city = city;
+        this.streetAddress = streetAddress;
+        this.roomAddress = roomAddress;
         this.longtitude = longtitude;
         this.latitude = latitude;
     }
-
-    public String getAddress() {
-        return address;
+    
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public BigDecimal getLongtitude() {
@@ -63,5 +80,29 @@ public class Location {
 
     public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getRoomAddress() {
+        return roomAddress;
+    }
+
+    public void setRoomAddress(String roomAddress) {
+        this.roomAddress = roomAddress;
     }
 }

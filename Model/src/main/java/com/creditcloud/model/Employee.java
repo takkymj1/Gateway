@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.client.Branch;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
@@ -11,6 +12,7 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.ws.rs.FormParam;
 
 /**
  * This may be used in both Manager and Agent
@@ -19,28 +21,35 @@ import javax.validation.constraints.Past;
  */
 public class Employee extends BaseObject {
     
-    @NotNull
+    @FormParam("id")
     private String id;
     
     @ClientCode
     private String clientCode;
 
+    @FormParam("loginName")
     @LoginName
     private String loginName;
 
+    @FormParam("employeeId")
     private String employeeId;
 
+    @FormParam("name")
     @RealName
     private String name;
 
+    @FormParam("mobile")
     @MobileNumber
     private String mobile;
+    
+    /**
+     * 员工所属分支机构
+     */
+    private Branch branch;
 
-    @NotNull
     @Past
     private Date registerDate;
 
-    @NotNull
     @Past
     private Date lastLoginDate;
     
@@ -109,5 +118,13 @@ public class Employee extends BaseObject {
 
     public void setClientCode(String clientCode) {
         this.clientCode = clientCode;
+    }
+
+    public Branch getBranch() {
+        return branch;
+    }
+
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 }
