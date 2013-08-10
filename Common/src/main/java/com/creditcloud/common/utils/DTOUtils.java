@@ -5,6 +5,7 @@
 package com.creditcloud.common.utils;
 
 import com.creditcloud.common.entities.embedded.Duration;
+import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.Repayment;
 
 /**
@@ -65,6 +66,34 @@ public class DTOUtils {
                                    repayment.getAmountOutstanding(),
                                    repayment.getDueDate(),
                                    repayment.getStatus());
+        }
+        return result;
+    }
+    
+    public static com.creditcloud.model.Location getLocationDTO(Location location) {
+        com.creditcloud.model.Location result = null;
+        if (location != null) {
+            result = new com.creditcloud.model.Location();
+            result.setProvince(location.getProvince());
+            result.setCity(location.getCity());
+            result.setLatitude(location.getLatitude());
+            result.setLongtitude(location.getLongtitude());
+            result.setStreetAddress(location.getStreetAddress());
+            result.setRoomAddress(location.getRoomAddress());
+        }
+        return result;
+    }
+
+    public static Location convertLocationDTO(com.creditcloud.model.Location location) {
+        Location result = null;
+        if (location != null) {
+            result = new Location();
+            result.setProvince(location.getProvince());
+            result.setCity(location.getCity());
+            result.setLatitude(location.getLatitude());
+            result.setLongtitude(location.getLongtitude());
+            result.setStreetAddress(location.getStreetAddress());
+            result.setRoomAddress(location.getRoomAddress());
         }
         return result;
     }
