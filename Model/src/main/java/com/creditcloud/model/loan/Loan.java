@@ -46,6 +46,8 @@ public class Loan extends BaseObject {
 
     private Date timeFinished;
 
+    private boolean mortgaged;
+
     public Loan() {
     }
 
@@ -58,7 +60,8 @@ public class Loan extends BaseObject {
                 LoanStatus status,
                 LoanRequest loanRequest,
                 Date timeOpen,
-                Date timeFinished) {
+                Date timeFinished,
+                boolean mortgaged) {
         this.id = id;
         this.ordinal = ordinal;
         this.amount = amount;
@@ -69,6 +72,7 @@ public class Loan extends BaseObject {
         this.loanRequest = loanRequest;
         this.timeOpen = timeOpen;
         this.timeFinished = timeFinished;
+        this.mortgaged = mortgaged;
     }
 
     public String getId() {
@@ -149,5 +153,13 @@ public class Loan extends BaseObject {
 
     public void setBalance(int balance) {
         this.balance = balance;
+    }
+
+    public boolean isMortgaged() {
+        return mortgaged;
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        this.mortgaged = mortgaged;
     }
 }

@@ -94,6 +94,8 @@ public class LoanRequest extends BaseObject {
      * 分配员工
      */
     private Employee assignee;
+    
+    private boolean mortgaged;
 
     /**
      * 
@@ -119,7 +121,8 @@ public class LoanRequest extends BaseObject {
                        RepaymentMethod method, 
                        String description, 
                        LoanRequestStatus status,
-                       Date timeSubmit) {
+                       Date timeSubmit,
+                       boolean mortgaged) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -131,6 +134,7 @@ public class LoanRequest extends BaseObject {
         this.description = description;
         this.status = status;
         this.timeSubmit = timeSubmit;
+        this.mortgaged = mortgaged;
     }
 
     /**
@@ -307,5 +311,21 @@ public class LoanRequest extends BaseObject {
      */
     public void setTimeSubmit(Date timeSubmit) {
         this.timeSubmit = timeSubmit;
+    }
+
+    public Employee getAssignee() {
+        return assignee;
+    }
+
+    public boolean isMortgaged() {
+        return mortgaged;
+    }
+
+    public void setAssignee(Employee assignee) {
+        this.assignee = assignee;
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        this.mortgaged = mortgaged;
     }
 }
