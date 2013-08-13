@@ -88,6 +88,10 @@
                             <groupId>com.creditcloud.dictionary</groupId>
                             <artifactId>DictionaryService</artifactId>
                         </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.message</groupId>
+                            <artifactId>MessageService</artifactId>
+                        </ejbModule>
                     </modules>
                 </configuration>
             </plugin>
