@@ -10,20 +10,14 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum MessageType implements BaseEnum {
+public enum MessageRealm implements BaseEnum {
 
-    /**
-     * seen by receiver
-     */
-    NOTIFICATION("系统通知"),
-    /**
-     * seen by sender and receiver
-     */
-    MESSAGE("私信");
+    USER("用戶"),
+    EMPLOYEE("员工");
 
     private final String key;
 
-    private MessageType(String key) {
+    private MessageRealm(String key) {
         this.key = key;
     }
 

@@ -13,10 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum MessageStatus implements BaseEnum {
 
     NEW("新消息"),
-    READ("已读");
-//    SENDER_DELETED("发送人删除"),
-//    RECEIVER_DELETED("收信人删除"),
-//    ALL_DELETED("已删除");
+    READ("已读"),
+    DELETED("已刪除");
 
     private final String key;
 
