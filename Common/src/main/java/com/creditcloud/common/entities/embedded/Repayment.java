@@ -5,13 +5,10 @@
 package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
-import com.creditcloud.model.enums.loan.RepaymentStatus;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,10 +32,6 @@ public class Repayment extends BaseEntity {
     @Column(nullable = false)
     private Date dueDate;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
-    private RepaymentStatus status;
-
     public Repayment() {
     }
 
@@ -46,19 +39,10 @@ public class Repayment extends BaseEntity {
                      BigDecimal amountInterest,
                      BigDecimal amountOutstanding,
                      Date dueDate) {
-        this(amountPrincipal, amountInterest, amountOutstanding, dueDate, null);
-    }
-
-    public Repayment(BigDecimal amountPrincipal,
-                     BigDecimal amountInterest,
-                     BigDecimal amountOutstanding,
-                     Date dueDate,
-                     RepaymentStatus status) {
         this.amountPrincipal = amountPrincipal;
         this.amountInterest = amountInterest;
         this.amountOutstanding = amountOutstanding;
         this.dueDate = dueDate;
-        this.status = status;
     }
 
     public BigDecimal getAmountPrincipal() {
@@ -77,10 +61,6 @@ public class Repayment extends BaseEntity {
         return dueDate;
     }
 
-    public RepaymentStatus getStatus() {
-        return status;
-    }
-
     public void setAmountPrincipal(BigDecimal amountPrincipal) {
         this.amountPrincipal = amountPrincipal;
     }
@@ -95,9 +75,5 @@ public class Repayment extends BaseEntity {
 
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
-    }
-
-    public void setStatus(RepaymentStatus status) {
-        this.status = status;
     }
 }

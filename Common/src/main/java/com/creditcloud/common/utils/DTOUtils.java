@@ -52,8 +52,7 @@ public class DTOUtils {
             result = new com.creditcloud.model.loan.Repayment(repayment.getAmountPrincipal(),
                                                               repayment.getAmountInterest(),
                                                               repayment.getAmountOutstanding(),
-                                                              repayment.getDueDate(),
-                                                              repayment.getStatus());
+                                                              repayment.getDueDate());
         }
         return result;
     }
@@ -64,8 +63,7 @@ public class DTOUtils {
             result = new Repayment(repayment.getAmountPrincipal(),
                                    repayment.getAmountInterest(),
                                    repayment.getAmountOutstanding(),
-                                   repayment.getDueDate(),
-                                   repayment.getStatus());
+                                   repayment.getDueDate());
         }
         return result;
     }

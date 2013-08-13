@@ -5,6 +5,9 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.loan.RepaymentStatus;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -21,35 +24,43 @@ public class LoanRepayment extends BaseObject {
     @NotNull
     private Loan loan;
 
-    @NotNull
-    private int totalPeriod;
-
+    //还款第几期
     @NotNull
     private int currentPeriod;
 
+    //应还款
     @NotNull
     private Repayment repayment;
+
+    //回款状态
+    @NotNull
+    private RepaymentStatus status;
+
+    //实际回款
+    @NotNull
+    private BigDecimal repayAmount;
+
+    //实际回款日期
+    private Date repayDate;
 
     public Loan getLoan() {
         return loan;
     }
 
-    public LoanRepayment(String id, 
-                         Loan loan, 
-                         int totalPeriod, 
-                         int currentPeriod, 
-                         Repayment repayment) {
+    public LoanRepayment(String id,
+                         Loan loan,
+                         int currentPeriod,
+                         Repayment repayment,
+                         RepaymentStatus status,
+                         BigDecimal repayAmount,
+                         Date repayDate) {
         this.id = id;
         this.loan = loan;
-        this.totalPeriod = totalPeriod;
         this.currentPeriod = currentPeriod;
         this.repayment = repayment;
-    }
-    
-    
-
-    public int getTotalPeriod() {
-        return totalPeriod;
+        this.status = status;
+        this.repayAmount = repayAmount;
+        this.repayDate = repayDate;
     }
 
     public int getCurrentPeriod() {
@@ -58,10 +69,6 @@ public class LoanRepayment extends BaseObject {
 
     public void setLoan(Loan loan) {
         this.loan = loan;
-    }
-
-    public void setTotalPeriod(int totalPeriod) {
-        this.totalPeriod = totalPeriod;
     }
 
     public void setCurrentPeriod(int currentPeriod) {
@@ -82,5 +89,29 @@ public class LoanRepayment extends BaseObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public RepaymentStatus getStatus() {
+        return status;
+    }
+
+    public BigDecimal getRepayAmount() {
+        return repayAmount;
+    }
+
+    public Date getRepayDate() {
+        return repayDate;
+    }
+
+    public void setStatus(RepaymentStatus status) {
+        this.status = status;
+    }
+
+    public void setRepayAmount(BigDecimal repayAmount) {
+        this.repayAmount = repayAmount;
+    }
+
+    public void setRepayDate(Date repayDate) {
+        this.repayDate = repayDate;
     }
 }
