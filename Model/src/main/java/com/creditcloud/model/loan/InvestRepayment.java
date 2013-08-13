@@ -5,6 +5,9 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.loan.RepaymentStatus;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -21,10 +24,6 @@ public class InvestRepayment extends BaseObject {
     @NotNull
     private Invest invest;
 
-    //回款总期数
-    @NotNull
-    private int totalPeriod;
-
     //当前回款期数
     @NotNull
     private int currentPeriod;
@@ -33,28 +32,37 @@ public class InvestRepayment extends BaseObject {
     @NotNull
     private Repayment repayment;
 
-    public InvestRepayment(String id,
-                           Invest invest,
-                           int totalPeriod,
-                           int currentPeriod,
-                           Repayment repayment) {
-        this.id = id;
-        this.invest = invest;
-        this.totalPeriod = totalPeriod;
-        this.currentPeriod = currentPeriod;
-        this.repayment = repayment;
+    //回款状态
+    @NotNull
+    private RepaymentStatus status;
+
+    //实际回款
+    private BigDecimal repayAmount;
+
+    //实际回款日期
+    private Date repayDate;
+
+    public InvestRepayment() {
     }
 
-    public int getTotalPeriod() {
-        return totalPeriod;
+    public InvestRepayment(String id,
+                           Invest invest,
+                           int currentPeriod,
+                           Repayment repayment,
+                           RepaymentStatus status,
+                           BigDecimal repayAmount,
+                           Date repayDate) {
+        this.id = id;
+        this.invest = invest;
+        this.currentPeriod = currentPeriod;
+        this.repayment = repayment;
+        this.status = status;
+        this.repayAmount = repayAmount;
+        this.repayDate = repayDate;
     }
 
     public int getCurrentPeriod() {
         return currentPeriod;
-    }
-
-    public void setTotalPeriod(int totalPeriod) {
-        this.totalPeriod = totalPeriod;
     }
 
     public void setCurrentPeriod(int currentPeriod) {
@@ -75,6 +83,30 @@ public class InvestRepayment extends BaseObject {
 
     public Invest getInvest() {
         return invest;
+    }
+
+    public RepaymentStatus getStatus() {
+        return status;
+    }
+
+    public BigDecimal getRepayAmount() {
+        return repayAmount;
+    }
+
+    public Date getRepayDate() {
+        return repayDate;
+    }
+
+    public void setStatus(RepaymentStatus status) {
+        this.status = status;
+    }
+
+    public void setRepayAmount(BigDecimal repayAmount) {
+        this.repayAmount = repayAmount;
+    }
+
+    public void setRepayDate(Date repayDate) {
+        this.repayDate = repayDate;
     }
 
     public String getId() {

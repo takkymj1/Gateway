@@ -5,7 +5,6 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.loan.RepaymentStatus;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -35,9 +34,6 @@ public class Repayment extends BaseObject {
     @XmlElement(name = "dueDate")
     private Date dueDate;
 
-    @XmlElement(name = "status")
-    private RepaymentStatus status;
-
     public Repayment() {
     }
 
@@ -45,19 +41,10 @@ public class Repayment extends BaseObject {
                      BigDecimal amountInterest,
                      BigDecimal amountOutstanding,
                      Date dueDate) {
-        this(amountPrincipal, amountInterest, amountOutstanding, dueDate, null);
-    }
-
-    public Repayment(BigDecimal amountPrincipal,
-                     BigDecimal amountInterest,
-                     BigDecimal amountOutstanding,
-                     Date dueDate,
-                     RepaymentStatus status) {
         this.amountPrincipal = amountPrincipal;
         this.amountInterest = amountInterest;
         this.amountOutstanding = amountOutstanding;
         this.dueDate = dueDate;
-        this.status = status;
     }
 
     public BigDecimal getAmountPrincipal() {
@@ -76,10 +63,6 @@ public class Repayment extends BaseObject {
         return dueDate;
     }
 
-    public RepaymentStatus getStatus() {
-        return status;
-    }
-
     public void setAmountPrincipal(BigDecimal amountPrincipal) {
         this.amountPrincipal = amountPrincipal;
     }
@@ -94,9 +77,5 @@ public class Repayment extends BaseObject {
 
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
-    }
-
-    public void setStatus(RepaymentStatus status) {
-        this.status = status;
     }
 }
