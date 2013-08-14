@@ -16,27 +16,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface InvestService {
-
-    /**
-     * add new Invest
-     *
-     * @param clientCode
-     * @param invest
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void submitInvest(String clientCode, Invest invest);
-
-    /**
-     * update an Invest
-     *
-     * @param clientCode
-     * @param invest
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void update(String clientCode, Invest invest);
-
     /**
      * list Invest by user Id
      *
