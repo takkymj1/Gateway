@@ -5,12 +5,13 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Employee;
 import com.creditcloud.model.User;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import java.util.Date;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -49,7 +50,8 @@ public class LoanRequest extends BaseObject {
      * 金额
      */
     @NotNull
-    @Size(min = 1000, max = 1000000)
+    @Min(1000)
+    @Max(1000000)
     private int amount;
 
     /**
@@ -62,7 +64,8 @@ public class LoanRequest extends BaseObject {
      * 年化利率（万分之几）
      */
     @NotNull
-    @Size(min = 800, max = 2400)
+    @Min(800)
+    @Max(2400)
     private int rate;
 
     /**
