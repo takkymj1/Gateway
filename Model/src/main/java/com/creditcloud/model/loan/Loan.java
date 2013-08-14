@@ -7,8 +7,9 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import java.util.Date;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  *
@@ -21,19 +22,21 @@ public class Loan extends BaseObject {
      */
     private String id;
 
-    @Size(min = 1)
+    @Min(1)
     private int ordinal;
 
-    @Size(min = 1000, max = 1000000)
+    @Min(1000)
+    @Max(1000000)
     private int amount;
 
-    @Size(min = 0, max = 1000000)
+    @Min(0)
+    @Max(1000000)
     private int balance;
 
     @NotNull
     private Duration duration;
 
-    @Size(max = 72)
+    @Max(72)
     private int timeout;
 
     @NotNull
