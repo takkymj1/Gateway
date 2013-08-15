@@ -46,6 +46,17 @@ public class BankAccount extends BaseEntity {
     @Column(nullable = false)
     private String account;
 
+    public BankAccount() {
+    }
+
+    public BankAccount(String name, String bank, String location, String branch, String account) {
+        this.name = name;
+        this.bank = bank;
+        this.location = location;
+        this.branch = branch;
+        this.account = account;
+    }
+
     public String getName() {
         return name;
     }

@@ -7,6 +7,15 @@ package com.creditcloud.common.utils;
 import com.creditcloud.common.entities.embedded.Duration;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.Repayment;
+import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.LoanStatus;
+import static com.creditcloud.model.enums.loan.LoanStatus.BREACH;
+import static com.creditcloud.model.enums.loan.LoanStatus.CANCELED;
+import static com.creditcloud.model.enums.loan.LoanStatus.CLEARED;
+import static com.creditcloud.model.enums.loan.LoanStatus.FAILED;
+import static com.creditcloud.model.enums.loan.LoanStatus.FINISHED;
+import static com.creditcloud.model.enums.loan.LoanStatus.OVERDUE;
+import static com.creditcloud.model.enums.loan.LoanStatus.SETTLED;
 
 /**
  *
@@ -67,7 +76,13 @@ public class DTOUtils {
         }
         return result;
     }
-    
+
+    /**
+     * handle Location
+     *
+     * @param location
+     * @return
+     */
     public static com.creditcloud.model.Location getLocationDTO(Location location) {
         com.creditcloud.model.Location result = null;
         if (location != null) {
@@ -94,5 +109,35 @@ public class DTOUtils {
             result.setRoomAddress(location.getRoomAddress());
         }
         return result;
+    }
+
+    /**
+     * handle conversion from LoanStatus to InvestStatus
+     *
+     * @param status
+     * @return
+     */
+    public static InvestStatus convertStatus(LoanStatus status) {
+        InvestStatus invest = null;
+        if (status != null) {
+            switch (status) {
+                case FAILED:
+                    return InvestStatus.FAILED;
+                case FINISHED:
+                    return InvestStatus.FINISHED;
+                case CANCELED:
+                    return InvestStatus.CANECELED;
+                case SETTLED:
+                    return InvestStatus.SETTLED;
+                case CLEARED:
+                    return InvestStatus.CLEARED;
+                case OVERDUE:
+                    return InvestStatus.OVERDUE;
+                case BREACH:
+                    return InvestStatus.BREACH;
+            }
+        }
+
+        return invest;
     }
 }
