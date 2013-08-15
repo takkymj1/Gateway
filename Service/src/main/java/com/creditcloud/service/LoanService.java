@@ -17,16 +17,6 @@ import javax.ejb.Remote;
 public interface LoanService extends LoanRequestService {
 
     /**
-     * submit a new loan
-     *
-     * @param clientCode
-     * @param loan
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void submitLoan(String clientCode, Loan loan);
-
-    /**
      * update loan
      *
      * @param clientCode
@@ -69,15 +59,6 @@ public interface LoanService extends LoanRequestService {
      */
     List<Loan> listLoanByRequestId(String clientCode, String requestId);
 
-    /**
-     *
-     * @param clientCode
-     * @param loanId
-     * @return true if successful
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    boolean cancelLoan(String clientCode, String loanId);
 
     /**
      * list loan repayment by loanId
@@ -90,15 +71,6 @@ public interface LoanService extends LoanRequestService {
      */
     List<LoanRepayment> listRepayByLoanId(String clientCode, String loanId);
 
-    /**
-     * settle loan, generate corresponding LoanRepayment
-     *
-     * @param clientCode
-     * @param loanId
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    void settleLoan(String clientCode, String loanId);
 
     /**
      * list all loans

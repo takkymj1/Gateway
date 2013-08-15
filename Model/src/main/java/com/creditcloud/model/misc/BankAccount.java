@@ -44,6 +44,14 @@ public class BankAccount extends BaseObject {
     @Column(nullable = false)
     private String account;
 
+    public BankAccount(String name, String bank, String location, String branch, String account) {
+        this.name = name;
+        this.bank = bank;
+        this.location = location;
+        this.branch = branch;
+        this.account = account;
+    }
+
     public String getName() {
         return name;
     }
