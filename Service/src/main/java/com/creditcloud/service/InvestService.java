@@ -7,7 +7,6 @@ package com.creditcloud.service;
 import com.creditcloud.model.User;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
-import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.Loan;
 import java.util.List;
 import javax.ejb.Remote;
@@ -72,4 +71,13 @@ public interface InvestService extends InvestRepayService {
      * the local client
      */
     void settleLoan(String clientCode, Loan loan);
+
+    /**
+     * query the bid progress about a loan
+     *
+     * @param clientCode
+     * @param loanId
+     * @return left balance of a loan
+     */
+    int getLoanBalance(String clientCode, String loanId);
 }
