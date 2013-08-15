@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
 import java.util.List;
 import javax.ejb.Remote;
@@ -65,4 +66,13 @@ public interface LoanService extends LoanRequestService, LoanRepayService {
      * @return
      */
     List<Loan> listAllLoans(String clientCode);
+
+    /**
+     * list loans by their status
+     *
+     * @param clientCode
+     * @param status
+     * @return
+     */
+    List<Loan> listLoanByStatus(String clientCode, LoanStatus status);
 }

@@ -29,10 +29,6 @@ public class Loan extends BaseObject {
     @Max(1000000)
     private int amount;
 
-    @Min(0)
-    @Max(1000000)
-    private int balance;
-
     @NotNull
     private Duration duration;
 
@@ -57,7 +53,6 @@ public class Loan extends BaseObject {
     public Loan(String id,
                 int ordinal,
                 int amount,
-                int balance,
                 Duration duration,
                 int timeout,
                 LoanStatus status,
@@ -68,7 +63,6 @@ public class Loan extends BaseObject {
         this.id = id;
         this.ordinal = ordinal;
         this.amount = amount;
-        this.balance = balance;
         this.duration = duration;
         this.timeout = timeout;
         this.status = status;
@@ -148,14 +142,6 @@ public class Loan extends BaseObject {
 
     public void setDuration(Duration duration) {
         this.duration = duration;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
     }
 
     public boolean isMortgaged() {
