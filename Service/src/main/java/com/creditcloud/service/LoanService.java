@@ -5,7 +5,6 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.loan.Loan;
-import com.creditcloud.model.loan.LoanRepayment;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -14,7 +13,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface LoanService extends LoanRequestService {
+public interface LoanService extends LoanRequestService, LoanRepayService {
 
     /**
      * update loan
@@ -58,19 +57,6 @@ public interface LoanService extends LoanRequestService {
      * the local client
      */
     List<Loan> listLoanByRequestId(String clientCode, String requestId);
-
-
-    /**
-     * list loan repayment by loanId
-     *
-     * @param clientCode
-     * @param loanId
-     * @return emptyList if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<LoanRepayment> listRepayByLoanId(String clientCode, String loanId);
-
 
     /**
      * list all loans
