@@ -6,10 +6,10 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -32,7 +32,7 @@ public class Repayment extends BaseObject {
 
     @NotNull
     @XmlElement(name = "dueDate")
-    private Date dueDate;
+    private LocalDate dueDate;
 
     public Repayment() {
     }
@@ -40,7 +40,7 @@ public class Repayment extends BaseObject {
     public Repayment(BigDecimal amountPrincipal,
                      BigDecimal amountInterest,
                      BigDecimal amountOutstanding,
-                     Date dueDate) {
+                     LocalDate dueDate) {
         this.amountPrincipal = amountPrincipal;
         this.amountInterest = amountInterest;
         this.amountOutstanding = amountOutstanding;
@@ -59,7 +59,7 @@ public class Repayment extends BaseObject {
         return amountOutstanding;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
@@ -75,7 +75,7 @@ public class Repayment extends BaseObject {
         this.amountOutstanding = amountOutstanding;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 }

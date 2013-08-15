@@ -23,13 +23,13 @@ public abstract class AbstractFI extends BaseObject {
     @NotNull
     @Min(1000)
     @Max(1000000)
-    private int amount;
+    protected int amount;
 
     /**
      * 期限
      */
     @NotNull
-    private Duration duration;
+    protected Duration duration;
 
     /**
      * 年化利率（万分之几）
@@ -37,11 +37,67 @@ public abstract class AbstractFI extends BaseObject {
     @NotNull
     @Min(800)
     @Max(2400)
-    private int rate;
+    protected int rate;
 
     /**
      * 偿还方法
      */
     @NotNull
-    private RepaymentMethod method;
+    protected RepaymentMethod method;
+
+    /**
+     * @return the amount
+     */
+    public int getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    /**
+     * @return the duration
+     */
+    public Duration getDuration() {
+        return duration;
+    }
+
+    /**
+     * @param duration the duration to set
+     */
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    /**
+     * @return the rate
+     */
+    public int getRate() {
+        return rate;
+    }
+
+    /**
+     * @param rate the rate to set
+     */
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
+    /**
+     * @return the method
+     */
+    public RepaymentMethod getMethod() {
+        return method;
+    }
+
+    /**
+     * @param method the method to set
+     */
+    public void setMethod(RepaymentMethod method) {
+        this.method = method;
+    }
 }

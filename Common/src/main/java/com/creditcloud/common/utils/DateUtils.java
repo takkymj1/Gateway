@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -28,8 +29,18 @@ public class DateUtils {
         return result;
     }
 
+    /**
+     * Joda Time versoin of offset
+     *
+     * @param asOfDate
+     * @param duration
+     * @return
+     */
+    public static LocalDate offset(LocalDate asOfDate, Duration duration) {
+        return asOfDate.plusDays(duration.getDays()).plusMonths(duration.getMonths()).plusYears(duration.getYears());
+    }
 
-    /*
+    /**
      * list all dates between start date and end date, both day included
      */
     public static List<Date> listDates(Date start, Date end) {

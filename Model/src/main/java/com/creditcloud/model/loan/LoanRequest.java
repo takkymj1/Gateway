@@ -93,32 +93,31 @@ public class LoanRequest extends BaseObject {
     @Past
     private Date timeSubmit;
 
-    
     private boolean mortgaged;
 
     /**
-     * 
-     * @param id    LoanRequest Id, nullable
-     * @param user    用户
-     * @param title     title
-     * @param purpose   目的
-     * @param amount    金额
-     * @param duration  期限
-     * @param rate      年化利率（万分之几）
-     * @param method    偿还方法
-     * @param description   描述
+     *
+     * @param id LoanRequest Id, nullable
+     * @param user 用户
+     * @param title title
+     * @param purpose 目的
+     * @param amount 金额
+     * @param duration 期限
+     * @param rate 年化利率（万分之几）
+     * @param method 偿还方法
+     * @param description 描述
      * @param status 状态(初始状态为：UNASSIGNED)
-     * @param timeSubmit    提交时间
+     * @param timeSubmit 提交时间
      */
-    public LoanRequest(String id, 
+    public LoanRequest(String id,
                        User user,
                        String title,
                        LoanPurpose purpose,
                        int amount,
-                       Duration duration, 
+                       Duration duration,
                        int rate,
-                       RepaymentMethod method, 
-                       String description, 
+                       RepaymentMethod method,
+                       String description,
                        LoanRequestStatus status,
                        Date timeSubmit,
                        boolean mortgaged) {
@@ -138,6 +137,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * LoanRequest Id
+     *
      * @return the id
      */
     public String getId() {
@@ -146,6 +146,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * LoanRequest Id
+     *
      * @param id the id to set
      */
     public void setId(String id) {
@@ -154,6 +155,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 用户
+     *
      * @return the user
      */
     public User getUser() {
@@ -162,6 +164,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 用户
+     *
      * @param user the user to set
      */
     public void setUser(User user) {
@@ -170,6 +173,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * title
+     *
      * @return the title
      */
     public String getTitle() {
@@ -178,6 +182,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * title
+     *
      * @param title the title to set
      */
     public void setTitle(String title) {
@@ -186,6 +191,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 目的
+     *
      * @return the purpose
      */
     public LoanPurpose getPurpose() {
@@ -194,6 +200,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 目的
+     *
      * @param purpose the purpose to set
      */
     public void setPurpose(LoanPurpose purpose) {
@@ -202,6 +209,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 金额
+     *
      * @return the amount
      */
     public int getAmount() {
@@ -210,6 +218,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 金额
+     *
      * @param amount the amount to set
      */
     public void setAmount(int amount) {
@@ -218,6 +227,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 期限
+     *
      * @return the duration
      */
     public Duration getDuration() {
@@ -226,6 +236,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 期限
+     *
      * @param duration the duration to set
      */
     public void setDuration(Duration duration) {
@@ -234,6 +245,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 年化利率（万分之几）
+     *
      * @return the rate
      */
     public int getRate() {
@@ -242,6 +254,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 年化利率（万分之几）
+     *
      * @param rate the rate to set
      */
     public void setRate(int rate) {
@@ -250,6 +263,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 偿还方法
+     *
      * @return the method
      */
     public RepaymentMethod getMethod() {
@@ -258,6 +272,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 偿还方法
+     *
      * @param method the method to set
      */
     public void setMethod(RepaymentMethod method) {
@@ -266,6 +281,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 描述
+     *
      * @return the description
      */
     public String getDescription() {
@@ -274,6 +290,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 描述
+     *
      * @param description the description to set
      */
     public void setDescription(String description) {
@@ -282,6 +299,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 状态(初始状态为：UNASSIGNED)
+     *
      * @return the status
      */
     public LoanRequestStatus getStatus() {
@@ -290,6 +308,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 状态(初始状态为：UNASSIGNED)
+     *
      * @param status the status to set
      */
     public void setStatus(LoanRequestStatus status) {
@@ -298,6 +317,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 提交时间
+     *
      * @return the timeSubmit
      */
     public Date getTimeSubmit() {
@@ -306,6 +326,7 @@ public class LoanRequest extends BaseObject {
 
     /**
      * 提交时间
+     *
      * @param timeSubmit the timeSubmit to set
      */
     public void setTimeSubmit(Date timeSubmit) {

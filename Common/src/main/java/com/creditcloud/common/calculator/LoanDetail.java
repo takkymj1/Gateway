@@ -52,7 +52,10 @@ public class LoanDetail extends BaseObject {
     private final List<Repayment> repayments;
 
     public LoanDetail() {
-        this(new BigDecimal(0), new BigDecimal(0), new Duration(0, 0, 0), RepaymentMethod.BulletRepayment);
+        this(new BigDecimal(0),
+             new BigDecimal(0),
+             new Duration(0, 0, 0),
+             RepaymentMethod.BulletRepayment);
     }
 
     public LoanDetail(BigDecimal principal,

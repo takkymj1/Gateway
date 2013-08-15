@@ -36,11 +36,15 @@ public class LoanRepayment extends BaseObject {
     @NotNull
     private RepaymentStatus status;
 
-    //实际回款
+    /**
+     * 实际回款金额
+     */
     @NotNull
     private BigDecimal repayAmount;
 
-    //实际回款日期
+    /**
+     * 实际回款时间
+     */
     private Date repayDate;
 
     public Loan getLoan() {

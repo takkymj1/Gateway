@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Date;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -51,7 +52,7 @@ public final class LoanCalculator {
                                      final Duration duration,
                                      final int rate,
                                      final RepaymentMethod method,
-                                     final Date asOfDate) {
+                                     final LocalDate asOfDate) {
         LoanDetail result = null;
         //principal
         BigDecimal principal = new BigDecimal(amount);
@@ -61,7 +62,7 @@ public final class LoanCalculator {
         BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
         //dealing with different methods
         BigDecimal interest, amortizedInterest, amortizedPrincipal, outstandingPrincipal;
-        Date dueDate = asOfDate;
+        LocalDate dueDate = asOfDate;
         int tenure;
         switch (method) {
             case BulletRepayment:
@@ -168,7 +169,7 @@ public final class LoanCalculator {
         return result;
     }
 
-    public static LoanDetail analyze(LoanRequest request, Date asOfDate) {
+    public static LoanDetail analyze(LoanRequest request, LocalDate asOfDate) {
         return analyze(request.getAmount(),
                        request.getDuration(),
                        request.getRate(),
