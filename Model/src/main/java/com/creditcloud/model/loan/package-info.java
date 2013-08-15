@@ -2,7 +2,7 @@
     @XmlJavaTypeAdapter(type = LocalDate.class,
                         value = LocalDateAdapter.class)
 })
-package com.creditcloud.model;
+package com.creditcloud.model.loan;
 
 import com.creditcloud.model.util.LocalDateAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;

@@ -45,8 +45,14 @@ public class Loan extends BaseObject {
     @NotNull
     private LoanRequest loanRequest;
 
+    /**
+     * 开启投标时间
+     */
     private Date timeOpen;
 
+    /**
+     * 满标时间
+     */
     private Date timeFinished;
 
     private boolean mortgaged;
