@@ -5,12 +5,13 @@
 package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
+import com.creditcloud.common.entities.utils.LocalDateConverter;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import org.eclipse.persistence.annotations.Convert;
+import org.eclipse.persistence.annotations.Converter;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -28,9 +29,11 @@ public class Repayment extends BaseEntity {
     @Column(nullable = false)
     private BigDecimal amountOutstanding;
 
-    @Temporal(TemporalType.DATE)
+    @Converter(name = "localDateConverter",
+               converterClass = LocalDateConverter.class)
+    @Convert("localDateConverter")
     @Column(nullable = false)
-    private Date dueDate;
+    private LocalDate dueDate;
 
     public Repayment() {
     }
@@ -38,7 +41,7 @@ public class Repayment extends BaseEntity {
     public Repayment(BigDecimal amountPrincipal,
                      BigDecimal amountInterest,
                      BigDecimal amountOutstanding,
-                     Date dueDate) {
+                     LocalDate dueDate) {
         this.amountPrincipal = amountPrincipal;
         this.amountInterest = amountInterest;
         this.amountOutstanding = amountOutstanding;
@@ -57,7 +60,7 @@ public class Repayment extends BaseEntity {
         return amountOutstanding;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
@@ -73,7 +76,7 @@ public class Repayment extends BaseEntity {
         this.amountOutstanding = amountOutstanding;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 }
