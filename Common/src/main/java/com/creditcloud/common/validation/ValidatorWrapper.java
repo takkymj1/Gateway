@@ -31,11 +31,14 @@ public class ValidatorWrapper implements Validator {
     }
     
     public <T> void tryValidate(T Object, Class<?>... groups) {
-        Set<ConstraintViolation<T>> cv;
+        Set<ConstraintViolation<T>> cv = null;
         try {
             cv = validator.validate(Object, groups);
         } catch (IllegalArgumentException | ValidationException ex) {
             throw ex;
+        } catch (TypeNotPresentException ex) {
+            //do nothing
+            logger.warn("tryValidate got exception {}", Object, ex);
         }
         if (cv != null && cv.size() > 0) {
             throw InvalidException.create(cv);
