@@ -18,12 +18,12 @@ public class LocalDateConverter implements Converter {
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return objectValue == null ? null : new Date(((LocalDate)objectValue).toDate().getTime());
+        return objectValue == null ? null : new Date(((LocalDate) objectValue).toDate().getTime());
     }
 
     @Override
     public Object convertDataValueToObjectValue(Object dataValue, Session session) {
-        return dataValue == null ? null : new LocalDate((Date)dataValue);
+        return dataValue == null ? null : new LocalDate(Date.valueOf((String)dataValue));
     }
 
     @Override
@@ -34,5 +34,4 @@ public class LocalDateConverter implements Converter {
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
     }
-
 }
