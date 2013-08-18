@@ -45,6 +45,15 @@ public class UserFund extends BaseObject {
     @NotNull
     private BigDecimal dueOutAmount;
 
+    public UserFund(String userId, User user, BigDecimal availableAmount, BigDecimal frozenAmount, BigDecimal dueInAmount, BigDecimal dueOutAmount) {
+        this.userId = userId;
+        this.user = user;
+        this.availableAmount = availableAmount;
+        this.frozenAmount = frozenAmount;
+        this.dueInAmount = dueInAmount;
+        this.dueOutAmount = dueOutAmount;
+    }
+
     public BigDecimal getAvailableAmount() {
         return availableAmount;
     }

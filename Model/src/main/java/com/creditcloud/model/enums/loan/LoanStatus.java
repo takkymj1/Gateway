@@ -5,6 +5,9 @@
 package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 借款状态
@@ -54,6 +57,15 @@ public enum LoanStatus implements BaseEnum {
      */
     BREACH("违约");
 
+    /**
+     * we limit the LoanStatus seen by CreditMarket
+     */
+    private static final Set<LoanStatus> marketView = new HashSet();
+
+    static {
+        marketView.addAll(Arrays.asList(OPENED, SCHEDULED, FINISHED, SETTLED, CLEARED));
+    }
+
     private final String key;
 
     private LoanStatus(final String key) {
@@ -83,5 +95,14 @@ public enum LoanStatus implements BaseEnum {
         }
 
         return false;
+    }
+
+    /**
+     * get the available status of loan can be seen in CreditMarket
+     *
+     * @return
+     */
+    public static Set<LoanStatus> getMarketView() {
+        return marketView;
     }
 }

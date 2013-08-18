@@ -12,13 +12,13 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum FundRecordType implements BaseEnum {
 
-    ALL("所有"),
     RECHARGE("充值"),
     WITHDRAW("提现"),
     INVEST("投资结算"),
     LOAN("借款结算"),
     INVEST_REPAY("投资回款"),
-    LOAN_REPAY("还款");
+    LOAN_REPAY("还款"),
+    ALL("所有,不存储只用于搜索");
 
     private final String key;
 
