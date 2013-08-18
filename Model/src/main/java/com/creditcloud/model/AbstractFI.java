@@ -18,14 +18,6 @@ import javax.validation.constraints.NotNull;
 public abstract class AbstractFI extends BaseObject {
 
     /**
-     * 金额
-     */
-    @NotNull
-    @Min(1000)
-    @Max(1000000)
-    protected int amount;
-
-    /**
      * 期限
      */
     @NotNull
@@ -45,21 +37,7 @@ public abstract class AbstractFI extends BaseObject {
     @NotNull
     protected RepaymentMethod method;
 
-    /**
-     * @return the amount
-     */
-    public int getAmount() {
-        return amount;
-    }
-
-    /**
-     * @param amount the amount to set
-     */
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    /**
+     /**
      * @return the duration
      */
     public Duration getDuration() {
