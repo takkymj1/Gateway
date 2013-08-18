@@ -12,7 +12,7 @@ import static com.creditcloud.model.constant.TimeConstant.*;
  *
  * @author sobranie
  */
-public class Duration extends BaseObject {
+public class Duration extends BaseObject implements Comparable<Duration> {
 
     private int years;
 
@@ -67,5 +67,10 @@ public class Duration extends BaseObject {
 
     public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
+    }
+
+    @Override
+    public int compareTo(Duration o) {
+        return getTotalDays() - o.getTotalDays();
     }
 }
