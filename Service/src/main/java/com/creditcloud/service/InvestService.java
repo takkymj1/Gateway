@@ -5,9 +5,11 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.User;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -23,33 +25,24 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param userId
+     * @param info
      * @return empty list if nothing found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<Invest> listInvestbyUserId(String clientCode, String userId);
+    PagedResult<Invest> listInvestbyUserId(String clientCode, String userId, PageInfo info);
 
     /**
      * list Invest by loan Id
      *
      * @param clientCode
      * @param loanId
+     * @param info
      * @return empty list if nothing found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<Invest> listInvestByLoanId(String clientCode, String loanId);
-
-    /**
-     * list all users who invest in a certain loan
-     *
-     * @param clientCode
-     * @param loanId
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<User> listUserByLoanId(String clientCode, String loanId);
+    PagedResult<Invest> listInvestByLoanId(String clientCode, String loanId, PageInfo info);
 
     /**
      * notify a status of loan to all its invests

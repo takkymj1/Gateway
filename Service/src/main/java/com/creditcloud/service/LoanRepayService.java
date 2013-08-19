@@ -4,8 +4,10 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -22,9 +24,10 @@ public interface LoanRepayService {
      * @param clientCode
      * @param userId
      * @param status
+     * @param pageInfo
      * @return
      */
-    List<LoanRepayment> listRepayByStatus(String clientCode, String userId, RepaymentStatus status);
+    PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, RepaymentStatus status, PageInfo pageInfo);
 
     /**
      * list loan repayment by loanId

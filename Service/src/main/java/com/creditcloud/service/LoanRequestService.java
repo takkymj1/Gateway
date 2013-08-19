@@ -4,8 +4,9 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.loan.LoanRequest;
-import java.util.List;
+import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
 /**
@@ -67,9 +68,10 @@ public interface LoanRequestService {
      *
      * @param clientCode
      * @param userId
+     * @param pageInfo
      * @return empty result is no loan found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<LoanRequest> listRequestByUserId(String clientCode, String userId);
+    PagedResult<LoanRequest> listRequestByUserId(String clientCode, String userId, PageInfo pageInfo);
 }

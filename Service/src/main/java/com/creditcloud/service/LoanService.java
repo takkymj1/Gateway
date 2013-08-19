@@ -4,8 +4,10 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -15,6 +17,16 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanService extends LoanRequestService, LoanRepayService {
+
+    /**
+     * update loan
+     *
+     * @param clientCode
+     * @param loan
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void updateLoan(String clientCode, Loan loan);
 
     /**
      * get Loan by id
@@ -32,11 +44,12 @@ public interface LoanService extends LoanRequestService, LoanRepayService {
      *
      * @param clientCode
      * @param userId
+     * @param pageInfo
      * @return empty list if nothing found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<Loan> listLoanByUserId(String clientCode, String userId);
+    PagedResult<Loan> listLoanByUserId(String clientCode, String userId, PageInfo pageInfo);
 
     /**
      * list loan by loan request id
@@ -62,8 +75,8 @@ public interface LoanService extends LoanRequestService, LoanRepayService {
      *
      * @param clientCode
      * @param status
+     * @param pageInfo
      * @return
      */
-    List<Loan> listLoanByStatus(String clientCode, LoanStatus status);
-    
+    PagedResult<Loan> listLoanByStatus(String clientCode, LoanStatus status, PageInfo pageInfo);
 }
