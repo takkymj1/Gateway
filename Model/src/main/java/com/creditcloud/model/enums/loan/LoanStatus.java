@@ -7,6 +7,7 @@ package com.creditcloud.model.enums.loan;
 import com.creditcloud.model.enums.BaseEnum;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -55,7 +56,8 @@ public enum LoanStatus implements BaseEnum {
     /**
      * 贷款违约,剩余贷款无法偿还
      */
-    BREACH("违约");
+    BREACH("违约"),
+    SCHEDULED_AND_OPEN("不存储只用于搜索");
 
     /**
      * we limit the LoanStatus seen by CreditMarket
@@ -104,5 +106,18 @@ public enum LoanStatus implements BaseEnum {
      */
     public static Set<LoanStatus> getMarketView() {
         return marketView;
+    }
+
+    public static List<LoanStatus> convertStatus(final LoanStatus status) {
+        List<LoanStatus> statusList;
+        switch (status) {
+            case SCHEDULED_AND_OPEN:
+                statusList = Arrays.asList(OPENED, SCHEDULED);
+                break;
+            default:
+                statusList = Arrays.asList(status);
+        }
+
+        return statusList;
     }
 }
