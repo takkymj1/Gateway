@@ -5,9 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.constraints.MobileNumber;
-import com.creditcloud.model.constraints.RealName;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,13 +12,10 @@ import javax.validation.constraints.NotNull;
  */
 public class Contact extends BaseObject {
 
-    @RealName
     private String name;
 
-    @NotNull
     private String relation;
 
-    @MobileNumber
     private String mobile;
 
     public Contact() {

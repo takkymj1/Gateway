@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.user.account;
+package com.creditcloud.model.enums.user.fund;
 
 import com.creditcloud.model.enums.BaseEnum;
 

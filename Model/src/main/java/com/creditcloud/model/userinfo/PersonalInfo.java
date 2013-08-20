@@ -7,8 +7,6 @@ package com.creditcloud.model.userinfo;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.MaritalStatus;
 import java.util.Date;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 /**
  *
@@ -17,32 +15,24 @@ import javax.validation.constraints.Past;
 public class PersonalInfo extends BaseObject {
 
     //性别
-    @NotNull
     private boolean male;
 
     //出生日期
-    @NotNull
-    @Past
     private Date dateOfBirth;
 
     //婚姻状况
-    @NotNull
     private MaritalStatus maritalStatus;
 
     //有无子女
-    @NotNull
     private boolean children;
 
     //教育信息
-    @NotNull
     private EducationInfo education;
 
     //所在地信息
-    @NotNull
     private PlaceInfo place;
 
     //个人头像存储路径
-    @NotNull
     private String avatar;
 
     public PersonalInfo() {

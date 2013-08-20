@@ -5,8 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import javax.persistence.Embeddable;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,13 +12,10 @@ import javax.validation.constraints.NotNull;
  */
 public class ContactInfo extends BaseObject {
 
-    @NotNull
     private Contact emergency;
 
-    @NotNull
     private Contact colleague;
 
-    @NotNull
     private Contact other;
 
     public ContactInfo() {

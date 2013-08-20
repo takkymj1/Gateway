@@ -5,7 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -14,23 +13,18 @@ import javax.validation.constraints.NotNull;
 public class PlaceInfo extends BaseObject {
     //籍贯省
 
-    @NotNull
     private String nativeProvince;
 
     //籍贯市
-    @NotNull
     private String nativeCity;
 
     //户口所在省
-    @NotNull
     private String hukouProvince;
 
     //户口所在市
-    @NotNull
     private String hukouCity;
 
     //现居住地址
-    @NotNull
     private String currentAddress;
 
     //现居住地址电话

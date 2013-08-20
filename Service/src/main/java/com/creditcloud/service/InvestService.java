@@ -4,13 +4,12 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.model.User;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.misc.PagedResult;
-import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -64,6 +63,16 @@ public interface InvestService extends InvestRepayService {
      * the local client
      */
     void settleLoan(String clientCode, Loan loan);
+
+    /**
+     * repayment of a loan, set repayment status and generate fund record
+     *
+     * @param clientCode
+     * @param loanRepay
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    void repayLoan(String clientCode, LoanRepayment loanRepay);
 
     /**
      * query the bid progress about a loan

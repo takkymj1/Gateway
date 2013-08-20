@@ -5,11 +5,9 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.constraints.EmailAddress;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.MonthlySalary;
 import com.creditcloud.model.enums.user.YearOfService;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,35 +16,27 @@ import javax.validation.constraints.NotNull;
 public class CareerInfo extends BaseObject {
 
     //职业状态
-    @NotNull
     private CareerStatus careerStatus;
 
     //公司信息
-    @NotNull
     private CompanyInfo company;
 
     //工作省份
-    @NotNull
     private String province;
 
     //工作城市
-    @NotNull
     private String city;
 
     //职位
-    @NotNull
     private String position;
 
     //月收入
-    @NotNull
     private MonthlySalary salary;
 
     //在现单位工作年限
-    @NotNull
     private YearOfService yearOfService;
 
     //工作邮箱
-    @EmailAddress
     private String workMail;
 
     public CareerInfo() {
