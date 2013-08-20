@@ -11,6 +11,11 @@ import com.creditcloud.model.BaseObject;
  * @author sobranie
  */
 public class PageInfo extends BaseObject {
+    
+    /**
+     * 获取全部内容
+     */
+    public static final PageInfo ALL = new PageInfo(0, Integer.MAX_VALUE);
 
     /**
      * offset x means start from number (x + 1)
