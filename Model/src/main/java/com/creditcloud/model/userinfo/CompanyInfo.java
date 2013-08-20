@@ -8,7 +8,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
 import com.creditcloud.model.enums.user.CompanyType;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -16,27 +15,21 @@ import javax.validation.constraints.NotNull;
  */
 public class CompanyInfo extends BaseObject {
     //公司或单位名称
-    @NotNull
     private String name;
 
     //公司类别
-    @NotNull
     private CompanyType type;
 
     //公司行业
-    @NotNull
     private CompanyIndustry industry;
 
     //公司规模
-    @NotNull
     private CompanySize size_;
 
     //公司电话
-    @NotNull
     private String phone;
 
     //公司地址
-    @NotNull
     private String address;
 
     public CompanyInfo() {

@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.user.account;
+package com.creditcloud.model.enums.user.fund;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -29,5 +31,15 @@ public enum FundRecordType implements BaseEnum {
     @Override
     public String getKey() {
         return key;
+    }
+
+    public static List<FundRecordType> convertType(final FundRecordType type) {
+        List<FundRecordType> typeList;
+        switch (type) {
+            default:
+                typeList = Arrays.asList(type);
+        }
+
+        return typeList;
     }
 }

@@ -6,7 +6,6 @@ package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.EducationLevel;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -15,15 +14,12 @@ import javax.validation.constraints.NotNull;
 public class EducationInfo extends BaseObject {
 
     //最高学历
-    @NotNull
     private EducationLevel educationLevel;
 
     //入学年份
-    @NotNull
     private String enrollmentYear;
 
     //学校
-    @NotNull
     private String school;
 
     public EducationInfo() {

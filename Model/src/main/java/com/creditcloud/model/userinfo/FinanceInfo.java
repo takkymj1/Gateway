@@ -5,7 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -13,25 +12,19 @@ import javax.validation.constraints.NotNull;
  */
 public class FinanceInfo extends BaseObject {
     //是否有房
-    @NotNull
     private boolean house;
 
-    @NotNull
     private int houseNumber;
 
     //有无房贷
-    @NotNull
     private boolean houseLoan;
 
     //是否有车
-    @NotNull
     private boolean car;
 
-    @NotNull
     private int carNumber;
 
     //有无车贷
-    @NotNull
     private boolean carLoan;
 
     public FinanceInfo() {

@@ -7,7 +7,6 @@ package com.creditcloud.model.userinfo;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -18,19 +17,14 @@ public class UserInfo extends BaseObject {
     @Id
     private String userId;
 
-    @NotNull
     private User user;
 
-    @NotNull
     private PersonalInfo personal;
 
-    @NotNull
     private FinanceInfo finance;
 
-    @NotNull
     private CareerInfo career;
 
-    @NotNull
     private ContactInfo contact;
 
     public UserInfo() {
