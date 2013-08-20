@@ -19,6 +19,11 @@ public interface TimeConstant {
     int MONTHS_PER_YEAR = 12;
     
     /**
+     * 默认的借款标募集期
+     */
+    int DEFAULT_LOAN_OPEN_HOURS = 72;
+    
+    /**
      * yyyy-MM-dd
      */
     SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
