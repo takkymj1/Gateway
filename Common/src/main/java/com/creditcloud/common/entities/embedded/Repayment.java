@@ -20,12 +20,21 @@ import org.joda.time.LocalDate;
 @Embeddable
 public class Repayment extends BaseEntity {
 
+    /**
+     * 偿还本金
+     */
     @Column(nullable = false)
     private BigDecimal amountPrincipal;
 
+    /**
+     * 偿还利息
+     */
     @Column(nullable = false)
     private BigDecimal amountInterest;
 
+    /**
+     * 剩余本金
+     */
     @Column(nullable = false)
     private BigDecimal amountOutstanding;
 
