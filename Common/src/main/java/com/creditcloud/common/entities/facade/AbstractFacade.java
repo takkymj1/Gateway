@@ -145,7 +145,8 @@ public abstract class AbstractFacade<T> {
         Root<T> rt = cq.from(entityClass);
         cq.select(cb.count(rt));
         Query q = em.createQuery(cq);
-        return ((Long) q.getSingleResult()).intValue();
+        Object result = q.getSingleResult();
+        return result == null ? 0 : ((Long) result).intValue();
     }
 
     /**
@@ -223,7 +224,7 @@ public abstract class AbstractFacade<T> {
         int totalSize;
         if (paramInfo != null
             && paramInfo.getParamItems().size() > 0) {
-            totalSize = count(paramInfo).intValue();
+            totalSize = count(paramInfo);
         } else {
             totalSize = count();
         }
@@ -237,7 +238,7 @@ public abstract class AbstractFacade<T> {
      * @param paramInfo
      * @return
      */
-    public Long count(ParamInfo paramInfo) {
+    public int count(ParamInfo paramInfo) {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery(entityClass);
@@ -279,6 +280,7 @@ public abstract class AbstractFacade<T> {
         }
 
         TypedQuery<Long> query = em.createQuery(cq);
-        return (Long) query.getSingleResult();
+        Long result = query.getSingleResult();
+        return result == null ? 0 : result.intValue();
     }
 }
