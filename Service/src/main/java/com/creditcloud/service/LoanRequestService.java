@@ -29,7 +29,12 @@ public interface LoanRequestService {
     /**
      * exceed 3 submit in one day
      */
-    int OUT_OF_MAX_LOAN = 2;
+    int EXCEED_REQUEST_LIMIT = 2;
+    
+    /**
+     * default max number of request can be submitted by one user in single 
+     */
+    int REQUEST_LIMIT = 3;
 
     /**
      *
