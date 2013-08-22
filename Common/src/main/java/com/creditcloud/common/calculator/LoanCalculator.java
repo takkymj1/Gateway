@@ -5,6 +5,7 @@
 package com.creditcloud.common.calculator;
 
 import com.creditcloud.common.utils.DateUtils;
+import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
@@ -15,7 +16,6 @@ import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.Date;
 import org.joda.time.LocalDate;
 
 /**
@@ -28,9 +28,9 @@ public final class LoanCalculator {
 
     private static final BigDecimal one = new BigDecimal(1);
 
-    private static final BigDecimal monthsPerYear = new BigDecimal(12);
+    private static final BigDecimal monthsPerYear = new BigDecimal(TimeConstant.MONTHS_PER_YEAR);
 
-    private static final BigDecimal daysPerYear = new BigDecimal(365);
+    private static final BigDecimal daysPerYear = new BigDecimal(TimeConstant.DAYS_PER_YEAR);
 
     /**
      * rate is in format like 2400 which is actually 24.00%
@@ -177,4 +177,28 @@ public final class LoanCalculator {
                        asOfDate);
     }
 
+    /**
+     * 快速计算利息
+     *
+     * @param amount 金额
+     * @param rate 利率，2400代表24%
+     * @param duration 期限
+     * @return
+     */
+    public static BigDecimal quickInterest(int amount, int rate, Duration duration) {
+        //principal
+        BigDecimal principal = new BigDecimal(amount);
+        //rates
+        BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
+        BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
+        BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
+        //calc
+        BigDecimal interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
+        //add monthly interest
+        interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
+        //add daily interest
+        interest = interest.add(principal.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
+        //return
+        return interest.setScale(2, RoundingMode.HALF_EVEN);
+    }
 }
