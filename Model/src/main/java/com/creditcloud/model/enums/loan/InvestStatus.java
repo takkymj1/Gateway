@@ -21,6 +21,10 @@ public enum InvestStatus implements BaseEnum {
      */
     FROZEN("账户资金冻结"),
     /**
+     * 冻结资金失败
+     */
+    FROZEN_FAILED("资金冻结失败"),
+    /**
      * 标没有成功募集
      */
     FAILED("流标"),
