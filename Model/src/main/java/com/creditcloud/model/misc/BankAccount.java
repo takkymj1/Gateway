@@ -5,7 +5,8 @@
 package com.creditcloud.model.misc;
 
 import com.creditcloud.model.BaseObject;
-import javax.persistence.Column;
+import com.creditcloud.model.constraints.RealName;
+import javax.validation.constraints.NotNull;
 
 /**
  * 银行账号
@@ -17,31 +18,31 @@ public class BankAccount extends BaseObject {
     /**
      * 开户人
      */
-    @Column(nullable = false)
+    @RealName
     private String name;
 
     /**
      * 开户银行:中国工商银行
      */
-    @Column(nullable = false)
+    @NotNull
     private String bank;
 
     /**
      * 开户行所在地:北京市西城区长安街12号
      */
-    @Column(nullable = true)
+    @NotNull
     private String location;
 
     /**
      * 开户支行:工行北京分行海淀支行
      */
-    @Column(nullable = false)
+    @NotNull
     private String branch;
 
     /**
      * 账号
      */
-    @Column(nullable = false)
+    @NotNull
     private String account;
 
     public BankAccount(String name, String bank, String location, String branch, String account) {
