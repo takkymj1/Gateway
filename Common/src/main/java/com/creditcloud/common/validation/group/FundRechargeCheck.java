@@ -2,14 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.validation;
+package com.creditcloud.common.validation.group;
 
 import javax.validation.groups.Default;
 
 /**
- * check for FundWithdrawCheck
+ * check for FundRecharge
  *
  * @author rooseek
  */
-public interface FundWithdrawCheck extends Default {
+public interface FundRechargeCheck extends Default {
 }

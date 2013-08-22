@@ -2,15 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.validation;
+package com.creditcloud.common.validation.group;
 
 import javax.validation.groups.Default;
 
-
 /**
- * check integrity and qualification for submit a LoanRequest
+ * check for FundWithdraw
  *
  * @author rooseek
  */
-public interface LoanRequestCheck extends Default{
+public interface FundWithdrawCheck extends Default {
 }
