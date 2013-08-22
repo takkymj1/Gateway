@@ -44,12 +44,26 @@ public class FundRecord extends BaseObject {
     @NotNull
     protected String description;
 
+    /*
+     * 交易订单号
+     */
+    @NotNull
+    private String orderNumber;
+
+    /**
+     * 交易流水号
+     */
+    @NotNull
+    private String transactionNumber;
+
     public FundRecord(String id,
                       UserFund fund,
                       FundRecordType type,
                       BigDecimal amount,
                       boolean income,
                       Date recordTime,
+                      String orderNumber,
+                      String transactionNumber,
                       String description) {
         this.id = id;
         this.fund = fund;
@@ -58,6 +72,8 @@ public class FundRecord extends BaseObject {
         this.income = income;
         this.recordTime = recordTime;
         this.description = description;
+        this.orderNumber = orderNumber;
+        this.transactionNumber = transactionNumber;
     }
 
     public UserFund getFund() {
@@ -114,5 +130,21 @@ public class FundRecord extends BaseObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public String getTransactionNumber() {
+        return transactionNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public void setTransactionNumber(String transactionNumber) {
+        this.transactionNumber = transactionNumber;
     }
 }
