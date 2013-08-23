@@ -6,10 +6,13 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
+import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -29,9 +32,13 @@ public class Invest extends BaseObject {
     private String loanId;
 
     @NotNull
+    @Min(LoanConstant.MIN_INVEST_AMOUNT)
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int amount;
 
     @NotNull
+    @Min(LoanConstant.MIN_LOAN_RATE)
+    @Max(LoanConstant.MAX_LOAN_AMOUNT)
     private int rate;
 
     @NotNull

@@ -6,6 +6,7 @@ package com.creditcloud.model;
 
 import java.math.BigDecimal;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -25,24 +26,28 @@ public class UserFund extends BaseObject {
      * 可用余额
      */
     @NotNull
+    @Min(0)
     private BigDecimal availableAmount;
 
     /**
      * 冻结金额
      */
     @NotNull
+    @Min(0)
     private BigDecimal frozenAmount;
 
     /**
      * 待收总额
      */
     @NotNull
+    @Min(0)
     private BigDecimal dueInAmount;
 
     /**
      * 待还总额
      */
     @NotNull
+    @Min(0)
     private BigDecimal dueOutAmount;
 
     public UserFund(String userId, User user, BigDecimal availableAmount, BigDecimal frozenAmount, BigDecimal dueInAmount, BigDecimal dueOutAmount) {

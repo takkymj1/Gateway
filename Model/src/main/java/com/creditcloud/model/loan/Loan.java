@@ -5,7 +5,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.constant.TimeConstant;
+import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import java.util.Date;
 import javax.validation.constraints.Max;
@@ -18,8 +18,6 @@ import javax.validation.constraints.NotNull;
  */
 public class Loan extends BaseObject {
 
-    public static final int DEFAULT_TIMEOUT = TimeConstant.DEFAULT_LOAN_OPEN_HOURS;
-
     /**
      * UUID
      */
@@ -28,14 +26,15 @@ public class Loan extends BaseObject {
     @Min(1)
     private int ordinal;
 
-    @Min(1000)
-    @Max(1000000)
+    @Min(LoanConstant.MIN_LOAN_AMOUNT)
+    @Max(LoanConstant.MAX_LOAN_AMOUNT)
     private int amount;
 
     @NotNull
     private Duration duration;
 
-    @Max(72)
+    @Min(LoanConstant.MIN_LOAN_TIME_OUT)
+    @Max(LoanConstant.MAX_LOAN_TIME_OUT)
     private int timeout;
 
     @NotNull

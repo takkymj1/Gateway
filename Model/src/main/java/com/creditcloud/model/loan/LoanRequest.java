@@ -6,6 +6,7 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
+import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
@@ -50,8 +51,8 @@ public class LoanRequest extends BaseObject {
      * 金额
      */
     @NotNull
-    @Min(1000)
-    @Max(1000000)
+    @Min(LoanConstant.MIN_LOAN_AMOUNT)
+    @Max(LoanConstant.MAX_LOAN_AMOUNT)
     private int amount;
 
     /**
@@ -64,8 +65,8 @@ public class LoanRequest extends BaseObject {
      * 年化利率（万分之几）
      */
     @NotNull
-    @Min(800)
-    @Max(2400)
+    @Min(LoanConstant.MIN_LOAN_RATE)
+    @Max(LoanConstant.MAX_LOAN_RATE)
     private int rate;
 
     /**
