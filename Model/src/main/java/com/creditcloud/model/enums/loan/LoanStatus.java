@@ -63,7 +63,7 @@ public enum LoanStatus implements BaseEnum {
      * we limit the LoanStatus seen by CreditMarket
      */
     private static final Set<LoanStatus> marketView = new HashSet();
-
+    
     static {
         marketView.addAll(Arrays.asList(OPENED, SCHEDULED, FINISHED, SETTLED, CLEARED));
     }

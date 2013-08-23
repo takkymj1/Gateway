@@ -6,6 +6,7 @@ package com.creditcloud.common.utils;
 
 import com.creditcloud.common.entities.embedded.Duration;
 import com.creditcloud.common.entities.embedded.Location;
+import com.creditcloud.common.entities.embedded.Range;
 import com.creditcloud.common.entities.embedded.Repayment;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
@@ -107,6 +108,28 @@ public class DTOUtils {
             result.setLongtitude(location.getLongtitude());
             result.setStreetAddress(location.getStreetAddress());
             result.setRoomAddress(location.getRoomAddress());
+        }
+        return result;
+    }
+
+    /**
+     * handle Range
+     *
+     * @param range
+     * @return
+     */
+    public static com.creditcloud.model.misc.Range getRangeDTO(Range range) {
+        com.creditcloud.model.misc.Range result = null;
+        if (range != null) {
+            result = new com.creditcloud.model.misc.Range(range.getLower(), range.getUpper());
+        }
+        return result;
+    }
+
+    public static Range convertRangeDTO(com.creditcloud.model.misc.Range range) {
+        Range result = null;
+        if (range != null) {
+            result = new Range(range.getLower(), range.getUpper());
         }
         return result;
     }

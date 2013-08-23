@@ -33,7 +33,7 @@ public class Duration extends BaseObject implements Comparable<Duration> {
 
     /**
      * @deprecated use the other constructor
-     * @param duration 
+     * @param duration
      */
     public Duration(final int duration) {
         years = duration / DAYS_PER_YEAR;
@@ -71,7 +71,7 @@ public class Duration extends BaseObject implements Comparable<Duration> {
 
     /**
      * @deprecated The return value is WRONG !
-     * @return 
+     * @return
      */
     public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
@@ -79,6 +79,15 @@ public class Duration extends BaseObject implements Comparable<Duration> {
 
     @Override
     public int compareTo(Duration o) {
-        return getTotalDays() - o.getTotalDays();
+        if (!(years == o.years)) {
+            return years > o.years ? 1 : -1;
+        }
+        if (!(months == o.months)) {
+            return months > o.months ? 1 : -1;
+        }
+        if (!(days == o.days)) {
+            return days > o.days ? 1 : -1;
+        }
+        return 0;
     }
 }
