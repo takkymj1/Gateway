@@ -10,7 +10,7 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum CreditRank implements BaseEnum {
+public enum CreditRank implements BaseEnum{
 
     AA("160及以上"),
     A("159-145 "),
@@ -30,4 +30,5 @@ public enum CreditRank implements BaseEnum {
     public String getKey() {
         return key;
     }
+    
 }

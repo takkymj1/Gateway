@@ -12,7 +12,7 @@ import javax.persistence.Embeddable;
  * @author sobranie
  */
 @Embeddable
-public class Duration extends BaseEntity {
+public class Duration extends BaseEntity implements Comparable<Duration> {
 
     private int years;
 
@@ -51,5 +51,19 @@ public class Duration extends BaseEntity {
 
     public void setDays(int days) {
         this.days = days;
+    }
+
+    @Override
+    public int compareTo(Duration o) {
+        if (!(years == o.years)) {
+            return years > o.years ? 1 : -1;
+        }
+        if (!(months == o.months)) {
+            return months > o.months ? 1 : -1;
+        }
+        if (!(days == o.days)) {
+            return days > o.days ? 1 : -1;
+        }
+        return 0;
     }
 }
