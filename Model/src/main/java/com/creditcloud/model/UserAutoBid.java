@@ -81,7 +81,7 @@ public class UserAutoBid extends BaseObject {
     private boolean mortgaged;
 
     /**
-     * 投标工具开启时间
+     * 投标工具最近一次开启时间
      */
     private Date activedTime;
 

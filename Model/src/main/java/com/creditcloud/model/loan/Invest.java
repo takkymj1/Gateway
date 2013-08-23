@@ -38,7 +38,7 @@ public class Invest extends BaseObject {
 
     @NotNull
     @Min(LoanConstant.MIN_LOAN_RATE)
-    @Max(LoanConstant.MAX_LOAN_AMOUNT)
+    @Max(LoanConstant.MAX_LOAN_RATE)
     private int rate;
 
     @NotNull
