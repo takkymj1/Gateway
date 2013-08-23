@@ -57,7 +57,8 @@ public enum LoanStatus implements BaseEnum {
      * 贷款违约,剩余贷款无法偿还
      */
     BREACH("违约"),
-    SCHEDULED_AND_OPEN("不存储只用于搜索");
+    SCHEDULED_AND_OPEN("不存储只用于搜索"),
+    ALL("用于显示在日历上");
 
     /**
      * we limit the LoanStatus seen by CreditMarket
@@ -113,6 +114,9 @@ public enum LoanStatus implements BaseEnum {
         switch (status) {
             case SCHEDULED_AND_OPEN:
                 statusList = Arrays.asList(OPENED, SCHEDULED);
+                break;
+            case ALL:
+                statusList = Arrays.asList(OPENED, SCHEDULED, FINISHED, SETTLED, CLEARED, CANCELED, OVERDUE);
                 break;
             default:
                 statusList = Arrays.asList(status);
