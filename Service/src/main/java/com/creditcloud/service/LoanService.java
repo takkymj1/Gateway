@@ -74,9 +74,9 @@ public interface LoanService extends LoanRequestService, LoanRepayService {
      * list loans by their status
      *
      * @param clientCode
-     * @param status
+     * @param statusList
      * @param pageInfo
      * @return
      */
-    PagedResult<Loan> listLoanByStatus(String clientCode, LoanStatus status, PageInfo pageInfo);
+    PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus ... statusList);
 }

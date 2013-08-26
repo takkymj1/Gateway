@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -18,7 +16,7 @@ public enum RepaymentMethod implements BaseEnum {
     EqualInstallment("按月等额本息", "还款便捷"),
     EqualPrincipal("按月等额本金", "总利息最低"),
     BulletRepayment("一次性还本付息", "短期首选"),
-    ALL("所有", "不存储只用于搜索");
+    ALL("所有", "匹配所有还款方式,只存储于UserAutoBid中");
 
     private final String key;
 
@@ -36,21 +34,5 @@ public enum RepaymentMethod implements BaseEnum {
 
     public String getDesc() {
         return desc;
-    }
-
-    public static List<RepaymentMethod> convertMethod(RepaymentMethod method) {
-        List<RepaymentMethod> methodList;
-        switch (method) {
-            case ALL:
-                methodList = Arrays.asList(MonthlyInterest, 
-                                           EqualInstallment, 
-                                           EqualPrincipal, 
-                                           BulletRepayment);
-                break;
-            default:
-                methodList = Arrays.asList(method);
-        }
-
-        return methodList;
     }
 }

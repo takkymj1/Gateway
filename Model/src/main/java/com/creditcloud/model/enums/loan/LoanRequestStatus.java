@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -28,8 +26,6 @@ public enum LoanRequestStatus implements BaseEnum {
 
     private final String key;
     
-    private static final List<LoanRequestStatus> managerView = Arrays.asList(LoanRequestStatus.values());
-
     private LoanRequestStatus(String key) {
         this.key = key;
     }
@@ -54,13 +50,5 @@ public enum LoanRequestStatus implements BaseEnum {
         }
 
         return false;
-    }
-    
-    /**
-     * list LoanRequestStatus can be seen in CreditManager
-     * @return 
-     */
-    public static List<LoanRequestStatus> getManagerView(){
-        return managerView;
     }
 }

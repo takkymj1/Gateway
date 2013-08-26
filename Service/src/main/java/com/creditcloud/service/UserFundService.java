@@ -42,8 +42,8 @@ public interface UserFundService {
      */
     public PagedResult<FundRecord> listFundRecordByUserId(String clientCode,
                                                           String userId,
-                                                          FundRecordType recordType,
-                                                          PageInfo pageInfo);
+                                                          PageInfo pageInfo,
+                                                          FundRecordType... recordType);
 
     /**
      * submit a new fund record

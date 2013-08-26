@@ -20,8 +20,7 @@ public enum FundRecordType implements BaseEnum {
     LOAN("借款结算"),
     INVEST_REPAY("投资回款"),
     LOAN_REPAY("还款"),
-    FROZEN("冻结资金"),
-    ALL("所有,不存储只用于搜索");
+    FROZEN("冻结资金");
 
     private final String key;
 
@@ -32,18 +31,5 @@ public enum FundRecordType implements BaseEnum {
     @Override
     public String getKey() {
         return key;
-    }
-
-    public static List<FundRecordType> convertType(final FundRecordType type) {
-        List<FundRecordType> typeList;
-        switch (type) {
-            case ALL:
-                typeList = Arrays.asList(FundRecordType.values());
-                break;
-            default:
-                typeList = Arrays.asList(type);
-        }
-
-        return typeList;
     }
 }

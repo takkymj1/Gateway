@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -18,8 +16,7 @@ public enum RepaymentStatus implements BaseEnum {
     UNDUE("未到期"),
     OVERDUE("逾期"),
     BREACH("违约"),
-    REPAYED("已还清"),
-    ALL("不存储只用于搜索");
+    REPAYED("已还清");
 
     private final String key;
 
@@ -30,18 +27,5 @@ public enum RepaymentStatus implements BaseEnum {
     @Override
     public String getKey() {
         return key;
-    }
-
-    public static List<RepaymentStatus> convertStatus(final RepaymentStatus status) {
-        List<RepaymentStatus> statusList;
-        switch (status) {
-            case ALL:
-                statusList = Arrays.asList(UNDUE, OVERDUE, BREACH, REPAYED);
-                break;
-            default:
-                statusList = Arrays.asList(status);
-        }
-
-        return statusList;
     }
 }

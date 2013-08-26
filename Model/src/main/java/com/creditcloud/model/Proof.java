@@ -4,8 +4,8 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.ProofContent;
-import com.creditcloud.model.enums.user.credit.ProofSource;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -51,7 +51,7 @@ public class Proof extends BaseObject {
     @FormParam("source")
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ProofSource source;
+    private Source source;
 
     //提交时间
     @FormParam("submitTime")
@@ -83,7 +83,7 @@ public class Proof extends BaseObject {
         this.description = description;
     }
 
-    public void setSource(ProofSource source) {
+    public void setSource(Source source) {
         this.source = source;
     }
 
@@ -103,7 +103,7 @@ public class Proof extends BaseObject {
         return description;
     }
 
-    public ProofSource getSource() {
+    public Source getSource() {
         return source;
     }
 
