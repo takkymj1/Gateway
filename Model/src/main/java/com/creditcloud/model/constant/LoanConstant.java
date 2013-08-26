@@ -33,6 +33,16 @@ public interface LoanConstant {
     int MAX_LOAN_AMOUNT = 1000000;
 
     /**
+     * 理财产品最小募集额
+     */
+    int MIN_WEALTH_PRODUCT_AMOUNT = 5000000;
+
+    /**
+     * 理财产品最大募集额
+     */
+    int MAX_WEALTH_PRODUCT_AMOUNT = 100000000;
+
+    /**
      * 贷款最短期限
      */
     Duration MIN_LOAN_DURATION = new Duration(0, 1, 0);
@@ -66,5 +76,9 @@ public interface LoanConstant {
      * 自动投标单次投标金额下限
      */
     int MIN_AUTO_BID_SINGLE_AMOUNT = MIN_INVEST_AMOUNT;
-
+    
+    /**
+     * 自动投标占贷款总金额比例上限
+     */
+    double MAX_AUTO_BID_PERCENT = 0.6;
 }
