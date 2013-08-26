@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import javax.validation.constraints.Max;
@@ -27,8 +28,8 @@ public abstract class AbstractFI extends BaseObject {
      * 年化利率（万分之几）
      */
     @NotNull
-    @Min(800)
-    @Max(2400)
+    @Min(LoanConstant.MIN_LOAN_RATE)
+    @Max(LoanConstant.MAX_LOAN_RATE)
     protected int rate;
 
     /**

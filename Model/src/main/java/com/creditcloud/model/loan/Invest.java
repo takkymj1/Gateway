@@ -7,6 +7,7 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
 import com.creditcloud.model.constant.LoanConstant;
+import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
@@ -30,6 +31,9 @@ public class Invest extends BaseObject {
 
     @NotNull
     private String loanId;
+    
+    @NotNull
+    private BidMethod bidMethod;
 
     @NotNull
     @Min(LoanConstant.MIN_INVEST_AMOUNT)
@@ -45,7 +49,7 @@ public class Invest extends BaseObject {
     private Duration duration;
 
     @NotNull
-    private RepaymentMethod method;
+    private RepaymentMethod repayMethod;
 
     @NotNull
     private InvestStatus status;
@@ -60,19 +64,21 @@ public class Invest extends BaseObject {
     public Invest(String id,
                   User user,
                   String loanId,
+                  BidMethod bidMethod,
                   int amount,
                   int rate,
                   Duration duration,
-                  RepaymentMethod method,
+                  RepaymentMethod repayMethod,
                   InvestStatus status,
                   Date submitTime) {
         this.id = id;
         this.user = user;
         this.loanId = loanId;
+        this.bidMethod = bidMethod;
         this.amount = amount;
         this.rate = rate;
         this.duration = duration;
-        this.method = method;
+        this.repayMethod = repayMethod;
         this.status = status;
         this.submitTime = submitTime;
     }
@@ -141,11 +147,20 @@ public class Invest extends BaseObject {
         this.user = user;
     }
 
-    public RepaymentMethod getMethod() {
-        return method;
+    public BidMethod getBidMethod() {
+        return bidMethod;
     }
 
-    public void setMethod(RepaymentMethod method) {
-        this.method = method;
+    public RepaymentMethod getRepayMethod() {
+        return repayMethod;
     }
+
+    public void setBidMethod(BidMethod bidMethod) {
+        this.bidMethod = bidMethod;
+    }
+
+    public void setRepayMethod(RepaymentMethod repayMethod) {
+        this.repayMethod = repayMethod;
+    }
+
 }
