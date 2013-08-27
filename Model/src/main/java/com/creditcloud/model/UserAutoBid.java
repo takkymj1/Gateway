@@ -25,7 +25,7 @@ public class UserAutoBid extends BaseObject {
     private String userId;
 
     @NotNull
-    private UserFund fund;
+    private User user;
 
     /**
      * 是否激活
@@ -92,7 +92,7 @@ public class UserAutoBid extends BaseObject {
     }
 
     public UserAutoBid(String userId,
-                       UserFund fund,
+                       User user,
                        boolean active,
                        int singleAmount,
                        int reservedAmount,
@@ -104,7 +104,7 @@ public class UserAutoBid extends BaseObject {
                        Date activedTime,
                        Date lastBidTime) {
         this.userId = userId;
-        this.fund = fund;
+        this.user = user;
         this.active = active;
         this.singleAmount = singleAmount;
         this.reservedAmount = reservedAmount;
@@ -156,12 +156,12 @@ public class UserAutoBid extends BaseObject {
         this.userId = userId;
     }
 
-    public void setFund(UserFund fund) {
-        this.fund = fund;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public UserFund getFund() {
-        return fund;
+    public User getUser() {
+        return user;
     }
 
     public void setActive(boolean active) {
