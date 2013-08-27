@@ -13,8 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum BidMethod implements BaseEnum {
 
-    AUTO("自动"),
-    MANUAL("手动");
+    AUTO("自动投标贷款"),
+    MANUAL("手动投标贷款"),
+    WEALTH_MANAGEMENT("加入理财计划");
 
     private final String key;
 

@@ -25,7 +25,7 @@ public class UserAutoBid extends BaseObject {
     private String userId;
 
     @NotNull
-    private User user;
+    private UserFund fund;
 
     /**
      * 是否激活
@@ -84,12 +84,15 @@ public class UserAutoBid extends BaseObject {
      * 投标工具最近一次开启时间
      */
     private Date activedTime;
+    
+    
+    private Date lastBidTime;
 
     public UserAutoBid() {
     }
 
     public UserAutoBid(String userId,
-                       User user,
+                       UserFund fund,
                        boolean active,
                        int singleAmount,
                        int reservedAmount,
@@ -98,9 +101,10 @@ public class UserAutoBid extends BaseObject {
                        Range<Integer> rateRange,
                        Range<CreditRank> creditRankRange,
                        boolean mortgaged,
-                       Date activedTime) {
+                       Date activedTime,
+                       Date lastBidTime) {
         this.userId = userId;
-        this.user = user;
+        this.fund = fund;
         this.active = active;
         this.singleAmount = singleAmount;
         this.reservedAmount = reservedAmount;
@@ -114,10 +118,6 @@ public class UserAutoBid extends BaseObject {
 
     public String getUserId() {
         return userId;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public boolean isActive() {
@@ -156,8 +156,12 @@ public class UserAutoBid extends BaseObject {
         this.userId = userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setFund(UserFund fund) {
+        this.fund = fund;
+    }
+
+    public UserFund getFund() {
+        return fund;
     }
 
     public void setActive(boolean active) {
@@ -198,5 +202,13 @@ public class UserAutoBid extends BaseObject {
 
     public void setMortgaged(boolean mortgaged) {
         this.mortgaged = mortgaged;
+    }
+
+    public Date getLastBidTime() {
+        return lastBidTime;
+    }
+
+    public void setLastBidTime(Date lastBidTime) {
+        this.lastBidTime = lastBidTime;
     }
 }
