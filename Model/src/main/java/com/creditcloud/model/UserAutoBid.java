@@ -84,6 +84,9 @@ public class UserAutoBid extends BaseObject {
      * 投标工具最近一次开启时间
      */
     private Date activedTime;
+    
+    
+    private Date lastBidTime;
 
     public UserAutoBid() {
     }
@@ -98,7 +101,8 @@ public class UserAutoBid extends BaseObject {
                        Range<Integer> rateRange,
                        Range<CreditRank> creditRankRange,
                        boolean mortgaged,
-                       Date activedTime) {
+                       Date activedTime,
+                       Date lastBidTime) {
         this.userId = userId;
         this.fund = fund;
         this.active = active;
@@ -198,5 +202,13 @@ public class UserAutoBid extends BaseObject {
 
     public void setMortgaged(boolean mortgaged) {
         this.mortgaged = mortgaged;
+    }
+
+    public Date getLastBidTime() {
+        return lastBidTime;
+    }
+
+    public void setLastBidTime(Date lastBidTime) {
+        this.lastBidTime = lastBidTime;
     }
 }
