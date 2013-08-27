@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import java.util.Date;
+import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -21,6 +22,7 @@ public class Loan extends BaseObject {
     /**
      * UUID
      */
+    @Id
     private String id;
 
     @Min(1)
@@ -53,7 +55,15 @@ public class Loan extends BaseObject {
      */
     private Date timeFinished;
 
+    /**
+     * 有无抵押
+     */
     private boolean mortgaged;
+
+    /**
+     *投标数
+     */
+    private int bidNumber;
 
     public Loan() {
     }
@@ -67,7 +77,8 @@ public class Loan extends BaseObject {
                 LoanRequest loanRequest,
                 Date timeOpen,
                 Date timeFinished,
-                boolean mortgaged) {
+                boolean mortgaged,
+                int bidNumber) {
         this.id = id;
         this.ordinal = ordinal;
         this.amount = amount;
@@ -78,6 +89,7 @@ public class Loan extends BaseObject {
         this.timeOpen = timeOpen;
         this.timeFinished = timeFinished;
         this.mortgaged = mortgaged;
+        this.bidNumber = bidNumber;
     }
 
     public String getId() {
@@ -158,5 +170,13 @@ public class Loan extends BaseObject {
 
     public void setMortgaged(boolean mortgaged) {
         this.mortgaged = mortgaged;
+    }
+
+    public int getBidNumber() {
+        return bidNumber;
+    }
+
+    public void setBidNumber(int bidNumber) {
+        this.bidNumber = bidNumber;
     }
 }
