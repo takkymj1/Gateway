@@ -7,7 +7,7 @@ package com.creditcloud.common.validation.group;
 import javax.validation.groups.Default;
 
 /**
- * 检查是否满足理财产品
+ * 检查是否满足理财产品要求
  *
  * @author rooseek
  */
