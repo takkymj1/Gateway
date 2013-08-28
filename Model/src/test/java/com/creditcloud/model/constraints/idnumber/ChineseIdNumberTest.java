@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.constraints.idnumber;
 
+import com.creditcloud.model.constraints.validator.ChineseIdNumber;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;

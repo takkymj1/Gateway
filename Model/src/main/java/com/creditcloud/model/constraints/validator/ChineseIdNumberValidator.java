@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.constraints.idnumber;
+package com.creditcloud.model.constraints.validator;
 
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constant.IdNumberConstant;
