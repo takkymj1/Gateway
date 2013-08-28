@@ -19,7 +19,8 @@ import javax.validation.Payload;
 
 /**
  *
- * 用来限定最小值且是某数的倍数
+ * 用来限定最小值且是按照一定数递增
+ * 如最小为100，且按照5递增的数
  *
  * @author rooseek
  */

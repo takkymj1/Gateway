@@ -47,6 +47,9 @@ public class WealthProduct extends AbstractFI {
     @NotNull
     private int maxInvestAmount;
 
+    /**
+     * 投资人数
+     */
     @NotNull
     private int investerNumber;
 

@@ -8,38 +8,44 @@ import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 
 /**
+ * 任何可投资的对象
  *
  * @author rooseek
  */
 public interface Investable {
 
     /**
-     * 
-     * @return 
+     * 唯一id
+     *
+     * @return
      */
     String getId();
 
     /**
-     * 
-     * @return 
+     * 利率
+     *
+     * @return
      */
     int getRate();
 
     /**
-     * 
-     * @return 
+     * 期限
+     *
+     * @return
      */
     Duration getDuration();
 
     /**
-     * 
-     * @return 
+     * 还款方法
+     *
+     * @return
      */
     RepaymentMethod getMethod();
-    
+
     /**
-     * 
-     * @return 
+     * 投资对象的状态
+     *
+     * @return
      */
     LoanStatus getStatus();
 }
