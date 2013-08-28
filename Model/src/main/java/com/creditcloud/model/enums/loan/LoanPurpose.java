@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -21,8 +19,6 @@ public enum LoanPurpose implements BaseEnum {
     HOUSE("购房借款"),
     OTHER("其它借款");
 
-    private static final List<LoanPurpose> managerView = Arrays.asList(LoanPurpose.values());
-
     private final String key;
 
     private LoanPurpose(String key) {
@@ -32,14 +28,5 @@ public enum LoanPurpose implements BaseEnum {
     @Override
     public String getKey() {
         return key;
-    }
-
-    /**
-     * list LoanPurposes can be seen in CreditManager
-     *
-     * @return
-     */
-    public static List<LoanPurpose> getManagerView() {
-        return managerView;
     }
 }

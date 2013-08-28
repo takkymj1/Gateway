@@ -33,16 +33,6 @@ public interface LoanConstant {
     int MAX_LOAN_AMOUNT = 1000000;
 
     /**
-     * 理财产品最小募集额
-     */
-    int MIN_WEALTH_PRODUCT_AMOUNT = 5000000;
-
-    /**
-     * 理财产品最大募集额
-     */
-    int MAX_WEALTH_PRODUCT_AMOUNT = 100000000;
-
-    /**
      * 贷款最短期限
      */
     Duration MIN_LOAN_DURATION = new Duration(0, 1, 0);
