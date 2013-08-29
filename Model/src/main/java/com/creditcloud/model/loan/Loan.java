@@ -7,6 +7,7 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author sobranie
  */
-public class Loan extends BaseObject {
+public class Loan extends BaseObject implements Investable{
 
     /**
      * UUID
@@ -92,6 +93,7 @@ public class Loan extends BaseObject {
         this.bidNumber = bidNumber;
     }
 
+    @Override
     public String getId() {
         return id;
     }
@@ -156,6 +158,7 @@ public class Loan extends BaseObject {
         this.timeFinished = timeFinished;
     }
 
+    @Override
     public Duration getDuration() {
         return duration;
     }
@@ -178,5 +181,15 @@ public class Loan extends BaseObject {
 
     public void setBidNumber(int bidNumber) {
         this.bidNumber = bidNumber;
+    }
+
+    @Override
+    public int getRate() {
+        return loanRequest.getRate();
+    }
+
+    @Override
+    public RepaymentMethod getMethod() {
+        return loanRequest.getMethod();
     }
 }

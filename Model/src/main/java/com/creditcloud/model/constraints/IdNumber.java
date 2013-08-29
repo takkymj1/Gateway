@@ -4,7 +4,7 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.constraints.idnumber.ChineseIdNumberValidator;
+import com.creditcloud.model.constraints.validator.ChineseIdNumberValidator;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

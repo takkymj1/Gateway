@@ -10,18 +10,17 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum LoanPurpose implements BaseEnum {
+public enum WealthProductStatus implements BaseEnum {
 
-    SHORTTERM("短期周转"),
-    PERSONAL("个人消费"),
-    INVESTMENT("投资创业"),
-    CAR("购车借款"),
-    HOUSE("购房借款"),
-    OTHER("其它借款");
+    INITIATED("初始"),
+    OPENED("开放申请"),
+    FINISHED("申请结束"),
+    SETTLED("已结算"),
+    CLEARED("已还清");
 
     private final String key;
 
-    private LoanPurpose(String key) {
+    private WealthProductStatus(String key) {
         this.key = key;
     }
 
