@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.loan;
 
-import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 
 /**
@@ -41,11 +40,4 @@ public interface Investable {
      * @return
      */
     RepaymentMethod getMethod();
-
-    /**
-     * 投资对象的状态
-     *
-     * @return
-     */
-    LoanStatus getStatus();
 }

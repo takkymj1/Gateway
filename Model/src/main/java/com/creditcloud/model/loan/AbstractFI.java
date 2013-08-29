@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model;
+package com.creditcloud.model.loan;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.loan.Investable;
 import com.creditcloud.model.constant.LoanConstant;
-import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import javax.persistence.Id;
@@ -44,22 +44,15 @@ public abstract class AbstractFI extends BaseObject implements Investable {
     @NotNull
     protected RepaymentMethod method;
 
-    /**
-     * 状态
-     */
-    @NotNull
-    protected LoanStatus status;
 
     public AbstractFI(String id, 
                       Duration duration, 
                       int rate, 
-                      RepaymentMethod method, 
-                      LoanStatus status) {
+                      RepaymentMethod method) {
         this.id = id;
         this.duration = duration;
         this.rate = rate;
         this.method = method;
-        this.status = status;
     }
 
     /**
@@ -114,14 +107,5 @@ public abstract class AbstractFI extends BaseObject implements Investable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Override
-    public LoanStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(LoanStatus status) {
-        this.status = status;
     }
 }

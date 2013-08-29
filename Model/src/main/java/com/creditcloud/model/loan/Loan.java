@@ -126,7 +126,6 @@ public class Loan extends BaseObject implements Investable{
         this.timeout = timeout;
     }
 
-    @Override
     public LoanStatus getStatus() {
         return status;
     }
