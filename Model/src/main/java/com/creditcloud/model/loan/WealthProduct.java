@@ -4,10 +4,9 @@
  */
 package com.creditcloud.model.loan;
 
-import com.creditcloud.model.AbstractFI;
 import com.creditcloud.model.constant.WealthProductConstant;
-import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.loan.WealthProductStatus;
 import com.creditcloud.model.misc.Range;
 import java.util.Date;
 import javax.validation.constraints.Max;
@@ -52,25 +51,29 @@ public class WealthProduct extends AbstractFI {
      */
     @NotNull
     private int investerNumber;
+    
+    @NotNull
+    private WealthProductStatus status;
 
     public WealthProduct(String id,
                          String title,
                          String description,
                          Range<Date> raisePeriod,
-                         LoanStatus status,
+                         WealthProductStatus status,
                          int totalAmount,
                          int maxInvestAmount,
                          int investerNumber,
                          Duration duration,
                          int rate,
                          RepaymentMethod method) {
-        super(id, duration, rate, method, status);
+        super(id, duration, rate, method);
         this.title = title;
         this.description = description;
         this.raisePeriod = raisePeriod;
         this.totalAmount = totalAmount;
         this.maxInvestAmount = maxInvestAmount;
         this.investerNumber = investerNumber;
+        this.status = status;
     }
 
     public String getTitle() {
@@ -119,5 +122,13 @@ public class WealthProduct extends AbstractFI {
 
     public void setInvesterNumber(int investerNumber) {
         this.investerNumber = investerNumber;
+    }
+
+    public WealthProductStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(WealthProductStatus status) {
+        this.status = status;
     }
 }

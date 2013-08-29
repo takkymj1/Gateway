@@ -4,7 +4,7 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.WealthProductStatus;
 import com.creditcloud.model.loan.WealthProduct;
 import java.util.List;
 import javax.ejb.Remote;
@@ -44,5 +44,5 @@ public interface WealthProductService {
      * @param status
      * @return 
      */
-    List<WealthProduct> listByStatus(String clientCode, LoanStatus ... status);
+    List<WealthProduct> listByStatus(String clientCode, WealthProductStatus ... status);
 }
