@@ -13,6 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum WealthProductStatus implements BaseEnum {
 
     INITIATED("初始"),
+    SCHEDULED("已安排"),
     OPENED("开放申请"),
     FINISHED("申请结束"),
     SETTLED("已结算"),

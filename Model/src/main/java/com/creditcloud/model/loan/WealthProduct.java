@@ -46,14 +46,15 @@ public class WealthProduct extends AbstractFI {
     @NotNull
     private int maxInvestAmount;
 
+    @NotNull
+    private WealthProductStatus status;
+
     /**
      * 投资人数
      */
-    @NotNull
     private int investerNumber;
     
-    @NotNull
-    private WealthProductStatus status;
+    private Date finishTime;
 
     public WealthProduct(String id,
                          String title,
@@ -65,7 +66,8 @@ public class WealthProduct extends AbstractFI {
                          int investerNumber,
                          Duration duration,
                          int rate,
-                         RepaymentMethod method) {
+                         RepaymentMethod method,
+                         Date finishTime) {
         super(id, duration, rate, method);
         this.title = title;
         this.description = description;
@@ -74,6 +76,7 @@ public class WealthProduct extends AbstractFI {
         this.maxInvestAmount = maxInvestAmount;
         this.investerNumber = investerNumber;
         this.status = status;
+        this.finishTime = finishTime;
     }
 
     public String getTitle() {
@@ -130,5 +133,13 @@ public class WealthProduct extends AbstractFI {
 
     public void setStatus(WealthProductStatus status) {
         this.status = status;
+    }
+
+    public Date getFinishTime() {
+        return finishTime;
+    }
+
+    public void setFinishTime(Date finishTime) {
+        this.finishTime = finishTime;
     }
 }
