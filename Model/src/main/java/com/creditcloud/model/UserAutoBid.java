@@ -8,7 +8,9 @@ import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.user.CreditRank;
 import com.creditcloud.model.misc.Range;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
@@ -51,7 +53,7 @@ public class UserAutoBid extends BaseObject {
      * 贷款还款方式
      */
     @NotNull
-    private RepaymentMethod repayMethod;
+    private Collection<RepaymentMethod> repayMethod;
 
     /**
      * 贷款期限范围,单位月
@@ -96,7 +98,7 @@ public class UserAutoBid extends BaseObject {
                        boolean active,
                        int singleAmount,
                        int reservedAmount,
-                       RepaymentMethod repayMethod,
+                       Collection<RepaymentMethod> repayMethod,
                        Range<Integer> durationRange,
                        Range<Integer> rateRange,
                        Range<CreditRank> creditRankRange,
@@ -136,9 +138,14 @@ public class UserAutoBid extends BaseObject {
         return reservedAmount;
     }
 
-    public RepaymentMethod getRepayMethod() {
+    public Collection<RepaymentMethod> getRepayMethod() {
         return repayMethod;
     }
+
+    public void setRepayMethod(Collection<RepaymentMethod> repayMethod) {
+        this.repayMethod = repayMethod;
+    }
+
 
     public Range<Integer> getDurationRange() {
         return durationRange;
@@ -172,7 +179,7 @@ public class UserAutoBid extends BaseObject {
         this.singleAmount = singleAmount;
     }
 
-    public void setRepayMethod(RepaymentMethod repayMethod) {
+    public void setRepayMethod(List<RepaymentMethod> repayMethod) {
         this.repayMethod = repayMethod;
     }
 

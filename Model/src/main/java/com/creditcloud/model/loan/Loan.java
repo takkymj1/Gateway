@@ -64,7 +64,7 @@ public class Loan extends BaseObject implements Investable{
     /**
      *投标数
      */
-    private int bidNumber;
+    private  int bidNumber;
 
     public Loan() {
     }
