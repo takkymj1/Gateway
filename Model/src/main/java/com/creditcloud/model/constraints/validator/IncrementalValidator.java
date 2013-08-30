@@ -25,7 +25,12 @@ public class IncrementalValidator implements ConstraintValidator<IncrementalInte
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
         int min = constraintAnnotation.min();
         int increment = constraintAnnotation.increment();
+        int max = constraintAnnotation.max();
         if (value < min) {
+            return false;
+        }
+
+        if (value > max) {
             return false;
         }
 

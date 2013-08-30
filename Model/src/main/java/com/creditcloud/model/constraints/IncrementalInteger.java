@@ -19,8 +19,7 @@ import javax.validation.Payload;
 
 /**
  *
- * 用来限定最小值且是按照一定数递增
- * 如最小为100，且按照5递增的数
+ * 用来限定最小/最大值且是按照一定数递增 如最小为100，且按照50递增的数
  *
  * @author rooseek
  */
@@ -40,9 +39,28 @@ public @interface IncrementalInteger {
      * @return value the element must be larger or equal to
      */
     int min();
+    
+    /**
+     * @return value the element must be smaller or equal to 
+     */
+    int max();
 
     /**
      * @return value must be incremental
      */
     int increment();
+
+    /**
+     * Defines several {@link IncrementalInteger} annotations on the same
+     * element.
+     *
+     * @see IncrementalInteger
+     */
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+
+        IncrementalInteger[] value();
+    }
 }

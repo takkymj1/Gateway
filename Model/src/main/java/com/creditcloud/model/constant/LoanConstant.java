@@ -28,6 +28,11 @@ public interface LoanConstant {
     int MIN_LOAN_AMOUNT = 1000;
 
     /**
+     * 贷款递增需是LOAN_AMOUNT_INCREMENT的倍数
+     */
+    int LOAN_AMOUNT_INCREMENT = 1000;
+
+    /**
      * 最高贷款金额
      */
     int MAX_LOAN_AMOUNT = 1000000;
@@ -58,27 +63,13 @@ public interface LoanConstant {
     int MIN_INVEST_AMOUNT = 50;
 
     /**
+     * 单笔投资需按照50递增
+     */
+    int INVEST_AMOUNT_INCREMENT = 50;
+
+    /**
      * 单笔投资最大金额
      */
     int MAX_INVEST_AMOUNT = MAX_LOAN_AMOUNT;
 
-    /**
-     * 自动投标单次投标金额下限
-     */
-    int MIN_AUTO_BID_SINGLE_AMOUNT = MIN_INVEST_AMOUNT;
-
-    /**
-     * 首次启动自动投标时自动投标金额占贷款总金额比例上限
-     */
-    double MAX_AUTO_BID_PERCENT = 0.5;
-    
-    /**
-     * 自动投标单次投标占总贷款额最大百分比
-     */
-    double MAX_SINGLE_AUTO_BID_PERCENT = 0.2;
-
-    /**
-     * 贷款招标开始后自动投标重新启动时间间隔，单位毫秒
-     */
-    long AUTO_BID_REOPEN_INTERVAL = 20 * 60 * 1000;
 }

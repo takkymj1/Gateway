@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.user.fund;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
