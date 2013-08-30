@@ -11,7 +11,8 @@ import com.creditcloud.model.constraints.IncrementalInteger;
  * @author rooseek
  */
 public class MockInteger {
-    @IncrementalInteger(min=10000,increment=1000)
+
+    @IncrementalInteger(min = 10000, increment = 1000, max = 1000000)
     private int value;
 
     public MockInteger(int value) {
@@ -25,6 +26,4 @@ public class MockInteger {
     public int getValue() {
         return value;
     }
-    
-    
 }

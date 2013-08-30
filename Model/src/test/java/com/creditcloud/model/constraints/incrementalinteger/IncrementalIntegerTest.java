@@ -54,5 +54,9 @@ public class IncrementalIntegerTest extends BaseTest<MockInteger> {
         object.setValue(19000);
         constraintViolations = validator.validateProperty(object, "value");
         assertEquals(0, constraintViolations.size());
+
+        object.setValue(1900000);
+        constraintViolations = validator.validateProperty(object, "value");
+        assertEquals(1, constraintViolations.size());
     }
 }

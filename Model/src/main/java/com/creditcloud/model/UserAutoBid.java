@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.user.CreditRank;
 import com.creditcloud.model.misc.Range;
@@ -38,7 +37,6 @@ public class UserAutoBid extends BaseObject {
     /**
      * 单次投标金额,最低50
      */
-    @Min(LoanConstant.MIN_AUTO_BID_SINGLE_AMOUNT)
     @NotNull
     private int singleAmount;
 
