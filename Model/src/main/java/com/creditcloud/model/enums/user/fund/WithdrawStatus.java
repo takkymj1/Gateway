@@ -12,7 +12,6 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum WithdrawStatus implements BaseEnum {
 
-    ALL("所有"),
     FAILED("失败"),
     PROCESSING("处理中"),
     SUCCESSFUL("成功");
