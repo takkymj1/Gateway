@@ -10,15 +10,15 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum CreditRank implements BaseEnum{
+public enum CreditRank implements BaseEnum {
 
-    AA("160及以上"),
-    A("159-145 "),
-    B("144-130 "),
-    C("129-120 "),
-    D("119-110"),
+    HR("99-0 "),
     E("109-100 "),
-    HR("99-0 ");
+    D("119-110"),
+    C("129-120 "),
+    B("144-130 "),
+    A("159-145 "),
+    AA("160及以上");
 
     private final String key;
 
@@ -30,5 +30,22 @@ public enum CreditRank implements BaseEnum{
     public String getKey() {
         return key;
     }
-    
+
+    /**
+     * lowest credit rank
+     *
+     * @return
+     */
+    public static CreditRank lowest() {
+        return HR;
+    }
+
+    /**
+     * highest credit rank
+     *
+     * @return
+     */
+    public static CreditRank highest() {
+        return AA;
+    }
 }
