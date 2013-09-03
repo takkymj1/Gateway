@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.entities.facade;
+package com.creditcloud.common.entities.dao;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
 import com.creditcloud.model.criteria.CriteriaInfo;
@@ -29,17 +29,18 @@ import javax.persistence.criteria.Root;
 import javax.validation.Validator;
 
 /**
- *
+ * 抽象的DAO类
+ * 
  * @author sobranie
  */
-public abstract class AbstractFacade<T> {
+public abstract class AbstractDAO<T> {
 
     @Resource
     protected Validator validator;
 
     private Class<T> entityClass;
 
-    public AbstractFacade(Class<T> entityClass) {
+    public AbstractDAO(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
