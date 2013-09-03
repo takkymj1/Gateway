@@ -5,13 +5,11 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.enums.user.CreditRank;
-import com.creditcloud.model.misc.Range;
+import com.creditcloud.model.misc.AutoBidRange;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Id;
-import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -53,27 +51,10 @@ public class UserAutoBid extends BaseObject {
     @NotNull
     private Collection<RepaymentMethod> repayMethod;
 
-    /**
-     * 贷款期限范围,单位月
-     */
-    @NotNull
-    @Valid
-    private Range<Integer> durationRange;
 
-    /**
-     * 贷款利率范围,[1000-2000]等同于利率[10%-20%]
-     */
     @NotNull
-    @Valid
-    private Range<Integer> rateRange;
-
-    /**
-     * 贷款信用等级范围
-     */
-    @NotNull
-    @Valid
-    private Range<CreditRank> creditRankRange;
-
+    private AutoBidRange range;
+    
     /**
      * true必须有抵押,false可以没有抵押
      */
@@ -97,9 +78,7 @@ public class UserAutoBid extends BaseObject {
                        int singleAmount,
                        int reservedAmount,
                        Collection<RepaymentMethod> repayMethod,
-                       Range<Integer> durationRange,
-                       Range<Integer> rateRange,
-                       Range<CreditRank> creditRankRange,
+                       AutoBidRange range,
                        boolean mortgaged,
                        Date activedTime,
                        Date lastBidTime) {
@@ -109,11 +88,9 @@ public class UserAutoBid extends BaseObject {
         this.singleAmount = singleAmount;
         this.reservedAmount = reservedAmount;
         this.repayMethod = repayMethod;
-        this.durationRange = durationRange;
-        this.rateRange = rateRange;
-        this.creditRankRange = creditRankRange;
         this.mortgaged = mortgaged;
         this.activedTime = activedTime;
+        this.range = range;
     }
 
     public String getUserId() {
@@ -144,19 +121,6 @@ public class UserAutoBid extends BaseObject {
         this.repayMethod = repayMethod;
     }
 
-
-    public Range<Integer> getDurationRange() {
-        return durationRange;
-    }
-
-    public Range<Integer> getRateRange() {
-        return rateRange;
-    }
-
-    public Range<CreditRank> getCreditRankRange() {
-        return creditRankRange;
-    }
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -181,18 +145,6 @@ public class UserAutoBid extends BaseObject {
         this.repayMethod = repayMethod;
     }
 
-    public void setDurationRange(Range<Integer> durationRange) {
-        this.durationRange = durationRange;
-    }
-
-    public void setRateRange(Range<Integer> rateRange) {
-        this.rateRange = rateRange;
-    }
-
-    public void setCreditRankRange(Range<CreditRank> creditRankRange) {
-        this.creditRankRange = creditRankRange;
-    }
-
     public Date getActivedTime() {
         return activedTime;
     }
@@ -215,5 +167,13 @@ public class UserAutoBid extends BaseObject {
 
     public void setLastBidTime(Date lastBidTime) {
         this.lastBidTime = lastBidTime;
+    }
+
+    public AutoBidRange getRange() {
+        return range;
+    }
+
+    public void setRange(AutoBidRange range) {
+        this.range = range;
     }
 }
