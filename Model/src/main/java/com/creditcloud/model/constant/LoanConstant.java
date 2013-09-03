@@ -38,14 +38,14 @@ public interface LoanConstant {
     int MAX_LOAN_AMOUNT = 1000000;
 
     /**
-     * 贷款最短期限
+     * 贷款最短期限,单位月
      */
-    Duration MIN_LOAN_DURATION = new Duration(0, 1, 0);
+    int MIN_LOAN_DURATION = 1;
 
     /**
-     * 贷款最长期限
+     * 贷款最长期限，单位月
      */
-    Duration MAX_LOAN_DURATION = new Duration(3, 0, 0);
+    int MAX_LOAN_DURATION = 36;
 
     /**
      * 最小开放募集时间,单位小时
