@@ -4,7 +4,7 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.enums.message.MessageRealm;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.message.MessageType;
 import java.util.Collection;
 import java.util.Date;
@@ -29,7 +29,7 @@ public class MessageBody extends BaseObject {
     private Date sentTime;
 
     @NotNull
-    private MessageRealm realm;
+    private Realm realm;
 
     @NotNull
     private MessageType type;
@@ -40,7 +40,7 @@ public class MessageBody extends BaseObject {
                        String title, 
                        String content,
                        Date sentTime, 
-                       MessageRealm realm, 
+                       Realm realm, 
                        MessageType type) {
         this.id = id;
         this.title = title;
@@ -82,11 +82,11 @@ public class MessageBody extends BaseObject {
         this.sentTime = sentTime;
     }
 
-    public MessageRealm getRealm() {
+    public Realm getRealm() {
         return realm;
     }
 
-    public void setRealm(MessageRealm realm) {
+    public void setRealm(Realm realm) {
         this.realm = realm;
     }
 
