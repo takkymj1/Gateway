@@ -7,15 +7,18 @@ package com.creditcloud.common.security;
 import java.text.DateFormat;
 import java.util.Date;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author sobranie
  */
 public final class SecurityUtils {
+
+    static Logger logger = LoggerFactory.getLogger(SecurityUtils.class);
 
     private static final DateFormat df = DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.SHORT);
 
@@ -54,7 +57,11 @@ public final class SecurityUtils {
     }
 
     public static boolean matchPassphrase(final String passphrase, final String salt, final String userPassword) {
-        return passphrase.equalsIgnoreCase(getPassphrase(salt, userPassword));
+        boolean result = passphrase.equalsIgnoreCase(getPassphrase(salt, userPassword));
+        if (!result) {
+            logger.debug("Passphrase not matching, expecting {} but having {}", passphrase, getPassphrase(salt, userPassword));
+        }
+        return result;
     }
 
     /**
@@ -62,8 +69,24 @@ public final class SecurityUtils {
      *
      * @return
      */
-    public static String randomPassword() {
-        return RandomStringUtils.random(6, randomChars);
+    public static String randomPassword(SecurityLevel level) {
+        switch (level) {
+            case EXTREME:
+                return RandomStringUtils.random(12, randomChars);
+            case STRONG:
+                return RandomStringUtils.random(8, randomChars);
+            case GOOD:
+                return RandomStringUtils.random(6, randomChars);
+            case MEDIUM:
+                return RandomStringUtils.randomNumeric(8);
+            case WEAK:
+                return RandomStringUtils.randomNumeric(6);
+            case KIDDING:
+                return RandomStringUtils.randomNumeric(3);
+            default:
+                return RandomStringUtils.random(12, randomChars);
+        }
+        
     }
 
     private static byte[] blend(byte[] a, byte[] b) {
