@@ -27,7 +27,7 @@ public class Regions {
     static {
         InputStream is = Regions.class.getClassLoader().getResourceAsStream(filename);
         
-        try (Scanner sc = new Scanner(is)) {
+        try (Scanner sc = new Scanner(is, "UTF-8")) {
             while (sc.hasNext()) {
                 String tempString = sc.nextLine();
                 if(! "".equals(tempString.trim()))
