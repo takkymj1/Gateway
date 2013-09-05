@@ -5,6 +5,7 @@
 package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.persistence.Embeddable;
 
 /**
@@ -14,10 +15,22 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Duration extends BaseEntity implements Comparable<Duration> {
 
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        /**
+                         * 最长三年
+                         */
+                        max = 3)
     private int years;
 
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        max = 12)
     private int months;
 
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        max = 31)
     private int days;
 
     public Duration() {

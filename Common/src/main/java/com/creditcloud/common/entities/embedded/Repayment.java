@@ -9,6 +9,7 @@ import com.creditcloud.common.entities.utils.LocalDateConverter;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Min;
 import org.eclipse.persistence.annotations.Convert;
 import org.eclipse.persistence.annotations.Converter;
 import org.joda.time.LocalDate;
@@ -23,18 +24,21 @@ public class Repayment extends BaseEntity {
     /**
      * 偿还本金
      */
+    @Min(0)
     @Column(nullable = false)
     private BigDecimal amountPrincipal;
 
     /**
      * 偿还利息
      */
+    @Min(0)
     @Column(nullable = false)
     private BigDecimal amountInterest;
 
     /**
      * 剩余本金
      */
+    @Min(0)
     @Column(nullable = false)
     private BigDecimal amountOutstanding;
 

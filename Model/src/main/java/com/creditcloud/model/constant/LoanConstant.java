@@ -4,8 +4,6 @@
  */
 package com.creditcloud.model.constant;
 
-import com.creditcloud.model.loan.Duration;
-
 /**
  *
  * @author rooseek

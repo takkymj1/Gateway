@@ -1,6 +1,7 @@
 package com.creditcloud.common.rest;
 
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -10,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class AnalysisData {
 
     private Date day;
+    
+    @Min(0)
     private long count;
 
     public AnalysisData() {
