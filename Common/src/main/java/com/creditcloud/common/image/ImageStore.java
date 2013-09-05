@@ -7,6 +7,7 @@ package com.creditcloud.common.image;
 import com.creditcloud.model.enums.ImageSize;
 
 /**
+ * 只用来存取图片
  *
  * @author rooseek
  */

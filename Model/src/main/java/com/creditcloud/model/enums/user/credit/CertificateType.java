@@ -22,7 +22,9 @@ public enum CertificateType implements BaseEnum {
     LOCATION("居住地认证"),
     CAR("购车认证"),
     MOBILE("手机认证"),
+    EMAIL("邮箱认证"),
     ON_THE_SPOT("实地认证"),
+    LOANPURPOSE("借款用途认证"),
     OTHERS("其他认证");
 
     private final String key;
@@ -34,5 +36,9 @@ public enum CertificateType implements BaseEnum {
     @Override
     public String getKey() {
         return key;
+    }
+
+    public static CertificateType[] all() {
+        return CertificateType.values();
     }
 }
