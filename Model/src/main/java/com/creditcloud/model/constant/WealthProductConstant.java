@@ -16,6 +16,11 @@ public interface WealthProductConstant {
     int MIN_WEALTH_PRODUCT_AMOUNT = 1000000;
 
     /**
+     *理财产品资金总额递增额
+     */
+    int WEALTH_PRODUCT_AMOUNT_INCREMENT = 1000000;
+
+    /**
      * 理财产品最大募集额
      */
     int MAX_WEALTH_PRODUCT_AMOUNT = 100000000;
@@ -24,7 +29,7 @@ public interface WealthProductConstant {
      * 理财产品最小投资额
      */
     int MIN_INVEST_AMOUNT = 10000;
-    
+
     /**
      * 理财产品最大投资额
      */

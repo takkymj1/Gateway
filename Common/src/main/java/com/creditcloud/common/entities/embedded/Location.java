@@ -8,6 +8,7 @@ import com.creditcloud.common.entities.BaseEntity;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Min;
 
 /**
  * 地址位置信息，为分支机构服务地址或者实地信审用地址
@@ -28,8 +29,10 @@ public class Location extends BaseEntity {
 
     private String roomAddress;
 
+    @Min(0)
     private BigDecimal longtitude;
 
+    @Min(0)
     private BigDecimal latitude;
     
     public Location() {
