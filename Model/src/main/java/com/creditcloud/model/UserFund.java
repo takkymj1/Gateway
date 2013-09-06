@@ -19,9 +19,6 @@ public class UserFund extends BaseObject {
     @Id
     private String userId;
 
-    @NotNull
-    private User user;
-
     /**
      * 可用余额
      */
@@ -50,9 +47,15 @@ public class UserFund extends BaseObject {
     @Min(0)
     private BigDecimal dueOutAmount;
 
-    public UserFund(String userId, User user, BigDecimal availableAmount, BigDecimal frozenAmount, BigDecimal dueInAmount, BigDecimal dueOutAmount) {
+    public UserFund() {
+    }
+
+    public UserFund(String userId,
+                    BigDecimal availableAmount,
+                    BigDecimal frozenAmount,
+                    BigDecimal dueInAmount,
+                    BigDecimal dueOutAmount) {
         this.userId = userId;
-        this.user = user;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
         this.dueInAmount = dueInAmount;
@@ -89,17 +92,6 @@ public class UserFund extends BaseObject {
 
     public void setDueOutAmount(BigDecimal dueOutAmount) {
         this.dueOutAmount = dueOutAmount;
-    }
-
-    public UserFund() {
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setUserId(String userId) {

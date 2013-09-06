@@ -40,6 +40,20 @@ public class UserCredit extends BaseObject {
     public UserCredit() {
     }
 
+    public UserCredit(String userId, 
+                      User user, 
+                      CreditRank creditRank, 
+                      int creditScore, 
+                      int creditLimit,
+                      int creditAvailable) {
+        this.userId = userId;
+        this.user = user;
+        this.creditRank = creditRank;
+        this.creditScore = creditScore;
+        this.creditLimit = creditLimit;
+        this.creditAvailable = creditAvailable;
+    }
+
     public CreditRank getCreditRank() {
         return creditRank;
     }

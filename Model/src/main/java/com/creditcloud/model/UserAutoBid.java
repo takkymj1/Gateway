@@ -23,8 +23,11 @@ public class UserAutoBid extends BaseObject {
     @Id
     private String userId;
 
+    /**
+     * 用户总的资金账户
+     */
     @NotNull
-    private User user;
+    private UserFund fund;
 
     /**
      * 是否激活
@@ -73,7 +76,7 @@ public class UserAutoBid extends BaseObject {
     }
 
     public UserAutoBid(String userId,
-                       User user,
+                       UserFund fund,
                        boolean active,
                        int singleAmount,
                        int reservedAmount,
@@ -83,7 +86,7 @@ public class UserAutoBid extends BaseObject {
                        Date activedTime,
                        Date lastBidTime) {
         this.userId = userId;
-        this.user = user;
+        this.fund = fund;
         this.active = active;
         this.singleAmount = singleAmount;
         this.reservedAmount = reservedAmount;
@@ -125,12 +128,12 @@ public class UserAutoBid extends BaseObject {
         this.userId = userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public UserFund getFund() {
+        return fund;
     }
 
-    public User getUser() {
-        return user;
+    public void setFund(UserFund fund) {
+        this.fund = fund;
     }
 
     public void setActive(boolean active) {
