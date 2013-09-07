@@ -5,7 +5,6 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
@@ -27,7 +26,7 @@ public class Invest extends BaseObject {
     private String id;
 
     @NotNull
-    private User user;
+    private String userId;
 
     @NotNull
     private String loanId;
@@ -62,7 +61,7 @@ public class Invest extends BaseObject {
     }
 
     public Invest(String id,
-                  User user,
+                  String userId,
                   String loanId,
                   BidMethod bidMethod,
                   int amount,
@@ -72,7 +71,7 @@ public class Invest extends BaseObject {
                   InvestStatus status,
                   Date submitTime) {
         this.id = id;
-        this.user = user;
+        this.userId = userId;
         this.loanId = loanId;
         this.bidMethod = bidMethod;
         this.amount = amount;
@@ -139,12 +138,12 @@ public class Invest extends BaseObject {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public BidMethod getBidMethod() {
