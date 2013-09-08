@@ -13,6 +13,7 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,18 +32,23 @@ public class User extends BaseObject {
     /**
      * The real name of this person
      */
+    @FormParam("name")
     @RealName
     protected String name;
 
+    @FormParam("loginName")
     @LoginName
     protected String loginName;
 
+    @FormParam("idNumber")
     @IdNumber
     protected String idNumber;
 
+    @FormParam("mobile")
     @MobileNumber
     protected String mobile;
 
+    @FormParam("email")
     @EmailAddress
     protected String email;
 
