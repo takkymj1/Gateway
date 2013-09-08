@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.constraints.EmailAddress;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
@@ -24,6 +25,9 @@ public class User extends BaseObject {
     @NotNull
     protected String id;
 
+    @ClientCode
+    protected String clientCode;
+
     /**
      * The real name of this person
      */
@@ -42,6 +46,10 @@ public class User extends BaseObject {
     @EmailAddress
     protected String email;
 
+    protected String salt;
+
+    protected String passphrase;
+
     @Past
     protected Date lastLoginDate;
 
@@ -52,21 +60,37 @@ public class User extends BaseObject {
     }
 
     public User(String id,
+                String clientCode,
+                String name,
+                String loginName,
+                String idNumber,
+                String mobile,
+                String email) {
+        this(id, clientCode, name, loginName, idNumber, mobile, email, null, null, null, null);
+    }
+
+    public User(String id,
+                String clientCode,
                 String name,
                 String loginName,
                 String idNumber,
                 String mobile,
                 String email,
-                Date registerDate,
-                Date lastLoginDate) {
+                String salt,
+                String passphrase,
+                Date lastLoginDate,
+                Date registerDate) {
         this.id = id;
+        this.clientCode = clientCode;
         this.name = name;
         this.loginName = loginName;
         this.idNumber = idNumber;
         this.mobile = mobile;
         this.email = email;
-        this.registerDate = registerDate;
+        this.salt = salt;
+        this.passphrase = passphrase;
         this.lastLoginDate = lastLoginDate;
+        this.registerDate = registerDate;
     }
 
     public String getId() {
@@ -132,6 +156,28 @@ public class User extends BaseObject {
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
-    
-    
+
+    public String getClientCode() {
+        return clientCode;
+    }
+
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getPassphrase() {
+        return passphrase;
+    }
+
+    public void setPassphrase(String passphrase) {
+        this.passphrase = passphrase;
+    }
 }
