@@ -59,6 +59,9 @@ public class Device extends BaseObject {
 
     @Past
     private Date initTime;
+    
+    @Past
+    private Date registerTime;
 
     public Device() {
     }
@@ -73,7 +76,8 @@ public class Device extends BaseObject {
                   String softwareVersion,
                   DeviceType type,
                   boolean enabled,
-                  Date initTime) {
+                  Date initTime,
+                  Date registerTime) {
         this.id = id;
         this.clientCode = clientCode;
         this.IMEI = IMEI;
@@ -85,6 +89,7 @@ public class Device extends BaseObject {
         this.type = type;
         this.enabled = enabled;
         this.initTime = initTime;
+        this.registerTime = registerTime;
     }
 
     public String getId() {
@@ -173,5 +178,13 @@ public class Device extends BaseObject {
 
     public void setInitTime(Date initTime) {
         this.initTime = initTime;
+    }
+
+    public Date getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime(Date registerTime) {
+        this.registerTime = registerTime;
     }
 }
