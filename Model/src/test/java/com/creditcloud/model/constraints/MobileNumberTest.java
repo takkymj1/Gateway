@@ -31,7 +31,7 @@ public class MobileNumberTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123", null, null);
+        object = new User("123", "123", "123", "123", "123", "123", "123");
     }
 
     @After
