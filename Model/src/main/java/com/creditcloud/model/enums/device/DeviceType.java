@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum DeviceType implements BaseEnum {
 
-    PAD_GENERIC("通用功能平板");
+    ANDROID_PAD_GENERIC("Android通用功能平板");
 
     private final String key;
 
