@@ -7,7 +7,6 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.constant.WealthProductConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.WealthProductStatus;
-import com.creditcloud.model.misc.Range;
 import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -30,7 +29,10 @@ public class WealthProduct extends AbstractFI {
      * 募集期,募集期结束第二天开始计算该产品期限
      */
     @NotNull
-    private Range<Date> raisePeriod;
+    private Date raiseStartDate;
+
+    @NotNull
+    private Date raiseEndDate;
 
     /**
      * 总额度
@@ -46,6 +48,9 @@ public class WealthProduct extends AbstractFI {
     @NotNull
     private int maxInvestAmount;
 
+    /**
+     * 理财产品状态
+     */
     @NotNull
     private WealthProductStatus status;
 
@@ -54,12 +59,16 @@ public class WealthProduct extends AbstractFI {
      */
     private int investerNumber;
     
+    /**
+     * 募集满额时间，不超过募集期结束时间
+     */
     private Date finishTime;
 
     public WealthProduct(String id,
                          String title,
                          String description,
-                         Range<Date> raisePeriod,
+                         Date raiseStartDate,
+                         Date raiseEndDate,
                          WealthProductStatus status,
                          int totalAmount,
                          int maxInvestAmount,
@@ -71,7 +80,8 @@ public class WealthProduct extends AbstractFI {
         super(id, duration, rate, method);
         this.title = title;
         this.description = description;
-        this.raisePeriod = raisePeriod;
+        this.raiseStartDate = raiseStartDate;
+        this.raiseEndDate = raiseEndDate;
         this.totalAmount = totalAmount;
         this.maxInvestAmount = maxInvestAmount;
         this.investerNumber = investerNumber;
@@ -85,10 +95,6 @@ public class WealthProduct extends AbstractFI {
 
     public String getDescription() {
         return description;
-    }
-
-    public Range<Date> getRaisePeriod() {
-        return raisePeriod;
     }
 
     public int getTotalAmount() {
@@ -107,8 +113,20 @@ public class WealthProduct extends AbstractFI {
         this.description = description;
     }
 
-    public void setRaisePeriod(Range<Date> raisePeriod) {
-        this.raisePeriod = raisePeriod;
+    public Date getRaiseStartDate() {
+        return raiseStartDate;
+    }
+
+    public Date getRaiseEndDate() {
+        return raiseEndDate;
+    }
+
+    public void setRaiseStartDate(Date raiseStartDate) {
+        this.raiseStartDate = raiseStartDate;
+    }
+
+    public void setRaiseEndDate(Date raiseEndDate) {
+        this.raiseEndDate = raiseEndDate;
     }
 
     public void setTotalAmount(int totalAmount) {
