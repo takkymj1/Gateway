@@ -6,6 +6,7 @@ package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
 import static com.creditcloud.model.constraints.BaseTest.validator;
+import com.creditcloud.model.enums.Source;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -87,7 +88,7 @@ public class IdNumberTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123","123", "123", "123", "123", "123");
+        object = new User("123", "123","123", "123", "123", "123", "123",Source.WEB);
     }
 
     @After

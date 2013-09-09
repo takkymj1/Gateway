@@ -10,6 +10,8 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -36,25 +38,35 @@ public class User extends BaseObject {
     @RealName
     protected String name;
 
+    /**
+     * 登录名，对于Source.Web方式注册用户必须有,其他方式默认为手机号
+     */
     @FormParam("loginName")
     @LoginName
     protected String loginName;
 
+    /**
+     * 身份证号
+     */
     @FormParam("idNumber")
     @IdNumber
     protected String idNumber;
 
+    /**
+     * 手机号
+     */
     @FormParam("mobile")
     @MobileNumber
     protected String mobile;
 
+    /**
+     * 邮箱，对于Source.Web方式注册用户必须有,且不能为默认的
+     */
     @FormParam("email")
-    @EmailAddress
+    @EmailAddress(groups = WebSourceCheck.class)
     protected String email;
 
-    protected String salt;
-
-    protected String passphrase;
+    protected Source source;
 
     @Past
     protected Date lastLoginDate;
@@ -71,8 +83,9 @@ public class User extends BaseObject {
                 String loginName,
                 String idNumber,
                 String mobile,
-                String email) {
-        this(id, clientCode, name, loginName, idNumber, mobile, email, null, null, null, null);
+                String email,
+                Source source) {
+        this(id, clientCode, name, loginName, idNumber, mobile, email, source, null, null);
     }
 
     public User(String id,
@@ -82,8 +95,7 @@ public class User extends BaseObject {
                 String idNumber,
                 String mobile,
                 String email,
-                String salt,
-                String passphrase,
+                Source source,
                 Date lastLoginDate,
                 Date registerDate) {
         this.id = id;
@@ -93,8 +105,7 @@ public class User extends BaseObject {
         this.idNumber = idNumber;
         this.mobile = mobile;
         this.email = email;
-        this.salt = salt;
-        this.passphrase = passphrase;
+        this.source = source;
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
     }
@@ -171,19 +182,11 @@ public class User extends BaseObject {
         this.clientCode = clientCode;
     }
 
-    public String getSalt() {
-        return salt;
+    public Source getSource() {
+        return source;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getPassphrase() {
-        return passphrase;
-    }
-
-    public void setPassphrase(String passphrase) {
-        this.passphrase = passphrase;
+    public void setSource(Source source) {
+        this.source = source;
     }
 }

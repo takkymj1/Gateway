@@ -6,6 +6,8 @@ package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
 import static com.creditcloud.model.constraints.BaseTest.validator;
+import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.validation.group.WebSourceCheck;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -32,7 +34,7 @@ public class LoginNameTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123", "123",Source.WEB);
     }
 
     @After
@@ -43,24 +45,24 @@ public class LoginNameTest extends BaseTest<User> {
     @Test
     public void notNull() {
         object.setLoginName(null);
-        constraintViolations = validator.validateProperty(object, "loginName");
+        constraintViolations = validator.validateProperty(object, "loginName", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
     }
 
     @Test
     public void size() {
         object.setLoginName("1");
-        constraintViolations = validator.validateProperty(object, "loginName");
+        constraintViolations = validator.validateProperty(object, "loginName", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
         object.setLoginName("test1234test1234test1234test1234");
-        constraintViolations = validator.validateProperty(object, "loginName");
+        constraintViolations = validator.validateProperty(object, "loginName", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
     }
 
     @Test
     public void character() {
         object.setLoginName("+-123");
-        constraintViolations = validator.validateProperty(object, "loginName");
+        constraintViolations = validator.validateProperty(object, "loginName", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
     }
 

@@ -6,6 +6,8 @@ package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
 import static com.creditcloud.model.constraints.BaseTest.validator;
+import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.validation.group.WebSourceCheck;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -34,7 +36,7 @@ public class EmailAddressTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123", "123");
+        object = new User("123", "123", "123", "123", "123", "123", "123", Source.WEB);
     }
 
     @After
@@ -45,36 +47,36 @@ public class EmailAddressTest extends BaseTest<User> {
     @Test
     public void notNull() {
         object.setEmail(null);
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
     }
 
     @Test
     public void pattern() {
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
 
         /**
          * accepted email
          */
         object.setEmail("noreply@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(0, constraintViolations.size());
 
         object.setEmail("123noreply@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(0, constraintViolations.size());
 
         object.setEmail("no-replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(0, constraintViolations.size());
 
         object.setEmail("no.replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(0, constraintViolations.size());
 
         object.setEmail("no_replay@creditcloud.com.cn");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(0, constraintViolations.size());
 
 
@@ -82,24 +84,24 @@ public class EmailAddressTest extends BaseTest<User> {
          * illegal email
          */
         object.setEmail("no@replay@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
 
 
         object.setEmail("$noreplay@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
 
         object.setEmail("n$oreplay@creditcloud.com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
 
         object.setEmail("noreplay@creditcloud..com");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
 
         object.setEmail("noreplay@creditcloud.com.");
-        constraintViolations = validator.validateProperty(object, "email");
+        constraintViolations = validator.validateProperty(object, "email", WebSourceCheck.class);
         assertEquals(1, constraintViolations.size());
     }
 }
