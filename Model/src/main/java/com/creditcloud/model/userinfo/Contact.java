@@ -12,14 +12,11 @@ import com.creditcloud.model.BaseObject;
  */
 public class Contact extends BaseObject {
 
-    private String name;
+    private final String name;
 
-    private String relation;
+    private final String relation;
 
-    private String mobile;
-
-    public Contact() {
-    }
+    private final String mobile;
 
     /**
      *
@@ -45,17 +42,5 @@ public class Contact extends BaseObject {
 
     public String getMobile() {
         return mobile;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setRelation(String relation) {
-        this.relation = relation;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
     }
 }

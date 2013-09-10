@@ -11,8 +11,11 @@ import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.validation.group.BackSourceCheck;
+import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
@@ -25,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User extends BaseObject {
 
-    @NotNull
+    @Id
     protected String id;
 
     @ClientCode
@@ -66,7 +69,11 @@ public class User extends BaseObject {
     @EmailAddress(groups = WebSourceCheck.class)
     protected String email;
 
+    @NotNull
     protected Source source;
+
+    @NotNull(groups = {BackSourceCheck.class, MobileSourceCheck.class})
+    private String employeeId;
 
     @Past
     protected Date lastLoginDate;
@@ -85,7 +92,7 @@ public class User extends BaseObject {
                 String mobile,
                 String email,
                 Source source) {
-        this(id, clientCode, name, loginName, idNumber, mobile, email, source, null, null);
+        this(id, clientCode, name, loginName, idNumber, mobile, email, source, null, null, null);
     }
 
     public User(String id,
@@ -96,6 +103,7 @@ public class User extends BaseObject {
                 String mobile,
                 String email,
                 Source source,
+                String employeeId,
                 Date lastLoginDate,
                 Date registerDate) {
         this.id = id;
@@ -106,6 +114,7 @@ public class User extends BaseObject {
         this.mobile = mobile;
         this.email = email;
         this.source = source;
+        this.employeeId = employeeId;
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
     }
@@ -188,5 +197,13 @@ public class User extends BaseObject {
 
     public void setSource(Source source) {
         this.source = source;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 }

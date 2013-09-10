@@ -12,14 +12,12 @@ import com.creditcloud.model.BaseObject;
  */
 public class ContactInfo extends BaseObject {
 
-    private Contact emergency;
+    private final Contact emergency;
 
-    private Contact colleague;
+    private final Contact colleague;
 
-    private Contact other;
+    private final Contact other;
 
-    public ContactInfo() {
-    }
 
     /**
      *
@@ -43,17 +41,5 @@ public class ContactInfo extends BaseObject {
 
     public Contact getOther() {
         return other;
-    }
-
-    public void setEmergency(Contact emergency) {
-        this.emergency = emergency;
-    }
-
-    public void setColleague(Contact colleague) {
-        this.colleague = colleague;
-    }
-
-    public void setOther(Contact other) {
-        this.other = other;
     }
 }

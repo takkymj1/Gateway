@@ -13,25 +13,22 @@ import com.creditcloud.model.BaseObject;
 public class PlaceInfo extends BaseObject {
     //籍贯省
 
-    private String nativeProvince;
+    private final String nativeProvince;
 
     //籍贯市
-    private String nativeCity;
+    private final String nativeCity;
 
     //户口所在省
-    private String hukouProvince;
+    private final String hukouProvince;
 
     //户口所在市
-    private String hukouCity;
+    private final String hukouCity;
 
     //现居住地址
-    private String currentAddress;
+    private final String currentAddress;
 
     //现居住地址电话
-    private String currentPhone;
-
-    public PlaceInfo() {
-    }
+    private final String currentPhone;
 
     /**
      *
@@ -72,29 +69,6 @@ public class PlaceInfo extends BaseObject {
         return hukouCity;
     }
 
-    public void setNativeProvince(String nativeProvince) {
-        this.nativeProvince = nativeProvince;
-    }
-
-    public void setNativeCity(String nativeCity) {
-        this.nativeCity = nativeCity;
-    }
-
-    public void setHukouProvince(String hukouProvince) {
-        this.hukouProvince = hukouProvince;
-    }
-
-    public void setHukouCity(String hukouCity) {
-        this.hukouCity = hukouCity;
-    }
-
-    public void setCurrentAddress(String currentAddress) {
-        this.currentAddress = currentAddress;
-    }
-
-    public void setCurrentPhone(String currentPhone) {
-        this.currentPhone = currentPhone;
-    }
 
     public String getCurrentAddress() {
         return currentAddress;

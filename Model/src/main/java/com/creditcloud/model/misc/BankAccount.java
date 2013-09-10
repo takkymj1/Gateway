@@ -19,25 +19,25 @@ public class BankAccount extends BaseObject {
      * 开户人
      */
     @RealName
-    private String name;
+    private final String name;
 
     /**
      * 开户银行:中国工商银行
      */
     @NotNull
-    private String bank;
+    private final String bank;
 
     /**
      * 开户行所在地:北京市西城区长安街12号
      */
     @NotNull
-    private String location;
+    private final String location;
 
     /**
      * 开户支行:工行北京分行海淀支行
      */
     @NotNull
-    private String branch;
+    private final String branch;
 
     /**
      * 账号
@@ -71,22 +71,6 @@ public class BankAccount extends BaseObject {
 
     public String getAccount() {
         return account;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setBranch(String branch) {
-        this.branch = branch;
     }
 
     public void setAccount(String account) {

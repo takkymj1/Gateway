@@ -20,19 +20,19 @@ import javax.validation.constraints.NotNull;
 public class WealthProduct extends AbstractFI {
 
     @NotNull
-    private String title;
+    private final String title;
 
     @NotNull
-    private String description;
+    private final String description;
 
     /**
      * 募集期,募集期结束第二天开始计算该产品期限
      */
     @NotNull
-    private Date raiseStartDate;
+    private final Date raiseStartDate;
 
     @NotNull
-    private Date raiseEndDate;
+    private final Date raiseEndDate;
 
     /**
      * 总额度
@@ -40,13 +40,13 @@ public class WealthProduct extends AbstractFI {
     @Min(WealthProductConstant.MIN_WEALTH_PRODUCT_AMOUNT)
     @Max(WealthProductConstant.MAX_WEALTH_PRODUCT_AMOUNT)
     @NotNull
-    private int totalAmount;
+    private final int totalAmount;
 
     /**
      * 单人投资最高上限
      */
     @NotNull
-    private int maxInvestAmount;
+    private final int maxInvestAmount;
 
     /**
      * 理财产品状态
@@ -58,7 +58,7 @@ public class WealthProduct extends AbstractFI {
      * 投资人数
      */
     private int investerNumber;
-    
+
     /**
      * 募集满额时间，不超过募集期结束时间
      */
@@ -105,36 +105,12 @@ public class WealthProduct extends AbstractFI {
         return maxInvestAmount;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Date getRaiseStartDate() {
         return raiseStartDate;
     }
 
     public Date getRaiseEndDate() {
         return raiseEndDate;
-    }
-
-    public void setRaiseStartDate(Date raiseStartDate) {
-        this.raiseStartDate = raiseStartDate;
-    }
-
-    public void setRaiseEndDate(Date raiseEndDate) {
-        this.raiseEndDate = raiseEndDate;
-    }
-
-    public void setTotalAmount(int totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public void setMaxInvestAmount(int maxInvestAmount) {
-        this.maxInvestAmount = maxInvestAmount;
     }
 
     public int getInvesterNumber() {

@@ -8,7 +8,6 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.AutoBidRange;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -21,62 +20,50 @@ import javax.validation.constraints.NotNull;
 public class UserAutoBid extends BaseObject {
 
     @Id
-    private String userId;
-
-    /**
-     * 用户总的资金账户
-     */
-    @NotNull
-    private UserFund fund;
+    private final String userId;
 
     /**
      * 是否激活
      */
     @NotNull
-    private boolean active;
+    private final boolean active;
 
     /**
      * 单次投标金额,最低50
      */
     @NotNull
-    private int singleAmount;
+    private final int singleAmount;
 
     /**
      * 账户保留余额
      */
     @Min(0)
     @NotNull
-    private int reservedAmount;
+    private final int reservedAmount;
 
     /**
      * 贷款还款方式
      */
     @NotNull
-    private Collection<RepaymentMethod> repayMethod;
-
+    private final Collection<RepaymentMethod> repayMethod;
 
     @NotNull
-    private AutoBidRange range;
-    
+    private final AutoBidRange range;
+
     /**
      * true必须有抵押,false可以没有抵押
      */
     @NotNull
-    private boolean mortgaged;
+    private final boolean mortgaged;
 
     /**
      * 投标工具最近一次开启时间
      */
-    private Date activedTime;
-    
-    
-    private Date lastBidTime;
+    private final Date activedTime;
 
-    public UserAutoBid() {
-    }
+    private final Date lastBidTime;
 
     public UserAutoBid(String userId,
-                       UserFund fund,
                        boolean active,
                        int singleAmount,
                        int reservedAmount,
@@ -86,7 +73,6 @@ public class UserAutoBid extends BaseObject {
                        Date activedTime,
                        Date lastBidTime) {
         this.userId = userId;
-        this.fund = fund;
         this.active = active;
         this.singleAmount = singleAmount;
         this.reservedAmount = reservedAmount;
@@ -94,6 +80,7 @@ public class UserAutoBid extends BaseObject {
         this.mortgaged = mortgaged;
         this.activedTime = activedTime;
         this.range = range;
+        this.lastBidTime = lastBidTime;
     }
 
     public String getUserId() {
@@ -108,10 +95,6 @@ public class UserAutoBid extends BaseObject {
         return singleAmount;
     }
 
-    public void setReservedAmount(int reservedAmount) {
-        this.reservedAmount = reservedAmount;
-    }
-
     public int getReservedAmount() {
         return reservedAmount;
     }
@@ -120,63 +103,19 @@ public class UserAutoBid extends BaseObject {
         return repayMethod;
     }
 
-    public void setRepayMethod(Collection<RepaymentMethod> repayMethod) {
-        this.repayMethod = repayMethod;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public UserFund getFund() {
-        return fund;
-    }
-
-    public void setFund(UserFund fund) {
-        this.fund = fund;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public void setSingleAmount(int singleAmount) {
-        this.singleAmount = singleAmount;
-    }
-
-    public void setRepayMethod(List<RepaymentMethod> repayMethod) {
-        this.repayMethod = repayMethod;
-    }
-
     public Date getActivedTime() {
         return activedTime;
-    }
-
-    public void setActivedTime(Date activedTime) {
-        this.activedTime = activedTime;
     }
 
     public boolean isMortgaged() {
         return mortgaged;
     }
 
-    public void setMortgaged(boolean mortgaged) {
-        this.mortgaged = mortgaged;
-    }
-
     public Date getLastBidTime() {
         return lastBidTime;
     }
 
-    public void setLastBidTime(Date lastBidTime) {
-        this.lastBidTime = lastBidTime;
-    }
-
     public AutoBidRange getRange() {
         return range;
-    }
-
-    public void setRange(AutoBidRange range) {
-        this.range = range;
     }
 }

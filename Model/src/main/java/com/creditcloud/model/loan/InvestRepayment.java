@@ -19,31 +19,28 @@ import javax.validation.constraints.NotNull;
 public class InvestRepayment extends BaseObject {
 
     @Id
-    private String id;
+    private final String id;
 
     @NotNull
-    private Invest invest;
+    private final Invest invest;
 
     //当前回款期数
     @NotNull
-    private int currentPeriod;
+    private final int currentPeriod;
 
     //当期回款
     @NotNull
-    private Repayment repayment;
+    private final Repayment repayment;
 
     //回款状态
     @NotNull
-    private RepaymentStatus status;
+    private final RepaymentStatus status;
 
     //实际回款
-    private BigDecimal repayAmount;
+    private final BigDecimal repayAmount;
 
     //实际回款日期
-    private Date repayDate;
-
-    public InvestRepayment() {
-    }
+    private final Date repayDate;
 
     public InvestRepayment(String id,
                            Invest invest,
@@ -65,20 +62,8 @@ public class InvestRepayment extends BaseObject {
         return currentPeriod;
     }
 
-    public void setCurrentPeriod(int currentPeriod) {
-        this.currentPeriod = currentPeriod;
-    }
-
     public Repayment getRepayment() {
         return repayment;
-    }
-
-    public void setRepayment(Repayment repayment) {
-        this.repayment = repayment;
-    }
-
-    public void setInvest(Invest invest) {
-        this.invest = invest;
     }
 
     public Invest getInvest() {
@@ -97,23 +82,7 @@ public class InvestRepayment extends BaseObject {
         return repayDate;
     }
 
-    public void setStatus(RepaymentStatus status) {
-        this.status = status;
-    }
-
-    public void setRepayAmount(BigDecimal repayAmount) {
-        this.repayAmount = repayAmount;
-    }
-
-    public void setRepayDate(Date repayDate) {
-        this.repayDate = repayDate;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

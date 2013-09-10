@@ -19,33 +19,33 @@ import javax.validation.constraints.NotNull;
 public class LoanRepayment extends BaseObject {
 
     @Id
-    private String id;
+    private final String id;
 
     @NotNull
-    private Loan loan;
+    private final Loan loan;
 
     //还款第几期
     @NotNull
-    private int currentPeriod;
+    private final int currentPeriod;
 
     //应还款
     @NotNull
-    private Repayment repayment;
+    private final Repayment repayment;
 
     //回款状态
     @NotNull
-    private RepaymentStatus status;
+    private final RepaymentStatus status;
 
     /**
      * 实际回款金额
      */
     @NotNull
-    private BigDecimal repayAmount;
+    private final BigDecimal repayAmount;
 
     /**
      * 实际回款时间
      */
-    private Date repayDate;
+    private final Date repayDate;
 
     public Loan getLoan() {
         return loan;
@@ -71,28 +71,12 @@ public class LoanRepayment extends BaseObject {
         return currentPeriod;
     }
 
-    public void setLoan(Loan loan) {
-        this.loan = loan;
-    }
-
-    public void setCurrentPeriod(int currentPeriod) {
-        this.currentPeriod = currentPeriod;
-    }
-
     public Repayment getRepayment() {
         return repayment;
     }
 
-    public void setRepayment(Repayment repayment) {
-        this.repayment = repayment;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public RepaymentStatus getStatus() {
@@ -105,17 +89,5 @@ public class LoanRepayment extends BaseObject {
 
     public Date getRepayDate() {
         return repayDate;
-    }
-
-    public void setStatus(RepaymentStatus status) {
-        this.status = status;
-    }
-
-    public void setRepayAmount(BigDecimal repayAmount) {
-        this.repayAmount = repayAmount;
-    }
-
-    public void setRepayDate(Date repayDate) {
-        this.repayDate = repayDate;
     }
 }

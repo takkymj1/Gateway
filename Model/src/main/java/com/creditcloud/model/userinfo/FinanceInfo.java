@@ -12,23 +12,21 @@ import com.creditcloud.model.BaseObject;
  */
 public class FinanceInfo extends BaseObject {
     //是否有房
-    private boolean house;
+    private final boolean house;
 
-    private int houseNumber;
+    private final int houseNumber;
 
     //有无房贷
-    private boolean houseLoan;
+    private final boolean houseLoan;
 
     //是否有车
-    private boolean car;
+    private final boolean car;
 
-    private int carNumber;
+    private final int carNumber;
 
     //有无车贷
-    private boolean carLoan;
+    private final boolean carLoan;
 
-    public FinanceInfo() {
-    }
 
     /**
      *
@@ -53,21 +51,6 @@ public class FinanceInfo extends BaseObject {
         this.carLoan = carLoan;
     }
 
-    public void setHouse(boolean house) {
-        this.house = house;
-    }
-
-    public void setHouseLoan(boolean houseLoan) {
-        this.houseLoan = houseLoan;
-    }
-
-    public void setCar(boolean car) {
-        this.car = car;
-    }
-
-    public void setCarLoan(boolean carLoan) {
-        this.carLoan = carLoan;
-    }
 
     public boolean hasHouse() {
         return house;
@@ -91,13 +74,5 @@ public class FinanceInfo extends BaseObject {
 
     public int getCarNumber() {
         return carNumber;
-    }
-
-    public void setHouseNumber(int houseNumber) {
-        this.houseNumber = houseNumber;
-    }
-
-    public void setCarNumber(int carNumber) {
-        this.carNumber = carNumber;
     }
 }

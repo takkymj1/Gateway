@@ -18,43 +18,43 @@ import javax.validation.constraints.NotNull;
 public class FundRecord extends BaseObject {
 
     @Id
-    private String id;
+    private final String id;
 
     @NotNull
-    protected UserFund fund;
+    protected final UserFund fund;
 
     @NotNull
-    protected FundRecordType type;
+    protected final FundRecordType type;
 
     /**
      * 金额
      */
     @NotNull
-    protected BigDecimal amount;
+    protected final BigDecimal amount;
 
     /**
      * true for income, false for expense
      */
     @NotNull
-    protected boolean income;
+    protected final boolean income;
 
     @NotNull
-    protected Date recordTime;
+    protected final Date recordTime;
 
     @NotNull
-    protected String description;
+    protected final String description;
 
     /*
      * 交易订单号
      */
     @NotNull
-    private String orderNumber;
+    private final String orderNumber;
 
     /**
      * 交易流水号
      */
     @NotNull
-    private String transactionNumber;
+    private final String transactionNumber;
 
     public FundRecord(String id,
                       UserFund fund,
@@ -100,36 +100,8 @@ public class FundRecord extends BaseObject {
         return description;
     }
 
-    public void setFund(UserFund fund) {
-        this.fund = fund;
-    }
-
-    public void setType(FundRecordType type) {
-        this.type = type;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public void setIncome(boolean income) {
-        this.income = income;
-    }
-
-    public void setRecordTime(Date recordTime) {
-        this.recordTime = recordTime;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getOrderNumber() {
@@ -138,13 +110,5 @@ public class FundRecord extends BaseObject {
 
     public String getTransactionNumber() {
         return transactionNumber;
-    }
-
-    public void setOrderNumber(String orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public void setTransactionNumber(String transactionNumber) {
-        this.transactionNumber = transactionNumber;
     }
 }
