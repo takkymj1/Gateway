@@ -5,16 +5,11 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContent;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.ws.rs.FormParam;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,69 +17,60 @@ import javax.ws.rs.FormParam;
  */
 public class Proof extends BaseObject {
 
-    @ManyToOne
-    @JoinColumn(name = "CERTIFICATE_ID")
-    private Certificate certificate;
+    @Id
+    private final String id;
+
+    @NotNull
+    private final CertificateType type;
 
     //证明标题
-    @FormParam("title")
-    @Column(nullable = false, length = 60)
-    private String title;
+    @NotNull
+    private final String title;
 
     //证明内容类型
-    @FormParam("content")
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ProofContent content;
+    @NotNull
+    private final ProofContent content;
 
-    //证明内容
-    @FormParam("proof")
-    @Column(nullable = false)
-    private String proof;
+    /**
+     * 证明内容,对于图片就是图片名
+     */
+    @NotNull
+    private final String proof;
 
     // 证明描述
-    @FormParam("description")
-    @Column(nullable = true, length = 500)
-    private String description;
+    @NotNull
+    private final String description;
 
     //证明来源
-    @FormParam("source")
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Source source;
+    @NotNull
+    private final Source source;
 
     //提交时间
-    @FormParam("submitTime")
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    private Date submitTime;
+    @NotNull
+    private final Date submitTime;
 
     //上传证明的员工,如果是用户本人上传则为空
-    @FormParam("employeeId")
-    @Column(nullable = false)
-    private String employee;
+    @NotNull
+    private final String employee;
 
-    public Proof() {
-    }
-
-    public void setTitle(String title) {
+    public Proof(String id, 
+                 CertificateType type, 
+                 String title, 
+                 ProofContent content, 
+                 String proof, 
+                 String description, 
+                 Source source, 
+                 Date submitTime, 
+                 String employee) {
+        this.id = id;
+        this.type = type;
         this.title = title;
-    }
-
-    public void setContent(ProofContent content) {
         this.content = content;
-    }
-
-    public void setProof(String proof) {
         this.proof = proof;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setSource(Source source) {
         this.source = source;
+        this.submitTime = submitTime;
+        this.employee = employee;
     }
 
     public String getTitle() {
@@ -111,23 +97,15 @@ public class Proof extends BaseObject {
         return employee;
     }
 
-    public void setEmployee(String employee) {
-        this.employee = employee;
-    }
-
     public Date getSubmitTime() {
         return submitTime;
     }
 
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
+    public String getId() {
+        return id;
     }
 
-    public Certificate getCertificate() {
-        return certificate;
-    }
-
-    public void setCertificate(Certificate certificate) {
-        this.certificate = certificate;
+    public CertificateType getType() {
+        return type;
     }
 }
