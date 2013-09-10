@@ -5,22 +5,18 @@
 package com.creditcloud.model.misc;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.BaseEnum;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 
 /**
  * 表示一次身份证验证查询的返回结果
  *
  * @author sobranie
  */
-public class CheckIDResult extends BaseObject {
-
-    public String getErrorMessage() {
-        return errorMessage;
-    }
-
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
+public class CheckIDResult extends BaseObject implements Jsonizable<CheckIDResult> {
 
     /**
      * 远端返回检查结果的类型
@@ -69,12 +65,12 @@ public class CheckIDResult extends BaseObject {
      * 表示结果是否是从缓存中来的
      */
     private boolean cacheHit;
-    
+
     /**
      * 错误信息
      */
     private String errorMessage;
-    
+
     public CheckIDResult() {
     }
 
@@ -130,5 +126,37 @@ public class CheckIDResult extends BaseObject {
 
     public void setCacheHit(boolean cacheHit) {
         this.cacheHit = cacheHit;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    @Override
+    public CheckIDResult fromJsonString(String jsonString) {
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        setResultType(ResultType.valueOf(jo.getString("resultType")));
+        setIdNumber(jo.getString("idNumber"));
+        setName(jo.getString("name"));
+        setPicture(jo.getString("picture"));
+        setCacheHit(jo.getBoolean("cacheHit"));
+        setErrorMessage(jo.getString("errorMessage"));
+        return this;
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("resultType", getResultType().toString())
+                .add("idNumber", getIdNumber())
+                .add("name", getName())
+                .add("picture", getPicture())
+                .add("cacheHit", isCacheHit())
+                .add("errorMessage", getErrorMessage())
+                .build().toString();
     }
 }
