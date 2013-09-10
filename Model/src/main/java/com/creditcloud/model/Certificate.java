@@ -17,14 +17,14 @@ import javax.validation.constraints.NotNull;
 public class Certificate extends BaseObject {
 
     @Id
-    private String id;
+    private final String id;
 
     @NotNull
-    private UserCredit credit;
+    private final UserCredit credit;
 
     //认证类型
     @NotNull
-    private CertificateType type;
+    private final CertificateType type;
 
     //认证的状态
     @NotNull
@@ -42,6 +42,24 @@ public class Certificate extends BaseObject {
     //审核人审核备注信息
     private String auditInfo;
 
+    public Certificate(String id, 
+                       UserCredit credit, 
+                       CertificateType type,
+                       CertificateStatus status, 
+                       int score, 
+                       Date passedTime, 
+                       String auditor, 
+                       String auditInfo) {
+        this.id = id;
+        this.credit = credit;
+        this.type = type;
+        this.status = status;
+        this.score = score;
+        this.passedTime = passedTime;
+        this.auditor = auditor;
+        this.auditInfo = auditInfo;
+    }
+
     public UserCredit getCredit() {
         return credit;
     }
@@ -52,10 +70,6 @@ public class Certificate extends BaseObject {
 
     public int getScore() {
         return score;
-    }
-
-    public void setCredit(UserCredit credit) {
-        this.credit = credit;
     }
 
     public void setStatus(CertificateStatus status) {
@@ -92,14 +106,6 @@ public class Certificate extends BaseObject {
 
     public String getAuditInfo() {
         return auditInfo;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setType(CertificateType type) {
-        this.type = type;
     }
 
     public void setAuditInfo(String auditInfo) {
