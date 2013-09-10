@@ -72,6 +72,8 @@ public class CheckIDResult extends BaseObject implements Jsonizable<CheckIDResul
     private String errorMessage;
 
     public CheckIDResult() {
+        //Here we have some default value
+        this(ResultType.ERROR_OTHER, "", "", "", false, "");
     }
 
     public CheckIDResult(ResultType resultType,
