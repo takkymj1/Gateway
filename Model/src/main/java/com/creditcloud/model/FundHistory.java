@@ -22,7 +22,7 @@ public class FundHistory extends BaseObject {
 
     @NotNull
     @Temporal(TemporalType.DATE)
-    private final Date addDate;
+    private final Date asOfDate;
 
     /**
      * 可用余额
@@ -67,7 +67,7 @@ public class FundHistory extends BaseObject {
     private final BigDecimal withdrawAmount;
 
     public FundHistory(String userId,
-                       Date addDate,
+                       Date asOfDate,
                        BigDecimal availableAmount,
                        BigDecimal frozenAmount,
                        BigDecimal dueInAmount,
@@ -75,7 +75,7 @@ public class FundHistory extends BaseObject {
                        BigDecimal rechargeAmount,
                        BigDecimal withdrawAmount) {
         this.userId = userId;
-        this.addDate = addDate;
+        this.asOfDate = asOfDate;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
         this.dueInAmount = dueInAmount;
@@ -100,9 +100,10 @@ public class FundHistory extends BaseObject {
         return dueOutAmount;
     }
 
-    public Date getAddDate() {
-        return addDate;
+    public Date getAsOfDate() {
+        return asOfDate;
     }
+
 
     public String getUserId() {
         return userId;
