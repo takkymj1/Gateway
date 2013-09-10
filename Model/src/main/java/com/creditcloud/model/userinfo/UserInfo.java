@@ -15,20 +15,17 @@ import javax.persistence.Id;
 public class UserInfo extends BaseObject {
 
     @Id
-    private String userId;
+    private final String userId;
 
-    private User user;
+    private final User user;
 
-    private PersonalInfo personal;
+    private final PersonalInfo personal;
 
-    private FinanceInfo finance;
+    private final FinanceInfo finance;
 
-    private CareerInfo career;
+    private final CareerInfo career;
 
-    private ContactInfo contact;
-
-    public UserInfo() {
-    }
+    private final ContactInfo contact;
 
     /**
      *
@@ -51,10 +48,6 @@ public class UserInfo extends BaseObject {
         this.contact = contact;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getUserId() {
         return userId;
     }
@@ -75,27 +68,7 @@ public class UserInfo extends BaseObject {
         return contact;
     }
 
-    public void setPersonal(PersonalInfo personal) {
-        this.personal = personal;
-    }
-
-    public void setFinance(FinanceInfo finance) {
-        this.finance = finance;
-    }
-
-    public void setCareer(CareerInfo career) {
-        this.career = career;
-    }
-
-    public void setContact(ContactInfo contact) {
-        this.contact = contact;
-    }
-
     public User getUser() {
         return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

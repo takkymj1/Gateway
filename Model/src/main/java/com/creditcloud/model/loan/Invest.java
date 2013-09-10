@@ -23,42 +23,39 @@ import javax.validation.constraints.Past;
 public class Invest extends BaseObject {
 
     @Id
-    private String id;
+    private final String id;
 
     @NotNull
-    private String userId;
+    private final String userId;
 
     @NotNull
-    private String loanId;
-    
+    private final String loanId;
+
     @NotNull
-    private BidMethod bidMethod;
+    private final BidMethod bidMethod;
 
     @NotNull
     @Min(LoanConstant.MIN_INVEST_AMOUNT)
     @Max(LoanConstant.MAX_INVEST_AMOUNT)
-    private int amount;
+    private final int amount;
 
     @NotNull
     @Min(LoanConstant.MIN_LOAN_RATE)
     @Max(LoanConstant.MAX_LOAN_RATE)
-    private int rate;
+    private final int rate;
 
     @NotNull
-    private Duration duration;
+    private final Duration duration;
 
     @NotNull
-    private RepaymentMethod repayMethod;
+    private final RepaymentMethod repayMethod;
 
     @NotNull
-    private InvestStatus status;
+    private final InvestStatus status;
 
     @NotNull
     @Past
-    private Date submitTime;
-
-    public Invest() {
-    }
+    private final Date submitTime;
 
     public Invest(String id,
                   String userId,
@@ -90,20 +87,8 @@ public class Invest extends BaseObject {
         return status;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public void setStatus(InvestStatus status) {
-        this.status = status;
-    }
-
     public String getLoanId() {
         return loanId;
-    }
-
-    public void setLoanId(String loanId) {
-        this.loanId = loanId;
     }
 
     public int getRate() {
@@ -114,36 +99,16 @@ public class Invest extends BaseObject {
         return duration;
     }
 
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
     public Date getSubmitTime() {
         return submitTime;
-    }
-
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
     }
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getUserId() {
         return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public BidMethod getBidMethod() {
@@ -153,13 +118,4 @@ public class Invest extends BaseObject {
     public RepaymentMethod getRepayMethod() {
         return repayMethod;
     }
-
-    public void setBidMethod(BidMethod bidMethod) {
-        this.bidMethod = bidMethod;
-    }
-
-    public void setRepayMethod(RepaymentMethod repayMethod) {
-        this.repayMethod = repayMethod;
-    }
-
 }

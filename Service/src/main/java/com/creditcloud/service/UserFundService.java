@@ -44,14 +44,4 @@ public interface UserFundService {
                                                           String userId,
                                                           PageInfo pageInfo,
                                                           FundRecordType... recordType);
-
-    /**
-     * submit a new fund record
-     *
-     * @param clientCode
-     * @param record
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    public void submitRecord(String clientCode, FundRecord record);
 }

@@ -5,19 +5,24 @@
 package com.creditcloud.model;
 
 import java.math.BigDecimal;
-import javax.persistence.Id;
+import java.util.Date;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
- * 用户资金
  *
  * @author rooseek
  */
-public class UserFund extends BaseObject {
+public class FundHistory extends BaseObject {
 
-    @Id
+    @NotNull
     private final String userId;
+
+    @NotNull
+    @Temporal(TemporalType.DATE)
+    private final Date asOfDate;
 
     /**
      * 可用余额
@@ -61,14 +66,16 @@ public class UserFund extends BaseObject {
     @NotNull
     private final BigDecimal withdrawAmount;
 
-    public UserFund(String userId,
-                    BigDecimal availableAmount,
-                    BigDecimal frozenAmount,
-                    BigDecimal dueInAmount,
-                    BigDecimal dueOutAmount,
-                    BigDecimal rechargeAmount,
-                    BigDecimal withdrawAmount) {
+    public FundHistory(String userId,
+                       Date asOfDate,
+                       BigDecimal availableAmount,
+                       BigDecimal frozenAmount,
+                       BigDecimal dueInAmount,
+                       BigDecimal dueOutAmount,
+                       BigDecimal rechargeAmount,
+                       BigDecimal withdrawAmount) {
         this.userId = userId;
+        this.asOfDate = asOfDate;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
         this.dueInAmount = dueInAmount;
@@ -92,6 +99,11 @@ public class UserFund extends BaseObject {
     public BigDecimal getDueOutAmount() {
         return dueOutAmount;
     }
+
+    public Date getAsOfDate() {
+        return asOfDate;
+    }
+
 
     public String getUserId() {
         return userId;

@@ -14,16 +14,13 @@ import com.creditcloud.model.enums.user.EducationLevel;
 public class EducationInfo extends BaseObject {
 
     //最高学历
-    private EducationLevel educationLevel;
+    private final EducationLevel educationLevel;
 
     //入学年份
-    private String enrollmentYear;
+    private final String enrollmentYear;
 
     //学校
-    private String school;
-
-    public EducationInfo() {
-    }
+    private final String school;
 
     /**
      *
@@ -39,17 +36,6 @@ public class EducationInfo extends BaseObject {
         this.school = school;
     }
 
-    public void setEducationLevel(EducationLevel educationLevel) {
-        this.educationLevel = educationLevel;
-    }
-
-    public void setEnrollmentYear(String enrollmentYear) {
-        this.enrollmentYear = enrollmentYear;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
 
     public EducationLevel getEducationLevel() {
         return educationLevel;

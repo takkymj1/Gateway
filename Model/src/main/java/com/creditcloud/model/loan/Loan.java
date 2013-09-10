@@ -24,32 +24,29 @@ public class Loan extends BaseObject implements Investable{
      * UUID
      */
     @Id
-    private String id;
+    private final String id;
 
     @Min(1)
-    private int ordinal;
+    private final int ordinal;
 
     @Min(LoanConstant.MIN_LOAN_AMOUNT)
     @Max(LoanConstant.MAX_LOAN_AMOUNT)
-    private int amount;
+    private final int amount;
 
     @NotNull
-    private Duration duration;
+    private final Duration duration;
 
     @Min(LoanConstant.MIN_LOAN_TIME_OUT)
     @Max(LoanConstant.MAX_LOAN_TIME_OUT)
-    private int timeout;
+    private final int timeout;
 
     @NotNull
-    private LoanStatus status;
-
-    @NotNull
-    private LoanRequest loanRequest;
+    private final LoanRequest loanRequest;
 
     /**
      * 开启投标时间
      */
-    private Date timeOpen;
+    private final Date timeOpen;
 
     /**
      * 满标时间
@@ -59,15 +56,15 @@ public class Loan extends BaseObject implements Investable{
     /**
      * 有无抵押
      */
-    private boolean mortgaged;
+    private final boolean mortgaged;
 
     /**
      *投标数
      */
     private  int bidNumber;
-
-    public Loan() {
-    }
+    
+    @NotNull
+    private LoanStatus status;
 
     public Loan(String id,
                 int ordinal,
@@ -98,32 +95,16 @@ public class Loan extends BaseObject implements Investable{
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public int getOrdinal() {
         return ordinal;
-    }
-
-    public void setOrdinal(int ordinal) {
-        this.ordinal = ordinal;
     }
 
     public int getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     public int getTimeout() {
         return timeout;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
     }
 
     public LoanStatus getStatus() {
@@ -138,16 +119,8 @@ public class Loan extends BaseObject implements Investable{
         return loanRequest;
     }
 
-    public void setLoanRequest(LoanRequest loanRequest) {
-        this.loanRequest = loanRequest;
-    }
-
     public Date getTimeOpen() {
         return timeOpen;
-    }
-
-    public void setTimeOpen(Date timeOpen) {
-        this.timeOpen = timeOpen;
     }
 
     public Date getTimeFinished() {
@@ -163,16 +136,8 @@ public class Loan extends BaseObject implements Investable{
         return duration;
     }
 
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
     public boolean isMortgaged() {
         return mortgaged;
-    }
-
-    public void setMortgaged(boolean mortgaged) {
-        this.mortgaged = mortgaged;
     }
 
     public int getBidNumber() {

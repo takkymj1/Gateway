@@ -15,25 +15,23 @@ import com.creditcloud.model.enums.user.CompanyType;
  */
 public class CompanyInfo extends BaseObject {
     //公司或单位名称
-    private String name;
+    private final String name;
 
     //公司类别
-    private CompanyType type;
+    private final CompanyType type;
 
     //公司行业
-    private CompanyIndustry industry;
+    private final CompanyIndustry industry;
 
     //公司规模
-    private CompanySize size_;
+    private final CompanySize size_;
 
     //公司电话
-    private String phone;
+    private final String phone;
 
     //公司地址
-    private String address;
+    private final String address;
 
-    public CompanyInfo() {
-    }
 
     /**
      *
@@ -80,29 +78,5 @@ public class CompanyInfo extends BaseObject {
 
     public String getAddress() {
         return address;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setType(CompanyType type) {
-        this.type = type;
-    }
-
-    public void setIndustry(CompanyIndustry industry) {
-        this.industry = industry;
-    }
-
-    public void setSize(CompanySize size_) {
-        this.size_ = size_;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 }

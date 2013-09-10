@@ -16,10 +16,10 @@ import javax.validation.constraints.NotNull;
 public class UserCredit extends BaseObject {
 
     @Id
-    private String userId;
+    private final String userId;
 
     @NotNull
-    private User user;
+    private final User user;
 
     //信用等级
     @NotNull
@@ -36,9 +36,6 @@ public class UserCredit extends BaseObject {
     //可用额度
     @NotNull
     private int creditAvailable;
-
-    public UserCredit() {
-    }
 
     public UserCredit(String userId, 
                       User user, 
@@ -86,10 +83,6 @@ public class UserCredit extends BaseObject {
         this.creditAvailable = creditAvailable;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
     public String getUserId() {
         return userId;
     }
@@ -98,7 +91,4 @@ public class UserCredit extends BaseObject {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

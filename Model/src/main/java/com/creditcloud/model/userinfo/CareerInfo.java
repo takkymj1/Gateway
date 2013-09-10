@@ -16,31 +16,28 @@ import com.creditcloud.model.enums.user.YearOfService;
 public class CareerInfo extends BaseObject {
 
     //职业状态
-    private CareerStatus careerStatus;
+    private final CareerStatus careerStatus;
 
     //公司信息
-    private CompanyInfo company;
+    private final CompanyInfo company;
 
     //工作省份
-    private String province;
+    private final String province;
 
     //工作城市
-    private String city;
+    private final String city;
 
     //职位
-    private String position;
+    private final String position;
 
     //月收入
-    private MonthlySalary salary;
+    private final MonthlySalary salary;
 
     //在现单位工作年限
-    private YearOfService yearOfService;
+    private final YearOfService yearOfService;
 
     //工作邮箱
-    private String workMail;
-
-    public CareerInfo() {
-    }
+    private final String workMail;
 
     /**
      * 
@@ -75,10 +72,6 @@ public class CareerInfo extends BaseObject {
         return company;
     }
 
-    public void setCompany(CompanyInfo company) {
-        this.company = company;
-    }
-
     public CareerStatus getCareerStatus() {
         return careerStatus;
     }
@@ -105,33 +98,5 @@ public class CareerInfo extends BaseObject {
 
     public String getWorkMail() {
         return workMail;
-    }
-
-    public void setCareerStatus(CareerStatus careerStatus) {
-        this.careerStatus = careerStatus;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public void setSalary(MonthlySalary salary) {
-        this.salary = salary;
-    }
-
-    public void setYearOfService(YearOfService yearOfService) {
-        this.yearOfService = yearOfService;
-    }
-
-    public void setWorkMail(String workMail) {
-        this.workMail = workMail;
     }
 }

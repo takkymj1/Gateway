@@ -5,10 +5,8 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.loan.Investable;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.loan.Duration;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -22,13 +20,13 @@ import javax.validation.constraints.NotNull;
 public abstract class AbstractFI extends BaseObject implements Investable {
 
     @Id
-    private String id;
+    private final String id;
 
     /**
      * 期限
      */
     @NotNull
-    protected Duration duration;
+    protected final Duration duration;
 
     /**
      * 年化利率（万分之几）
@@ -36,18 +34,17 @@ public abstract class AbstractFI extends BaseObject implements Investable {
     @NotNull
     @Min(LoanConstant.MIN_LOAN_RATE)
     @Max(LoanConstant.MAX_LOAN_RATE)
-    protected int rate;
+    protected final int rate;
 
     /**
      * 偿还方法
      */
     @NotNull
-    protected RepaymentMethod method;
+    protected final RepaymentMethod method;
 
-
-    public AbstractFI(String id, 
-                      Duration duration, 
-                      int rate, 
+    public AbstractFI(String id,
+                      Duration duration,
+                      int rate,
                       RepaymentMethod method) {
         this.id = id;
         this.duration = duration;
@@ -64,25 +61,11 @@ public abstract class AbstractFI extends BaseObject implements Investable {
     }
 
     /**
-     * @param duration the duration to set
-     */
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
-    /**
      * @return the rate
      */
     @Override
     public int getRate() {
         return rate;
-    }
-
-    /**
-     * @param rate the rate to set
-     */
-    public void setRate(int rate) {
-        this.rate = rate;
     }
 
     /**
@@ -93,19 +76,8 @@ public abstract class AbstractFI extends BaseObject implements Investable {
         return method;
     }
 
-    /**
-     * @param method the method to set
-     */
-    public void setMethod(RepaymentMethod method) {
-        this.method = method;
-    }
-
     @Override
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

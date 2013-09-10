@@ -15,28 +15,25 @@ import java.util.Date;
 public class PersonalInfo extends BaseObject {
 
     //性别
-    private boolean male;
+    private final boolean male;
 
     //出生日期
-    private Date dateOfBirth;
+    private final Date dateOfBirth;
 
     //婚姻状况
-    private MaritalStatus maritalStatus;
+    private final MaritalStatus maritalStatus;
 
     //有无子女
-    private boolean children;
+    private final boolean children;
 
     //教育信息
-    private EducationInfo education;
+    private final EducationInfo education;
 
     //所在地信息
-    private PlaceInfo place;
+    private final PlaceInfo place;
 
     //个人头像存储路径
-    private String avatar;
-
-    public PersonalInfo() {
-    }
+    private final String avatar;
 
     /**
      *
@@ -84,26 +81,6 @@ public class PersonalInfo extends BaseObject {
         return avatar;
     }
 
-    public void setMale(boolean male) {
-        this.male = male;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setMaritalStatus(MaritalStatus maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public void setChildren(boolean children) {
-        this.children = children;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
     public boolean isChildren() {
         return children;
     }
@@ -114,13 +91,5 @@ public class PersonalInfo extends BaseObject {
 
     public PlaceInfo getPlace() {
         return place;
-    }
-
-    public void setEducation(EducationInfo education) {
-        this.education = education;
-    }
-
-    public void setPlace(PlaceInfo place) {
-        this.place = place;
     }
 }
