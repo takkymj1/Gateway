@@ -44,9 +44,9 @@ public class Device extends BaseObject {
     @NotNull
     private String osVersion;
 
-    @FormParam("kernalVersion")
+    @FormParam("kernelVersion")
     @NotNull
-    private String kernalVersion;
+    private String kernelVersion;
 
     @FormParam("softwareVersion")
     @NotNull
@@ -59,7 +59,7 @@ public class Device extends BaseObject {
 
     @Past
     private Date initTime;
-    
+
     @Past
     private Date registerTime;
 
@@ -72,7 +72,7 @@ public class Device extends BaseObject {
                   String MAC,
                   String model,
                   String osVersion,
-                  String kernalVersion,
+                  String kernelVersion,
                   String softwareVersion,
                   DeviceType type,
                   boolean enabled,
@@ -84,7 +84,7 @@ public class Device extends BaseObject {
         this.MAC = MAC;
         this.model = model;
         this.osVersion = osVersion;
-        this.kernalVersion = kernalVersion;
+        this.kernelVersion = kernelVersion;
         this.softwareVersion = softwareVersion;
         this.type = type;
         this.enabled = enabled;
@@ -96,88 +96,44 @@ public class Device extends BaseObject {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getClientCode() {
         return clientCode;
-    }
-
-    public void setClientCode(String clientCode) {
-        this.clientCode = clientCode;
     }
 
     public String getIMEI() {
         return IMEI;
     }
 
-    public void setIMEI(String IMEI) {
-        this.IMEI = IMEI;
-    }
-
     public String getMAC() {
         return MAC;
-    }
-
-    public void setMAC(String MAC) {
-        this.MAC = MAC;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public String getOsVersion() {
         return osVersion;
     }
 
-    public void setOsVersion(String osVersion) {
-        this.osVersion = osVersion;
-    }
-
-    public String getKernalVersion() {
-        return kernalVersion;
-    }
-
-    public void setKernalVersion(String kernalVersion) {
-        this.kernalVersion = kernalVersion;
+    public String getKernelVersion() {
+        return kernelVersion;
     }
 
     public String getSoftwareVersion() {
         return softwareVersion;
     }
 
-    public void setSoftwareVersion(String softwareVersion) {
-        this.softwareVersion = softwareVersion;
-    }
-
     public DeviceType getType() {
         return type;
-    }
-
-    public void setType(DeviceType type) {
-        this.type = type;
     }
 
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
     public Date getInitTime() {
         return initTime;
-    }
-
-    public void setInitTime(Date initTime) {
-        this.initTime = initTime;
     }
 
     public Date getRegisterTime() {
@@ -186,5 +142,49 @@ public class Device extends BaseObject {
 
     public void setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
+    }
+
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setIMEI(String IMEI) {
+        this.IMEI = IMEI;
+    }
+
+    public void setMAC(String MAC) {
+        this.MAC = MAC;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setOsVersion(String osVersion) {
+        this.osVersion = osVersion;
+    }
+
+    public void setKernelVersion(String kernelVersion) {
+        this.kernelVersion = kernelVersion;
+    }
+
+    public void setSoftwareVersion(String softwareVersion) {
+        this.softwareVersion = softwareVersion;
+    }
+
+    public void setType(DeviceType type) {
+        this.type = type;
+    }
+
+    public void setInitTime(Date initTime) {
+        this.initTime = initTime;
     }
 }

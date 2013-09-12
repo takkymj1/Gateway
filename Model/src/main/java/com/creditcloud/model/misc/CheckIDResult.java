@@ -161,4 +161,13 @@ public class CheckIDResult extends BaseObject implements Jsonizable<CheckIDResul
                 .add("errorMessage", getErrorMessage())
                 .build().toString();
     }
+
+    public boolean isMatch() {
+        switch (resultType) {
+            case MATCH:
+            case MATCH_NO_PIC:
+                return true;
+        }
+        return false;
+    }
 }

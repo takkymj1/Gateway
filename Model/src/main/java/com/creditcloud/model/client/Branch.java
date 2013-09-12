@@ -67,9 +67,29 @@ public class Branch {
     private Employee contactPerson;
     
     private String description;
-    
-    public Branch() {
+
+    public Branch(String id, 
+                  String clientCode, 
+                  String parentId,
+                  String code, 
+                  String name, 
+                  BranchType type, 
+                  Location location, 
+                  Employee principal, 
+                  Employee contactPerson, 
+                  String description) {
+        this.id = id;
+        this.clientCode = clientCode;
+        this.parentId = parentId;
+        this.code = code;
+        this.name = name;
+        this.type = type;
+        this.location = location;
+        this.principal = principal;
+        this.contactPerson = contactPerson;
+        this.description = description;
     }
+    
 
     public String getId() {
         return id;

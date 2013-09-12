@@ -5,6 +5,7 @@
 package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
+import com.creditcloud.model.constant.IdNumberConstant;
 import static com.creditcloud.model.constraints.BaseTest.validator;
 import com.creditcloud.model.enums.Source;
 import javax.validation.Validation;
@@ -21,7 +22,8 @@ import static org.junit.Assert.*;
  */
 public class IdNumberTest extends BaseTest<User> {
 
-    private static final String[] validIdNumbers = {"42010619620204815X",
+    private static final String[] validIdNumbers = {IdNumberConstant.DEFAULT_IDNUMBER,
+                                                    "42010619620204815X",
                                                     "132826197909170619",
                                                     //male idNumber   
                                                     "230109198810127372",
@@ -88,7 +90,7 @@ public class IdNumberTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123","123", "123", "123", "123", "123",Source.WEB);
+        object = new User("123", "123", "123", "123", "123", "123", "123", Source.WEB);
     }
 
     @After

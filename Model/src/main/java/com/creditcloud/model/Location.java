@@ -15,34 +15,31 @@ import javax.validation.constraints.NotNull;
 public class Location {
     
     @NotNull
-    private String province;
+    private final String province;
     
     @NotNull
-    private String city;
+    private final String city;
 
     /**
      * 街道地址
      */
     @NotNull
-    private String streetAddress;
+    private final String streetAddress;
     
     /**
      * 门牌地址
      */
-    private String roomAddress;
+    private final String roomAddress;
     
     /**
      * 经度
      */
-    private BigDecimal longtitude;
+    private final BigDecimal longtitude;
     
     /**
      * 维度
      */
-    private BigDecimal latitude;
-    
-    public Location() {
-    }
+    private final BigDecimal latitude;
 
     public Location(String province,
                     String city,
@@ -62,47 +59,22 @@ public class Location {
         return streetAddress;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
     public BigDecimal getLongtitude() {
         return longtitude;
-    }
-
-    public void setLongtitude(BigDecimal longtitude) {
-        this.longtitude = longtitude;
     }
 
     public BigDecimal getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
-    }
-
     public String getProvince() {
         return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
     }
 
     public String getCity() {
         return city;
     }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getRoomAddress() {
         return roomAddress;
-    }
-
-    public void setRoomAddress(String roomAddress) {
-        this.roomAddress = roomAddress;
     }
 }

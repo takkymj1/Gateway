@@ -6,19 +6,20 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 
 /**
  *
  * @author sobranie
  */
-public class Loan extends BaseObject implements Investable{
+public class Loan extends BaseObject implements Investable {
 
     /**
      * UUID
@@ -29,15 +30,22 @@ public class Loan extends BaseObject implements Investable{
     @Min(1)
     private final int ordinal;
 
-    @Min(LoanConstant.MIN_LOAN_AMOUNT)
-    @Max(LoanConstant.MAX_LOAN_AMOUNT)
+    @IncrementalInteger(min = LoanConstant.MIN_LOAN_AMOUNT,
+                        increment = LoanConstant.LOAN_AMOUNT_INCREMENT,
+                        max = LoanConstant.MAX_LOAN_AMOUNT,
+                        groups = Default.class)
     private final int amount;
 
     @NotNull
     private final Duration duration;
 
-    @Min(LoanConstant.MIN_LOAN_TIME_OUT)
-    @Max(LoanConstant.MAX_LOAN_TIME_OUT)
+    /**
+     * 开放募集时间，单位：小时 timeout = 24 就是募集期为1天 最长3天
+     */
+    @IncrementalInteger(min = LoanConstant.MIN_LOAN_TIME_OUT,
+                        increment = 1,
+                        max = LoanConstant.MAX_LOAN_TIME_OUT,
+                        groups = Default.class)
     private final int timeout;
 
     @NotNull
@@ -59,10 +67,10 @@ public class Loan extends BaseObject implements Investable{
     private final boolean mortgaged;
 
     /**
-     *投标数
+     * 投标数
      */
-    private  int bidNumber;
-    
+    private int bidNumber;
+
     @NotNull
     private LoanStatus status;
 

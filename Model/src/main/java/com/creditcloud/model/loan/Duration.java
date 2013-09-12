@@ -14,14 +14,12 @@ import static com.creditcloud.model.constant.TimeConstant.*;
  */
 public class Duration extends BaseObject implements Comparable<Duration> {
 
-    private int years;
+    private final int years;
 
-    private int months;
+    private final int months;
 
-    private int days;
+    private final int days;
 
-    public Duration() {
-    }
 
     public Duration(final int years,
                     final int months,
@@ -51,18 +49,6 @@ public class Duration extends BaseObject implements Comparable<Duration> {
 
     public int getDays() {
         return days;
-    }
-
-    public void setYears(int years) {
-        this.years = years;
-    }
-
-    public void setMonths(int months) {
-        this.months = months;
-    }
-
-    public void setDays(int days) {
-        this.days = days;
     }
 
     public int getTotalMonths() {
