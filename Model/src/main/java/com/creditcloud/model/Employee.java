@@ -6,10 +6,12 @@ package com.creditcloud.model;
 
 import com.creditcloud.model.client.Branch;
 import com.creditcloud.model.constraints.ClientCode;
+import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
+import javax.persistence.Id;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
 
@@ -19,10 +21,11 @@ import javax.ws.rs.FormParam;
  * @author sobranie
  */
 public class Employee extends BaseObject {
-    
+
     @FormParam("id")
+    @Id
     private String id;
-    
+
     @ClientCode
     private String clientCode;
 
@@ -37,10 +40,14 @@ public class Employee extends BaseObject {
     @RealName
     private String name;
 
+    @FormParam("IdNumber")
+    @IdNumber
+    private String IdNumber;
+
     @FormParam("mobile")
     @MobileNumber
     private String mobile;
-    
+
     /**
      * 员工所属分支机构
      */
@@ -52,51 +59,66 @@ public class Employee extends BaseObject {
     @Past
     private Date lastLoginDate;
     
-    public Employee() {
+    public Employee(){
+        
     }
 
-    public String getLoginName() {
-        return loginName;
+    public Employee(String id,
+                    String clientCode,
+                    String loginName,
+                    String employeeId,
+                    String name,
+                    String IdNumber,
+                    String mobile,
+                    Branch branch,
+                    Date registerDate,
+                    Date lastLoginDate) {
+        this.id = id;
+        this.clientCode = clientCode;
+        this.loginName = loginName;
+        this.employeeId = employeeId;
+        this.name = name;
+        this.IdNumber = IdNumber;
+        this.mobile = mobile;
+        this.branch = branch;
+        this.registerDate = registerDate;
+        this.lastLoginDate = lastLoginDate;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
     }
 
     public void setLoginName(String loginName) {
         this.loginName = loginName;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getMobile() {
-        return mobile;
+    public void setIdNumber(String IdNumber) {
+        this.IdNumber = IdNumber;
     }
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
-    public Date getRegisterDate() {
-        return registerDate;
+    public void setBranch(Branch branch) {
+        this.branch = branch;
     }
 
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
-    }
-
-    public Date getLastLoginDate() {
-        return lastLoginDate;
     }
 
     public void setLastLoginDate(Date lastLoginDate) {
@@ -107,23 +129,40 @@ public class Employee extends BaseObject {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getClientCode() {
         return clientCode;
     }
 
-    public void setClientCode(String clientCode) {
-        this.clientCode = clientCode;
+    public String getLoginName() {
+        return loginName;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getIdNumber() {
+        return IdNumber;
+    }
+
+    public String getMobile() {
+        return mobile;
     }
 
     public Branch getBranch() {
         return branch;
     }
 
-    public void setBranch(Branch branch) {
-        this.branch = branch;
+    public Date getRegisterDate() {
+        return registerDate;
     }
+
+    public Date getLastLoginDate() {
+        return lastLoginDate;
+    }
+
 }

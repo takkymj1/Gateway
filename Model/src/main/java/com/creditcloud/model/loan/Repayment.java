@@ -20,22 +20,19 @@ public class Repayment extends BaseObject {
 
     @NotNull
     @XmlElement(name = "amountPrincipal")
-    private BigDecimal amountPrincipal;
+    private final BigDecimal amountPrincipal;
 
     @NotNull
     @XmlElement(name = "amountInterest")
-    private BigDecimal amountInterest;
+    private final BigDecimal amountInterest;
 
     @NotNull
     @XmlElement(name = "amountOutstanding")
-    private BigDecimal amountOutstanding;
+    private final BigDecimal amountOutstanding;
 
     @NotNull
     @XmlElement(name = "dueDate")
-    private LocalDate dueDate;
-
-    public Repayment() {
-    }
+    private final LocalDate dueDate;
 
     public Repayment(BigDecimal amountPrincipal,
                      BigDecimal amountInterest,
@@ -61,21 +58,5 @@ public class Repayment extends BaseObject {
 
     public LocalDate getDueDate() {
         return dueDate;
-    }
-
-    public void setAmountPrincipal(BigDecimal amountPrincipal) {
-        this.amountPrincipal = amountPrincipal;
-    }
-
-    public void setAmountInterest(BigDecimal amountInterest) {
-        this.amountInterest = amountInterest;
-    }
-
-    public void setAmountOutstanding(BigDecimal amountOutstanding) {
-        this.amountOutstanding = amountOutstanding;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
     }
 }

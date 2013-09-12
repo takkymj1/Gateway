@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.entities.local;
+package com.creditcloud.common.bean;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
 import javax.annotation.Resource;
@@ -13,7 +13,7 @@ import javax.validation.Validator;
  *
  * @author rooseek
  */
-public abstract class BaseLocalBean {
+public abstract class BaseBean {
 
     @Resource
     private Validator validator;

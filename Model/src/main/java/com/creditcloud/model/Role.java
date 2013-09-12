@@ -17,42 +17,33 @@ import javax.validation.constraints.NotNull;
 public class Role {
 
     @NotNull
-    private String name;
+    private final String name;
 
     /**
      * 拥有该权限的所有员工
      */
-    private Collection<Employee> members;
+    private final Collection<Employee> members;
 
     /**
      * 该角色所拥有的权限集合
      */
-    private Collection<Privilege> privileges;
+    private final Collection<Privilege> privileges;
 
-    public Role() {
+    public Role(String name, Collection<Employee> members, Collection<Privilege> privileges) {
+        this.name = name;
+        this.members = members;
+        this.privileges = privileges;
     }
-
+    
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Collection<Employee> getMembers() {
         return members;
     }
 
-    public void setMembers(Collection<Employee> members) {
-        this.members = members;
-    }
-
     public Collection<Privilege> getPrivileges() {
         return privileges;
-    }
-
-    public void setPrivileges(Collection<Privilege> privileges) {
-        this.privileges = privileges;
     }
 }

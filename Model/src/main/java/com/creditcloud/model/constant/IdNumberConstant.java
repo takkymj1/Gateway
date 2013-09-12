@@ -28,9 +28,14 @@ public interface IdNumberConstant {
     /**
      * following regions are not included in Chinese idNumber now
      */
-    String TAIWANG= "71";
+    String TAIWANG = "71";
 
     String HONGKONG = "81";
 
     String MACAU = "82";
+
+    /**
+     * 默认的admin身份证号,要求能通过@IdNumber认证，但无法通过NCIIC认证
+     */
+    String DEFAULT_IDNUMBER = "11010119140101721X";
 }

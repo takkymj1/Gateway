@@ -21,7 +21,7 @@ import static com.creditcloud.model.enums.loan.LoanStatus.SETTLED;
  *
  * @author rooseek
  */
-public class DTOUtils {
+public class DTOUtils{
 
     /**
      * handle Duration
@@ -86,13 +86,12 @@ public class DTOUtils {
     public static com.creditcloud.model.Location getLocationDTO(Location location) {
         com.creditcloud.model.Location result = null;
         if (location != null) {
-            result = new com.creditcloud.model.Location();
-            result.setProvince(location.getProvince());
-            result.setCity(location.getCity());
-            result.setLatitude(location.getLatitude());
-            result.setLongtitude(location.getLongtitude());
-            result.setStreetAddress(location.getStreetAddress());
-            result.setRoomAddress(location.getRoomAddress());
+            result = new com.creditcloud.model.Location(location.getProvince(),
+                                                        location.getCity(),
+                                                        location.getStreetAddress(),
+                                                        location.getRoomAddress(),
+                                                        location.getLongtitude(),
+                                                        location.getLatitude());
         }
         return result;
     }
@@ -110,7 +109,6 @@ public class DTOUtils {
         }
         return result;
     }
-
 
     /**
      * handle conversion from LoanStatus to InvestStatus

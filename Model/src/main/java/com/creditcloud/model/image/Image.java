@@ -5,6 +5,7 @@
 package com.creditcloud.model.image;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constant.ImageConstant;
 
 /**
  * 用于前端显示需要的Image信息
@@ -34,5 +35,14 @@ public class Image extends BaseObject {
 
     public String getUri() {
         return uri;
+    }
+
+    /**
+     * check whether uri is valid for an image
+     *
+     * @return
+     */
+    public boolean isValidUri() {
+        return uri.equals(ImageConstant.IMAGE_NOT_FOUND_URI);
     }
 }
