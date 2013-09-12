@@ -46,7 +46,7 @@ public class Device extends BaseObject {
 
     @FormParam("kernelVersion")
     @NotNull
-    private String kernalVersion;
+    private String kernelVersion;
 
     @FormParam("softwareVersion")
     @NotNull
@@ -72,7 +72,7 @@ public class Device extends BaseObject {
                   String MAC,
                   String model,
                   String osVersion,
-                  String kernalVersion,
+                  String kernelVersion,
                   String softwareVersion,
                   DeviceType type,
                   boolean enabled,
@@ -84,7 +84,7 @@ public class Device extends BaseObject {
         this.MAC = MAC;
         this.model = model;
         this.osVersion = osVersion;
-        this.kernalVersion = kernalVersion;
+        this.kernelVersion = kernelVersion;
         this.softwareVersion = softwareVersion;
         this.type = type;
         this.enabled = enabled;
@@ -116,8 +116,8 @@ public class Device extends BaseObject {
         return osVersion;
     }
 
-    public String getKernalVersion() {
-        return kernalVersion;
+    public String getKernelVersion() {
+        return kernelVersion;
     }
 
     public String getSoftwareVersion() {
@@ -172,8 +172,8 @@ public class Device extends BaseObject {
         this.osVersion = osVersion;
     }
 
-    public void setKernalVersion(String kernalVersion) {
-        this.kernalVersion = kernalVersion;
+    public void setKernelVersion(String kernelVersion) {
+        this.kernelVersion = kernelVersion;
     }
 
     public void setSoftwareVersion(String softwareVersion) {
