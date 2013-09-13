@@ -11,6 +11,10 @@ import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -87,5 +91,24 @@ public class LoanDetail extends BaseObject {
 
     public List<Repayment> getRepayments() {
         return repayments;
+    }
+
+    public JsonObject toJson() {
+        JsonObjectBuilder jb = Json.createObjectBuilder();
+        jb.add("principal", this.getPrincipal());
+        jb.add("interest", this.getInterest());
+        jb.add("duration", this.getDuration().toString());
+        jb.add("method", this.getMethod().getKey());
+        JsonArrayBuilder repayments = Json.createArrayBuilder();
+        for (Repayment rp : this.getRepayments()) {
+            JsonObjectBuilder repayment = Json.createObjectBuilder();
+            repayment.add("amountPrincipal", rp.getAmountPrincipal());
+            repayment.add("amountInterest", rp.getAmountInterest());
+            repayment.add("amountOutstanding", rp.getAmountOutstanding());
+            repayment.add("dueDate", rp.getDueDate().toString());
+            repayments.add(repayment);
+        }
+        jb.add("repayments", repayments);
+        return jb.build();
     }
 }
