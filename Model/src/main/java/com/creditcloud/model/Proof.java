@@ -8,7 +8,6 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContent;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,14 +16,13 @@ import javax.validation.constraints.NotNull;
  */
 public class Proof extends BaseObject {
 
-    @Id
+    @NotNull
     private final String id;
 
     @NotNull
     private final CertificateType type;
 
     //证明标题
-    @NotNull
     private final String title;
 
     //证明内容类型
@@ -38,7 +36,6 @@ public class Proof extends BaseObject {
     private final String proof;
 
     // 证明描述
-    @NotNull
     private final String description;
 
     //证明来源
@@ -53,15 +50,23 @@ public class Proof extends BaseObject {
     @NotNull
     private final String employee;
 
-    public Proof(String id, 
-                 CertificateType type, 
-                 String title, 
-                 ProofContent content, 
-                 String proof, 
-                 String description, 
-                 Source source, 
-                 Date submitTime, 
-                 String employee) {
+    /**
+     * 如果Proof对应的是图片,用于标示图片是否打码加水印. 对于平板端上传的图片，平板本身可以对图片加码打水印。
+     * 显示proof时，在CreditMarket中对于user本人将显示无码，其他人查看则显示有码。
+     * 在CreditManager中根据employee权限不同也将差别化显示有码或无码
+     */
+    private final boolean mosaic;
+
+    public Proof(String id,
+                 CertificateType type,
+                 String title,
+                 ProofContent content,
+                 String proof,
+                 String description,
+                 Source source,
+                 Date submitTime,
+                 String employee,
+                 boolean mosaic) {
         this.id = id;
         this.type = type;
         this.title = title;
@@ -71,6 +76,7 @@ public class Proof extends BaseObject {
         this.source = source;
         this.submitTime = submitTime;
         this.employee = employee;
+        this.mosaic = mosaic;
     }
 
     public String getTitle() {
@@ -107,5 +113,9 @@ public class Proof extends BaseObject {
 
     public CertificateType getType() {
         return type;
+    }
+
+    public boolean isMosaic() {
+        return mosaic;
     }
 }

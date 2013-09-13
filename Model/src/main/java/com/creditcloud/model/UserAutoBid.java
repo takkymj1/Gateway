@@ -8,7 +8,6 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.AutoBidRange;
 import java.util.Collection;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -19,7 +18,7 @@ import javax.validation.constraints.NotNull;
  */
 public class UserAutoBid extends BaseObject {
 
-    @Id
+    @NotNull
     private final String userId;
 
     /**

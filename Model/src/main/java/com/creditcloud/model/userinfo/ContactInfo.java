@@ -5,19 +5,30 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
+import javax.json.Json;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class ContactInfo extends BaseObject {
+@XmlRootElement
+public class ContactInfo extends BaseObject implements Jsonizable<ContactInfo> {
 
-    private final Contact emergency;
+    @FormParam("emergency")
+    @XmlElement(name = "emergency")
+    private Contact emergency;
 
-    private final Contact colleague;
+    @FormParam("colleague")
+    @XmlElement(name = "colleague")
+    private Contact colleague;
 
-    private final Contact other;
-
+    @FormParam("other")
+    @XmlElement(name = "other")
+    private Contact other;
 
     /**
      *
@@ -31,6 +42,9 @@ public class ContactInfo extends BaseObject {
         this.other = other;
     }
 
+    public ContactInfo() {
+    }
+
     public Contact getEmergency() {
         return emergency;
     }
@@ -41,5 +55,32 @@ public class ContactInfo extends BaseObject {
 
     public Contact getOther() {
         return other;
+    }
+
+    public void setEmergency(Contact emergency) {
+        this.emergency = emergency;
+    }
+
+    public void setColleague(Contact colleague) {
+        this.colleague = colleague;
+    }
+
+    public void setOther(Contact other) {
+        this.other = other;
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("emergency", emergency.toJsonString())
+                .add("colleague", colleague.toJsonString())
+                .add("other", other.toJsonString())
+                .build().toString();
+
+    }
+
+    @Override
+    public ContactInfo fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

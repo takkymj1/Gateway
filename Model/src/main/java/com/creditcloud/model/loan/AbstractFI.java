@@ -7,7 +7,6 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,7 +18,7 @@ import javax.validation.constraints.NotNull;
  */
 public abstract class AbstractFI extends BaseObject implements Investable {
 
-    @Id
+    @NotNull
     private final String id;
 
     /**

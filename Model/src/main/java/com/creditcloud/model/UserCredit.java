@@ -5,7 +5,6 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.user.CreditRank;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -15,7 +14,7 @@ import javax.validation.constraints.NotNull;
  */
 public class UserCredit extends BaseObject {
 
-    @Id
+    @NotNull
     private final String userId;
 
     @NotNull

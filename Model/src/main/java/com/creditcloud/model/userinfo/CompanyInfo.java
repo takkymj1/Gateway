@@ -5,33 +5,50 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
 import com.creditcloud.model.enums.user.CompanyType;
+import javax.json.Json;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class CompanyInfo extends BaseObject {
+@XmlRootElement
+public class CompanyInfo extends BaseObject implements Jsonizable<CompanyInfo> {
     //公司或单位名称
-    private final String name;
+    @FormParam("name")
+    @XmlElement(name = "name")
+    private String name;
 
     //公司类别
-    private final CompanyType type;
+    @FormParam("type")
+    @XmlElement(name = "type")
+    private CompanyType type;
 
     //公司行业
-    private final CompanyIndustry industry;
+    @FormParam("industry")
+    @XmlElement(name = "industry")
+    private CompanyIndustry industry;
 
     //公司规模
-    private final CompanySize size_;
+    @FormParam("size")
+    @XmlElement(name = "size")
+    private CompanySize size_;
 
     //公司电话
-    private final String phone;
+    @FormParam("phone")
+    @XmlElement(name = "phone")
+    private String phone;
 
     //公司地址
-    private final String address;
-
+    @FormParam("address")
+    @XmlElement(name = "address")
+    private String address;
 
     /**
      *
@@ -56,6 +73,9 @@ public class CompanyInfo extends BaseObject {
         this.address = address;
     }
 
+    public CompanyInfo() {
+    }
+
     public String getName() {
         return name;
     }
@@ -68,15 +88,56 @@ public class CompanyInfo extends BaseObject {
         return industry;
     }
 
-    public CompanySize getSize() {
-        return size_;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public String getAddress() {
         return address;
+    }
+
+    public CompanySize getSize() {
+        return size_;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(CompanyType type) {
+        this.type = type;
+    }
+
+    public void setIndustry(CompanyIndustry industry) {
+        this.industry = industry;
+    }
+
+    public void setSize_(CompanySize size_) {
+        this.size_ = size_;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("name", name)
+                .add("type", type.name())
+                .add("industry", industry.name())
+                .add("size", size_.name())
+                .add("phone", phone)
+                .add("address", address)
+                .build().toString();
+    }
+
+    @Override
+    public CompanyInfo fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

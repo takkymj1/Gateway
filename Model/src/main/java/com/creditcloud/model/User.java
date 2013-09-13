@@ -15,7 +15,7 @@ import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
-import javax.persistence.Id;
+import javax.json.Json;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
@@ -26,9 +26,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class User extends BaseObject {
+public class User extends BaseObject implements Jsonizable<User> {
 
-    @Id
+    @NotNull
     protected String id;
 
     @ClientCode
@@ -117,6 +117,28 @@ public class User extends BaseObject {
         this.employeeId = employeeId;
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("id", id)
+                .add("clientCode", clientCode)
+                .add("name", name)
+                .add("loginName", loginName)
+                .add("idNumber", idNumber)
+                .add("mobile", mobile)
+                .add("email", email)
+                .add("source", source.name())
+                .add("employeeId", employeeId)
+                .add("lastLoginDate", lastLoginDate.toString())
+                .add("registerDate", registerDate.toString())
+                .build().toString();
+    }
+
+    @Override
+    public User fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {

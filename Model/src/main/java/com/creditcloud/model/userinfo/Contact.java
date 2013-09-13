@@ -5,18 +5,30 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
+import javax.json.Json;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class Contact extends BaseObject {
+@XmlRootElement
+public class Contact extends BaseObject implements Jsonizable<Contact> {
 
-    private final String name;
+    @FormParam("name")
+    @XmlElement(name = "name")
+    private String name;
 
-    private final String relation;
+    @FormParam("relation")
+    @XmlElement(name = "relation")
+    private String relation;
 
-    private final String mobile;
+    @FormParam("mobile")
+    @XmlElement(name = "mobile")
+    private String mobile;
 
     /**
      *
@@ -32,6 +44,9 @@ public class Contact extends BaseObject {
         this.mobile = mobile;
     }
 
+    public Contact() {
+    }
+
     public String getName() {
         return name;
     }
@@ -42,5 +57,31 @@ public class Contact extends BaseObject {
 
     public String getMobile() {
         return mobile;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRelation(String relation) {
+        this.relation = relation;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    @Override
+    public Contact fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("name", name)
+                .add("relation", relation)
+                .add("mobile", mobile)
+                .build().toString();
     }
 }

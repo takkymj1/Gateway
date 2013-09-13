@@ -11,7 +11,7 @@ import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
-import javax.persistence.Id;
+import javax.json.Json;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
 
@@ -20,10 +20,9 @@ import javax.ws.rs.FormParam;
  *
  * @author sobranie
  */
-public class Employee extends BaseObject {
+public class Employee extends BaseObject implements Jsonizable<Employee> {
 
     @FormParam("id")
-    @Id
     private String id;
 
     @ClientCode
@@ -58,9 +57,8 @@ public class Employee extends BaseObject {
 
     @Past
     private Date lastLoginDate;
-    
-    public Employee(){
-        
+
+    public Employee() {
     }
 
     public Employee(String id,
@@ -165,4 +163,21 @@ public class Employee extends BaseObject {
         return lastLoginDate;
     }
 
+    @Override
+    public Employee fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("id", getId())
+                .add("clientCode", getClientCode())
+                .add("loginName", getLoginName())
+                .add("employeeId", getEmployeeId())
+                .add("name", getName())
+                .add("IdNumber", getIdNumber())
+                .add("mobile", getMobile())
+                .build().toString();
+    }
 }

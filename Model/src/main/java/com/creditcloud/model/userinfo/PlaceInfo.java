@@ -5,30 +5,41 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
+import javax.json.Json;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class PlaceInfo extends BaseObject {
+@XmlRootElement
+public class PlaceInfo extends BaseObject implements Jsonizable<PlaceInfo> {
     //籍贯省
 
-    private final String nativeProvince;
+    @XmlElement(name = "nativeProvince")
+    private String nativeProvince;
 
     //籍贯市
-    private final String nativeCity;
+    @XmlElement(name = "nativeCity")
+    private String nativeCity;
 
     //户口所在省
-    private final String hukouProvince;
+    @XmlElement(name = "hukouProvince")
+    private String hukouProvince;
 
     //户口所在市
-    private final String hukouCity;
+    @XmlElement(name = "hukouCity")
+    private String hukouCity;
 
     //现居住地址
-    private final String currentAddress;
+    @XmlElement(name = "currentAddress")
+    private String currentAddress;
 
     //现居住地址电话
-    private final String currentPhone;
+    @XmlElement(name = "currentPhone")
+    private String currentPhone;
 
     /**
      *
@@ -53,6 +64,9 @@ public class PlaceInfo extends BaseObject {
         this.currentPhone = currentPhone;
     }
 
+    public PlaceInfo() {
+    }
+
     public String getNativeProvince() {
         return nativeProvince;
     }
@@ -69,12 +83,53 @@ public class PlaceInfo extends BaseObject {
         return hukouCity;
     }
 
-
     public String getCurrentAddress() {
         return currentAddress;
     }
 
     public String getCurrentPhone() {
         return currentPhone;
+    }
+
+    public void setNativeProvince(String nativeProvince) {
+        this.nativeProvince = nativeProvince;
+    }
+
+    public void setNativeCity(String nativeCity) {
+        this.nativeCity = nativeCity;
+    }
+
+    public void setHukouProvince(String hukouProvince) {
+        this.hukouProvince = hukouProvince;
+    }
+
+    public void setHukouCity(String hukouCity) {
+        this.hukouCity = hukouCity;
+    }
+
+    public void setCurrentAddress(String currentAddress) {
+        this.currentAddress = currentAddress;
+    }
+
+    public void setCurrentPhone(String currentPhone) {
+        this.currentPhone = currentPhone;
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("nativeProvince", nativeProvince)
+                .add("nativeCity", nativeCity)
+                .add("hukouProvince", hukouProvince)
+                .add("hukouCity", hukouCity)
+                .add("currentAddress", currentAddress)
+                .add("currentPhone", currentPhone)
+                .build().toString();
+
+    }
+
+    @Override
+    public PlaceInfo fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

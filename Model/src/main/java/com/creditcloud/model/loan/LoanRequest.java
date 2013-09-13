@@ -26,6 +26,7 @@ public class LoanRequest extends BaseObject {
     /**
      * LoanRequest Id
      */
+    @NotNull
     private final String id;
 
     /**

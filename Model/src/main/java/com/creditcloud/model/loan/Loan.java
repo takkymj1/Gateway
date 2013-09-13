@@ -10,7 +10,6 @@ import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
@@ -24,7 +23,7 @@ public class Loan extends BaseObject implements Investable {
     /**
      * UUID
      */
-    @Id
+    @NotNull
     private final String id;
 
     @Min(1)

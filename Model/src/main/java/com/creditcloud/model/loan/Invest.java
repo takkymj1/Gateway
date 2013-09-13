@@ -10,7 +10,6 @@ import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -22,7 +21,7 @@ import javax.validation.constraints.Past;
  */
 public class Invest extends BaseObject {
 
-    @Id
+    @NotNull
     private final String id;
 
     @NotNull
