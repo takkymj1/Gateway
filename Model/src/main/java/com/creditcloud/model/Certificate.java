@@ -7,7 +7,6 @@ package com.creditcloud.model;
 import com.creditcloud.model.enums.user.credit.CertificateStatus;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -16,7 +15,7 @@ import javax.validation.constraints.NotNull;
  */
 public class Certificate extends BaseObject {
 
-    @Id
+    @NotNull
     private final String id;
 
     @NotNull

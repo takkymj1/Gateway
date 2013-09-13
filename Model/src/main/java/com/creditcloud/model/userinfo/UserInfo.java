@@ -5,27 +5,37 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.User;
-import javax.persistence.Id;
+import javax.json.Json;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class UserInfo extends BaseObject {
+@XmlRootElement
+public class UserInfo extends BaseObject implements Jsonizable<UserInfo> {
 
-    @Id
-    private final String userId;
+    @NotNull
+    private String userId;
 
-    private final User user;
+    @XmlElement(name = "user")
+    private User user;
 
-    private final PersonalInfo personal;
+    @XmlElement(name = "personal")
+    private PersonalInfo personal;
 
-    private final FinanceInfo finance;
+    @XmlElement(name = "finance")
+    private FinanceInfo finance;
 
-    private final CareerInfo career;
+    @XmlElement(name = "career")
+    private CareerInfo career;
 
-    private final ContactInfo contact;
+    @XmlElement(name = "contact")
+    private ContactInfo contact;
 
     /**
      *
@@ -46,6 +56,26 @@ public class UserInfo extends BaseObject {
         this.finance = finance;
         this.career = career;
         this.contact = contact;
+    }
+
+    public UserInfo() {
+    }
+
+    @Override
+    public UserInfo fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("user", user.toJsonString())
+                .add("personal", personal.toJsonString())
+                .add("finance", finance.toJsonString())
+                .add("career", career.toJsonString())
+                .add("contact", contact.toJsonString())
+                .build().toString();
+
     }
 
     public String getUserId() {
@@ -70,5 +100,29 @@ public class UserInfo extends BaseObject {
 
     public User getUser() {
         return user;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setPersonal(PersonalInfo personal) {
+        this.personal = personal;
+    }
+
+    public void setFinance(FinanceInfo finance) {
+        this.finance = finance;
+    }
+
+    public void setCareer(CareerInfo career) {
+        this.career = career;
+    }
+
+    public void setContact(ContactInfo contact) {
+        this.contact = contact;
     }
 }
