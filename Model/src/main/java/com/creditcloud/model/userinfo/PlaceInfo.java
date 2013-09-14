@@ -5,8 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
-import javax.json.Json;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -15,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class PlaceInfo extends BaseObject implements Jsonizable<PlaceInfo> {
+public class PlaceInfo extends BaseObject{
     //籍贯省
 
     @XmlElement(name = "nativeProvince")
@@ -113,23 +111,5 @@ public class PlaceInfo extends BaseObject implements Jsonizable<PlaceInfo> {
 
     public void setCurrentPhone(String currentPhone) {
         this.currentPhone = currentPhone;
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("nativeProvince", nativeProvince)
-                .add("nativeCity", nativeCity)
-                .add("hukouProvince", hukouProvince)
-                .add("hukouCity", hukouCity)
-                .add("currentAddress", currentAddress)
-                .add("currentPhone", currentPhone)
-                .build().toString();
-
-    }
-
-    @Override
-    public PlaceInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

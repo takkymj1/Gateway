@@ -5,10 +5,8 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.user.MaritalStatus;
 import java.util.Date;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class PersonalInfo extends BaseObject implements Jsonizable<PersonalInfo> {
+public class PersonalInfo extends BaseObject{
 
     //性别
     @FormParam("male")
@@ -82,24 +80,6 @@ public class PersonalInfo extends BaseObject implements Jsonizable<PersonalInfo>
     }
 
     public PersonalInfo() {
-    }
-
-    @Override
-    public PersonalInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("male", male)
-                .add("dateOfBirth", dateOfBirth.toString())
-                .add("maritalStatus", maritalStatus.name())
-                .add("children", children)
-                .add("education", education.toJsonString())
-                .add("place", place.toJsonString())
-                .add("avatar", avatar)
-                .build().toString();
     }
 
     public boolean isMale() {

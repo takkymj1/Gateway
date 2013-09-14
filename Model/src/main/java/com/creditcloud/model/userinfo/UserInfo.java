@@ -5,9 +5,7 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.User;
-import javax.json.Json;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class UserInfo extends BaseObject implements Jsonizable<UserInfo> {
+public class UserInfo extends BaseObject{
 
     @NotNull
     private String userId;
@@ -59,23 +57,6 @@ public class UserInfo extends BaseObject implements Jsonizable<UserInfo> {
     }
 
     public UserInfo() {
-    }
-
-    @Override
-    public UserInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("user", user.toJsonString())
-                .add("personal", personal.toJsonString())
-                .add("finance", finance.toJsonString())
-                .add("career", career.toJsonString())
-                .add("contact", contact.toJsonString())
-                .build().toString();
-
     }
 
     public String getUserId() {
