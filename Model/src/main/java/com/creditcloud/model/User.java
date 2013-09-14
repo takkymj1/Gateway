@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class User extends BaseObject implements Jsonizable<User> {
+public class User extends BaseObject {
 
     @NotNull
     protected String id;
@@ -117,28 +117,6 @@ public class User extends BaseObject implements Jsonizable<User> {
         this.employeeId = employeeId;
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("id", id)
-                .add("clientCode", clientCode)
-                .add("name", name)
-                .add("loginName", loginName)
-                .add("idNumber", idNumber)
-                .add("mobile", mobile)
-                .add("email", email)
-                .add("source", source.name())
-                .add("employeeId", employeeId)
-                .add("lastLoginDate", lastLoginDate.toString())
-                .add("registerDate", registerDate.toString())
-                .build().toString();
-    }
-
-    @Override
-    public User fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getId() {

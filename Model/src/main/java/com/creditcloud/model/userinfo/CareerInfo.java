@@ -5,11 +5,9 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.MonthlySalary;
 import com.creditcloud.model.enums.user.YearOfService;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class CareerInfo extends BaseObject implements Jsonizable<CareerInfo> {
+public class CareerInfo extends BaseObject {
 
     //职业状态
     @FormParam("careerStatus")
@@ -92,26 +90,7 @@ public class CareerInfo extends BaseObject implements Jsonizable<CareerInfo> {
 
     public CareerInfo() {
     }
-
-    @Override
-    public CareerInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("careerStatus", careerStatus.name())
-                .add("company", company.toJsonString())
-                .add("province", province)
-                .add("city", city)
-                .add("position", position)
-                .add("salary", salary.name())
-                .add("yearOfService", yearOfService.name())
-                .add("workMail", workMail)
-                .build().toString();
-    }
-
+    
     public CompanyInfo getCompany() {
         return company;
     }

@@ -5,9 +5,7 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.user.EducationLevel;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class EducationInfo extends BaseObject implements Jsonizable<EducationInfo> {
+public class EducationInfo extends BaseObject{
 
     //最高学历
     @FormParam("educationLevel")
@@ -73,19 +71,5 @@ public class EducationInfo extends BaseObject implements Jsonizable<EducationInf
 
     public String getSchool() {
         return school;
-    }
-
-    @Override
-    public EducationInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("educationLevel", educationLevel.name())
-                .add("enrollmentYear", enrollmentYear)
-                .add("school", school)
-                .build().toString();
     }
 }

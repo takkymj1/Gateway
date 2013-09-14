@@ -5,8 +5,6 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class Contact extends BaseObject implements Jsonizable<Contact> {
+public class Contact extends BaseObject  {
 
     @FormParam("name")
     @XmlElement(name = "name")
@@ -69,19 +67,5 @@ public class Contact extends BaseObject implements Jsonizable<Contact> {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
-
-    @Override
-    public Contact fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("name", name)
-                .add("relation", relation)
-                .add("mobile", mobile)
-                .build().toString();
     }
 }

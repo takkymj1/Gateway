@@ -5,11 +5,9 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.user.CompanyIndustry;
 import com.creditcloud.model.enums.user.CompanySize;
 import com.creditcloud.model.enums.user.CompanyType;
-import javax.json.Json;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class CompanyInfo extends BaseObject implements Jsonizable<CompanyInfo> {
+public class CompanyInfo extends BaseObject {
     //公司或单位名称
     @FormParam("name")
     @XmlElement(name = "name")
@@ -122,22 +120,5 @@ public class CompanyInfo extends BaseObject implements Jsonizable<CompanyInfo> {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("name", name)
-                .add("type", type.name())
-                .add("industry", industry.name())
-                .add("size", size_.name())
-                .add("phone", phone)
-                .add("address", address)
-                .build().toString();
-    }
-
-    @Override
-    public CompanyInfo fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

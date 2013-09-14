@@ -20,7 +20,7 @@ import javax.ws.rs.FormParam;
  *
  * @author sobranie
  */
-public class Employee extends BaseObject implements Jsonizable<Employee> {
+public class Employee extends BaseObject{
 
     @FormParam("id")
     private String id;
@@ -161,23 +161,5 @@ public class Employee extends BaseObject implements Jsonizable<Employee> {
 
     public Date getLastLoginDate() {
         return lastLoginDate;
-    }
-
-    @Override
-    public Employee fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("id", getId())
-                .add("clientCode", getClientCode())
-                .add("loginName", getLoginName())
-                .add("employeeId", getEmployeeId())
-                .add("name", getName())
-                .add("IdNumber", getIdNumber())
-                .add("mobile", getMobile())
-                .build().toString();
     }
 }
