@@ -12,8 +12,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum TaskType implements BaseEnum {
 
-    //TODO
-    EXAMPLE("");
+    USER_INVESTIGATE("用户调查"),
+    LOANREQUEST_INVESTIGATE("贷款调查");
+
     private final String key;
 
     private TaskType(String key) {

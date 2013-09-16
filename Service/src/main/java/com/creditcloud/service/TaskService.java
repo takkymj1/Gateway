@@ -5,6 +5,7 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.enums.loan.TaskStatus;
+import com.creditcloud.model.enums.loan.TaskType;
 import com.creditcloud.model.loan.Task;
 import java.util.List;
 import javax.ejb.Remote;
@@ -27,6 +28,17 @@ public interface TaskService {
     List<Task> listByStatus(String clientCode, String employeeId, TaskStatus... status);
 
     /**
+     * list task for employee by task type
+     *
+     * @param clientCode
+     * @param employeeId
+     * @param type
+     * @return
+     */
+    List<Task> listByType(String clientCode, String employeeId, TaskType... type);
+    
+
+    /**
      * get task by task id
      *
      * @param clientCode
@@ -40,7 +52,7 @@ public interface TaskService {
      *
      * @param clientCode
      * @param task
-     * @return 
+     * @return
      */
     boolean updateTask(String clientCode, Task task);
 }
