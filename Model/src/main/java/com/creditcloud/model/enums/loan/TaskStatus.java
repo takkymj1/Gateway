@@ -12,11 +12,14 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum TaskStatus implements BaseEnum {
 
-    //TODO add more
     INITIATED("任务创建后的初始状态"),
-    ASSIGNED("任务已经分配给某个具体员工"),
-    STARTED("任务执行开始时间"),
-    FINISHED("任务执行结束时间");
+    EMPLOYEE_ASSIGNED("任务已经分配给某个具体员工"),
+    EMPLOYEE_STARTED("员工开始执行任务"),
+    EMPLOYEE_FINISHED("员工汇报任务结束,等待上级审查"),
+    OVERDUE("已逾期"),
+    ABORTED("已放弃"),
+    FINISHED("进过上级审核任务结束");
+
     private final String key;
 
     private TaskStatus(String key) {

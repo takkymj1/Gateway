@@ -5,46 +5,52 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.user.credit.CertificateStatus;
+import com.creditcloud.model.misc.Assessment;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class CertificateRecord extends BaseObject{
+@XmlRootElement
+public class CertificateRecord extends BaseObject {
+
     @NotNull
-    private Certificate certificate;
-    
-    @NotNull
+    @XmlElement(name = "status")
     private CertificateStatus status;
-    
+
     //审核时间
     @NotNull
+    @XmlElement(name = "recordTime")
     private Date recordTime;
-    
+
     //审核人，是员工Id
     @NotNull
+    @XmlElement(name = "auditor")
     private String auditor;
-    
+
     //审核人审核备注信息
     @NotNull
+    @XmlElement(name = "auditInfo")
     private String auditInfo;
 
-    public CertificateRecord(Certificate certificate, 
-            CertificateStatus status, 
-            Date recordTime, 
-            String auditor, 
-            String auditInfo) {
-        this.certificate = certificate;
+    @NotNull
+    @XmlElement(name = "assessment")
+    private Assessment assessment;
+
+    public CertificateRecord(CertificateStatus status,
+                             Date recordTime,
+                             String auditor,
+                             String auditInfo,
+                             Assessment assessment) {
         this.status = status;
         this.recordTime = recordTime;
         this.auditor = auditor;
         this.auditInfo = auditInfo;
-    }
-
-    public Certificate getCertificate() {
-        return certificate;
+        this.assessment = assessment;
     }
 
     public CertificateStatus getStatus() {
@@ -63,10 +69,6 @@ public class CertificateRecord extends BaseObject{
         return auditInfo;
     }
 
-    public void setCertificate(Certificate certificate) {
-        this.certificate = certificate;
-    }
-
     public void setStatus(CertificateStatus status) {
         this.status = status;
     }
@@ -81,5 +83,13 @@ public class CertificateRecord extends BaseObject{
 
     public void setAuditInfo(String auditInfo) {
         this.auditInfo = auditInfo;
+    }
+
+    public Assessment getAssessment() {
+        return assessment;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
 }
