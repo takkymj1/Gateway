@@ -5,7 +5,6 @@
 package com.creditcloud.model;
 
 import java.math.BigDecimal;
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -16,7 +15,7 @@ import javax.validation.constraints.NotNull;
  */
 public class UserFund extends BaseObject {
 
-    @Id
+    @NotNull
     private final String userId;
 
     /**

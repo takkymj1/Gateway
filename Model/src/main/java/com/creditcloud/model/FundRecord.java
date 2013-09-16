@@ -7,7 +7,6 @@ package com.creditcloud.model;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,7 +16,7 @@ import javax.validation.constraints.NotNull;
  */
 public class FundRecord extends BaseObject {
 
-    @Id
+    @NotNull
     private final String id;
 
     @NotNull

@@ -6,21 +6,31 @@ package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.EducationLevel;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sobranie
  */
-public class EducationInfo extends BaseObject {
+@XmlRootElement
+public class EducationInfo extends BaseObject{
 
     //最高学历
-    private final EducationLevel educationLevel;
+    @FormParam("educationLevel")
+    @XmlElement(name = "educationLevel")
+    private EducationLevel educationLevel;
 
     //入学年份
-    private final String enrollmentYear;
+    @FormParam("enrollmentYear")
+    @XmlElement(name = "enrollmentYear")
+    private String enrollmentYear;
 
     //学校
-    private final String school;
+    @FormParam("school")
+    @XmlElement(name = "school")
+    private String school;
 
     /**
      *
@@ -36,6 +46,20 @@ public class EducationInfo extends BaseObject {
         this.school = school;
     }
 
+    public EducationInfo() {
+    }
+
+    public void setEducationLevel(EducationLevel educationLevel) {
+        this.educationLevel = educationLevel;
+    }
+
+    public void setEnrollmentYear(String enrollmentYear) {
+        this.enrollmentYear = enrollmentYear;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
 
     public EducationLevel getEducationLevel() {
         return educationLevel;

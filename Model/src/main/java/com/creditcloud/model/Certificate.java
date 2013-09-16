@@ -6,8 +6,9 @@ package com.creditcloud.model;
 
 import com.creditcloud.model.enums.user.credit.CertificateStatus;
 import com.creditcloud.model.enums.user.credit.CertificateType;
+import com.creditcloud.model.misc.Assessment;
 import java.util.Date;
-import javax.persistence.Id;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -16,7 +17,7 @@ import javax.validation.constraints.NotNull;
  */
 public class Certificate extends BaseObject {
 
-    @Id
+    @NotNull
     private final String id;
 
     @NotNull
@@ -30,36 +31,33 @@ public class Certificate extends BaseObject {
     @NotNull
     private CertificateStatus status;
 
-    //认证对应的分数
-    private int score;
-
-    //认证通过时间
-    private Date passedTime;
-
-    //审核人
-    private String auditor;
-
-    //审核人审核备注信息
-    private String auditInfo;
+    //认证对应的评估
+    @NotNull
+    @Valid
+    private Assessment assessment;
+    
+    @NotNull
+    private Date timeCreated;
+    
+    private Date timeLastModified;
 
     public Certificate(String id, 
-                       UserCredit credit, 
-                       CertificateType type,
-                       CertificateStatus status, 
-                       int score, 
-                       Date passedTime, 
-                       String auditor, 
-                       String auditInfo) {
+            UserCredit credit, 
+            CertificateType type,
+            CertificateStatus status, 
+            Assessment assessment, 
+            Date timeCreated, 
+            Date timeLastModified) {
         this.id = id;
         this.credit = credit;
         this.type = type;
         this.status = status;
-        this.score = score;
-        this.passedTime = passedTime;
-        this.auditor = auditor;
-        this.auditInfo = auditInfo;
+        this.assessment = assessment;
+        this.timeCreated = timeCreated;
+        this.timeLastModified = timeLastModified;
     }
 
+   
     public UserCredit getCredit() {
         return credit;
     }
@@ -68,32 +66,8 @@ public class Certificate extends BaseObject {
         return status;
     }
 
-    public int getScore() {
-        return score;
-    }
-
     public void setStatus(CertificateStatus status) {
         this.status = status;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public Date getPassedTime() {
-        return passedTime;
-    }
-
-    public String getAuditor() {
-        return auditor;
-    }
-
-    public void setPassedTime(Date passedTime) {
-        this.passedTime = passedTime;
-    }
-
-    public void setAuditor(String auditor) {
-        this.auditor = auditor;
     }
 
     public String getId() {
@@ -104,11 +78,28 @@ public class Certificate extends BaseObject {
         return type;
     }
 
-    public String getAuditInfo() {
-        return auditInfo;
+    public Assessment getAssessment() {
+        return assessment;
     }
 
-    public void setAuditInfo(String auditInfo) {
-        this.auditInfo = auditInfo;
+    public Date getTimeCreated() {
+        return timeCreated;
     }
+
+    public Date getTimeLastModified() {
+        return timeLastModified;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
+    }
+
+    public void setTimeCreated(Date timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public void setTimeLastModified(Date timeLastModified) {
+        this.timeLastModified = timeLastModified;
+    }
+
 }

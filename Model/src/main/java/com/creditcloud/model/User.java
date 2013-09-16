@@ -15,7 +15,7 @@ import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
-import javax.persistence.Id;
+import javax.json.Json;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class User extends BaseObject {
 
-    @Id
+    @NotNull
     protected String id;
 
     @ClientCode

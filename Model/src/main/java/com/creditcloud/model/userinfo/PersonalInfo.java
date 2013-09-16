@@ -7,33 +7,51 @@ package com.creditcloud.model.userinfo;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.MaritalStatus;
 import java.util.Date;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class PersonalInfo extends BaseObject {
+@XmlRootElement
+public class PersonalInfo extends BaseObject{
 
     //性别
-    private final boolean male;
+    @FormParam("male")
+    @XmlElement(name = "male")
+    private boolean male;
 
     //出生日期
-    private final Date dateOfBirth;
+    @FormParam("dateOfBirth")
+    @XmlElement(name = "dateOfBirth")
+    private Date dateOfBirth;
 
     //婚姻状况
-    private final MaritalStatus maritalStatus;
+    @FormParam("maritalStatus")
+    @XmlElement(name = "maritalStatus")
+    private MaritalStatus maritalStatus;
 
     //有无子女
-    private final boolean children;
+    @FormParam("children")
+    @XmlElement(name = "children")
+    private boolean children;
 
     //教育信息
-    private final EducationInfo education;
+    @FormParam("education")
+    @XmlElement(name = "education")
+    private EducationInfo education;
 
     //所在地信息
-    private final PlaceInfo place;
+    @FormParam("place")
+    @XmlElement(name = "place")
+    private PlaceInfo place;
 
-    //个人头像存储路径
-    private final String avatar;
+    //个人头像图片名
+    @FormParam("avatar")
+    @XmlElement(name = "avatar")
+    private String avatar;
 
     /**
      *
@@ -61,6 +79,9 @@ public class PersonalInfo extends BaseObject {
         this.avatar = avatar;
     }
 
+    public PersonalInfo() {
+    }
+
     public boolean isMale() {
         return male;
     }
@@ -81,15 +102,39 @@ public class PersonalInfo extends BaseObject {
         return avatar;
     }
 
-    public boolean isChildren() {
-        return children;
-    }
-
     public EducationInfo getEducation() {
         return education;
     }
 
     public PlaceInfo getPlace() {
         return place;
+    }
+
+    public void setMale(boolean male) {
+        this.male = male;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setMaritalStatus(MaritalStatus maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
+
+    public void setChildren(boolean children) {
+        this.children = children;
+    }
+
+    public void setEducation(EducationInfo education) {
+        this.education = education;
+    }
+
+    public void setPlace(PlaceInfo place) {
+        this.place = place;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

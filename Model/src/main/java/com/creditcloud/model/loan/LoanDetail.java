@@ -2,12 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.calculator;
+package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.loan.Duration;
-import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;

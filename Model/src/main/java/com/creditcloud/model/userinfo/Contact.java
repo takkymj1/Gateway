@@ -5,18 +5,28 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class Contact extends BaseObject {
+@XmlRootElement
+public class Contact extends BaseObject  {
 
-    private final String name;
+    @FormParam("name")
+    @XmlElement(name = "name")
+    private String name;
 
-    private final String relation;
+    @FormParam("relation")
+    @XmlElement(name = "relation")
+    private String relation;
 
-    private final String mobile;
+    @FormParam("mobile")
+    @XmlElement(name = "mobile")
+    private String mobile;
 
     /**
      *
@@ -32,6 +42,9 @@ public class Contact extends BaseObject {
         this.mobile = mobile;
     }
 
+    public Contact() {
+    }
+
     public String getName() {
         return name;
     }
@@ -42,5 +55,17 @@ public class Contact extends BaseObject {
 
     public String getMobile() {
         return mobile;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRelation(String relation) {
+        this.relation = relation;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

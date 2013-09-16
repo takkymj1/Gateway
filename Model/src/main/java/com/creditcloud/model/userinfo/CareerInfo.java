@@ -8,39 +8,59 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.CareerStatus;
 import com.creditcloud.model.enums.user.MonthlySalary;
 import com.creditcloud.model.enums.user.YearOfService;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
+@XmlRootElement
 public class CareerInfo extends BaseObject {
 
     //职业状态
-    private final CareerStatus careerStatus;
+    @FormParam("careerStatus")
+    @XmlElement(name = "careerStatus")
+    private CareerStatus careerStatus;
 
     //公司信息
-    private final CompanyInfo company;
+    @FormParam("company")
+    @XmlElement(name = "company")
+    private CompanyInfo company;
 
     //工作省份
-    private final String province;
+    @FormParam("province")
+    @XmlElement(name = "province")
+    private String province;
 
     //工作城市
-    private final String city;
+    @FormParam("city")
+    @XmlElement(name = "city")
+    private String city;
 
     //职位
-    private final String position;
+    @FormParam("position")
+    @XmlElement(name = "position")
+    private String position;
 
     //月收入
-    private final MonthlySalary salary;
+    @FormParam("salary")
+    @XmlElement(name = "salary")
+    private MonthlySalary salary;
 
     //在现单位工作年限
-    private final YearOfService yearOfService;
+    @FormParam("yearOfService")
+    @XmlElement(name = "yearOfService")
+    private YearOfService yearOfService;
 
     //工作邮箱
-    private final String workMail;
+    @FormParam("workMail")
+    @XmlElement(name = "workMail")
+    private String workMail;
 
     /**
-     * 
+     *
      * @param careerStatus 职业状态
      * @param company 公司信息
      * @param province 工作省市
@@ -68,6 +88,9 @@ public class CareerInfo extends BaseObject {
         this.workMail = workMail;
     }
 
+    public CareerInfo() {
+    }
+    
     public CompanyInfo getCompany() {
         return company;
     }
@@ -98,5 +121,37 @@ public class CareerInfo extends BaseObject {
 
     public String getWorkMail() {
         return workMail;
+    }
+
+    public void setCareerStatus(CareerStatus careerStatus) {
+        this.careerStatus = careerStatus;
+    }
+
+    public void setCompany(CompanyInfo company) {
+        this.company = company;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setSalary(MonthlySalary salary) {
+        this.salary = salary;
+    }
+
+    public void setYearOfService(YearOfService yearOfService) {
+        this.yearOfService = yearOfService;
+    }
+
+    public void setWorkMail(String workMail) {
+        this.workMail = workMail;
     }
 }

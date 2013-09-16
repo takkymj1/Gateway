@@ -5,28 +5,44 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class FinanceInfo extends BaseObject {
+@XmlRootElement
+public class FinanceInfo extends BaseObject{
     //是否有房
-    private final boolean house;
 
-    private final int houseNumber;
+    @FormParam("house")
+    @XmlElement(name = "house")
+    private boolean house;
+
+    @FormParam("houseNumber")
+    @XmlElement(name = "houseNumber")
+    private int houseNumber;
 
     //有无房贷
-    private final boolean houseLoan;
+    @FormParam("houseLoan")
+    @XmlElement(name = "houseLoan")
+    private boolean houseLoan;
 
     //是否有车
-    private final boolean car;
+    @FormParam("car")
+    @XmlElement(name = "car")
+    private boolean car;
 
-    private final int carNumber;
+    @FormParam("carNumber")
+    @XmlElement(name = "carNumber")
+    private int carNumber;
 
     //有无车贷
-    private final boolean carLoan;
-
+    @FormParam("carLoan")
+    @XmlElement(name = "carLoan")
+    private boolean carLoan;
 
     /**
      *
@@ -51,6 +67,8 @@ public class FinanceInfo extends BaseObject {
         this.carLoan = carLoan;
     }
 
+    public FinanceInfo() {
+    }
 
     public boolean hasHouse() {
         return house;
@@ -74,5 +92,29 @@ public class FinanceInfo extends BaseObject {
 
     public int getCarNumber() {
         return carNumber;
+    }
+
+    public void setHouse(boolean house) {
+        this.house = house;
+    }
+
+    public void setHouseNumber(int houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public void setHouseLoan(boolean houseLoan) {
+        this.houseLoan = houseLoan;
+    }
+
+    public void setCar(boolean car) {
+        this.car = car;
+    }
+
+    public void setCarNumber(int carNumber) {
+        this.carNumber = carNumber;
+    }
+
+    public void setCarLoan(boolean carLoan) {
+        this.carLoan = carLoan;
     }
 }

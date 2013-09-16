@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.calculator;
 
+import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.common.utils.DateUtils;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
