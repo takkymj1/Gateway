@@ -12,6 +12,7 @@ import java.io.StringReader;
 import java.util.Date;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -20,6 +21,8 @@ import javax.validation.constraints.NotNull;
  * @author rooseek
  */
 public class Task extends BaseObject implements Jsonizable<Task> {
+    
+    private static final long serialVersionUID = 20130917L;
 
     @NotNull
     private String id;
@@ -122,6 +125,10 @@ public class Task extends BaseObject implements Jsonizable<Task> {
 
     @Override
     public String toJsonString() {
+        return getJsonObjectBuilder().build().toString();
+    }
+
+    public JsonObjectBuilder getJsonObjectBuilder() {
         return Json.createObjectBuilder()
                 .add("id", id)
                 .add("parentId", parentId == null ? "" : parentId)
@@ -131,14 +138,11 @@ public class Task extends BaseObject implements Jsonizable<Task> {
                 .add("type", type.name())
                 .add("objectId", objectId)
                 .add("status", status.name())
-                .add("timeAssigned", timeAssigned.getTime())
+                .add("timeAssigned", timeAssigned == null ? "" : "" + timeAssigned.getTime())
                 .add("timeOut", timeOut)
-                .add("timeStarted", timeStarted == null ? 0 : timeStarted.getTime())
-                .add("timeFinished", timeFinished == null ? 0 : timeFinished.getTime())
-                .add("feedback", feedback == null ? "" : feedback)
-                .build().toString();
-
-
+                .add("timeStarted", timeStarted == null ? "" : "" + timeStarted.getTime())
+                .add("timeFinished", timeFinished == null ? "" : "" + timeFinished.getTime())
+                .add("feedback", feedback == null ? "" : feedback);
     }
 
     @Override
