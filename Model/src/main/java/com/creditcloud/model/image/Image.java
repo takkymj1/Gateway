@@ -43,6 +43,6 @@ public class Image extends BaseObject {
      * @return
      */
     public boolean isValidUri() {
-        return ImageConstant.IMAGE_NOT_FOUND_URI.equals(uri);
+        return uri != null && !ImageConstant.IMAGE_NOT_FOUND_URI.equals(uri);
     }
 }
