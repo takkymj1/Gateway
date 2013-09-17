@@ -5,6 +5,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
@@ -12,6 +13,8 @@ import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import java.util.Date;
+import javax.json.Json;
+import javax.json.JsonObjectBuilder;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -21,7 +24,9 @@ import javax.validation.groups.Default;
  *
  * @author sobranie
  */
-public class LoanRequest extends BaseObject {
+public class LoanRequest extends BaseObject implements Jsonizable<LoanRequest> {
+
+    private static final long serialVersionUID = 20130917L;
 
     /**
      * LoanRequest Id
@@ -139,6 +144,31 @@ public class LoanRequest extends BaseObject {
         this.status = status;
         this.timeSubmit = timeSubmit;
         this.mortgaged = mortgaged;
+    }
+
+    @Override
+    public LoanRequest fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public JsonObjectBuilder getJsonObjectBuilder() {
+        return Json.createObjectBuilder()
+                .add("id", id)
+                .add("title", title)
+                .add("purpose", purpose.getKey())
+                .add("amount", amount)
+                .add("duration", duration.toJsonString())
+                .add("rate", rate)
+                .add("method", method.getKey())
+                .add("description", description)
+                .add("status", status.getKey())
+                .add("timeSubmit", timeSubmit == null ? "" : "" + timeSubmit.getTime())
+                .add("mortgaged", mortgaged);
+    }
+
+    @Override
+    public String toJsonString() {
+        return getJsonObjectBuilder().build().toString();
     }
 
     public String getId() {

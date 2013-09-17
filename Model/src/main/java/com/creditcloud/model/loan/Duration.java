@@ -5,14 +5,16 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Jsonizable;
 import static com.creditcloud.model.constant.TimeConstant.*;
+import javax.json.Json;
 
 /**
  * Object represent a certain duration including years/months and days
  *
  * @author sobranie
  */
-public class Duration extends BaseObject implements Comparable<Duration> {
+public class Duration extends BaseObject implements Comparable<Duration> ,Jsonizable<Duration>{
 
     private final int years;
 
@@ -27,6 +29,21 @@ public class Duration extends BaseObject implements Comparable<Duration> {
         this.years = years;
         this.months = months;
         this.days = days;
+    }
+    
+    
+    @Override
+    public Duration fromJsonString(String jsonString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toJsonString() {
+        return Json.createObjectBuilder()
+                .add("years", years)
+                .add("months", months)
+                .add("days", days)
+                .build().toString();
     }
 
     /**
