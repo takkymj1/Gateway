@@ -47,7 +47,6 @@ public class Proof extends BaseObject {
     private final Date submitTime;
 
     //上传证明的员工,如果是用户本人上传则为空
-    @NotNull
     private final String employee;
 
     /**

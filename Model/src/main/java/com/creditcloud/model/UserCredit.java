@@ -17,9 +17,6 @@ public class UserCredit extends BaseObject {
     @NotNull
     private final String userId;
 
-    @NotNull
-    private final User user;
-
     //信用等级
     @NotNull
     private CreditRank creditRank;
@@ -37,13 +34,11 @@ public class UserCredit extends BaseObject {
     private int creditAvailable;
 
     public UserCredit(String userId, 
-                      User user, 
                       CreditRank creditRank, 
                       int creditScore, 
                       int creditLimit,
                       int creditAvailable) {
         this.userId = userId;
-        this.user = user;
         this.creditRank = creditRank;
         this.creditScore = creditScore;
         this.creditLimit = creditLimit;
@@ -84,10 +79,6 @@ public class UserCredit extends BaseObject {
 
     public String getUserId() {
         return userId;
-    }
-
-    public User getUser() {
-        return user;
     }
 
 }

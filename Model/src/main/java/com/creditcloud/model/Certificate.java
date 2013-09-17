@@ -21,7 +21,7 @@ public class Certificate extends BaseObject {
     private final String id;
 
     @NotNull
-    private final UserCredit credit;
+    private final String userId;
 
     //认证类型
     @NotNull
@@ -42,14 +42,14 @@ public class Certificate extends BaseObject {
     private Date timeLastModified;
 
     public Certificate(String id, 
-            UserCredit credit, 
+            String userId, 
             CertificateType type,
             CertificateStatus status, 
             Assessment assessment, 
             Date timeCreated, 
             Date timeLastModified) {
         this.id = id;
-        this.credit = credit;
+        this.userId = userId;
         this.type = type;
         this.status = status;
         this.assessment = assessment;
@@ -57,9 +57,8 @@ public class Certificate extends BaseObject {
         this.timeLastModified = timeLastModified;
     }
 
-   
-    public UserCredit getCredit() {
-        return credit;
+    public String getUserId() {
+        return userId;
     }
 
     public CertificateStatus getStatus() {

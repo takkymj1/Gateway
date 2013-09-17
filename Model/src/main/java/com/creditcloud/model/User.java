@@ -15,7 +15,6 @@ import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
-import javax.json.Json;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
@@ -42,7 +41,7 @@ public class User extends BaseObject {
     protected String name;
 
     /**
-     * 登录名，对于Source.Web方式注册用户必须有,其他方式默认为手机号
+     * 登录名，对于Source.Web方式注册用户必须有,其他方式默认为特殊字符串+手机号
      */
     @FormParam("loginName")
     @LoginName

@@ -5,6 +5,7 @@
 package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.User;
+import com.creditcloud.model.constant.MobileConstant;
 import static com.creditcloud.model.constraints.BaseTest.validator;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.validation.group.WebSourceCheck;
@@ -34,7 +35,7 @@ public class LoginNameTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123", "123",Source.WEB);
+        object = new User("123", "123", "123", "123", "123", "123", "123", Source.WEB);
     }
 
     @After
@@ -76,6 +77,37 @@ public class LoginNameTest extends BaseTest<User> {
     @Test
     public void complicate() {
         object.setLoginName("陈忞1983_Test");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
+    }
+
+    @Test
+    public void notMobile() {
+        //mobile number not accepted
+        object.setLoginName("13810001000");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(1, constraintViolations.size());
+
+        //accepted non-mobile number
+        object.setLoginName("1381000100");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
+
+        //accepted default login name for users registerd 
+        object.setLoginName(MobileConstant.MOBILE_USER_LOGINNAME_PREFIX + "138100010000");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
+    }
+
+    @Test
+    public void notEmail() {
+        //email address not accepted
+        object.setLoginName("notreply@creditcloud.com");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(1, constraintViolations.size());
+
+        //accepted 
+        object.setLoginName("notreply_creditcloud_com");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());
     }
