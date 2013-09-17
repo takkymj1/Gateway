@@ -4,13 +4,14 @@
  */
 package com.creditcloud.model.misc;
 
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author rooseek
  */
-public class Assessment {
+public class Assessment extends BaseObject{
 
     @NotNull
     private int score;
