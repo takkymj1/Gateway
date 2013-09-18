@@ -15,7 +15,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class UserInfo extends BaseObject{
+public class UserInfo extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     @NotNull
     private String userId;

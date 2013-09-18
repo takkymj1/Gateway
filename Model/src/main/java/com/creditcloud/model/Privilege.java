@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Privilege extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     protected String code;
 

@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
  */
 public class Proof extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String id;
 

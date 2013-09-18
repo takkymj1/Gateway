@@ -8,26 +8,33 @@ import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.message.MessageType;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
+@XmlRootElement
 public class MessageBody extends BaseObject {
 
-    private final String title;
+    private static final long serialVersionUID = 20130918L;
+
+    private String title;
 
     @NotNull
-    private final String content;
+    private String content;
 
     @NotNull
-    private final Date sentTime;
+    private Date sentTime;
 
     @NotNull
-    private final Realm realm;
+    private Realm realm;
 
     @NotNull
-    private final MessageType type;
+    private MessageType type;
+
+    public MessageBody() {
+    }
 
     public MessageBody(String title,
                        String content,
@@ -59,5 +66,25 @@ public class MessageBody extends BaseObject {
 
     public MessageType getType() {
         return type;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setSentTime(Date sentTime) {
+        this.sentTime = sentTime;
+    }
+
+    public void setRealm(Realm realm) {
+        this.realm = realm;
+    }
+
+    public void setType(MessageType type) {
+        this.type = type;
     }
 }

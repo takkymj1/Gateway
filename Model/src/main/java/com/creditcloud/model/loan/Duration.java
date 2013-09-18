@@ -5,23 +5,31 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import static com.creditcloud.model.constant.TimeConstant.*;
-import javax.json.Json;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Object represent a certain duration including years/months and days
  *
  * @author sobranie
  */
-public class Duration extends BaseObject implements Comparable<Duration> ,Jsonizable<Duration>{
+@XmlRootElement
+public class Duration extends BaseObject implements Comparable<Duration> {
 
-    private final int years;
+    private static final long serialVersionUID = 20130918L;
 
-    private final int months;
+    @XmlElement(name = "years")
+    private int years;
 
-    private final int days;
+    @XmlElement(name = "months")
+    private int months;
 
+    @XmlElement(name = "days")
+    private int days;
+
+    public Duration() {
+    }
 
     public Duration(final int years,
                     final int months,
@@ -29,21 +37,6 @@ public class Duration extends BaseObject implements Comparable<Duration> ,Jsoniz
         this.years = years;
         this.months = months;
         this.days = days;
-    }
-    
-    
-    @Override
-    public Duration fromJsonString(String jsonString) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String toJsonString() {
-        return Json.createObjectBuilder()
-                .add("years", years)
-                .add("months", months)
-                .add("days", days)
-                .build().toString();
     }
 
     /**
@@ -92,5 +85,17 @@ public class Duration extends BaseObject implements Comparable<Duration> ,Jsoniz
             return days > o.days ? 1 : -1;
         }
         return 0;
+    }
+
+    public void setYears(int years) {
+        this.years = years;
+    }
+
+    public void setMonths(int months) {
+        this.months = months;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
     }
 }

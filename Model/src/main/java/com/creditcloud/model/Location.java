@@ -9,14 +9,16 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 表示一个可以在地图上显示的地理位置
- * 
+ *
  * @author sobranie
  */
 public class Location {
-    
+
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String province;
-    
+
     @NotNull
     private final String city;
 
@@ -25,17 +27,17 @@ public class Location {
      */
     @NotNull
     private final String streetAddress;
-    
+
     /**
      * 门牌地址
      */
     private final String roomAddress;
-    
+
     /**
      * 经度
      */
     private final BigDecimal longtitude;
-    
+
     /**
      * 维度
      */
@@ -54,7 +56,7 @@ public class Location {
         this.longtitude = longtitude;
         this.latitude = latitude;
     }
-    
+
     public String getStreetAddress() {
         return streetAddress;
     }
@@ -74,6 +76,7 @@ public class Location {
     public String getCity() {
         return city;
     }
+
     public String getRoomAddress() {
         return roomAddress;
     }

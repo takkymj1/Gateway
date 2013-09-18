@@ -19,7 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class CareerInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
     //职业状态
+
     @FormParam("careerStatus")
     @XmlElement(name = "careerStatus")
     private CareerStatus careerStatus;
@@ -90,7 +92,7 @@ public class CareerInfo extends BaseObject {
 
     public CareerInfo() {
     }
-    
+
     public CompanyInfo getCompany() {
         return company;
     }

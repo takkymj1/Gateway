@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
  */
 public class Branch {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private String id;
 
@@ -27,22 +29,20 @@ public class Branch {
     private String clientCode;
 
     /**
-     * 上级分支机构ID.
-     * 可以等于client.id，表示总部
+     * 上级分支机构ID. 可以等于client.id，表示总部
      */
     @NotNull
     private String parentId;
-    
+
     /**
-     * 分支机构唯一码.
-     * 在Client内唯一标识分支机构，不限定格式
+     * 分支机构唯一码. 在Client内唯一标识分支机构，不限定格式
      */
     @NotNull
     private String code;
 
     @NotNull
     private String name;
-    
+
     @NotNull
     private BranchType type;
 
@@ -51,32 +51,30 @@ public class Branch {
      */
     @NotNull
     private Location location;
-    
+
     /**
-     * 负责人.
-     * 多个分支机构可以有同一个负责人
-     * 加盟店多有这种情况
+     * 负责人. 多个分支机构可以有同一个负责人 加盟店多有这种情况
      */
     @NotNull
     private Employee principal;
-    
+
     /**
      * 联系人
      */
     @NotNull
     private Employee contactPerson;
-    
+
     private String description;
 
-    public Branch(String id, 
-                  String clientCode, 
+    public Branch(String id,
+                  String clientCode,
                   String parentId,
-                  String code, 
-                  String name, 
-                  BranchType type, 
-                  Location location, 
-                  Employee principal, 
-                  Employee contactPerson, 
+                  String code,
+                  String name,
+                  BranchType type,
+                  Location location,
+                  Employee principal,
+                  Employee contactPerson,
                   String description) {
         this.id = id;
         this.clientCode = clientCode;
@@ -89,7 +87,6 @@ public class Branch {
         this.contactPerson = contactPerson;
         this.description = description;
     }
-    
 
     public String getId() {
         return id;
