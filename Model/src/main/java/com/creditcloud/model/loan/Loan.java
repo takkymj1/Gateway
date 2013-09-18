@@ -13,30 +13,34 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sobranie
  */
+@XmlRootElement
 public class Loan extends BaseObject implements Investable {
+
+    private static final long serialVersionUID = 20130918L;
 
     /**
      * UUID
      */
     @NotNull
-    private final String id;
+    private String id;
 
     @Min(1)
-    private final int ordinal;
+    private int ordinal;
 
     @IncrementalInteger(min = LoanConstant.MIN_LOAN_AMOUNT,
                         increment = LoanConstant.LOAN_AMOUNT_INCREMENT,
                         max = LoanConstant.MAX_LOAN_AMOUNT,
                         groups = Default.class)
-    private final int amount;
+    private int amount;
 
     @NotNull
-    private final Duration duration;
+    private Duration duration;
 
     /**
      * 开放募集时间，单位：小时 timeout = 24 就是募集期为1天 最长3天
@@ -45,15 +49,15 @@ public class Loan extends BaseObject implements Investable {
                         increment = 1,
                         max = LoanConstant.MAX_LOAN_TIME_OUT,
                         groups = Default.class)
-    private final int timeout;
+    private int timeout;
 
     @NotNull
-    private final LoanRequest loanRequest;
+    private LoanRequest loanRequest;
 
     /**
      * 开启投标时间
      */
-    private final Date timeOpen;
+    private Date timeOpen;
 
     /**
      * 满标时间
@@ -63,7 +67,7 @@ public class Loan extends BaseObject implements Investable {
     /**
      * 有无抵押
      */
-    private final boolean mortgaged;
+    private boolean mortgaged;
 
     /**
      * 投标数
@@ -72,6 +76,9 @@ public class Loan extends BaseObject implements Investable {
 
     @NotNull
     private LoanStatus status;
+    
+    public Loan(){
+    }
 
     public Loan(String id,
                 int ordinal,

@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
  */
 public class Certificate extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String id;
 
@@ -35,19 +37,19 @@ public class Certificate extends BaseObject {
     @NotNull
     @Valid
     private Assessment assessment;
-    
+
     @NotNull
     private Date timeCreated;
-    
+
     private Date timeLastModified;
 
-    public Certificate(String id, 
-            String userId, 
-            CertificateType type,
-            CertificateStatus status, 
-            Assessment assessment, 
-            Date timeCreated, 
-            Date timeLastModified) {
+    public Certificate(String id,
+                       String userId,
+                       CertificateType type,
+                       CertificateStatus status,
+                       Assessment assessment,
+                       Date timeCreated,
+                       Date timeLastModified) {
         this.id = id;
         this.userId = userId;
         this.type = type;
@@ -100,5 +102,4 @@ public class Certificate extends BaseObject {
     public void setTimeLastModified(Date timeLastModified) {
         this.timeLastModified = timeLastModified;
     }
-
 }

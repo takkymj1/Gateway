@@ -14,6 +14,8 @@ import javax.validation.constraints.NotNull;
  */
 public class UserCredit extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String userId;
 
@@ -33,9 +35,9 @@ public class UserCredit extends BaseObject {
     @NotNull
     private int creditAvailable;
 
-    public UserCredit(String userId, 
-                      CreditRank creditRank, 
-                      int creditScore, 
+    public UserCredit(String userId,
+                      CreditRank creditRank,
+                      int creditScore,
                       int creditLimit,
                       int creditAvailable) {
         this.userId = userId;
@@ -80,5 +82,4 @@ public class UserCredit extends BaseObject {
     public String getUserId() {
         return userId;
     }
-
 }

@@ -18,6 +18,8 @@ import javax.json.JsonObject;
  */
 public class CheckIDResult extends BaseObject implements Jsonizable<CheckIDResult> {
 
+    private static final long serialVersionUID = 20130918L;
+
     /**
      * 远端返回检查结果的类型
      */

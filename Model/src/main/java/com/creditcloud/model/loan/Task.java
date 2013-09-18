@@ -5,23 +5,22 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.Jsonizable;
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
-import java.io.StringReader;
 import java.util.Date;
 import javax.json.Json;
-import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
-public class Task extends BaseObject implements Jsonizable<Task> {
-    
+@XmlRootElement
+public class Task extends BaseObject{
+
     private static final long serialVersionUID = 20130917L;
 
     @NotNull
@@ -94,6 +93,9 @@ public class Task extends BaseObject implements Jsonizable<Task> {
      * 员工的反馈
      */
     private String feedback;
+    
+    public Task(){
+    }
 
     public Task(String id,
                 String parentId,
@@ -121,47 +123,6 @@ public class Task extends BaseObject implements Jsonizable<Task> {
         this.timeStarted = timeStarted;
         this.timeFinished = timeFinished;
         this.feedback = feedback;
-    }
-
-    @Override
-    public String toJsonString() {
-        return getJsonObjectBuilder().build().toString();
-    }
-
-    public JsonObjectBuilder getJsonObjectBuilder() {
-        return Json.createObjectBuilder()
-                .add("id", id)
-                .add("parentId", parentId == null ? "" : parentId)
-                .add("employeeId", employeeId)
-                .add("title", title)
-                .add("description", description == null ? "" : description)
-                .add("type", type.name())
-                .add("objectId", objectId)
-                .add("status", status.name())
-                .add("timeAssigned", timeAssigned == null ? "" : "" + timeAssigned.getTime())
-                .add("timeOut", timeOut)
-                .add("timeStarted", timeStarted == null ? "" : "" + timeStarted.getTime())
-                .add("timeFinished", timeFinished == null ? "" : "" + timeFinished.getTime())
-                .add("feedback", feedback == null ? "" : feedback);
-    }
-
-    @Override
-    public Task fromJsonString(String jsonString) {
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        setId(jo.getString("id"));
-        setParentId(jo.getString("parentId"));
-        setEmployeeId(jo.getString("employeeId"));
-        setTitle(jo.getString("title"));
-        setDescription(jo.getString("description"));
-        setType(Enum.valueOf(TaskType.class, jo.getString("type")));
-        setObjectId(jo.getString("objectId"));
-        setStatus(Enum.valueOf(TaskStatus.class, jo.getString("status")));
-        setTimeAssigned(new Date(jo.getInt("timeAssigned")));
-        setTimeOut(jo.getInt("timeOut"));
-        setTimeStarted(new Date(jo.getInt("timeStarted")));
-        setTimeFinished(new Date(jo.getInt("timeFinished")));
-        setFeedback(jo.getString("feedback"));
-        return this;
     }
 
     public String getId() {

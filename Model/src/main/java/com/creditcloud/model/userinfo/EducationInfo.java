@@ -15,9 +15,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class EducationInfo extends BaseObject{
+public class EducationInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
     //最高学历
+
     @FormParam("educationLevel")
     @XmlElement(name = "educationLevel")
     private EducationLevel educationLevel;

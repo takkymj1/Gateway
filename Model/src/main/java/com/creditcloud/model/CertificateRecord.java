@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class CertificateRecord extends BaseObject {
+    
+    private static final long serialVersionUID = 20130918L;
 
     @NotNull
     @XmlElement(name = "status")
@@ -40,7 +42,7 @@ public class CertificateRecord extends BaseObject {
     @NotNull
     @XmlElement(name = "assessment")
     private Assessment assessment;
-
+    
     public CertificateRecord(CertificateStatus status,
                              Date recordTime,
                              String auditor,

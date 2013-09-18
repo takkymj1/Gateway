@@ -11,18 +11,23 @@ import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * This may be used in both Manager and Agent
  *
  * @author sobranie
  */
-public class Employee extends BaseObject{
+@XmlRootElement
+public class Employee extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     @FormParam("id")
+    @XmlElement(name = "id")
     private String id;
 
     @ClientCode
@@ -30,21 +35,26 @@ public class Employee extends BaseObject{
 
     @FormParam("loginName")
     @LoginName
+    @XmlElement(name = "loginName")
     private String loginName;
 
     @FormParam("employeeId")
+    @XmlElement(name = "employeeId")
     private String employeeId;
 
     @FormParam("name")
     @RealName
+    @XmlElement(name = "name")
     private String name;
 
     @FormParam("IdNumber")
     @IdNumber
+    @XmlElement(name = "IdNumber")
     private String IdNumber;
 
     @FormParam("mobile")
     @MobileNumber
+    @XmlElement(name = "mobile")
     private String mobile;
 
     /**

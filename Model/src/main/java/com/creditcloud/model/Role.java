@@ -16,6 +16,8 @@ import javax.validation.constraints.NotNull;
  */
 public class Role {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String name;
 
@@ -34,7 +36,7 @@ public class Role {
         this.members = members;
         this.privileges = privileges;
     }
-    
+
     public String getName() {
         return name;
     }

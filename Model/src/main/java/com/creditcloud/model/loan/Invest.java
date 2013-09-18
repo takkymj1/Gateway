@@ -21,6 +21,8 @@ import javax.validation.constraints.Past;
  */
 public class Invest extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String id;
 

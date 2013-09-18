@@ -5,6 +5,7 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
@@ -30,9 +31,9 @@ public interface LoanRequestService {
      * exceed 3 submit in one day
      */
     int EXCEED_REQUEST_LIMIT = 2;
-    
+
     /**
-     * default max number of request can be submitted by one user in single 
+     * default max number of request can be submitted by one user in single
      */
     int REQUEST_LIMIT = 3;
 
@@ -74,9 +75,10 @@ public interface LoanRequestService {
      * @param clientCode
      * @param userId
      * @param pageInfo
+     * @param status
      * @return empty result is no loan found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<LoanRequest> listRequestByUserId(String clientCode, String userId, PageInfo pageInfo);
+    PagedResult<LoanRequest> listRequestByUserAndStatus(String clientCode, String userId, PageInfo pageInfo, LoanRequestStatus... status);
 }

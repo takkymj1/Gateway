@@ -11,10 +11,12 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 表示客户机构
- * 
+ *
  * @author sobranie
  */
 public class Client extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     /**
      * full name of the client
@@ -23,8 +25,7 @@ public class Client extends BaseObject {
     protected String name;
 
     /**
-     * 4 characters codes
-     * 唯一标识
+     * 4 characters codes 唯一标识
      */
     @ClientCode
     protected String code;

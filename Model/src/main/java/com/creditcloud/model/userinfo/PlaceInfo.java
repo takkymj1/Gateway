@@ -13,7 +13,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class PlaceInfo extends BaseObject{
+public class PlaceInfo extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
     //籍贯省
 
     @XmlElement(name = "nativeProvince")

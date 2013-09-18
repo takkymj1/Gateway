@@ -12,23 +12,26 @@ import com.creditcloud.model.enums.user.CreditRank;
  * @author rooseek
  */
 public class AutoBidRange extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
+
     private final int minRate;
-    
+
     private final int maxRate;
-    
+
     private final int minDuration;
-    
+
     private final int maxDuration;
-    
+
     private final CreditRank minCredit;
-    
+
     private final CreditRank maxCredit;
 
-    public AutoBidRange(int minRate, 
-                        int maxRate, 
-                        int minDuration, 
+    public AutoBidRange(int minRate,
+                        int maxRate,
+                        int minDuration,
                         int maxDuration,
-                        CreditRank minCredit, 
+                        CreditRank minCredit,
                         CreditRank maxCredit) {
         this.minRate = minRate;
         this.maxRate = maxRate;
@@ -37,8 +40,6 @@ public class AutoBidRange extends BaseObject {
         this.minCredit = minCredit;
         this.maxCredit = maxCredit;
     }
-
-    
 
     public int getMinRate() {
         return minRate;

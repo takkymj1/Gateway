@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
  */
 public class BankAccount extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     /**
      * 开户人
      */
