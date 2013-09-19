@@ -8,6 +8,7 @@ package com.creditcloud.model;
  *
  * @author sobranie
  */
+@Deprecated
 public interface Jsonizable<T> {
 
     /**
