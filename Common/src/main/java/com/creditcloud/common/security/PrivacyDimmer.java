@@ -4,7 +4,7 @@
  */
 package com.creditcloud.common.security;
 
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.User;
 
 /**
  *

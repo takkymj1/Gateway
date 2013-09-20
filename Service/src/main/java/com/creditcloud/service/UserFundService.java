@@ -4,8 +4,8 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.model.FundRecord;
-import com.creditcloud.model.UserFund;
+import com.creditcloud.model.user.fund.FundRecord;
+import com.creditcloud.model.user.fund.UserFund;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.misc.PagedResult;
