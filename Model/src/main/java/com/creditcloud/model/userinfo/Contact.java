@@ -5,6 +5,9 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,7 +17,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class Contact extends BaseObject  {
+public class Contact extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     @FormParam("name")
     @XmlElement(name = "name")
@@ -67,5 +72,14 @@ public class Contact extends BaseObject  {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+    
+    public static Contact fromJsonString(String jsonString){
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        Contact result = new Contact();
+        result.setName(jo.getString("name"));
+        result.setMobile(jo.getString("mobile"));
+        result.setRelation(jo.getString("relation"));
+        return result;
     }
 }

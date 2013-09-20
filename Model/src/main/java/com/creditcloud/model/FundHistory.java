@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
  */
 public class FundHistory extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private final String userId;
 
@@ -103,7 +105,6 @@ public class FundHistory extends BaseObject {
     public Date getAsOfDate() {
         return asOfDate;
     }
-
 
     public String getUserId() {
         return userId;

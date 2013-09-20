@@ -25,21 +25,27 @@ public class Repayment extends BaseEntity {
      * 偿还本金
      */
     @Min(0)
-    @Column(nullable = false)
+    @Column(nullable = false,
+            precision = 15,
+            scale = 2)
     private BigDecimal amountPrincipal;
 
     /**
      * 偿还利息
      */
     @Min(0)
-    @Column(nullable = false)
+    @Column(nullable = false,
+            precision = 15,
+            scale = 2)
     private BigDecimal amountInterest;
 
     /**
-     * 剩余本金
+     * 剩余本息
      */
     @Min(0)
-    @Column(nullable = false)
+    @Column(nullable = false,
+            precision = 15,
+            scale = 2)
     private BigDecimal amountOutstanding;
 
     @Converter(name = "localDateConverter",

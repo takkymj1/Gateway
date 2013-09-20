@@ -19,6 +19,8 @@ import javax.ws.rs.FormParam;
  */
 public class Device extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     @NotNull
     private String id;
 

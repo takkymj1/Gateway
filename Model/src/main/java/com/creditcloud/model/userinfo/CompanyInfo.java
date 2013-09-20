@@ -18,7 +18,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class CompanyInfo extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
     //公司或单位名称
+
     @FormParam("name")
     @XmlElement(name = "name")
     private String name;

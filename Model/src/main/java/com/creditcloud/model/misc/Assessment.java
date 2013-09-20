@@ -11,11 +11,13 @@ import javax.validation.constraints.NotNull;
  *
  * @author rooseek
  */
-public class Assessment extends BaseObject{
+public class Assessment extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     @NotNull
     private int score;
-
+    
     public Assessment(int score) {
         this.score = score;
     }

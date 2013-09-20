@@ -14,7 +14,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class FinanceInfo extends BaseObject{
+public class FinanceInfo extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
     //是否有房
 
     @FormParam("house")

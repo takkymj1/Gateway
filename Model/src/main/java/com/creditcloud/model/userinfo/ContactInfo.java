@@ -5,6 +5,9 @@
 package com.creditcloud.model.userinfo;
 
 import com.creditcloud.model.BaseObject;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,16 +17,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class ContactInfo extends BaseObject{
-
+public class ContactInfo extends BaseObject {
+    
+    private static final long serialVersionUID = 20130918L;
+    
     @FormParam("emergency")
     @XmlElement(name = "emergency")
     private Contact emergency;
-
+    
     @FormParam("colleague")
     @XmlElement(name = "colleague")
     private Contact colleague;
-
+    
     @FormParam("other")
     @XmlElement(name = "other")
     private Contact other;
@@ -39,31 +44,40 @@ public class ContactInfo extends BaseObject{
         this.colleague = colleague;
         this.other = other;
     }
-
+    
     public ContactInfo() {
     }
-
+    
     public Contact getEmergency() {
         return emergency;
     }
-
+    
     public Contact getColleague() {
         return colleague;
     }
-
+    
     public Contact getOther() {
         return other;
     }
-
+    
     public void setEmergency(Contact emergency) {
         this.emergency = emergency;
     }
-
+    
     public void setColleague(Contact colleague) {
         this.colleague = colleague;
     }
-
+    
     public void setOther(Contact other) {
         this.other = other;
+    }
+    
+    public static ContactInfo fromJsonString(String jsonString) {
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        ContactInfo result = new ContactInfo();
+        result.setEmergency(Contact.fromJsonString(jo.getString("emergency")));
+        result.setColleague(Contact.fromJsonString(jo.getString("colleague")));
+        result.setOther(Contact.fromJsonString(jo.getString("other")));
+        return result;
     }
 }

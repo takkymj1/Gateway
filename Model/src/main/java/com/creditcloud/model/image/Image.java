@@ -6,23 +6,30 @@ package com.creditcloud.model.image;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.ImageConstant;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 用于前端显示需要的Image信息
  *
  * @author rooseek
  */
+@XmlRootElement
 public class Image extends BaseObject {
+
+    private static final long serialVersionUID = 20130918L;
 
     /**
      * 图片名
      */
-    private final String imageName;
+    private  String imageName;
 
     /*
      * 图片唯一uri
      */
-    private final String uri;
+    private  String uri;
+    
+    public Image(){
+    }
 
     public Image(String imageName, String uri) {
         this.imageName = imageName;
@@ -35,6 +42,14 @@ public class Image extends BaseObject {
 
     public String getUri() {
         return uri;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 
     /**

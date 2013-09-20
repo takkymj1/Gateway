@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
@@ -16,37 +17,46 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sobranie
  */
+@XmlRootElement
 public class LoanRequest extends BaseObject {
+
+    private static final long serialVersionUID = 20130917L;
 
     /**
      * LoanRequest Id
      */
     @NotNull
-    private final String id;
+    @XmlElement(name = "id")
+    private String id;
 
     /**
      * 用户ID
      */
     @NotNull
-    private final User user;
+    @XmlElement(name = "user")
+    private User user;
 
     /**
      * title
      */
     @NotNull
     @Size(min = 4, max = 60)
-    private final String title;
+    @XmlElement(name = "title")
+    private String title;
 
     /**
      * 目的
      */
     @NotNull
-    private final LoanPurpose purpose;
+    @XmlElement(name = "purpose")
+    private LoanPurpose purpose;
 
     /**
      * 金额
@@ -56,13 +66,15 @@ public class LoanRequest extends BaseObject {
                         increment = LoanConstant.LOAN_AMOUNT_INCREMENT,
                         max = LoanConstant.MAX_LOAN_AMOUNT,
                         groups = Default.class)
-    private final int amount;
+    @XmlElement(name = "amount")
+    private int amount;
 
     /**
      * 期限
      */
     @NotNull
-    private final Duration duration;
+    @XmlElement(name = "duration")
+    private Duration duration;
 
     /**
      * 年化利率（万分之几）
@@ -72,24 +84,28 @@ public class LoanRequest extends BaseObject {
                         increment = 1,
                         max = LoanConstant.MAX_LOAN_RATE,
                         groups = Default.class)
-    private final int rate;
+    @XmlElement(name = "rate")
+    private int rate;
 
     /**
      * 偿还方法
      */
     @NotNull
-    private final RepaymentMethod method;
+    @XmlElement(name = "method")
+    private RepaymentMethod method;
 
     /**
      * 描述
      */
     @Size(max = 500)
-    private final String description;
+    @XmlElement(name = "description")
+    private String description;
 
     /**
      * 状态(初始状态为：UNASSIGNED)
      */
     @NotNull
+    @XmlElement(name = "status")
     private LoanRequestStatus status;
 
     /**
@@ -97,9 +113,17 @@ public class LoanRequest extends BaseObject {
      */
     @NotNull
     @Past
-    private final Date timeSubmit;
+    @XmlElement(name = "timeSubmit")
+    private Date timeSubmit;
 
-    private final boolean mortgaged;
+    @XmlElement(name = "mortgaged")
+    private boolean mortgaged;
+    
+    @XmlElement(name="source")
+    private Source source;
+
+    public LoanRequest() {
+    }
 
     /**
      *
@@ -126,7 +150,8 @@ public class LoanRequest extends BaseObject {
                        String description,
                        LoanRequestStatus status,
                        Date timeSubmit,
-                       boolean mortgaged) {
+                       boolean mortgaged,
+                       Source source) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -139,6 +164,7 @@ public class LoanRequest extends BaseObject {
         this.status = status;
         this.timeSubmit = timeSubmit;
         this.mortgaged = mortgaged;
+        this.source = source;
     }
 
     public String getId() {
@@ -191,5 +217,57 @@ public class LoanRequest extends BaseObject {
 
     public boolean isMortgaged() {
         return mortgaged;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setPurpose(LoanPurpose purpose) {
+        this.purpose = purpose;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
+    public void setMethod(RepaymentMethod method) {
+        this.method = method;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTimeSubmit(Date timeSubmit) {
+        this.timeSubmit = timeSubmit;
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        this.mortgaged = mortgaged;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
     }
 }

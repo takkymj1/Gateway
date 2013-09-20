@@ -16,9 +16,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class PersonalInfo extends BaseObject{
+public class PersonalInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
     //性别
+
     @FormParam("male")
     @XmlElement(name = "male")
     private boolean male;

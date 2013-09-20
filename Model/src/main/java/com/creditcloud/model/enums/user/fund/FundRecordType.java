@@ -12,6 +12,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum FundRecordType implements BaseEnum {
 
+    INITIATE("初始"),
     RECHARGE("充值"),
     WITHDRAW("提现"),
     INVEST("投资结算"),

@@ -9,10 +9,6 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -23,41 +19,39 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class LoanDetail extends BaseObject {
 
+    private static final long serialVersionUID = 20130918L;
+
     /**
      * 本金
      */
     @XmlElement(name = "principal")
-    private final BigDecimal principal;
+    private BigDecimal principal;
 
     /**
      * 利息
      */
     @XmlElement(name = "interest")
-    private final BigDecimal interest;
+    private BigDecimal interest;
 
     /**
      * 借款时间
      */
     @XmlElement(name = "duration")
-    private final Duration duration;
+    private Duration duration;
 
     /**
      * 还款方式
      */
     @XmlElement(name = "method")
-    private final RepaymentMethod method;
+    private RepaymentMethod method;
 
     /**
      * 还款明细，包含期数
      */
     @XmlElement(name = "repayments")
-    private final List<Repayment> repayments;
+    private List<Repayment> repayments;
 
     public LoanDetail() {
-        this(new BigDecimal(0),
-             new BigDecimal(0),
-             new Duration(0, 0, 0),
-             RepaymentMethod.BulletRepayment);
     }
 
     public LoanDetail(BigDecimal principal,
@@ -91,22 +85,23 @@ public class LoanDetail extends BaseObject {
         return repayments;
     }
 
-    public JsonObject toJson() {
-        JsonObjectBuilder jb = Json.createObjectBuilder();
-        jb.add("principal", this.getPrincipal());
-        jb.add("interest", this.getInterest());
-        jb.add("duration", this.getDuration().toString());
-        jb.add("method", this.getMethod().getKey());
-        JsonArrayBuilder repayments = Json.createArrayBuilder();
-        for (Repayment rp : this.getRepayments()) {
-            JsonObjectBuilder repayment = Json.createObjectBuilder();
-            repayment.add("amountPrincipal", rp.getAmountPrincipal());
-            repayment.add("amountInterest", rp.getAmountInterest());
-            repayment.add("amountOutstanding", rp.getAmountOutstanding());
-            repayment.add("dueDate", rp.getDueDate().toString());
-            repayments.add(repayment);
-        }
-        jb.add("repayments", repayments);
-        return jb.build();
+    public void setPrincipal(BigDecimal principal) {
+        this.principal = principal;
+    }
+
+    public void setInterest(BigDecimal interest) {
+        this.interest = interest;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setMethod(RepaymentMethod method) {
+        this.method = method;
+    }
+
+    public void setRepayments(List<Repayment> repayments) {
+        this.repayments = repayments;
     }
 }
