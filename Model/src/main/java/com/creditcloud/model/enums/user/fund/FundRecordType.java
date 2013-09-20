@@ -19,7 +19,8 @@ public enum FundRecordType implements BaseEnum {
     LOAN("借款结算"),
     INVEST_REPAY("投资回款"),
     LOAN_REPAY("还款"),
-    FROZEN("冻结资金");
+    FROZEN("冻结资金"),
+    RELEASE("解冻资金");
 
     private final String key;
 
