@@ -121,6 +121,9 @@ public class LoanRequest extends BaseObject {
     
     @XmlElement(name="source")
     private Source source;
+    
+    @XmlElement(name="employeeId")
+    private String employeeId;
 
     public LoanRequest() {
     }
@@ -151,7 +154,8 @@ public class LoanRequest extends BaseObject {
                        LoanRequestStatus status,
                        Date timeSubmit,
                        boolean mortgaged,
-                       Source source) {
+                       Source source,
+                       String employeeId) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -165,6 +169,7 @@ public class LoanRequest extends BaseObject {
         this.timeSubmit = timeSubmit;
         this.mortgaged = mortgaged;
         this.source = source;
+        this.employeeId = employeeId;
     }
 
     public String getId() {
@@ -269,5 +274,13 @@ public class LoanRequest extends BaseObject {
 
     public void setSource(Source source) {
         this.source = source;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 }

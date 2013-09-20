@@ -81,4 +81,17 @@ public interface LoanRequestService {
      * the local client
      */
     PagedResult<LoanRequest> listRequestByUserAndStatus(String clientCode, String userId, PageInfo pageInfo, LoanRequestStatus... status);
+
+    /**
+     * list loan request by employee id
+     *
+     * @param clientCode
+     * @param employeeId
+     * @param pageInfo
+     * @param status
+     * @return empty result is no loan found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    PagedResult<LoanRequest> listRequestByEmployeeAndStatus(String clientCode, String employeeId, PageInfo pageInfo, LoanRequestStatus... status);
 }
