@@ -5,11 +5,15 @@
 package com.creditcloud.common.utils;
 
 import com.creditcloud.model.loan.Duration;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
 import org.joda.time.LocalDate;
@@ -77,5 +81,28 @@ public class DateUtils {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         calendar.set(year, month, day, 0, 0, 0);
         return calendar.getTime();
+    }
+    
+    /**
+     * 为使stock曲线平滑，填满遗漏的值
+     *
+     * @param data
+     */
+    public static void enrichStockData(Map<LocalDate, BigDecimal> data) {
+        Entry<LocalDate, BigDecimal> current = null;
+        Map<LocalDate, BigDecimal> extraData = new HashMap<>();
+        for (Entry<LocalDate, BigDecimal> entry : data.entrySet()) {
+            if (current == null) {
+                current = entry;
+            } else {
+                LocalDate date = current.getKey().plusDays(1);
+                while (date.isBefore(entry.getKey())) {
+                    extraData.put(date, current.getValue());
+                    date = date.plusDays(1);
+                }
+                current = entry;
+            }
+        }
+        data.putAll(extraData);
     }
 }
