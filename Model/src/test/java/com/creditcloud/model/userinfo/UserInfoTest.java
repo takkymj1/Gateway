@@ -4,16 +4,25 @@
  */
 package com.creditcloud.model.userinfo;
 
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.info.CompanyInfo;
+import com.creditcloud.model.user.info.FinanceInfo;
+import com.creditcloud.model.user.info.ContactInfo;
+import com.creditcloud.model.user.info.EducationInfo;
+import com.creditcloud.model.user.info.PlaceInfo;
+import com.creditcloud.model.user.info.Contact;
+import com.creditcloud.model.user.info.UserInfo;
+import com.creditcloud.model.user.info.CareerInfo;
+import com.creditcloud.model.user.info.PersonalInfo;
+import com.creditcloud.model.user.User;
 import com.creditcloud.model.enums.Source;
-import com.creditcloud.model.enums.user.CareerStatus;
-import com.creditcloud.model.enums.user.CompanyIndustry;
-import com.creditcloud.model.enums.user.CompanySize;
-import com.creditcloud.model.enums.user.CompanyType;
-import com.creditcloud.model.enums.user.EducationLevel;
-import com.creditcloud.model.enums.user.MaritalStatus;
-import com.creditcloud.model.enums.user.MonthlySalary;
-import com.creditcloud.model.enums.user.YearOfService;
+import com.creditcloud.model.enums.user.info.CareerStatus;
+import com.creditcloud.model.enums.user.info.CompanyIndustry;
+import com.creditcloud.model.enums.user.info.CompanySize;
+import com.creditcloud.model.enums.user.info.CompanyType;
+import com.creditcloud.model.enums.user.info.EducationLevel;
+import com.creditcloud.model.enums.user.info.MaritalStatus;
+import com.creditcloud.model.enums.user.info.MonthlySalary;
+import com.creditcloud.model.enums.user.info.YearOfService;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;

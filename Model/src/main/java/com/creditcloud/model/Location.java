@@ -44,11 +44,11 @@ public class Location {
     private final BigDecimal latitude;
 
     public Location(String province,
-                    String city,
-                    String streetAddress,
-                    String roomAddress,
-                    BigDecimal longtitude,
-                    BigDecimal latitude) {
+            String city,
+            String streetAddress,
+            String roomAddress,
+            BigDecimal longtitude,
+            BigDecimal latitude) {
         this.province = province;
         this.city = city;
         this.streetAddress = streetAddress;

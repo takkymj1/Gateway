@@ -4,7 +4,7 @@
  */
 package com.creditcloud.common.security;
 
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

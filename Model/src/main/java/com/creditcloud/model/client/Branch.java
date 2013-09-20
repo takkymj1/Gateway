@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.client;
 
-import com.creditcloud.model.Employee;
 import com.creditcloud.model.Location;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.enums.client.BranchType;
