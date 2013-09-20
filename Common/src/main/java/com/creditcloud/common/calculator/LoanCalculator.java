@@ -25,9 +25,9 @@ import org.joda.time.LocalDate;
  */
 public final class LoanCalculator {
 
-    private static final BigDecimal zero = new BigDecimal(0).setScale(2);
+    private static final BigDecimal ZERO = new BigDecimal(0).setScale(2);
 
-    private static final BigDecimal one = new BigDecimal(1);
+    private static final BigDecimal ONE = new BigDecimal(1).setScale(2);
 
     private static final BigDecimal monthsPerYear = new BigDecimal(TimeConstant.MONTHS_PER_YEAR);
 
@@ -78,7 +78,7 @@ public final class LoanCalculator {
                 //create result
                 result = new LoanDetail(principal, interest, duration, BulletRepayment);
                 //add single amortize item
-                result.getRepayments().add(new Repayment(principal, interest, zero, DateUtils.offset(asOfDate, duration)));
+                result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration)));
                 break;
             case MonthlyInterest:   //in this case we don't need to worry about duration.days since that must be 0
                 amortizedInterest = principal.multiply(rateMonth).setScale(2, RoundingMode.CEILING);
@@ -89,9 +89,9 @@ public final class LoanCalculator {
                 for (int i = 0; i < duration.getTotalMonths(); i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     if (i < duration.getTotalMonths() - 1) {    //only interest, no principal
-                        result.getRepayments().add(new Repayment(zero, amortizedInterest, principal, dueDate));
-                    } else {    //last one we pay off the principal as well as interest
-                        result.getRepayments().add(new Repayment(principal, amortizedInterest, zero, dueDate));
+                        result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal, dueDate));
+                    } else {    //last ONE we pay off the principal as well as interest
+                        result.getRepayments().add(new Repayment(principal, amortizedInterest, ZERO, dueDate));
                     }
                 }
                 break;
@@ -101,11 +101,11 @@ public final class LoanCalculator {
                 //pre-calc
                 BigDecimal[] is = new BigDecimal[tenure + 1];
                 for (int i = 0; i <= tenure; i++) {
-                    is[i] = rateMonth.add(one).pow(i);
+                    is[i] = rateMonth.add(ONE).pow(i);
                 }
                 BigDecimal baseInterest = principal.multiply(rateMonth);
                 //calc installment
-                BigDecimal installment = baseInterest.multiply(is[tenure]).divide(is[tenure].subtract(one), mc);
+                BigDecimal installment = baseInterest.multiply(is[tenure]).divide(is[tenure].subtract(ONE), mc);
                 installment = installment.setScale(2, RoundingMode.CEILING);
                 //calc total interest
                 interest = installment.multiply(new BigDecimal(tenure));
@@ -119,10 +119,10 @@ public final class LoanCalculator {
                     amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, RoundingMode.CEILING);
                     amortizedPrincipal = installment.subtract(amortizedInterest);
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
-                    if (i == tenure - 1) {  //last one we need to fix the rounding error and let the oustanding principal be zero
+                    if (i == tenure - 1) {  //last ONE we need to fix the rounding error and let the oustanding principal be ZERO
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
                                                                  amortizedInterest,
-                                                                 zero,
+                                                                 ZERO,
                                                                  dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
@@ -141,7 +141,7 @@ public final class LoanCalculator {
                 BigDecimal[] interests = new BigDecimal[tenure];
                 BigDecimal[] outstandingPrincipals = new BigDecimal[tenure];
                 outstandingPrincipal = principal;
-                interest = zero;
+                interest = ZERO;
                 for (int i = 0; i < tenure; i++) {
                     interests[i] = outstandingPrincipal.multiply(rateMonth, mc).setScale(2, RoundingMode.CEILING);
                     interest = interest.add(interests[i]);
@@ -156,7 +156,7 @@ public final class LoanCalculator {
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
                                                                  interests[i],
-                                                                 zero,
+                                                                 ZERO,
                                                                  dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,

@@ -54,7 +54,7 @@ public class TimeTagHandler extends SimpleTagSupport {
             sb.append(hours).append("小时 ");
         }
         if (minuts > 0) {
-            sb.append(minuts).append("分钟 ");
+            sb.append(minuts).append("分 ");
         }
         if (seconds > 0) {
             sb.append(seconds).append("秒");
