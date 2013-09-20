@@ -9,6 +9,7 @@ import com.creditcloud.common.entities.utils.LocalDateConverter;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import org.eclipse.persistence.annotations.Convert;
 import org.eclipse.persistence.annotations.Converter;
@@ -97,5 +98,17 @@ public class Repayment extends BaseEntity {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+    
+    /**
+     * 获得当期的应还款总额.
+     * 
+     * amountInterest + amountPrincipal
+     * 
+     * @return 
+     */
+    @Transient
+    public BigDecimal getAmount() {
+        return amountInterest.add(amountPrincipal);
     }
 }

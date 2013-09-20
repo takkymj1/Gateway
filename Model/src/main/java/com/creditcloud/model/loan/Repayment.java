@@ -80,4 +80,15 @@ public class Repayment extends BaseObject {
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
+    
+    /**
+     * 当期的应还款总额.
+     * 
+     * amountPrincipal + amountInterest
+     * 
+     * @return 
+     */
+    public BigDecimal getAmount() {
+        return amountInterest.add(amountPrincipal);
+    }
 }
