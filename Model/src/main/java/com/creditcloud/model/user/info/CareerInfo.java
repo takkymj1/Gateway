@@ -8,6 +8,9 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.CareerStatus;
 import com.creditcloud.model.enums.user.info.MonthlySalary;
 import com.creditcloud.model.enums.user.info.YearOfService;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -155,5 +158,23 @@ public class CareerInfo extends BaseObject {
 
     public void setWorkMail(String workMail) {
         this.workMail = workMail;
+    }
+
+    public static CareerInfo fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            return null;
+        }
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        CareerInfo result = new CareerInfo();
+        result.setCareerStatus(CareerStatus.valueOf(jo.getString("careerStatus")));
+        result.setCity(jo.getString("city"));
+        result.setCompany(CompanyInfo.fromJsonString(jo.getJsonObject("company").toString()));
+        result.setPosition(jo.getString("position"));
+        result.setProvince(jo.getString("province"));
+        result.setSalary(MonthlySalary.valueOf(jo.getString("salary")));
+        result.setWorkMail(jo.getString("workMail"));
+        result.setYearOfService(YearOfService.valueOf(jo.getString("yearOfService")));
+
+        return result;
     }
 }

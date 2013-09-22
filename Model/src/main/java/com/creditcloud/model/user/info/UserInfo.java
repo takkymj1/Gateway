@@ -5,7 +5,9 @@
 package com.creditcloud.model.user.info;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.user.User;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -21,9 +23,6 @@ public class UserInfo extends BaseObject {
 
     @NotNull
     private String userId;
-
-    @XmlElement(name = "user")
-    private User user;
 
     @XmlElement(name = "personal")
     private PersonalInfo personal;
@@ -45,13 +44,12 @@ public class UserInfo extends BaseObject {
      * @param career 工作信息
      * @param contact 联系人信息
      */
-    public UserInfo(User user,
+    public UserInfo(String userId,
                     PersonalInfo personal,
                     FinanceInfo finance,
                     CareerInfo career,
                     ContactInfo contact) {
-        this.userId = user.getId();
-        this.user = user;
+        this.userId = userId;
         this.personal = personal;
         this.finance = finance;
         this.career = career;
@@ -81,16 +79,8 @@ public class UserInfo extends BaseObject {
         return contact;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public void setPersonal(PersonalInfo personal) {
@@ -107,5 +97,20 @@ public class UserInfo extends BaseObject {
 
     public void setContact(ContactInfo contact) {
         this.contact = contact;
+    }
+
+    public static UserInfo fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            return null;
+        }
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        UserInfo result = new UserInfo();
+        result.setCareer(CareerInfo.fromJsonString(jo.getJsonObject("career") == null ? null : jo.getJsonObject("career").toString()));
+        result.setContact(ContactInfo.fromJsonString(jo.getJsonObject("contact") == null ? null : jo.getJsonObject("contact").toString()));
+        result.setFinance(FinanceInfo.fromJsonString(jo.getJsonObject("finance") == null ? null : jo.getJsonObject("finance").toString()));
+        result.setPersonal(PersonalInfo.fromJsonString(jo.getJsonObject("personal") == null ? null : jo.getJsonObject("personal").toString()));
+        result.setUserId(null);
+
+        return result;
     }
 }

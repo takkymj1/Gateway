@@ -73,8 +73,12 @@ public class Contact extends BaseObject {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-    
-    public static Contact fromJsonString(String jsonString){
+
+    public static Contact fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            //TODO return null不能更改filed, 只能返回下面object才能更新contact內field为null
+            return new Contact(null, null, null);
+        }
         JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
         Contact result = new Contact();
         result.setName(jo.getString("name"));

@@ -8,6 +8,9 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.CompanyIndustry;
 import com.creditcloud.model.enums.user.info.CompanySize;
 import com.creditcloud.model.enums.user.info.CompanyType;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,7 +42,7 @@ public class CompanyInfo extends BaseObject {
     //公司规模
     @FormParam("size")
     @XmlElement(name = "size")
-    private CompanySize size_;
+    private CompanySize companySize;
 
     //公司电话
     @FormParam("phone")
@@ -56,20 +59,20 @@ public class CompanyInfo extends BaseObject {
      * @param name 公司或单位名称
      * @param type 公司类别
      * @param industry 公司行业
-     * @param size_ 公司规模
+     * @param companySize 公司规模
      * @param phone 公司电话
      * @param address 公司地址
      */
     public CompanyInfo(String name,
                        CompanyType type,
                        CompanyIndustry industry,
-                       CompanySize size_,
+                       CompanySize companySize,
                        String phone,
                        String address) {
         this.name = name;
         this.type = type;
         this.industry = industry;
-        this.size_ = size_;
+        this.companySize = companySize;
         this.phone = phone;
         this.address = address;
     }
@@ -97,8 +100,8 @@ public class CompanyInfo extends BaseObject {
         return address;
     }
 
-    public CompanySize getSize() {
-        return size_;
+    public CompanySize getCompanySize() {
+        return companySize;
     }
 
     public void setName(String name) {
@@ -113,8 +116,8 @@ public class CompanyInfo extends BaseObject {
         this.industry = industry;
     }
 
-    public void setSize_(CompanySize size_) {
-        this.size_ = size_;
+    public void setCompanySize(CompanySize companySize) {
+        this.companySize = companySize;
     }
 
     public void setPhone(String phone) {
@@ -123,5 +126,20 @@ public class CompanyInfo extends BaseObject {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public static CompanyInfo fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            return null;
+        }
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        CompanyInfo result = new CompanyInfo();
+        result.setAddress(jo.getString("address"));
+        result.setIndustry(CompanyIndustry.valueOf(jo.getString("industry")));
+        result.setName(jo.getString("name"));
+        result.setPhone(jo.getString("phone"));
+        result.setCompanySize(CompanySize.valueOf(jo.getString("size")));
+        result.setType(CompanyType.valueOf(jo.getString("type")));
+        return result;
     }
 }

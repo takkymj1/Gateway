@@ -5,6 +5,9 @@
 package com.creditcloud.model.user.info;
 
 import com.creditcloud.model.BaseObject;
+import java.io.StringReader;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -62,6 +65,21 @@ public class PlaceInfo extends BaseObject {
         this.hukouCity = hukouCity;
         this.currentAddress = currentAddress;
         this.currentPhone = currentPhone;
+    }
+
+    public static PlaceInfo fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            return null;
+        }
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        PlaceInfo result = new PlaceInfo();
+        result.setNativeProvince(jo.getString("nativeProvince"));
+        result.setNativeCity(jo.getString("nativeCity"));
+        result.setHukouProvince(jo.getString("hukouProvince"));
+        result.setHukouCity(jo.getString("hukouCity"));
+        result.setCurrentPhone(jo.getString("currentPhone"));
+        result.setCurrentAddress(jo.getString("currentAddress"));
+        return result;
     }
 
     public PlaceInfo() {
