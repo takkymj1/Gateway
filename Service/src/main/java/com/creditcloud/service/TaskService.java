@@ -25,7 +25,7 @@ public interface TaskService {
      * @param status
      * @return
      */
-    List<Task> listByStatus(String clientCode, String employeeId, TaskStatus... status);
+    List listByStatus(String clientCode, String employeeId, TaskStatus... status);
 
     /**
      * list task for employee by task type

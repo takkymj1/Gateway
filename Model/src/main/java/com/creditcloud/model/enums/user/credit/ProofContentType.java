@@ -10,7 +10,7 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum ProofContent implements BaseEnum {
+public enum ProofContentType implements BaseEnum {
 
     IMAGE("图像"),
     DOCUMENT("文档"),
@@ -19,7 +19,7 @@ public enum ProofContent implements BaseEnum {
 
     private final String key;
 
-    private ProofContent(String key) {
+    private ProofContentType(String key) {
         this.key = key;
     }
 

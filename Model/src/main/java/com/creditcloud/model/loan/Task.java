@@ -8,8 +8,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
 import java.util.Date;
-import javax.json.Json;
-import javax.json.JsonObjectBuilder;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
