@@ -25,7 +25,7 @@ public interface TaskService {
      * @param status
      * @return
      */
-    List listByStatus(String clientCode, String employeeId, TaskStatus... status);
+    List<Task> listByStatus(String clientCode, String employeeId, TaskStatus... status);
 
     /**
      * list task for employee by task type
@@ -36,7 +36,6 @@ public interface TaskService {
      * @return
      */
     List<Task> listByType(String clientCode, String employeeId, TaskType... type);
-    
 
     /**
      * get task by task id
