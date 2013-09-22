@@ -12,8 +12,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum TaskType implements BaseEnum {
 
-    USER_INVESTIGATE("用户调查"),
-    LOANREQUEST_INVESTIGATE("贷款调查");
+    USER_TASK("用户相关任务"),
+    LOANREQUEST_TASK("贷款请求相关任务");
 
     private final String key;
 
