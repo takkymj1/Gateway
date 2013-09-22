@@ -11,6 +11,11 @@ package com.creditcloud.model.constant;
 public interface LoanConstant {
 
     /**
+     * 每个user每天提交的loan request上限
+     */
+    int DAILY_LOAN_REQUEST_LIMIT = 3;
+
+    /**
      * 最低贷款利率
      */
     int MIN_LOAN_RATE = 800;
@@ -69,5 +74,10 @@ public interface LoanConstant {
      * 单笔投资最大金额
      */
     int MAX_INVEST_AMOUNT = MAX_LOAN_AMOUNT;
+    
+    /**
+     * 贷后管理期限，只关心还款日在即日起 POSTLOAN_DAYS 天之内的
+     */
+    int POSTLOAN_DAYS = 30;
 
 }

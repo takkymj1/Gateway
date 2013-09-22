@@ -5,16 +5,20 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
+import com.creditcloud.model.constant.WealthProductConstant;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.validation.group.WealthProductCheck;
 import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.groups.Default;
 
 /**
  *
@@ -37,8 +41,18 @@ public class Invest extends BaseObject {
     private final BidMethod bidMethod;
 
     @NotNull
-    @Min(LoanConstant.MIN_INVEST_AMOUNT)
-    @Max(LoanConstant.MAX_INVEST_AMOUNT)
+    @IncrementalInteger.List({
+        //validation for loan
+        @IncrementalInteger(min = LoanConstant.MIN_INVEST_AMOUNT,
+                            increment = LoanConstant.INVEST_AMOUNT_INCREMENT,
+                            max = LoanConstant.MAX_INVEST_AMOUNT,
+                            groups = Default.class),
+        //validation for wealth product
+        @IncrementalInteger(min = WealthProductConstant.MIN_INVEST_AMOUNT,
+                            increment = WealthProductConstant.INVEST_AMOUNT_INCREMENT,
+                            max = WealthProductConstant.MAX_INVEST_AMOUNT,
+                            groups = WealthProductCheck.class)
+    })
     private final int amount;
 
     @NotNull

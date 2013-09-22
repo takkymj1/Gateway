@@ -4,7 +4,7 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.IdNumberConstant;
 import static com.creditcloud.model.constraints.BaseTest.validator;
 import com.creditcloud.model.enums.Source;

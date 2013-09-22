@@ -6,7 +6,7 @@ package com.creditcloud.common.rest;
 
 import com.creditcloud.common.security.PrivacyDimmer;
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.User;
+import com.creditcloud.model.user.User;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

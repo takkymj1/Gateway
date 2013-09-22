@@ -4,7 +4,7 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.Client;
+import com.creditcloud.model.client.Client;
 import static com.creditcloud.model.constraints.BaseTest.validator;
 import java.util.Locale;
 import javax.validation.Validation;
