@@ -5,9 +5,9 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.loan.LoanRequestResult;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
+import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
@@ -22,11 +22,11 @@ public interface LoanRequestService {
      *
      * @param clientCode
      * @param loanRequest
-     * @return LoanRequestResult
+     * @return SubmitRequestResult
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    LoanRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest);
+    SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest);
 
     /**
      * get LoanRequest by id
