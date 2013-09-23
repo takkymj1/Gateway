@@ -25,4 +25,16 @@ public class ImageUtils {
         }
         return ImageConstant.DEFAULT_FEMALE_AVATAR;
     }
+    /**
+     * 根据性别信息返回默认base64编码的头像
+     *
+     * @param male
+     * @return
+     */
+    public static String getDefaultAvatar(boolean male) {
+        if (male) {
+            return ImageConstant.DEFAULT_MALE_AVATAR;
+        }
+        return ImageConstant.DEFAULT_FEMALE_AVATAR;
+    }
 }
