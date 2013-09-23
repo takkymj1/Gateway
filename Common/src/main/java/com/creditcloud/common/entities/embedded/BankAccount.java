@@ -5,8 +5,11 @@
 package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
+import com.creditcloud.model.enums.misc.Bank;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 /**
  * 银行账号
@@ -23,10 +26,11 @@ public class BankAccount extends BaseEntity {
     private String name;
 
     /**
-     * 开户银行:中国工商银行
+     * 开户银行:中国工商银行(ICBC)
      */
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private String bank;
+    private Bank bank;
 
     /**
      * 开户行所在地:北京市西城区长安街12号
@@ -37,7 +41,7 @@ public class BankAccount extends BaseEntity {
     /**
      * 开户支行:工行北京分行海淀支行
      */
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String branch;
 
     /**
@@ -49,7 +53,11 @@ public class BankAccount extends BaseEntity {
     public BankAccount() {
     }
 
-    public BankAccount(String name, String bank, String location, String branch, String account) {
+    public BankAccount(String name,
+                       Bank bank,
+                       String location,
+                       String branch,
+                       String account) {
         this.name = name;
         this.bank = bank;
         this.location = location;
@@ -61,7 +69,7 @@ public class BankAccount extends BaseEntity {
         return name;
     }
 
-    public String getBank() {
+    public Bank getBank() {
         return bank;
     }
 
@@ -81,7 +89,7 @@ public class BankAccount extends BaseEntity {
         this.name = name;
     }
 
-    public void setBank(String bank) {
+    public void setBank(Bank bank) {
         this.bank = bank;
     }
 
