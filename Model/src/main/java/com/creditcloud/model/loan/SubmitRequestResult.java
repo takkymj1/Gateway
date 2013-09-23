@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.loan;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.LoanRequestResult;
 
 /**
@@ -11,7 +12,7 @@ import com.creditcloud.model.enums.loan.LoanRequestResult;
  *
  * @author rooseek
  */
-public class SubmitRequestResult {
+public class SubmitRequestResult extends BaseObject {
 
     private final LoanRequestResult result;
 
