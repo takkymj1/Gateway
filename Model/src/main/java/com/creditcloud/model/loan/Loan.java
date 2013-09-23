@@ -31,6 +31,9 @@ public class Loan extends BaseObject implements Investable {
     private String id;
 
     private String title;
+    
+    @NotNull
+    private RepaymentMethod method;
 
     @Min(1)
     private int ordinal;
@@ -84,6 +87,7 @@ public class Loan extends BaseObject implements Investable {
 
     public Loan(String id,
                 String title,
+                RepaymentMethod method,
                 int ordinal,
                 int amount,
                 Duration duration,
@@ -96,6 +100,7 @@ public class Loan extends BaseObject implements Investable {
                 int bidNumber) {
         this.id = id;
         this.title = title;
+        this.method = method;
         this.ordinal = ordinal;
         this.amount = amount;
         this.duration = duration;
@@ -173,7 +178,7 @@ public class Loan extends BaseObject implements Investable {
 
     @Override
     public RepaymentMethod getMethod() {
-        return loanRequest.getMethod();
+        return method;
     }
 
     public String getTitle() {
