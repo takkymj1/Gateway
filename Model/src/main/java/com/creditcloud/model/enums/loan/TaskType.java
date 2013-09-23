@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum TaskType implements BaseEnum {
 
     /**
-     * 实地调查用户信息
+     * 实地调查用户信息，或回访等
      */
     USER("用户相关任务"),
     /**
