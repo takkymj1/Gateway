@@ -5,6 +5,7 @@
 package com.creditcloud.model.constraints.idnumber;
 
 import com.creditcloud.model.constraints.validator.ChineseIdNumber;
+import com.creditcloud.model.enums.user.credit.CertificateType;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;

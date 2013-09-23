@@ -151,7 +151,8 @@ public class PersonalInfo extends BaseObject {
         PersonalInfo result = new PersonalInfo();
         result.setAvatar(jo.getString("avatar"));
         result.setChildren(jo.getBoolean("children"));
-        result.setDateOfBirth(new Date(jo.getInt("dateOfBirth")));
+        //出生日期应该是跟身份证对应的，所以不能更改
+//        result.setDateOfBirth(new Date(jo.getInt("dateOfBirth")));
         result.setEducation(EducationInfo.fromJsonString(jo.getJsonObject("education").toString()));
         result.setMaritalStatus(MaritalStatus.valueOf(jo.getString("maritalStatus")));
         result.setPlace(PlaceInfo.fromJsonString(jo.getJsonObject("place").toString()));

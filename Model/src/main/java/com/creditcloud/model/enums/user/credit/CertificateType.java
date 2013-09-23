@@ -23,7 +23,6 @@ public enum CertificateType implements BaseEnum {
     CAR("购车认证"),
     MOBILE("手机认证"),
     EMAIL("邮箱认证"),
-    ON_THE_SPOT("实地认证"),
     LOANPURPOSE("借款用途认证"),
     OTHERS("其他认证");
 
