@@ -29,6 +29,7 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  *
@@ -109,7 +110,7 @@ public class UserInfoTest {
                                                           "13512345678"));
         
         
-        UserInfo userInfo = new UserInfo(user,
+        UserInfo userInfo = new UserInfo("info",
                                          personal,
                                          finance,
                                          career,

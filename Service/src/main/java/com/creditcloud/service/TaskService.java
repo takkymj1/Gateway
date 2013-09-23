@@ -36,7 +36,6 @@ public interface TaskService {
      * @return
      */
     List<Task> listByType(String clientCode, String employeeId, TaskType... type);
-    
 
     /**
      * get task by task id

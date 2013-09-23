@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * <p>
@@ -28,11 +29,11 @@ import java.util.logging.Logger;
  */
 public class ChineseIdNumber extends BaseObject {
 
-    private final static Map<String, String> code2Province = new HashMap<String, String>();
+    private final static Map<String, String> code2Province = new HashMap();
 
-    private final static Map<String, String> code2City = new HashMap<String, String>();
+    private final static Map<String, String> code2City = new HashMap();
 
-    private final static Map<String, String> code2County = new HashMap<String, String>();
+    private final static Map<String, String> code2County = new HashMap();
 
     static {
         for (Entry<String, String> entry : Regions.getRegionMap().entrySet()) {
@@ -50,7 +51,6 @@ public class ChineseIdNumber extends BaseObject {
             }
         }
     }
-
     private final String idNumber;
 
     private final String province;
@@ -121,20 +121,35 @@ public class ChineseIdNumber extends BaseObject {
         }
         return null;
     }
-    
-    public static boolean isValid(String idNumber){
+
+    /**
+     * 判断身份证号对应的性别
+     *
+     * @param idNumber
+     * @return
+     */
+    public static boolean isMale(String idNumber) {
+        if (!isValid(idNumber)) {
+            throw new IllegalArgumentException(String.format("invalid idNumber {}", idNumber));
+        }
+        String male = StringUtils.substring(idNumber, 16, 17);
+        int maleInt = Integer.valueOf(male);
+        return maleInt % 2 == 1;
+    }
+
+    public static boolean isValid(String idNumber) {
         return validator.isValid(idNumber);
     }
-        
-    private static String getProvince(String code){
+
+    private static String getProvince(String code) {
         return code2Province.get(code);
     }
-    
-    private static String getCity(String code){
+
+    private static String getCity(String code) {
         return code2City.get(code);
     }
-    
-    private static String getCounty(String code){
+
+    private static String getCounty(String code) {
         return code2County.get(code);
     }
 

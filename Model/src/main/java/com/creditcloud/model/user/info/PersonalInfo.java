@@ -6,7 +6,10 @@ package com.creditcloud.model.user.info;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
+import java.io.StringReader;
 import java.util.Date;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -138,5 +141,22 @@ public class PersonalInfo extends BaseObject {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public static PersonalInfo fromJsonString(String jsonString) {
+        if (jsonString == null) {
+            return null;
+        }
+        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
+        PersonalInfo result = new PersonalInfo();
+        result.setAvatar(jo.getString("avatar"));
+        result.setChildren(jo.getBoolean("children"));
+        result.setDateOfBirth(new Date(jo.getInt("dateOfBirth")));
+        result.setEducation(EducationInfo.fromJsonString(jo.getJsonObject("education").toString()));
+        result.setMaritalStatus(MaritalStatus.valueOf(jo.getString("maritalStatus")));
+        result.setPlace(PlaceInfo.fromJsonString(jo.getJsonObject("place").toString()));
+        result.setMale(jo.getBoolean("male"));
+
+        return result;
     }
 }

@@ -7,12 +7,12 @@ package com.creditcloud.model.user.credit;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.CertificateType;
-import com.creditcloud.model.enums.user.credit.ProofContent;
+import com.creditcloud.model.enums.user.credit.ProofContentType;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * 
  * @author rooseek
  */
 public class Proof extends BaseObject {
@@ -23,20 +23,20 @@ public class Proof extends BaseObject {
     private final String id;
 
     @NotNull
-    private final CertificateType type;
+    private final CertificateType certificateType;
 
     //证明标题
     private final String title;
 
     //证明内容类型
     @NotNull
-    private final ProofContent content;
+    private final ProofContentType contentType;
 
     /**
      * 证明内容,对于图片就是图片名
      */
     @NotNull
-    private final String proof;
+    private final String content;
 
     // 证明描述
     private final String description;
@@ -60,20 +60,20 @@ public class Proof extends BaseObject {
     private final boolean mosaic;
 
     public Proof(String id,
-                 CertificateType type,
+                 CertificateType certificateType,
                  String title,
-                 ProofContent content,
-                 String proof,
+                 ProofContentType contentType,
+                 String content,
                  String description,
                  Source source,
                  Date submitTime,
                  String employee,
                  boolean mosaic) {
         this.id = id;
-        this.type = type;
+        this.certificateType = certificateType;
         this.title = title;
         this.content = content;
-        this.proof = proof;
+        this.contentType = contentType;
         this.description = description;
         this.source = source;
         this.submitTime = submitTime;
@@ -83,14 +83,6 @@ public class Proof extends BaseObject {
 
     public String getTitle() {
         return title;
-    }
-
-    public ProofContent getContent() {
-        return content;
-    }
-
-    public String getProof() {
-        return proof;
     }
 
     public String getDescription() {
@@ -113,8 +105,16 @@ public class Proof extends BaseObject {
         return id;
     }
 
-    public CertificateType getType() {
-        return type;
+    public CertificateType getCertificateType() {
+        return certificateType;
+    }
+
+    public ProofContentType getContentType() {
+        return contentType;
+    }
+
+    public String getContent() {
+        return content;
     }
 
     public boolean isMosaic() {
