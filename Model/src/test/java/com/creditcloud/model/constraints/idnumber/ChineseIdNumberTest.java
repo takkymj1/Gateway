@@ -7,6 +7,7 @@ package com.creditcloud.model.constraints.idnumber;
 import com.creditcloud.model.constraints.validator.ChineseIdNumber;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -95,5 +96,14 @@ public class ChineseIdNumberTest {
 //        assertEquals(6, actual.getDay());
 //        assertEquals(true, actual.isMale());
 
+    }
+    
+    @Test
+    public void testGender(){
+        boolean result = ChineseIdNumber.isMale("510105198808062022");
+        Assert.assertFalse(result);
+        
+        result = ChineseIdNumber.isMale("15090119791011645X");
+        Assert.assertTrue(result);
     }
 }
