@@ -9,6 +9,7 @@ import com.creditcloud.model.user.fund.UserFund;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.fund.FundWithdraw;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -67,5 +68,5 @@ public interface UserFundService {
      * @param clientCode
      * @return 
      */
-    public List<FundRecord> listWithdrawRequest(String clientCode);
+    public List<FundWithdraw> listWithdrawRequest(String clientCode);
 }
