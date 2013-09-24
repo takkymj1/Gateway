@@ -69,4 +69,12 @@ public interface UserFundService {
      * @return 
      */
     public List<FundWithdraw> listWithdrawRequest(String clientCode);
+    
+    /**
+     * 批准提现申请
+     * 
+     * @param clientCode
+     * @param fundWithdrawId 
+     */
+    public void approveWithdraw(String clientCode, String... fundWithdrawId);
 }
