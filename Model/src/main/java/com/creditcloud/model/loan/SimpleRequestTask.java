@@ -20,6 +20,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class SimpleRequestTask extends Task {
 
+    private static final long serialVersionUID = 20130924L;
+
     /**
      * 任务相关联的贷款请求
      */
@@ -49,7 +51,7 @@ public class SimpleRequestTask extends Task {
               employeeId,
               title,
               description,
-              TaskType.LOANREQUEST, 
+              TaskType.LOANREQUEST,
               status,
               timeAssigned,
               timeOut,
