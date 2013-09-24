@@ -17,46 +17,57 @@ import javax.validation.constraints.NotNull;
  */
 public class FundRecord extends BaseObject {
 
-    private static final long serialVersionUID = 20130918L;
+    private static long serialVersionUID = 20130918L;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public static void setSerialVersionUID(long aSerialVersionUID) {
+        serialVersionUID = aSerialVersionUID;
+    }
 
     @NotNull
-    private final String id;
+    private String id;
 
     @NotNull
-    protected final UserFund fund;
+    private UserFund fund;
 
     @NotNull
-    protected final FundRecordType type;
+    private FundRecordType type;
 
     /**
      * 金额
      */
     @NotNull
-    protected final BigDecimal amount;
+    private BigDecimal amount;
 
     /**
      * true for income, false for expense
      */
     @NotNull
-    protected final boolean income;
+    private boolean income;
 
     @NotNull
-    protected final Date recordTime;
+    private Date recordTime;
 
     @NotNull
-    protected final String description;
+    private String description;
 
     /*
      * 交易订单号
      */
     @NotNull
-    private final String orderNumber;
+    private String orderNumber;
 
     /**
      * 交易流水号
      */
     @NotNull
-    private final String transactionNumber;
+    private String transactionNumber;
+    
+    public FundRecord() {
+    }
 
     public FundRecord(String id,
                       UserFund fund,
@@ -112,5 +123,41 @@ public class FundRecord extends BaseObject {
 
     public String getTransactionNumber() {
         return transactionNumber;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setFund(UserFund fund) {
+        this.fund = fund;
+    }
+
+    public void setType(FundRecordType type) {
+        this.type = type;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setIncome(boolean income) {
+        this.income = income;
+    }
+
+    public void setRecordTime(Date recordTime) {
+        this.recordTime = recordTime;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public void setTransactionNumber(String transactionNumber) {
+        this.transactionNumber = transactionNumber;
     }
 }

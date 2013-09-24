@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.common.entities.embedded.Duration;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.Repayment;
@@ -21,7 +22,7 @@ import static com.creditcloud.model.enums.loan.LoanStatus.SETTLED;
  *
  * @author rooseek
  */
-public class DTOUtils{
+public class DTOUtils {
 
     /**
      * handle Duration
@@ -110,6 +111,18 @@ public class DTOUtils{
         return result;
     }
 
+    public static com.creditcloud.model.user.fund.BankAccount getBankAccountDTO(BankAccount bankAccount) {
+        com.creditcloud.model.user.fund.BankAccount result = null;
+        if (bankAccount != null) {
+            result = new com.creditcloud.model.user.fund.BankAccount(bankAccount.getName(),
+                                                                     bankAccount.getBank(),
+                                                                     bankAccount.getLocation(),
+                                                                     bankAccount.getBranch(),
+                                                                     bankAccount.getAccount());
+        }
+        return result;
+    }
+    
     /**
      * handle conversion from LoanStatus to InvestStatus
      *
