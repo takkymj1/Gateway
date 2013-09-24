@@ -9,6 +9,7 @@ import com.creditcloud.model.user.fund.UserFund;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -44,4 +45,27 @@ public interface UserFundService {
                                                           String userId,
                                                           PageInfo pageInfo,
                                                           FundRecordType... recordType);
+
+    /**
+     * list fund record by record type
+     *
+     * @param clientCode
+     * @param userId
+     * @param recordType
+     * @param pageInfo
+     * @return empty list if nothing found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    public PagedResult<FundRecord> listFundRecord(String clientCode,
+                                                  PageInfo pageInfo,
+                                                  FundRecordType... recordType);
+    
+    /**
+     * 返回所有待处理的提现申请记录.
+     * 
+     * @param clientCode
+     * @return 
+     */
+    public List<FundRecord> listWithdrawRequest(String clientCode);
 }
