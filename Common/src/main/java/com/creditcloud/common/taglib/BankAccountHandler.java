@@ -27,10 +27,7 @@ public class BankAccountHandler extends SimpleTagSupport {
     @Override
     public void doTag() throws JspException, IOException {
         JspWriter writer = getJspContext().getOut();
-        if (account.length() != 16 || account.length() != 19) {
-            logger.warn("Bank account number {} is invalid !", account);
-            writer.write(account);
-        } else {
+        if (account.length() == 16 || account.length() == 19) {
             writer.write(account, 0, 4);
             writer.write("&nbsp;");
             writer.write(account, 4, 4);
@@ -42,10 +39,13 @@ public class BankAccountHandler extends SimpleTagSupport {
                 writer.write("&nbsp;");
                 writer.write(account, 16, 3);
             }
+        } else {
+            logger.warn("Bank account number {} is invalid !", account);
+            writer.write(account);
         }
     }
 
     public void setAccount(String account) {
-        this.account = account;
+        this.account = account.trim();
     }
 }
