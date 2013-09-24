@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.security;
 
+import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.model.user.User;
 
 /**
@@ -20,6 +21,10 @@ public class PrivacyDimmer {
             user.setIdNumber(mask(user.getIdNumber(), 8, 9));
             user.setEmail(maskEmail(user.getEmail()));
             return (T) user;
+        }
+        if (obj instanceof BankAccount) {
+            BankAccount account = (BankAccount) obj;
+            account.setAccount(mask(account.getAccount(), 4, 8));
         }
         return obj;
     }
