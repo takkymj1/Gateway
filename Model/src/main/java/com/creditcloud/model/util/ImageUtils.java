@@ -20,11 +20,9 @@ public class ImageUtils {
      * @return
      */
     public static String getDefaultAvatar(String IdNumber) {
-        if (ChineseIdNumber.isMale(IdNumber)) {
-            return ImageConstant.DEFAULT_MALE_AVATAR;
-        }
-        return ImageConstant.DEFAULT_FEMALE_AVATAR;
+        return getDefaultAvatar(ChineseIdNumber.isMale(IdNumber));
     }
+
     /**
      * 根据性别信息返回默认base64编码的头像
      *

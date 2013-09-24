@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UserRequestTask extends Task {
 
     private static final long serialVersionUID = 20130924L;
-    
+
     /**
      * 任务相关联的客户
      */
