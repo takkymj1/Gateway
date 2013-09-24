@@ -27,4 +27,9 @@ public interface TimeConstant {
      * yy年M月d日
      */
     SimpleDateFormat SIMPLE_CHINESE_DATE_FORMAT = new SimpleDateFormat("yy年M月d日");
+    
+    /**
+     * yy年M月d日 HH:mm
+     */
+    SimpleDateFormat SIMPLE_TIME_FORMAT = new SimpleDateFormat("yy年M月d日 HH:mm");
 }
