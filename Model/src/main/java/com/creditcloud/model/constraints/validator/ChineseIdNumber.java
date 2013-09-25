@@ -137,6 +137,27 @@ public class ChineseIdNumber extends BaseObject {
         return maleInt % 2 == 1;
     }
 
+    /**
+     * 从身份证中获得出生日期
+     *
+     * @param idNumber
+     * @return
+     */
+    public static Date getDateOfBirth(String idNumber) {
+        if (!isValid(idNumber)) {
+            throw new IllegalArgumentException(String.format("invalid idNumber {}", idNumber));
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Date day = null;
+        try {
+            day = sdf.parse(StringUtils.substring(idNumber, 6, 14));
+        } catch (ParseException ex) {
+            Logger.getLogger(ChineseIdNumber.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return day;
+    }
+
     public static boolean isValid(String idNumber) {
         return validator.isValid(idNumber);
     }

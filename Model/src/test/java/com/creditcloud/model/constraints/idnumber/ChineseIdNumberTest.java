@@ -5,7 +5,8 @@
 package com.creditcloud.model.constraints.idnumber;
 
 import com.creditcloud.model.constraints.validator.ChineseIdNumber;
-import com.creditcloud.model.enums.user.credit.CertificateType;
+import java.util.Date;
+import org.apache.commons.lang3.time.DateUtils;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -98,13 +99,22 @@ public class ChineseIdNumberTest {
 //        assertEquals(true, actual.isMale());
 
     }
-    
+
     @Test
-    public void testGender(){
+    public void testGender() {
         boolean result = ChineseIdNumber.isMale("510105198808062022");
         Assert.assertFalse(result);
-        
+
         result = ChineseIdNumber.isMale("15090119791011645X");
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void testDateOfBirth() {
+        Date date = ChineseIdNumber.getDateOfBirth("510105198808062022");
+        Assert.assertNotNull(date);
+        //1988-08-06
+        Date expected = new Date(586796400000l);
+        Assert.assertTrue(DateUtils.isSameDay(date, expected));
     }
 }
