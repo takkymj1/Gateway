@@ -149,14 +149,16 @@ public class PersonalInfo extends BaseObject {
         }
         JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
         PersonalInfo result = new PersonalInfo();
-        result.setAvatar(jo.getString("avatar"));
+        //头像是身份证照片
+//        result.setAvatar(jo.getString("avatar"));
         result.setChildren(jo.getBoolean("children"));
         //出生日期应该是跟身份证对应的，所以不能更改
 //        result.setDateOfBirth(new Date(jo.getInt("dateOfBirth")));
         result.setEducation(EducationInfo.fromJsonString(jo.getJsonObject("education").toString()));
         result.setMaritalStatus(MaritalStatus.valueOf(jo.getString("maritalStatus")));
         result.setPlace(PlaceInfo.fromJsonString(jo.getJsonObject("place").toString()));
-        result.setMale(jo.getBoolean("male"));
+        //性别从身份证中获得
+//        result.setMale(jo.getBoolean("male"));
 
         return result;
     }

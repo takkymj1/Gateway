@@ -10,7 +10,7 @@ package com.creditcloud.model.enums;
  */
 public enum ImageSize implements BaseEnum {
 
-    //需要在upyun中创建缩略图和水印版本然后再定义
+    //TODO需要在upyun中创建缩略图和水印版本然后再定义
     ORIGINAL("原图"),
     SMALL("小图"),
     ICON("图标");

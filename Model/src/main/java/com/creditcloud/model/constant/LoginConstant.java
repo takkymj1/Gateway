@@ -12,4 +12,6 @@ public interface LoginConstant {
 
     String IP = "ip";
 
+    String IMEI = "imei";
+
 }
