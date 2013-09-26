@@ -45,10 +45,16 @@ public abstract class Authenticatable extends ClientScopeEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
     protected Date registerDate;
-    
+
+    /**
+     * indicate whether the entity need to change its password on login
+     */
+    @Column(nullable = false)
+    protected boolean needChangePassword;
+
     /**
      * Setup when the entity been created.
-     * 
+     *
      * We setup the registerDate here.
      */
     @PrePersist
@@ -79,12 +85,20 @@ public abstract class Authenticatable extends ClientScopeEntity {
     public void setLastLoginDate(Date lastLoginDate) {
         this.lastLoginDate = lastLoginDate;
     }
-    
+
     public Date getRegisterDate() {
         return registerDate;
     }
-    
+
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
+    }
+
+    public boolean isNeedChangePassword() {
+        return needChangePassword;
+    }
+
+    public void setNeedChangePassword(boolean needChangePassword) {
+        this.needChangePassword = needChangePassword;
     }
 }
