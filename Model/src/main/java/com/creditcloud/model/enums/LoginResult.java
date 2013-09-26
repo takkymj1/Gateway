@@ -12,7 +12,7 @@ package com.creditcloud.model.enums;
 public enum LoginResult implements BaseEnum {
 
     SUCCESSFUL("登录名密码验证正确,登录成功"),
-    SUCCESSFUL_FIRST_LOGIN("短信发送的随机密码首次登录成功,需要修改密码"),
+    NEED_CHANGE_PASSWORD("登录成功,需要修改密码"),
     FAILED("账号不存在或密码错误");
 
     private final String key;
