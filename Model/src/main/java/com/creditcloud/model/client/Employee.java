@@ -5,7 +5,6 @@
 package com.creditcloud.model.client;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.client.Branch;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
@@ -14,7 +13,6 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -28,7 +26,6 @@ public class Employee extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @FormParam("id")
-    @XmlElement(name = "id")
     private String id;
 
     @ClientCode
@@ -36,32 +33,27 @@ public class Employee extends BaseObject {
 
     @FormParam("loginName")
     @LoginName
-    @XmlElement(name = "loginName")
     private String loginName;
 
     @FormParam("employeeId")
-    @XmlElement(name = "employeeId")
     private String employeeId;
 
     @FormParam("name")
     @RealName
-    @XmlElement(name = "name")
     private String name;
 
     @FormParam("IdNumber")
     @IdNumber
-    @XmlElement(name = "IdNumber")
     private String IdNumber;
 
     @FormParam("mobile")
     @MobileNumber
-    @XmlElement(name = "mobile")
     private String mobile;
 
     /**
-     * 员工所属分支机构
+     * 员工所属分支机构Id 因为Branch中包含了Employee,此处不能用Branch类型，否则序列化转json有问题
      */
-    private Branch branch;
+    private String branchId;
 
     @Past
     private Date registerDate;
@@ -79,7 +71,7 @@ public class Employee extends BaseObject {
                     String name,
                     String IdNumber,
                     String mobile,
-                    Branch branch,
+                    String branchId,
                     Date registerDate,
                     Date lastLoginDate) {
         this.id = id;
@@ -89,7 +81,7 @@ public class Employee extends BaseObject {
         this.name = name;
         this.IdNumber = IdNumber;
         this.mobile = mobile;
-        this.branch = branch;
+        this.branchId = branchId;
         this.registerDate = registerDate;
         this.lastLoginDate = lastLoginDate;
     }
@@ -120,10 +112,6 @@ public class Employee extends BaseObject {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
-
-    public void setBranch(Branch branch) {
-        this.branch = branch;
     }
 
     public void setRegisterDate(Date registerDate) {
@@ -162,8 +150,8 @@ public class Employee extends BaseObject {
         return mobile;
     }
 
-    public Branch getBranch() {
-        return branch;
+    public String getBranchId() {
+        return branchId;
     }
 
     public Date getRegisterDate() {
@@ -172,5 +160,9 @@ public class Employee extends BaseObject {
 
     public Date getLastLoginDate() {
         return lastLoginDate;
+    }
+
+    public void setBranchId(String branchId) {
+        this.branchId = branchId;
     }
 }

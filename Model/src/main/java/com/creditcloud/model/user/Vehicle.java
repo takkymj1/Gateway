@@ -49,7 +49,7 @@ public class Vehicle extends BaseObject {
      * 购车年份
      */
     @NotNull
-    private String yearOfPurchase;
+    private int yearOfPurchase;
 
     /**
      * 购车价格
@@ -74,7 +74,7 @@ public class Vehicle extends BaseObject {
                    VehicleType type,
                    String vehicleLicense,
                    String plateNumber,
-                   String yearOfPurchase,
+                   int yearOfPurchase,
                    int priceOfPurchase,
                    int estimatedValue,
                    String description) {
@@ -122,7 +122,7 @@ public class Vehicle extends BaseObject {
         return plateNumber;
     }
 
-    public String getYearOfPurchase() {
+    public int getYearOfPurchase() {
         return yearOfPurchase;
     }
 
@@ -154,7 +154,7 @@ public class Vehicle extends BaseObject {
         this.plateNumber = plateNumber;
     }
 
-    public void setYearOfPurchase(String yearOfPurchase) {
+    public void setYearOfPurchase(int yearOfPurchase) {
         this.yearOfPurchase = yearOfPurchase;
     }
 
