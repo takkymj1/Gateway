@@ -18,6 +18,9 @@ public class Message extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
+    private String id;
+
+    @NotNull
     private MessageBody body;
 
     private String sender;
@@ -31,10 +34,12 @@ public class Message extends BaseObject {
     public Message() {
     }
 
-    public Message(MessageBody body,
+    public Message(String id,
+                   MessageBody body,
                    String sender,
                    String receiver,
                    MessageStatus status) {
+        this.id = id;
         this.body = body;
         this.sender = sender;
         this.receiver = receiver;
@@ -71,5 +76,13 @@ public class Message extends BaseObject {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
