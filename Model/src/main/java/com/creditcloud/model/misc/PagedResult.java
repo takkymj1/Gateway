@@ -5,20 +5,33 @@
 package com.creditcloud.model.misc;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.Message;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  *
  * @author sobranie
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso(value = {
+    Message.class
+})
 public class PagedResult<T> extends BaseObject{
 
-    private final List<T> results;
+    private List<T> results;
 
-    private final int totalSize;
+    private int totalSize;
+    
+    public PagedResult() {
+    }
 
-    public PagedResult(final List<T> results,
-                       final int totalSize) {
+    public PagedResult(List<T> results,
+                       int totalSize) {
         this.results = results;
         this.totalSize = totalSize;
     }
@@ -29,5 +42,13 @@ public class PagedResult<T> extends BaseObject{
 
     public int getTotalSize() {
         return totalSize;
+    }
+
+    public void setResults(List<T> results) {
+        this.results = results;
+    }
+
+    public void setTotalSize(int totalSize) {
+        this.totalSize = totalSize;
     }
 }
