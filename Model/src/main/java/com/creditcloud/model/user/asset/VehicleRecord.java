@@ -2,27 +2,24 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user;
+package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.VehicleType;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * record the changes of Vehicle 
  *
  * @author rooseek
  */
 @XmlRootElement
-public class Vehicle extends BaseObject {
+public class VehicleRecord extends BaseObject {
 
-    private static final long serialVersionUID = 20130926L;
-
-    @NotNull
-    private String id;
-
-    @NotNull
-    private String userId;
+    private static final long serialVersionUID = 20130927L;
 
     /**
      * 车辆基本型号信息:奥迪A8L
@@ -65,21 +62,30 @@ public class Vehicle extends BaseObject {
 
     private String description;
 
-    public Vehicle() {
+    /**
+     * 修改人，可能是用户自己上传后修改也可能是员工实地勘察后修改
+     */
+    private String modifiedBy;
+
+    @NotNull
+    private Source source;
+
+    private Date timeRecorded;
+
+    public VehicleRecord() {
     }
 
-    public Vehicle(String id,
-                   String userId,
-                   String model,
-                   VehicleType type,
-                   String vehicleLicense,
-                   String plateNumber,
-                   int yearOfPurchase,
-                   int priceOfPurchase,
-                   int estimatedValue,
-                   String description) {
-        this.id = id;
-        this.userId = userId;
+    public VehicleRecord(String model,
+                         VehicleType type,
+                         String vehicleLicense,
+                         String plateNumber,
+                         int yearOfPurchase,
+                         int priceOfPurchase,
+                         int estimatedValue,
+                         String description,
+                         String modifiedBy,
+                         Source source,
+                         Date timeRecorded) {
         this.model = model;
         this.type = type;
         this.vehicleLicense = vehicleLicense;
@@ -88,22 +94,9 @@ public class Vehicle extends BaseObject {
         this.priceOfPurchase = priceOfPurchase;
         this.estimatedValue = estimatedValue;
         this.description = description;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+        this.modifiedBy = modifiedBy;
+        this.source = source;
+        this.timeRecorded = timeRecorded;
     }
 
     public String getModel() {
@@ -138,6 +131,10 @@ public class Vehicle extends BaseObject {
         return description;
     }
 
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
     public void setModel(String model) {
         this.model = model;
     }
@@ -168,5 +165,25 @@ public class Vehicle extends BaseObject {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public Date getTimeRecorded() {
+        return timeRecorded;
+    }
+
+    public void setTimeRecorded(Date timeRecorded) {
+        this.timeRecorded = timeRecorded;
     }
 }
