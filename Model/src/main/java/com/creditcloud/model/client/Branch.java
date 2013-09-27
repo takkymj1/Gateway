@@ -8,12 +8,14 @@ import com.creditcloud.model.Location;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.enums.client.BranchType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 客户机构，可以为总部、分公司、办事处、加盟商等等
  *
  * @author sobranie
  */
+@XmlRootElement
 public class Branch {
 
     private static final long serialVersionUID = 20130918L;
