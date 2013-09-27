@@ -37,7 +37,7 @@ public class RealEstate extends BaseObject {
      * 建筑面积
      */
     @NotNull
-    private String area;
+    private double area;
 
     /**
      * 是否有房贷
@@ -60,7 +60,7 @@ public class RealEstate extends BaseObject {
                       String userId,
                       EstateType type,
                       String location,
-                      String area,
+                      double area,
                       boolean loan,
                       int estimatedValue,
                       String description) {
@@ -82,7 +82,7 @@ public class RealEstate extends BaseObject {
         return location;
     }
 
-    public String getArea() {
+    public double getArea() {
         return area;
     }
 
@@ -102,7 +102,7 @@ public class RealEstate extends BaseObject {
         this.location = location;
     }
 
-    public void setArea(String area) {
+    public void setArea(double area) {
         this.area = area;
     }
 
