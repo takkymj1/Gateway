@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class RealEstateRecord extends BaseObject {
 
-    private static final long serialVersionUID = 20130926L;
+    private static final long serialVersionUID = 20130927L;
 
     @NotNull
     private EstateType type;

@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Vehicle extends BaseObject {
 
-    private static final long serialVersionUID = 20130927L;
+    private static final long serialVersionUID = 20130926L;
 
     @NotNull
     @FormParam("id")

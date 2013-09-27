@@ -12,7 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * abstract classes for entities has created time and last modified time
+ * abstract class for entities with created time and last updated time
  *
  * @author rooseek
  */
