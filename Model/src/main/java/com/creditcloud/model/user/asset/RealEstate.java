@@ -2,11 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user;
+package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.EstateType;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -19,39 +21,51 @@ public class RealEstate extends BaseObject {
     private static final long serialVersionUID = 20130926L;
 
     @NotNull
+    @FormParam("id")
     private String id;
 
     @NotNull
+    @FormParam("userId")
     private String userId;
 
     @NotNull
+    @FormParam("type")
     private EstateType type;
 
     /**
      * 地址
      */
     @NotNull
+    @FormParam("location")
     private String location;
 
     /**
      * 建筑面积
      */
     @NotNull
+    @FormParam("area")
     private double area;
 
     /**
      * 是否有房贷
      */
     @NotNull
+    @FormParam("loan")
     private boolean loan;
 
     /**
      * 现估值
      */
     @NotNull
+    @FormParam("estimatedValue")
     private int estimatedValue;
 
+    @FormParam("description")
     private String description;
+    
+    private Date timeCreated;
+    
+    private Date timeLastUpdated;
 
     public RealEstate() {
     }
@@ -63,7 +77,9 @@ public class RealEstate extends BaseObject {
                       double area,
                       boolean loan,
                       int estimatedValue,
-                      String description) {
+                      String description,
+                      Date timeCreated,
+                      Date timeLastUpdated) {
         this.id = id;
         this.userId = userId;
         this.type = type;
@@ -72,6 +88,8 @@ public class RealEstate extends BaseObject {
         this.loan = loan;
         this.estimatedValue = estimatedValue;
         this.description = description;
+        this.timeCreated = timeCreated;
+        this.timeLastUpdated = timeLastUpdated;
     }
 
     public EstateType getType() {
@@ -136,5 +154,21 @@ public class RealEstate extends BaseObject {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public Date getTimeCreated() {
+        return timeCreated;
+    }
+
+    public Date getTimeLastUpdated() {
+        return timeLastUpdated;
+    }
+
+    public void setTimeCreated(Date timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public void setTimeLastUpdated(Date timeLastUpdated) {
+        this.timeLastUpdated = timeLastUpdated;
     }
 }
