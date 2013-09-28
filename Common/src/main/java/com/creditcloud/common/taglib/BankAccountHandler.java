@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
  */
 public class BankAccountHandler extends SimpleTagSupport {
 
-    Logger logger = LoggerFactory.getLogger(TimeTagHandler.class);
+    static Logger logger = LoggerFactory.getLogger(TimeTagHandler.class);
 
     /**
      * 银行卡号，16位或19位数字
