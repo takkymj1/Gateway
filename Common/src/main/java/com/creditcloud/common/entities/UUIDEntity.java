@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.entities;
 
+import com.creditcloud.model.constant.EntityConstant;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public abstract class UUIDEntity extends BaseEntity {
     @UuidGenerator(name = "UUID_GEN")
     @Id
     @GeneratedValue(generator = "UUID_GEN")
-    @Column(name = "ID", length = 36)
+    @Column(name = "ID", length = EntityConstant.UUID_LENGTH)
     private String id;
 
     public String getId() {
