@@ -11,6 +11,7 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
@@ -34,7 +35,8 @@ public class User extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    protected String id;
+    @UUID
+    protected String Id;
 
     @ClientCode
     protected String clientCode;
@@ -89,7 +91,7 @@ public class User extends BaseObject {
     public User() {
     }
 
-    public User(String id,
+    public User(String Id,
                 String clientCode,
                 String name,
                 String loginName,
@@ -97,10 +99,10 @@ public class User extends BaseObject {
                 String mobile,
                 String email,
                 Source source) {
-        this(id, clientCode, name, loginName, idNumber, mobile, email, source, null, null, null);
+        this(Id, clientCode, name, loginName, idNumber, mobile, email, source, null, null, null);
     }
 
-    public User(String id,
+    public User(String Id,
                 String clientCode,
                 String name,
                 String loginName,
@@ -111,7 +113,7 @@ public class User extends BaseObject {
                 String employeeId,
                 Date lastLoginDate,
                 Date registerDate) {
-        this.id = id;
+        this.Id = Id;
         this.clientCode = clientCode;
         this.name = name;
         this.loginName = loginName;
@@ -125,11 +127,11 @@ public class User extends BaseObject {
     }
 
     public String getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
     public String getName() {
