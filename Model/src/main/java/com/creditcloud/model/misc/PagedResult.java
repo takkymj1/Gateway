@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     Message.class
 })
 public class PagedResult<T> extends BaseObject{
-
+    
     private List<T> results;
 
     private int totalSize;
