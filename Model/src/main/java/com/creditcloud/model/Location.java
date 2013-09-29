@@ -6,63 +6,64 @@ package com.creditcloud.model;
 
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 表示一个可以在地图上显示的地理位置
  *
  * @author sobranie
  */
+@XmlRootElement
 public class Location {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String province;
+    private String province;
 
     @NotNull
-    private final String city;
+    private String city;
 
     /**
      * 街道地址
      */
     @NotNull
-    private final String streetAddress;
+    private String streetAddress;
 
     /**
      * 门牌地址
      */
-    private final String roomAddress;
+    private String roomAddress;
 
     /**
      * 经度
      */
-    private final BigDecimal longtitude;
+    private BigDecimal longitude;
 
     /**
      * 维度
      */
-    private final BigDecimal latitude;
+    private BigDecimal latitude;
+
+    public Location() {
+    }
 
     public Location(String province,
-            String city,
-            String streetAddress,
-            String roomAddress,
-            BigDecimal longtitude,
-            BigDecimal latitude) {
+                    String city,
+                    String streetAddress,
+                    String roomAddress,
+                    BigDecimal longitude,
+                    BigDecimal latitude) {
         this.province = province;
         this.city = city;
         this.streetAddress = streetAddress;
         this.roomAddress = roomAddress;
-        this.longtitude = longtitude;
+        this.longitude = longitude;
         this.latitude = latitude;
     }
 
     public String getStreetAddress() {
         return streetAddress;
-    }
-
-    public BigDecimal getLongtitude() {
-        return longtitude;
     }
 
     public BigDecimal getLatitude() {
@@ -79,5 +80,33 @@ public class Location {
 
     public String getRoomAddress() {
         return roomAddress;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
+
+    public void setRoomAddress(String roomAddress) {
+        this.roomAddress = roomAddress;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 }

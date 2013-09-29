@@ -8,6 +8,11 @@ import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.common.entities.embedded.Duration;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.Repayment;
+import com.creditcloud.common.entities.embedded.info.Contact;
+import com.creditcloud.common.entities.embedded.info.ContactInfo;
+import com.creditcloud.common.entities.embedded.info.EducationInfo;
+import com.creditcloud.common.entities.embedded.info.PersonalInfo;
+import com.creditcloud.common.entities.embedded.info.PlaceInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import static com.creditcloud.model.enums.loan.LoanStatus.BREACH;
@@ -91,7 +96,7 @@ public class DTOUtils {
                                                         location.getCity(),
                                                         location.getStreetAddress(),
                                                         location.getRoomAddress(),
-                                                        location.getLongtitude(),
+                                                        location.getLongitude(),
                                                         location.getLatitude());
         }
         return result;
@@ -100,13 +105,13 @@ public class DTOUtils {
     public static Location convertLocationDTO(com.creditcloud.model.Location location) {
         Location result = null;
         if (location != null) {
-            result = new Location();
-            result.setProvince(location.getProvince());
-            result.setCity(location.getCity());
-            result.setLatitude(location.getLatitude());
-            result.setLongtitude(location.getLongtitude());
-            result.setStreetAddress(location.getStreetAddress());
-            result.setRoomAddress(location.getRoomAddress());
+            result = new Location(location.getProvince(),
+                                  location.getCity(),
+                                  location.getStreetAddress(),
+                                  location.getRoomAddress(),
+                                  location.getLongitude(),
+                                  location.getLatitude());
+
         }
         return result;
     }
@@ -122,7 +127,7 @@ public class DTOUtils {
         }
         return result;
     }
-    
+
     /**
      * handle conversion from LoanStatus to InvestStatus
      *
@@ -151,5 +156,157 @@ public class DTOUtils {
         }
 
         return invest;
+    }
+
+    /**
+     * handle contact
+     *
+     * @param contact
+     * @return
+     */
+    private static com.creditcloud.model.Contact getContact(Contact contact) {
+        com.creditcloud.model.Contact result = null;
+        if (contact != null) {
+            result = new com.creditcloud.model.Contact(contact.getName(), contact.getRelation(), contact.getMobile());
+        }
+
+        return result;
+    }
+
+    private static Contact convertContact(com.creditcloud.model.Contact contact) {
+        Contact result = null;
+        if (contact != null) {
+            result = new Contact(contact.getName(), contact.getRelation(), contact.getMobile());
+        }
+
+        return result;
+    }
+
+    /**
+     * handle contact info
+     *
+     * @param contact
+     * @return
+     */
+    public static com.creditcloud.model.ContactInfo getContactInfo(ContactInfo contact) {
+        com.creditcloud.model.ContactInfo result = null;
+        if (contact != null) {
+            result = new com.creditcloud.model.ContactInfo(getContact(contact.getEmergency()),
+                                                           getContact(contact.getColleague()),
+                                                           getContact(contact.getOther()));
+        }
+
+        return result;
+    }
+
+    public static ContactInfo convertContactInfo(com.creditcloud.model.ContactInfo contact) {
+        ContactInfo result = null;
+        if (contact != null) {
+            result = new ContactInfo(convertContact(contact.getEmergency()),
+                                     convertContact(contact.getColleague()),
+                                     convertContact(contact.getOther()));
+        }
+
+        return result;
+    }
+
+    /**
+     * handle EducationInfo
+     *
+     * @param education
+     * @return
+     */
+    public static com.creditcloud.model.EducationInfo getEducationInfo(EducationInfo education) {
+        com.creditcloud.model.EducationInfo result = null;
+        if (education != null) {
+            result = new com.creditcloud.model.EducationInfo(education.getEducationLevel(),
+                                                             education.getEnrollmentYear(),
+                                                             education.getSchool());
+        }
+
+        return result;
+    }
+
+    public static EducationInfo convertEducationInfo(com.creditcloud.model.EducationInfo education) {
+        EducationInfo result = null;
+        if (education != null) {
+            result = new EducationInfo(education.getEducationLevel(),
+                                       education.getEnrollmentYear(),
+                                       education.getSchool());
+        }
+
+        return result;
+    }
+
+    /**
+     * handle PlaceInfo
+     *
+     * @param place
+     * @return
+     */
+    public static com.creditcloud.model.PlaceInfo getPlaceInfo(PlaceInfo place) {
+        com.creditcloud.model.PlaceInfo result = null;
+        if (place != null) {
+            result = new com.creditcloud.model.PlaceInfo(place.getNativeProvince(),
+                                                         place.getNativeCity(),
+                                                         place.getHukouProvince(),
+                                                         place.getHukouCity(),
+                                                         place.getCurrentAddress(),
+                                                         place.getCurrentPhone());
+        }
+
+        return result;
+    }
+
+    public static PlaceInfo convertPlaceInfo(com.creditcloud.model.PlaceInfo place) {
+        PlaceInfo result = null;
+        if (place != null) {
+            result = new PlaceInfo(place.getNativeProvince(),
+                                   place.getNativeCity(),
+                                   place.getHukouProvince(),
+                                   place.getHukouCity(),
+                                   place.getCurrentAddress(),
+                                   place.getCurrentPhone());
+        }
+
+        return result;
+    }
+
+    /**
+     * handle personal info
+     *
+     * @param personal
+     * @return
+     */
+    public static com.creditcloud.model.PersonalInfo getPersonalInfo(PersonalInfo personal) {
+        com.creditcloud.model.PersonalInfo result = null;
+        if (personal != null) {
+            result = new com.creditcloud.model.PersonalInfo(personal.isMale(),
+                                                            personal.getEthnic(),
+                                                            personal.getDateOfBirth(),
+                                                            personal.getMaritalStatus(),
+                                                            personal.hasChildren(),
+                                                            getEducationInfo(personal.getEducation()),
+                                                            getPlaceInfo(personal.getPlace()),
+                                                            personal.getAvatar());
+        }
+
+        return result;
+    }
+
+    public static PersonalInfo convertPersonalInfo(com.creditcloud.model.PersonalInfo personal) {
+        PersonalInfo result = null;
+        if (personal != null) {
+            result = new PersonalInfo(personal.isMale(),
+                                      personal.getEthnic(),
+                                      personal.getDateOfBirth(),
+                                      personal.getMaritalStatus(),
+                                      personal.hasChildren(),
+                                      convertEducationInfo(personal.getEducation()),
+                                      convertPlaceInfo(personal.getPlace()),
+                                      personal.getAvatar());
+        }
+
+        return result;
     }
 }

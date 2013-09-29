@@ -30,10 +30,24 @@ public class Location extends BaseEntity {
     private String roomAddress;
 
     @Min(0)
-    private BigDecimal longtitude;
+    private BigDecimal longitude;
 
     @Min(0)
     private BigDecimal latitude;
+
+    public Location(String province, 
+                    String city, 
+                    String streetAddress, 
+                    String roomAddress, 
+                    BigDecimal longitude, 
+                    BigDecimal latitude) {
+        this.province = province;
+        this.city = city;
+        this.streetAddress = streetAddress;
+        this.roomAddress = roomAddress;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
     
     public Location() {
     }
@@ -70,12 +84,12 @@ public class Location extends BaseEntity {
         this.roomAddress = roomAddress;
     }
 
-    public BigDecimal getLongtitude() {
-        return longtitude;
+    public BigDecimal getLongitude() {
+        return longitude;
     }
 
-    public void setLongtitude(BigDecimal longtitude) {
-        this.longtitude = longtitude;
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
     }
 
     public BigDecimal getLatitude() {

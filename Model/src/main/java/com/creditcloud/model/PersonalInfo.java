@@ -2,9 +2,8 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.info;
+package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.EthnicGroup;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import java.io.StringReader;
