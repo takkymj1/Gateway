@@ -5,6 +5,8 @@
 package com.creditcloud.model.enums.message;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -15,6 +17,17 @@ public enum MessageStatus implements BaseEnum {
     NEW("新消息"),
     READ("已读"),
     ARCHIVED("已存档"),
+    /**
+     * 发件人已删除message,但收件人仍然可以看到
+     */
+    DELETED_BY_SENDER("发送人已刪除"),
+    /**
+     * 收件人已删除message，但发件人仍然可以看到
+     */
+    DELETED_BY_RECEIVER("接收人已删除"),
+    /**
+     * TODO目前支持的刪除操作，一旦删除那么sender和receiver将都不可见
+     */
     DELETED("已刪除");
 
     private final String key;
@@ -28,4 +41,14 @@ public enum MessageStatus implements BaseEnum {
         return key;
     }
 
+    private static final List<MessageStatus> NotDeleted = Arrays.asList(NEW, READ, ARCHIVED);
+
+    /**
+     * 返回非DELETED的 message status
+     *
+     * @return
+     */
+    public static List<MessageStatus> NotDeletedStatus() {
+        return NotDeleted;
+    }
 }
