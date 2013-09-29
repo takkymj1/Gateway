@@ -5,6 +5,7 @@
 package com.creditcloud.model.user.info;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.EthnicGroup;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import java.io.StringReader;
 import java.util.Date;
@@ -27,6 +28,10 @@ public class PersonalInfo extends BaseObject {
     @FormParam("male")
     @XmlElement(name = "male")
     private boolean male;
+
+    @FormParam("ethnic")
+    @XmlElement(name = "ethnic")
+    private EthnicGroup ethnic;
 
     //出生日期
     @FormParam("dateOfBirth")
@@ -60,15 +65,17 @@ public class PersonalInfo extends BaseObject {
 
     /**
      *
-     * @param male 性别
-     * @param dateOfBirth 出生日期
+     * @param male          性别
+     * @param ethnic        民族
+     * @param dateOfBirth   出生日期
      * @param maritalStatus 婚姻状况
-     * @param children 有无子女
-     * @param education 教育信息
-     * @param place 籍贯及所在地信息
-     * @param avatar 个人头像,可以为空
+     * @param children      有无子女
+     * @param education     教育信息
+     * @param place         籍贯及所在地信息
+     * @param avatar        个人头像,可以为空
      */
     public PersonalInfo(boolean male,
+                        EthnicGroup ethnic,
                         Date dateOfBirth,
                         MaritalStatus maritalStatus,
                         boolean children,
@@ -141,6 +148,14 @@ public class PersonalInfo extends BaseObject {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public void setEthnic(EthnicGroup ethnic) {
+        this.ethnic = ethnic;
+    }
+
+    public EthnicGroup getEthnic() {
+        return ethnic;
     }
 
     public static PersonalInfo fromJsonString(String jsonString) {

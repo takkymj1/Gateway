@@ -21,6 +21,7 @@ public enum ImageSize implements BaseEnum {
         this.key = key;
     }
 
+    @Override
     public String getKey() {
         return key;
     }
