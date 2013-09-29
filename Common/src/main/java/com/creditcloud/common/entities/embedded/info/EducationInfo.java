@@ -2,40 +2,44 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.info;
+package com.creditcloud.common.entities.embedded.info;
 
-import com.creditcloud.model.BaseObject;
+import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.enums.user.info.EducationLevel;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.creditcloud.model.validation.group.LoanRequestCheck;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author sobranie
  */
-@XmlRootElement
-public class EducationInfo extends BaseObject {
+@Embeddable
+public class EducationInfo extends BaseEntity {
 
-    private static final long serialVersionUID = 20130918L;
     //最高学历
-
-    @FormParam("educationLevel")
-    @XmlElement(name = "educationLevel")
+    @NotNull(message = "最高学历信息不能为空",
+             groups = LoanRequestCheck.class)
+    @Enumerated(EnumType.STRING)
+    @Column(name = "EDUCATION_LEVEL")
     private EducationLevel educationLevel;
 
     //入学年份
-    @FormParam("enrollmentYear")
-    @XmlElement(name = "enrollmentYear")
+    @NotNull(message = "入学年份不能为空",
+             groups = LoanRequestCheck.class)
+    @Column(name = "ENROLLMENT_YEAR")
     private String enrollmentYear;
 
     //学校
-    @FormParam("school")
-    @XmlElement(name = "school")
+    @NotNull(message = "学校信息不能为空",
+             groups = LoanRequestCheck.class)
     private String school;
+
+    public EducationInfo() {
+    }
 
     /**
      *
@@ -49,9 +53,6 @@ public class EducationInfo extends BaseObject {
         this.educationLevel = educationLevel;
         this.enrollmentYear = enrollmentYear;
         this.school = school;
-    }
-
-    public EducationInfo() {
     }
 
     public void setEducationLevel(EducationLevel educationLevel) {
@@ -76,17 +77,5 @@ public class EducationInfo extends BaseObject {
 
     public String getSchool() {
         return school;
-    }
-
-    public static EducationInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        EducationInfo result = new EducationInfo();
-        result.setEducationLevel(EducationLevel.valueOf(jo.getString("educationLevel")));
-        result.setEnrollmentYear(jo.getString("enrollmentYear"));
-        result.setSchool(jo.getString("school"));
-        return result;
     }
 }

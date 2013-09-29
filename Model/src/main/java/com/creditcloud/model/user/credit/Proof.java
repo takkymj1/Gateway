@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContentType;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -63,8 +64,42 @@ public class Proof extends BaseObject {
      */
     private boolean mosaic;
 
+    /**
+     * 经度
+     */
+    private BigDecimal longitude;
+
+    /**
+     * 维度
+     */
+    private BigDecimal latitude;
+
     public Proof() {
     }
+
+//    public Proof(String id,
+//                 CertificateType certificateType,
+//                 String title,
+//                 ProofContentType contentType,
+//                 String content,
+//                 String description,
+//                 Source source,
+//                 Date submitTime,
+//                 String employee,
+//                 boolean mosaic) {
+//        this(id,
+//             certificateType,
+//             title,
+//             contentType,
+//             content,
+//             description,
+//             source,
+//             submitTime,
+//             employee,
+//             mosaic,
+//             null,
+//             null);
+//    }
 
     public Proof(String id,
                  CertificateType certificateType,
@@ -75,7 +110,9 @@ public class Proof extends BaseObject {
                  Source source,
                  Date submitTime,
                  String employee,
-                 boolean mosaic) {
+                 boolean mosaic,
+                 BigDecimal longitude,
+                 BigDecimal latitude) {
         this.id = id;
         this.certificateType = certificateType;
         this.title = title;
@@ -86,6 +123,8 @@ public class Proof extends BaseObject {
         this.submitTime = submitTime;
         this.employee = employee;
         this.mosaic = mosaic;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     public String getTitle() {
@@ -166,5 +205,21 @@ public class Proof extends BaseObject {
 
     public void setMosaic(boolean mosaic) {
         this.mosaic = mosaic;
+    }
+
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 }

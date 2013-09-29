@@ -4,6 +4,8 @@
  */
 package com.creditcloud.model.user.info;
 
+import com.creditcloud.model.PersonalInfo;
+import com.creditcloud.model.ContactInfo;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.user.User;
 import java.io.StringReader;
