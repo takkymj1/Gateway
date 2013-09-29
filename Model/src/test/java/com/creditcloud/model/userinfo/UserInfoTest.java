@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.userinfo;
 
+import com.creditcloud.model.enums.EthnicGroup;
 import com.creditcloud.model.user.info.CompanyInfo;
 import com.creditcloud.model.user.info.FinanceInfo;
 import com.creditcloud.model.user.info.ContactInfo;
@@ -35,26 +36,26 @@ import org.junit.BeforeClass;
  * @author rooseek
  */
 public class UserInfoTest {
-    
+
     public UserInfoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     public void test() {
         User user = new User(null,
                              "CRCD",
@@ -64,8 +65,9 @@ public class UserInfoTest {
                              "15810101010",
                              "wang.er@gmail.com",
                              Source.BACK);
-        
+
         PersonalInfo personal = new PersonalInfo(true,
+                                                 EthnicGroup.Han,
                                                  new Date(),
                                                  MaritalStatus.DIVORCED,
                                                  true,
@@ -107,8 +109,8 @@ public class UserInfoTest {
                                               new Contact("李四",
                                                           "同事",
                                                           "13512345678"));
-        
-        
+
+
         UserInfo userInfo = new UserInfo(user,
                                          personal,
                                          finance,
