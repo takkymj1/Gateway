@@ -21,10 +21,10 @@ public abstract class BaseResource implements Serializable {
 
     @Context
     UriInfo uriInfo;
-    
+
     @Resource
     protected Validator validator;
-    
+
     private ValidatorWrapper validatorWrapper;
 
     protected Response forward(String path) {
@@ -38,11 +38,20 @@ public abstract class BaseResource implements Serializable {
     protected Response redirect(String path) {
         return Response.seeOther(uriInfo.getBaseUriBuilder().path(path).build()).build();
     }
-    
+
     protected ValidatorWrapper getValidatorWrapper() {
         if (validatorWrapper == null) {
-            validatorWrapper = new ValidatorWrapper(validator); 
+            validatorWrapper = new ValidatorWrapper(validator);
         }
         return validatorWrapper;
+    }
+
+    /**
+     * get the current jersey path
+     *
+     * @return
+     */
+    protected String getAbsolutePath() {
+        return uriInfo.getAbsolutePath().getPath();
     }
 }
