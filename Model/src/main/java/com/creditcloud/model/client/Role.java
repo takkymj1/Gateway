@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.client;
 
+import com.creditcloud.model.enums.client.Privilege;
 import java.util.Collection;
 import javax.validation.constraints.NotNull;
 
