@@ -6,6 +6,7 @@ package com.creditcloud.common.rest;
 
 import com.creditcloud.common.security.LoginRequired;
 import com.creditcloud.common.security.PrivilegeRequired;
+import com.creditcloud.model.enums.client.Privilege;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -32,7 +33,7 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
 
     protected abstract boolean checkLogin();
 
-    protected abstract boolean checkPrivileges(final String... privileges);
+    protected abstract boolean checkPrivileges(final Privilege... privileges);
 
     @Override
     public void filter(ContainerRequestContext requestContext) {
@@ -49,7 +50,7 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
             priv.addAll(Arrays.asList(pr.value()));
         }
 
-        String[] privileges = priv.toArray(new String[priv.size()]);
+        Privilege[] privileges = priv.toArray(new Privilege[priv.size()]);
         boolean loginRequired = privileges.length > 0
                 || resourceInfo.get().getResourceClass().isAnnotationPresent(LoginRequired.class)
                 || resourceInfo.get().getResourceMethod().isAnnotationPresent(LoginRequired.class);
