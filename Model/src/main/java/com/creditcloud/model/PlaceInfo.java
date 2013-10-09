@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
 import java.io.StringReader;
 import javax.json.Json;
 import javax.json.JsonObject;

@@ -5,8 +5,10 @@
 package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.GPSCoordinates;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.EstateType;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class RealEstateRecord extends BaseObject {
+public class RealEstateRecord extends BaseObject implements GPSCoordinates {
 
     private static final long serialVersionUID = 20130927L;
 
@@ -60,6 +62,10 @@ public class RealEstateRecord extends BaseObject {
 
     private Date timeRecorded;
 
+    private BigDecimal longitude;
+
+    private BigDecimal latitude;
+
     public RealEstateRecord() {
     }
 
@@ -71,7 +77,9 @@ public class RealEstateRecord extends BaseObject {
                             String description,
                             String modifiedBy,
                             Source source,
-                            Date timeRecorded) {
+                            Date timeRecorded,
+                            BigDecimal longitude,
+                            BigDecimal latitude) {
         this.type = type;
         this.location = location;
         this.area = area;
@@ -81,6 +89,8 @@ public class RealEstateRecord extends BaseObject {
         this.modifiedBy = modifiedBy;
         this.source = source;
         this.timeRecorded = timeRecorded;
+        this.longitude = longitude;
+        this.latitude = latitude;
     }
 
     public EstateType getType() {
@@ -153,5 +163,25 @@ public class RealEstateRecord extends BaseObject {
 
     public void setTimeRecorded(Date timeRecorded) {
         this.timeRecorded = timeRecorded;
+    }
+
+    @Override
+    public BigDecimal getLongitude() {
+        return longitude;
+    }
+
+    @Override
+    public BigDecimal getLatitude() {
+        return latitude;
+    }
+
+    @Override
+    public void setLongitude(BigDecimal longitude) {
+        this.longitude = longitude;
+    }
+
+    @Override
+    public void setLatitude(BigDecimal latitude) {
+        this.latitude = latitude;
     }
 }
