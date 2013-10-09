@@ -184,4 +184,44 @@ public class Loan extends BaseObject implements Investable {
     public String getTitle() {
         return title;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setMethod(RepaymentMethod method) {
+        this.method = method;
+    }
+
+    public void setOrdinal(int ordinal) {
+        this.ordinal = ordinal;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    public void setLoanRequest(LoanRequest loanRequest) {
+        this.loanRequest = loanRequest;
+    }
+
+    public void setTimeOpen(Date timeOpen) {
+        this.timeOpen = timeOpen;
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        this.mortgaged = mortgaged;
+    }
 }
