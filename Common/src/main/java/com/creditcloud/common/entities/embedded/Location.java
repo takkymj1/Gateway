@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 
 /**
  * 地址位置信息，为分支机构服务地址或者实地信审用地址
- * 
+ *
  * @author sobranie
  */
 @Embeddable
@@ -30,16 +30,18 @@ public class Location extends BaseEntity {
     private String roomAddress;
 
     @Min(0)
+    @Column(precision = 12, scale = 8)
     private BigDecimal longitude;
 
     @Min(0)
+    @Column(precision = 12, scale = 8)
     private BigDecimal latitude;
 
-    public Location(String province, 
-                    String city, 
-                    String streetAddress, 
-                    String roomAddress, 
-                    BigDecimal longitude, 
+    public Location(String province,
+                    String city,
+                    String streetAddress,
+                    String roomAddress,
+                    BigDecimal longitude,
                     BigDecimal latitude) {
         this.province = province;
         this.city = city;
@@ -48,7 +50,7 @@ public class Location extends BaseEntity {
         this.longitude = longitude;
         this.latitude = latitude;
     }
-    
+
     public Location() {
     }
 

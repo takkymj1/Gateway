@@ -69,8 +69,10 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
 
     private Date timeLastUpdated;
 
+    @FormParam("longitude")
     private BigDecimal longitude;
 
+    @FormParam("latitude")
     private BigDecimal latitude;
 
     public RealEstate() {
