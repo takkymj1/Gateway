@@ -14,6 +14,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
+ * 车牌号的constraint annotation，要求各省市车牌都能过，但军牌，武警牌，京V等专用牌不能过
  *
  * @author rooseek
  */
@@ -79,7 +80,7 @@ public class PlateNumberValidator implements ConstraintValidator<PlateNumber, St
         if (excludedPrefix.contains(temp)) {
             return false;
         }
-        
+
         temp = value.substring(0, 1);
         if (!prefixSet.contains(temp)) {
             return false;
