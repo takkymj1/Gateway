@@ -23,7 +23,11 @@ public enum TaskType implements BaseEnum {
     /**
      * 不仅实地调查用户信息,还要同时调查贷款信息,处理流程不同于上两个任务
      */
-    USER_AND_LOANREQUEST("用戶及贷款申请任务");
+    USER_AND_LOANREQUEST("用戶及贷款申请任务"),
+    /**
+     * 催还贷款的某几期还款
+     */
+    LOAN_REPAY("催款任务");
 
     private final String key;
 
