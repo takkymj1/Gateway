@@ -9,48 +9,50 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 贷款发放后对应的每期还款
  *
  * @author rooseek
  */
+@XmlRootElement
 public class LoanRepayment extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String id;
+    private  String id;
 
     @NotNull
-    private final Loan loan;
+    private  Loan loan;
 
     //还款第几期
     @NotNull
-    private final int currentPeriod;
+    private  int currentPeriod;
 
     //应还款
     @NotNull
-    private final Repayment repayment;
+    private  Repayment repayment;
 
     //回款状态
     @NotNull
-    private final RepaymentStatus status;
+    private  RepaymentStatus status;
 
     /**
      * 实际回款金额
      */
     @NotNull
-    private final BigDecimal repayAmount;
+    private  BigDecimal repayAmount;
 
     /**
      * 实际回款时间
      */
-    private final Date repayDate;
+    private  Date repayDate;
 
-    public Loan getLoan() {
-        return loan;
+    public LoanRepayment() {
     }
+
 
     public LoanRepayment(String id,
                          Loan loan,
@@ -90,5 +92,37 @@ public class LoanRepayment extends BaseObject {
 
     public Date getRepayDate() {
         return repayDate;
+    }
+
+    public Loan getLoan() {
+        return loan;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
+    }
+
+    public void setCurrentPeriod(int currentPeriod) {
+        this.currentPeriod = currentPeriod;
+    }
+
+    public void setRepayment(Repayment repayment) {
+        this.repayment = repayment;
+    }
+
+    public void setStatus(RepaymentStatus status) {
+        this.status = status;
+    }
+
+    public void setRepayAmount(BigDecimal repayAmount) {
+        this.repayAmount = repayAmount;
+    }
+
+    public void setRepayDate(Date repayDate) {
+        this.repayDate = repayDate;
     }
 }

@@ -27,7 +27,7 @@ public interface LoanRepayService {
      * @param pageInfo
      * @return
      */
-    PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, PageInfo pageInfo, RepaymentStatus ...status);
+    PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, PageInfo pageInfo, RepaymentStatus... status);
 
     /**
      * list loan repayment by loanId
@@ -39,4 +39,13 @@ public interface LoanRepayService {
      * the local client
      */
     List<LoanRepayment> listRepayByLoanId(String clientCode, String loanId);
+
+    /**
+     * get repayment by its id
+     *
+     * @param clientCode
+     * @param repaymentId
+     * @return
+     */
+    LoanRepayment getRepayById(String clientCode, String repaymentId);
 }
