@@ -20,6 +20,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ * 员工的任务
  *
  * @author rooseek
  */
@@ -115,25 +116,36 @@ public class Task extends BaseObject {
     @Enumerated(EnumType.STRING)
     @Column(nullable = true)
     private Collection<CertificateType> certificate;
-    
-    public Task(){
-        
+
+    /**
+     * 该任务的收益，是向用户的收费
+     */
+    private int taskProfit;
+
+    /**
+     * 员工完成该任务后的奖励
+     */
+    private int employeeProfit;
+
+    public Task() {
     }
 
-    public Task(String id, 
-                String parentId, 
-                String employeeId, 
-                String title, 
-                String description, 
-                TaskType type, 
-                TaskStatus status, 
-                Date timeAssigned, 
-                int timeOut, 
-                String location, 
+    public Task(String id,
+                String parentId,
+                String employeeId,
+                String title,
+                String description,
+                TaskType type,
+                TaskStatus status,
+                Date timeAssigned,
+                int timeOut,
+                String location,
                 Date timeStarted,
-                Date timeFinished, 
-                String feedback, 
-                Collection<CertificateType> certificate) {
+                Date timeFinished,
+                String feedback,
+                Collection<CertificateType> certificate,
+                int taskProfit,
+                int employeeProfit) {
         this.id = id;
         this.parentId = parentId;
         this.employeeId = employeeId;
@@ -260,5 +272,21 @@ public class Task extends BaseObject {
 
     public Collection<CertificateType> getCertificate() {
         return certificate;
+    }
+
+    public int getTaskProfit() {
+        return taskProfit;
+    }
+
+    public int getEmployeeProfit() {
+        return employeeProfit;
+    }
+
+    public void setTaskProfit(int taskProfit) {
+        this.taskProfit = taskProfit;
+    }
+
+    public void setEmployeeProfit(int employeeProfit) {
+        this.employeeProfit = employeeProfit;
     }
 }
