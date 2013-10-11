@@ -4,9 +4,11 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.common.rest.AnalysisData;
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
 import com.creditcloud.model.loan.Task;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -54,4 +56,15 @@ public interface TaskService {
      * @return
      */
     boolean updateTask(String clientCode, Task task);
+
+    /**
+     * 统计一个时间段内按月份员工完成的任务数
+     *
+     * @param clientCode
+     * @param employeeId
+     * @param from
+     * @param to
+     * @return
+     */
+    List<AnalysisData> countMonthlyTaskByEmployee(String clientCode, String employeeId, Date from, Date to);
 }
