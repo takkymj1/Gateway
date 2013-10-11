@@ -33,8 +33,8 @@ public class UserTask extends Task {
     }
 
     public UserTask(String userId,
-                    String parentId,
                     String id,
+                    String parentId,
                     String employeeId,
                     String title,
                     String description,
@@ -45,9 +45,11 @@ public class UserTask extends Task {
                     Date timeStarted,
                     Date timeFinished,
                     String feedback,
-                    Collection<CertificateType> certificate) {
-        super(parentId,
-              id,
+                    Collection<CertificateType> certificate,
+                    int taskProfit,
+                    int employeeProfit) {
+        super(id,
+              parentId,
               employeeId,
               title,
               description,
@@ -59,7 +61,9 @@ public class UserTask extends Task {
               timeStarted,
               timeFinished,
               feedback,
-              certificate);
+              certificate,
+              taskProfit,
+              employeeProfit);
         this.userId = userId;
     }
 

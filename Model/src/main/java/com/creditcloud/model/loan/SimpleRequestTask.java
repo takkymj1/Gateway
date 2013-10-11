@@ -45,7 +45,9 @@ public class SimpleRequestTask extends Task {
                              Date timeStarted,
                              Date timeFinished,
                              String feedback,
-                             Collection<CertificateType> certificate) {
+                             Collection<CertificateType> certificate,
+                             int taskProfit,
+                             int employeeProfit) {
         super(id,
               parentId,
               employeeId,
@@ -59,7 +61,9 @@ public class SimpleRequestTask extends Task {
               timeStarted,
               timeFinished,
               feedback,
-              certificate);
+              certificate,
+              taskProfit,
+              employeeProfit);
         this.requestId = requestId;
     }
 

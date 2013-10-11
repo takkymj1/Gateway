@@ -32,22 +32,38 @@ public class LoanRepayTask extends Task {
         super();
     }
 
-    public LoanRepayTask(String loanRepaymentId, 
-                         String id, 
-                         String parentId, 
-                         String employeeId, 
-                         String title, 
-                         String description, 
-                         TaskType type,
-                         TaskStatus status, 
-                         Date timeAssigned, 
-                         int timeOut, 
-                         String location, 
-                         Date timeStarted, 
-                         Date timeFinished, 
-                         String feedback, 
-                         Collection<CertificateType> certificate) {
-        super(id, parentId, employeeId, title, description, type, status, timeAssigned, timeOut, location, timeStarted, timeFinished, feedback, certificate);
+    public LoanRepayTask(String loanRepaymentId,
+                         String id,
+                         String parentId,
+                         String employeeId,
+                         String title,
+                         String description,
+                         TaskStatus status,
+                         Date timeAssigned,
+                         int timeOut,
+                         String location,
+                         Date timeStarted,
+                         Date timeFinished,
+                         String feedback,
+                         Collection<CertificateType> certificate,
+                         int taskProfit,
+                         int employeeProfit) {
+        super(id,
+              parentId,
+              employeeId,
+              title,
+              description,
+              TaskType.LOAN_REPAY,
+              status,
+              timeAssigned,
+              timeOut,
+              location,
+              timeStarted,
+              timeFinished,
+              feedback,
+              certificate,
+              taskProfit,
+              employeeProfit);
         this.loanRepaymentId = loanRepaymentId;
     }
 
