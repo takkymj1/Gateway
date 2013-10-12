@@ -5,6 +5,7 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,6 +27,7 @@ public class ElementCount<T> extends BaseObject {
 
     private T element;
 
+    @Min(0)
     private long count;
 
     public ElementCount() {
