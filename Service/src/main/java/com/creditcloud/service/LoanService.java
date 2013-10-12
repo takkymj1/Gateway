@@ -7,6 +7,7 @@ package com.creditcloud.service;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
@@ -78,5 +79,14 @@ public interface LoanService extends LoanRequestService, LoanRepayService {
      * @param pageInfo
      * @return
      */
-    PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus ... statusList);
+    PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
+
+    /**
+     * 获得借款人的借款统计信息
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    LoanStatistics getLoanStatistics(String clientCode, String userId);
 }
