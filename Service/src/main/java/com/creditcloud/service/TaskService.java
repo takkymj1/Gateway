@@ -28,7 +28,18 @@ public interface TaskService {
      * @param status
      * @return
      */
-    List<Task> listByStatus(String clientCode, String employeeId, TaskStatus... status);
+    List<Task> listByEmployee(String clientCode, String employeeId, TaskStatus... status);
+
+    /**
+     * 
+     * @param clientCode
+     * @param employeeId
+     * @param from
+     * @param to
+     * @param status
+     * @return 
+     */
+    List<Task> listByEmployee(String clientCode, String employeeId, Date from, Date to, TaskStatus... status);
 
     /**
      * list task for employee by task type
@@ -38,7 +49,7 @@ public interface TaskService {
      * @param type
      * @return
      */
-    List<Task> listByType(String clientCode, String employeeId, TaskType... type);
+    List<Task> listByEmployee(String clientCode, String employeeId, TaskType... type);
 
     /**
      * get task by task id
