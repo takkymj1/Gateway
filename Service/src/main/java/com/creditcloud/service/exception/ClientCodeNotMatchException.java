@@ -6,6 +6,7 @@ package com.creditcloud.service.exception;
 
 /**
  *
+ * service之间调用时传递的客户代码clientCode不匹配,这是个极其严重的exception,是不允许发生的
  *
  * @author rooseek
  */
