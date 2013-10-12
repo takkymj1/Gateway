@@ -88,6 +88,7 @@ public class PersonalInfo extends BaseObject {
         this.education = education;
         this.place = place;
         this.avatar = avatar;
+        this.ethnic = ethnic;
     }
 
     public PersonalInfo() {
