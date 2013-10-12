@@ -4,7 +4,7 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.common.rest.AnalysisData;
+import com.creditcloud.model.AnalysisData;
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
 import com.creditcloud.model.loan.Task;

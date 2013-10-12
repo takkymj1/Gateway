@@ -1,6 +1,5 @@
-package com.creditcloud.common.rest;
+package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
