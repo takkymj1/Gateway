@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlSeeAlso(value = {
     LoanStatus.class
 })
-public class Statistics<T> extends BaseObject {
+public class ElementCount<T> extends BaseObject {
 
     private static final long serialVersionUID = 20131012L;
 
@@ -28,10 +28,10 @@ public class Statistics<T> extends BaseObject {
 
     private long count;
 
-    public Statistics() {
+    public ElementCount() {
     }
 
-    public Statistics(T element, long count) {
+    public ElementCount(T element, long count) {
         this.element = element;
         this.count = count;
     }
