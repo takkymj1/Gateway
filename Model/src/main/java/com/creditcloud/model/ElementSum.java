@@ -6,22 +6,19 @@ package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import java.math.BigDecimal;
 import java.util.Date;
-import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
- * 按element区分来统计某项实体的个数，主要用于前端页面显示用<p>
- * 例如：按月份统计某借款人的贷款申请数目
- *
- * TODO逐步将AnalysisData替换成该类
+ * 按照element区分来统计某项数据之和，主要用于前端页面显示用<p>
+ * 例如：按年度统计平台上所有p2p公司的贷款金额和利息收入总和
  *
  * @author rooseek
- *
- * @see ElementSum
+ * @see ElementCount 
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -30,36 +27,35 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     InvestStatus.class,
     Date.class
 })
-public class ElementCount<T> extends BaseObject {
+public class ElementSum<T> extends BaseObject{
 
     private static final long serialVersionUID = 20131012L;
 
     private T element;
 
-    @Min(0)
-    private int count;
+    private BigDecimal sum;
 
-    public ElementCount() {
+    public ElementSum() {
     }
 
-    public ElementCount(T element, int count) {
+    public ElementSum(T element, BigDecimal sum) {
         this.element = element;
-        this.count = count;
+        this.sum = sum;
     }
 
     public T getElement() {
         return element;
     }
 
-    public int getCount() {
-        return count;
+    public BigDecimal getSum() {
+        return sum;
     }
 
     public void setElement(T element) {
         this.element = element;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setSum(BigDecimal sum) {
+        this.sum = sum;
     }
 }
