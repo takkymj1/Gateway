@@ -1,4 +1,4 @@
-package com.creditcloud.common.rest;
+package com.creditcloud.model;
 
 import java.util.Date;
 import javax.validation.constraints.Min;
@@ -8,7 +8,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * This is the wrapper class for the return JSON result for Analysis Data
  */
 @XmlRootElement
-public class AnalysisData {
+public class AnalysisData extends BaseObject{
+    
+    private static final long serialVersionUID = 20131012L; 
 
     private Date day;
     
