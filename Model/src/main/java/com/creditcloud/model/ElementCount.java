@@ -5,6 +5,7 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
+import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,6 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
+ * 用于统计对应element的entity个数，主要用于前端页面显示用
+ *
  * TODO逐步将AnalysisData替换成该类
  *
  * @author rooseek
@@ -19,7 +22,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso(value = {
-    LoanStatus.class
+    LoanStatus.class,
+    Date.class
 })
 public class ElementCount<T> extends BaseObject {
 
