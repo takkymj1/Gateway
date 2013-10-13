@@ -43,6 +43,16 @@ public class Loan extends BaseObject implements Investable {
                         max = LoanConstant.MAX_LOAN_AMOUNT,
                         groups = Default.class)
     private int amount;
+    
+    /**
+     * 年化利率（万分之几）
+     */
+    @NotNull
+    @IncrementalInteger(min = LoanConstant.MIN_LOAN_RATE,
+                        increment = 1,
+                        max = LoanConstant.MAX_LOAN_RATE,
+                        groups = Default.class)
+    private int rate;
 
     @NotNull
     private Duration duration;
@@ -90,6 +100,7 @@ public class Loan extends BaseObject implements Investable {
                 RepaymentMethod method,
                 int ordinal,
                 int amount,
+                int rate,
                 Duration duration,
                 int timeout,
                 LoanStatus status,
@@ -103,6 +114,7 @@ public class Loan extends BaseObject implements Investable {
         this.method = method;
         this.ordinal = ordinal;
         this.amount = amount;
+        this.rate = rate;
         this.duration = duration;
         this.timeout = timeout;
         this.status = status;
@@ -173,7 +185,7 @@ public class Loan extends BaseObject implements Investable {
 
     @Override
     public int getRate() {
-        return loanRequest.getRate();
+        return rate;
     }
 
     @Override
@@ -223,5 +235,9 @@ public class Loan extends BaseObject implements Investable {
 
     public void setMortgaged(boolean mortgaged) {
         this.mortgaged = mortgaged;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 }
