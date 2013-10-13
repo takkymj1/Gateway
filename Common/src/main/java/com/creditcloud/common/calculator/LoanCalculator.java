@@ -107,9 +107,8 @@ public final class LoanCalculator {
                 //calc installment
                 BigDecimal installment = baseInterest.multiply(is[tenure]).divide(is[tenure].subtract(ONE), mc);
                 installment = installment.setScale(2, RoundingMode.CEILING);
-                //calc total interest
-                interest = installment.multiply(new BigDecimal(tenure));
-                interest = interest.subtract(principal);
+                //reset total interest
+                interest = ZERO;
                 //create loanDetail
                 result = new LoanDetail(principal, interest, duration, EqualInstallment);
                 //deal with amortized items
@@ -130,7 +129,10 @@ public final class LoanCalculator {
                                                                  outstandingPrincipal,
                                                                  dueDate));
                     }
+                    interest = interest.add(amortizedInterest);
                 }
+                //fix interest
+                result.setInterest(interest);
                 break;
             case EqualPrincipal:
                 //times of repayments in months
