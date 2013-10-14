@@ -13,7 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum Privilege implements BaseEnum {
     
-    USER_LIST("列出用户");
+    USER_LIST("列出用户"),
+    USER_DETAIL("查看用户详情"),
+    USER_ALTER("更改用户信息");
 
     private final String key;
     

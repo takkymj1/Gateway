@@ -8,6 +8,8 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.client.Privilege;
 import java.util.Collection;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 员工角色.
@@ -16,10 +18,24 @@ import javax.validation.constraints.NotNull;
  *
  * @author sobranie
  */
+@XmlRootElement
 public class Role extends BaseObject {
-
+    
+    /**
+     * UUID
+     */
+    @FormParam("id")
+    private String id;
+    
+    @FormParam("name")
     @NotNull
     private String name;
+    
+    /**
+     * 员工角色说明
+     */
+    @FormParam("description")
+    private String description;
 
     /**
      * 拥有该权限的所有员工
@@ -64,5 +80,21 @@ public class Role extends BaseObject {
 
     public void setPrivileges(Collection<Privilege> privileges) {
         this.privileges = privileges;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
