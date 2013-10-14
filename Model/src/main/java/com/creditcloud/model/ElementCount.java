@@ -6,7 +6,6 @@ package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
-import com.creditcloud.model.loan.Repayment;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -29,7 +28,6 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlSeeAlso(value = {
     LoanStatus.class,
     InvestStatus.class,
-    Repayment.class,
     Date.class
 })
 public class ElementCount<T> extends BaseObject {
