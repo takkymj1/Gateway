@@ -4,7 +4,6 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
@@ -12,7 +11,7 @@ import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.PagedResult;
-import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -66,7 +65,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<ElementCount<Repayment>> settleLoan(String clientCode, Loan loan);
+    Map<Integer, Repayment> settleLoan(String clientCode, Loan loan);
 
     /**
      * repayment of a loan, set repayment status and generate fund record
