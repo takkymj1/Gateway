@@ -4,13 +4,10 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.ws.rs.FormParam;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  *
@@ -21,15 +18,12 @@ public class ContactInfo extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
-    @FormParam("emergency")
     @XmlElement(name = "emergency")
     private Contact emergency;
 
-    @FormParam("colleague")
     @XmlElement(name = "colleague")
     private Contact colleague;
 
-    @FormParam("other")
     @XmlElement(name = "other")
     private Contact other;
 
@@ -72,15 +66,29 @@ public class ContactInfo extends BaseObject {
         this.other = other;
     }
 
-    public static ContactInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(emergency).append(colleague).append(other).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
         }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        ContactInfo result = new ContactInfo();
-        result.setEmergency(Contact.fromJsonString(jo.getJsonObject("emergency").toString()));
-        result.setColleague(Contact.fromJsonString(jo.getJsonObject("colleague").toString()));
-        result.setOther(Contact.fromJsonString(jo.getJsonObject("other") == null ? null : jo.getJsonObject("other").toString()));
-        return result;
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ContactInfo other = (ContactInfo) obj;
+        if (!Objects.equals(this.emergency, other.emergency)) {
+            return false;
+        }
+        if (!Objects.equals(this.colleague, other.colleague)) {
+            return false;
+        }
+        if (!Objects.equals(this.other, other.other)) {
+            return false;
+        }
+        return true;
     }
 }

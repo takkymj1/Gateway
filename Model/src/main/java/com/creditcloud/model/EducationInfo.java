@@ -77,16 +77,4 @@ public class EducationInfo extends BaseObject {
     public String getSchool() {
         return school;
     }
-
-    public static EducationInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        EducationInfo result = new EducationInfo();
-        result.setEducationLevel(EducationLevel.valueOf(jo.getString("educationLevel")));
-        result.setEnrollmentYear(jo.getString("enrollmentYear"));
-        result.setSchool(jo.getString("school"));
-        return result;
-    }
 }

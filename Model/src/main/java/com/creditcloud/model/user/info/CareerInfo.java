@@ -159,22 +159,4 @@ public class CareerInfo extends BaseObject {
     public void setWorkMail(String workMail) {
         this.workMail = workMail;
     }
-
-    public static CareerInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        CareerInfo result = new CareerInfo();
-        result.setCareerStatus(CareerStatus.valueOf(jo.getString("careerStatus")));
-        result.setCity(jo.getString("city"));
-        result.setCompany(CompanyInfo.fromJsonString(jo.getJsonObject("company").toString()));
-        result.setPosition(jo.getString("position"));
-        result.setProvince(jo.getString("province"));
-        result.setSalary(MonthlySalary.valueOf(jo.getString("salary")));
-        result.setWorkMail(jo.getString("workMail"));
-        result.setYearOfService(YearOfService.valueOf(jo.getString("yearOfService")));
-
-        return result;
-    }
 }
