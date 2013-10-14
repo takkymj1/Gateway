@@ -4,8 +4,8 @@
  */
 package com.creditcloud.model.loan;
 
-import com.creditcloud.model.AnalysisData;
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.ElementCount;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -51,7 +51,7 @@ public class TaskStatistics extends BaseObject {
     /**
      * 按月份统计的员工完成任务数
      */
-    private List<AnalysisData> monthlyStatistics;
+    private List<ElementCount<Date>> monthlyStatistics;
 
     public TaskStatistics() {
     }
@@ -62,7 +62,7 @@ public class TaskStatistics extends BaseObject {
                           int totalTask, 
                           int finishedTask,
                           int totalProfit, 
-                          List<AnalysisData> monthlyStatistics) {
+                          List<ElementCount<Date>> monthlyStatistics) {
         this.employeeId = employeeId;
         this.from = from;
         this.to = to;
@@ -84,7 +84,7 @@ public class TaskStatistics extends BaseObject {
         return totalProfit;
     }
 
-    public List<AnalysisData> getMonthlyStatistics() {
+    public List<ElementCount<Date>> getMonthlyStatistics() {
         return monthlyStatistics;
     }
 
@@ -100,7 +100,7 @@ public class TaskStatistics extends BaseObject {
         this.totalProfit = totalProfit;
     }
 
-    public void setMonthlyStatistics(List<AnalysisData> monthlyStatistics) {
+    public void setMonthlyStatistics(List<ElementCount<Date>> monthlyStatistics) {
         this.monthlyStatistics = monthlyStatistics;
     }
 
