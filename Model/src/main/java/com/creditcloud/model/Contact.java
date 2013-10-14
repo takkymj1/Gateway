@@ -4,13 +4,12 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
+import java.util.Objects;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  *
@@ -74,16 +73,30 @@ public class Contact extends BaseObject {
         this.mobile = mobile;
     }
 
-    public static Contact fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            //TODO return null不能更改filed, 只能返回下面object才能更新contact內field为null
-            return new Contact(null, null, null);
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        Contact result = new Contact();
-        result.setName(jo.getString("name"));
-        result.setMobile(jo.getString("mobile"));
-        result.setRelation(jo.getString("relation"));
-        return result;
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(name).append(mobile).append(relation).toHashCode();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contact other = (Contact) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.relation, other.relation)) {
+            return false;
+        }
+        if (!Objects.equals(this.mobile, other.mobile)) {
+            return false;
+        }
+        return true;
+    }
+
 }

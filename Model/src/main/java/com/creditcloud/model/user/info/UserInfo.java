@@ -113,20 +113,4 @@ public class UserInfo extends BaseObject {
     public void setUser(User user) {
         this.user = user;
     }
-
-    public static UserInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        UserInfo result = new UserInfo();
-        result.setUser(User.fromJsonString(jo.getJsonObject("user") == null ? null : jo.getJsonObject("user").toString()));
-        result.setCareer(CareerInfo.fromJsonString(jo.getJsonObject("career") == null ? null : jo.getJsonObject("career").toString()));
-        result.setContact(ContactInfo.fromJsonString(jo.getJsonObject("contact") == null ? null : jo.getJsonObject("contact").toString()));
-        result.setFinance(FinanceInfo.fromJsonString(jo.getJsonObject("finance") == null ? null : jo.getJsonObject("finance").toString()));
-        result.setPersonal(PersonalInfo.fromJsonString(jo.getJsonObject("personal") == null ? null : jo.getJsonObject("personal").toString()));
-        result.setUserId(null);
-
-        return result;
-    }
 }

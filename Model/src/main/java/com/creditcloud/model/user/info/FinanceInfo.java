@@ -122,20 +122,4 @@ public class FinanceInfo extends BaseObject {
     public void setCarLoan(boolean carLoan) {
         this.carLoan = carLoan;
     }
-
-    public static FinanceInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        FinanceInfo result = new FinanceInfo();
-        result.setCar(jo.getBoolean("house"));
-        result.setHouseNumber(jo.getInt("houseNumber"));
-        result.setHouseLoan(jo.getBoolean("houseLoan"));
-        result.setCar(jo.getBoolean("car"));
-        result.setCarNumber(jo.getInt("carNumber"));
-        result.setCarLoan(jo.getBoolean("carLoan"));
-
-        return result;
-    }
 }

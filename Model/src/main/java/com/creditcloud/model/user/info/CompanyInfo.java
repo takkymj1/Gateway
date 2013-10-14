@@ -127,19 +127,4 @@ public class CompanyInfo extends BaseObject {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public static CompanyInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        CompanyInfo result = new CompanyInfo();
-        result.setAddress(jo.getString("address"));
-        result.setIndustry(CompanyIndustry.valueOf(jo.getString("industry")));
-        result.setName(jo.getString("name"));
-        result.setPhone(jo.getString("phone"));
-        result.setCompanySize(CompanySize.valueOf(jo.getString("size")));
-        result.setType(CompanyType.valueOf(jo.getString("type")));
-        return result;
-    }
 }

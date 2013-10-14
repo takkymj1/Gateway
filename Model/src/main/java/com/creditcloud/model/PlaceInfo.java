@@ -66,21 +66,6 @@ public class PlaceInfo extends BaseObject {
         this.currentPhone = currentPhone;
     }
 
-    public static PlaceInfo fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        PlaceInfo result = new PlaceInfo();
-        result.setNativeProvince(jo.getString("nativeProvince"));
-        result.setNativeCity(jo.getString("nativeCity"));
-        result.setHukouProvince(jo.getString("hukouProvince"));
-        result.setHukouCity(jo.getString("hukouCity"));
-        result.setCurrentPhone(jo.getString("currentPhone"));
-        result.setCurrentAddress(jo.getString("currentAddress"));
-        return result;
-    }
-
     public PlaceInfo() {
     }
 
