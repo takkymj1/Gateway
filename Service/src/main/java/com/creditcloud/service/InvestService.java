@@ -9,7 +9,9 @@ import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -59,10 +61,11 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param loanId
+     * @return 根据贷款所有投资金额生成的还款计划，用于更新贷款的LoanRepayment中的Repayment
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void settleLoan(String clientCode, Loan loan);
+    Map<Integer, Repayment> settleLoan(String clientCode, Loan loan);
 
     /**
      * repayment of a loan, set repayment status and generate fund record
