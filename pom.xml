@@ -17,5 +17,14 @@
         <module>Common</module>
         <module>Service</module>
         <module>Model</module>
+        <module>Client</module>
+        <module>Config</module>
+        <module>Email</module>
+        <module>Dictionary</module>
+        <module>Image</module>
+        <module>Message</module>
+        <module>SMS</module>
+        <module>IDCard</module>
+        <module>User</module>
     </modules>
 </project>
