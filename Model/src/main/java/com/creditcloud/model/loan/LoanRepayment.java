@@ -25,7 +25,10 @@ public class LoanRepayment extends BaseObject {
     private  String id;
 
     @NotNull
-    private  Loan loan;
+    private  String loanId;
+    
+    @NotNull
+    private String userId;
 
     //还款第几期
     @NotNull
@@ -55,14 +58,16 @@ public class LoanRepayment extends BaseObject {
 
 
     public LoanRepayment(String id,
-                         Loan loan,
+                         String loanId,
+                         String userId,
                          int currentPeriod,
                          Repayment repayment,
                          RepaymentStatus status,
                          BigDecimal repayAmount,
                          Date repayDate) {
         this.id = id;
-        this.loan = loan;
+        this.loanId = loanId;
+        this.userId = userId;
         this.currentPeriod = currentPeriod;
         this.repayment = repayment;
         this.status = status;
@@ -94,16 +99,16 @@ public class LoanRepayment extends BaseObject {
         return repayDate;
     }
 
-    public Loan getLoan() {
-        return loan;
+    public String getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(String loanId) {
+        this.loanId = loanId;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public void setLoan(Loan loan) {
-        this.loan = loan;
     }
 
     public void setCurrentPeriod(int currentPeriod) {
@@ -124,5 +129,13 @@ public class LoanRepayment extends BaseObject {
 
     public void setRepayDate(Date repayDate) {
         this.repayDate = repayDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

@@ -17,7 +17,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface LoanService extends LoanRequestService, LoanRepayService {
+public interface LoanService extends LoanRequestService{
 
     /**
      * update loan
