@@ -12,13 +12,15 @@ import com.creditcloud.model.BaseObject;
  */
 public class Violation extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     private final String message;
 
     private final Object invalidValue;
 
     private final Object invalidObject;
 
-    public Violation(final String message, 
+    public Violation(final String message,
                      final Object invalidValue,
                      final Object invalidObject) {
         this.message = message;
@@ -29,11 +31,11 @@ public class Violation extends BaseObject {
     public String getMessage() {
         return message;
     }
-    
+
     public Object getInvalidValue() {
         return invalidValue;
     }
-    
+
     public Object getInvalidObject() {
         return invalidObject;
     }

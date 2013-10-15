@@ -14,6 +14,8 @@ import java.util.Set;
  */
 public final class ParamInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     private final Set<ParamItem> paramItems;
 
     public ParamInfo() {
@@ -40,39 +42,5 @@ public final class ParamInfo extends BaseObject {
 
     public Set<ParamItem> getParamItems() {
         return paramItems;
-    }
-
-    public class ParamItem extends BaseObject {
-
-        private final ParamOperator operator;
-
-        private final String fieldName;
-
-        private final Object value;
-
-        private ParamItem(final String fieldName,
-                          final Object value) {
-            this(fieldName, value, ParamOperator.AND);
-        }
-
-        private ParamItem(final String fieldName,
-                          final Object value,
-                          final ParamOperator operator) {
-            this.fieldName = fieldName;
-            this.value = value;
-            this.operator = operator;
-        }
-
-        public String getFieldName() {
-            return fieldName;
-        }
-
-        public Object getValue() {
-            return value;
-        }
-
-        public ParamOperator getOperator() {
-            return operator;
-        }
     }
 }

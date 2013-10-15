@@ -13,6 +13,7 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,8 +44,9 @@ public class Employee extends BaseObject {
     private String name;
 
     @FormParam("IdNumber")
+    @XmlElement(name = "IdNumber")
     @IdNumber
-    private String IdNumber;
+    private String idNumber;
 
     @FormParam("mobile")
     @MobileNumber
@@ -69,7 +71,7 @@ public class Employee extends BaseObject {
                     String loginName,
                     String employeeId,
                     String name,
-                    String IdNumber,
+                    String idNumber,
                     String mobile,
                     String branchId,
                     Date registerDate,
@@ -79,7 +81,7 @@ public class Employee extends BaseObject {
         this.loginName = loginName;
         this.employeeId = employeeId;
         this.name = name;
-        this.IdNumber = IdNumber;
+        this.idNumber = idNumber;
         this.mobile = mobile;
         this.branchId = branchId;
         this.registerDate = registerDate;
@@ -106,8 +108,8 @@ public class Employee extends BaseObject {
         this.name = name;
     }
 
-    public void setIdNumber(String IdNumber) {
-        this.IdNumber = IdNumber;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public void setMobile(String mobile) {
@@ -143,7 +145,7 @@ public class Employee extends BaseObject {
     }
 
     public String getIdNumber() {
-        return IdNumber;
+        return idNumber;
     }
 
     public String getMobile() {

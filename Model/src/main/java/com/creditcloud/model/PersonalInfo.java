@@ -6,10 +6,7 @@ package com.creditcloud.model;
 
 import com.creditcloud.model.enums.EthnicGroup;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
-import java.io.StringReader;
 import java.util.Date;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

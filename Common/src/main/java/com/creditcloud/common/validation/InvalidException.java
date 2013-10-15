@@ -28,12 +28,12 @@ public class InvalidException extends RuntimeException {
     public int getViolationCount() {
         return violations.size();
     }
-    
+
     @Override
     public String getMessage() {
         StringBuilder sb = new StringBuilder();
         for (Violation violation : violations) {
-            sb.append(violation.getMessage() + "\n");
+            sb.append(violation.getMessage().concat("\n"));
         }
         return sb.toString();
     }

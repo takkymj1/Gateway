@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class TaskStatistics extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     /**
      * 员工uuid
      */
@@ -56,12 +58,12 @@ public class TaskStatistics extends BaseObject {
     public TaskStatistics() {
     }
 
-    public TaskStatistics(String employeeId, 
-                          Date from, 
-                          Date to, 
-                          int totalTask, 
+    public TaskStatistics(String employeeId,
+                          Date from,
+                          Date to,
+                          int totalTask,
                           int finishedTask,
-                          int totalProfit, 
+                          int totalProfit,
                           List<ElementCount<Date>> monthlyStatistics) {
         this.employeeId = employeeId;
         this.from = from;

@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.util;
 
-import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;

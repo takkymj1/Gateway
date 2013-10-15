@@ -16,6 +16,8 @@ import org.joda.time.LocalDate;
  */
 public class LocalDateConverter implements Converter {
 
+    private static final long serialVersionUID = 20131015L;
+
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
         return objectValue == null ? null : new Date(((LocalDate) objectValue).toDate().getTime());

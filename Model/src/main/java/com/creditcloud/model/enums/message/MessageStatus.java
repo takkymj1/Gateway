@@ -5,8 +5,6 @@
 package com.creditcloud.model.enums.message;
 
 import com.creditcloud.model.enums.BaseEnum;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  *
@@ -39,16 +37,5 @@ public enum MessageStatus implements BaseEnum {
     @Override
     public String getKey() {
         return key;
-    }
-
-    private static final List<MessageStatus> NotDeleted = Arrays.asList(NEW, READ, ARCHIVED);
-
-    /**
-     * 返回非DELETED的 message status
-     *
-     * @return
-     */
-    public static List<MessageStatus> NotDeletedStatus() {
-        return NotDeleted;
     }
 }

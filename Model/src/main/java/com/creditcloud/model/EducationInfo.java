@@ -4,11 +4,7 @@
  */
 package com.creditcloud.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.EducationLevel;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

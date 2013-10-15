@@ -8,9 +8,11 @@ import com.creditcloud.common.validation.ValidatorWrapper;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.criteria.ParamInfo;
+import com.creditcloud.model.criteria.ParamItem;
 import static com.creditcloud.model.criteria.ParamOperator.AND;
 import static com.creditcloud.model.criteria.ParamOperator.OR;
 import com.creditcloud.model.criteria.SortInfo;
+import com.creditcloud.model.criteria.SortItem;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.HashSet;
 import java.util.List;
@@ -171,7 +173,7 @@ public abstract class AbstractDAO<T> {
             Set<Predicate> andCriteria = new HashSet();
             Set<Predicate> orCriteria = new HashSet();
 
-            for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
+            for (ParamItem item : paramInfo.getParamItems()) {
                 Predicate predicate;
                 if (item.getValue() instanceof String) {
                     //fuzy search for string
@@ -203,7 +205,7 @@ public abstract class AbstractDAO<T> {
         //build query for sortInfo
         Set<Order> orderPredicate = new HashSet<>();
         if (sortInfo != null) {
-            for (SortInfo.SortItem item : sortInfo.getSortItems()) {
+            for (SortItem item : sortInfo.getSortItems()) {
                 if (item.isDescending()) {
                     orderPredicate.add(cb.desc(userRoot.get(item.getFieldName())));
                 } else {
@@ -251,7 +253,7 @@ public abstract class AbstractDAO<T> {
             Set<Predicate> andCriteria = new HashSet();
             Set<Predicate> orCriteria = new HashSet();
 
-            for (ParamInfo.ParamItem item : paramInfo.getParamItems()) {
+            for (ParamItem item : paramInfo.getParamItems()) {
                 Predicate predicate;
                 if (item.getValue() instanceof String) {
                     //fuzy search for string

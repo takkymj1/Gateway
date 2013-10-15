@@ -21,12 +21,14 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlSeeAlso(value = {
     Message.class
 })
-public class PagedResult<T> extends BaseObject{
-    
+public class PagedResult<T> extends BaseObject {
+
+    private static final long serialVersionUID = 20131015L;
+
     private List<T> results;
 
     private int totalSize;
-    
+
     public PagedResult() {
     }
 
@@ -35,7 +37,7 @@ public class PagedResult<T> extends BaseObject{
         this.results = results;
         this.totalSize = totalSize;
     }
-    
+
     public List<T> getResults() {
         return results;
     }

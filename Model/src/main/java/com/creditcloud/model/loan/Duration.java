@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import static com.creditcloud.model.constant.TimeConstant.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  * Object represent a certain duration including years/months and days
@@ -71,6 +72,32 @@ public class Duration extends BaseObject implements Comparable<Duration> {
      */
     public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(years).append(months).append(days).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Duration other = (Duration) obj;
+        if (this.years != other.years) {
+            return false;
+        }
+        if (this.months != other.months) {
+            return false;
+        }
+        if (this.days != other.days) {
+            return false;
+        }
+        return true;
     }
 
     @Override

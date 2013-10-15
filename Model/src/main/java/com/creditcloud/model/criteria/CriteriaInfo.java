@@ -12,6 +12,8 @@ import com.creditcloud.model.BaseObject;
  */
 public class CriteriaInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     private final ParamInfo paramInfo;
 
     private final PageInfo pageInfo;

@@ -42,29 +42,31 @@ public class UUIDTest extends BaseTest<User> {
 
     @Test
     public void testPattern() {
+        //accepted
+        object.setId("9C490879-D40B-434F-B05C-D20F6990CF41");
+        constraintViolations = validator.validateProperty(object, "id");
+        assertEquals(0, constraintViolations.size());
+        
+        //not accepted
         object.setId("123");
-        constraintViolations = validator.validateProperty(object, "Id");
+        constraintViolations = validator.validateProperty(object, "id");
         assertEquals(1, constraintViolations.size());
 
         object.setId(null);
-        constraintViolations = validator.validateProperty(object, "Id");
+        constraintViolations = validator.validateProperty(object, "id");
         assertEquals(1, constraintViolations.size());
 
-        object.setId("9C490879-D40B-434F-B05C-D20F6990CF41");
-        constraintViolations = validator.validateProperty(object, "Id");
-        assertEquals(0, constraintViolations.size());
-
         object.setId("9C490879+D40B-434F-B05C-D20F6990CF41");
-        constraintViolations = validator.validateProperty(object, "Id");
+        constraintViolations = validator.validateProperty(object, "id");
         assertEquals(1, constraintViolations.size());
 
         object.setId("9c490879-D40B-434F-B05C-D20F6990CF41");
-        constraintViolations = validator.validateProperty(object, "Id");
+        constraintViolations = validator.validateProperty(object, "id");
         assertEquals(1, constraintViolations.size());
 
 
         object.setId("9C49087911-D40B-434F-B05C-D20F6990CF");
-        constraintViolations = validator.validateProperty(object, "Id");
+        constraintViolations = validator.validateProperty(object, "id");
         assertEquals(1, constraintViolations.size());
     }
 }
