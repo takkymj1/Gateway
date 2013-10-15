@@ -140,7 +140,7 @@ public class Loan extends BaseObject implements Investable {
         return amount;
     }
 
-    public int getTimeut() {
+    public int getTimeOut() {
         return timeOut;
     }
 
