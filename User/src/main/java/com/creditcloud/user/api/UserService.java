@@ -32,6 +32,14 @@ public interface UserService {
     List<User> listAllUsers(String clientCode);
 
     /**
+     * count all users for client
+     *
+     * @param clientCode
+     * @return
+     */
+    int countByClient(String clientCode);
+
+    /**
      * 列出员工开户的用户列表
      *
      * @param clientCode
@@ -203,7 +211,7 @@ public interface UserService {
      * @param oldPassword
      * @param newPassword
      * @return true if loginName exist and old password word match, and set new
-     *         password successful
+     * password successful
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */

@@ -147,6 +147,14 @@ public interface EmployeeService {
      * @return
      */
     List<Employee> listByClient(String clientCode);
+    
+    /**
+     * 统计client下员工总数
+     *
+     * @param clientCode
+     * @return
+     */
+    int countByClient(String clientCode);
 
     /**
      * 根据ID获取员工
