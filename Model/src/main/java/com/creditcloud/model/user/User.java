@@ -23,7 +23,6 @@ import javax.json.JsonObject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -37,7 +36,6 @@ public class User extends BaseObject {
 
     @NotNull
     @UUID
-    @XmlElement(name="Id")
     protected String id;
 
     @ClientCode

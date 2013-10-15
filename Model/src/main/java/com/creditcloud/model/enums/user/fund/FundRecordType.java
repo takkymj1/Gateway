@@ -19,7 +19,7 @@ public enum FundRecordType implements BaseEnum {
     INVEST_SETTLED("投资成功,资金已结算"),
     INVEST_FAILED("流标,投资金额返还现金账户"),
     INVEST_REPAY("投资回款"),
-    LOAN("借款结算"),
+    LOAN_SETTLED("借款成功，资金已结算"),
     LOAN_REPAY("还款"),
     FROZEN("冻结资金"),
     RELEASE("解冻资金");

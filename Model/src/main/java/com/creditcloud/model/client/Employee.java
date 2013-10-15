@@ -13,7 +13,6 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -43,8 +42,7 @@ public class Employee extends BaseObject {
     @RealName
     private String name;
 
-    @FormParam("IdNumber")
-    @XmlElement(name = "IdNumber")
+    @FormParam("idNumber")
     @IdNumber
     private String idNumber;
 
