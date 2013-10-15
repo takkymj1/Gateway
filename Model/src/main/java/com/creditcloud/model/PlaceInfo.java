@@ -4,9 +4,7 @@
  */
 package com.creditcloud.model;
 
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -20,26 +18,32 @@ public class PlaceInfo extends BaseObject {
     private static final long serialVersionUID = 20130918L;
     //籍贯省
 
+    @FormParam("nativeProvince")
     @XmlElement(name = "nativeProvince")
     private String nativeProvince;
 
     //籍贯市
+    @FormParam("nativeCity")
     @XmlElement(name = "nativeCity")
     private String nativeCity;
 
     //户口所在省
+    @FormParam("hukouProvince")
     @XmlElement(name = "hukouProvince")
     private String hukouProvince;
 
     //户口所在市
+    @FormParam("hukouCity")
     @XmlElement(name = "hukouCity")
     private String hukouCity;
 
     //现居住地址
+    @FormParam("currentAddress")
     @XmlElement(name = "currentAddress")
     private String currentAddress;
 
     //现居住地址电话
+    @FormParam("currentPhone")
     @XmlElement(name = "currentPhone")
     private String currentPhone;
 

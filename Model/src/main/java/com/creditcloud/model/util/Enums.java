@@ -45,7 +45,7 @@ public class Enums {
         Map cache = enumCache.get(enumType);
         if (cache == null) {
             EnumSet set = EnumSet.allOf(enumType);
-            HashMap newEnum = new HashMap<String, Enum>();
+            HashMap<String, Enum> newEnum = new HashMap();
             for (Object object : set) {
                 T t = (T) object;
                 newEnum.put(t.getKey(), t);
