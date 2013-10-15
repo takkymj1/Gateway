@@ -9,23 +9,17 @@ import com.creditcloud.model.enums.user.fund.FundRecordType;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 资金历史记录
  *
  * @author rooseek
  */
+@XmlRootElement
 public class FundRecord extends BaseObject {
 
-    private static long serialVersionUID = 20130918L;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static void setSerialVersionUID(long aSerialVersionUID) {
-        serialVersionUID = aSerialVersionUID;
-    }
+    private static final long serialVersionUID = 20130918L;
 
     @NotNull
     private String id;

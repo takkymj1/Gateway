@@ -23,6 +23,7 @@ import javax.json.JsonObject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -36,7 +37,8 @@ public class User extends BaseObject {
 
     @NotNull
     @UUID
-    protected String Id;
+    @XmlElement(name="Id")
+    protected String id;
 
     @ClientCode
     protected String clientCode;
@@ -102,7 +104,7 @@ public class User extends BaseObject {
         this(Id, clientCode, name, loginName, idNumber, mobile, email, source, null, null, null);
     }
 
-    public User(String Id,
+    public User(String id,
                 String clientCode,
                 String name,
                 String loginName,
@@ -113,7 +115,7 @@ public class User extends BaseObject {
                 String employeeId,
                 Date lastLoginDate,
                 Date registerDate) {
-        this.Id = Id;
+        this.id = id;
         this.clientCode = clientCode;
         this.name = name;
         this.loginName = loginName;
@@ -127,11 +129,11 @@ public class User extends BaseObject {
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

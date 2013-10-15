@@ -19,7 +19,7 @@ public class EmployeeLoginRecord extends BaseObject {
     private static final long serialVersionUID = 20130925L;
 
     @NotNull
-    private String Id;
+    private String id;
 
     @NotNull
     private String employeeId;
@@ -30,22 +30,22 @@ public class EmployeeLoginRecord extends BaseObject {
     public EmployeeLoginRecord() {
     }
 
-    public EmployeeLoginRecord(String Id, String employeeId, LoginRecord record) {
-        this.Id = Id;
+    public EmployeeLoginRecord(String id, String employeeId, LoginRecord record) {
+        this.id = id;
         this.employeeId = employeeId;
         this.record = record;
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public String getEmployeeId() {
         return employeeId;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setEmployeeId(String employeeId) {

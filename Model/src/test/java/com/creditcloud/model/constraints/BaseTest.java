@@ -16,15 +16,15 @@ import org.apache.log4j.Logger;
  * @author sobranie
  */
 public abstract class BaseTest<T> {
-    
+
     static {
         BasicConfigurator.configure();
         Logger.getRootLogger().setLevel(Level.INFO);
     }
 
-    protected static Validator validator;
-    
+    static Validator validator;
+
     protected Set<ConstraintViolation<T>> constraintViolations;
-    
+
     protected T object;
 }

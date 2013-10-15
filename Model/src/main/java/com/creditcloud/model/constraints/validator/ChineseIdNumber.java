@@ -9,9 +9,7 @@ import com.creditcloud.model.constant.IdNumberConstant;
 import com.creditcloud.model.util.Regions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -28,6 +26,8 @@ import org.apache.commons.lang3.StringUtils;
  * @author rooseek
  */
 public class ChineseIdNumber extends BaseObject {
+
+    private static final long serialVersionUID = 20131015L;
 
     private final static Map<String, String> code2Province = new HashMap();
 
@@ -51,6 +51,7 @@ public class ChineseIdNumber extends BaseObject {
             }
         }
     }
+
     private final String idNumber;
 
     private final String province;
@@ -68,8 +69,6 @@ public class ChineseIdNumber extends BaseObject {
     private final boolean male;
 
     private static final ChineseIdNumberValidator validator = new ChineseIdNumberValidator();
-
-    private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
     private ChineseIdNumber(String idNumber, String province, String city, String county, int year, int month, int day, boolean male) {
         this.idNumber = idNumber;
@@ -102,11 +101,12 @@ public class ChineseIdNumber extends BaseObject {
                 } else if (idNumber.length() == 15) {
                     male = Integer.parseInt(idNumber.substring(14, 15)) % 2 == 0 ? false : true;
                     birthDate = new SimpleDateFormat("yyMMdd").parse(idNumber.substring(6, 12));
+                } else {
+                    throw new IllegalArgumentException(String.format("Invalid idNumber %s", idNumber));
                 }
-                calendar.setTime(birthDate);
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH) + 1;
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                int year = Integer.valueOf(idNumber.substring(6,10));
+                int month = Integer.valueOf(idNumber.substring(10,12));
+                int day = Integer.valueOf(idNumber.substring(12,14));
                 return new ChineseIdNumber(idNumber,
                                            province,
                                            city,
@@ -128,9 +128,10 @@ public class ChineseIdNumber extends BaseObject {
      * @param idNumber
      * @return
      */
+    @SuppressWarnings("checked")
     public static boolean isMale(String idNumber) {
         if (!isValid(idNumber)) {
-            throw new IllegalArgumentException(String.format("invalid idNumber {}", idNumber));
+            throw new IllegalArgumentException(String.format("invalid idNumber %s", idNumber));
         }
         String male = StringUtils.substring(idNumber, 16, 17);
         int maleInt = Integer.valueOf(male);
@@ -145,7 +146,7 @@ public class ChineseIdNumber extends BaseObject {
      */
     public static Date getDateOfBirth(String idNumber) {
         if (!isValid(idNumber)) {
-            throw new IllegalArgumentException(String.format("invalid idNumber {}", idNumber));
+            throw new IllegalArgumentException(String.format("invalid idNumber %s", idNumber));
         }
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");

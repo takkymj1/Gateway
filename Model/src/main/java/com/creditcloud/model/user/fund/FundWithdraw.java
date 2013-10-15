@@ -8,18 +8,22 @@ import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.enums.user.fund.WithdrawStatus;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author sobranie
  */
+@XmlRootElement
 public class FundWithdraw extends FundRecord {
-    
+
+    private static final long serialVersionUID = 20131015L;
+
     private BankAccount bankAccount;
-    
+
     private WithdrawStatus status;
-    
-    public FundWithdraw(){
+
+    public FundWithdraw() {
     }
 
     public FundWithdraw(String id,

@@ -14,6 +14,8 @@ import java.util.List;
  */
 public final class SortInfo extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     private final List<SortItem> sortItems;
 
     public SortInfo() {
@@ -57,26 +59,5 @@ public final class SortInfo extends BaseObject {
 
     private void add(String fieldName, boolean descending) {
         sortItems.add(new SortItem(fieldName, descending));
-    }
-
-    public class SortItem extends BaseObject{
-
-        private final String fieldName;
-
-        private final boolean descending;
-
-        private SortItem(final String fieldName,
-                         final boolean descending) {
-            this.fieldName = fieldName;
-            this.descending = descending;
-        }
-
-        public String getFieldName() {
-            return fieldName;
-        }
-
-        public boolean isDescending() {
-            return descending;
-        }
     }
 }

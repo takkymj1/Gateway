@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.constraints.incrementalinteger;
+package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.constraints.BaseTest;
+import com.creditcloud.model.mock.MockInteger;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;

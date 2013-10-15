@@ -7,6 +7,7 @@ package com.creditcloud.common.entities.embedded;
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.persistence.Embeddable;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  *
@@ -78,5 +79,31 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
             return days > o.days ? 1 : -1;
         }
         return 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(years).append(months).append(days).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Duration other = (Duration) obj;
+        if (this.years != other.years) {
+            return false;
+        }
+        if (this.months != other.months) {
+            return false;
+        }
+        if (this.days != other.days) {
+            return false;
+        }
+        return true;
     }
 }

@@ -13,6 +13,7 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -64,7 +65,8 @@ public class Loan extends BaseObject implements Investable {
                         increment = 1,
                         max = LoanConstant.MAX_LOAN_TIME_OUT,
                         groups = Default.class)
-    private int timeout;
+    @XmlElement(name="timeout")
+    private int timeOut;
 
     @NotNull
     private LoanRequest loanRequest;
@@ -102,7 +104,7 @@ public class Loan extends BaseObject implements Investable {
                 int amount,
                 int rate,
                 Duration duration,
-                int timeout,
+                int timeOut,
                 LoanStatus status,
                 LoanRequest loanRequest,
                 Date timeOpen,
@@ -116,7 +118,7 @@ public class Loan extends BaseObject implements Investable {
         this.amount = amount;
         this.rate = rate;
         this.duration = duration;
-        this.timeout = timeout;
+        this.timeOut = timeOut;
         this.status = status;
         this.loanRequest = loanRequest;
         this.timeOpen = timeOpen;
@@ -138,8 +140,8 @@ public class Loan extends BaseObject implements Investable {
         return amount;
     }
 
-    public int getTimeout() {
-        return timeout;
+    public int getTimeOut() {
+        return timeOut;
     }
 
     public LoanStatus getStatus() {
@@ -221,8 +223,8 @@ public class Loan extends BaseObject implements Investable {
         this.duration = duration;
     }
 
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
+    public void setTimeOut(int timeOut) {
+        this.timeOut = timeOut;
     }
 
     public void setLoanRequest(LoanRequest loanRequest) {

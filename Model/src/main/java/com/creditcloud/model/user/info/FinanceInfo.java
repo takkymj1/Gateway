@@ -5,9 +5,6 @@
 package com.creditcloud.model.user.info;
 
 import com.creditcloud.model.BaseObject;
-import java.io.StringReader;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

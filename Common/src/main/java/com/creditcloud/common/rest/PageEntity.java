@@ -13,14 +13,17 @@ import javax.ws.rs.core.UriInfo;
  */
 public final class PageEntity implements Serializable {
 
+    private static final long serialVersionUID = 20131015L;
+
     private final UriInfo uriInfo;
+
     private final Object entity;
-    
-    public PageEntity (final UriInfo uriInfo) {
+
+    public PageEntity(final UriInfo uriInfo) {
         this(uriInfo, null);
     }
-    
-    public PageEntity (final UriInfo uriInfo, final Object entity) {
+
+    public PageEntity(final UriInfo uriInfo, final Object entity) {
         this.uriInfo = uriInfo;
         this.entity = entity;
     }

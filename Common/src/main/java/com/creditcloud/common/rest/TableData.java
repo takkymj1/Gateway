@@ -28,6 +28,8 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 })
 public class TableData<T> extends BaseObject {
 
+    private static final long serialVersionUID = 20131015L;
+
     @XmlElement(name = "sEcho")
     private int sEcho;
 

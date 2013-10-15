@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.constraints.incrementalinteger;
+package com.creditcloud.model.mock;
 
 import com.creditcloud.model.constraints.IncrementalInteger;
 

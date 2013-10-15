@@ -21,19 +21,20 @@ public class Regions {
     private static final Map<String, String> _regionMap = new HashMap<>(30000);
 
     private static final Map<String, List<Regions.Entry>> _regionList = new HashMap<>(30000);
-    
+
     private static final String filename = "region.txt";
 
     static {
         InputStream is = Regions.class.getClassLoader().getResourceAsStream(filename);
-        
+
         try (Scanner sc = new Scanner(is, "UTF-8")) {
             while (sc.hasNext()) {
                 String tempString = sc.nextLine();
-                if(! "".equals(tempString.trim()))
+                if (!"".equals(tempString.trim())) {
                     _regions.add(tempString.split("\t"));
+                }
             }
-        } 
+        }
 
         Iterator ite = _regions.iterator();
         while (ite.hasNext()) {
@@ -78,6 +79,8 @@ public class Regions {
 
     public static class Entry extends BaseObject {
 
+        private static final long serialVersionUID = 20131015L;
+
         private String _code;
 
         private String _region;
@@ -88,7 +91,8 @@ public class Regions {
         }
 
         public String getCode() {
-            return _code;        }
+            return _code;
+        }
 
         public String getRegion() {
             return _region;
@@ -102,8 +106,8 @@ public class Regions {
     public static List<Regions.Entry> getRegionList(String id) {
         return _regionList.get(id);
     }
-    
-    public static boolean isValidRegion(String regionId){
+
+    public static boolean isValidRegion(String regionId) {
         return _regionMap.containsKey(regionId);
     }
 }

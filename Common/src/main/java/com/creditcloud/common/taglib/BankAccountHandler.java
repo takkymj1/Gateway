@@ -26,6 +26,10 @@ public class BankAccountHandler extends SimpleTagSupport {
 
     @Override
     public void doTag() throws JspException, IOException {
+        if (account == null) {
+            logger.warn("Invalid account is null.");
+            return;
+        }
         JspWriter writer = getJspContext().getOut();
         if (account.length() == 16 || account.length() == 19) {
             writer.write(account, 0, 4);

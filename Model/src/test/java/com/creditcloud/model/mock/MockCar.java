@@ -11,7 +11,10 @@ import com.creditcloud.model.constraints.PlateNumber;
  *
  * @author rooseek
  */
-public class MockCar extends BaseObject{
+public class MockCar extends BaseObject {
+
+    private static final long serialVersionUID = 20131015L;
+
     @PlateNumber
     private String plateNumber;
 
@@ -29,6 +32,4 @@ public class MockCar extends BaseObject{
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
     }
-    
-    
 }

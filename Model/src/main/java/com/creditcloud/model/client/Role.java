@@ -20,17 +20,19 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class Role extends BaseObject {
-    
+
+    private static final long serialVersionUID = 20131015L;
+
     /**
      * UUID
      */
     @FormParam("id")
     private String id;
-    
+
     @FormParam("name")
     @NotNull
     private String name;
-    
+
     /**
      * 员工角色说明
      */
@@ -46,10 +48,10 @@ public class Role extends BaseObject {
      * 该角色所拥有的权限集合
      */
     private Collection<Privilege> privileges;
-    
+
     public Role() {
     }
-    
+
     public Role(String name,
                 Collection<Employee> members,
                 Collection<Privilege> privileges) {

@@ -11,7 +11,9 @@ import com.creditcloud.model.BaseObject;
  * @author sobranie
  */
 public class PageInfo extends BaseObject {
-    
+
+    private static final long serialVersionUID = 20131015L;
+
     /**
      * 获取全部内容
      */
@@ -21,7 +23,6 @@ public class PageInfo extends BaseObject {
      * offset x means start from number (x + 1)
      */
     private final int offset;
-
 
     /**
      * page size
@@ -41,5 +42,4 @@ public class PageInfo extends BaseObject {
     public int getSize() {
         return size;
     }
-
 }
