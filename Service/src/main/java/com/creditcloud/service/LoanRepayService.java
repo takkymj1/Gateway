@@ -7,6 +7,7 @@ package com.creditcloud.service;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
@@ -56,6 +57,32 @@ public interface LoanRepayService {
                                             LocalDate to,
                                             PageInfo pageInfo,
                                             RepaymentStatus... status);
+
+    /**
+     * 统计一定时间段内到期的loan repayment总和
+     *
+     * @param clientCode
+     * @param from
+     * @param to
+     * @param status
+     * @return
+     */
+    RepayAmount sumDueRepay(String clientCode,
+                            LocalDate from,
+                            LocalDate to,
+                            RepaymentStatus... status);
+
+    /**
+     * 统计到某时间为止逾期或违约的loan repayment总和
+     *
+     * @param clientCode
+     * @param today
+     * @param status
+     * @return
+     */
+    RepayAmount sumOverdueRepay(String clientCode,
+                                LocalDate today,
+                                RepaymentStatus... status);
 
     /**
      * list loan repayment by loanId
