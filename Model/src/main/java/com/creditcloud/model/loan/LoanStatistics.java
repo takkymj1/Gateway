@@ -5,7 +5,6 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -61,12 +60,12 @@ public class LoanStatistics extends BaseObject {
     /**
      * 待还款总金额
      */
-    private BigDecimal dueLoanAmount;
+    private RepayAmount dueLoanAmount;
 
     /**
      * 逾期金额
      */
-    private BigDecimal overdueLoanAmount;
+    private RepayAmount overdueLoanAmount;
 
     public LoanStatistics() {
     }
@@ -78,8 +77,8 @@ public class LoanStatistics extends BaseObject {
                           int overdueLoans, 
                           int breachLoans, 
                           long totalLoanAmount, 
-                          BigDecimal dueLoanAmount, 
-                          BigDecimal overdueLoanAmount) {
+                          RepayAmount dueLoanAmount, 
+                          RepayAmount overdueLoanAmount) {
         this.userId = userId;
         this.publishedLoans = publishedLoans;
         this.successfulLoans = successfulLoans;
@@ -119,11 +118,11 @@ public class LoanStatistics extends BaseObject {
         return totalLoanAmount;
     }
 
-    public BigDecimal getDueLoanAmount() {
+    public RepayAmount getDueLoanAmount() {
         return dueLoanAmount;
     }
 
-    public BigDecimal getOverdueLoanAmount() {
+    public RepayAmount getOverdueLoanAmount() {
         return overdueLoanAmount;
     }
 
@@ -155,11 +154,11 @@ public class LoanStatistics extends BaseObject {
         this.totalLoanAmount = totalLoanAmount;
     }
 
-    public void setDueLoanAmount(BigDecimal dueLoanAmount) {
+    public void setDueLoanAmount(RepayAmount dueLoanAmount) {
         this.dueLoanAmount = dueLoanAmount;
     }
 
-    public void setOverdueLoanAmount(BigDecimal overdueLoanAmount) {
+    public void setOverdueLoanAmount(RepayAmount overdueLoanAmount) {
         this.overdueLoanAmount = overdueLoanAmount;
     }
 
