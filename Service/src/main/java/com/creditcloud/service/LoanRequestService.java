@@ -65,7 +65,6 @@ public interface LoanRequestService {
                                                         String userId, 
                                                         PageInfo pageInfo, 
                                                         LoanRequestStatus... status);
-
     /**
      * list loan request by employee id
      *

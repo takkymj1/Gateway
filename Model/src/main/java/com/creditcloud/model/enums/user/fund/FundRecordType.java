@@ -22,7 +22,8 @@ public enum FundRecordType implements BaseEnum {
     LOAN_SETTLED("借款成功，资金已结算"),
     LOAN_REPAY("还款"),
     FROZEN("冻结资金"),
-    RELEASE("解冻资金");
+    RELEASE("解冻资金"),
+    DISBURSE("垫付,用于逾期或违约后垫付的状态");
 
     private final String key;
 
