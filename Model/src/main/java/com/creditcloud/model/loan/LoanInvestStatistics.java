@@ -27,7 +27,7 @@ public class LoanInvestStatistics extends BaseObject {
     private String userId;
 
     /**
-     * 对贷款的总投标数
+     * 总的投标数
      */
     private int biddedInvests;
 
@@ -42,19 +42,19 @@ public class LoanInvestStatistics extends BaseObject {
     private int clearedInvests;
 
     /**
-     * 逾期和投资数，包括违约
+     * 逾期投资数
      */
     private int overdueInvests;
 
     /**
-     * 总的结算过的投资额
+     * 违约投资数
      */
-    private long totalAmount;
+    private int breachInvests;
 
     /**
-     * 已还清贷款总金额
+     * 总的结算过的投资额，满标没有结算地不在统计之列
      */
-    private RepayAmount repayedAmount;
+    private long totalAmount;
 
     /**
      * 待还款总金额
@@ -74,8 +74,8 @@ public class LoanInvestStatistics extends BaseObject {
                                 int settledInvests,
                                 int clearedInvests,
                                 int overdueInvests,
+                                int breachInvests,
                                 long totalAmount,
-                                RepayAmount repayedAmount,
                                 RepayAmount dueAmount,
                                 RepayAmount overdueAmount) {
         this.userId = userId;
@@ -83,8 +83,8 @@ public class LoanInvestStatistics extends BaseObject {
         this.settledInvests = settledInvests;
         this.clearedInvests = clearedInvests;
         this.overdueInvests = overdueInvests;
+        this.breachInvests = breachInvests;
         this.totalAmount = totalAmount;
-        this.repayedAmount = repayedAmount;
         this.dueAmount = dueAmount;
         this.overdueAmount = overdueAmount;
     }
@@ -111,10 +111,6 @@ public class LoanInvestStatistics extends BaseObject {
 
     public long getTotalAmount() {
         return totalAmount;
-    }
-
-    public RepayAmount getRepayedAmount() {
-        return repayedAmount;
     }
 
     public RepayAmount getDueAmount() {
@@ -149,15 +145,19 @@ public class LoanInvestStatistics extends BaseObject {
         this.totalAmount = totalAmount;
     }
 
-    public void setRepayedAmount(RepayAmount repayedAmount) {
-        this.repayedAmount = repayedAmount;
-    }
-
     public void setDueAmount(RepayAmount dueAmount) {
         this.dueAmount = dueAmount;
     }
 
     public void setOverdueAmount(RepayAmount overdueAmount) {
         this.overdueAmount = overdueAmount;
+    }
+
+    public void setBreachInvests(int breachInvests) {
+        this.breachInvests = breachInvests;
+    }
+
+    public int getBreachInvests() {
+        return breachInvests;
     }
 }
