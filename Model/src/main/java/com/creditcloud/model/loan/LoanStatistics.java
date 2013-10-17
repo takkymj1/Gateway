@@ -11,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * 借款人的借款统计信息
  *
  * @author rooseek
+ *
+ * @see LoanInvestStatistics
  */
 @XmlRootElement
 public class LoanStatistics extends BaseObject {
@@ -52,7 +54,7 @@ public class LoanStatistics extends BaseObject {
     private int breachLoans;
 
     /**
-     * 总共的借入金额
+     * 总共的借入金额,只统计已经被结算的，满标但没有结算地不统计在内
      */
     private long totalAmount;
 
@@ -159,5 +161,9 @@ public class LoanStatistics extends BaseObject {
 
     public void setOverdueAmount(RepayAmount overdueAmount) {
         this.overdueAmount = overdueAmount;
+    }
+
+    public int getSuccessfulLoans() {
+        return settledLoans + clearedLoans;
     }
 }
