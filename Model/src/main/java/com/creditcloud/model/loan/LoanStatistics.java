@@ -56,17 +56,17 @@ public class LoanStatistics extends BaseObject {
     /**
      * 总共的借入金额,只统计已经被结算的，满标但没有结算地不统计在内
      */
-    private long totalAmount;
+    private long totalLoanAmount;
 
     /**
      * 待还款总金额
      */
-    private RepayAmount dueAmount;
+    private RepayAmount dueLoanAmount;
 
     /**
      * 逾期金额包括违约
      */
-    private RepayAmount overdueAmount;
+    private RepayAmount overdueLoanAmount;
 
     public LoanStatistics() {
     }
@@ -77,18 +77,18 @@ public class LoanStatistics extends BaseObject {
                           int clearedLoans,
                           int overdueLoans,
                           int breachLoans,
-                          long totalAmount,
-                          RepayAmount dueAmount,
-                          RepayAmount overdueAmount) {
+                          long totalLoanAmount,
+                          RepayAmount dueLoanAmount,
+                          RepayAmount overdueLoanAmount) {
         this.userId = userId;
         this.publishedLoans = publishedLoans;
         this.settledLoans = settledLoans;
         this.clearedLoans = clearedLoans;
         this.overdueLoans = overdueLoans;
         this.breachLoans = breachLoans;
-        this.totalAmount = totalAmount;
-        this.dueAmount = dueAmount;
-        this.overdueAmount = overdueAmount;
+        this.totalLoanAmount = totalLoanAmount;
+        this.dueLoanAmount = dueLoanAmount;
+        this.overdueLoanAmount = overdueLoanAmount;
     }
 
     public String getUserId() {
@@ -139,28 +139,28 @@ public class LoanStatistics extends BaseObject {
         this.settledLoans = settledLoans;
     }
 
-    public long getTotalAmount() {
-        return totalAmount;
+    public long getTotalLoanAmount() {
+        return totalLoanAmount;
     }
 
-    public RepayAmount getDueAmount() {
-        return dueAmount;
+    public RepayAmount getDueLoanAmount() {
+        return dueLoanAmount;
     }
 
-    public RepayAmount getOverdueAmount() {
-        return overdueAmount;
+    public RepayAmount getOverdueLoanAmount() {
+        return overdueLoanAmount;
     }
 
-    public void setTotalAmount(long totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setTotalLoanAmount(long totalLoanAmount) {
+        this.totalLoanAmount = totalLoanAmount;
     }
 
-    public void setDueAmount(RepayAmount dueAmount) {
-        this.dueAmount = dueAmount;
+    public void setDueLoanAmount(RepayAmount dueLoanAmount) {
+        this.dueLoanAmount = dueLoanAmount;
     }
 
-    public void setOverdueAmount(RepayAmount overdueAmount) {
-        this.overdueAmount = overdueAmount;
+    public void setOverdueLoanAmount(RepayAmount overdueLoanAmount) {
+        this.overdueLoanAmount = overdueLoanAmount;
     }
 
     public int getSuccessfulLoans() {
