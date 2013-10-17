@@ -12,12 +12,12 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum CreditRank implements BaseEnum {
 
-    HR("99-0 "),
-    E("109-100 "),
+    HR("99-0"),
+    E("109-100"),
     D("119-110"),
-    C("129-120 "),
-    B("144-130 "),
-    A("159-145 "),
+    C("129-120"),
+    B("144-130"),
+    A("159-145"),
     AA("160及以上");
 
     private final String key;
