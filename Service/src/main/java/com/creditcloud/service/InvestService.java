@@ -95,4 +95,20 @@ public interface InvestService extends InvestRepayService {
      * @return
      */
     LoanInvestStatistics getLoanInvestStatistics(String clientCode, String userId);
+
+    /**
+     * 获取opened状态的贷款的投标数
+     *
+     * @param clientCode
+     * @return
+     */
+    Map<String, Integer> getOpenLoanBidNumber(String clientCode);
+
+    /**
+     * 获取opened状态的贷款的可投标余额
+     *
+     * @param clientCode
+     * @return
+     */
+    Map<String, Integer> getOpenLoanBalance(String clientCode);
 }
