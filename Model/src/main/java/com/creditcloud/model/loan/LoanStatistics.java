@@ -26,16 +26,15 @@ public class LoanStatistics extends BaseObject {
 //     * 批准的贷款申请数
 //     */
 //    private int approvedRequests;
-
     /**
      * 发布的贷款数
      */
     private int publishedLoans;
 
     /**
-     * 成功的贷款数
+     * 成功且已结算的贷款数
      */
-    private int successfulLoans;
+    private int settledLoans;
 
     /**
      * 还清的贷款数
@@ -46,7 +45,7 @@ public class LoanStatistics extends BaseObject {
      * 逾期的贷款数，只要某次还款逾期，那么对应的贷款就设定为逾期
      */
     private int overdueLoans;
-    
+
     /*
      * 违约的贷款，即逾期贷款一定时间后仍然没有还款
      */
@@ -55,39 +54,39 @@ public class LoanStatistics extends BaseObject {
     /**
      * 总共的借入金额
      */
-    private long totalLoanAmount;
+    private long totalAmount;
 
     /**
      * 待还款总金额
      */
-    private RepayAmount dueLoanAmount;
+    private RepayAmount dueAmount;
 
     /**
-     * 逾期金额
+     * 逾期金额包括违约
      */
-    private RepayAmount overdueLoanAmount;
+    private RepayAmount overdueAmount;
 
     public LoanStatistics() {
     }
 
     public LoanStatistics(String userId,
-                          int publishedLoans, 
-                          int successfulLoans, 
-                          int clearedLoans, 
-                          int overdueLoans, 
-                          int breachLoans, 
-                          long totalLoanAmount, 
-                          RepayAmount dueLoanAmount, 
-                          RepayAmount overdueLoanAmount) {
+                          int publishedLoans,
+                          int settledLoans,
+                          int clearedLoans,
+                          int overdueLoans,
+                          int breachLoans,
+                          long totalAmount,
+                          RepayAmount dueAmount,
+                          RepayAmount overdueAmount) {
         this.userId = userId;
         this.publishedLoans = publishedLoans;
-        this.successfulLoans = successfulLoans;
+        this.settledLoans = settledLoans;
         this.clearedLoans = clearedLoans;
         this.overdueLoans = overdueLoans;
         this.breachLoans = breachLoans;
-        this.totalLoanAmount = totalLoanAmount;
-        this.dueLoanAmount = dueLoanAmount;
-        this.overdueLoanAmount = overdueLoanAmount;
+        this.totalAmount = totalAmount;
+        this.dueAmount = dueAmount;
+        this.overdueAmount = overdueAmount;
     }
 
     public String getUserId() {
@@ -96,10 +95,6 @@ public class LoanStatistics extends BaseObject {
 
     public int getPublishedLoans() {
         return publishedLoans;
-    }
-
-    public int getSuccessfulLoans() {
-        return successfulLoans;
     }
 
     public int getClearedLoans() {
@@ -114,28 +109,12 @@ public class LoanStatistics extends BaseObject {
         return breachLoans;
     }
 
-    public long getTotalLoanAmount() {
-        return totalLoanAmount;
-    }
-
-    public RepayAmount getDueLoanAmount() {
-        return dueLoanAmount;
-    }
-
-    public RepayAmount getOverdueLoanAmount() {
-        return overdueLoanAmount;
-    }
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
     public void setPublishedLoans(int publishedLoans) {
         this.publishedLoans = publishedLoans;
-    }
-
-    public void setSuccessfulLoans(int successfulLoans) {
-        this.successfulLoans = successfulLoans;
     }
 
     public void setClearedLoans(int clearedLoans) {
@@ -150,16 +129,35 @@ public class LoanStatistics extends BaseObject {
         this.breachLoans = breachLoans;
     }
 
-    public void setTotalLoanAmount(long totalLoanAmount) {
-        this.totalLoanAmount = totalLoanAmount;
+    public int getSettledLoans() {
+        return settledLoans;
     }
 
-    public void setDueLoanAmount(RepayAmount dueLoanAmount) {
-        this.dueLoanAmount = dueLoanAmount;
+    public void setSettledLoans(int settledLoans) {
+        this.settledLoans = settledLoans;
     }
 
-    public void setOverdueLoanAmount(RepayAmount overdueLoanAmount) {
-        this.overdueLoanAmount = overdueLoanAmount;
+    public long getTotalAmount() {
+        return totalAmount;
     }
 
+    public RepayAmount getDueAmount() {
+        return dueAmount;
+    }
+
+    public RepayAmount getOverdueAmount() {
+        return overdueAmount;
+    }
+
+    public void setTotalAmount(long totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public void setDueAmount(RepayAmount dueAmount) {
+        this.dueAmount = dueAmount;
+    }
+
+    public void setOverdueAmount(RepayAmount overdueAmount) {
+        this.overdueAmount = overdueAmount;
+    }
 }

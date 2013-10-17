@@ -52,12 +52,12 @@ public class PlateNumberValidator implements ConstraintValidator<PlateNumber, St
                                                         "宁",
                                                         "新",};
 
-    private static final Set<String> prefixSet = new HashSet(Arrays.asList(prefix));
+    private static final Set<String> prefixSet = new HashSet<String>(Arrays.asList(prefix));
 
     /**
      * 京V的车牌排除出去
      */
-    private static final Set<String> excludedPrefix = new HashSet(Arrays.asList("京V"));
+    private static final Set<String> excludedPrefix = new HashSet<String>(Arrays.asList("京V"));
 
     private static final Pattern suffixPattern = Pattern.compile("[A-Z]{1}[A-Z0-9]{4}");
 

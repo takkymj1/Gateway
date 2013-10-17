@@ -117,12 +117,8 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         if (idNumber == null) {
             return false;
         }
-
-        if (idNumber.length() == 15) {
-            return false;
-            //15 idNumbers is disabled 
-            //return isValid15(idNumber);
-        } else if (idNumber.length() == 18) {
+        
+        if (idNumber.length() == 18) {
             return isValid18(idNumber);
         }
 
