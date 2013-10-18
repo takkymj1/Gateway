@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.joda.time.LocalDate;
 
 /**
+ * 还款详情
  *
  * @author rooseek
  */
@@ -80,13 +81,13 @@ public class Repayment extends BaseObject {
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
-    
+
     /**
      * 当期的应还款总额.
-     * 
+     *
      * amountPrincipal + amountInterest
-     * 
-     * @return 
+     *
+     * @return
      */
     public BigDecimal getAmount() {
         return amountInterest.add(amountPrincipal);

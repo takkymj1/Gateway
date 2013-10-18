@@ -89,35 +89,21 @@ public class ChineseIdNumber extends BaseObject {
      */
     public static ChineseIdNumber create(String idNumber) {
         if (validator.isValid(idNumber)) {
-            try {
-                String province = getProvince(idNumber.substring(0, 2));
-                String city = getCity(idNumber.substring(0, 4));
-                String county = getCounty(idNumber.substring(0, 6));
-                Date birthDate = null;
-                boolean male = false;
-                if (idNumber.length() == 18) {
-                    male = Integer.parseInt(idNumber.substring(16, 17)) % 2 == 0 ? false : true;
-                    birthDate = new SimpleDateFormat("yyyyMMdd").parse(idNumber.substring(6, 14));
-                } else if (idNumber.length() == 15) {
-                    male = Integer.parseInt(idNumber.substring(14, 15)) % 2 == 0 ? false : true;
-                    birthDate = new SimpleDateFormat("yyMMdd").parse(idNumber.substring(6, 12));
-                } else {
-                    throw new IllegalArgumentException(String.format("Invalid idNumber %s", idNumber));
-                }
-                int year = Integer.valueOf(idNumber.substring(6,10));
-                int month = Integer.valueOf(idNumber.substring(10,12));
-                int day = Integer.valueOf(idNumber.substring(12,14));
-                return new ChineseIdNumber(idNumber,
-                                           province,
-                                           city,
-                                           county,
-                                           year,
-                                           month,
-                                           day,
-                                           male);
-            } catch (ParseException ex) {
-                Logger.getLogger(ChineseIdNumber.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            String province = getProvince(idNumber.substring(0, 2));
+            String city = getCity(idNumber.substring(0, 4));
+            String county = getCounty(idNumber.substring(0, 6));
+            boolean male = Integer.parseInt(idNumber.substring(16, 17)) % 2 == 0 ? false : true;
+            int year = Integer.valueOf(idNumber.substring(6, 10));
+            int month = Integer.valueOf(idNumber.substring(10, 12));
+            int day = Integer.valueOf(idNumber.substring(12, 14));
+            return new ChineseIdNumber(idNumber,
+                                       province,
+                                       city,
+                                       county,
+                                       year,
+                                       month,
+                                       day,
+                                       male);
         }
         return null;
     }
@@ -135,7 +121,7 @@ public class ChineseIdNumber extends BaseObject {
         }
         String male = StringUtils.substring(idNumber, 16, 17);
         int maleInt = Integer.valueOf(male);
-        return maleInt % 2 == 1;
+        return maleInt % 2 != 0;
     }
 
     /**

@@ -8,6 +8,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.PagedResult;
@@ -85,4 +86,29 @@ public interface InvestService extends InvestRepayService {
      * @return left balance of a loan
      */
     int getLoanBalance(String clientCode, String loanId);
+
+    /**
+     * 统计用户对贷款的投资信息
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    LoanInvestStatistics getLoanInvestStatistics(String clientCode, String userId);
+
+    /**
+     * 获取opened状态的贷款的投标数
+     *
+     * @param clientCode
+     * @return
+     */
+    Map<String, Integer> getOpenLoanBidNumber(String clientCode);
+
+    /**
+     * 获取opened状态的贷款的可投标余额
+     *
+     * @param clientCode
+     * @return
+     */
+    Map<String, Integer> getOpenLoanBalance(String clientCode);
 }

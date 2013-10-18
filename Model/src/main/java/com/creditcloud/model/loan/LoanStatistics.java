@@ -5,13 +5,14 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 借款人的借款统计信息
  *
  * @author rooseek
+ *
+ * @see LoanInvestStatistics
  */
 @XmlRootElement
 public class LoanStatistics extends BaseObject {
@@ -27,16 +28,15 @@ public class LoanStatistics extends BaseObject {
 //     * 批准的贷款申请数
 //     */
 //    private int approvedRequests;
-
     /**
      * 发布的贷款数
      */
     private int publishedLoans;
 
     /**
-     * 成功的贷款数
+     * 成功且已结算的贷款数
      */
-    private int successfulLoans;
+    private int settledLoans;
 
     /**
      * 还清的贷款数
@@ -47,42 +47,42 @@ public class LoanStatistics extends BaseObject {
      * 逾期的贷款数，只要某次还款逾期，那么对应的贷款就设定为逾期
      */
     private int overdueLoans;
-    
+
     /*
      * 违约的贷款，即逾期贷款一定时间后仍然没有还款
      */
     private int breachLoans;
 
     /**
-     * 总共的借入金额
+     * 总共的借入金额,只统计已经被结算的，满标但没有结算地不统计在内
      */
     private long totalLoanAmount;
 
     /**
      * 待还款总金额
      */
-    private BigDecimal dueLoanAmount;
+    private RepayAmount dueLoanAmount;
 
     /**
-     * 逾期金额
+     * 逾期金额包括违约
      */
-    private BigDecimal overdueLoanAmount;
+    private RepayAmount overdueLoanAmount;
 
     public LoanStatistics() {
     }
 
     public LoanStatistics(String userId,
-                          int publishedLoans, 
-                          int successfulLoans, 
-                          int clearedLoans, 
-                          int overdueLoans, 
-                          int breachLoans, 
-                          long totalLoanAmount, 
-                          BigDecimal dueLoanAmount, 
-                          BigDecimal overdueLoanAmount) {
+                          int publishedLoans,
+                          int settledLoans,
+                          int clearedLoans,
+                          int overdueLoans,
+                          int breachLoans,
+                          long totalLoanAmount,
+                          RepayAmount dueLoanAmount,
+                          RepayAmount overdueLoanAmount) {
         this.userId = userId;
         this.publishedLoans = publishedLoans;
-        this.successfulLoans = successfulLoans;
+        this.settledLoans = settledLoans;
         this.clearedLoans = clearedLoans;
         this.overdueLoans = overdueLoans;
         this.breachLoans = breachLoans;
@@ -99,10 +99,6 @@ public class LoanStatistics extends BaseObject {
         return publishedLoans;
     }
 
-    public int getSuccessfulLoans() {
-        return successfulLoans;
-    }
-
     public int getClearedLoans() {
         return clearedLoans;
     }
@@ -115,28 +111,12 @@ public class LoanStatistics extends BaseObject {
         return breachLoans;
     }
 
-    public long getTotalLoanAmount() {
-        return totalLoanAmount;
-    }
-
-    public BigDecimal getDueLoanAmount() {
-        return dueLoanAmount;
-    }
-
-    public BigDecimal getOverdueLoanAmount() {
-        return overdueLoanAmount;
-    }
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
     public void setPublishedLoans(int publishedLoans) {
         this.publishedLoans = publishedLoans;
-    }
-
-    public void setSuccessfulLoans(int successfulLoans) {
-        this.successfulLoans = successfulLoans;
     }
 
     public void setClearedLoans(int clearedLoans) {
@@ -151,16 +131,39 @@ public class LoanStatistics extends BaseObject {
         this.breachLoans = breachLoans;
     }
 
+    public int getSettledLoans() {
+        return settledLoans;
+    }
+
+    public void setSettledLoans(int settledLoans) {
+        this.settledLoans = settledLoans;
+    }
+
+    public long getTotalLoanAmount() {
+        return totalLoanAmount;
+    }
+
+    public RepayAmount getDueLoanAmount() {
+        return dueLoanAmount;
+    }
+
+    public RepayAmount getOverdueLoanAmount() {
+        return overdueLoanAmount;
+    }
+
     public void setTotalLoanAmount(long totalLoanAmount) {
         this.totalLoanAmount = totalLoanAmount;
     }
 
-    public void setDueLoanAmount(BigDecimal dueLoanAmount) {
+    public void setDueLoanAmount(RepayAmount dueLoanAmount) {
         this.dueLoanAmount = dueLoanAmount;
     }
 
-    public void setOverdueLoanAmount(BigDecimal overdueLoanAmount) {
+    public void setOverdueLoanAmount(RepayAmount overdueLoanAmount) {
         this.overdueLoanAmount = overdueLoanAmount;
     }
 
+    public int getSuccessfulLoans() {
+        return settledLoans + clearedLoans;
+    }
 }
