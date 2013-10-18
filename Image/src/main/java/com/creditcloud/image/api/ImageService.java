@@ -28,10 +28,24 @@ public interface ImageService {
      * @return
      */
     Image upload(String clientCode,
+                 Realm realm,
+                 String entityId,
+                 String imageName,
+                 String imagePath);
+
+    /**
+     * 添加一个图片信息
+     *
+     * @param clientCode
+     * @param realm
+     * @param entityId
+     * @param imageName
+     * @return
+     */
+    boolean addNew(String clientCode,
                    Realm realm,
                    String entityId,
-                   String imageName,
-                   String imagePath);
+                   String imageName);
 
     /**
      * 返回不同大小的图片

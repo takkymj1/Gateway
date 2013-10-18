@@ -6,6 +6,7 @@ package com.creditcloud.common.image;
 
 import com.creditcloud.model.enums.ImageSize;
 import com.creditcloud.model.enums.Realm;
+import java.io.InputStream;
 
 /**
  * 只用来存取图片
@@ -24,6 +25,17 @@ public interface ImageStore {
      * @return
      */
     boolean store(String clientCode, Realm realm, String imageName, String imagePath);
+
+    /**
+     * store an image by stream
+     *
+     * @param clientCode
+     * @param realm
+     * @param imageName
+     * @param inputStream
+     * @return
+     */
+    boolean store(String clientCode, Realm realm, String imageName, InputStream inputStream);
 
     /**
      * get image uri
