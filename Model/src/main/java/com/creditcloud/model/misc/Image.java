@@ -19,7 +19,8 @@ public class Image extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     /**
-     * 图片名
+     * 图片名<p>
+     * <b>注意!是原图片名，而不是存储时重命名的图片名<b>
      */
     private  String imageName;
 
