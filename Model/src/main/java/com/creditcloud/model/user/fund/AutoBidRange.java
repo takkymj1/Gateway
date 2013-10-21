@@ -5,7 +5,7 @@
 package com.creditcloud.model.user.fund;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.user.info.CreditRank;
+import com.creditcloud.model.enums.user.credit.CreditRank;
 
 /**
  *
