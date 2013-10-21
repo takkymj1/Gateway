@@ -5,7 +5,7 @@
 package com.creditcloud.model.user.credit;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.user.info.CreditRank;
+import com.creditcloud.model.enums.user.credit.CreditRank;
 import javax.validation.constraints.NotNull;
 
 /**
