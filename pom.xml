@@ -25,7 +25,8 @@
         <module>Message</module>
         <module>SMS</module>
         <module>IDCard</module>
-        <module>User</module>
+		<module>User</module>
+		<module>Comment</module>
     </modules>
 </project>
 
