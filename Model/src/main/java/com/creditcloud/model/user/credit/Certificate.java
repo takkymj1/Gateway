@@ -38,6 +38,17 @@ public class Certificate extends BaseObject {
     @Valid
     private Assessment assessment;
 
+    /**
+     * 审核人
+     */
+    @NotNull
+    private String auditor;
+
+    /**
+     * 审核信息
+     */
+    private String auditInfo;
+
     @NotNull
     private Date timeCreated;
 
@@ -47,6 +58,8 @@ public class Certificate extends BaseObject {
                        String userId,
                        CertificateType type,
                        CertificateStatus status,
+                       String auditor,
+                       String auditInfo,
                        Assessment assessment,
                        Date timeCreated,
                        Date timeLastModified) {
@@ -54,6 +67,8 @@ public class Certificate extends BaseObject {
         this.userId = userId;
         this.type = type;
         this.status = status;
+        this.auditInfo = auditInfo;
+        this.auditor = auditor;
         this.assessment = assessment;
         this.timeCreated = timeCreated;
         this.timeLastModified = timeLastModified;
@@ -101,5 +116,21 @@ public class Certificate extends BaseObject {
 
     public void setTimeLastModified(Date timeLastModified) {
         this.timeLastModified = timeLastModified;
+    }
+
+    public String getAuditor() {
+        return auditor;
+    }
+
+    public String getAuditInfo() {
+        return auditInfo;
+    }
+
+    public void setAuditor(String auditor) {
+        this.auditor = auditor;
+    }
+
+    public void setAuditInfo(String auditInfo) {
+        this.auditInfo = auditInfo;
     }
 }
