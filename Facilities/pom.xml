@@ -128,10 +128,12 @@
                             <groupId>com.creditcloud.idcard</groupId>
                             <artifactId>IDCardService</artifactId>
                         </ejbModule>
+                        <!--
                         <ejbModule>
                             <groupId>com.creditcloud.comment</groupId>
                             <artifactId>CommentService</artifactId>
                         </ejbModule>
+                        -->
                     </modules>
                 </configuration>
             </plugin>
