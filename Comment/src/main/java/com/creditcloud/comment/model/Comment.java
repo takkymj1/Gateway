@@ -8,9 +8,6 @@ import com.creditcloud.comment.CommentStatus;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Realm;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -52,17 +49,16 @@ public class Comment extends BaseObject {
     private String sender;
 
     /**
-     * 评论对应实体的owner
+     * 评论对应实体的owner的域,必须是employee或user<p>
+     * 且receiver和sender是同一个域
      */
-    @Column(nullable = true)
-    private String receiver;
+    @NotNull
+    private Realm realm;
 
     /**
-     * 评论对应实体的owner的域,必须是employee/user
+     * 评论对应实体的owner，可以为空
      */
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
-    private Realm receiverRealm;
+    private String receiver;
 
     /**
      * 评论内容
@@ -75,16 +71,16 @@ public class Comment extends BaseObject {
      */
     @NotNull
     private CommentStatus status;
-    
+
     private Date timeRecorded;
 
     public Comment(String id,
-                   String parentId,
                    Realm entityRealm,
+                   String parentId,
                    String entityId,
+                   Realm realm,
                    String sender,
                    String receiver,
-                   Realm receiverRealm,
                    String content,
                    CommentStatus status,
                    Date timeRecorded) {
@@ -92,9 +88,9 @@ public class Comment extends BaseObject {
         this.entityRealm = entityRealm;
         this.parentId = parentId;
         this.entityId = entityId;
+        this.realm = realm;
         this.sender = sender;
         this.receiver = receiver;
-        this.receiverRealm = receiverRealm;
         this.content = content;
         this.status = status;
         this.timeRecorded = timeRecorded;
@@ -163,16 +159,16 @@ public class Comment extends BaseObject {
         return entityRealm;
     }
 
-    public Realm getReceiverRealm() {
-        return receiverRealm;
-    }
-
     public void setEntityRealm(Realm entityRealm) {
         this.entityRealm = entityRealm;
     }
 
-    public void setReceiverRealm(Realm receiverRealm) {
-        this.receiverRealm = receiverRealm;
+    public void setRealm(Realm realm) {
+        this.realm = realm;
+    }
+
+    public Realm getRealm() {
+        return realm;
     }
 
     public Date getTimeRecorded() {
