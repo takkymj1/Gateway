@@ -13,9 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum BranchType implements BaseEnum {
 
     HEADQUARTER("总部"),
-    DEPARTMENTOFFICE("部门办公室"),
-    BRANCHOFFICE("分公司"),
-    BUSINESSOFFICE("营业部"),
+    DEPARTMENT("部门办公室"),
+    BRANCH("分公司"),
+    BUSINESSUNIT("营业部"),
     FRANCHISEE("加盟商");
 
     private final String key;

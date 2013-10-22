@@ -30,7 +30,9 @@ public class Branch {
     private String clientCode;
 
     /**
-     * 上级分支机构ID. 可以等于client.id，表示总部
+     * 上级分支机构ID.
+     * 
+     * 可以等于client.id，表示总部
      */
     @NotNull
     private String parentId;
