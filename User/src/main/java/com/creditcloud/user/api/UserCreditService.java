@@ -141,5 +141,5 @@ public interface UserCreditService {
      * @param auditor
      * @param auditorInfo
      */
-    public boolean updateCertificate(String clientCode, Certificate certificate, String auditor, String auditorInfo);
+    public boolean updateCertificate(String clientCode, Certificate certificate);
 }
