@@ -39,7 +39,7 @@ public interface UserAssetService {
      * @param proof
      * @return
      */
-    public RealEstate addRealEstate(String clientCode, RealEstate estate, String addedBy, Source source, Proof... proof);
+    public RealEstate addRealEstate(String clientCode, RealEstate estate, Proof... proof);
 
     /**
      *
@@ -49,7 +49,7 @@ public interface UserAssetService {
      * @param source
      * @return
      */
-    public boolean updateRealEstate(String clientCode, RealEstate estate, String modifiedBy, Source source);
+    public boolean updateRealEstate(String clientCode, RealEstate estate);
 
     /**
      *
