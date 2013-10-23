@@ -6,6 +6,7 @@ package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.GPSCoordinates;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.EstateType;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
@@ -76,8 +77,9 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
     @FormParam("latitude")
     private BigDecimal latitude;
 
-    @NotNull
     private RealmEntity lastModifiedBy;
+
+    private Source source;
 
     public RealEstate() {
     }
@@ -94,7 +96,8 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
                       Date timeLastUpdated,
                       BigDecimal longitude,
                       BigDecimal latitude,
-                      RealmEntity lastModifiedBy) {
+                      RealmEntity lastModifiedBy,
+                      Source source) {
         this.id = id;
         this.userId = userId;
         this.type = type;
@@ -108,6 +111,7 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
         this.longitude = longitude;
         this.latitude = latitude;
         this.lastModifiedBy = lastModifiedBy;
+        this.source = source;
     }
 
     public EstateType getType() {
@@ -196,6 +200,14 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
 
     public void setLastModifiedBy(RealmEntity lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public Source getSource() {
+        return source;
     }
 
     @Override
