@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.image;
+package com.creditcloud.common.store;
 
 import com.creditcloud.model.enums.ImageSize;
 import com.creditcloud.model.enums.Realm;
@@ -12,6 +12,8 @@ import java.io.InputStream;
  * 只用来存取图片
  *
  * @author rooseek
+ *
+ * @see FileStore
  */
 public interface ImageStore {
 
@@ -35,7 +37,7 @@ public interface ImageStore {
      * @param inputStream
      * @return
      */
-    boolean store(String clientCode, Realm realm, String imageName, InputStream inputStream);
+    boolean store(String clientCode, Realm realm, String imageName, InputStream imageStream);
 
     /**
      * get image uri
