@@ -2,28 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.entities.embedded;
+package com.creditcloud.model.misc;
 
-import com.creditcloud.common.entities.BaseEntity;
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Realm;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * identify an entity by its id and belonging realm
  *
  * @author rooseek
  */
-@Embeddable
-public class RealmEntity extends BaseEntity {
+@XmlRootElement
+public class RealmEntity extends BaseObject {
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
+    private static final long serialVersionUID = 20131023L;
+
+    @NotNull
     private Realm realm;
 
-    @Column(nullable = true)
+    @NotNull
     private String entityId;
 
     public RealmEntity() {
