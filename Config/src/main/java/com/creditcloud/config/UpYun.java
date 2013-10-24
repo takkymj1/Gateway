@@ -22,19 +22,25 @@ public final class UpYun extends BaseConfig {
 
     //空间名
     @XmlElement(required = true)
-    String bucketName;
+    private String bucketName;
 
     //空间操作员
     @XmlElement(required = true)
-    String userName;
+    private String userName;
 
     //空间操作员密码
     @XmlElement(required = true)
-    String userPassword;
+    private String userPassword;
+    
+    /**
+     * 空间url地址统一前缀
+     */
+    @XmlElement(required = true)
+    private String urlPrefix;
 
     //空间url地址统一后缀
     @XmlElement(required = true)
-    String urlSuffix;
+    private String urlSuffix;
 
     public String getBucketName() {
         return bucketName;
@@ -66,5 +72,13 @@ public final class UpYun extends BaseConfig {
 
     public void setUrlSuffix(String urlSuffix) {
         this.urlSuffix = urlSuffix;
+    }
+
+    public String getUrlPrefix() {
+        return urlPrefix;
+    }
+
+    public void setUrlPrefix(String urlPrefix) {
+        this.urlPrefix = urlPrefix;
     }
 }
