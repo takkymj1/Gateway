@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.misc.RealmEntity;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,6 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -53,6 +55,18 @@ public class FileUtils {
                 logger.log(Level.SEVERE, null, ex);
             }
         }
+    }
 
+    /**
+     * generate md5 hash for the file
+     *
+     * @param clientCode
+     * @param owner
+     * @param fileName
+     * @return
+     */
+    public static String hash(String clientCode, RealmEntity owner, String fileName) {
+        String str = clientCode.concat(owner.getRealm().name()).concat(owner.getEntityId()).concat(fileName);
+        return DigestUtils.md5Hex(str);
     }
 }

@@ -67,6 +67,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.file</groupId>
+            <artifactId>FileService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -131,6 +137,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.comment</groupId>
                             <artifactId>CommentService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.file</groupId>
+                            <artifactId>FileService</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>

@@ -27,5 +27,6 @@
         <module>IDCard</module>
 		<module>User</module>
 		<module>Comment</module>
+    <module>File</module>
   </modules>
 </project>
