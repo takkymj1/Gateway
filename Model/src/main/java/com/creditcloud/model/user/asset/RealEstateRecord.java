@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.GPSCoordinates;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.EstateType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -55,7 +56,8 @@ public class RealEstateRecord extends BaseObject implements GPSCoordinates {
     /**
      * 修改人，可能是用户自己上传后修改也可能是员工实地勘察后修改
      */
-    private String modifiedBy;
+    @NotNull
+    private RealmEntity modifiedBy;
 
     @NotNull
     private Source source;
@@ -75,7 +77,7 @@ public class RealEstateRecord extends BaseObject implements GPSCoordinates {
                             boolean loan,
                             int estimatedValue,
                             String description,
-                            String modifiedBy,
+                            RealmEntity modifiedBy,
                             Source source,
                             Date timeRecorded,
                             BigDecimal longitude,
@@ -149,11 +151,11 @@ public class RealEstateRecord extends BaseObject implements GPSCoordinates {
         this.source = source;
     }
 
-    public String getModifiedBy() {
+    public RealmEntity getModifiedBy() {
         return modifiedBy;
     }
 
-    public void setModifiedBy(String modifiedBy) {
+    public void setModifiedBy(RealmEntity modifiedBy) {
         this.modifiedBy = modifiedBy;
     }
 

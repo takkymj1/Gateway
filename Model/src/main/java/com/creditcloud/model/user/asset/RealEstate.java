@@ -6,7 +6,9 @@ package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.GPSCoordinates;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.EstateType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -75,6 +77,10 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
     @FormParam("latitude")
     private BigDecimal latitude;
 
+    private RealmEntity lastModifiedBy;
+
+    private Source source;
+
     public RealEstate() {
     }
 
@@ -89,7 +95,9 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
                       Date timeCreated,
                       Date timeLastUpdated,
                       BigDecimal longitude,
-                      BigDecimal latitude) {
+                      BigDecimal latitude,
+                      RealmEntity lastModifiedBy,
+                      Source source) {
         this.id = id;
         this.userId = userId;
         this.type = type;
@@ -102,6 +110,8 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
         this.timeLastUpdated = timeLastUpdated;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.lastModifiedBy = lastModifiedBy;
+        this.source = source;
     }
 
     public EstateType getType() {
@@ -182,6 +192,22 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
 
     public void setTimeLastUpdated(Date timeLastUpdated) {
         this.timeLastUpdated = timeLastUpdated;
+    }
+
+    public RealmEntity getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(RealmEntity lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public Source getSource() {
+        return source;
     }
 
     @Override

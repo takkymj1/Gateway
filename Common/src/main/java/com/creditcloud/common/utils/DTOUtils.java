@@ -7,6 +7,7 @@ package com.creditcloud.common.utils;
 import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.common.entities.embedded.Duration;
 import com.creditcloud.common.entities.embedded.Location;
+import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.common.entities.embedded.Repayment;
 import com.creditcloud.common.entities.embedded.info.Contact;
 import com.creditcloud.common.entities.embedded.info.ContactInfo;
@@ -307,6 +308,28 @@ public class DTOUtils {
                                       personal.getAvatar());
         }
 
+        return result;
+    }
+
+    /**
+     * handle RealEntity
+     *
+     * @param entity
+     * @return
+     */
+    public static com.creditcloud.model.misc.RealmEntity getRealmEntity(RealmEntity entity) {
+        com.creditcloud.model.misc.RealmEntity result = null;
+        if (entity != null) {
+            result = new com.creditcloud.model.misc.RealmEntity(entity.getRealm(), entity.getEntityId());
+        }
+        return result;
+    }
+
+    public static RealmEntity convertRealmEntity(com.creditcloud.model.misc.RealmEntity entity) {
+        RealmEntity result = null;
+        if (entity != null) {
+            result = new RealmEntity(entity.getRealm(), entity.getEntityId());
+        }
         return result;
     }
 }
