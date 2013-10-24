@@ -5,7 +5,7 @@
 package com.creditcloud.comment.api;
 
 import com.creditcloud.comment.CommentStatus;
-import com.creditcloud.comment.model.Comment;
+import com.creditcloud.comment.Comment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;

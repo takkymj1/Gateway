@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.comment.model;
+package com.creditcloud.comment;
 
 import com.creditcloud.comment.CommentStatus;
 import com.creditcloud.model.BaseObject;

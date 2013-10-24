@@ -20,10 +20,10 @@ import javax.persistence.Enumerated;
 public class RealmEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
+    @Column(name = "REALM", nullable = true)
     private Realm realm;
 
-    @Column(nullable = true)
+    @Column(name = "ENTITYID", nullable = true)
     private String entityId;
 
     public RealmEntity() {

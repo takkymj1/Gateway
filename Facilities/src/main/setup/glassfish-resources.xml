@@ -31,10 +31,16 @@
         <property name="User" value="root"/>
         <property name="Password" value="Passw0rd"/>
     </jdbc-connection-pool>
+    <jdbc-connection-pool allow-non-component-callers="false" associate-with-thread="false" connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10" connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0" connection-validation-method="table" datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource" fail-all-connections="false" idle-timeout-in-seconds="300" is-connection-validation-required="false" is-isolation-level-guaranteed="true" lazy-connection-association="false" lazy-connection-enlistment="false" match-connections="false" max-connection-usage-count="0" max-pool-size="32" max-wait-time-in-millis="60000" name="FilePool" non-transactional-connections="false" ping="false" pool-resize-quantity="2" pooling="true" res-type="javax.sql.XADataSource" statement-cache-size="0" statement-leak-reclaim="false" statement-leak-timeout-in-seconds="0" statement-timeout-in-seconds="-1" steady-pool-size="8" validate-atmost-once-period-in-seconds="0" validation-table-name="TB_FILE_INFO" wrap-jdbc-objects="true">
+        <property name="URL" value="jdbc:mysql://localhost:3306/File?characterEncoding=GBK"/>
+        <property name="User" value="root"/>
+        <property name="Password" value="Passw0rd"/>
+    </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="ConfirmDS" object-type="user" pool-name="ConfirmPool"/>
     <jdbc-resource enabled="true" jndi-name="ClientDS" object-type="user" pool-name="ClientPool"/>
     <jdbc-resource enabled="true" jndi-name="MessageDS" object-type="user" pool-name="MessagePool"/>
     <jdbc-resource enabled="true" jndi-name="UserDS" object-type="user" pool-name="UserPool"/>
     <jdbc-resource enabled="true" jndi-name="ImageDS" object-type="user" pool-name="ImagePool"/>
     <jdbc-resource enabled="true" jndi-name="CommentDS" object-type="user" pool-name="CommentPool"/>
+    <jdbc-resource enabled="true" jndi-name="FileDS" object-type="user" pool-name="FilePool"/>
 </resources>
