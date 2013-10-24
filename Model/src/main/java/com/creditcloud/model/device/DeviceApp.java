@@ -15,24 +15,31 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class DeviceApp extends BaseObject {
+
+    private static final long serialVersionUID = 20131024L;
     
+    public static final String APP_NAME_SEPARATOR = "-";
+
     @NotNull
     private String id;
-    
+
     @NotNull
     private String name;
-    
+
     @NotNull
     private String versionName;
-    
+
     @NotNull
     private Long versionCode;
-    
+
     @NotNull
     protected Date timeCreated;
 
     @NotNull
     protected Date timeLastUpdated;
+
+    public DeviceApp() {
+    }
 
     public DeviceApp(String id, String name, String versionName, Long versionCode, Date timeCreated, Date timeLastUpdated) {
         this.id = id;
@@ -42,7 +49,6 @@ public class DeviceApp extends BaseObject {
         this.timeCreated = timeCreated;
         this.timeLastUpdated = timeLastUpdated;
     }
-    
 
     public String getId() {
         return id;
@@ -92,4 +98,11 @@ public class DeviceApp extends BaseObject {
         this.name = name;
     }
     
+    /**
+     * 获得由App内相关field组成的唯一文件name,用于存储
+     * @return 
+     */
+    public String getAppFileName(){
+        return name.concat(APP_NAME_SEPARATOR).concat(versionName);
+    }
 }
