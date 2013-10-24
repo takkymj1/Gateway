@@ -2,8 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model;
+package com.creditcloud.model.device;
 
+import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.GPSCoordinates;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -17,7 +19,7 @@ public class DeviceTrack extends BaseObject implements GPSCoordinates {
    
     private static final long serialVersionUID = 20130918L;
     
-//    @NotNull
+    @NotNull
     @FormParam("id")
     private String id;
     

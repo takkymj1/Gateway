@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model;
+package com.creditcloud.model.device;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.enums.device.DeviceType;
 import java.util.Date;
