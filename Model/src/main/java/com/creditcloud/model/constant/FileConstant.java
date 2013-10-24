@@ -11,7 +11,7 @@ package com.creditcloud.model.constant;
 public interface FileConstant {
 
     /**
-     * 数据库中不存在此文件信息时返回该uri作为图片地址
+     * 数据库中不存在此文件信息时返回该uri作为文件地址
      */
     String FILE_NOT_FOUND_URI = "file.not.found.uri";
 }
