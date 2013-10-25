@@ -77,30 +77,6 @@ public class Proof extends BaseObject {
     public Proof() {
     }
 
-//    public Proof(String id,
-//                 CertificateType certificateType,
-//                 String title,
-//                 ProofContentType contentType,
-//                 String content,
-//                 String description,
-//                 Source source,
-//                 Date submitTime,
-//                 String employee,
-//                 boolean mosaic) {
-//        this(id,
-//             certificateType,
-//             title,
-//             contentType,
-//             content,
-//             description,
-//             source,
-//             submitTime,
-//             employee,
-//             mosaic,
-//             null,
-//             null);
-//    }
-
     public Proof(String id,
                  CertificateType certificateType,
                  String title,
