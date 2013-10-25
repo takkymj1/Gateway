@@ -4,10 +4,11 @@
  */
 package com.creditcloud.image.api;
 
+import com.creditcloud.image.Image;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.ImageSize;
-import com.creditcloud.model.enums.Realm;
-import com.creditcloud.model.misc.Image;
-import java.util.List;
+import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
 
 /**
@@ -21,15 +22,13 @@ public interface ImageService {
      * 上传图片
      *
      * @param clientCode:客户标示
-     * @param realm:entity对应的域
-     * @param entityId:实体Id
+     * @param owner:图片所有者或关联者
      * @param imageName:图片名
      * @param imagePath:图片路径
      * @return
      */
     Image upload(String clientCode,
-                 Realm realm,
-                 String entityId,
+                 RealmEntity owner,
                  String imageName,
                  String imagePath);
 
@@ -37,30 +36,26 @@ public interface ImageService {
      * 添加一个图片信息
      *
      * @param clientCode
-     * @param realm
-     * @param entityId
+     * @param owner:图片所有者或关联者
      * @param imageName
      * @return
      */
     boolean addNew(String clientCode,
-                   Realm realm,
-                   String entityId,
+                   RealmEntity owner,
                    String imageName);
 
     /**
      * 返回不同大小的图片
      *
      * @param clientCode:客戶代码
-     * @param realm:entity对应的域
-     * @param entityId:用户或其他实体id
+     * @param owner:图片所有者或关联者
      * @param imageName:图片名
      * @param size:图片大小
      * @param watermark:是否加水印
-     * @return Image
+     * @return 
      */
     Image download(String clientCode,
-                   Realm realm,
-                   String entityId,
+                   RealmEntity owner,
                    String imageName,
                    ImageSize size,
                    boolean watermark);
@@ -69,36 +64,34 @@ public interface ImageService {
      * 返回满足条件的一组图片
      *
      * @param clientCode:客戶代码
-     * @param realm:entity对应的域
-     * @param entityId:用户或其他实体id
+     * @param owner:图片所有者或关联者
+     * @param info:查找范围
      * @param size:图片大小
      * @param watermark:是否加水印
      * @return
      */
-    List<Image> list(String clientCode,
-                     Realm realm,
-                     String entityId,
-                     ImageSize size,
-                     boolean watermark);
+    PagedResult<Image> list(String clientCode,
+                            RealmEntity owner,
+                            PageInfo info,
+                            ImageSize size,
+                            boolean watermark);
 
     /**
      * 删除某图片
      *
      * @param clientCode:客戶代码
-     * @param realm:entity对应的域
-     * @param entityId:用户或其他实体id
+     * @param owner:图片所有者或关联者
      * @param imageName:图片名
      * @return
      */
-    boolean delete(String clientCode, Realm realm, String entityId, String imageName);
+    boolean delete(String clientCode, RealmEntity owner, String imageName);
 
     /**
      * 刪除entityId对应的所有图片
      *
      * @param clientCode:客戶代码
-     * @param realm:entity对应的域
-     * @param entityId:用户或其他实体id
+     * @param owner:图片所有者或关联者
      * @return
      */
-    boolean delete(String clientCode, Realm realm, String entityId);
+    boolean delete(String clientCode, RealmEntity owner);
 }

@@ -18,8 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.creditcloud.common</groupId>
-            <artifactId>Common</artifactId>
+            <groupId>com.creditcloud.model</groupId>
+            <artifactId>Model</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
