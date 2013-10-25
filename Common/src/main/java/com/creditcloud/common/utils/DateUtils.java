@@ -26,6 +26,8 @@ public class DateUtils {
 
     private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
+    public static final Date FIRST_DATE = new Date(0);
+
     public static Date offset(final Date asOfDate, final Duration duration) {
         Date result = addYears(asOfDate, duration.getYears());
         result = addMonths(result, duration.getMonths());
@@ -48,7 +50,7 @@ public class DateUtils {
      * list all dates between start date and end date, both day included
      */
     public static List<Date> listDates(Date start, Date end) {
-        List<Date> dates = new ArrayList();
+        List<Date> dates = new ArrayList<>();
 
         Date date = start;
         calendar.setTime(start);
@@ -82,7 +84,7 @@ public class DateUtils {
         calendar.set(year, month, day, 0, 0, 0);
         return calendar.getTime();
     }
-    
+
     /**
      * 为使stock曲线平滑，填满遗漏的值
      *
