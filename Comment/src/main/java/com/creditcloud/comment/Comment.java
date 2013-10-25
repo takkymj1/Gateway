@@ -4,7 +4,6 @@
  */
 package com.creditcloud.comment;
 
-import com.creditcloud.comment.CommentStatus;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Realm;
 import java.util.Date;
@@ -31,7 +30,6 @@ public class Comment extends BaseObject {
 
     /**
      * 此评论回复的其他评论id，从而支持评论的树状显示<p>
-     * TODO 目前为简化流程，CommentService接口中暂不暴露此id
      */
     @NotNull
     private String parentId;
