@@ -7,8 +7,8 @@ package com.creditcloud.comment.api;
 import com.creditcloud.comment.CommentStatus;
 import com.creditcloud.comment.Comment;
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
 
 /**
@@ -27,44 +27,42 @@ public interface CommentService {
     Comment add(Comment comment);
 
     /**
-     * list by entity
+     * list by Owner
      *
-     * @param entityRealm
-     * @param entityId
+     * @param owner
      * @param pageInfo
-     * @return
-     */
-    PagedResult<Comment> listByEntity(Realm entityRealm, String entityId, PageInfo pageInfo, CommentStatus... status);
-
-    /**
-     * count by entity
-     *
-     * @param entityRealm
-     * @param entityId
      * @param status
      * @return
      */
-    int countByEntity(Realm entityRealm, String entityId, CommentStatus... status);
+    PagedResult<Comment> listByOwner(RealmEntity owner, PageInfo pageInfo, CommentStatus... status);
+
+    /**
+     * count by Owner
+     *
+     * @param owner
+     * @param status
+     * @return
+     */
+    int countByOwner(RealmEntity owner, CommentStatus... status);
 
     /**
      * list by receiver
      *
-     * @param receiverRealm
      * @param receiver
      * @param pageInfo
+     * @param status
      * @return
      */
-    PagedResult<Comment> listByReceiver(Realm receiverRealm, String receiver, PageInfo pageInfo, CommentStatus... status);
+    PagedResult<Comment> listByReceiver(RealmEntity receiver, PageInfo pageInfo, CommentStatus... status);
 
     /**
      * count by receiver
      *
-     * @param receiverRealm
      * @param receiver
      * @param status
      * @return
      */
-    int countByReceiver(Realm receiverRealm, String receiver, CommentStatus... status);
+    int countByReceiver(RealmEntity receiver, CommentStatus... status);
 
     /**
      * mark status for comments
