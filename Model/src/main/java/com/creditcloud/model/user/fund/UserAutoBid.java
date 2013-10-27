@@ -10,59 +10,64 @@ import java.util.Collection;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 自动投标
  *
  * @author rooseek
  */
+@XmlRootElement
 public class UserAutoBid extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String userId;
+    private String userId;
 
     /**
      * 是否激活
      */
     @NotNull
-    private final boolean active;
+    private boolean active;
 
     /**
      * 单次投标金额,最低50
      */
     @NotNull
-    private final int singleAmount;
+    private int singleAmount;
 
     /**
      * 账户保留余额
      */
     @Min(0)
     @NotNull
-    private final int reservedAmount;
+    private int reservedAmount;
 
     /**
      * 贷款还款方式
      */
     @NotNull
-    private final Collection<RepaymentMethod> repayMethod;
+    private Collection<RepaymentMethod> repayMethod;
 
     @NotNull
-    private final AutoBidRange range;
+    private AutoBidRange range;
 
     /**
      * true必须有抵押,false可以没有抵押
      */
     @NotNull
-    private final boolean mortgaged;
+    private boolean mortgaged;
 
     /**
      * 投标工具最近一次开启时间
      */
-    private final Date activedTime;
+    private Date activedTime;
 
-    private final Date lastBidTime;
+    private Date lastBidTime;
+
+    public UserAutoBid() {
+    }
 
     public UserAutoBid(String userId,
                        boolean active,
@@ -118,5 +123,41 @@ public class UserAutoBid extends BaseObject {
 
     public AutoBidRange getRange() {
         return range;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public void setSingleAmount(int singleAmount) {
+        this.singleAmount = singleAmount;
+    }
+
+    public void setReservedAmount(int reservedAmount) {
+        this.reservedAmount = reservedAmount;
+    }
+
+    public void setRepayMethod(Collection<RepaymentMethod> repayMethod) {
+        this.repayMethod = repayMethod;
+    }
+
+    public void setRange(AutoBidRange range) {
+        this.range = range;
+    }
+
+    public void setMortgaged(boolean mortgaged) {
+        this.mortgaged = mortgaged;
+    }
+
+    public void setActivedTime(Date activedTime) {
+        this.activedTime = activedTime;
+    }
+
+    public void setLastBidTime(Date lastBidTime) {
+        this.lastBidTime = lastBidTime;
     }
 }
