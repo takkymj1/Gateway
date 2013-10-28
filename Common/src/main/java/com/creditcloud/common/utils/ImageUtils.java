@@ -22,7 +22,7 @@ public class ImageUtils {
      * @return
      */
     public static String hash(String clientCode, RealmEntity owner, String imageName) {
-        String str = clientCode.concat(owner.getRealm().name()).concat(owner.getEntityId()).concat(imageName);
+        String str = clientCode.concat(owner.getEntityId()).concat(imageName);
         return DigestUtils.md5Hex(str);
     }
 }
