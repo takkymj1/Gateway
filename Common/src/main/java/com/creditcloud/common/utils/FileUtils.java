@@ -66,7 +66,7 @@ public class FileUtils {
      * @return
      */
     public static String hash(String clientCode, RealmEntity owner, String fileName) {
-        String str = clientCode.concat(owner.getRealm().name()).concat(owner.getEntityId()).concat(fileName);
+        String str = clientCode.concat(owner.getEntityId()).concat(fileName);
         return DigestUtils.md5Hex(str);
     }
 }
