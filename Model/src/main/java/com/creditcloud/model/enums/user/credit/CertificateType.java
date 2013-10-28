@@ -18,12 +18,13 @@ public enum CertificateType implements BaseEnum {
     EDUCATION("学历认证"),//最高学历证明
     INCOME("收入认证"),
     CAREER("工作认证"),
-    HOUSE("房产认证"),
+    REALESTATE("房产认证"),
     LOCATION("居住地认证"),
-    CAR("购车认证"),
+    VEHICLE("购车认证"),
     MOBILE("手机认证"),
     EMAIL("邮箱认证"),
     LOANPURPOSE("借款用途认证"),
+    GUARANTEE("担保认证"),
     OTHERS("其他认证");
 
     private final String key;
