@@ -6,8 +6,8 @@ package com.creditcloud.model.user.credit;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
-import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContentType;
+import com.creditcloud.model.enums.user.credit.ProofType;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -28,7 +28,7 @@ public class Proof extends BaseObject {
     private String id;
 
     @NotNull
-    private CertificateType certificateType;
+    private ProofType proofType;
 
     //证明标题
     private String title;
@@ -78,7 +78,7 @@ public class Proof extends BaseObject {
     }
 
     public Proof(String id,
-                 CertificateType certificateType,
+                 ProofType proofType,
                  String title,
                  ProofContentType contentType,
                  String content,
@@ -90,7 +90,7 @@ public class Proof extends BaseObject {
                  BigDecimal longitude,
                  BigDecimal latitude) {
         this.id = id;
-        this.certificateType = certificateType;
+        this.proofType = proofType;
         this.title = title;
         this.content = content;
         this.contentType = contentType;
@@ -127,10 +127,6 @@ public class Proof extends BaseObject {
         return id;
     }
 
-    public CertificateType getCertificateType() {
-        return certificateType;
-    }
-
     public ProofContentType getContentType() {
         return contentType;
     }
@@ -147,8 +143,12 @@ public class Proof extends BaseObject {
         this.id = id;
     }
 
-    public void setCertificateType(CertificateType certificateType) {
-        this.certificateType = certificateType;
+    public ProofType getProofType() {
+        return proofType;
+    }
+
+    public void setProofType(ProofType proofType) {
+        this.proofType = proofType;
     }
 
     public void setTitle(String title) {
