@@ -20,18 +20,12 @@ import javax.ejb.Remote;
 public interface UserAutoBidService {
 
     /**
-     * 获取满足某种策略的所有自动投标的统计信息
+     * 获取总体的用户用户自动投标统计信息
      *
      * @param clientCode
-     * @param range
-     * @param mortgaged
-     * @param methods
      * @return
      */
-    AutoBidStatistics getStatistics(String clientCode,
-                                    AutoBidRange range,
-                                    boolean mortgaged,
-                                    RepaymentMethod... methods);
+    AutoBidStatistics getStatistics(String clientCode);
 
     /**
      * 列出所有满足某种策略的自动投标
