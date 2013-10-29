@@ -45,7 +45,7 @@ public enum ProofType implements BaseEnum {
      */
     INCOME_BANKACCOUNT("银行流水", CertificateType.INCOME),
     INCOME_SALARY("工资证明", CertificateType.INCOME),
-    INCOME_OTHER("其他收入证明",CertificateType.INCOME),
+    INCOME_OTHER("其他收入证明", CertificateType.INCOME),
     /**
      * 房产证明
      */
@@ -119,6 +119,7 @@ public enum ProofType implements BaseEnum {
         for (CertificateType type : CertificateType.values()) {
             proofMap.put(type, new ArrayList<ProofType>());
         }
+
         for (ProofType type : ProofType.values()) {
             proofMap.get(type.getCertificateType()).add(type);
         }
@@ -140,6 +141,6 @@ public enum ProofType implements BaseEnum {
      * @return
      */
     public List<ProofType> listByCertificate(CertificateType type) {
-        return proofMap.get(key);
+        return proofMap.get(type);
     }
 }
