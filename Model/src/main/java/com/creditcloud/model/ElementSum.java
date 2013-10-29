@@ -4,8 +4,10 @@
  */
 package com.creditcloud.model;
 
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,16 +20,19 @@ import javax.xml.bind.annotation.XmlSeeAlso;
  * 例如：按年度统计平台上所有p2p公司的贷款金额和利息收入总和
  *
  * @author rooseek
- * @see ElementCount 
+ * @see ElementCount
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso(value = {
     LoanStatus.class,
     InvestStatus.class,
+    RepaymentMethod.class,
+    Source.class,
+    Boolean.class,
     Date.class
 })
-public class ElementSum<T> extends BaseObject{
+public class ElementSum<T> extends BaseObject {
 
     private static final long serialVersionUID = 20131012L;
 
