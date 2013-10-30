@@ -33,6 +33,9 @@ public final class DeviceConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String tempImageDir;
+    
+    public DeviceConfig() {
+    }
 
     public DeviceConfig(String tempFileDir, 
                         String tempImageDir) {
