@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "SMSConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SMSConfig extends BaseConfig {
+public final class SMSConfig extends BaseConfig {
 
     private static final long serialVersionUID = 20131015L;
 

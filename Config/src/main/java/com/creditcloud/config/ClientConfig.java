@@ -53,8 +53,4 @@ public final class ClientConfig extends BaseConfig {
     public boolean isDevelopMode() {
         return developMode;
     }
-
-    public void setDevelopMode(boolean developMode) {
-        this.developMode = developMode;
-    }
 }

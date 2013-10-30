@@ -31,7 +31,7 @@ public final class UpYun extends BaseConfig {
     //空间操作员密码
     @XmlElement(required = true)
     private String userPassword;
-    
+
     /**
      * 空间url地址统一前缀
      */
@@ -54,31 +54,11 @@ public final class UpYun extends BaseConfig {
         return userPassword;
     }
 
-    public void setBucketName(String bucketName) {
-        this.bucketName = bucketName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-
     public String getUrlSuffix() {
         return urlSuffix;
     }
 
-    public void setUrlSuffix(String urlSuffix) {
-        this.urlSuffix = urlSuffix;
-    }
-
     public String getUrlPrefix() {
         return urlPrefix;
-    }
-
-    public void setUrlPrefix(String urlPrefix) {
-        this.urlPrefix = urlPrefix;
     }
 }
