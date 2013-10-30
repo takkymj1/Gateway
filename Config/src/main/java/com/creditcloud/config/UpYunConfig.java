@@ -28,14 +28,6 @@ public final class UpYunConfig extends BaseConfig {
     @XmlElement(name = "imageConfig", required = true)
     private UpYun imageConfig;
 
-    public void setFileConfig(UpYun fileConfig) {
-        this.fileConfig = fileConfig;
-    }
-
-    public void setImageConfig(UpYun imageConfig) {
-        this.imageConfig = imageConfig;
-    }
-
     public UpYun getFileConfig() {
         return fileConfig;
     }
