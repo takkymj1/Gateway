@@ -62,6 +62,7 @@ public enum ProofType implements BaseEnum {
      */
     VEHICLE_LICENCE("行驶证", CertificateType.VEHICLE),
     VEHICLE_PROPERTY("车辆权证或合同发票", CertificateType.VEHICLE),
+    VEHICLE_PLATE("车牌号", CertificateType.VEHICLE),
     VEHICLE_PICTURE("车辆照片", CertificateType.VEHICLE),
     VEHICLE_OTHER("其他车辆相关证明", CertificateType.VEHICLE),
     /**
