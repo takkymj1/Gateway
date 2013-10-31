@@ -15,6 +15,10 @@ public enum SMSType {
      */
     CONFIRM_CREDITMARKET_REGISTER("confirm.creditmarket.register"),
     /**
+     * CreditMarket用户账号绑定手机
+     */
+    CONFIRM_CREDITMARKET_AUTHENTICATE_MOBILE("confirm.creditmarket.authenticate.mobile"),
+    /**
      * CreditMarke中用戶更改密码发送确认码
      */
     CONFIRM_CREDITMARKET_CHANGE_LOGIN_PASSWORD("confirm.creditmarket.change.login.password"),
