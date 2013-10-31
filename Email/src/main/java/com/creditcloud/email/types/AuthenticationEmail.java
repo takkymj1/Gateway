@@ -10,18 +10,18 @@ import javax.validation.constraints.NotNull;
  *
  * @author rooseek
  */
-public class ActivationEmail extends Email {
+public class AuthenticationEmail extends Email {
 
-    private static final long serialVersionUID = 20131015L;
+    private static final long serialVersionUID = 20131101L;
 
     /**
-     * confirmcode for activating account
+     * confirmcode for authenticating an email
      */
     @NotNull
     private final String confirmCode;
 
-    public ActivationEmail(String address, String personal, String confirmCode) {
-        super(address, personal, EmailType.CONFIRM_CREDITMARKET_ACTIVATION);
+    public AuthenticationEmail(String address, String personal, String confirmCode) {
+        super(address, personal, EmailType.CONFIRM_CREDITMARKET_AUTHENTICATION);
         this.confirmCode = confirmCode;
     }
 
