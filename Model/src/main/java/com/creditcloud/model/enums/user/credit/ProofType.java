@@ -72,14 +72,6 @@ public enum ProofType implements BaseEnum {
     GUARANTEE_REALESTATE("担保人房产", CertificateType.GUARANTEE),
     GUARANTEE_OTHER("其他担保相关证明", CertificateType.GUARANTEE),
     /**
-     * 邮箱
-     */
-    EMAIL("邮箱认证", CertificateType.EMAIL),
-    /**
-     * 手机
-     */
-    MOBILE("手机认证", CertificateType.MOBILE),
-    /**
      * 信用报告
      */
     CREDIT_REPORT("信用报告", CertificateType.CREDITREPORT),

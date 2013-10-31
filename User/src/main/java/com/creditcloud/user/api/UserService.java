@@ -9,7 +9,6 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.UserLoginResult;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -19,7 +18,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService {
+public interface UserService extends UserSecurityService{
 
     /**
      * list all users for client
@@ -185,44 +184,4 @@ public interface UserService {
      */
     boolean checkLoginName(String clientCode, String loginName);
 
-    /**
-     * validate user password for loginName
-     *
-     * @param clientCode
-     * @param loginName
-     * @param password
-     * @param loginInfo
-     * @param source
-     * @return UserLoginResult
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    UserLoginResult login(String clientCode,
-                          String loginName,
-                          String password,
-                          Map<String, String> loginInfo,
-                          Source source);
-
-    /**
-     * 修改密码
-     *
-     * @param clientCode
-     * @param loginName
-     * @param oldPassword
-     * @param newPassword
-     * @return true if loginName exist and old password word match, and set new
-     * password successful
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    boolean changePassword(String clientCode, String loginName, String oldPassword, String newPassword);
-
-    /**
-     * 忘记密码时重设密码
-     *
-     * @param clientCode
-     * @param mobile
-     * @return
-     */
-    boolean resetPassword(String clientCode, String mobile);
 }
