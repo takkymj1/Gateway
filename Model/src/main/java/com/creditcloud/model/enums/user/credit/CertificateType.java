@@ -21,8 +21,6 @@ public enum CertificateType implements BaseEnum {
     REALESTATE("房产认证"),
     LOCATION("居住地认证"),
     VEHICLE("购车认证"),
-    MOBILE("手机认证"),
-    EMAIL("邮箱认证"),
     LOANPURPOSE("借款用途认证"),
     GUARANTEE("担保认证"),
     OTHERS("其他认证");
