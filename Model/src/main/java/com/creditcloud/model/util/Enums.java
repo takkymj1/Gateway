@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Enums {
 
-    private static final ConcurrentHashMap<Class, HashMap<String, Enum>> enumCache = new ConcurrentHashMap();
+    private static final ConcurrentHashMap<Class, HashMap<String, Enum>> enumCache = new ConcurrentHashMap<>();
 
     /**
      * get enum by key
@@ -42,10 +42,10 @@ public class Enums {
         }
 
         T result = null;
-        Map cache = enumCache.get(enumType);
+        Map<String,Enum> cache = enumCache.get(enumType);
         if (cache == null) {
             EnumSet set = EnumSet.allOf(enumType);
-            HashMap<String, Enum> newEnum = new HashMap();
+            HashMap<String, Enum> newEnum = new HashMap<>();
             for (Object object : set) {
                 T t = (T) object;
                 newEnum.put(t.getKey(), t);
