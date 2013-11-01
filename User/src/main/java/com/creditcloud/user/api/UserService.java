@@ -18,7 +18,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService extends UserSecurityService{
+public interface UserService extends UserSecurityService {
 
     /**
      * list all users for client
@@ -141,6 +141,17 @@ public interface UserService extends UserSecurityService{
     User findByIdNumber(String clientCode, String idNumber);
 
     /**
+     * find user by email
+     *
+     * @param clientCode
+     * @param email
+     * @return null if not found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    User findByEmail(String clientCode, String email);
+
+    /**
      * delete user by user Id
      *
      * @param clientCode
@@ -183,5 +194,4 @@ public interface UserService extends UserSecurityService{
      * the local client
      */
     boolean checkLoginName(String clientCode, String loginName);
-
 }

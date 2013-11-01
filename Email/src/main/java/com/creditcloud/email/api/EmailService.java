@@ -26,7 +26,7 @@ public interface EmailService {
      * @param client
      * @param mail
      */
-    Future<Boolean> send(Client client, Email mail);
+    boolean send(Client client, Email mail);
 
     /**
      * send email to user informing successful registration after activation
@@ -35,9 +35,9 @@ public interface EmailService {
      * @param emailAddress
      * @return
      */
-    Future<Boolean> sendRegistration(Client client, String emailAddress);
+    boolean sendRegistration(Client client, String emailAddress);
 
-    Future<Boolean> sendRegistration(Client client, String emailAddress, String personal);
+    boolean sendRegistration(Client client, String emailAddress, String personal);
 
     /**
      * send activation email to user during registration
@@ -46,9 +46,9 @@ public interface EmailService {
      * @param emailAddress
      * @return
      */
-    Future<Boolean> sendActivation(Client client, String emailAddress);
+    boolean sendActivation(Client client, String emailAddress);
 
-    Future<Boolean> sendActivation(Client client, String emailAddress, String personal);
+    boolean sendActivation(Client client, String emailAddress, String personal);
 
     /**
      * send authentication email to user for binding email
@@ -58,9 +58,9 @@ public interface EmailService {
      * @param personal
      * @return
      */
-    Future<Boolean> sendAuthentication(Client client, String emailAddress, String personal);
+    boolean sendAuthentication(Client client, String emailAddress, String personal);
 
-    Future<Boolean> sendAuthentication(Client client, String emailAddress);
+    boolean sendAuthentication(Client client, String emailAddress);
 
     /**
      * Confirm the emailAddress is valid, and activate the email
