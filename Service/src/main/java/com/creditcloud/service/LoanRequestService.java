@@ -61,10 +61,11 @@ public interface LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<LoanRequest> listRequestByUserAndStatus(String clientCode, 
-                                                        String userId, 
-                                                        PageInfo pageInfo, 
+    PagedResult<LoanRequest> listRequestByUserAndStatus(String clientCode,
+                                                        String userId,
+                                                        PageInfo pageInfo,
                                                         LoanRequestStatus... status);
+
     /**
      * list loan request by employee id
      *
@@ -76,8 +77,18 @@ public interface LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<LoanRequest> listRequestByEmployeeAndStatus(String clientCode, 
-                                                            String employeeId, 
-                                                            PageInfo pageInfo, 
+    PagedResult<LoanRequest> listRequestByEmployeeAndStatus(String clientCode,
+                                                            String employeeId,
+                                                            PageInfo pageInfo,
                                                             LoanRequestStatus... status);
+
+    /**
+     * update a loan request from CreditMarket
+     *
+     * @param clientCode
+     * @param request
+     * @return
+     */
+    boolean updateLoanRequest(String clientCode,
+                              LoanRequest request);
 }

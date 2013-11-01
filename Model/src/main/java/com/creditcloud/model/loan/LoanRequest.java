@@ -12,6 +12,8 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.MortgageType;
+import java.util.Collection;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -124,6 +126,8 @@ public class LoanRequest extends BaseObject {
     
     @XmlElement(name="employeeId")
     private String employeeId;
+    
+    private Collection<MortgageType> mortgageType;
 
     public LoanRequest() {
     }
@@ -155,7 +159,8 @@ public class LoanRequest extends BaseObject {
                        Date timeSubmit,
                        boolean mortgaged,
                        Source source,
-                       String employeeId) {
+                       String employeeId,
+                       Collection<MortgageType> mortgageType) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -170,6 +175,7 @@ public class LoanRequest extends BaseObject {
         this.mortgaged = mortgaged;
         this.source = source;
         this.employeeId = employeeId;
+        this.mortgageType = mortgageType;
     }
 
     public String getId() {
@@ -282,5 +288,13 @@ public class LoanRequest extends BaseObject {
 
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
+    }
+
+    public Collection<MortgageType> getMortgageType() {
+        return mortgageType;
+    }
+
+    public void setMortgageTypes(Collection<MortgageType> mortgageType) {
+        this.mortgageType = mortgageType;
     }
 }
