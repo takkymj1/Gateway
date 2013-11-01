@@ -11,14 +11,30 @@ import com.creditcloud.model.enums.BaseEnum;
  * @author rooseek
  */
 public enum MortgageType implements BaseEnum {
-    
-    RE_HOUSE("住房"),
-    RE_LAND("土地"),
-    RE_FACTORY("厂房"),
+
+    /**
+     * 不动产 RealEstate
+     */
+    RE_HOUSE("房产"),
+    RE_LAND("土地(包括山林渔牧)"),
+    RE_FACTORY("厂房库房"),
+    /**
+     * 动产
+     */
+    COMMONDITY("商品库存"),
     VEHICLE("车辆"),
+    EQUIPMENT("设备器材"),
+    /*
+     *所有权、债权等 
+     */
     SECURITIES("证券"),
+    BOND("债券"),
+    STOCK("股票"),
+    DEPOSIT_RECEIPT("银行存单"),
+    /**
+     * 其他
+     */
     OTHER("其他");
-    
 
     private final String key;
 
