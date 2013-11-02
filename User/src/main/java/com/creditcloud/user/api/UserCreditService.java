@@ -83,7 +83,7 @@ public interface UserCreditService {
      * @param imageName
      * @return
      */
-    @Deprecated 
+    @Deprecated
     public Proof getProofByUserAndImageName(String clientCode, String userId, String imageName);
 
     /**
@@ -94,7 +94,7 @@ public interface UserCreditService {
      * @param imageName
      * @return
      */
-    @Deprecated 
+    @Deprecated
     public boolean deleteProofByUserAndImageName(String clientCode, String userId, String imageName);
 
     /**
@@ -144,4 +144,13 @@ public interface UserCreditService {
      * @param auditorInfo
      */
     public boolean updateCertificate(String clientCode, Certificate certificate);
+
+    /**
+     * 更新信用信息
+     *
+     * @param clientCode
+     * @param credit
+     * @return
+     */
+    public boolean updateUserCredit(String clientCode, UserCredit credit);
 }

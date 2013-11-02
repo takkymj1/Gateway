@@ -105,10 +105,9 @@ public interface UserAssetService {
      *
      * @param clientCode
      * @param vehicle
-     * @param modifiedBy
      * @return
      */
-    public boolean updateVehicle(String clientCode, Vehicle vehicle, String modifiedBy, Source source);
+    public boolean updateVehicle(String clientCode, Vehicle vehicle);
 
     /**
      *
