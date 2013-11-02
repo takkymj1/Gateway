@@ -53,9 +53,8 @@ public enum ProofType implements BaseEnum {
     RE_HOUSE_PICTURE("住房照片", CertificateType.REALESTATE),
     RE_LAND_PROPERTY("土地权证或合同", CertificateType.REALESTATE),
     RE_LAND_PICTURE("土地照片", CertificateType.REALESTATE),
-    RE_FACTORY_PROPERTY("厂房权证或合同", CertificateType.REALESTATE),
-    RE_FACTORY_PICTURE("厂房照片", CertificateType.REALESTATE),
-    RE_WAREHOUSE_PICTURE("仓库照片", CertificateType.REALESTATE),
+    RE_FACTORY_PROPERTY("厂房仓库权证或合同", CertificateType.REALESTATE),
+    RE_FACTORY_PICTURE("厂房仓库照片", CertificateType.REALESTATE),
     RF_OTHER("其他房产相关证明", CertificateType.REALESTATE),
     /**
      * 车辆证明

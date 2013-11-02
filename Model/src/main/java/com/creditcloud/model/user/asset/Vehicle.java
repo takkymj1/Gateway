@@ -5,6 +5,7 @@
 package com.creditcloud.model.user.asset;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.VehicleType;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -80,6 +81,10 @@ public class Vehicle extends BaseObject {
     private Date timeCreated;
 
     private Date timeLastUpdated;
+    
+    private Source source;
+    
+    private String lastModifiedBy;
 
     public Vehicle() {
     }
@@ -95,7 +100,9 @@ public class Vehicle extends BaseObject {
                    int estimatedValue,
                    String description,
                    Date timeCreated,
-                   Date timeLastUpdated) {
+                   Date timeLastUpdated,
+                   Source source,
+                   String lastModifiedBy) {
         this.id = id;
         this.userId = userId;
         this.model = model;
@@ -108,6 +115,8 @@ public class Vehicle extends BaseObject {
         this.description = description;
         this.timeCreated = timeCreated;
         this.timeLastUpdated = timeLastUpdated;
+        this.source = source;
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public String getId() {
@@ -204,5 +213,21 @@ public class Vehicle extends BaseObject {
 
     public void setTimeLastUpdated(Date timeLastUpdated) {
         this.timeLastUpdated = timeLastUpdated;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }

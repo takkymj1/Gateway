@@ -6,10 +6,12 @@ package com.creditcloud.model.user.credit;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.credit.CreditRank;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 /**
- * 用户信用及认证
+ * 用户信用及认证<p>
+ * 信用额度之类只针对贷款
  *
  * @author rooseek
  */
@@ -26,7 +28,7 @@ public class UserCredit extends BaseObject {
 
     //信用评分
     @NotNull
-    private int creditScore;
+    private Assessment assessment;
 
     //信用额度
     @NotNull
@@ -36,24 +38,35 @@ public class UserCredit extends BaseObject {
     @NotNull
     private int creditAvailable;
 
+    @NotNull
+    private String lastModifiedBy;
+
+    @NotNull
+    private Date timeCreated;
+
+    @NotNull
+    private Date timeLastUpdated;
+
     public UserCredit(String userId,
                       CreditRank creditRank,
-                      int creditScore,
+                      Assessment assessment,
                       int creditLimit,
-                      int creditAvailable) {
+                      int creditAvailable,
+                      String lastModifiedBy,
+                      Date timeCreated,
+                      Date timeLastUpdated) {
         this.userId = userId;
         this.creditRank = creditRank;
-        this.creditScore = creditScore;
+        this.assessment = assessment;
         this.creditLimit = creditLimit;
         this.creditAvailable = creditAvailable;
+        this.lastModifiedBy = lastModifiedBy;
+        this.timeCreated = timeCreated;
+        this.timeLastUpdated = timeLastUpdated;
     }
 
     public CreditRank getCreditRank() {
         return creditRank;
-    }
-
-    public int getCreditScore() {
-        return creditScore;
     }
 
     public int getCreditLimit() {
@@ -67,11 +80,6 @@ public class UserCredit extends BaseObject {
     public void setCreditRank(CreditRank creditRank) {
         this.creditRank = creditRank;
     }
-
-    public void setCreditScore(int creditScore) {
-        this.creditScore = creditScore;
-    }
-
     public void setCreditLimit(int creditLimit) {
         this.creditLimit = creditLimit;
     }
@@ -82,5 +90,37 @@ public class UserCredit extends BaseObject {
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public Date getTimeCreated() {
+        return timeCreated;
+    }
+
+    public Date getTimeLastUpdated() {
+        return timeLastUpdated;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public void setTimeCreated(Date timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public void setTimeLastUpdated(Date timeLastUpdated) {
+        this.timeLastUpdated = timeLastUpdated;
+    }
+
+    public Assessment getAssessment() {
+        return assessment;
+    }
+
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
 }
