@@ -15,9 +15,9 @@ public enum LoanRequestStatus implements BaseEnum {
     UNASSIGNED("未处理"),
     ASSIGNED("处理中"),
     CANCELED("已取消"),//只有在UNASSIGNED和ASSIGNED状态的可以取消
-    PENDINGVISITING("实地征信"),
-    PENDINGRISK("风控审核"),
-    PENDINGAPPORVE("待批准"),
+    PENDING_VISIT("实地征信"),
+    PENDING_RISK("风控审核"),
+    PENDING_APPORVE("待批准"),
     APPROVED("已批准"),
     REJECTED("已驳回"),
     PUBLISHED("已发放"),

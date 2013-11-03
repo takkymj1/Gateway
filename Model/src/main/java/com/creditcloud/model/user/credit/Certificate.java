@@ -10,24 +10,26 @@ import com.creditcloud.model.enums.user.credit.CertificateType;
 import java.util.Date;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author rooseek
  */
+@XmlRootElement
 public class Certificate extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String id;
+    private String id;
 
     @NotNull
-    private final String userId;
+    private String userId;
 
     //认证类型
     @NotNull
-    private final CertificateType type;
+    private CertificateType type;
 
     //认证的状态
     @NotNull
@@ -53,6 +55,9 @@ public class Certificate extends BaseObject {
     private Date timeCreated;
 
     private Date timeLastModified;
+
+    public Certificate() {
+    }
 
     public Certificate(String id,
                        String userId,
@@ -132,5 +137,17 @@ public class Certificate extends BaseObject {
 
     public void setAuditInfo(String auditInfo) {
         this.auditInfo = auditInfo;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setType(CertificateType type) {
+        this.type = type;
     }
 }

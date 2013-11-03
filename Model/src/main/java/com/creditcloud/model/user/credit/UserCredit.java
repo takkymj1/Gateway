@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.credit.CreditRank;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 用户信用及认证<p>
@@ -15,12 +16,13 @@ import javax.validation.constraints.NotNull;
  *
  * @author rooseek
  */
+@XmlRootElement
 public class UserCredit extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String userId;
+    private  String userId;
 
     //信用等级
     @NotNull
@@ -122,5 +124,9 @@ public class UserCredit extends BaseObject {
 
     public void setAssessment(Assessment assessment) {
         this.assessment = assessment;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
