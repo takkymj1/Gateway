@@ -39,16 +39,6 @@ public interface LoanRequestService {
      */
     LoanRequest getRequestById(String clientCode, String requestId);
 
-    /**
-     * cancel a loan request
-     *
-     * @param clientCode
-     * @param requestId
-     * @return true if successful
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    boolean cancelLoanRequest(String clientCode, String requestId);
 
     /**
      * list loan request by user id
