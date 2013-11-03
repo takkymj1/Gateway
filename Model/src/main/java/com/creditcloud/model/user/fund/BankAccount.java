@@ -8,12 +8,14 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 银行账号
  *
  * @author rooseek
  */
+@XmlRootElement
 public class BankAccount extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
@@ -22,25 +24,25 @@ public class BankAccount extends BaseObject {
      * 开户人
      */
     @RealName
-    private final String name;
+    private String name;
 
     /**
      * 开户银行:中国工商银行
      */
     @NotNull
-    private final Bank bank;
+    private Bank bank;
 
     /**
      * 开户行所在地:北京市西城区长安街12号
      */
     @NotNull
-    private final String location;
+    private String location;
 
     /**
      * 开户支行:工行北京分行海淀支行
      */
     @NotNull
-    private final String branch;
+    private String branch;
 
     /**
      * 账号
@@ -78,5 +80,21 @@ public class BankAccount extends BaseObject {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
 }
