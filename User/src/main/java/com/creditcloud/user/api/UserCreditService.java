@@ -9,6 +9,7 @@ import com.creditcloud.model.user.credit.CertificateRecord;
 import com.creditcloud.model.user.credit.Proof;
 import com.creditcloud.model.user.credit.UserCredit;
 import com.creditcloud.model.enums.user.credit.CertificateType;
+import com.creditcloud.model.enums.user.credit.ProofContentType;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -27,15 +28,6 @@ public interface UserCreditService {
      * @return
      */
     public UserCredit getUserCreditByUserId(String clientCode, String userId);
-
-    /**
-     * get UserCredit by IdNumber
-     *
-     * @param clientCode
-     * @param IdNumber
-     * @return
-     */
-    public UserCredit getUserCreditByIdNumber(String clientCode, String IdNumber);
 
     /**
      * get user certificate by userId and certificate type
@@ -76,26 +68,26 @@ public interface UserCreditService {
     public boolean deleteProof(String clientCode, String proofId);
 
     /**
-     * get image proof by user and image name
+     * get proof by user and content
      *
      * @param clientCode
      * @param userId
-     * @param imageName
+     * @param contentType
+     * @param content
      * @return
      */
-    @Deprecated
-    public Proof getProofByUserAndImageName(String clientCode, String userId, String imageName);
+    public Proof getProofByUserAndContent(String clientCode, String userId, ProofContentType contentType, String content);
 
     /**
-     * delete image proof by user and image name
+     * delete proof by user and content
      *
      * @param clientCode
      * @param userId
-     * @param imageName
+     * @param contentType
+     * @param content
      * @return
      */
-    @Deprecated
-    public boolean deleteProofByUserAndImageName(String clientCode, String userId, String imageName);
+    public boolean deleteProofByUserAndContent(String clientCode, String userId, ProofContentType contentType, String content);
 
     /**
      * list proof by certificate type and user id

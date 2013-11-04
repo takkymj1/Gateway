@@ -8,6 +8,9 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.user.credit.CertificateType;
+import com.creditcloud.model.enums.user.credit.CreditRank;
+import com.creditcloud.model.enums.user.credit.ProofType;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,8 +21,6 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 /**
  * 按element区分来统计某项实体的个数，主要用于前端页面显示用<p>
  * 例如：按月份统计某借款人的贷款申请数目
- *
- * TODO逐步将AnalysisData替换成该类
  *
  * @author rooseek
  *
@@ -32,6 +33,9 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     InvestStatus.class,
     RepaymentMethod.class,
     Source.class,
+    ProofType.class,
+    CertificateType.class,
+    CreditRank.class,
     Boolean.class,
     Date.class
 })
