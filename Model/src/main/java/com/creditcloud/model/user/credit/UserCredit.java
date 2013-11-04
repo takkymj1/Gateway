@@ -7,6 +7,7 @@ package com.creditcloud.model.user.credit;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.credit.CreditRank;
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -22,7 +23,7 @@ public class UserCredit extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private  String userId;
+    private String userId;
 
     //信用等级
     @NotNull
@@ -34,10 +35,12 @@ public class UserCredit extends BaseObject {
 
     //信用额度
     @NotNull
+    @Min(0)
     private int creditLimit;
 
     //可用额度
     @NotNull
+    @Min(0)
     private int creditAvailable;
 
     @NotNull
@@ -82,6 +85,7 @@ public class UserCredit extends BaseObject {
     public void setCreditRank(CreditRank creditRank) {
         this.creditRank = creditRank;
     }
+
     public void setCreditLimit(int creditLimit) {
         this.creditLimit = creditLimit;
     }
