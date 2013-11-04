@@ -25,8 +25,9 @@
         <module>Message</module>
         <module>SMS</module>
         <module>IDCard</module>
-		<module>User</module>
-		<module>Comment</module>
-    <module>File</module>
-  </modules>
+        <module>User</module>
+        <module>Comment</module>
+        <module>File</module>
+        <module>Payment</module>
+    </modules>
 </project>
