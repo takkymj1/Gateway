@@ -14,7 +14,8 @@ public enum LoanRequestResult implements BaseEnum {
 
     FAIL("提交贷款请求失败"),
     SUCCESS("提交贷款请求成功"),
-    EXCEED_LIMIT("当天贷款请求超过上限");
+    EXCEED_LIMIT("当天贷款请求超过上限"),
+    INSUFFICIENT_CREDIT("可用授信额度不足");
 
     private final String key;
 
