@@ -7,6 +7,7 @@ package com.creditcloud.config.api;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.DeviceConfig;
 import com.creditcloud.config.EmailConfig;
+import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.UpYunConfig;
 import javax.ejb.Remote;
@@ -27,4 +28,6 @@ public interface ConfigManager {
     public UpYunConfig getUpYunConfig();
     
     public DeviceConfig getDeviceConfig();
+    
+    public PaymentConfig getPaymentConfig();
 }

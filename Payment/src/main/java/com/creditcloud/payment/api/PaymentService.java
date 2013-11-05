@@ -6,6 +6,7 @@
 package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.PaymentAccount;
+import com.creditcloud.payment.model.chinapnr.BaseRequest;
 import javax.ejb.Remote;
 
 /**
@@ -23,4 +24,13 @@ public interface PaymentService {
      * @return null表示用户没有在三方支付中开户
      */
     public PaymentAccount getUserPaymentAccount(String clientCode, String userId);
+    
+    /**
+     * 获取请求的CheckValue
+     * 
+     * @param clientCode
+     * @param request
+     * @return 
+     */
+    public String getChkValue (String clientCode, BaseRequest request);
 }
