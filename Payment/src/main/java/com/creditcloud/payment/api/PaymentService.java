@@ -33,4 +33,14 @@ public interface PaymentService {
      * @return 
      */
     public String getChkValue (String clientCode, BaseRequest request);
+    
+    /**
+     * 验证从三方支付返回的数据对象是否合法
+     * 
+     * @param clientCode
+     * @param msgData 签名前的数据体
+     * @param chkValue 返回的签名值
+     * @return 0 表示正常，负值为失败
+     */
+    public int verifyResponse (String clientCode, String msgData, String chkValue);
 }

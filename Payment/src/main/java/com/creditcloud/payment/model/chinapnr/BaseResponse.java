@@ -7,6 +7,7 @@ package com.creditcloud.payment.model.chinapnr;
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -14,22 +15,28 @@ import org.apache.commons.lang3.StringUtils;
  */
 public abstract class BaseResponse extends BaseObject {
 
+    @FormParam("CmdId")
     @NotNull
     private CmdIdType CmdId;
 
+    @FormParam("RespCode")
     @NotNull
     private String RespCode;
 
+    @FormParam("RespDesc")
     @NotNull
     private String RespDesc;
 
+    @FormParam("MerCustId")
     @NotNull
     @Size(max = 16)
     private String MerCustId;
     
+    @FormParam("MerPriv")
     @Size(max = 120)
     private String MerPriv;
 
+    @FormParam("ChkValue")
     @NotNull
     @Size(min = 256, max = 256)
     private String ChkValue;
