@@ -46,7 +46,7 @@ public class UserRegisterRequest extends BaseRequest {
     /**
      *
      * @param MerCustId 机构的id
-     * @param BgRetUrl 后台回调url
+     * @param BgRetUrl 后台回调url 必须
      * @param RetUrl 页面跳转url
      * @param UsrId 用户Id
      * @param UsrName 用户真实姓名
