@@ -26,6 +26,14 @@ public interface PaymentService {
     public PaymentAccount getUserPaymentAccount(String clientCode, String userId);
     
     /**
+     * 创建用户在第三方支付中的账号
+     * 
+     * @param clientCode
+     * @param paymentAccount 
+     */
+    public void createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
+    
+    /**
      * 获取请求的CheckValue
      * 
      * @param clientCode

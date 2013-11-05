@@ -63,6 +63,10 @@ public abstract class BaseResponse extends BaseObject {
     }
     
     public abstract String chkString();
+    
+    public boolean success() {
+        return "000".equalsIgnoreCase(RespCode);
+    }
 
     public CmdIdType getCmdId() {
         return CmdId;

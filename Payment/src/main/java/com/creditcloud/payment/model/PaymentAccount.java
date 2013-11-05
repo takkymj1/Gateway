@@ -6,6 +6,7 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import java.util.Date;
 
 /**
  * 用户在第三方支付上的账号
@@ -20,17 +21,30 @@ public class PaymentAccount extends BaseObject {
     private String userId;
 
     /**
-     * 由三方支付生成的用户唯一ID
+     * 由三方支付生成的用户唯一ID, UsrCustId
      */
     private String accountId;
 
     /**
-     * 用户在三方支付中的用户名，可以与loginName不同
+     * 用户在三方支付中的用户名，可以与loginName不同, UsrId
      */
     private String accountName;
+    
+    private Date timeCreate;
 
     public PaymentAccount() {
     }
+
+    public PaymentAccount(String userId,
+                          String accountId,
+                          String accountName,
+                          Date timeCreate) {
+        this.userId = userId;
+        this.accountId = accountId;
+        this.accountName = accountName;
+        this.timeCreate = timeCreate;
+    }
+    
 
     public String getUserId() {
         return userId;
@@ -54,5 +68,13 @@ public class PaymentAccount extends BaseObject {
 
     public void setAccountName(String accountName) {
         this.accountName = accountName;
+    }
+
+    public Date getTimeCreate() {
+        return timeCreate;
+    }
+
+    public void setTimeCreate(Date timeCreate) {
+        this.timeCreate = timeCreate;
     }
 }
