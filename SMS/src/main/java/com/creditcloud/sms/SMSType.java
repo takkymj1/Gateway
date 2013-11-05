@@ -43,7 +43,11 @@ public enum SMSType {
     /**
      * LoanRequest 的 状态发生改变时给用户发送的提示信息.
      */
-    NOTIFICATION_LOANREQUEST_STATUS("notification.loanrequest.status");
+    NOTIFICATION_LOANREQUEST_STATUS("notification.loanrequest.status"),
+    /**
+     * Loan状态变化时发送给用户信息
+     */
+    NOTIFICATION_LOAN_STATUS("notification.loan.status");
 
     private final String key;
 

@@ -99,7 +99,7 @@ public interface UserAssetService {
      * @param vehicle
      * @return
      */
-    public Vehicle addVehicle(String clientCode, Vehicle vehicle, String addedBy, Source source, Proof... proof);
+    public Vehicle addVehicle(String clientCode, Vehicle vehicle, Proof... proof);
 
     /**
      *
