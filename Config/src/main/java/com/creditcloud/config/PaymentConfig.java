@@ -23,7 +23,7 @@ public class PaymentConfig extends BaseConfig {
     
     private static final long serialVersionUID = 20131105L;
     
-    private static final String CONFIG_NAME = "PaymentConfig";
+    public static final String CONFIG_NAME = "PaymentConfig";
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
