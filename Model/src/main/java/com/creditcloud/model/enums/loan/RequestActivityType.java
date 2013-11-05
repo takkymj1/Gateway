@@ -7,21 +7,38 @@ package com.creditcloud.model.enums.loan;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * life cycle activities for loan request and its loans
  *
  * @author rooseek
  */
 public enum RequestActivityType implements BaseEnum {
 
-    SUMBIT("提交贷款申请"),
-    ASSIGN_MANAGER("分配主管经理"),
-    ASSIGN_VISIT_TASK("分配外审任务"),
-    VISIT_REVIEW("外勤评审"),
-    ASSIGN_RISK_TASK("分配风控任务"),
-    RISK_REVIEW("风控评审"),
-    CANCELL("取消贷款申请"),
-    APPROVE("批准贷款申请"),
-    PUBLISH("发放贷款"),
-    REJECT("驳回贷款申请");
+    /**
+     * 贷款申请类活动
+     */
+    REQUEST_SUMBIT("提交贷款申请"),
+    REQUEST_ASSIGN(LoanRequestStatus.ASSIGNED.getKey()),
+    REQUEST_ASSIGN_VISIT_TASK("分配外审任务"),
+    REQUEST_VISIT_REVIEW("外勤评审"),
+    REQUEST_ASSIGN_RISK_TASK("分配风控任务"),
+    REQUEST_RISK_REVIEW("风控评审"),
+    REQUEST_CANCELL(LoanRequestStatus.CANCELED.getKey()),
+    REQUEST_APPROVE(LoanRequestStatus.APPROVED.getKey()),
+    REQUEST_PUBLISH(LoanRequestStatus.PUBLISHED.getKey()),
+    REQUEST_REJECT(LoanRequestStatus.REJECTED.getKey()),
+    /**
+     * 贷款类活动
+     */
+    LOAN_SPLIT("拆标"),
+    LOAN_SCHEDULE(LoanStatus.SCHEDULED.getKey()),
+    LOAN_OPEN(LoanStatus.OPENED.getKey()),
+    LOAN_FAIL(LoanStatus.FAILED.getKey()),
+    LOAN_CANCEL(LoanStatus.CANCELED.getKey()),
+    LOAN_FINISH(LoanStatus.FINISHED.getKey()),
+    LOAN_SETTLE(LoanStatus.SETTLED.getKey()),
+    LOAN_CLEAR(LoanStatus.CLEARED.getKey()),
+    LOAN_OVERDUE(LoanStatus.OVERDUE.getKey()),
+    LOAN_BREACH(LoanStatus.BREACH.getKey());
 
     private final String key;
 
