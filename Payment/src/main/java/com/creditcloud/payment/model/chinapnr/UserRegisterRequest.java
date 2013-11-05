@@ -62,16 +62,16 @@ public class UserRegisterRequest extends BaseRequest {
                                String IdNo,
                                String UsrMp,
                                String UsrEmail) {
-        super("10", CmdIdType.UserRegister, MerCustId);
+        super(PnRConstant.Version, CmdIdType.UserRegister, MerCustId);
         this.BgRetUrl = BgRetUrl;
         this.RetUrl = RetUrl;
         this.UsrId = UsrId;
         this.UsrName = UsrName;
-        this.IdType = "00";
+        this.IdType = PnRConstant.IdType;
         this.IdNo = IdNo;
         this.UsrMp = UsrMp;
         this.UsrEmail = UsrEmail;
-        this.CharSet = "UTF-8";
+        this.CharSet = PnRConstant.CharSet;
     }
 
     @Override

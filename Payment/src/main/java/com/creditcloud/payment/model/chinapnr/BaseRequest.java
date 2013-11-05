@@ -62,7 +62,7 @@ public abstract class BaseRequest extends BaseObject {
      * @return 
      */
     public abstract String chkString();
-
+    
     public String getVersion() {
         return Version;
     }
