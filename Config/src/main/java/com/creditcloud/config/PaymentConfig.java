@@ -24,20 +24,18 @@ public class PaymentConfig extends BaseConfig {
     private static final long serialVersionUID = 20131105L;
     
     public static final String CONFIG_NAME = "PaymentConfig";
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static String getCONFIG_NAME() {
-        return CONFIG_NAME;
-    }
     
     /**
-     *  客户号
+     *  6位客户ID，ChkValue生成用
      */
     @XmlElement(required = true)
-    private String customId;
+    private String merId;
+    
+    /**
+     * 16位客户ID，API调用用
+     */
+    @XmlElement(required = true)
+    private String merCustId;
     
     /**
      * 客户私钥文件路径
@@ -72,8 +70,8 @@ public class PaymentConfig extends BaseConfig {
     public PaymentConfig() {
     }
 
-    public String getCustomId() {
-        return customId;
+    public String getMerId() {
+        return merId;
     }
 
     public String getPrivateKeyPath() {
@@ -94,5 +92,9 @@ public class PaymentConfig extends BaseConfig {
 
     public String getRetUrl() {
         return retUrl;
+    }
+
+    public String getMerCustId() {
+        return merCustId;
     }
 }
