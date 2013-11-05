@@ -19,6 +19,9 @@ public enum CmdIdType {
     BgRegister,
     UserBindCard,
     BgBindCard,
+    /**
+     * 用户登陆
+     */
     UserLogin,
     AcctModify,
     NetSave,
