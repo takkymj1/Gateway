@@ -24,19 +24,19 @@ public class FileUtils {
     private static final Logger logger = Logger.getLogger(FileUtils.class.getName());
 
     /**
-     * write image stream to a local file
+     * write input stream to a local file
      *
-     * @param uploadedInputStream
-     * @param uploadedFileLocation
+     * @param inputStream
+     * @param filePath
      */
-    public static void writeToFile(InputStream imageStream,
-                                   String filPath) {
+    public static void writeToFile(InputStream inputStream,
+                                   String filePath) {
         OutputStream out = null;
         try {
-            out = new FileOutputStream(new File(filPath));
+            out = new FileOutputStream(new File(filePath));
             int read;
-            byte[] bytes = new byte[1024];
-            while ((read = imageStream.read(bytes)) != -1) {
+            byte[] bytes = new byte[4096];
+            while ((read = inputStream.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
             out.flush();

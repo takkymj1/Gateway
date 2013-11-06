@@ -13,6 +13,7 @@ public enum Realm implements BaseEnum {
 
     USER("用戶"),
     EMPLOYEE("员工"),
+    ROLE("角色"),
     CLIENT("客戶"),
     /**
      * 下面用在Comment/EmployeeActivity中与用于区分不同实体的评论/员工活动

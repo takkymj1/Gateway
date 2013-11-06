@@ -13,9 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum ProofContentType implements BaseEnum {
 
     IMAGE("图像"),
-    DOCUMENT("文档"),
-    HYPERLINK("网页链接"),
-    EXPLAINATION("说明");
+    DOCUMENT("文档");
+    //  HYPERLINK("网页链接"),
+    //  EXPLAINATION("说明")
 
     private final String key;
 
