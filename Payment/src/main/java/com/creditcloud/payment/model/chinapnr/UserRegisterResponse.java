@@ -23,6 +23,7 @@ public class UserRegisterResponse extends BaseResponse {
 
     @FormParam("UsrCustId")
     @NotNull
+    @Size(max = 16)
     private String UsrCustId;
 
     @FormParam("BgRetUrl")
