@@ -27,13 +27,13 @@ public class FileUtils {
      * write input stream to a local file
      *
      * @param inputStream
-     * @param filPath
+     * @param filePath
      */
     public static void writeToFile(InputStream inputStream,
-                                   String filPath) {
+                                   String filePath) {
         OutputStream out = null;
         try {
-            out = new FileOutputStream(new File(filPath));
+            out = new FileOutputStream(new File(filePath));
             int read;
             byte[] bytes = new byte[4096];
             while ((read = inputStream.read(bytes)) != -1) {
