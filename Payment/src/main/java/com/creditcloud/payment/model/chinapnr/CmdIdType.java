@@ -17,7 +17,13 @@ public enum CmdIdType {
      * 用户后台开户
      */
     BgRegister,
+    /**
+     * 用户绑卡
+     */
     UserBindCard,
+    /**
+     * 后台绑卡
+     */
     BgBindCard,
     /**
      * 用户登陆
