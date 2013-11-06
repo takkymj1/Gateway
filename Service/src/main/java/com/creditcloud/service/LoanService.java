@@ -17,17 +17,19 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface LoanService extends LoanRequestService{
+public interface LoanService extends LoanRequestService {
 
     /**
-     * update loan
+     * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新
      *
      * @param clientCode
-     * @param loan
+     * @param loanId
+     * @param status
+     * @return true if successful
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void updateLoan(String clientCode, Loan loan);
+    boolean markLoanStatus(String clientCode, String loanId, LoanStatus status);
 
     /**
      * get Loan by id
