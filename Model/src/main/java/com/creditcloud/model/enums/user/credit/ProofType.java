@@ -132,7 +132,7 @@ public enum ProofType implements BaseEnum {
      * @param type
      * @return
      */
-    public List<ProofType> listByCertificate(CertificateType type) {
+    public static List<ProofType> listByCertificate(CertificateType type) {
         return proofMap.get(type);
     }
 }
