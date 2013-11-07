@@ -19,7 +19,6 @@ public class DeviceTrack extends BaseObject implements GPSCoordinates {
    
     private static final long serialVersionUID = 20130918L;
     
-    @NotNull
     @FormParam("id")
     private String id;
     
