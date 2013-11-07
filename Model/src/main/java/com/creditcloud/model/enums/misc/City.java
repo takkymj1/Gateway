@@ -510,7 +510,7 @@ public enum City implements BaseEnum {
      * @param type
      * @return
      */
-    public List<City> listByProvince(Province province) {
+    public static List<City> listByProvince(Province province) {
         return districtMap.get(province);
     }
 }
