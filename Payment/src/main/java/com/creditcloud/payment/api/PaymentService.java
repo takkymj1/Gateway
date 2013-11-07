@@ -35,6 +35,15 @@ public interface PaymentService {
     public void createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
     
     /**
+     * 根据在三方支付中的ID获取对应的UserId
+     * 
+     * @param clientCode
+     * @param accountId
+     * @return null 表示accountId不存在
+     */
+    public String getUserIdByAccountId (String clientCode, String accountId);
+    
+    /**
      * 获取请求的CheckValue
      * 
      * @param clientCode

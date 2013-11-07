@@ -111,7 +111,7 @@ public interface UserService extends UserSecurityService {
      * find user by user Id
      *
      * @param clientCode
-     * @param loginName
+     * @param userId
      * @return null if not found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
