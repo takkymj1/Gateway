@@ -69,6 +69,14 @@ public interface InvestService extends InvestRepayService {
     Map<Integer, Repayment> settleLoan(String clientCode, Loan loan);
 
     /**
+     * cancel failed loan , release related invest
+     *
+     * @param clientCode
+     * @param loan
+     */
+    void cancelFailedLoan(String clientCode, Loan loan);
+
+    /**
      * repayment of a loan, set repayment status and generate fund record
      *
      * @param clientCode

@@ -25,11 +25,13 @@ public interface LoanService extends LoanRequestService {
      * @param clientCode
      * @param loanId
      * @param status
+     * @param bidNumber
+     * @param bidAmount
      * @return true if successful
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    boolean markLoanStatus(String clientCode, String loanId, LoanStatus status);
+    boolean markLoanStatus(String clientCode, String loanId, LoanStatus status, int bidNumber, int bidAmount);
 
     /**
      * get Loan by id
