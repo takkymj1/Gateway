@@ -14,13 +14,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author rooseek
  */
-@XmlRootElement(name = "DeviceConfig")
+@XmlRootElement(name = "DeviceManagerConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public final class DeviceConfig extends BaseConfig {
+public final class DeviceManagerConfig extends BaseConfig {
 
     private static final long serialVersionUID = 20131030L;
 
-    public static final String CONFIG_NAME = "DeviceConfig";
+    public static final String CONFIG_NAME = "DeviceManagerConfig";
 
     /**
      * 平板上传文件的临时中转文件存放目录
@@ -34,10 +34,10 @@ public final class DeviceConfig extends BaseConfig {
     @XmlElement(required = true)
     private String tempImageDir;
     
-    public DeviceConfig() {
+    public DeviceManagerConfig() {
     }
 
-    public DeviceConfig(String tempFileDir, 
+    public DeviceManagerConfig(String tempFileDir, 
                         String tempImageDir) {
         this.tempFileDir = tempFileDir;
         this.tempImageDir = tempImageDir;
