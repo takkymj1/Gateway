@@ -90,6 +90,11 @@ public class Loan extends BaseObject implements Investable {
      * 投标数
      */
     private int bidNumber;
+    
+    /**
+     * 实际投标金额，主要用于流标
+     */
+    private int bidAmount;
 
     @NotNull
     private LoanStatus status;
@@ -110,7 +115,8 @@ public class Loan extends BaseObject implements Investable {
                 Date timeOpen,
                 Date timeFinished,
                 boolean mortgaged,
-                int bidNumber) {
+                int bidNumber,
+                int bidAmount) {
         this.id = id;
         this.title = title;
         this.method = method;
@@ -125,6 +131,7 @@ public class Loan extends BaseObject implements Investable {
         this.timeFinished = timeFinished;
         this.mortgaged = mortgaged;
         this.bidNumber = bidNumber;
+        this.bidAmount = bidAmount;
     }
 
     @Override
@@ -241,5 +248,13 @@ public class Loan extends BaseObject implements Investable {
 
     public void setRate(int rate) {
         this.rate = rate;
+    }
+
+    public int getBidAmount() {
+        return bidAmount;
+    }
+
+    public void setBidAmount(int bidAmount) {
+        this.bidAmount = bidAmount;
     }
 }

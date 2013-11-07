@@ -44,7 +44,6 @@ public enum LoanRequestStatus implements BaseEnum {
     public static boolean tryCancel(LoanRequestStatus status) {
         switch (status) {
             case UNASSIGNED:
-            case ASSIGNED:
             case CANCELED:
                 return true;
         }
