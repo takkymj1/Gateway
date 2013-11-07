@@ -7,6 +7,7 @@ package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.chinapnr.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.BaseResponse;
 import javax.ejb.Remote;
 
 /**
@@ -46,9 +47,8 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      * 
      * @param clientCode
-     * @param msgData 签名前的数据体
-     * @param chkValue 返回的签名值
+     * @param response 返回数据
      * @return 0 表示正常，负值为失败
      */
-    public int verifyResponse (String clientCode, String msgData, String chkValue);
+    public int verifyResponse (String clientCode, BaseResponse response);
 }
