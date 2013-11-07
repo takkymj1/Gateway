@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpYunConfig>
+    <fileConfig>
+        <bucketName>bucket</bucketName>
+        <userName>user</userName>
+        <userPassword>password</userPassword>
+        <urlPrefix>http://</urlPrefix>
+        <urlSuffix>.b0.upaiyun.com/</urlSuffix>
+    </fileConfig>
+    <imageConfig>
+        <bucketName>bucket</bucketName>
+        <userName>user</userName>
+        <userPassword>password</userPassword>
+        <urlPrefix>http://</urlPrefix>
+        <urlSuffix>.b0.upaiyun.com/</urlSuffix>
+    </imageConfig>
+</UpYunConfig>

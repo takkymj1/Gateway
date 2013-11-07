@@ -5,7 +5,8 @@
 package com.creditcloud.config.api;
 
 import com.creditcloud.config.ClientConfig;
-import com.creditcloud.config.DeviceConfig;
+import com.creditcloud.config.CreditManagerConfig;
+import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.SMSConfig;
@@ -27,7 +28,9 @@ public interface ConfigManager {
     
     public UpYunConfig getUpYunConfig();
     
-    public DeviceConfig getDeviceConfig();
+    public DeviceManagerConfig getDeviceManagerConfig();
     
     public PaymentConfig getPaymentConfig();
+    
+    public CreditManagerConfig getCreditManagerConfig();
 }
