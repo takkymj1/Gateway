@@ -31,7 +31,7 @@ public class BankAccountHandler extends SimpleTagSupport {
             return;
         }
         JspWriter writer = getJspContext().getOut();
-        if (account.length() == 16 || account.length() == 19) {
+        if (account.length() == 16) {
             writer.write(account, 0, 4);
             writer.write("&nbsp;");
             writer.write(account, 4, 4);
@@ -39,10 +39,10 @@ public class BankAccountHandler extends SimpleTagSupport {
             writer.write(account, 8, 4);
             writer.write("&nbsp;");
             writer.write(account, 12, 4);
-            if (account.length() == 19) {
-                writer.write("&nbsp;");
-                writer.write(account, 16, 3);
-            }
+        } else if (account.length() == 19) {
+            writer.write(account, 0, 6);
+            writer.write("&nbsp;");
+            writer.write(account, 6, 13);
         } else {
             logger.warn("Bank account number {} is invalid !", account);
             writer.write(account);
