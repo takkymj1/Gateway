@@ -56,7 +56,7 @@ public interface UserCreditService {
      * @param proof
      * @return
      */
-    public boolean addProof(String clientCode, String userId, Proof proof);
+    public Proof addProof(String clientCode, String userId, Proof proof);
 
     /**
      * delete proof by id
