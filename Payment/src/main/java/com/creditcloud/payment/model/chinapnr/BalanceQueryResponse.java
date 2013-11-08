@@ -7,12 +7,14 @@
 package com.creditcloud.payment.model.chinapnr;
 
 import com.creditcloud.payment.model.chinapnr.base.UserResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 余额查询的返回结果
  * 
  * @author sobranie
  */
+@XmlRootElement
 public class BalanceQueryResponse extends UserResponse {
     
     private String AvlBal;
