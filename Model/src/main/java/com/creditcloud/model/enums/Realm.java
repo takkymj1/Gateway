@@ -4,6 +4,20 @@
  */
 package com.creditcloud.model.enums;
 
+import com.creditcloud.model.client.Client;
+import com.creditcloud.model.client.Employee;
+import com.creditcloud.model.client.Role;
+import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.loan.LoanRequest;
+import com.creditcloud.model.loan.Task;
+import com.creditcloud.model.user.User;
+import com.creditcloud.model.user.asset.RealEstate;
+import com.creditcloud.model.user.asset.Vehicle;
+import com.creditcloud.model.user.credit.Certificate;
+import com.creditcloud.model.user.credit.Proof;
+import java.awt.Image;
+import java.io.File;
+
 /**
  * 定义实体相关的域
  *
@@ -11,29 +25,35 @@ package com.creditcloud.model.enums;
  */
 public enum Realm implements BaseEnum {
 
-    USER("用戶"),
-    EMPLOYEE("员工"),
-    ROLE("角色"),
-    CLIENT("客戶"),
-    /**
-     * 下面用在Comment/EmployeeActivity中与用于区分不同实体的评论/员工活动
-     */
-    PROOF("证明"),
-    CERTIFICATE("认证"),
-    LOAN("贷款"),
-    LOAN_REQUEST("贷款申请"),
-    TASK("任务"),
-    IMAGE("图片"),
-    FILE("文件");
+    USER("用戶", User.class),
+    EMPLOYEE("员工", Employee.class),
+    ROLE("角色", Role.class),
+    CLIENT("客戶", Client.class),
+    PROOF("证明", Proof.class),
+    CERTIFICATE("认证", Certificate.class),
+    LOAN("贷款", Loan.class),
+    LOAN_REQUEST("贷款申请", LoanRequest.class),
+    TASK("任务", Task.class),
+    IMAGE("图片", Image.class),
+    FILE("文件", File.class),
+    VEHICLE("车辆", Vehicle.class),
+    REALESTATE("房产", RealEstate.class);
 
     private final String key;
 
-    private Realm(String key) {
+    private final Class clazz;
+
+    private Realm(String key, Class clazz) {
         this.key = key;
+        this.clazz = clazz;
     }
 
     @Override
     public String getKey() {
         return key;
+    }
+
+    public Class getClazz() {
+        return clazz;
     }
 }
