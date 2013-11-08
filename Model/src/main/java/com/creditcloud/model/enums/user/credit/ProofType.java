@@ -73,11 +73,11 @@ public enum ProofType implements BaseEnum {
     /**
      * 信用报告
      */
-    CREDIT_REPORT("信用报告", CertificateType.CREDITREPORT),
+    CREDITREPORT("信用报告", CertificateType.CREDITREPORT),
     /**
      * 贷款用途
      */
-    LOAN_PURPOSE("贷款用途", CertificateType.LOANPURPOSE),
+    LOANPURPOSE("贷款用途", CertificateType.LOANPURPOSE),
     /**
      * 家庭情況认证
      */
