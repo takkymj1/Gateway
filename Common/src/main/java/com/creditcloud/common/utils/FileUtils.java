@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -67,6 +68,24 @@ public class FileUtils {
      */
     public static String hash(String clientCode, RealmEntity owner, String fileName) {
         String str = clientCode.concat(owner.getEntityId()).concat(fileName);
-        return DigestUtils.md5Hex(str);
+        //保存文件后缀，使得pdf类文件可以直接在浏览器打开
+        String hash = DigestUtils.md5Hex(str);
+        hash = hash.concat(fileSuffix(fileName));
+        return hash;
+    }
+
+    /**
+     * 返回文件后缀,如".pdf"
+     *
+     * @param fileName
+     * @return
+     */
+    public static String fileSuffix(String fileName) {
+        int index = StringUtils.lastIndexOf(fileName, ".");
+        if (index != -1) {
+            String suffix = fileName.substring(index);
+            return suffix;
+        }
+        return "";
     }
 }
