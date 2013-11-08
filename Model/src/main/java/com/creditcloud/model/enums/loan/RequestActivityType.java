@@ -17,16 +17,16 @@ public enum RequestActivityType implements BaseEnum {
     /**
      * 贷款申请类活动
      */
-    REQUEST_SUMBIT("提交贷款申请", Realm.LOANREQUEST),
-    REQUEST_ASSIGN(LoanRequestStatus.ASSIGNED.getKey(), Realm.LOANREQUEST),
-    REQUEST_ASSIGN_VISIT_TASK("分配外审任务", Realm.LOANREQUEST),
-    REQUEST_VISIT_REVIEW("外勤评审", Realm.LOANREQUEST),
-    REQUEST_ASSIGN_RISK_TASK("分配风控任务", Realm.LOANREQUEST),
-    REQUEST_RISK_REVIEW("风控评审", Realm.LOANREQUEST),
-    REQUEST_CANCELL(LoanRequestStatus.CANCELED.getKey(), Realm.LOANREQUEST),
-    REQUEST_APPROVE(LoanRequestStatus.APPROVED.getKey(), Realm.LOANREQUEST),
-    REQUEST_PUBLISH(LoanRequestStatus.PUBLISHED.getKey(), Realm.LOANREQUEST),
-    REQUEST_REJECT(LoanRequestStatus.REJECTED.getKey(), Realm.LOANREQUEST),
+    REQUEST_SUMBIT("提交贷款申请", Realm.LOAN_REQUEST),
+    REQUEST_ASSIGN(LoanRequestStatus.ASSIGNED.getKey(), Realm.LOAN_REQUEST),
+    REQUEST_ASSIGN_VISIT_TASK("分配外审任务", Realm.LOAN_REQUEST),
+    REQUEST_VISIT_REVIEW("外勤评审", Realm.LOAN_REQUEST),
+    REQUEST_ASSIGN_RISK_TASK("分配风控任务", Realm.LOAN_REQUEST),
+    REQUEST_RISK_REVIEW("风控评审", Realm.LOAN_REQUEST),
+    REQUEST_CANCELL(LoanRequestStatus.CANCELED.getKey(), Realm.LOAN_REQUEST),
+    REQUEST_APPROVE(LoanRequestStatus.APPROVED.getKey(), Realm.LOAN_REQUEST),
+    REQUEST_PUBLISH(LoanRequestStatus.PUBLISHED.getKey(), Realm.LOAN_REQUEST),
+    REQUEST_REJECT(LoanRequestStatus.REJECTED.getKey(), Realm.LOAN_REQUEST),
     /**
      * 贷款类活动
      */

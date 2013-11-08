@@ -32,7 +32,7 @@ public enum Realm implements BaseEnum {
     PROOF("证明", Proof.class),
     CERTIFICATE("认证", Certificate.class),
     LOAN("贷款", Loan.class),
-    LOANREQUEST("贷款申请", LoanRequest.class),
+    LOAN_REQUEST("贷款申请", LoanRequest.class),
     TASK("任务", Task.class),
     IMAGE("图片", Image.class),
     FILE("文件", File.class),
