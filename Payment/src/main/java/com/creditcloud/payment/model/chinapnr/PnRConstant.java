@@ -11,9 +11,18 @@ package com.creditcloud.payment.model.chinapnr;
  */
 public interface PnRConstant {
 
+    /**
+     * 默认的Version
+     */
     String Version = "10";
 
+    /**
+     * 默认的证件类型，身份证
+     */
     String IdType = "00";
     
+    /**
+     * 默认的字符编码，固定使用UTF-8
+     */
     String CharSet = "UTF-8";
 }

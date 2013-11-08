@@ -6,8 +6,9 @@
 package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.PaymentAccount;
-import com.creditcloud.payment.model.chinapnr.BaseRequest;
-import com.creditcloud.payment.model.chinapnr.BaseResponse;
+import com.creditcloud.payment.model.UserBalance;
+import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.ejb.Remote;
 
 /**
@@ -42,6 +43,15 @@ public interface PaymentService {
      * @return null 表示accountId不存在
      */
     public String getUserIdByAccountId (String clientCode, String accountId);
+    
+    /**
+     * 查询用户在三方支付中的实时账户余额
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public UserBalance queryBalance(String clientCode, String userId);
     
     /**
      * 获取请求的CheckValue
