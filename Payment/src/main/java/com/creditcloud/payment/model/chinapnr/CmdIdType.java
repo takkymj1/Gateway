@@ -46,6 +46,9 @@ public enum CmdIdType {
     Cash,
     UsrAcctPay,
     QueryBalance,
+    /**
+     * 后台查询余额
+     */
     QueryBalanceBg,
     QueryAccts,
     QueryTransStat,
