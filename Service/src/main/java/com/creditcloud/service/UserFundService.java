@@ -29,7 +29,7 @@ public interface UserFundService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    public UserFund getUserFundByUserId(String clientCode, String userId);
+    public UserFund getUserFundByUser(String clientCode, String userId);
 
     /**
      * list fund record for user by record type
@@ -42,7 +42,7 @@ public interface UserFundService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    public PagedResult<FundRecord> listFundRecordByUserId(String clientCode,
+    public PagedResult<FundRecord> listFundRecordByUser(String clientCode,
                                                           String userId,
                                                           PageInfo pageInfo,
                                                           FundRecordType... recordType);

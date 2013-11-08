@@ -58,7 +58,7 @@ public interface TaskService {
      * @param taskId
      * @return
      */
-    Task getByTaskId(String clientCode, String taskId);
+    Task getTaskById(String clientCode, String taskId);
 
     /**
      * update a task

@@ -33,7 +33,8 @@ public final class ClientConfig extends BaseConfig {
 
     @XmlElement(required = true)
     private boolean developMode;
-    
+
+    @XmlElement(required = true)
     private String wsURL;
 
     public String getCode() {
@@ -55,7 +56,7 @@ public final class ClientConfig extends BaseConfig {
     public boolean isDevelopMode() {
         return developMode;
     }
-    
+
     public String getWsURL() {
         return wsURL;
     }

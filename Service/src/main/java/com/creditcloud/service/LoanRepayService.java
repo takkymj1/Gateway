@@ -93,7 +93,7 @@ public interface LoanRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<LoanRepayment> listRepayByLoanId(String clientCode, String loanId);
+    List<LoanRepayment> listRepayByLoan(String clientCode, String loanId);
 
     /**
      * get repayment by its id

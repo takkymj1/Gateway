@@ -54,7 +54,7 @@ public interface LoanService extends LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<Loan> listLoanByUserId(String clientCode, String userId, PageInfo pageInfo);
+    PagedResult<Loan> listLoanByUser(String clientCode, String userId, PageInfo pageInfo);
 
     /**
      * list loan by loan request id
@@ -65,7 +65,7 @@ public interface LoanService extends LoanRequestService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    List<Loan> listLoanByRequestId(String clientCode, String requestId);
+    List<Loan> listLoanByRequest(String clientCode, String requestId);
 
     /**
      * list all loans
