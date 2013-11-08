@@ -10,6 +10,7 @@ import com.creditcloud.model.user.credit.Proof;
 import com.creditcloud.model.user.credit.UserCredit;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContentType;
+import com.creditcloud.model.enums.user.credit.ProofType;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -72,22 +73,32 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param userId
+     * @param proofType
      * @param contentType
      * @param content
      * @return
      */
-    public Proof getProofByUserAndContent(String clientCode, String userId, ProofContentType contentType, String content);
+    public Proof getProofByUserAndContent(String clientCode,
+                                          String userId,
+                                          ProofType proofType,
+                                          ProofContentType contentType,
+                                          String content);
 
     /**
      * delete proof by user and content
      *
      * @param clientCode
      * @param userId
+     * @param proofType
      * @param contentType
      * @param content
      * @return
      */
-    public boolean deleteProofByUserAndContent(String clientCode, String userId, ProofContentType contentType, String content);
+    public boolean deleteProofByUserAndContent(String clientCode,
+                                               String userId,
+                                               ProofType proofType,
+                                               ProofContentType contentType,
+                                               String content);
 
     /**
      * list proof by certificate type and user id

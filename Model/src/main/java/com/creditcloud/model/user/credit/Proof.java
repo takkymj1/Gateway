@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.ProofContentType;
 import com.creditcloud.model.enums.user.credit.ProofType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -26,12 +27,11 @@ public class Proof extends BaseObject {
 
     @NotNull
     private String id;
+    
+    private RealmEntity owner;
 
     @NotNull
     private ProofType proofType;
-
-    //证明标题
-    private String title;
 
     //证明内容类型
     @NotNull
@@ -78,8 +78,8 @@ public class Proof extends BaseObject {
     }
 
     public Proof(String id,
+                 RealmEntity owner,
                  ProofType proofType,
-                 String title,
                  ProofContentType contentType,
                  String content,
                  String description,
@@ -91,7 +91,7 @@ public class Proof extends BaseObject {
                  BigDecimal latitude) {
         this.id = id;
         this.proofType = proofType;
-        this.title = title;
+        this.owner = owner;
         this.content = content;
         this.contentType = contentType;
         this.description = description;
@@ -101,10 +101,6 @@ public class Proof extends BaseObject {
         this.mosaic = mosaic;
         this.longitude = longitude;
         this.latitude = latitude;
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public String getDescription() {
@@ -151,10 +147,6 @@ public class Proof extends BaseObject {
         this.proofType = proofType;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public void setContentType(ProofContentType contentType) {
         this.contentType = contentType;
     }
@@ -197,5 +189,13 @@ public class Proof extends BaseObject {
 
     public void setLatitude(BigDecimal latitude) {
         this.latitude = latitude;
+    }
+
+    public RealmEntity getOwner() {
+        return owner;
+    }
+
+    public void setOwner(RealmEntity owner) {
+        this.owner = owner;
     }
 }
