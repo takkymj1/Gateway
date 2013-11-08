@@ -4,7 +4,6 @@
  */
 package com.creditcloud.user.api;
 
-import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.user.asset.RealEstate;
 import com.creditcloud.model.user.asset.RealEstateRecord;
 import com.creditcloud.model.user.asset.Vehicle;
@@ -116,7 +115,7 @@ public interface UserAssetService {
      * @param proof
      * @return
      */
-    public boolean addProofFroVehicle(String clientCode, String vehicleId, Proof... proof);
+    public boolean addProofForVehicle(String clientCode, String vehicleId, Proof... proof);
 
     /**
      *

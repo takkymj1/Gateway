@@ -32,7 +32,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<Invest> listInvestbyUserId(String clientCode, String userId, PageInfo info);
+    PagedResult<Invest> listInvestbyUser(String clientCode, String userId, PageInfo info);
 
     /**
      * list Invest by loan Id
@@ -44,7 +44,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    PagedResult<Invest> listInvestByLoanId(String clientCode, String loanId, PageInfo info);
+    PagedResult<Invest> listInvestByLoan(String clientCode, String loanId, PageInfo info);
 
     /**
      * notify a status of loan to all its invests
@@ -85,15 +85,6 @@ public interface InvestService extends InvestRepayService {
      * the local client
      */
     void repayLoan(String clientCode, LoanRepayment loanRepay);
-
-    /**
-     * query the bid progress about a loan
-     *
-     * @param clientCode
-     * @param loanId
-     * @return left balance of a loan
-     */
-    int getLoanBalance(String clientCode, String loanId);
 
     /**
      * 统计用户对贷款的投资信息
