@@ -32,6 +32,9 @@ public enum CmdIdType {
     AcctModify,
     NetSave,
     PosWhSave,
+    /**
+     * 用户资金冻结
+     */
     UsrFreezeBg,
     UsrUnFreeze,
     InitiativeTender,
