@@ -6,9 +6,11 @@
 package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.PaymentAccount;
+import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -20,54 +22,66 @@ public interface PaymentService {
 
     /**
      * 获取用户在三方支付中的PaymentAccount
-     * 
+     *
      * @param clientCode
      * @param userId
      * @return null表示用户没有在三方支付中开户
      */
     public PaymentAccount getUserPaymentAccount(String clientCode, String userId);
-    
+
     /**
      * 创建用户在第三方支付中的账号
-     * 
+     *
      * @param clientCode
-     * @param paymentAccount 
+     * @param paymentAccount
      */
     public void createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
-    
+
     /**
      * 根据在三方支付中的ID获取对应的UserId
-     * 
+     *
      * @param clientCode
      * @param accountId
      * @return null 表示accountId不存在
      */
-    public String getUserIdByAccountId (String clientCode, String accountId);
-    
+    public String getUserIdByAccountId(String clientCode, String accountId);
+
     /**
      * 查询用户在三方支付中的实时账户余额
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public UserBalance queryBalance(String clientCode, String userId);
-    
+
+    /**
+     * 冻结指定用户的资金
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId 此次操作的唯一订单号
+     * @param amount
+     * @param BgRetUrl 后台返回的回调路径
+     * @return 冻结成功返回，否则返回null
+     */
+    public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
+
     /**
      * 获取请求的CheckValue
-     * 
+     *
      * @param clientCode
      * @param request
-     * @return 
+     * @return
      */
-    public String getChkValue (String clientCode, BaseRequest request);
-    
+    public String getChkValue(String clientCode, BaseRequest request);
+
     /**
      * 验证从三方支付返回的数据对象是否合法
-     * 
+     *
      * @param clientCode
      * @param response 返回数据
      * @return 0 表示正常，负值为失败
      */
-    public int verifyResponse (String clientCode, BaseResponse response);
+    public int verifyResponse(String clientCode, BaseResponse response);
 }
