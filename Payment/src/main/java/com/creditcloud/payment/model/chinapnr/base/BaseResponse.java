@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.base;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -62,6 +63,11 @@ public abstract class BaseResponse extends BaseObject {
         return sb.toString();
     }
     
+    /**
+     * 用于做应答内容验证的ChkValue
+     * 
+     * @return 
+     */
     public abstract String chkString();
     
     public boolean success() {
