@@ -9,6 +9,7 @@ import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 冻结用户资金的返回对象
@@ -55,15 +56,15 @@ public class UserFreezeResponse extends UserResponse {
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(getSubAcctType())
-                .append(getSubAcctId())
-                .append(getOrdId())
-                .append(getOrdDate())
-                .append(getTransAmt())
-                .append(getRetUrl())
-                .append(getBgRetUrl())
-                .append(getTrxId())
-                .append(getMerPriv());
+        sb.append(StringUtils.trimToEmpty(getSubAcctType()))
+                .append(StringUtils.trimToEmpty(getSubAcctId()))
+                .append(StringUtils.trimToEmpty(getOrdId()))
+                .append(StringUtils.trimToEmpty(getOrdDate()))
+                .append(StringUtils.trimToEmpty(getTransAmt()))
+                .append(StringUtils.trimToEmpty(getRetUrl()))
+                .append(StringUtils.trimToEmpty(getBgRetUrl()))
+                .append(StringUtils.trimToEmpty(getTrxId()))
+                .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
 
