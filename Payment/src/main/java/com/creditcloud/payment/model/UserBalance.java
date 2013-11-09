@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.model;
 
+import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 
 /**
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
  *
  * @author sobranie
  */
-public class UserBalance {
+public class UserBalance extends BaseObject {
 
     /**
      * 账户余额
