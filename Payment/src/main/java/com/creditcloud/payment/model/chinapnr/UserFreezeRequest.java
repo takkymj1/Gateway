@@ -8,6 +8,7 @@ package com.creditcloud.payment.model.chinapnr;
 import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 因用户操作而发起的资金冻结
@@ -53,20 +54,18 @@ public class UserFreezeRequest extends UserRequest {
         this.TransAmt = TransAmt;
         this.BgRetUrl = BgRetUrl;
     }
-    
-    
 
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(getSubAcctType())
-                .append(getSubAcctId())
-                .append(getOrdId())
-                .append(getOrdDate())
-                .append(getTransAmt())
-                .append(getRetUrl())
-                .append(getBgRetUrl())
-                .append(getMerPriv());
+        sb.append(StringUtils.trimToEmpty(getSubAcctType()))
+                .append(StringUtils.trimToEmpty(getSubAcctId()))
+                .append(StringUtils.trimToEmpty(getOrdId()))
+                .append(StringUtils.trimToEmpty(getOrdDate()))
+                .append(StringUtils.trimToEmpty(getTransAmt()))
+                .append(StringUtils.trimToEmpty(getRetUrl()))
+                .append(StringUtils.trimToEmpty(getBgRetUrl()))
+                .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
 
