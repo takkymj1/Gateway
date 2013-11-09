@@ -21,7 +21,7 @@ public class NumberUtils {
      */
     public static BigDecimal parse(String number) {
         //排除逗号
-        String string = number.trim().replace(",", "");
+        String string = number.trim().replaceAll(",", "");
         
         return new BigDecimal(string);
     }
