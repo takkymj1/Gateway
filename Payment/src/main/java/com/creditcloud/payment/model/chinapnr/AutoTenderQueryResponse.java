@@ -11,17 +11,17 @@ import com.creditcloud.payment.model.chinapnr.base.UserResponse;
  *
  * @author rooseek
  */
-public class AutoBidStatResponse extends UserResponse {
+public class AutoTenderQueryResponse extends UserResponse {
 
     private String TransStat;
 
-    public AutoBidStatResponse() {
+    public AutoTenderQueryResponse() {
     }
 
     @Override
     public String chkString() {
-        StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(getTransStat());
+        StringBuilder sb = new StringBuilder(baseChkString())
+                .append(getTransStat());
         return sb.toString();
     }
 

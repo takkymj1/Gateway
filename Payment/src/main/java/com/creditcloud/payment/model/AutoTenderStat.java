@@ -11,14 +11,14 @@ import com.creditcloud.model.BaseObject;
  *
  * @author rooseek
  */
-public class AutoBidStat extends BaseObject {
+public class AutoTenderStat extends BaseObject {
 
     private String TransStat;
 
-    public AutoBidStat() {
+    public AutoTenderStat() {
     }
 
-    public AutoBidStat(String TransStat) {
+    public AutoTenderStat(String TransStat) {
         this.TransStat = TransStat;
     }
 

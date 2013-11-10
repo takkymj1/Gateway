@@ -5,7 +5,7 @@
  */
 package com.creditcloud.payment.api;
 
-import com.creditcloud.payment.model.AutoBidStat;
+import com.creditcloud.payment.model.AutoTenderStat;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
@@ -63,7 +63,7 @@ public interface PaymentService {
      * @param userId
      * @return
      */
-    public AutoBidStat queryAutoBidStat(String clientCode, String userId);
+    public AutoTenderStat queryAutoTender(String clientCode, String userId);
 
     /**
      * 冻结指定用户的资金
