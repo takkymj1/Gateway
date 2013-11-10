@@ -5,10 +5,13 @@
  */
 package com.creditcloud.payment.api;
 
+import com.creditcloud.payment.model.AutoBidStat;
 import com.creditcloud.payment.model.PaymentAccount;
+import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -60,7 +63,19 @@ public interface PaymentService {
      * @param userId
      * @return
      */
-    public boolean queryAutoBidStat(String clientCode, String userId);
+    public AutoBidStat queryAutoBidStat(String clientCode, String userId);
+
+    /**
+     * 冻结指定用户的资金
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId    此次操作的唯一订单号
+     * @param amount
+     * @param BgRetUrl   后台返回的回调路径
+     * @return 冻结成功返回，否则返回null
+     */
+    public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
 
     /**
      * 获取请求的CheckValue

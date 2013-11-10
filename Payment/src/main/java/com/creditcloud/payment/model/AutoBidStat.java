@@ -12,22 +12,21 @@ import com.creditcloud.model.BaseObject;
  * @author rooseek
  */
 public class AutoBidStat extends BaseObject {
-    
-    private boolean open;
+
+    private String TransStat;
 
     public AutoBidStat() {
     }
 
-    public AutoBidStat(boolean open) {
-        this.open = open;
+    public AutoBidStat(String TransStat) {
+        this.TransStat = TransStat;
     }
 
-    public boolean isOpen() {
-        return open;
+    public String getTransStat() {
+        return TransStat;
     }
 
-    public void setOpen(boolean open) {
-        this.open = open;
+    public void setTransStat(String TransStat) {
+        this.TransStat = TransStat;
     }
-    
 }
