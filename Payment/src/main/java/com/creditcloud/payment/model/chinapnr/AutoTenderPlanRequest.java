@@ -4,10 +4,9 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -15,53 +14,27 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author rooseek
  */
-public class AutoTenderPlanRequest extends BaseRequest {
+public class AutoTenderPlanRequest extends UserRequest {
 
-    @FormParam("UsrCustId")
-    @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
-
-    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
     @NotNull
-    @FormParam("TenderPlanType")
-    private String TenderPlanType;
-
-    @FormParam("TransAmt")
     private String TransAmt;
 
     public AutoTenderPlanRequest() {
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
     }
 
     public void setRetUrl(String RetUrl) {
         this.RetUrl = RetUrl;
     }
 
-    public void setTenderPlanType(String TenderPlanType) {
-        this.TenderPlanType = TenderPlanType;
-    }
-
     public void setTransAmt(String TransAmt) {
         this.TransAmt = TransAmt;
     }
 
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
     public String getRetUrl() {
         return RetUrl;
-    }
-
-    public String getTenderPlanType() {
-        return TenderPlanType;
     }
 
     public String getTransAmt() {
@@ -71,8 +44,7 @@ public class AutoTenderPlanRequest extends BaseRequest {
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString()).
-                append(getUsrCustId()).
-                append(getTenderPlanType()).
+                append(PnRConstant.TenderPlanType).
                 append(StringUtils.trimToEmpty(getTransAmt())).
                 append(StringUtils.trimToEmpty(getRetUrl())).
                 append(StringUtils.trimToEmpty(getMerPriv()));
