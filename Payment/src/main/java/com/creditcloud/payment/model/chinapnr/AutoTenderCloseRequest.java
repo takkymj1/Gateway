@@ -4,11 +4,10 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,36 +15,20 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author rooseek
  */
-public class AutoTenderCloseRequest extends BaseRequest {
+public class AutoTenderCloseRequest extends UserRequest {
 
-    @FormParam("UsrCustId")
-    @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
-
-    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
     public AutoTenderCloseRequest() {
     }
 
-    public AutoTenderCloseRequest(String Version,
-                                  CmdIdType CmdId,
+    public AutoTenderCloseRequest(CmdIdType CmdId,
                                   String MerCustId,
                                   String UsrCustId,
                                   String RetUrl) {
-        super(Version, CmdId, MerCustId);
-        this.UsrCustId = UsrCustId;
+        super(CmdId, MerCustId, UsrCustId);
         this.RetUrl = RetUrl;
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
-    }
-
-    public String getUsrCustId() {
-        return UsrCustId;
     }
 
     public String getRetUrl() {
@@ -59,7 +42,6 @@ public class AutoTenderCloseRequest extends BaseRequest {
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString())
-                .append(getUsrCustId())
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();

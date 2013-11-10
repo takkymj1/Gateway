@@ -25,4 +25,9 @@ public interface PnRConstant {
      * 默认的字符编码，固定使用UTF-8
      */
     String CharSet = "UTF-8";
+    
+    /**
+     * 完全授权
+     */
+    String TenderPlanType = "W";
 }
