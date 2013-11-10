@@ -20,54 +20,63 @@ public interface PaymentService {
 
     /**
      * 获取用户在三方支付中的PaymentAccount
-     * 
+     *
      * @param clientCode
      * @param userId
      * @return null表示用户没有在三方支付中开户
      */
     public PaymentAccount getUserPaymentAccount(String clientCode, String userId);
-    
+
     /**
      * 创建用户在第三方支付中的账号
-     * 
+     *
      * @param clientCode
-     * @param paymentAccount 
+     * @param paymentAccount
      */
     public void createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
-    
+
     /**
      * 根据在三方支付中的ID获取对应的UserId
-     * 
+     *
      * @param clientCode
      * @param accountId
      * @return null 表示accountId不存在
      */
-    public String getUserIdByAccountId (String clientCode, String accountId);
-    
+    public String getUserIdByAccountId(String clientCode, String accountId);
+
     /**
      * 查询用户在三方支付中的实时账户余额
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public UserBalance queryBalance(String clientCode, String userId);
-    
+
+    /**
+     * 查询自动投标计划状态
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    public boolean queryAutoBidStat(String clientCode, String userId);
+
     /**
      * 获取请求的CheckValue
-     * 
+     *
      * @param clientCode
      * @param request
-     * @return 
+     * @return
      */
-    public String getChkValue (String clientCode, BaseRequest request);
-    
+    public String getChkValue(String clientCode, BaseRequest request);
+
     /**
      * 验证从三方支付返回的数据对象是否合法
-     * 
+     *
      * @param clientCode
-     * @param response 返回数据
+     * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
-    public int verifyResponse (String clientCode, BaseResponse response);
+    public int verifyResponse(String clientCode, BaseResponse response);
 }
