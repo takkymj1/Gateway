@@ -64,7 +64,7 @@ public class UserInfoTest {
                              "42010619620204815X",
                              "15810101010",
                              "wang.er@gmail.com",
-                             Source.BACK);
+                             Source.BACK, null, null);
 
         PersonalInfo personal = new PersonalInfo(true,
                                                  EthnicGroup.Han,

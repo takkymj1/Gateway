@@ -15,6 +15,8 @@ import java.util.Date;
  */
 public class PaymentAccount extends BaseObject {
 
+    private static final long serialVersionUID = 20131111L;
+
     /**
      * 用户的唯一ID，与UserService中的一致
      */
@@ -29,7 +31,7 @@ public class PaymentAccount extends BaseObject {
      * 用户在三方支付中的用户名，可以与loginName不同, UsrId
      */
     private String accountName;
-    
+
     private Date timeCreate;
 
     public PaymentAccount() {
@@ -44,7 +46,6 @@ public class PaymentAccount extends BaseObject {
         this.accountName = accountName;
         this.timeCreate = timeCreate;
     }
-    
 
     public String getUserId() {
         return userId;
