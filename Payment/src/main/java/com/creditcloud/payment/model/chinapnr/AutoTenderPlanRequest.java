@@ -5,7 +5,7 @@
 package com.creditcloud.payment.model.chinapnr;
 
 import com.creditcloud.payment.model.chinapnr.base.UserRequest;
-import javax.validation.constraints.NotNull;
+import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 
@@ -19,10 +19,19 @@ public class AutoTenderPlanRequest extends UserRequest {
     @Size(max = 128)
     private String RetUrl;
 
-    @NotNull
+    @Size(max = 14)
     private String TransAmt;
 
     public AutoTenderPlanRequest() {
+    }
+
+    public AutoTenderPlanRequest(String MerCustId,
+                                 String UsrCustId,
+                                 String RetUrl,
+                                 String TransAmt) {
+        super(CmdIdType.AutoTenderPlan, MerCustId, UsrCustId);
+        this.RetUrl = RetUrl;
+        this.TransAmt = TransAmt;
     }
 
     public void setRetUrl(String RetUrl) {
