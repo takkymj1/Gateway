@@ -21,6 +21,7 @@ public class AutoTenderPlanResponse extends UserResponse {
     private String RetUrl;
 
     @FormParam("TransAmt")
+    @Size(max = 14)
     private String TransAmt;
 
     public AutoTenderPlanResponse() {
