@@ -16,10 +16,7 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
-import java.io.StringReader;
 import java.util.Date;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
@@ -82,6 +79,8 @@ public class User extends BaseObject {
     @NotNull(groups = {BackSourceCheck.class, MobileSourceCheck.class})
     private String employeeId;
 
+    private String lastModifiedBy;
+
     @Past
     protected Date lastLoginDate;
 
@@ -98,8 +97,10 @@ public class User extends BaseObject {
                 String idNumber,
                 String mobile,
                 String email,
-                Source source) {
-        this(Id, clientCode, name, loginName, idNumber, mobile, email, source, null, null, null);
+                Source source,
+                String employeeId,
+                String lastModifiedBy) {
+        this(Id, clientCode, name, loginName, idNumber, mobile, email, source, employeeId, lastModifiedBy, null, null);
     }
 
     public User(String id,
@@ -111,6 +112,7 @@ public class User extends BaseObject {
                 String email,
                 Source source,
                 String employeeId,
+                String lastModifiedBy,
                 Date lastLoginDate,
                 Date registerDate) {
         this.id = id;
@@ -214,16 +216,11 @@ public class User extends BaseObject {
         this.employeeId = employeeId;
     }
 
-    public static User fromJsonString(String jsonString) {
-        if (jsonString == null) {
-            return null;
-        }
-        JsonObject jo = Json.createReader(new StringReader(jsonString)).readObject();
-        User result = new User();
-        //TODO this and many other fromJsonString methods for user classes will mostly be called from device.
-        //currently only email is allowed to be reset from device side.
-        result.setEmail(jo.getString("email"));
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
 
-        return result;
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }
