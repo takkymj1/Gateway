@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.cash;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
@@ -11,11 +11,10 @@ import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 取现
  *
  * @author rooseek
  */
-public class CashResponse extends BaseResponse {
+public class CashAuditResponse extends BaseResponse {
 
     @FormParam("OrdId")
     @NotNull
@@ -40,6 +39,11 @@ public class CashResponse extends BaseResponse {
     @Size(max = 8)
     private String OpenBankId;
 
+    @FormParam("AuditFlag")
+    @NotNull
+    @Size(min = 1, max = 1)
+    private String AuditFlag;
+
     @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
@@ -49,7 +53,7 @@ public class CashResponse extends BaseResponse {
     @Size(max = 128)
     private String BgRetUrl;
 
-    public CashResponse() {
+    public CashAuditResponse() {
     }
 
     public String getOrdId() {
@@ -70,6 +74,10 @@ public class CashResponse extends BaseResponse {
 
     public String getOpenBankId() {
         return OpenBankId;
+    }
+
+    public String getAuditFlag() {
+        return AuditFlag;
     }
 
     public String getRetUrl() {
@@ -100,6 +108,10 @@ public class CashResponse extends BaseResponse {
         this.OpenBankId = OpenBankId;
     }
 
+    public void setAuditFlag(String AuditFlag) {
+        this.AuditFlag = AuditFlag;
+    }
+
     public void setRetUrl(String RetUrl) {
         this.RetUrl = RetUrl;
     }
@@ -116,9 +128,11 @@ public class CashResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
+                .append(StringUtils.trimToEmpty(getAuditFlag()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
+
         return sb.toString();
     }
 }

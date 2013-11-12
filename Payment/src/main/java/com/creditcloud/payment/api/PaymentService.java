@@ -6,15 +6,17 @@
 package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.AutoTenderStat;
-import com.creditcloud.payment.model.CashAuditResult;
+import com.creditcloud.payment.model.chinapnr.cash.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.cash.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -90,6 +92,17 @@ public interface PaymentService {
      * @param BgRetUr 后台返回的回调路径
      */
     public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
+
+    /**
+     * p2p平台取现对账
+     *
+     * @param clientCode
+     * @param beginDate
+     * @param endDate
+     * @param pageNum
+     * @param pageSize
+     */
+    public CashReconciliationResult cashReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
     /**
      * 获取请求的CheckValue

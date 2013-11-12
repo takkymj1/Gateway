@@ -2,58 +2,69 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.cash;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
+import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * 取现
  *
  * @author rooseek
  */
-public class CashAuditResponse extends BaseResponse {
+public class CashRequest extends BaseRequest {
 
-    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
-    @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
 
-    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
-    @FormParam("OpenAcctId")
     @Size(max = 40)
     private String OpenAcctId;
 
-    @FormParam("OpenBankId")
-    @Size(max = 8)
-    private String OpenBankId;
-
-    @FormParam("AuditFlag")
-    @NotNull
-    @Size(min = 1, max = 1)
-    private String AuditFlag;
-
-    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
-    @FormParam("BgRetUrl")
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
 
-    public CashAuditResponse() {
+    @Size(max = 128)
+    private String Remark;
+
+    private String CharSet;
+
+    public CashRequest() {
+    }
+
+    public CashRequest(String MerCustId,
+                       String OrdId,
+                       String UsrCustId,
+                       String TransAmt,
+                       String OpenAcctId,
+                       String RetUrl,
+                       String BgRetUrl,
+                       String Remark) {
+        super(PnRConstant.Version, CmdIdType.Cash, MerCustId);
+        this.OrdId = OrdId;
+        this.UsrCustId = UsrCustId;
+        this.TransAmt = TransAmt;
+        this.OpenAcctId = OpenAcctId;
+        this.RetUrl = RetUrl;
+        this.BgRetUrl = BgRetUrl;
+        this.Remark = Remark;
+        this.CharSet = PnRConstant.CharSet;
     }
 
     public String getOrdId() {
@@ -72,20 +83,20 @@ public class CashAuditResponse extends BaseResponse {
         return OpenAcctId;
     }
 
-    public String getOpenBankId() {
-        return OpenBankId;
-    }
-
-    public String getAuditFlag() {
-        return AuditFlag;
-    }
-
     public String getRetUrl() {
         return RetUrl;
     }
 
     public String getBgRetUrl() {
         return BgRetUrl;
+    }
+
+    public String getRemark() {
+        return Remark;
+    }
+
+    public String getCharSet() {
+        return CharSet;
     }
 
     public void setOrdId(String OrdId) {
@@ -104,20 +115,20 @@ public class CashAuditResponse extends BaseResponse {
         this.OpenAcctId = OpenAcctId;
     }
 
-    public void setOpenBankId(String OpenBankId) {
-        this.OpenBankId = OpenBankId;
-    }
-
-    public void setAuditFlag(String AuditFlag) {
-        this.AuditFlag = AuditFlag;
-    }
-
     public void setRetUrl(String RetUrl) {
         this.RetUrl = RetUrl;
     }
 
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
+    }
+
+    public void setRemark(String Remark) {
+        this.Remark = Remark;
+    }
+
+    public void setCharSet(String CharSet) {
+        this.CharSet = CharSet;
     }
 
     @Override
@@ -127,12 +138,10 @@ public class CashAuditResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
-                .append(StringUtils.trimToEmpty(getOpenBankId()))
-                .append(StringUtils.trimToEmpty(getAuditFlag()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
+                .append(StringUtils.trimToEmpty(getRemark()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
-
         return sb.toString();
     }
 }

@@ -1,0 +1,38 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.creditcloud.payment.model.chinapnr.enums;
+
+/**
+ * 交易状态
+ *
+ * @author rooseek
+ */
+public enum TransStat {
+
+    /**
+     * 成功
+     */
+    S,
+    /**
+     * 失败
+     */
+    F,
+    /**
+     * 初始
+     */
+    I,
+    /**
+     * 部分成功
+     */
+    P,
+    /**
+     * 经办
+     */
+    H,
+    /**
+     * 拒绝
+     */
+    R;
+}
