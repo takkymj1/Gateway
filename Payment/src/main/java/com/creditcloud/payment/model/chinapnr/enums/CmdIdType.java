@@ -60,4 +60,5 @@ public enum CmdIdType {
     TrfReconciliation,
     CashReconciliation,
     QueryAcctDetails,
+    SaveReconciliation;
 }

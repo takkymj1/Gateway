@@ -4,6 +4,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
