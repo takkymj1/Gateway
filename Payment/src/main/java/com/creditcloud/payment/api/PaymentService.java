@@ -6,11 +6,13 @@
 package com.creditcloud.payment.api;
 
 import com.creditcloud.payment.model.AutoTenderStat;
+import com.creditcloud.payment.model.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 
@@ -64,7 +66,7 @@ public interface PaymentService {
      * @return
      */
     public AutoTenderStat queryAutoTender(String clientCode, String userId);
-    
+
     /**
      * 冻结指定用户的资金
      *
@@ -76,6 +78,18 @@ public interface PaymentService {
      * @return 冻结成功返回，否则返回null
      */
     public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
+
+    /**
+     * 取现复核
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount
+     * @param orderId 此次操作的唯一订单号
+     * @param auditFlag 复核标识
+     * @param BgRetUr 后台返回的回调路径
+     */
+    public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
     /**
      * 获取请求的CheckValue

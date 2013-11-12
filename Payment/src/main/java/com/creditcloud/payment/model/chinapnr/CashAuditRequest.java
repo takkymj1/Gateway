@@ -47,14 +47,12 @@ public class CashAuditRequest extends BaseRequest {
                             String UsrCustId,
                             String TransAmt,
                             String AuditFlag,
-                            String RetUrl,
                             String BgRetUrl) {
         super(PnRConstant.Version, CmdIdType.CashAudit, MerCustId);
         this.OrdId = OrdId;
         this.UsrCustId = UsrCustId;
         this.TransAmt = TransAmt;
         this.AuditFlag = AuditFlag;
-        this.RetUrl = RetUrl;
         this.BgRetUrl = BgRetUrl;
     }
 
