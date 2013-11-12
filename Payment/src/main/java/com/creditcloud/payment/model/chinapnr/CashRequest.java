@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.cash;
+package com.creditcloud.payment.model.chinapnr;
 
 import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import javax.validation.constraints.NotNull;

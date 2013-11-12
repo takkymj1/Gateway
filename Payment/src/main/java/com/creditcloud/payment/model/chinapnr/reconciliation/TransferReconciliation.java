@@ -2,20 +2,22 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.cash;
+package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 取现对账记录
+ * 商户扣款对账
  *
  * @author rooseek
  */
-public class CashReconciliation extends BaseObject {
+@XmlRootElement
+public class TransferReconciliation extends BaseObject {
 
     private static final long serialVersionUID = 20131112L;
 
@@ -32,36 +34,31 @@ public class CashReconciliation extends BaseObject {
     private String UsrCustId;
 
     @NotNull
-    private String CardId;
-
-    @NotNull
     private BigDecimal TransAmt;
 
     @NotNull
     @Size(min = 1, max = 1)
-    private String TransStat;
+    private TransStat TransStat;
 
     @NotNull
-    private Date PnrDate;
+    private String PnrDate;
 
     @NotNull
     private String PnrSeqId;
 
-    public CashReconciliation() {
+    public TransferReconciliation() {
     }
 
-    public CashReconciliation(String OrdId,
-                              String MerCustId,
-                              String UsrCustId,
-                              String CardId,
-                              BigDecimal TransAmt,
-                              String TransStat,
-                              Date PnrDate,
-                              String PnrSeqId) {
+    public TransferReconciliation(String OrdId, 
+                             String MerCustId, 
+                             String UsrCustId,
+                             BigDecimal TransAmt,
+                             TransStat TransStat, 
+                             String PnrDate, 
+                             String PnrSeqId) {
         this.OrdId = OrdId;
         this.MerCustId = MerCustId;
         this.UsrCustId = UsrCustId;
-        this.CardId = CardId;
         this.TransAmt = TransAmt;
         this.TransStat = TransStat;
         this.PnrDate = PnrDate;
@@ -80,19 +77,15 @@ public class CashReconciliation extends BaseObject {
         return UsrCustId;
     }
 
-    public String getCardId() {
-        return CardId;
-    }
-
     public BigDecimal getTransAmt() {
         return TransAmt;
     }
 
-    public String getTransStat() {
+    public TransStat getTransStat() {
         return TransStat;
     }
 
-    public Date getPnrDate() {
+    public String getPnrDate() {
         return PnrDate;
     }
 
@@ -112,19 +105,15 @@ public class CashReconciliation extends BaseObject {
         this.UsrCustId = UsrCustId;
     }
 
-    public void setCardId(String CardId) {
-        this.CardId = CardId;
-    }
-
     public void setTransAmt(BigDecimal TransAmt) {
         this.TransAmt = TransAmt;
     }
 
-    public void setTransStat(String TransStat) {
+    public void setTransStat(TransStat TransStat) {
         this.TransStat = TransStat;
     }
 
-    public void setPnrDate(Date PnrDate) {
+    public void setPnrDate(String PnrDate) {
         this.PnrDate = PnrDate;
     }
 

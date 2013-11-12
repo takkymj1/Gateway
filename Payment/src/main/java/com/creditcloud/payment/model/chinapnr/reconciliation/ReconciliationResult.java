@@ -2,18 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.cash;
+package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
-import java.util.List;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.joda.time.LocalDate;
 
 /**
+ * 对账api返回结果
  *
  * @author rooseek
  */
-public class CashReconciliationResult extends BaseObject {
+@XmlRootElement
+public abstract class ReconciliationResult extends BaseObject {
 
     private static final long serialVersionUID = 20131112L;
 
@@ -32,24 +34,19 @@ public class CashReconciliationResult extends BaseObject {
     @NotNull
     private int TotalItems;
 
-    @NotNull
-    private List<CashReconciliation> result;
-
-    public CashReconciliationResult() {
+    public ReconciliationResult() {
     }
 
-    public CashReconciliationResult(LocalDate BeginDate,
-                                    LocalDate EndDate,
-                                    int PageNum,
-                                    int PageSize,
-                                    int TotalItems,
-                                    List<CashReconciliation> result) {
+    public ReconciliationResult(LocalDate BeginDate,
+                                LocalDate EndDate,
+                                int PageNum,
+                                int PageSize,
+                                int TotalItems) {
         this.BeginDate = BeginDate;
         this.EndDate = EndDate;
         this.PageNum = PageNum;
         this.PageSize = PageSize;
         this.TotalItems = TotalItems;
-        this.result = result;
     }
 
     public LocalDate getBeginDate() {
@@ -72,10 +69,6 @@ public class CashReconciliationResult extends BaseObject {
         return TotalItems;
     }
 
-    public List<CashReconciliation> getResult() {
-        return result;
-    }
-
     public void setBeginDate(LocalDate BeginDate) {
         this.BeginDate = BeginDate;
     }
@@ -94,9 +87,5 @@ public class CashReconciliationResult extends BaseObject {
 
     public void setTotalItems(int TotalItems) {
         this.TotalItems = TotalItems;
-    }
-
-    public void setResult(List<CashReconciliation> result) {
-        this.result = result;
     }
 }

@@ -2,10 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.cash;
+package com.creditcloud.payment.model.chinapnr.reconciliation;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
-import java.util.List;
+import com.creditcloud.payment.model.chinapnr.PnRConstant;
+import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -13,11 +14,11 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 取现对账
+ * 对账类查询request
  *
  * @author rooseek
  */
-public class CashReconciliationResponse extends BaseResponse {
+public class ReconciliationRequest extends BaseRequest {
 
     @NotNull
     @Size(min = 8, max = 8)
@@ -36,13 +37,20 @@ public class CashReconciliationResponse extends BaseResponse {
     @Max(1000)
     private int PageSize;
 
-    @NotNull
-    @Min(1)
-    private int TotalItems;
+    public ReconciliationRequest() {
+    }
 
-    private List<CashReconciliation>  CashReconciliationDtoList;
-
-    public CashReconciliationResponse() {
+    public ReconciliationRequest(CmdIdType CmdId,
+                                 String MerCustId,
+                                 String BeginDate,
+                                 String EndDate,
+                                 int PageNum,
+                                 int PageSize) {
+        super(PnRConstant.Version, CmdId, MerCustId);
+        this.BeginDate = BeginDate;
+        this.EndDate = EndDate;
+        this.PageNum = PageNum;
+        this.PageSize = PageSize;
     }
 
     public String getBeginDate() {
@@ -61,11 +69,6 @@ public class CashReconciliationResponse extends BaseResponse {
         return PageSize;
     }
 
-    public int getTotalItems() {
-        return TotalItems;
-    }
-
-
     public void setBeginDate(String BeginDate) {
         this.BeginDate = BeginDate;
     }
@@ -82,27 +85,13 @@ public class CashReconciliationResponse extends BaseResponse {
         this.PageSize = PageSize;
     }
 
-    public void setTotalItems(int TotalItems) {
-        this.TotalItems = TotalItems;
-    }
-
-    public List<CashReconciliation> getCashReconciliationDtoList() {
-        return CashReconciliationDtoList;
-    }
-
-    public void setCashReconciliationDtoList(List<CashReconciliation> CashReconciliationDtoList) {
-        this.CashReconciliationDtoList = CashReconciliationDtoList;
-    }
-
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString());
         sb.append(StringUtils.trimToEmpty(getBeginDate()))
                 .append(StringUtils.trimToEmpty(getEndDate()))
                 .append(StringUtils.trimToEmpty(String.valueOf(getPageNum())))
-                .append(StringUtils.trimToEmpty(String.valueOf(getPageSize())))
-                .append(StringUtils.trimToEmpty(String.valueOf(getTotalItems())));
+                .append(StringUtils.trimToEmpty(String.valueOf(getPageSize())));
         return sb.toString();
-
     }
 }

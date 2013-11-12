@@ -2,59 +2,58 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.cash;
+package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.PnRConstant;
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
-import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
+import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author rooseek
  */
-public class CashAuditRequest extends BaseRequest {
+public class CashAuditResponse extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("OpenAcctId")
+    @Size(max = 40)
+    private String OpenAcctId;
+
+    @FormParam("OpenBankId")
+    @Size(max = 8)
+    private String OpenBankId;
+
+    @FormParam("AuditFlag")
     @NotNull
     @Size(min = 1, max = 1)
     private String AuditFlag;
 
+    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
 
-    public CashAuditRequest() {
-    }
-
-    public CashAuditRequest(String MerCustId,
-                            String OrdId,
-                            String UsrCustId,
-                            String TransAmt,
-                            String AuditFlag,
-                            String BgRetUrl) {
-        super(PnRConstant.Version, CmdIdType.CashAudit, MerCustId);
-        this.OrdId = OrdId;
-        this.UsrCustId = UsrCustId;
-        this.TransAmt = TransAmt;
-        this.AuditFlag = AuditFlag;
-        this.BgRetUrl = BgRetUrl;
+    public CashAuditResponse() {
     }
 
     public String getOrdId() {
@@ -67,6 +66,14 @@ public class CashAuditRequest extends BaseRequest {
 
     public String getTransAmt() {
         return TransAmt;
+    }
+
+    public String getOpenAcctId() {
+        return OpenAcctId;
+    }
+
+    public String getOpenBankId() {
+        return OpenBankId;
     }
 
     public String getAuditFlag() {
@@ -93,6 +100,14 @@ public class CashAuditRequest extends BaseRequest {
         this.TransAmt = TransAmt;
     }
 
+    public void setOpenAcctId(String OpenAcctId) {
+        this.OpenAcctId = OpenAcctId;
+    }
+
+    public void setOpenBankId(String OpenBankId) {
+        this.OpenBankId = OpenBankId;
+    }
+
     public void setAuditFlag(String AuditFlag) {
         this.AuditFlag = AuditFlag;
     }
@@ -111,6 +126,8 @@ public class CashAuditRequest extends BaseRequest {
         sb.append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
+                .append(StringUtils.trimToEmpty(getOpenAcctId()))
+                .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getAuditFlag()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
