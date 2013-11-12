@@ -23,8 +23,8 @@ public class SaveReconciliationResult extends ReconciliationResult {
     public SaveReconciliationResult() {
     }
 
-    public SaveReconciliationResult(LocalDate BeginDate,
-                                    LocalDate EndDate,
+    public SaveReconciliationResult(String BeginDate,
+                                    String EndDate,
                                     int PageNum,
                                     int PageSize,
                                     int TotalItems,

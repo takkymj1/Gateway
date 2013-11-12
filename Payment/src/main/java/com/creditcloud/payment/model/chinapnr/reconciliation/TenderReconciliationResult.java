@@ -7,7 +7,6 @@ package com.creditcloud.payment.model.chinapnr.reconciliation;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import java.util.List;
 import javax.validation.constraints.NotNull;
-import org.joda.time.LocalDate;
 
 /**
  * 投标对账
@@ -24,8 +23,8 @@ public class TenderReconciliationResult extends ReconciliationResult {
     public TenderReconciliationResult() {
     }
 
-    public TenderReconciliationResult(LocalDate BeginDate,
-                                      LocalDate EndDate,
+    public TenderReconciliationResult(String BeginDate,
+                                      String EndDate,
                                       int PageNum,
                                       int PageSize,
                                       int TotalItems,

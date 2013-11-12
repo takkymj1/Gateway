@@ -6,8 +6,8 @@ package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.joda.time.LocalDate;
 
 /**
  * 对账api返回结果
@@ -20,10 +20,12 @@ public abstract class ReconciliationResult extends BaseObject {
     private static final long serialVersionUID = 20131112L;
 
     @NotNull
-    private LocalDate BeginDate;
+    @Size(min = 8, max = 8)
+    private String BeginDate;
 
     @NotNull
-    private LocalDate EndDate;
+    @Size(min = 8, max = 8)
+    private String EndDate;
 
     @NotNull
     private int PageNum;
@@ -37,8 +39,8 @@ public abstract class ReconciliationResult extends BaseObject {
     public ReconciliationResult() {
     }
 
-    public ReconciliationResult(LocalDate BeginDate,
-                                LocalDate EndDate,
+    public ReconciliationResult(String BeginDate,
+                                String EndDate,
                                 int PageNum,
                                 int PageSize,
                                 int TotalItems) {
@@ -49,11 +51,11 @@ public abstract class ReconciliationResult extends BaseObject {
         this.TotalItems = TotalItems;
     }
 
-    public LocalDate getBeginDate() {
+    public String getBeginDate() {
         return BeginDate;
     }
 
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return EndDate;
     }
 
@@ -69,11 +71,11 @@ public abstract class ReconciliationResult extends BaseObject {
         return TotalItems;
     }
 
-    public void setBeginDate(LocalDate BeginDate) {
+    public void setBeginDate(String BeginDate) {
         this.BeginDate = BeginDate;
     }
 
-    public void setEndDate(LocalDate EndDate) {
+    public void setEndDate(String EndDate) {
         this.EndDate = EndDate;
     }
 
