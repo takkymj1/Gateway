@@ -23,8 +23,8 @@ public class CashReconciliationResult extends ReconciliationResult {
     public CashReconciliationResult() {
     }
 
-    public CashReconciliationResult(LocalDate BeginDate,
-                                    LocalDate EndDate,
+    public CashReconciliationResult(String BeginDate,
+                                    String EndDate,
                                     int PageNum,
                                     int PageSize,
                                     int TotalItems,
