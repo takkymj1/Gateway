@@ -34,5 +34,9 @@ public enum TransStat {
     /**
      * 拒绝
      */
-    R;
+    R,
+    /**
+     * <b>不是汇付的返回状态，自定义用于表示查询对象不存在<b>
+     */
+    NOTEXIST;
 }

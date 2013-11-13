@@ -5,9 +5,9 @@
  */
 package com.creditcloud.payment.api;
 
-import com.creditcloud.payment.model.AutoTenderStat;
 import com.creditcloud.payment.model.chinapnr.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
+import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
@@ -15,6 +15,7 @@ import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
+import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
@@ -71,16 +72,16 @@ public interface PaymentService {
      * @param userId
      * @return
      */
-    public AutoTenderStat queryAutoTender(String clientCode, String userId);
+    public TransStat queryAutoTender(String clientCode, String userId);
 
     /**
      * 冻结指定用户的资金
      *
      * @param clientCode
      * @param userId
-     * @param orderId    此次操作的唯一订单号
+     * @param orderId 此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl   后台返回的回调路径
+     * @param BgRetUrl 后台返回的回调路径
      * @return 冻结成功返回，否则返回null
      */
     public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
@@ -91,9 +92,9 @@ public interface PaymentService {
      * @param clientCode
      * @param userId
      * @param amount
-     * @param orderId    此次操作的唯一订单号
-     * @param auditFlag  复核标识
-     * @param BgRetUr    后台返回的回调路径
+     * @param orderId 此次操作的唯一订单号
+     * @param auditFlag 复核标识
+     * @param BgRetUr 后台返回的回调路径
      */
     public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
@@ -146,6 +147,17 @@ public interface PaymentService {
     public TenderReconciliationResult tenderReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize, QueryTransType type);
 
     /**
+     * 查询交易状态
+     *
+     * @param clientCode
+     * @param ordDate
+     * @param ordId
+     * @param type
+     * @return
+     */
+    public TransStatResult queryTransStat(String clientCode, LocalDate ordDate, String ordId, QueryTransType type);
+
+    /**
      * 获取请求的CheckValue
      *
      * @param clientCode
@@ -158,7 +170,7 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      *
      * @param clientCode
-     * @param response   返回数据
+     * @param response 返回数据
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);
