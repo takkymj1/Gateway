@@ -23,7 +23,19 @@ public enum FundRecordType implements BaseEnum {
     LOAN_REPAY("还款"),
     FROZEN("冻结资金"),
     RELEASE("解冻资金"),
-    DISBURSE("垫付,用于逾期或违约后垫付的状态");
+    DISBURSE("垫付,用于逾期或违约后垫付的状态"),
+    /**
+     * TODO 用下面的type替换上面的type
+     */
+    SAVE("充值"),
+    CASH("取现"),
+    FREEZE("冻结"),
+    UNFREEZE("解冻"),
+    INVEST("投标"),
+    LOAN("放款"),
+    REPAY("还款"),
+    TRANSFER("转账")//主要是商户调用
+    ;
 
     private final String key;
 

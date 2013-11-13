@@ -26,6 +26,7 @@ public class UserUnFreezeRequest extends BaseRequest {
     private String OrdDate;
 
     @NotNull
+    @Size(min = 18, max = 18)
     private String TrxId;
 
     private String RetUrl;
@@ -131,5 +132,4 @@ public class UserUnFreezeRequest extends BaseRequest {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
-
 }
