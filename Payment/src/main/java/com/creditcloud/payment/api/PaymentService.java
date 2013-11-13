@@ -10,6 +10,7 @@ import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.TransactionAmount;
 import com.creditcloud.payment.model.UserBalance;
+import com.creditcloud.payment.model.chinapnr.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
@@ -20,6 +21,7 @@ import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationR
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -156,6 +158,14 @@ public interface PaymentService {
      * @return
      */
     public TransStatResult queryTransStat(String clientCode, LocalDate ordDate, String ordId, QueryTransType type);
+
+    /**
+     * 商户子账户信息查询
+     *
+     * @param clientCode
+     * @return
+     */
+    public List<AccountDetail> queryAccounts(String clientCode);
 
     /**
      * 获取请求的CheckValue
