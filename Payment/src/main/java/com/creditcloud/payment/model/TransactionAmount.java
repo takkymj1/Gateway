@@ -7,21 +7,38 @@ package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 结合了具体的金额和交易号、流水号
- * 
+ *
  * @author sobranie
  */
+@XmlRootElement
 public class TransactionAmount extends BaseObject {
-    
+
+    private static final long serialVersionUID = 20131113L;
+
+    @Size(max = 20)
     private String OrdId;
 
+    @Size(min = 8, max = 8)
     private String TrxId;
+
+    @Size(min = 8, max = 8)
+    private String OrdDate;
 
     private BigDecimal amount;
 
     public TransactionAmount() {
+    }
+
+    public TransactionAmount(String OrdId, String TrxId, String OrdDate, BigDecimal amount) {
+        this.OrdId = OrdId;
+        this.TrxId = TrxId;
+        this.OrdDate = OrdDate;
+        this.amount = amount;
     }
 
     public String getTrxId() {
@@ -47,5 +64,12 @@ public class TransactionAmount extends BaseObject {
     public void setOrdId(String OrdId) {
         this.OrdId = OrdId;
     }
-    
+
+    public String getOrdDate() {
+        return OrdDate;
+    }
+
+    public void setOrdDate(String OrdDate) {
+        this.OrdDate = OrdDate;
+    }
 }

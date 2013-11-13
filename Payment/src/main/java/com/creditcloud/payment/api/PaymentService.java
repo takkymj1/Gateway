@@ -81,12 +81,26 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param orderId 此次操作的唯一订单号
+     * @param orderId    此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl 后台返回的回调路径
+     * @param BgRetUrl   后台返回的回调路径
      * @return 冻结成功返回，否则返回null
      */
     public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
+
+    /**
+     * 解冻指定用户的资金
+     *
+     * @param clientCode
+     * @param orderId
+     * @param trxId
+     * @param BgRetUrl
+     * @return
+     */
+    public TransactionAmount userUnFreeze(String clientCode, 
+                                          String orderId,
+                                          String trxId, 
+                                          String BgRetUrl);
 
     /**
      * 取现复核
@@ -94,9 +108,9 @@ public interface PaymentService {
      * @param clientCode
      * @param userId
      * @param amount
-     * @param orderId 此次操作的唯一订单号
-     * @param auditFlag 复核标识
-     * @param BgRetUr 后台返回的回调路径
+     * @param orderId    此次操作的唯一订单号
+     * @param auditFlag  复核标识
+     * @param BgRetUr    后台返回的回调路径
      */
     public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
@@ -180,7 +194,7 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      *
      * @param clientCode
-     * @param response 返回数据
+     * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);
