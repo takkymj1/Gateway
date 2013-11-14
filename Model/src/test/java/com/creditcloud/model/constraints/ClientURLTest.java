@@ -19,9 +19,9 @@ import org.junit.Test;
  *
  * @author rooseek
  */
-public class UrlTest extends BaseTest<Client> {
+public class ClientURLTest extends BaseTest<Client> {
 
-    public UrlTest() {
+    public ClientURLTest() {
     }
 
     @BeforeClass

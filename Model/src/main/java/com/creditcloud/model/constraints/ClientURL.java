@@ -15,16 +15,20 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
+ * 商户域名<p>
+ * 必须是顶级域名 如www.creditcloud.com<p>
+ * 不能带路径，如www.creditcloud.com/hello<p>
+ * 不能带前缀，如http://www.creditcloud.com<p>
  *
  * @author rooseek
  */
-@Pattern(regexp = "([\\da-z]+)\\.([a-z\\.]{2,6})([\\w]\\.*)*", message = "{common.url.Pattern}")
+@Pattern(regexp = "([\\da-zA-Z]+)\\.([a-zA-Z\\.]{2,6})([\\w]\\.*)*", message = "{common.url.Pattern}")
 @Constraint(validatedBy = {})
 @NotNull(message = "{common.url.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Url {
+public @interface ClientURL {
 
     String message() default "{common.url.Pattern}";
 

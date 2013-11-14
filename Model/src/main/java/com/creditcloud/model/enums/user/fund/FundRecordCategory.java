@@ -7,15 +7,17 @@ package com.creditcloud.model.enums.user.fund;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 资金记录业务类型
+ * 资金记录类型<p>
+ * TODO 讲FundRecordType换成此类
  *
  * @author rooseek
+ *
  */
 public enum FundRecordCategory implements BaseEnum {
 
     INVEST("投标"),
-    CASH("取现"),
-    SAVE("充值"),
+    WITHDRAW("取现"),
+    DEPOSIT("充值"),
     LOAN("放款"),
     REPAYMENT("还款"),
     REWARD("奖励"),
@@ -28,7 +30,7 @@ public enum FundRecordCategory implements BaseEnum {
     /**
      * 服务管理手续费
      */
-    FEE_CASH("提现手续费"),
+    FEE_WITHDRAW("提现手续费"),
     FEE_INTEREST("利息管理费"),
     FEE_AUTHENTICATE("身份验证手续费"),
     FEE_LOAN("借款服务费"),

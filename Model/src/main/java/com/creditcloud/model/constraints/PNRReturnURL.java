@@ -4,7 +4,6 @@
  */
 package com.creditcloud.model.constraints;
 
-import com.creditcloud.model.constraints.validator.PNRReturnURLValidator;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,13 +11,15 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.constraints.Pattern;
 
 /**
  * 汇付RetUrl和BgRetUrl不能包含保留字符串和中文<p>
  *
  * @author rooseek
  */
-@Constraint(validatedBy = PNRReturnURLValidator.class)
+@Pattern(regexp = "^((?![\u4E00-\u9FBF]|recv|rbsmag|cashmag|cash|ubs|acctmag|buser|busermag|mtp|mtpmag|muser|musermag|ubsmag|mag).)*$", message = "{common.PNRReturnURL.Pattern}")
+@Constraint(validatedBy = {})
 @Target({ElementType.METHOD,
          ElementType.FIELD,
          ElementType.PARAMETER})

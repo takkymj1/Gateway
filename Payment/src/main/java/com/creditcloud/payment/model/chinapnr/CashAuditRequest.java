@@ -4,6 +4,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.model.constraints.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
@@ -33,10 +34,12 @@ public class CashAuditRequest extends BaseRequest {
     @Size(min = 1, max = 1)
     private String AuditFlag;
 
+    @PNRReturnURL
     @Size(max = 128)
     private String RetUrl;
 
     @NotNull
+    @PNRReturnURL
     @Size(max = 128)
     private String BgRetUrl;
 
