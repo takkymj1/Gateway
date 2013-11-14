@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.config;
 
 import java.net.URL;
@@ -14,59 +13,71 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 第三方支付需要的配置文件项
- * 
+ *
  * @author sobranie
  */
 @XmlRootElement(name = "PaymentConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PaymentConfig extends BaseConfig {
-    
+
     private static final long serialVersionUID = 20131105L;
-    
+
     public static final String CONFIG_NAME = "PaymentConfig";
-    
+
     /**
-     *  6位客户ID，ChkValue生成用
+     * 6位客户ID，ChkValue生成用
      */
     @XmlElement(required = true)
     private String merId;
-    
+
     /**
      * 16位客户ID，API调用用
      */
     @XmlElement(required = true)
     private String merCustId;
-    
+
     /**
      * 客户私钥文件路径
      */
     @XmlElement(required = true)
     private String privateKeyPath;
-    
+
     /**
      * 公钥文件路径
      */
     @XmlElement(required = true)
     private String publicKeyPath;
-    
+
     /**
      * 三方支付服务器的URL
      */
     @XmlElement(required = true)
     private URL url;
-    
+
     /**
      * 三方支付服务的远程路径
      */
     @XmlElement(required = true)
     private String path;
-    
+
     /**
      * 三方支付回调的Url，一般是网站运行的地址
      */
     @XmlElement(required = true)
     private String retUrl;
-    
+
+    /**
+     * 最大投资手续费率
+     */
+    @XmlElement(required = true)
+    private String maxTenderRate;
+
+    /**
+     * 最大借款手续费率
+     */
+    @XmlElement(required = true)
+    private String maxBorrowerRate;
+
     public PaymentConfig() {
     }
 
@@ -96,5 +107,13 @@ public class PaymentConfig extends BaseConfig {
 
     public String getMerCustId() {
         return merCustId;
+    }
+
+    public String getMaxTenderRate() {
+        return maxTenderRate;
+    }
+
+    public String getMaxBorrowerRate() {
+        return maxBorrowerRate;
     }
 }

@@ -8,6 +8,7 @@ import com.creditcloud.model.constraints.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -17,29 +18,36 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class TenderResponse extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("OrdDate")
     @NotNull
     @Size(min = 8, max = 8)
     private String OrdDate;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
 
+    @FormParam("TrxId")
     @Size(min = 18, max = 18)
     private String TrxId;
 
+    @FormParam("RetUrl")
     @PNRReturnURL
     @Size(max = 128)
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @PNRReturnURL
     @Size(max = 128)

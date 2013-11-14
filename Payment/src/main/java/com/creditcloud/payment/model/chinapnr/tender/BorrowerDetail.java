@@ -5,7 +5,6 @@
 package com.creditcloud.payment.model.chinapnr.tender;
 
 import com.creditcloud.model.BaseObject;
-import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,44 +30,45 @@ public class BorrowerDetail extends BaseObject {
      * tou借款金额
      */
     @NotNull
-    private BigDecimal BorrowerAmt;
+    @Size(max = 12)
+    private String BorrowerAmt;
 
     /**
      * 借款手续费率
      */
-    private BigDecimal BorrowerRate;
+    @Size(max = 6)
+    private String BorrowerRate;
 
     public BorrowerDetail() {
     }
 
-    public BorrowerDetail(String BorrowerCustId, BigDecimal BorrowerAmt, BigDecimal BorrowerRate) {
+    public BorrowerDetail(String BorrowerCustId, String BorrowerAmt, String BorrowerRate) {
         this.BorrowerCustId = BorrowerCustId;
-        this.BorrowerAmt = BorrowerAmt.setScale(2);
-        this.BorrowerRate = BorrowerRate.setScale(2);
+        this.BorrowerAmt = BorrowerAmt;
+        this.BorrowerRate = BorrowerRate;
     }
-
 
     public String getBorrowerCustId() {
         return BorrowerCustId;
-    }
-
-    public BigDecimal getBorrowerAmt() {
-        return BorrowerAmt;
-    }
-
-    public BigDecimal getBorrowerRate() {
-        return BorrowerRate;
     }
 
     public void setBorrowerCustId(String BorrowerCustId) {
         this.BorrowerCustId = BorrowerCustId;
     }
 
-    public void setBorrowerAmt(BigDecimal BorrowerAmt) {
+    public void setBorrowerAmt(String BorrowerAmt) {
         this.BorrowerAmt = BorrowerAmt;
     }
 
-    public void setBorrowerRate(BigDecimal BorrowerRate) {
+    public void setBorrowerRate(String BorrowerRate) {
         this.BorrowerRate = BorrowerRate;
+    }
+
+    public String getBorrowerAmt() {
+        return BorrowerAmt;
+    }
+
+    public String getBorrowerRate() {
+        return BorrowerRate;
     }
 }
