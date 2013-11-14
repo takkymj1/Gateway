@@ -7,21 +7,20 @@ package com.creditcloud.model.enums.user.fund;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 资金记录操作类型
  *
  * @author rooseek
  */
-public enum FundRecordStatus implements BaseEnum {
+public enum FundRecordOperation implements BaseEnum {
 
-    INITIALIZED("初始"),
-    SUCCESSFUL("成功"),
-    PROCESSING("处理中"),
-    FAILED("失败"),
-    REJECTED("拒绝"),
-    CANCELED("取消");
+    FREEZE("冻结"),
+    UNFREEZE("解冻"),
+    IN("资金转入"),
+    OUT("资金转出");
 
     private final String key;
 
-    private FundRecordStatus(String key) {
+    private FundRecordOperation(String key) {
         this.key = key;
     }
 
