@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.model.constraints.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import javax.validation.constraints.NotNull;
@@ -35,9 +36,11 @@ public class UserFreezeRequest extends UserRequest {
     @NotNull
     private String TransAmt;
 
+    @PNRReturnURL
     private String RetUrl;
 
     @NotNull
+    @PNRReturnURL
     private String BgRetUrl;
 
     public UserFreezeRequest() {

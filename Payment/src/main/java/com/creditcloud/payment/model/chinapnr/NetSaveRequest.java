@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.model.constraints.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import javax.validation.constraints.NotNull;
@@ -41,9 +42,11 @@ public class NetSaveRequest extends BaseRequest {
     @NotNull
     private String TransAmt;
 
+    @PNRReturnURL
     private String RetUrl;
 
     @NotNull
+    @PNRReturnURL
     private String BgRetUrl;
 
     public NetSaveRequest() {
@@ -70,8 +73,6 @@ public class NetSaveRequest extends BaseRequest {
         this.RetUrl = RetUrl;
         this.BgRetUrl = BgRetUrl;
     }
-    
-    
 
     @Override
     public String chkString() {
@@ -160,5 +161,4 @@ public class NetSaveRequest extends BaseRequest {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
-
 }

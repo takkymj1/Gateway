@@ -6,7 +6,7 @@ package com.creditcloud.model.client;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.ClientCode;
-import com.creditcloud.model.constraints.Url;
+import com.creditcloud.model.constraints.ClientURL;
 import java.util.Locale;
 import javax.validation.constraints.NotNull;
 
@@ -34,7 +34,7 @@ public class Client extends BaseObject {
     /**
      * url
      */
-    @Url
+    @ClientURL
     protected String url;
 
     /**

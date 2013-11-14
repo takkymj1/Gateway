@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.model.constraints.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
@@ -29,9 +30,11 @@ public class UserUnFreezeRequest extends BaseRequest {
     @Size(min = 18, max = 18)
     private String TrxId;
 
+    @PNRReturnURL
     private String RetUrl;
 
     @NotNull
+    @PNRReturnURL
     private String BgRetUrl;
 
     public UserUnFreezeRequest() {

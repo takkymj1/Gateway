@@ -4,7 +4,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.PnRConstant;
+import com.creditcloud.model.constraints.PNRReturnURL;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
@@ -33,10 +33,12 @@ public class CashRequest extends BaseRequest {
     @Size(max = 40)
     private String OpenAcctId;
 
+    @PNRReturnURL
     @Size(max = 128)
     private String RetUrl;
 
     @NotNull
+    @PNRReturnURL
     @Size(max = 128)
     private String BgRetUrl;
 
