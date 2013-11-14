@@ -35,7 +35,7 @@ public enum FundRecordCategory implements BaseEnum {
     FEE_AUTHENTICATE("身份验证手续费"),
     FEE_LOAN("借款服务费"),
     FEE_VISIT("实地考察费"),
-    FEE_WARRANTY("担保费");
+    FEE_VOUCH("担保费");
 
     private final String key;
 

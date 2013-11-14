@@ -2,12 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.tender;
 
-import com.creditcloud.model.constraints.PNRReturnURL;
-import com.creditcloud.payment.model.chinapnr.base.UserRequest;
-import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
+import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -15,20 +14,13 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author rooseek
  */
-public class AutoTenderCloseRequest extends UserRequest {
+public class AutoTenderCloseResponse extends UserResponse {
 
-    @PNRReturnURL
+    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
-    public AutoTenderCloseRequest() {
-    }
-
-    public AutoTenderCloseRequest(String MerCustId,
-                                  String UsrCustId,
-                                  String RetUrl) {
-        super(CmdIdType.AutoTenderPlanClose, MerCustId, UsrCustId);
-        this.RetUrl = RetUrl;
+    public AutoTenderCloseResponse() {
     }
 
     public String getRetUrl() {

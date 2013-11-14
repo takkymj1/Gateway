@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.tender;
 
+import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
