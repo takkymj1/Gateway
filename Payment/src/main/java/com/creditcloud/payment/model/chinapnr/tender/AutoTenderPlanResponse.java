@@ -4,8 +4,8 @@
  */
 package com.creditcloud.payment.model.chinapnr.tender;
 
-import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.UserResponse;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
@@ -17,13 +17,18 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class AutoTenderPlanResponse extends UserResponse {
 
-    @FormParam("RetUrl")
-    @Size(max = 128)
-    private String RetUrl;
+    @FormParam("TenderPlanType")
+    @NotNull
+    @Size(min = 1, max = 1)
+    private String TenderPlanType;
 
     @FormParam("TransAmt")
     @Size(max = 14)
     private String TransAmt;
+
+    @FormParam("RetUrl")
+    @Size(max = 128)
+    private String RetUrl;
 
     public AutoTenderPlanResponse() {
     }
@@ -44,10 +49,18 @@ public class AutoTenderPlanResponse extends UserResponse {
         this.TransAmt = TransAmt;
     }
 
+    public String getTenderPlanType() {
+        return TenderPlanType;
+    }
+
+    public void setTenderPlanType(String TenderPlanType) {
+        this.TenderPlanType = TenderPlanType;
+    }
+
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString()).
-                append(PnRConstant.TenderPlanType).
+                append(StringUtils.trimToEmpty(getTenderPlanType())).
                 append(StringUtils.trimToEmpty(getTransAmt())).
                 append(StringUtils.trimToEmpty(getRetUrl())).
                 append(StringUtils.trimToEmpty(getMerPriv()));
