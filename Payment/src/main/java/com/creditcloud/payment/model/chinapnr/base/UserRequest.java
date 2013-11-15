@@ -34,7 +34,6 @@ public class UserRequest extends BaseRequest {
         this.UsrCustId = UsrCustId;
     }
 
-    @Override
     protected String baseChkString() {
         return super.baseChkString().concat(StringUtils.trimToEmpty(getUsrCustId()));
     }
