@@ -6,11 +6,11 @@ package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.payment.model.chinapnr.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -21,11 +21,11 @@ import org.apache.commons.lang3.StringUtils;
 public class ReconciliationRequest extends BaseRequest {
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @PNRDate
     private String BeginDate;
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @PNRDate
     private String EndDate;
 
     @NotNull

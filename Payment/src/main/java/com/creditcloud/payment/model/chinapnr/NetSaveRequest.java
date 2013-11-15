@@ -5,9 +5,10 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.model.constraints.PNRReturnURL;
+import com.creditcloud.payment.model.chinapnr.constraint.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +28,7 @@ public class NetSaveRequest extends BaseRequest {
     private String OrdId;
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @PNRDate
     private String OrdDate;
 
     @Size(max = 6)

@@ -113,9 +113,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param orderId 此次操作的唯一订单号
+     * @param orderId    此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl 后台返回的回调路径
+     * @param BgRetUrl   后台返回的回调路径
      * @return 冻结成功返回，否则返回null
      */
     public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
@@ -140,24 +140,25 @@ public interface PaymentService {
      * @param clientCode
      * @param userId
      * @param amount
-     * @param orderId 此次操作的唯一订单号
-     * @param auditFlag 复核标识
-     * @param BgRetUr 后台返回的回调路径
+     * @param orderId    此次操作的唯一订单号
+     * @param auditFlag  复核标识
+     * @param BgRetUr    后台返回的回调路径
      */
     public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
     /**
+     * 放款
      *
      * @param clientCode
-     * @param ordId 此次操作订单号
+     * @param ordId        此次操作订单号
      * @param investUserId 投资人id
-     * @param amount 投资金额
-     * @param fee 商户扣账手续费
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单号日期?
-     * @param loanUserId 贷款人Id
-     * @param details 分账账户串
-     * @param isDefault 是否需要在放款后发起自动取现
+     * @param amount       投资金额
+     * @param fee          商户扣账手续费
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单号日期?
+     * @param loanUserId   贷款人Id
+     * @param details      分账账户串
+     * @param isDefault    是否需要在放款后发起自动取现
      * @param BgRetUrl
      * @return
      */
@@ -172,6 +173,53 @@ public interface PaymentService {
                          List<DivDetail> details,
                          IsDefault isDefault,
                          String BgRetUrl);
+
+    /**
+     * 还款
+     *
+     * @param clientCode
+     * @param OrdId        本操作订单号
+     * @param LoanUserId   借款人id
+     * @param SubOrdId     投标订单号？
+     * @param SubOrDate    投标订单日期？
+     * @param TransAmt     还款金额
+     * @param Fee          手续费
+     * @param investUserId 投资人id
+     * @param details      分账信息
+     * @param BgRetUrl
+     * @return
+     */
+    public boolean repayment(String clientCode,
+                             String ordId,
+                             String loanUserId,
+                             String subOrdId,
+                             LocalDate subOrDate,
+                             BigDecimal transAmt,
+                             BigDecimal fee,
+                             String investUserId,
+                             List<DivDetail> details,
+                             String BgRetUrl);
+
+    /**
+     * 自动扣款转账(商户用)
+     *
+     * @param clientCode
+     * @param outCustId
+     * @param outAcctId
+     * @param amount
+     * @param inCustId
+     * @param inAcctId
+     * @param BgRetUrl
+     * @return
+     */
+    public boolean transfer(String clientCode,
+                            String ordId,
+                            String outCustId,
+                            String outAcctId,
+                            BigDecimal amount,
+                            String inCustId,
+                            String inAcctId,
+                            String BgRetUrl);
 
     /**
      * p2p平台取现对账
@@ -253,7 +301,7 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      *
      * @param clientCode
-     * @param response 返回数据
+     * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);

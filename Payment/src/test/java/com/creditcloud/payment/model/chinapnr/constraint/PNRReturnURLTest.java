@@ -1,11 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.creditcloud.model.constraints;
+package com.creditcloud.payment.model.chinapnr.constraint;
 
-import static com.creditcloud.model.constraints.BaseTest.validator;
-import com.creditcloud.model.mock.MockURL;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,7 +12,7 @@ import org.junit.Test;
  *
  * @author rooseek
  */
-public class PNRReturnURLTest extends BaseTest<MockURL> {
+public class PNRReturnURLTest extends BaseTest<MockData> {
 
     private static final String[] reserved = new String[]{"recv",
                                                           "rbsmag",
@@ -49,7 +43,7 @@ public class PNRReturnURLTest extends BaseTest<MockURL> {
 
     @Before
     public void setUp() {
-        object = new MockURL("demo.creditcloud.com");
+        object = new MockData("demo.creditcloud.com", "20131116");
     }
 
     @After
