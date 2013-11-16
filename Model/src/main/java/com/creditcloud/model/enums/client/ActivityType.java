@@ -8,21 +8,15 @@ import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.Realm;
 
 /**
- * 员工活动类型
+ * 员工活动类型<p>
+ * TODO 目前用不上,贷款类活动都包含在下类中
  *
+ * @see com.creditcloud.model.enums.loan.RequestActivityType
  * @author rooseek
  */
 public enum ActivityType implements BaseEnum {
 
-    LOANREQUEST_ASSIGN_MANAGER("分配主管经理", Realm.LOAN_REQUEST),
-    LOANREQUEST_ASSIGN_VISIT_TASK("分配外审任务", Realm.LOAN_REQUEST),
-    LOANREQUEST_REVIEW_VISIT("实地征信/回访/催款", Realm.LOAN_REQUEST),
-    LOANREQUEST_ASSIGN_RISK_TASK("分配风控任务",Realm.LOAN_REQUEST),
-    LOANREQUEST_REVIEW_RISK("风控评审", Realm.LOAN_REQUEST),
-    LOANREQUEST_CANCELL("取消贷款申请", Realm.LOAN_REQUEST),
-    LOANREQUEST_APPROVE("批准贷款申请", Realm.LOAN_REQUEST),
-    LOANREQUEST_PUBLISH("发放贷款",Realm.LOAN_REQUEST),
-    LOANREQUEST_REJECT("驳回贷款申请", Realm.LOAN_REQUEST);
+    TODO("待定..", Realm.EMPLOYEE);
 
     private final String key;
 

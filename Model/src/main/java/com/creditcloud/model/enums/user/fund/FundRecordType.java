@@ -12,30 +12,33 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum FundRecordType implements BaseEnum {
 
-    INITIATE("初始"),
-    RECHARGE("充值"),
-    WITHDRAW("提现"),
-    INVEST_FROZEN("投标成功，资金冻结"),
-    INVEST_SETTLED("投资成功,资金已结算"),
-    INVEST_FAILED("流标,投资金额返还现金账户"),
-    INVEST_REPAY("投资回款"),
-    LOAN_SETTLED("借款成功，资金已结算"),
-    LOAN_REPAY("还款"),
-    FROZEN("冻结资金"),
-    RELEASE("解冻资金"),
-    DISBURSE("垫付,用于逾期或违约后垫付的状态"),
-    /**
-     * TODO 用下面的type替换上面的type
-     */
-    SAVE("充值"),
-    CASH("取现"),
-    FREEZE("冻结"),
-    UNFREEZE("解冻"),
     INVEST("投标"),
+    WITHDRAW("取现"),
+    DEPOSIT("充值"),
     LOAN("放款"),
-    REPAY("还款"),
-    TRANSFER("转账")//主要是商户调用
-    ;
+    LONA_REPAY("贷款还款"),
+    INVEST_REPAY("投资还款"),
+    CREDIT_ASSIGN("债权转让"),
+    TRANSFER("转账扣款"),//商户用
+    /**
+     * 处罚费用
+     */
+    PENALTY_OVERDUE("逾期罚息"),
+    /**
+     * 奖励
+     */
+    REWARD_REGISTR("注册奖励"),
+    REWARD_INVEST("投标奖励"),
+    REWARD_DEPOSIT("充值奖励"),
+    /**
+     * 服务管理手续费
+     */
+    FEE_WITHDRAW("提现手续费"),
+    FEE_INTEREST("利息管理费"),
+    FEE_AUTHENTICATE("身份验证手续费"),
+    FEE_LOAN("借款服务费"),
+    FEE_VISIT("实地考察费"),
+    FEE_VOUCH("担保费");
 
     private final String key;
 

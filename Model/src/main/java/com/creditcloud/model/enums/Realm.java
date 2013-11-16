@@ -7,7 +7,10 @@ package com.creditcloud.model.enums;
 import com.creditcloud.model.client.Client;
 import com.creditcloud.model.client.Employee;
 import com.creditcloud.model.client.Role;
+import com.creditcloud.model.loan.Invest;
+import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Task;
 import com.creditcloud.model.user.User;
@@ -25,20 +28,34 @@ import java.io.File;
  */
 public enum Realm implements BaseEnum {
 
+    /**
+     * 基本类型
+     */
     USER("用戶", User.class),
     EMPLOYEE("员工", Employee.class),
     ROLE("角色", Role.class),
     CLIENT("客戶", Client.class),
+    /**
+     * 认证
+     */
     PROOF("证明", Proof.class),
     CERTIFICATE("认证", Certificate.class),
-    LOAN("贷款", Loan.class),
-    LOAN_REQUEST("贷款申请", LoanRequest.class),
-    TASK("任务", Task.class),
-    IMAGE("图片", Image.class),
-    FILE("文件", File.class),
     VEHICLE("车辆", Vehicle.class),
-    REALESTATE("房产", RealEstate.class);
-
+    REALESTATE("房产", RealEstate.class),
+    /**
+     * 借款贷款
+     */
+    INVEST("投标", Invest.class),
+    LOAN("贷款", Loan.class),
+    INVESTREPAYMENT("投资还款", InvestRepayment.class),
+    LOANREPAYMENT("贷款还款", LoanRepayment.class),
+    LOANREQUEST("贷款申请", LoanRequest.class),
+    TASK("任务", Task.class),
+    /**
+     * 其他
+     */
+    IMAGE("图片", Image.class),
+    FILE("文件", File.class),;
     private final String key;
 
     private final Class clazz;

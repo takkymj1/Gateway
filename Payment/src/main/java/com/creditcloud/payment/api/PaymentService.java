@@ -118,7 +118,11 @@ public interface PaymentService {
      * @param BgRetUrl   后台返回的回调路径
      * @return 冻结成功返回，否则返回null
      */
-    public TransactionAmount userFreeze(String clientCode, String userId, BigDecimal amount, String orderId, String BgRetUrl);
+    public TransactionAmount userFreeze(String clientCode, 
+                                        String userId, 
+                                        BigDecimal amount,
+                                        String orderId, 
+                                        String BgRetUrl);
 
     /**
      * 解冻指定用户的资金

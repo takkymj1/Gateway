@@ -53,7 +53,7 @@ public class SimpleRequestTask extends Task {
               employeeId,
               title,
               description,
-              TaskType.LOANREQUEST,
+              TaskType.LOAN_REQUEST,
               status,
               timeAssigned,
               timeOut,

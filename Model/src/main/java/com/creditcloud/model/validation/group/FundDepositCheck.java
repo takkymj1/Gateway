@@ -11,5 +11,5 @@ import javax.validation.groups.Default;
  *
  * @author rooseek
  */
-public interface FundRechargeCheck extends Default {
+public interface FundDepositCheck extends Default {
 }
