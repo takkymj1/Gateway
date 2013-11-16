@@ -53,7 +53,7 @@ public class LoanRepayTask extends Task {
               employeeId,
               title,
               description,
-              TaskType.LOAN_REPAY,
+              TaskType.LOAN_COLLECT,
               status,
               timeAssigned,
               timeOut,

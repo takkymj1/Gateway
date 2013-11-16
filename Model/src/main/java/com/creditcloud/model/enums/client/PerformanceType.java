@@ -14,9 +14,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum PerformanceType implements BaseEnum {
 
     USER_OPEN_ACCOUNT("用户开户"),
-    USER_INVESTIGATE("用户调查"),
-    LOAN_REQUEST_SUBMIT("贷款申请提交"),
-    LOAN_REQUEST_INVESTIGATE("贷款申请调查");
+    USER_VIST("用户调查"),
+    LOANREQUEST_SUBMIT("贷款申请提交"),
+    LOANREQUEST_VISIT("贷款申请调查");
 
     private final String key;
 

@@ -15,7 +15,7 @@ public enum InvestEventType implements BaseEnum {
 
     INVEST("投资"),
     INVEST_REPAY("投资回款"),
-    RECHARGE("充值"),
+    DEPOSIT("充值"),
     WITHDRAW("提现");
 
     private final String key;

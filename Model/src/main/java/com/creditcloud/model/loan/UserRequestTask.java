@@ -60,7 +60,7 @@ public class UserRequestTask extends Task {
               employeeId,
               title,
               description,
-              TaskType.USER_AND_LOANREQUEST,
+              TaskType.USER_AND_REQUEST,
               status,
               timeAssigned,
               timeOut,

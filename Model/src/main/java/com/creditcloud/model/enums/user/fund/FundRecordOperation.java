@@ -14,7 +14,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum FundRecordOperation implements BaseEnum {
 
     FREEZE("冻结"),
-    UNFREEZE("解冻"),
+    RELEASE("解冻"),
     IN("资金转入"),
     OUT("资金转出");
 

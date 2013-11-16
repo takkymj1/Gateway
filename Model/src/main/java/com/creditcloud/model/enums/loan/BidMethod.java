@@ -15,7 +15,7 @@ public enum BidMethod implements BaseEnum {
 
     AUTO("自动投标"),
     MANUAL("手动投标"),
-    WEALTH_PRODUCT("理财产品");
+    WEALTHPRODUCT("理财产品");
 
     private final String key;
 

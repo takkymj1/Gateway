@@ -54,7 +54,7 @@ public class UserFund extends BaseObject {
      */
     @Min(0)
     @NotNull
-    private final BigDecimal rechargeAmount;
+    private final BigDecimal depositAmount;
 
     /**
      * 提现总额
@@ -68,14 +68,14 @@ public class UserFund extends BaseObject {
                     BigDecimal frozenAmount,
                     BigDecimal dueInAmount,
                     BigDecimal dueOutAmount,
-                    BigDecimal rechargeAmount,
+                    BigDecimal depositAmount,
                     BigDecimal withdrawAmount) {
         this.userId = userId;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
         this.dueInAmount = dueInAmount;
         this.dueOutAmount = dueOutAmount;
-        this.rechargeAmount = rechargeAmount;
+        this.depositAmount = depositAmount;
         this.withdrawAmount = withdrawAmount;
     }
 
@@ -99,8 +99,13 @@ public class UserFund extends BaseObject {
         return userId;
     }
 
+    public BigDecimal getDepositAmount() {
+        return depositAmount;
+    }
+
+    //TODO for backward compatibility in jsp
     public BigDecimal getRechargeAmount() {
-        return rechargeAmount;
+        return depositAmount;
     }
 
     public BigDecimal getWithdrawAmount() {

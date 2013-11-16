@@ -4,8 +4,9 @@
  */
 package com.creditcloud.model.user.fund;
 
+import com.creditcloud.model.enums.user.fund.FundRecordOperation;
+import com.creditcloud.model.enums.user.fund.FundRecordStatus;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
-import com.creditcloud.model.enums.user.fund.WithdrawStatus;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,48 +20,30 @@ public class FundWithdraw extends FundRecord {
 
     private static final long serialVersionUID = 20131015L;
 
-    private BankAccount bankAccount;
-
-    private WithdrawStatus status;
-
     public FundWithdraw() {
     }
 
     public FundWithdraw(String id,
                         UserFund fund,
+                        BankAccount account,
+                        FundRecordStatus status,
+                        FundRecordOperation operation,
                         BigDecimal amount,
-                        Date recordTime,
-                        String orderNumber,
-                        String transactionNumber,
+                        String orderId,
+                        String transactionId,
                         String description,
-                        BankAccount bankAccount,
-                        WithdrawStatus status) {
+                        Date timeRecorded) {
         super(id,
               fund,
+              account,
+              null,
               FundRecordType.WITHDRAW,
+              status,
+              operation,
               amount,
-              false,
-              recordTime,
-              orderNumber,
-              transactionNumber,
-              description);
-        this.bankAccount = bankAccount;
-        this.status = status;
-    }
-
-    public BankAccount getBankAccount() {
-        return bankAccount;
-    }
-
-    public void setBankAccount(BankAccount bankAccount) {
-        this.bankAccount = bankAccount;
-    }
-
-    public WithdrawStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(WithdrawStatus status) {
-        this.status = status;
+              orderId,
+              transactionId,
+              description,
+              timeRecorded);
     }
 }
