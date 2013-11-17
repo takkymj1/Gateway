@@ -50,8 +50,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param paymentAccount
+     * @return 
      */
-    public void createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
+    public PaymentAccount createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
 
     /**
      * 根据在三方支付中的ID获取对应的UserId
@@ -147,6 +148,7 @@ public interface PaymentService {
      * @param orderId    此次操作的唯一订单号
      * @param auditFlag  复核标识
      * @param BgRetUr    后台返回的回调路径
+     * @return 
      */
     public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
@@ -182,12 +184,12 @@ public interface PaymentService {
      * 还款
      *
      * @param clientCode
-     * @param OrdId        本操作订单号
-     * @param LoanUserId   借款人id
-     * @param SubOrdId     投标订单号？
-     * @param SubOrDate    投标订单日期？
-     * @param TransAmt     还款金额
-     * @param Fee          手续费
+     * @param ordId        本操作订单号
+     * @param loanUserId   借款人id
+     * @param subOrdId     投标订单号？
+     * @param subOrDate    投标订单日期？
+     * @param transAmt     还款金额
+     * @param fee          手续费
      * @param investUserId 投资人id
      * @param details      分账信息
      * @param BgRetUrl
@@ -208,6 +210,7 @@ public interface PaymentService {
      * 自动扣款转账(商户用)
      *
      * @param clientCode
+     * @param ordId
      * @param outCustId
      * @param outAcctId
      * @param amount
@@ -233,6 +236,7 @@ public interface PaymentService {
      * @param endDate
      * @param pageNum
      * @param pageSize
+     * @return 
      */
     public CashReconciliationResult cashReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
