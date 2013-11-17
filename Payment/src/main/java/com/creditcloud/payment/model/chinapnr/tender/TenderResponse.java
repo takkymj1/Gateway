@@ -6,6 +6,7 @@ package com.creditcloud.payment.model.chinapnr.tender;
 
 import com.creditcloud.payment.model.chinapnr.constraint.PNRReturnURL;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -25,7 +26,7 @@ public class TenderResponse extends BaseResponse {
 
     @FormParam("OrdDate")
     @NotNull
-    @Size(min = 8, max = 8)
+    @PNRDate
     private String OrdDate;
 
     @FormParam("TransAmt")

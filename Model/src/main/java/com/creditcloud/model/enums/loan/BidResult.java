@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum BidResult implements BaseEnum {
 
     SUCCESSFUL("投标成功，资金被冻结"),
-    PARTLY_SUCCESSFUL("可贷款余额不足,只能满足部分借款需求"),
+    PARTLY_SUCCESSFUL("投资成功,资金被冻结"),//但可贷款余额不足,只能满足部分投资
     BID_NOT_OPEN("贷款标没有开始,或者已经结束"),
     BID_NO_BALANCE("已满标"),
     BID_EXCESS_LIMIT("投标次数超过限制"),

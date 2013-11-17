@@ -6,6 +6,7 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
 import java.math.BigDecimal;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,10 +24,10 @@ public class TransactionAmount extends BaseObject {
     @Size(max = 20)
     private String OrdId;
 
-    @Size(min = 8, max = 8)
+    @Size(min = 18, max = 18)
     private String TrxId;
 
-    @Size(min = 8, max = 8)
+    @PNRDate
     private String OrdDate;
 
     private BigDecimal amount;
