@@ -27,7 +27,7 @@ public enum FundRecordType implements BaseEnum {
     /**
      * 奖励
      */
-    REWARD_REGISTR("注册奖励"),
+    REWARD_REGISTER("注册奖励"),
     REWARD_INVEST("投标奖励"),
     REWARD_DEPOSIT("充值奖励"),
     /**
