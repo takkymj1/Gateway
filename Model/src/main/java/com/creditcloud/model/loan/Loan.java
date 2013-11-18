@@ -9,7 +9,6 @@ import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import java.util.Calendar;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -33,7 +32,7 @@ public class Loan extends BaseObject implements Investable {
     private String id;
 
     private String title;
-    
+
     @NotNull
     private RepaymentMethod method;
 
@@ -45,7 +44,7 @@ public class Loan extends BaseObject implements Investable {
                         max = LoanConstant.MAX_LOAN_AMOUNT,
                         groups = Default.class)
     private int amount;
-    
+
     /**
      * 年化利率（万分之几）
      */
@@ -66,7 +65,7 @@ public class Loan extends BaseObject implements Investable {
                         increment = 1,
                         max = LoanConstant.MAX_LOAN_TIME_OUT,
                         groups = Default.class)
-    @XmlElement(name="timeout")
+    @XmlElement(name = "timeout")
     private int timeOut;
 
     @NotNull
@@ -83,6 +82,11 @@ public class Loan extends BaseObject implements Investable {
     private Date timeFinished;
 
     /**
+     * 结算时间
+     */
+    private Date timeSettled;
+
+    /**
      * 有无抵押
      */
     private boolean mortgaged;
@@ -91,7 +95,7 @@ public class Loan extends BaseObject implements Investable {
      * 投标数
      */
     private int bidNumber;
-    
+
     /**
      * 实际投标金额，主要用于流标
      */
@@ -115,6 +119,7 @@ public class Loan extends BaseObject implements Investable {
                 LoanRequest loanRequest,
                 Date timeOpen,
                 Date timeFinished,
+                Date timeSettled,
                 boolean mortgaged,
                 int bidNumber,
                 int bidAmount) {
@@ -130,6 +135,7 @@ public class Loan extends BaseObject implements Investable {
         this.loanRequest = loanRequest;
         this.timeOpen = timeOpen;
         this.timeFinished = timeFinished;
+        this.timeSettled = timeSettled;
         this.mortgaged = mortgaged;
         this.bidNumber = bidNumber;
         this.bidAmount = bidAmount;
@@ -175,7 +181,7 @@ public class Loan extends BaseObject implements Investable {
     public void setTimeFinished(Date timeFinished) {
         this.timeFinished = timeFinished;
     }
-    
+
     @Override
     public Duration getDuration() {
         return duration;
@@ -257,5 +263,13 @@ public class Loan extends BaseObject implements Investable {
 
     public void setBidAmount(int bidAmount) {
         this.bidAmount = bidAmount;
+    }
+
+    public Date getTimeSettled() {
+        return timeSettled;
+    }
+
+    public void setTimeSettled(Date timeSettled) {
+        this.timeSettled = timeSettled;
     }
 }
