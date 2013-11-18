@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FeeConfig>
+    <loanGuaranteeFee>0.05</loanGuaranteeFee>
+    <loanServiceFee>0.02</loanServiceFee>
+    <loanVisitFee>0.005</loanVisitFee>
+    <loanInterestFee>0.1</loanInterestFee>
+    <loanPenaltyFee>0.001</loanPenaltyFee>
+    <investInterestFee>0.1</investInterestFee>
+</FeeConfig>

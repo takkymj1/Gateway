@@ -21,10 +21,6 @@ public enum FundRecordType implements BaseEnum {
     CREDIT_ASSIGN("债权转让"),
     TRANSFER("转账扣款"),//商户用
     /**
-     * 处罚费用
-     */
-    PENALTY_OVERDUE("逾期罚息"),
-    /**
      * 奖励
      */
     REWARD_REGISTER("注册奖励"),
@@ -34,11 +30,13 @@ public enum FundRecordType implements BaseEnum {
      * 服务管理手续费
      */
     FEE_WITHDRAW("提现手续费"),
-    FEE_INTEREST("利息管理费"),
     FEE_AUTHENTICATE("身份验证手续费"),
-    FEE_LOAN("借款服务费"),
-    FEE_VISIT("实地考察费"),
-    FEE_VOUCH("担保费");
+    FEE_INVEST_INTEREST("回款利息管理费"),
+    FEE_LOAN_SERVICE("借款服务费"),
+    FEE_LOAN_INTEREST("还款利息管理费"),
+    FEE_LOAN_VISIT("实地考察费"),
+    FEE_LOAN_GUARANTEE("担保费"),
+    FEE_LOAN_PENALTY("逾期罚息");
 
     private final String key;
 

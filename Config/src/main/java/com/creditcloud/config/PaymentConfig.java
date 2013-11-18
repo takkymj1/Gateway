@@ -12,7 +12,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 第三方支付需要的配置文件项
+ * 第三方支付需要的配置文件项<p>
+ * //TODO 可以将此配置文件改名为PNRPaymentConfig，以区别其他支付配置文件
  *
  * @author sobranie
  */
