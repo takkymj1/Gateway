@@ -6,6 +6,7 @@
 package com.creditcloud.common.taglib;
 
 import java.util.Collection;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * 实现JSTL表达式中通用的一些function
@@ -13,6 +14,10 @@ import java.util.Collection;
  * @author sobranie
  */
 public class Functions {
+    
+    public static String base64(String value) {
+        return Base64.encodeBase64URLSafeString(value.getBytes());
+    }
     
     /**
      * 判断一个集合中是否包含某元素
