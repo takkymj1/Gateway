@@ -169,6 +169,7 @@ public class PdfUtils {
             r.amount = "人民币" + repayment.getRepayment().getAmountPrincipal() + "元";
             r.interestAmount = "人民币" + repayment.getRepayment().getAmountInterest() + "元";
             r.repayDate = toPdfDateString(repayment.getRepayment().getDueDate().toDate());
+            fields.repaymentMonthlyList.add(r);
         }
 
         return fields;
