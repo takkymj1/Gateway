@@ -9,6 +9,7 @@ import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import java.util.Calendar;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -174,7 +175,7 @@ public class Loan extends BaseObject implements Investable {
     public void setTimeFinished(Date timeFinished) {
         this.timeFinished = timeFinished;
     }
-
+    
     @Override
     public Duration getDuration() {
         return duration;
