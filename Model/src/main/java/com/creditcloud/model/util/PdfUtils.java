@@ -4,6 +4,7 @@
  */
 package com.creditcloud.model.util;
 
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
@@ -115,10 +116,11 @@ public class PdfUtils {
         fields.cxrDate = toPdfDateString(timeFinished);
         
         // 还款日/结息日
-        fields.repayDate = "";
+        fields.repayDate = "见附件还款详情";
         
         // 每月还款金额
-        fields.repayAmount = "";
+        fields.repayMethod = loan.getMethod().getKey();
+        fields.repayAmount = loan.getMethod() == RepaymentMethod.EqualInstallment ? "人民币" + loanRepaymentList.get(0).getRepayment().getAmountPrincipal() + "元" : "见附件还款详情";
         
         // 还款期数
         fields.repaymentNo = "共" + loanRepaymentList.size() + "期";
