@@ -26,6 +26,12 @@ public class Client extends BaseObject {
     protected String name;
 
     /**
+     * 客户简称
+     */
+    @NotNull
+    private String shortName;
+
+    /**
      * 4 characters codes 唯一标识
      */
     @ClientCode
@@ -46,8 +52,13 @@ public class Client extends BaseObject {
     public Client() {
     }
 
-    public Client(String name, String code, String url, Locale locale) {
+    public Client(String name,
+                  String shortName,
+                  String code,
+                  String url,
+                  Locale locale) {
         this.name = name;
+        this.shortName = shortName;
         this.code = code;
         this.url = url;
         this.locale = locale;
@@ -83,5 +94,13 @@ public class Client extends BaseObject {
 
     public void setLocale(Locale locale) {
         this.locale = locale;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 }

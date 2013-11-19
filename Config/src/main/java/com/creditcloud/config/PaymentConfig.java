@@ -79,6 +79,31 @@ public class PaymentConfig extends BaseConfig {
     @XmlElement(required = true)
     private String maxBorrowerRate;
 
+    //下面配置的是商户子账户
+    /**
+     * 基本借记户
+     */
+    @XmlElement(name = "basedtConfig", required = false)
+    private PNRAccount basedt;
+
+    /**
+     * 保证金账户
+     */
+    @XmlElement(name = "depConfig", required = false)
+    private PNRAccount dep;
+
+    /**
+     * 专属借记账户
+     */
+    @XmlElement(name = "merdtConfig", required = false)
+    private PNRAccount merdt;
+
+    /**
+     * 专用借记账户
+     */
+    @XmlElement(name = "spedtConfig", required = false)
+    private PNRAccount spedt;
+
     public PaymentConfig() {
     }
 
@@ -116,5 +141,37 @@ public class PaymentConfig extends BaseConfig {
 
     public String getMaxBorrowerRate() {
         return maxBorrowerRate;
+    }
+
+    public PNRAccount getBasedt() {
+        return basedt;
+    }
+
+    public PNRAccount getDep() {
+        return dep;
+    }
+
+    public PNRAccount getMerdt() {
+        return merdt;
+    }
+
+    public PNRAccount getSpedt() {
+        return spedt;
+    }
+
+    public void setBasedt(PNRAccount basedt) {
+        this.basedt = basedt;
+    }
+
+    public void setDep(PNRAccount dep) {
+        this.dep = dep;
+    }
+
+    public void setMerdt(PNRAccount merdt) {
+        this.merdt = merdt;
+    }
+
+    public void setSpedt(PNRAccount spedt) {
+        this.spedt = spedt;
     }
 }
