@@ -7,6 +7,7 @@ package com.creditcloud.user.api;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.user.UserLoginResult;
 import com.creditcloud.user.UserAuthenticate;
+import com.creditcloud.user.social.SocialId;
 import java.util.Map;
 import javax.ejb.Remote;
 
@@ -36,6 +37,22 @@ public interface UserSecurityService {
                           String password,
                           Map<String, String> loginInfo,
                           Source source);
+    
+    /**
+     * 验证用户并与SocialId绑定
+     * 
+     * @param clientCode
+     * @param loginName
+     * @param password
+     * @param socialId
+     * @param socialInfo
+     * @return 
+     */
+    UserLoginResult connectSocial(String clientCode,
+                                  String loginName,
+                                  String password,
+                                  SocialId socialId,
+                                  Map<String, String> socialInfo);
 
     /**
      * 修改密码
