@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<PaymentConfig>
+    <merId>merId</merId>
+    <merCustId>merCustId</merCustId>
+    <privateKeyPath>/var/CreditCloud/MerPrK.key</privateKeyPath>
+    <publicKeyPath>/var/CreditCloud/PgPubk.key</publicKeyPath>
+    <url>http://test.chinapnr.com</url>
+    <path>/muser/publicRequests</path>
+    <retUrl>http://demo.creditcloud.com</retUrl>
+    <maxTenderRate>0.10</maxTenderRate>
+    <maxBorrowerRate>0.99</maxBorrowerRate>
+    <basedtConfig>
+        <accountType>BASEDT</accountType>
+        <accountId>accountId</accountId>
+    </basedtConfig>
+    <depConfig>
+        <accountType>DEP</accountType>
+        <accountId>accountId</accountId>
+    </depConfig>
+    <depConfig>
+        <accountType>BASEDT</accountType>
+        <accountId>accountId</accountId>
+    </basedtConfig>
+    <basedtConfig>
+        <accountType>BASEDT</accountType>
+        <accountId>accountId</accountId>
+    </basedtConfig>
+</PaymentConfig>
