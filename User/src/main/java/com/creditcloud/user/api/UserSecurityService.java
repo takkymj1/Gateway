@@ -53,6 +53,15 @@ public interface UserSecurityService {
                                   String password,
                                   SocialId socialId,
                                   Map<String, String> socialInfo);
+    
+    /**
+     * 通过SocialId验证用户登陆
+     * 
+     * @param clientCode
+     * @param socialId
+     * @return 
+     */
+    UserLoginResult loginSocial(String clientCode, SocialId socialId, Map<String, String> loginInfo);
 
     /**
      * 修改密码
