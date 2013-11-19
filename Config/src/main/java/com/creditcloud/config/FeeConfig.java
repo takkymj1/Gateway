@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "FeeConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FeeConfig extends BaseConfig{
+public class FeeConfig extends BaseConfig {
 
     private static final long serialVersionUID = 20131118L;
 
@@ -26,63 +27,90 @@ public class FeeConfig extends BaseConfig{
      * 贷款担保费率,按贷款金额比率收取，跟借款人收取，进入商户担保账户
      */
     @XmlElement(required = true)
-    private double loanGuaranteeFee;
+    private BigDecimal loanGuaranteeFee;
 
     /**
      * 贷款服务费率，按照贷款金额比率收取，跟借款人收取
      */
     @XmlElement(required = true)
-    private double loanServiceFee;
+    private BigDecimal loanServiceFee;
 
     /**
      * 贷款实地调查费率，按照贷款金额比率收取，跟借款人收取
      */
     @XmlElement(required = true)
-    private double loanVisitFee;
+    private BigDecimal loanVisitFee;
 
     /**
      * 贷款还款利息管理费费率，按照贷款还款利息比率收费，跟借款人收取
      */
     @XmlElement(required = true)
-    private double loanInterestFee;
+    private BigDecimal loanInterestFee;
 
     /**
      * 贷款逾期罚金费率，以天为单位，按照贷款金额比率收取，跟借款人收取
      */
     @XmlElement(required = true)
-    private double loanPenaltyFee;
+    private BigDecimal loanPenaltyFee;
 
     /**
      * 投资回款利息管理费费率,按照投资回款利息比率收费，跟投资者收取
      */
     @XmlElement(required = true)
-    private double investInterestFee;
+    private BigDecimal investInterestFee;
+
+    /**
+     * 提现手续费率
+     */
+    @XmlElement(required = false)
+    private BigDecimal withdrawFee;
+    
+    /**
+     * 充值手续费率
+     */
+    @XmlElement(required = false)
+    private BigDecimal depositFee;
 
     public FeeConfig() {
     }
 
-    public double getLoanGuaranteeFee() {
+    public BigDecimal getLoanGuaranteeFee() {
         return loanGuaranteeFee;
     }
 
-    public double getLoanServiceFee() {
+    public BigDecimal getLoanServiceFee() {
         return loanServiceFee;
     }
 
-    public double getLoanVisitFee() {
+    public BigDecimal getLoanVisitFee() {
         return loanVisitFee;
     }
 
-    public double getLoanInterestFee() {
+    public BigDecimal getLoanInterestFee() {
         return loanInterestFee;
     }
 
-    public double getLoanPenaltyFee() {
+    public BigDecimal getLoanPenaltyFee() {
         return loanPenaltyFee;
     }
 
-    public double getInvestInterestFee() {
+    public BigDecimal getInvestInterestFee() {
         return investInterestFee;
     }
 
+    public BigDecimal getWithdrawFee() {
+        return withdrawFee;
+    }
+
+    public void setWithdrawFee(BigDecimal withdrawFee) {
+        this.withdrawFee = withdrawFee;
+    }
+
+    public BigDecimal getDepositFee() {
+        return depositFee;
+    }
+
+    public void setDepositFee(BigDecimal depositFee) {
+        this.depositFee = depositFee;
+    }
 }
