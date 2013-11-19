@@ -9,6 +9,7 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.user.social.SocialId;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -76,6 +77,8 @@ public interface UserService extends UserSecurityService {
      * @param clientCode
      * @param user
      * @param password
+     * @param loginInfo
+     * @param source
      * @return
      */
     User addUser(String clientCode,
@@ -83,6 +86,22 @@ public interface UserService extends UserSecurityService {
                  String password,
                  Map<String, String> loginInfo,
                  Source source);
+    
+    /**
+     * 通过社交联合登录增加一个用户，用socialId来识别.
+     * 
+     * 需要在调用前先判断User信息是否已经存在，如存在应该调用connectSocial方法
+     * 
+     * @param clientCode
+     * @param user
+     * @param socialId
+     * @param socialInfo
+     * @return null表示新建用户失败，可能因为传入的User和现有User信息冲突
+     */
+    User addUser(String clientCode,
+                 User user,
+                 SocialId socialId,
+                 Map<String, String> socialInfo);
 
     /**
      * update user information for client

@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,11 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name = "PNRAccount")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PNRAccount extends BaseConfig {
-
-    private static final long serialVersionUID = 20131119L;
-
-    public static final String CONFIG_NAME = "PNRAccount";
+public class PNRAccount extends BaseObject {
 
     /*
      * 账户类型
