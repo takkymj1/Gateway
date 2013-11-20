@@ -42,7 +42,7 @@ public class PdfUtils {
 
     public static class Fields {
 
-        public String agreementNo = "合同编号：CXJR123456-12312-12312";
+        public String agreementNo = "xxxxxxxx-xxx-xxxx";
         public String CJRName = "李鹏"; // 出借人姓名
         public String CJRloginName = "rooseek"; // 出借人登录名
         public String CJRIdNumber = "650204198802192316"; // 身份证号
@@ -60,13 +60,15 @@ public class PdfUtils {
         public String repayDate = "每月25日"; // 还款日
         public String repayAmount = "人民币10000元"; // 还款金额
         public String repayAmountMonthly = "人民币10000元"; // 乙方每月应付金额
-        public String fxbzjRate = "5";	// 风险保证金计提
-        public String yzhglfRate = "3";	// 乙方账户管理费
-        public String jzhglfRate = "2";	// 甲方账户管理费
+        public String fxbzjRate = "6";	// 风险保证金计提
+        public String yzhglfRate = "5";	// 乙方账户管理费
+        public String zxRate = "2";                    // 乙方咨询服务费
+        public String jzhglfRate = "3";	// 甲方账户管理费
         public String repaymentNo = "24"; // 还款期数
-        public String zqr = "债权人"; // 债权人
-        public String zwr = "债务人"; // 债务人
+        public String zqr = CJRName; // 债权人
+        public String zwr = JKRName; // 债务人
         public String fr = "法人"; // 法人
+        
         // 签字日期
         public String signDate = "2013年8月16日";
         // 详情
@@ -102,6 +104,7 @@ public class PdfUtils {
             int AAccountManagerFees,
             int BAccountManagerFees,
             int BRiskFees,
+            int ConsultancyFees,
             Date signDate) {
         Fields fields = new Fields();
         fields.CJRName = creditor.getName();
@@ -153,11 +156,14 @@ public class PdfUtils {
         // 乙方风险保证金计提
         fields.fxbzjRate = "" + BRiskFees;
 
+        // 乙方咨询服务费
+        fields.zxRate = "" + ConsultancyFees;
+        
         // 合同签署日期
         fields.signDate = toPdfDateString(signDate);
 
         // 合同编号
-        fields.agreementNo = "合同编号：" + no;
+        fields.agreementNo = no;
 
         // 丙方（法人）
         fields.fr = legal;
@@ -177,8 +183,9 @@ public class PdfUtils {
 
     /**
      * 日期
+     *
      * @param date
-     * @return 
+     * @return
      */
     public static String toPdfDateString(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日");
@@ -214,15 +221,15 @@ public class PdfUtils {
     }
 
     /**
-     * 
-     * @param no            合同编号
-     * @param fields       PDF域
+     *
+     * @param no 合同编号
+     * @param fields PDF域
      * @throws IOException
-     * @throws DocumentException 
+     * @throws DocumentException
      */
-    public static void templateToPdf(String no, Fields fields) throws IOException,
+    public static void templateToPdf(Fields fields, String inputFileName) throws IOException,
             DocumentException {
-        String fileName = "agreement.pdf";
+        String fileName = inputFileName;
         PdfReader reader = new PdfReader(fileName);
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         PdfStamper ps = new PdfStamper(reader, bos);
@@ -239,12 +246,14 @@ public class PdfUtils {
         s.setFieldProperty("JKRloginName", "textfont", bf, null);
         s.setField("JKRloginName", fields.JKRloginName);
 
-        s.setFieldProperty("JKRIdNumber", "textfont", bf, null);
-        s.setField("JKRIdNumber", fields.JKRIdNumber);
+//        s.setFieldProperty("JKRIdNumber", "textfont", bf, null);
+//        s.setField("JKRIdNumber", fields.JKRIdNumber);
 
-        s.setFieldProperty("CJRIdNumber", "textfont", bf, null);
-        s.setField("CJRIdNumber", fields.CJRIdNumber);
-
+//        s.setFieldProperty("CJRIdNumber", "textfont", bf, null);
+//        s.setField("CJRIdNumber", fields.CJRIdNumber);
+        setCIdNumber(s, fields.CJRIdNumber);
+        setJIdNumber(s, fields.JKRIdNumber);
+        
         s.setFieldProperty("CJRloginName", "textfont", bf, null);
         s.setField("CJRloginName", fields.CJRloginName);
 
@@ -296,6 +305,9 @@ public class PdfUtils {
         s.setFieldProperty("yzhglfRate", "textfont", bf, null);
         s.setField("yzhglfRate", fields.yzhglfRate);
 
+        s.setFieldProperty("zxRate", "textfont", bf, null);
+        s.setField("zxRate", fields.zxRate);
+        
         s.setFieldProperty("zqr", "textfont", bf, null);
         s.setField("zqr", fields.zqr);
 
@@ -311,7 +323,7 @@ public class PdfUtils {
 
         ps.setFormFlattening(true);
         ps.close();
-        FileOutputStream fos = new FileOutputStream(no);
+        FileOutputStream fos = new FileOutputStream(fields.agreementNo);
         fos.write(bos.toByteArray());
 
         fos.close();
@@ -320,12 +332,12 @@ public class PdfUtils {
         // Create output PDF
         Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document,
-                new FileOutputStream(no + ".pdf"));
+                new FileOutputStream(fields.agreementNo + ".pdf"));
         document.open();
         PdfContentByte cb = writer.getDirectContent();
 
         // Load existing PDF
-        reader = new PdfReader(no);
+        reader = new PdfReader(fields.agreementNo);
 
         // Copy first page of existing PDF into output PDF
 
@@ -343,10 +355,26 @@ public class PdfUtils {
         document.close();
     }
 
+    private static void setCIdNumber(AcroFields acro, String CJRIdNumber) throws IOException, DocumentException {
+        char[] c = CJRIdNumber.toCharArray();
+        for (int i = 0; i < 18; i++) {
+            acro.setField("C" + i, String.valueOf(c[i]));
+        }
+
+    }
+
+    private static void setJIdNumber(AcroFields acro, String jKRIdNumber) throws IOException, DocumentException {
+        char[] c = jKRIdNumber.toCharArray();
+        for (int i = 0; i < 18; i++) {
+            acro.setField("J" + i, String.valueOf(c[i]));
+        }
+    }
+
     /**
      * add 还款详情表
+     *
      * @param fields
-     * @return 
+     * @return
      */
     public static Paragraph addTable(Fields fields) {
         // test data
@@ -416,13 +444,16 @@ public class PdfUtils {
 
     /**
      * test
-     * @param args 
+     *
+     * @param args
      */
     public static void main(String[] args) {
         try {
-           String no =  "CXJR123456-12312-12312";
+            
 //           Fields fields = convertToPdfField(no, no, null, null, null, null, AAccountManagerFees, BAccountManagerFees, BRiskFees, null)
-           templateToPdf(no, new Fields());
+            Fields fields = new Fields();
+            fields.agreementNo = "xxxxxxxx-xxx-xxxx";
+            templateToPdf(new Fields(), "agreement.pdf");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
