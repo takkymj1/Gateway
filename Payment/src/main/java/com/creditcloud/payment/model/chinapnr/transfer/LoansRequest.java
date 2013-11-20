@@ -31,6 +31,9 @@ public class LoansRequest extends BaseRequest {
     @Size(max = 16)
     private String OutCustId;
 
+    /**
+     * 不能为零
+     */
     @NotNull
     @Size(max = 14)
     private String TransAmt;
