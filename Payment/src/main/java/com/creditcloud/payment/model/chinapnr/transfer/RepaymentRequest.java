@@ -42,6 +42,9 @@ public class RepaymentRequest extends BaseRequest {
     @Size(max = 9)
     private String OutAcctId;
 
+    /**
+     * 不能为零
+     */
     @NotNull
     @Size(max = 14)
     private String TransAmt;

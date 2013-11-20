@@ -150,7 +150,7 @@ public interface PaymentService {
      * @param BgRetUr    后台返回的回调路径
      * @return 
      */
-    public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
+    public boolean cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
     /**
      * 放款

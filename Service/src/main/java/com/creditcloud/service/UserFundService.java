@@ -7,6 +7,7 @@ package com.creditcloud.service;
 import com.creditcloud.model.user.fund.FundRecord;
 import com.creditcloud.model.user.fund.UserFund;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.user.fund.FundRecordStatus;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.fund.FundWithdraw;
@@ -43,9 +44,9 @@ public interface UserFundService {
      * the local client
      */
     public PagedResult<FundRecord> listFundRecordByUser(String clientCode,
-                                                          String userId,
-                                                          PageInfo pageInfo,
-                                                          FundRecordType... recordType);
+                                                        String userId,
+                                                        PageInfo pageInfo,
+                                                        FundRecordType... recordType);
 
     /**
      * list fund record by record type
@@ -61,20 +62,21 @@ public interface UserFundService {
     public PagedResult<FundRecord> listFundRecord(String clientCode,
                                                   PageInfo pageInfo,
                                                   FundRecordType... recordType);
-    
+
     /**
      * 返回所有待处理的提现申请记录.
-     * 
+     *
      * @param clientCode
-     * @return 
+     * @return
      */
     public List<FundWithdraw> listWithdrawRequest(String clientCode);
-    
+
     /**
-     * 批准提现申请
-     * 
+     * 提现申请审核
+     *
      * @param clientCode
-     * @param fundWithdrawId 
+     * @param approved true for approved, false for rejected
+     * @param fundWithdrawId
      */
-    public void approveWithdraw(String clientCode, String... fundWithdrawId);
+    public boolean doWithdraw(String clientCode, boolean approved, String... fundWithdrawId);
 }
