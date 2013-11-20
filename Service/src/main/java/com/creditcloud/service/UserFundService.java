@@ -7,7 +7,6 @@ package com.creditcloud.service;
 import com.creditcloud.model.user.fund.FundRecord;
 import com.creditcloud.model.user.fund.UserFund;
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.user.fund.FundRecordStatus;
 import com.creditcloud.model.enums.user.fund.FundRecordType;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.fund.FundWithdraw;
@@ -72,11 +71,11 @@ public interface UserFundService {
     public List<FundWithdraw> listWithdrawRequest(String clientCode);
 
     /**
-     * 提现申请审核
+     * 提现申请审核,按笔操作
      *
      * @param clientCode
      * @param approved true for approved, false for rejected
      * @param fundWithdrawId
      */
-    public boolean doWithdraw(String clientCode, boolean approved, String... fundWithdrawId);
+    public boolean doWithdraw(String clientCode, boolean approved, String fundWithdrawId);
 }
