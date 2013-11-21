@@ -132,7 +132,7 @@ public interface PaymentService {
      * @param orderId
      * @param trxId
      * @param BgRetUrl
-     * @return
+     * @return 解冻成功返回，否则返回null
      */
     public TransactionAmount userUnFreeze(String clientCode,
                                           String orderId,
