@@ -18,6 +18,7 @@ import com.creditcloud.model.user.asset.RealEstate;
 import com.creditcloud.model.user.asset.Vehicle;
 import com.creditcloud.model.user.credit.Certificate;
 import com.creditcloud.model.user.credit.Proof;
+import com.creditcloud.model.user.fund.FundWithdraw;
 import java.awt.Image;
 import java.io.File;
 
@@ -51,6 +52,10 @@ public enum Realm implements BaseEnum {
     LOANREPAYMENT("贷款还款", LoanRepayment.class),
     LOANREQUEST("贷款申请", LoanRequest.class),
     TASK("任务", Task.class),
+    /**
+     * 业务类型
+     */
+    WITHDRAW("取现",FundWithdraw.class),
     /**
      * 其他
      */
