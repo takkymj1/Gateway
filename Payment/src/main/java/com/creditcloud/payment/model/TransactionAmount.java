@@ -12,7 +12,9 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 结合了具体的金额和交易号、流水号
+ * 结合了具体的金额和交易号、流水号.
+ * <b>注意根据不同的请求返回值中某些field可能为null<b>
+ * TODO 让每个call返回单独一个定制的类，代码多点但更可靠
  *
  * @author sobranie
  */
