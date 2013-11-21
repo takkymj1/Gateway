@@ -5,6 +5,8 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import java.math.RoundingMode;
+
 /**
  *
  * @author sobranie
@@ -25,4 +27,6 @@ public interface PnRConstant {
      * 默认的字符编码，固定使用UTF-8
      */
     String CharSet = "UTF-8";
+    
+    RoundingMode ROUNDING_MODE = RoundingMode.CEILING;
 }
