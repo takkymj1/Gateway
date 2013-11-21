@@ -32,37 +32,6 @@ public interface UserFundService {
     public UserFund getUserFundByUser(String clientCode, String userId);
 
     /**
-     * list fund record for user by record type
-     *
-     * @param clientCode
-     * @param userId
-     * @param recordType
-     * @param pageInfo
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    public PagedResult<FundRecord> listFundRecordByUser(String clientCode,
-                                                        String userId,
-                                                        PageInfo pageInfo,
-                                                        FundRecordType... recordType);
-
-    /**
-     * list fund record by record type
-     *
-     * @param clientCode
-     * @param userId
-     * @param recordType
-     * @param pageInfo
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    public PagedResult<FundRecord> listFundRecord(String clientCode,
-                                                  PageInfo pageInfo,
-                                                  FundRecordType... recordType);
-
-    /**
      * 返回所有待处理的提现申请记录.
      *
      * @param clientCode
