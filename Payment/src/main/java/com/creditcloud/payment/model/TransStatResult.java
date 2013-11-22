@@ -5,6 +5,7 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import javax.validation.constraints.NotNull;
@@ -21,11 +22,11 @@ public class TransStatResult extends BaseObject {
     private static final long serialVersionUID = 20131113L;
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @Size(max = 20)
     private String OrdId;
 
     @NotNull
-    @Size(min = 8, max = 8)
+    @PnRDate
     private String OrdDate;
 
     @NotNull

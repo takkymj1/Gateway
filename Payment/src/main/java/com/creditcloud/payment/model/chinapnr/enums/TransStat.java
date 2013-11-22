@@ -4,48 +4,60 @@
  */
 package com.creditcloud.payment.model.chinapnr.enums;
 
+import com.creditcloud.model.enums.BaseEnum;
+
 /**
  * 交易状态
  *
  * @author rooseek
  */
-public enum TransStat {
+public enum TransStat implements BaseEnum{
 
     /**
      * 成功
      */
-    S,
+    S("成功"),
     /**
      * 失败
      */
-    F,
+    F("失败"),
     /**
      * 初始
      */
-    I,
+    I("初始"),
     /**
      * 部分成功
      */
-    P,
+    P("部分成功"),
     /**
      * 经办
      */
-    H,
+    H("经办"),
     /**
      * 拒绝
      */
-    R,
+    R("拒绝"),
     /**
      * TODO 不在汇付文档中,查询自动投标状态表示开启!<p>
      */
-    N,
+    N("开启"),
     /**
      * TODO  不在汇付文档中,查询自动投标状态表示关闭!<p>
      */
-    C,
+    C("关闭"),
     /**
      * <b>不是汇付的返回状态，自定义用于表示查询对象不存在<b>
      */
-    NOTEXIST;
+    NOTEXIST("不存在");
 
+    private final String key;
+
+    private TransStat(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public String getKey() {
+        return key;
+    }
 }

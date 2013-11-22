@@ -14,20 +14,20 @@ import javax.validation.Payload;
 import javax.validation.constraints.Pattern;
 
 /**
- * 汇付RetUrl和BgRetUrl不能包含保留字符串和中文<p>
+ * 汇付日期格式:yyyyMMdd
  *
  * @author rooseek
  */
-@Pattern(regexp = "^((?![\u4E00-\u9FBF]|recv|rbsmag|cashmag|cash|ubs|acctmag|buser|busermag|mtp|mtpmag|muser|musermag|ubsmag|mag).)*$", message = "{common.PNRReturnURL.Pattern}")
+@Pattern(regexp = "([2][0][1-9][0-9][0-1][0-9][0-3][0-9])", message = "{common.PNRDate.Pattern}")
 @Constraint(validatedBy = {})
 @Target({ElementType.METHOD,
          ElementType.FIELD,
          ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface PNRReturnURL {
+public @interface PnRDate {
 
-    String message() default "{common.PNRReturnURL.Pattern}";
+    String message() default "{common.PNRDate.Pattern}";
 
     Class<?>[] groups() default {};
 

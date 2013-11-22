@@ -48,11 +48,11 @@ public class SaveReconciliation extends BaseObject {
     private String GateBusiId;
 
     @NotNull
-    @Size(max = 40)
+    @Size(max = 8)
     private String OpenBankId;
 
-    @Size(max = 8)
-    private String OpenAccId;
+    @Size(max = 40)
+    private String OpenAcctId;
 
     public SaveReconciliation() {
     }
@@ -65,7 +65,7 @@ public class SaveReconciliation extends BaseObject {
                               TransStat TransStat,
                               String GateBusiId,
                               String OpenBankId,
-                              String OpenAccId) {
+                              String OpenAcctId) {
         this.MerCustId = MerCustId;
         this.UsrCustId = UsrCustId;
         this.OrdId = OrdId;
@@ -74,7 +74,7 @@ public class SaveReconciliation extends BaseObject {
         this.TransStat = TransStat;
         this.GateBusiId = GateBusiId;
         this.OpenBankId = OpenBankId;
-        this.OpenAccId = OpenAccId;
+        this.OpenAcctId = OpenAcctId;
     }
 
     public void setMerCustId(String MerCustId) {
@@ -109,10 +109,6 @@ public class SaveReconciliation extends BaseObject {
         this.OpenBankId = OpenBankId;
     }
 
-    public void setOpenAccId(String OpenAccId) {
-        this.OpenAccId = OpenAccId;
-    }
-
     public String getMerCustId() {
         return MerCustId;
     }
@@ -145,7 +141,12 @@ public class SaveReconciliation extends BaseObject {
         return OpenBankId;
     }
 
-    public String getOpenAccId() {
-        return OpenAccId;
+    public String getOpenAcctId() {
+        return OpenAcctId;
     }
+
+    public void setOpenAcctId(String OpenAcctId) {
+        this.OpenAcctId = OpenAcctId;
+    }
+
 }

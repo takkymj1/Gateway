@@ -6,10 +6,10 @@ package com.creditcloud.payment.model.chinapnr.constraint;
  */
 public class MockData {
 
-    @PNRReturnURL
+    @PnRReturnURL
     private String url;
 
-    @PNRDate
+    @PnRDate
     private String date;
 
     public MockData() {

@@ -4,59 +4,60 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.PnRConstant;
+import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * 用户账户支付
  *
  * @author rooseek
  */
-public class CashAuditRequest extends BaseRequest {
+public class UsrAcctPayRequest extends UserRequest {
 
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
     @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
-
-    @NotNull
     @Size(max = 14)
     private String TransAmt;
 
     @NotNull
-    @Size(min = 1, max = 1)
-    private String AuditFlag;
+    @Size(max = 9)
+    private String InAcctId;
+
+    @NotNull
+    @Size(max = 6)
+    private String InAcctType;
 
     @PnRReturnURL
-    @Size(max = 128)
     private String RetUrl;
 
     @NotNull
     @PnRReturnURL
-    @Size(max = 128)
     private String BgRetUrl;
 
-    public CashAuditRequest() {
+    public UsrAcctPayRequest() {
     }
 
-    public CashAuditRequest(String MerCustId,
-                            String OrdId,
-                            String UsrCustId,
-                            String TransAmt,
-                            String AuditFlag,
-                            String BgRetUrl) {
-        super(PnRConstant.Version, CmdIdType.CashAudit, MerCustId);
+    public UsrAcctPayRequest(String MerCustId,
+                             String UsrCustId,
+                             String OrdId,
+                             String TransAmt,
+                             String InAcctId,
+                             String InAcctType,
+                             String RetUrl,
+                             String BgRetUrl) {
+        super(CmdIdType.UsrAcctPay, MerCustId, UsrCustId);
         this.OrdId = OrdId;
-        this.UsrCustId = UsrCustId;
         this.TransAmt = TransAmt;
-        this.AuditFlag = AuditFlag;
+        this.InAcctId = InAcctId;
+        this.InAcctType = InAcctType;
+        this.RetUrl = RetUrl;
         this.BgRetUrl = BgRetUrl;
     }
 
@@ -64,16 +65,16 @@ public class CashAuditRequest extends BaseRequest {
         return OrdId;
     }
 
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
     public String getTransAmt() {
         return TransAmt;
     }
 
-    public String getAuditFlag() {
-        return AuditFlag;
+    public String getInAcctId() {
+        return InAcctId;
+    }
+
+    public String getInAcctType() {
+        return InAcctType;
     }
 
     public String getRetUrl() {
@@ -88,16 +89,16 @@ public class CashAuditRequest extends BaseRequest {
         this.OrdId = OrdId;
     }
 
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
-    }
-
     public void setTransAmt(String TransAmt) {
         this.TransAmt = TransAmt;
     }
 
-    public void setAuditFlag(String AuditFlag) {
-        this.AuditFlag = AuditFlag;
+    public void setInAcctId(String InAcctId) {
+        this.InAcctId = InAcctId;
+    }
+
+    public void setInAcctType(String InAcctType) {
+        this.InAcctType = InAcctType;
     }
 
     public void setRetUrl(String RetUrl) {
@@ -110,15 +111,18 @@ public class CashAuditRequest extends BaseRequest {
 
     @Override
     public String chkString() {
-        StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(StringUtils.trimToEmpty(getOrdId()))
+        StringBuilder sb = new StringBuilder();
+        sb.append(StringUtils.trimToEmpty(getVersion()))
+                .append(StringUtils.trimToEmpty(getCmdId().name()))
+                .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
+                .append(StringUtils.trimToEmpty(getMerCustId()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
-                .append(StringUtils.trimToEmpty(getAuditFlag()))
+                .append(StringUtils.trimToEmpty(getInAcctId()))
+                .append(StringUtils.trimToEmpty(getInAcctType()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
-
         return sb.toString();
     }
 }

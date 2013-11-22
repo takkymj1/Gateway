@@ -5,6 +5,8 @@
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.PnRConstant;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,6 +33,7 @@ public abstract class ReconciliationResult extends BaseObject {
     private int PageNum;
 
     @NotNull
+    @Max(PnRConstant.MAX_PAGE_SIZE)
     private int PageSize;
 
     @NotNull
