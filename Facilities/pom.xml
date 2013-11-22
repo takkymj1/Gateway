@@ -79,6 +79,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.task</groupId>
+            <artifactId>TaskService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -151,6 +157,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.payment</groupId>
                             <artifactId>PaymentService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.task</groupId>
+                            <artifactId>TaskService</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>

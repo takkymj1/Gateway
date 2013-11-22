@@ -29,5 +29,6 @@
         <module>Comment</module>
         <module>File</module>
         <module>Payment</module>
-    </modules>
+    <module>Task</module>
+  </modules>
 </project>
