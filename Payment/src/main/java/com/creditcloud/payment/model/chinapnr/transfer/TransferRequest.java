@@ -4,7 +4,7 @@
  */
 package com.creditcloud.payment.model.chinapnr.transfer;
 
-import com.creditcloud.payment.model.chinapnr.PnRConstant;
+import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;

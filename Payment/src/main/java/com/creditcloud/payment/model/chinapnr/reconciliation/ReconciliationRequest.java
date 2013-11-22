@@ -4,9 +4,9 @@
  */
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
-import com.creditcloud.payment.model.chinapnr.PnRConstant;
+import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
-import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
+import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -21,11 +21,11 @@ import org.apache.commons.lang3.StringUtils;
 public class ReconciliationRequest extends BaseRequest {
 
     @NotNull
-    @PNRDate
+    @PnRDate
     private String BeginDate;
 
     @NotNull
-    @PNRDate
+    @PnRDate
     private String EndDate;
 
     @NotNull

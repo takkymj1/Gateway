@@ -5,7 +5,8 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.constraint.PNRReturnURL;
+import com.creditcloud.payment.model.PnRConstant;
+import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import javax.validation.constraints.NotNull;
@@ -20,11 +21,11 @@ import org.apache.commons.lang3.StringUtils;
 public class UserRegisterRequest extends BaseRequest {
 
     @NotNull
-    @PNRReturnURL
+    @PnRReturnURL
     @Size(max = 128)
     private String BgRetUrl;
 
-    @PNRReturnURL
+    @PnRReturnURL
     @Size(max = 128)
     private String RetUrl;
 

@@ -4,7 +4,7 @@
  */
 package com.creditcloud.payment.model.chinapnr.tender;
 
-import com.creditcloud.payment.model.chinapnr.constraint.PNRReturnURL;
+import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
 import com.creditcloud.payment.model.chinapnr.base.UserRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Size;
@@ -17,7 +17,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class AutoTenderCloseRequest extends UserRequest {
 
-    @PNRReturnURL
+    @PnRReturnURL
     @Size(max = 128)
     private String RetUrl;
 

@@ -4,8 +4,9 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
-import com.creditcloud.payment.model.chinapnr.constraint.PNRDate;
+import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,7 +24,7 @@ public class TransStatQueryRequest extends BaseRequest {
     private String OrdId;
 
     @NotNull
-    @PNRDate
+    @PnRDate
     private String OrdDate;
 
     @NotNull

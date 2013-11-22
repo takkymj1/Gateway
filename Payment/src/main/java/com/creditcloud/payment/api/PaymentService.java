@@ -5,19 +5,19 @@
  */
 package com.creditcloud.payment.api;
 
-import com.creditcloud.payment.model.chinapnr.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
-import com.creditcloud.payment.model.TransactionAmount;
+import com.creditcloud.payment.model.FreezeResult;
+import com.creditcloud.payment.model.UnFreezeResult;
 import com.creditcloud.payment.model.UserBalance;
 import com.creditcloud.payment.model.chinapnr.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.enums.AcctType;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
-import com.creditcloud.payment.model.chinapnr.enums.TenderPlanType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
@@ -50,7 +50,7 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param paymentAccount
-     * @return 
+     * @return
      */
     public PaymentAccount createUserPaymentAccount(String clientCode, PaymentAccount paymentAccount);
 
@@ -100,16 +100,6 @@ public interface PaymentService {
     public TransStat queryAutoTender(String clientCode, String userId);
 
     /**
-     * TODO测试自动投标开启
-     *
-     * @param clientCode
-     * @param userId
-     * @param type
-     * @param amount
-     */
-    public void autoTenderPlan(String clientCode, String userId, TenderPlanType type, BigDecimal amount);
-
-    /**
      * 冻结指定用户的资金
      *
      * @param clientCode
@@ -119,11 +109,11 @@ public interface PaymentService {
      * @param BgRetUrl   后台返回的回调路径
      * @return 冻结成功返回，否则返回null
      */
-    public TransactionAmount userFreeze(String clientCode, 
-                                        String userId, 
-                                        BigDecimal amount,
-                                        String orderId, 
-                                        String BgRetUrl);
+    public FreezeResult userFreeze(String clientCode,
+                                   String userId,
+                                   BigDecimal amount,
+                                   String orderId,
+                                   String BgRetUrl);
 
     /**
      * 解冻指定用户的资金
@@ -134,10 +124,10 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return 解冻成功返回，否则返回null
      */
-    public TransactionAmount userUnFreeze(String clientCode,
-                                          String orderId,
-                                          String trxId,
-                                          String BgRetUrl);
+    public UnFreezeResult userUnFreeze(String clientCode,
+                                       String orderId,
+                                       String trxId,
+                                       String BgRetUrl);
 
     /**
      * 取现复核
@@ -148,7 +138,7 @@ public interface PaymentService {
      * @param orderId    此次操作的唯一订单号
      * @param auditFlag  复核标识
      * @param BgRetUr    后台返回的回调路径
-     * @return 
+     * @return
      */
     public boolean cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
@@ -168,17 +158,17 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean loans(String clientCode,
-                         String ordId,
-                         String investUserId,
-                         BigDecimal amount,
-                         BigDecimal fee,
-                         String subOrdId,
-                         LocalDate subOrdDate,
-                         String loanUserId,
-                         List<DivDetail> details,
-                         IsDefault isDefault,
-                         String BgRetUrl);
+    public boolean loan(String clientCode,
+                        String ordId,
+                        String investUserId,
+                        BigDecimal amount,
+                        BigDecimal fee,
+                        String subOrdId,
+                        LocalDate subOrdDate,
+                        String loanUserId,
+                        List<DivDetail> details,
+                        IsDefault isDefault,
+                        String BgRetUrl);
 
     /**
      * 还款
@@ -195,16 +185,16 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean repayment(String clientCode,
-                             String ordId,
-                             String loanUserId,
-                             String subOrdId,
-                             LocalDate subOrDate,
-                             BigDecimal transAmt,
-                             BigDecimal fee,
-                             String investUserId,
-                             List<DivDetail> details,
-                             String BgRetUrl);
+    public boolean repay(String clientCode,
+                         String ordId,
+                         String loanUserId,
+                         String subOrdId,
+                         LocalDate subOrDate,
+                         BigDecimal transAmt,
+                         BigDecimal fee,
+                         String investUserId,
+                         List<DivDetail> details,
+                         String BgRetUrl);
 
     /**
      * 自动扣款转账(商户用)
@@ -236,7 +226,7 @@ public interface PaymentService {
      * @param endDate
      * @param pageNum
      * @param pageSize
-     * @return 
+     * @return
      */
     public CashReconciliationResult cashReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
@@ -313,4 +303,21 @@ public interface PaymentService {
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);
+
+    /**
+     * 用户账户支付，用于测试
+     *
+     * @param clientCode
+     * @param orderId
+     * @param amount
+     * @param inAcctType
+     * @param inAcctId
+     */
+    public void userAcctPay(String clientCode,
+                            String userId,
+                            BigDecimal amount,
+                            String orderId,
+                            AcctType inAcctType,
+                            String inAcctId,
+                            String BgRetUrl);
 }

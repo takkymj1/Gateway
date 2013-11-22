@@ -44,7 +44,7 @@ public class TenderReconciliation extends BaseObject {
     private BigDecimal TransAmt;
 
     @NotNull
-    private TransStat transStat;
+    private TransStat TransStat;
 
     @NotNull
     private String PnrDate;
@@ -61,7 +61,7 @@ public class TenderReconciliation extends BaseObject {
                                 String InvestCustId,
                                 String BorrCustId,
                                 BigDecimal TransAmt,
-                                TransStat transStat,
+                                TransStat TransStat,
                                 String PnrDate,
                                 String PnrSeqId) {
         this.OrdId = OrdId;
@@ -70,7 +70,7 @@ public class TenderReconciliation extends BaseObject {
         this.InvestCustId = InvestCustId;
         this.BorrCustId = BorrCustId;
         this.TransAmt = TransAmt;
-        this.transStat = transStat;
+        this.TransStat = TransStat;
         this.PnrDate = PnrDate;
         this.PnrSeqId = PnrSeqId;
     }
@@ -100,7 +100,7 @@ public class TenderReconciliation extends BaseObject {
     }
 
     public TransStat getTransStat() {
-        return transStat;
+        return TransStat;
     }
 
     public String getPnrDate() {
@@ -135,8 +135,8 @@ public class TenderReconciliation extends BaseObject {
         this.TransAmt = TransAmt;
     }
 
-    public void setTransStat(TransStat transStat) {
-        this.transStat = transStat;
+    public void setTransStat(TransStat TransStat) {
+        this.TransStat = TransStat;
     }
 
     public void setPnrDate(String PnrDate) {

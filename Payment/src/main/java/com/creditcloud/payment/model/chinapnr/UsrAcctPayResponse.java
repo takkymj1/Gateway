@@ -2,70 +2,61 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.tender;
+package com.creditcloud.payment.model.chinapnr;
 
+import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
-import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 投标撤销response
+ * 用户账户支付
  *
  * @author rooseek
  */
-public class TenderCancelResponse extends BaseResponse {
+public class UsrAcctPayResponse extends UserResponse {
 
-    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
-    @FormParam("OrdDate")
-    @NotNull
-    @Size(min = 8, max = 8)
-    private String OrdDate;
-
-    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
-    @FormParam("UsrCustId")
     @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
+    @Size(max = 9)
+    private String InAcctId;
 
-    @FormParam("RetUrl")
+    @NotNull
+    @Size(max = 6)
+    private String InAcctType;
+
     @PnRReturnURL
-    @Size(max = 128)
     private String RetUrl;
 
-    @FormParam("BgRetUrl")
     @NotNull
     @PnRReturnURL
-    @Size(max = 128)
     private String BgRetUrl;
 
-    public TenderCancelResponse() {
+    public UsrAcctPayResponse() {
     }
 
     public String getOrdId() {
         return OrdId;
     }
 
-    public String getOrdDate() {
-        return OrdDate;
-    }
-
     public String getTransAmt() {
         return TransAmt;
     }
 
-    public String getUsrCustId() {
-        return UsrCustId;
+    public String getInAcctId() {
+        return InAcctId;
+    }
+
+    public String getInAcctType() {
+        return InAcctType;
     }
 
     public String getRetUrl() {
@@ -80,16 +71,16 @@ public class TenderCancelResponse extends BaseResponse {
         this.OrdId = OrdId;
     }
 
-    public void setOrdDate(String OrdDate) {
-        this.OrdDate = OrdDate;
-    }
-
     public void setTransAmt(String TransAmt) {
         this.TransAmt = TransAmt;
     }
 
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
+    public void setInAcctId(String InAcctId) {
+        this.InAcctId = InAcctId;
+    }
+
+    public void setInAcctType(String InAcctType) {
+        this.InAcctType = InAcctType;
     }
 
     public void setRetUrl(String RetUrl) {
@@ -102,11 +93,15 @@ public class TenderCancelResponse extends BaseResponse {
 
     @Override
     public String chkString() {
-        StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(StringUtils.trimToEmpty(getOrdId()))
-                .append(StringUtils.trimToEmpty(getOrdDate()))
-                .append(StringUtils.trimToEmpty(getTransAmt()))
+        StringBuilder sb = new StringBuilder();
+        sb.append(StringUtils.trimToEmpty(getCmdId().name()))
+                .append(StringUtils.trimToEmpty(getRespCode()))
+                .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
+                .append(StringUtils.trimToEmpty(getMerCustId()))
+                .append(StringUtils.trimToEmpty(getTransAmt()))
+                .append(StringUtils.trimToEmpty(getInAcctId()))
+                .append(StringUtils.trimToEmpty(getInAcctType()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
