@@ -148,7 +148,7 @@ public class BgRegisterRequest extends BaseRequest {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(getUsrId()))
-                .append(StringUtils.trimToEmpty(getUsrEmail()))
+                .append(StringUtils.trimToEmpty(getUsrName()))
                 .append(StringUtils.trimToEmpty(getLoginPwd()))
                 .append(StringUtils.trimToEmpty(getTransPwd()))
                 .append(StringUtils.trimToEmpty(getIdType()))
