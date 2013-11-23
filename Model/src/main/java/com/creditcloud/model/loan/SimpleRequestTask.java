@@ -47,7 +47,8 @@ public class SimpleRequestTask extends Task {
                              String feedback,
                              Collection<CertificateType> certificate,
                              int taskProfit,
-                             int employeeProfit) {
+                             int employeeProfit,
+                             boolean profitPayed) {
         super(id,
               parentId,
               employeeId,
@@ -63,7 +64,7 @@ public class SimpleRequestTask extends Task {
               feedback,
               certificate,
               taskProfit,
-              employeeProfit);
+              employeeProfit, profitPayed);
         this.requestId = requestId;
     }
 
