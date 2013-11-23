@@ -5,7 +5,7 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -15,12 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author sobranie
  */
-public class BgBindCardResponse extends BaseResponse {
-
-    @FormParam("UserCustId")
-    @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
+public class BgBindCardResponse extends UserResponse {
 
     @FormParam("OpenAcctId")
     @NotNull
@@ -31,7 +26,7 @@ public class BgBindCardResponse extends BaseResponse {
     @NotNull
     @Size(max = 8)
     private String OpenBankId;
-    
+
     public BgBindCardResponse() {
     }
 
@@ -39,19 +34,10 @@ public class BgBindCardResponse extends BaseResponse {
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
-    }
-
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
     }
 
     public String getOpenAcctId() {
@@ -69,5 +55,4 @@ public class BgBindCardResponse extends BaseResponse {
     public void setOpenBankId(String OpenBankId) {
         this.OpenBankId = OpenBankId;
     }
-
 }

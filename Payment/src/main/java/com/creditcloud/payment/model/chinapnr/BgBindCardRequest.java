@@ -5,7 +5,9 @@
  */
 package com.creditcloud.payment.model.chinapnr;
 
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.PnRConstant;
+import com.creditcloud.payment.model.chinapnr.base.UserRequest;
+import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
@@ -14,11 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author sobranie
  */
-public class BgBindCardRequest extends BaseRequest {
-
-    @NotNull
-    @Size(max = 16)
-    private String UsrCustId;
+public class BgBindCardRequest extends UserRequest {
 
     @NotNull
     @Size(max = 40)
@@ -47,15 +45,32 @@ public class BgBindCardRequest extends BaseRequest {
     private String IsDefault;
 
     private String CharSet;
-    
+
     public BgBindCardRequest() {
+    }
+
+    public BgBindCardRequest(String MerCustId,
+                             String UsrCustId,
+                             String OpenAcctId,
+                             String OpenBankId,
+                             String OpenProvId,
+                             String OpenAreaId,
+                             String OpenBranchName,
+                             String IsDefault) {
+        super(CmdIdType.BgBindCard, MerCustId, UsrCustId);
+        this.OpenAcctId = OpenAcctId;
+        this.OpenBankId = OpenBankId;
+        this.OpenProvId = OpenProvId;
+        this.OpenAreaId = OpenAreaId;
+        this.OpenBranchName = OpenBranchName;
+        this.IsDefault = IsDefault;
+        this.CharSet = PnRConstant.CharSet;
     }
 
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getOpenProvId()))
@@ -64,14 +79,6 @@ public class BgBindCardRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getIsDefault()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
-    }
-
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
     }
 
     public String getOpenAcctId() {
