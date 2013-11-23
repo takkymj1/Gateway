@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.client.Client;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.Loan;
@@ -11,9 +12,13 @@ import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.user.User;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.FontSelector;
@@ -69,6 +74,10 @@ public class PdfUtils {
         public String zwr = JKRName; // 债务人
         public String fr = "法人"; // 法人
         
+        public String titleName = "阿朋贷"; // short name
+        public String name = "阿朋贷";      // // short name
+        public String url = "www.apengdai.com";
+        
         // 签字日期
         public String signDate = "2013年8月16日";
         // 详情
@@ -96,7 +105,7 @@ public class PdfUtils {
      */
     public static Fields convertToPdfField(
             String no,
-            String legal,
+            Client legal,
             User creditor,
             User debtor,
             Loan loan,
@@ -158,7 +167,7 @@ public class PdfUtils {
 
         // 乙方咨询服务费
         fields.zxRate = "" + ConsultancyFees;
-        
+
         // 合同签署日期
         fields.signDate = toPdfDateString(signDate);
 
@@ -166,8 +175,13 @@ public class PdfUtils {
         fields.agreementNo = no;
 
         // 丙方（法人）
-        fields.fr = legal;
-
+        if (legal != null) {
+            fields.fr = legal.getShortName();
+            fields.name = legal.getShortName();
+            fields.titleName = legal.getShortName();
+            fields.url = legal.getUrl();
+        }
+        
         // 详情
         // 还款日期/付息金额/还款金额
         for (LoanRepayment repayment : loanRepaymentList) {
@@ -253,7 +267,7 @@ public class PdfUtils {
 //        s.setField("CJRIdNumber", fields.CJRIdNumber);
         setCIdNumber(s, fields.CJRIdNumber);
         setJIdNumber(s, fields.JKRIdNumber);
-        
+
         s.setFieldProperty("CJRloginName", "textfont", bf, null);
         s.setField("CJRloginName", fields.CJRloginName);
 
@@ -307,7 +321,7 @@ public class PdfUtils {
 
         s.setFieldProperty("zxRate", "textfont", bf, null);
         s.setField("zxRate", fields.zxRate);
-        
+
         s.setFieldProperty("zqr", "textfont", bf, null);
         s.setField("zqr", fields.zqr);
 
@@ -317,6 +331,15 @@ public class PdfUtils {
         s.setFieldProperty("fr", "textfont", bf, null);
         s.setField("fr", fields.fr);
 
+        s.setFieldProperty("Name", "textfont", bf, null);
+        s.setField("Name", fields.name);
+        
+        s.setFieldProperty("titleName", "textfont", bf, null);
+        s.setField("titleName", fields.titleName);
+        
+        s.setFieldProperty("url", "textfont", bf, null);
+        s.setField("url", fields.url);
+        
         s.setFieldProperty("signDate", "textfont", bf, null);
         s.setField("signDate", fields.signDate);
 
@@ -351,8 +374,41 @@ public class PdfUtils {
 
         // Add your new data / text here
         document.newPage();
+        
+        BaseFont baseFont = null;
+        try {
+            baseFont = BaseFont.createFont("STSong-Light",
+                    "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
+        } catch (DocumentException e2) {
+            e2.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        
+        Font font = new Font(baseFont);
+        float fontSize = font.getSize();
+        font.setSize(20);
+        Paragraph preface = new Paragraph("附件一", font);
+        preface.setAlignment(Element.ALIGN_CENTER);
+        document.add(preface);
+        
+        font.setSize(fontSize);
+        preface  = new Paragraph("还款详情表：", font);
+        document.add(preface);
+        
         document.add(addTable(fields));
         document.close();
+
+        // add watermark
+        reader = new PdfReader(fields.agreementNo + ".pdf");
+        PdfStamper stamper = new PdfStamper(reader,
+                new FileOutputStream(fields.agreementNo + ".pdf.pdf"));
+        
+        for (int i = 0, sum = reader.getNumberOfPages(); i < sum; i++){
+            waterMark(reader, stamper, i + 1);
+        }
+
+        stamper.close();
     }
 
     private static void setCIdNumber(AcroFields acro, String CJRIdNumber) throws IOException, DocumentException {
@@ -443,17 +499,81 @@ public class PdfUtils {
     }
 
     /**
+     * 在pdf文件中添加水印
+     *
+     * @param inputFile 原始文件
+     * @param outputFile 水印输出文件
+     * @param waterMarkName 水印名字
+     */
+    private static void waterMark(PdfReader reader, PdfStamper stamper, int page) {
+        try {
+
+            Image image = Image.getInstance("markwarter.png");
+            float imageWidth = image.getWidth();
+            float imageHeight = image.getHeight();
+            PdfContentByte under = stamper.getUnderContent(page);
+            Rectangle rectangle = reader.getPageSize(page);
+            float h = rectangle.getHeight();
+            float w = rectangle.getHeight();
+
+            float dh = (float) ((h - imageHeight * 0.5) / 2);
+            image.scalePercent(50);
+            image.setAbsolutePosition(0, dh);
+            under.addImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 在pdf文件中添加水印
+     *
+     * @param inputFile 原始文件
+     * @param outputFile 水印输出文件
+     * @param waterMarkName 水印名字
+     */
+    private static void waterMark(String inputFile, String outputFile) {
+        try {
+            PdfReader reader = new PdfReader(inputFile);
+            PdfStamper stamper = new PdfStamper(reader,
+                    new FileOutputStream(outputFile));
+
+            int total = reader.getNumberOfPages() + 1;
+            Image image = Image.getInstance("markwarter.png");
+            float imageWidth = image.getWidth();
+            float imageHeight = image.getHeight();
+            PdfContentByte under;
+            for (int i = 1; i < total; i++) {
+                under = stamper.getUnderContent(i);
+                // 添加图片
+                Rectangle rectangle = reader.getPageSize(i);
+                float h = rectangle.getHeight();
+                float w = rectangle.getHeight();
+
+                float percentange = w / imageWidth;
+                float dh = (float) ((h - imageHeight * 0.5) / 2);
+                image.scalePercent(50);
+                image.setAbsolutePosition(0, dh);
+                under.addImage(image);
+            }
+            stamper.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * test
      *
      * @param args
      */
     public static void main(String[] args) {
         try {
-            
+
 //           Fields fields = convertToPdfField(no, no, null, null, null, null, AAccountManagerFees, BAccountManagerFees, BRiskFees, null)
             Fields fields = new Fields();
             fields.agreementNo = "xxxxxxxx-xxx-xxxx";
-            templateToPdf(new Fields(), "agreement.pdf");
+            templateToPdf(new Fields(), "agreement3.pdf");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
