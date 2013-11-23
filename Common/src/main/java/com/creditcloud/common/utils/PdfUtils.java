@@ -29,6 +29,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -73,11 +74,9 @@ public class PdfUtils {
         public String zqr = CJRName; // 债权人
         public String zwr = JKRName; // 债务人
         public String fr = "法人"; // 法人
-        
         public String titleName = "阿朋贷"; // short name
         public String name = "阿朋贷";      // // short name
         public String url = "www.apengdai.com";
-        
         // 签字日期
         public String signDate = "2013年8月16日";
         // 详情
@@ -110,10 +109,10 @@ public class PdfUtils {
             User debtor,
             Loan loan,
             List<LoanRepayment> loanRepaymentList,
-            int AAccountManagerFees,
-            int BAccountManagerFees,
-            int BRiskFees,
-            int ConsultancyFees,
+            String AAccountManagerFees,
+            String BAccountManagerFees,
+            String BRiskFees,
+            String ConsultancyFees,
             Date signDate) {
         Fields fields = new Fields();
         fields.CJRName = creditor.getName();
@@ -181,7 +180,7 @@ public class PdfUtils {
             fields.titleName = legal.getShortName();
             fields.url = legal.getUrl();
         }
-        
+
         // 详情
         // 还款日期/付息金额/还款金额
         for (LoanRepayment repayment : loanRepaymentList) {
@@ -241,7 +240,7 @@ public class PdfUtils {
      * @throws IOException
      * @throws DocumentException
      */
-    public static void templateToPdf(Fields fields, String inputFileName) throws IOException,
+    public static byte[] templateToPdf(Fields fields, String inputFileName) throws IOException,
             DocumentException {
         String fileName = inputFileName;
         PdfReader reader = new PdfReader(fileName);
@@ -333,34 +332,37 @@ public class PdfUtils {
 
         s.setFieldProperty("Name", "textfont", bf, null);
         s.setField("Name", fields.name);
-        
+
         s.setFieldProperty("titleName", "textfont", bf, null);
         s.setField("titleName", fields.titleName);
-        
+
         s.setFieldProperty("url", "textfont", bf, null);
         s.setField("url", fields.url);
-        
+
         s.setFieldProperty("signDate", "textfont", bf, null);
         s.setField("signDate", fields.signDate);
 
 
         ps.setFormFlattening(true);
         ps.close();
-        FileOutputStream fos = new FileOutputStream(fields.agreementNo);
-        fos.write(bos.toByteArray());
-
-        fos.close();
+//        FileOutputStream fos = new FileOutputStream(fields.agreementNo);
+//        fos.write(bos.toByteArray());
+//
+//        fos.close();
+//        bos.close();
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
         bos.close();
 
         // Create output PDF
+        bos = new ByteArrayOutputStream();
         Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document,
-                new FileOutputStream(fields.agreementNo + ".pdf"));
+                bos);
         document.open();
         PdfContentByte cb = writer.getDirectContent();
 
         // Load existing PDF
-        reader = new PdfReader(fields.agreementNo);
+        reader = new PdfReader(bis);
 
         // Copy first page of existing PDF into output PDF
 
@@ -374,7 +376,7 @@ public class PdfUtils {
 
         // Add your new data / text here
         document.newPage();
-        
+
         BaseFont baseFont = null;
         try {
             baseFont = BaseFont.createFont("STSong-Light",
@@ -384,31 +386,38 @@ public class PdfUtils {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        
+
         Font font = new Font(baseFont);
         float fontSize = font.getSize();
         font.setSize(20);
         Paragraph preface = new Paragraph("附件一", font);
         preface.setAlignment(Element.ALIGN_CENTER);
         document.add(preface);
-        
+
         font.setSize(fontSize);
-        preface  = new Paragraph("还款详情表：", font);
+        preface = new Paragraph("还款详情表：", font);
         document.add(preface);
-        
+
         document.add(addTable(fields));
         document.close();
 
+
         // add watermark
-        reader = new PdfReader(fields.agreementNo + ".pdf");
+        bis = new ByteArrayInputStream(bos.toByteArray());
+        bos = new ByteArrayOutputStream();
+        reader = new PdfReader(bis);
         PdfStamper stamper = new PdfStamper(reader,
-                new FileOutputStream(fields.agreementNo + ".pdf.pdf"));
-        
-        for (int i = 0, sum = reader.getNumberOfPages(); i < sum; i++){
+                bos);
+
+        for (int i = 0, sum = reader.getNumberOfPages(); i < sum; i++) {
             waterMark(reader, stamper, i + 1);
         }
 
         stamper.close();
+
+        byte[] ouput = bos.toByteArray();
+        bos.close();
+        return ouput;
     }
 
     private static void setCIdNumber(AcroFields acro, String CJRIdNumber) throws IOException, DocumentException {
@@ -573,7 +582,12 @@ public class PdfUtils {
 //           Fields fields = convertToPdfField(no, no, null, null, null, null, AAccountManagerFees, BAccountManagerFees, BRiskFees, null)
             Fields fields = new Fields();
             fields.agreementNo = "xxxxxxxx-xxx-xxxx";
-            templateToPdf(new Fields(), "agreement3.pdf");
+            byte[] out = templateToPdf(new Fields(), "agreement3.pdf");
+
+            FileOutputStream fos = new FileOutputStream(fields.agreementNo + ".pdf");
+            fos.write(out);
+
+            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (DocumentException e) {
