@@ -127,6 +127,11 @@ public class Task extends BaseObject {
      */
     private int employeeProfit;
 
+    /**
+     * 任务收费是否已收取
+     */
+    private boolean profitPayed;
+
     public Task() {
     }
 
@@ -145,7 +150,8 @@ public class Task extends BaseObject {
                 String feedback,
                 Collection<CertificateType> certificate,
                 int taskProfit,
-                int employeeProfit) {
+                int employeeProfit,
+                boolean profitPayed) {
         this.id = id;
         this.parentId = parentId;
         this.employeeId = employeeId;
@@ -160,6 +166,7 @@ public class Task extends BaseObject {
         this.timeFinished = timeFinished;
         this.feedback = feedback;
         this.certificate = certificate;
+        this.profitPayed = profitPayed;
     }
 
     public void setId(String id) {
@@ -288,5 +295,13 @@ public class Task extends BaseObject {
 
     public void setEmployeeProfit(int employeeProfit) {
         this.employeeProfit = employeeProfit;
+    }
+
+    public boolean isProfitPayed() {
+        return profitPayed;
+    }
+
+    public void setProfitPayed(boolean profitPayed) {
+        this.profitPayed = profitPayed;
     }
 }

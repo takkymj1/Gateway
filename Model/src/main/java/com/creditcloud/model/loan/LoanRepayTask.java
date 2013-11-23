@@ -47,7 +47,7 @@ public class LoanRepayTask extends Task {
                          String feedback,
                          Collection<CertificateType> certificate,
                          int taskProfit,
-                         int employeeProfit) {
+                         int employeeProfit, boolean profitPayed) {
         super(id,
               parentId,
               employeeId,
@@ -63,7 +63,7 @@ public class LoanRepayTask extends Task {
               feedback,
               certificate,
               taskProfit,
-              employeeProfit);
+              employeeProfit, profitPayed);
         this.loanRepaymentId = loanRepaymentId;
     }
 
