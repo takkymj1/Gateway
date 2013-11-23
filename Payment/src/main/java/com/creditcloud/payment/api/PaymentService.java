@@ -5,6 +5,9 @@
  */
 package com.creditcloud.payment.api;
 
+import com.creditcloud.model.enums.misc.Bank;
+import com.creditcloud.model.enums.misc.City;
+import com.creditcloud.model.enums.misc.Province;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
@@ -320,4 +323,47 @@ public interface PaymentService {
                             AcctType inAcctType,
                             String inAcctId,
                             String BgRetUrl);
+
+    /**
+     * 后台绑卡
+     *
+     * @param clientCode
+     * @param userId         用户Id
+     * @param openAcctId
+     * @param openBankId
+     * @param openProvId
+     * @param openAreaId
+     * @param OpenBranchName
+     * @param isDefault      是否默认银行卡
+     */
+    public boolean bgBindCard(String clientCode,
+                              String userId,
+                              String openAcctId,
+                              Bank openBankId,
+                              Province openProvId,
+                              City openAreaId,
+                              String OpenBranchName,
+                              IsDefault isDefault);
+
+    /**
+     * 后台开户
+     *
+     * @param clientCode
+     * @param userId
+     * @param usrName    真实姓名
+     * @param loginPwd   登陆密码
+     * @param transPwd   交易密码
+     * @param idNo       身份证
+     * @param usrMp      手机号
+     * @param usrEmail   邮箱名
+     * @return
+     */
+    public boolean bgRegister(String clientCode,
+                              String userId,
+                              String usrName,
+                              String loginPwd,
+                              String transPwd,
+                              String idNo,
+                              String usrMp,
+                              String usrEmail);
 }
