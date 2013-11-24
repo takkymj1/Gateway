@@ -11,8 +11,9 @@ import com.creditcloud.model.enums.misc.Province;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
+import com.creditcloud.payment.model.PaymentResult;
 import com.creditcloud.payment.model.UnFreezeResult;
-import com.creditcloud.payment.model.UserBalance;
+import com.creditcloud.payment.model.UserBalanceResult;
 import com.creditcloud.payment.model.chinapnr.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
@@ -73,7 +74,7 @@ public interface PaymentService {
      * @param userId
      * @return
      */
-    public UserBalance queryBalance(String clientCode, String userId);
+    public UserBalanceResult queryBalance(String clientCode, String userId);
 
     /**
      * 自动投标
@@ -86,12 +87,12 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean autoTender(String clientCode,
-                              String userId,
-                              BigDecimal amount,
-                              String orderId,
-                              List<BorrowerDetail> BorrowerDetails,
-                              String BgRetUrl);
+    public PaymentResult autoTender(String clientCode,
+                                    String userId,
+                                    BigDecimal amount,
+                                    String orderId,
+                                    List<BorrowerDetail> BorrowerDetails,
+                                    String BgRetUrl);
 
     /**
      * 查询自动投标计划状态
@@ -110,7 +111,7 @@ public interface PaymentService {
      * @param orderId    此次操作的唯一订单号
      * @param amount
      * @param BgRetUrl   后台返回的回调路径
-     * @return 冻结成功返回，否则返回null
+     * @return 如果找不到userId对应的支付账号返回null
      */
     public FreezeResult userFreeze(String clientCode,
                                    String userId,
@@ -125,7 +126,7 @@ public interface PaymentService {
      * @param orderId
      * @param trxId
      * @param BgRetUrl
-     * @return 解冻成功返回，否则返回null
+     * @return 如果找不到userId对应的支付账号返回null
      */
     public UnFreezeResult userUnFreeze(String clientCode,
                                        String orderId,
@@ -143,7 +144,7 @@ public interface PaymentService {
      * @param BgRetUr    后台返回的回调路径
      * @return
      */
-    public boolean cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
+    public PaymentResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
     /**
      * 放款
@@ -161,17 +162,17 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean loan(String clientCode,
-                        String ordId,
-                        String investUserId,
-                        BigDecimal amount,
-                        BigDecimal fee,
-                        String subOrdId,
-                        LocalDate subOrdDate,
-                        String loanUserId,
-                        List<DivDetail> details,
-                        IsDefault isDefault,
-                        String BgRetUrl);
+    public PaymentResult loan(String clientCode,
+                              String ordId,
+                              String investUserId,
+                              BigDecimal amount,
+                              BigDecimal fee,
+                              String subOrdId,
+                              LocalDate subOrdDate,
+                              String loanUserId,
+                              List<DivDetail> details,
+                              IsDefault isDefault,
+                              String BgRetUrl);
 
     /**
      * 还款
@@ -188,16 +189,16 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean repay(String clientCode,
-                         String ordId,
-                         String loanUserId,
-                         String subOrdId,
-                         LocalDate subOrDate,
-                         BigDecimal transAmt,
-                         BigDecimal fee,
-                         String investUserId,
-                         List<DivDetail> details,
-                         String BgRetUrl);
+    public PaymentResult repay(String clientCode,
+                               String ordId,
+                               String loanUserId,
+                               String subOrdId,
+                               LocalDate subOrDate,
+                               BigDecimal transAmt,
+                               BigDecimal fee,
+                               String investUserId,
+                               List<DivDetail> details,
+                               String BgRetUrl);
 
     /**
      * 自动扣款转账(商户用)
@@ -212,14 +213,14 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public boolean transfer(String clientCode,
-                            String ordId,
-                            String outCustId,
-                            String outAcctId,
-                            BigDecimal amount,
-                            String inCustId,
-                            String inAcctId,
-                            String BgRetUrl);
+    public PaymentResult transfer(String clientCode,
+                                  String ordId,
+                                  String outCustId,
+                                  String outAcctId,
+                                  BigDecimal amount,
+                                  String inCustId,
+                                  String inAcctId,
+                                  String BgRetUrl);
 
     /**
      * p2p平台取现对账
@@ -336,14 +337,14 @@ public interface PaymentService {
      * @param OpenBranchName
      * @param isDefault      是否默认银行卡
      */
-    public boolean bgBindCard(String clientCode,
-                              String userId,
-                              String openAcctId,
-                              Bank openBankId,
-                              Province openProvId,
-                              City openAreaId,
-                              String OpenBranchName,
-                              IsDefault isDefault);
+    public PaymentResult bgBindCard(String clientCode,
+                                    String userId,
+                                    String openAcctId,
+                                    Bank openBankId,
+                                    Province openProvId,
+                                    City openAreaId,
+                                    String OpenBranchName,
+                                    IsDefault isDefault);
 
     /**
      * 后台开户
@@ -358,12 +359,12 @@ public interface PaymentService {
      * @param usrEmail   邮箱名
      * @return
      */
-    public boolean bgRegister(String clientCode,
-                              String userId,
-                              String usrName,
-                              String loginPwd,
-                              String transPwd,
-                              String idNo,
-                              String usrMp,
-                              String usrEmail);
+    public PaymentAccount bgRegister(String clientCode,
+                                     String userId,
+                                     String usrName,
+                                     String loginPwd,
+                                     String transPwd,
+                                     String idNo,
+                                     String usrMp,
+                                     String usrEmail);
 }
