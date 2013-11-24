@@ -4,7 +4,6 @@
  */
 package com.creditcloud.payment.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -16,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author rooseek
  */
 @XmlRootElement
-public class UnFreezeResult extends BaseObject {
+public class UnFreezeResult extends PaymentResult {
 
     private static final long serialVersionUID = 20131122L;
 
@@ -34,9 +33,12 @@ public class UnFreezeResult extends BaseObject {
     public UnFreezeResult() {
     }
 
-    public UnFreezeResult(String OrdId, 
+    public UnFreezeResult(String RespCode,
+                          String RespDesc,
+                          String OrdId,
                           String OrdDate,
                           String TrxId) {
+        super(RespCode, RespDesc);
         this.OrdId = OrdId;
         this.OrdDate = OrdDate;
         this.TrxId = TrxId;

@@ -5,6 +5,7 @@
 package com.creditcloud.payment.model.chinapnr.base;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -71,7 +72,7 @@ public abstract class BaseResponse extends BaseObject {
     public abstract String chkString();
     
     public boolean success() {
-        return "000".equalsIgnoreCase(RespCode);
+        return PnRConstant.SUCCESS_CODE.equalsIgnoreCase(RespCode);
     }
 
     public CmdIdType getCmdId() {
@@ -97,5 +98,4 @@ public abstract class BaseResponse extends BaseObject {
     public String getMerPriv() {
         return MerPriv;
     }
-
 }

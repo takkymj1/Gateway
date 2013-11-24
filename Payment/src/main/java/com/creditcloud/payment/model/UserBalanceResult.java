@@ -5,7 +5,6 @@
  */
 package com.creditcloud.payment.model;
 
-import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 
 /**
@@ -13,7 +12,7 @@ import java.math.BigDecimal;
  *
  * @author sobranie
  */
-public class UserBalance extends BaseObject {
+public class UserBalanceResult extends PaymentResult {
 
     /**
      * 账户余额
@@ -29,10 +28,21 @@ public class UserBalance extends BaseObject {
      * 账户可以支取的余额
      */
     private BigDecimal availableBalance;
-    
-    public UserBalance() {
+
+    public UserBalanceResult() {
     }
-    
+
+    public UserBalanceResult(String RespCode,
+                             String RespDesc,
+                             BigDecimal accountBalance,
+                             BigDecimal freezeBalance,
+                             BigDecimal availableBalance) {
+        super(RespCode, RespDesc);
+        this.accountBalance = accountBalance;
+        this.freezeBalance = freezeBalance;
+        this.availableBalance = availableBalance;
+    }
+
     public BigDecimal getAccountBalance() {
         return accountBalance;
     }
