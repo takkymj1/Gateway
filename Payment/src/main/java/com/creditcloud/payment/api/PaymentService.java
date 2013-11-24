@@ -357,7 +357,7 @@ public interface PaymentService {
      * @param idNo       身份证
      * @param usrMp      手机号
      * @param usrEmail   邮箱名
-     * @return
+     * @return 返回null如果创建失败
      */
     public PaymentAccount bgRegister(String clientCode,
                                      String userId,
