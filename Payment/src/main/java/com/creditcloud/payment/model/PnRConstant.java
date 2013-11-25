@@ -36,4 +36,16 @@ public interface PnRConstant {
 
     RoundingMode ROUNDING_MODE = RoundingMode.CEILING;
 
+    /**
+     * 成功的返回码
+     */
+    String SUCCESS_CODE = "000";
+
+    /**
+     * 不是汇付定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号
+     */
+    String ACCOUNT_NOT_FOUND_CODE = "account.not.found";
+
+    String ACCOUNT_NOT_FOUND_DESC = "未找到支付账号";
+
 }

@@ -24,13 +24,13 @@ public class FeeConfig extends BaseConfig {
     public static final String CONFIG_NAME = "FeeConfig";
 
     /**
-     * 贷款担保费率,按贷款金额比率收取，跟借款人收取，进入商户担保账户
+     * 贷款担保费率,按贷款金额比率收取，跟借款人收取，进入商户担保账户)(风险计提)
      */
     @XmlElement(required = true)
     private BigDecimal loanGuaranteeFee;
 
     /**
-     * 贷款服务费率，按照贷款金额比率收取，跟借款人收取
+     * 贷款服务费率，按照贷款金额比率收取，跟借款人收取（乙方管理费）
      */
     @XmlElement(required = true)
     private BigDecimal loanServiceFee;
@@ -42,7 +42,7 @@ public class FeeConfig extends BaseConfig {
     private BigDecimal loanVisitFee;
 
     /**
-     * 贷款还款利息管理费费率，按照贷款还款利息比率收费，跟借款人收取
+     * 贷款还款利息管理费费率，按照贷款还款利息比率收费，跟借款人收取（甲方账户管理费）
      */
     @XmlElement(required = true)
     private BigDecimal loanInterestFee;
@@ -54,7 +54,7 @@ public class FeeConfig extends BaseConfig {
     private BigDecimal loanPenaltyFee;
 
     /**
-     * 投资回款利息管理费费率,按照投资回款利息比率收费，跟投资者收取
+     * 投资回款利息管理费费率,按照投资回款利息比率收费，（跟投资者收取|内扣|乙方账户管理费）或者（跟借款人收取|外扣）
      */
     @XmlElement(required = true)
     private BigDecimal investInterestFee;

@@ -5,7 +5,6 @@
  */
 package com.creditcloud.payment.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
@@ -18,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class FreezeResult extends BaseObject {
+public class FreezeResult extends PaymentResult {
 
     private static final long serialVersionUID = 20131113L;
 
@@ -45,12 +44,15 @@ public class FreezeResult extends BaseObject {
     public FreezeResult() {
     }
 
-    public FreezeResult(String SubAcctType,
-                        String SubAcctId, 
-                        String OrdId, 
-                        String OrdDate, 
-                        BigDecimal TransAmt, 
+    public FreezeResult(String RespCode,
+                        String RespDesc,
+                        String SubAcctType,
+                        String SubAcctId,
+                        String OrdId,
+                        String OrdDate,
+                        BigDecimal TransAmt,
                         String TrxId) {
+        super(RespCode, RespDesc);
         this.SubAcctType = SubAcctType;
         this.SubAcctId = SubAcctId;
         this.OrdId = OrdId;
