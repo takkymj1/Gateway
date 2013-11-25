@@ -68,6 +68,12 @@ public class PaymentConfig extends BaseConfig {
     private String retUrl;
 
     /**
+     * 平板服务三方支付回调url
+     */
+    @XmlElement(required = true)
+    private String deviceRetUrl;
+
+    /**
      * 最大投资手续费率
      */
     @XmlElement(required = true)
@@ -173,5 +179,13 @@ public class PaymentConfig extends BaseConfig {
 
     public void setSpedt(PNRAccount spedt) {
         this.spedt = spedt;
+    }
+
+    public String getDeviceRetUrl() {
+        return deviceRetUrl;
+    }
+
+    public void setDeviceRetUrl(String deviceRetUrl) {
+        this.deviceRetUrl = deviceRetUrl;
     }
 }
