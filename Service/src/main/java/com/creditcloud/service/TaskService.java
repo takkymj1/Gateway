@@ -31,13 +31,13 @@ public interface TaskService {
     List<Task> listByEmployee(String clientCode, String employeeId, TaskStatus... status);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param employeeId
      * @param from
      * @param to
      * @param status
-     * @return 
+     * @return
      */
     List<Task> listByEmployee(String clientCode, String employeeId, Date from, Date to, TaskStatus... status);
 
@@ -68,6 +68,15 @@ public interface TaskService {
      * @return
      */
     boolean updateTask(String clientCode, Task task);
+
+    /**
+     * 添加方法
+     *
+     * @param clientCode
+     * @param task
+     * @return
+     */
+    public Task addTask(String clientCode, Task task);
 
     /**
      * 统计一个时间段内按月份员工完成的任务数
