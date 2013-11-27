@@ -7,6 +7,7 @@ package com.creditcloud.model.constant;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 /**
  *
@@ -19,4 +20,9 @@ public interface NumberConstant {
     MathContext DEFAULT_MATHCONTEXT = MathContext.DECIMAL64;
 
     BigDecimal ZERO = new BigDecimal(BigInteger.ZERO, DEFAULT_SCALE, DEFAULT_MATHCONTEXT);
+    
+    /**
+     * 默认使用四舍五入，跟第三方支付一致
+     */
+    RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
 }
