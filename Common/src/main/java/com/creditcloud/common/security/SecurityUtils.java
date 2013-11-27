@@ -27,7 +27,7 @@ public final class SecurityUtils {
     /**
      * 没有字母i和o，防止混淆
      */
-    private static final String randomChars = "abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+    private static final String randomChars = "abcdefghjklmnpqrstuvwxyz";
 
     /**
      * Salt is Base64(now + identity)
