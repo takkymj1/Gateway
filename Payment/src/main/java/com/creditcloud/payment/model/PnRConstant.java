@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.model;
 
+import com.creditcloud.model.constant.NumberConstant;
 import java.math.RoundingMode;
 
 /**
@@ -34,7 +35,10 @@ public interface PnRConstant {
      */
     int MAX_PAGE_SIZE = 1000;
 
-    RoundingMode ROUNDING_MODE = RoundingMode.CEILING;
+    /**
+     * 默认舍入方法
+     */
+    RoundingMode PNR_ROUNDING_MODE = NumberConstant.ROUNDING_MODE;
 
     /**
      * 成功的返回码
