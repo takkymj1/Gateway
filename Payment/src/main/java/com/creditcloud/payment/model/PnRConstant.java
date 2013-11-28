@@ -46,10 +46,14 @@ public interface PnRConstant {
     String SUCCESS_CODE = "000";
 
     /**
+     * 解冻时候如果已经解冻成功会报 107 重复交易,这种情况也可以认为是成功
+     */
+    String REPEATE_TRANSACTION = "107";
+
+    /**
      * 不是汇付定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号
      */
     String ACCOUNT_NOT_FOUND_CODE = "account.not.found";
 
     String ACCOUNT_NOT_FOUND_DESC = "未找到支付账号";
-
 }
