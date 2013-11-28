@@ -74,7 +74,7 @@ public interface InvestService extends InvestRepayService {
      * @param clientCode
      * @param loan
      */
-    void cancelFailedLoan(String clientCode, Loan loan);
+    boolean cancelFailedLoan(String clientCode, Loan loan);
 
     /**
      * repayment of a loan, set repayment status and generate fund record
@@ -84,7 +84,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void repayLoan(String clientCode, LoanRepayment loanRepay);
+    boolean repayLoan(String clientCode, LoanRepayment loanRepay);
 
     /**
      * 统计用户对贷款的投资信息
