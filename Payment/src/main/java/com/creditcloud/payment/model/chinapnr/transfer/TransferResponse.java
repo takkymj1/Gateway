@@ -112,6 +112,11 @@ public class TransferResponse extends BaseResponse {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
+    
+    @Override
+    public String getMerCustId(){
+        return OutCustId;
+    }
 
     @Override
     public String chkString() {
