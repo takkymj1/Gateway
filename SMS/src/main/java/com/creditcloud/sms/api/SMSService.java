@@ -16,7 +16,8 @@ import javax.ejb.Remote;
 public interface SMSService {
 
     /**
-     *
+     * 原则上只发送验证码和随机密码
+     * 
      * @param client
      * @param type
      * @param mobile
