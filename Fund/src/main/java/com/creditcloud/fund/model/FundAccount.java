@@ -6,6 +6,7 @@ package com.creditcloud.fund.model;
 
 import com.creditcloud.model.user.fund.BankAccount;
 import com.creditcloud.model.BaseObject;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,15 +38,23 @@ public class FundAccount extends BaseObject {
      */
     private boolean defaultAccount;
 
+    private Date timeRecorded;
+
     public FundAccount() {
     }
 
-    public FundAccount(String id, String userId, BankAccount account, boolean valid, boolean defaultAccount) {
+    public FundAccount(String id,
+                       String userId,
+                       BankAccount account,
+                       boolean valid,
+                       boolean defaultAccount,
+                       Date timeRecorded) {
         this.id = id;
         this.userId = userId;
         this.account = account;
         this.valid = valid;
         this.defaultAccount = defaultAccount;
+        this.timeRecorded = timeRecorded;
     }
 
     public String getId() {
@@ -86,5 +95,13 @@ public class FundAccount extends BaseObject {
 
     public void setDefaultAccount(boolean defaultAccount) {
         this.defaultAccount = defaultAccount;
+    }
+
+    public Date getTimeRecorded() {
+        return timeRecorded;
+    }
+
+    public void setTimeRecorded(Date timeRecorded) {
+        this.timeRecorded = timeRecorded;
     }
 }
