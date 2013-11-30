@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.fund;
+package com.creditcloud.fund.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
  *
  * @author rooseek
  */
-public class FundHistory extends BaseObject {
+public class UserFundHistory extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
@@ -60,7 +60,7 @@ public class FundHistory extends BaseObject {
      */
     @Min(0)
     @NotNull
-    private final BigDecimal rechargeAmount;
+    private final BigDecimal depositAmount;
 
     /**
      * 提现总额
@@ -69,21 +69,21 @@ public class FundHistory extends BaseObject {
     @NotNull
     private final BigDecimal withdrawAmount;
 
-    public FundHistory(String userId,
-                       Date asOfDate,
-                       BigDecimal availableAmount,
-                       BigDecimal frozenAmount,
-                       BigDecimal dueInAmount,
-                       BigDecimal dueOutAmount,
-                       BigDecimal rechargeAmount,
-                       BigDecimal withdrawAmount) {
+    public UserFundHistory(String userId,
+                           Date asOfDate,
+                           BigDecimal availableAmount,
+                           BigDecimal frozenAmount,
+                           BigDecimal dueInAmount,
+                           BigDecimal dueOutAmount,
+                           BigDecimal depositAmount,
+                           BigDecimal withdrawAmount) {
         this.userId = userId;
         this.asOfDate = asOfDate;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
         this.dueInAmount = dueInAmount;
         this.dueOutAmount = dueOutAmount;
-        this.rechargeAmount = rechargeAmount;
+        this.depositAmount = depositAmount;
         this.withdrawAmount = withdrawAmount;
     }
 
@@ -111,8 +111,17 @@ public class FundHistory extends BaseObject {
         return userId;
     }
 
+    /**
+     * remove soon.for backward compatibility with jsp
+     *
+     * @return
+     */
     public BigDecimal getRechargeAmount() {
-        return rechargeAmount;
+        return depositAmount;
+    }
+
+    public BigDecimal getDepositAmount() {
+        return depositAmount;
     }
 
     public BigDecimal getWithdrawAmount() {

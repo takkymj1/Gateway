@@ -4,6 +4,7 @@
  */
 package com.creditcloud.fund.model;
 
+import com.creditcloud.model.user.fund.BankAccount;
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
