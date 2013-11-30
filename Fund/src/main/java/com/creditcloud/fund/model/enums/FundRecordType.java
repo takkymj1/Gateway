@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.user.fund;
+package com.creditcloud.fund.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
@@ -16,7 +16,7 @@ public enum FundRecordType implements BaseEnum {
     WITHDRAW("取现"),
     DEPOSIT("充值"),
     LOAN("放款"),
-    LONA_REPAY("贷款还款"),
+    LOAN_REPAY("贷款还款"),
     INVEST_REPAY("投资还款"),
     CREDIT_ASSIGN("债权转让"),
     TRANSFER("转账扣款"),//商户用
