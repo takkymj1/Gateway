@@ -19,49 +19,49 @@ public class UserFund extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String userId;
+    private String userId;
 
     /**
      * 可用余额
      */
     @NotNull
     @Min(0)
-    private final BigDecimal availableAmount;
+    private BigDecimal availableAmount;
 
     /**
      * 冻结金额
      */
     @NotNull
     @Min(0)
-    private final BigDecimal frozenAmount;
+    private BigDecimal frozenAmount;
 
     /**
      * 待收总额
      */
     @NotNull
     @Min(0)
-    private final BigDecimal dueInAmount;
+    private BigDecimal dueInAmount;
 
     /**
      * 待还总额
      */
     @NotNull
     @Min(0)
-    private final BigDecimal dueOutAmount;
+    private BigDecimal dueOutAmount;
 
     /**
      * 充值总额
      */
     @Min(0)
     @NotNull
-    private final BigDecimal depositAmount;
+    private BigDecimal depositAmount;
 
     /**
      * 提现总额
      */
     @Min(0)
     @NotNull
-    private final BigDecimal withdrawAmount;
+    private BigDecimal withdrawAmount;
 
     public UserFund(String userId,
                     BigDecimal availableAmount,
@@ -111,4 +111,89 @@ public class UserFund extends BaseObject {
     public BigDecimal getWithdrawAmount() {
         return withdrawAmount;
     }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setAvailableAmount(BigDecimal availableAmount) {
+        this.availableAmount = availableAmount;
+    }
+
+    public void setFrozenAmount(BigDecimal frozenAmount) {
+        this.frozenAmount = frozenAmount;
+    }
+
+    public void setDueInAmount(BigDecimal dueInAmount) {
+        this.dueInAmount = dueInAmount;
+    }
+
+    public void setDueOutAmount(BigDecimal dueOutAmount) {
+        this.dueOutAmount = dueOutAmount;
+    }
+
+    public void setDepositAmount(BigDecimal depositAmount) {
+        this.depositAmount = depositAmount;
+    }
+
+    public void setWithdrawAmount(BigDecimal withdrawAmount) {
+        this.withdrawAmount = withdrawAmount;
+    }
+    
+    
+    /**
+     * 冻结一定量的金额.
+     *
+     * 从可用余额中刨去，并加入到已冻结金额中去
+     *
+     * @param amount
+     * @return
+     */
+    public UserFund freeze(BigDecimal amount) {
+        availableAmount = availableAmount.subtract(amount);
+        frozenAmount = frozenAmount.add(amount);
+        return this;
+    }
+
+    /**
+     * 解冻一定量的金额.
+     *
+     * 从冻结金额中刨去，并加入可用余额
+     *
+     * @param amount
+     * @return
+     */
+    public UserFund release(BigDecimal amount) {
+        availableAmount = availableAmount.add(amount);
+        frozenAmount = frozenAmount.subtract(amount);
+        return this;
+    }
+
+    /**
+     * 提现.
+     *
+     * 从冻结的金额中减去额度，计入总计提现
+     *
+     * @param amount
+     * @param fee    提现手续费
+     * @return
+     */
+    public UserFund withdraw(BigDecimal amount, BigDecimal fee) {
+        withdrawAmount = withdrawAmount.add(amount);
+        availableAmount = availableAmount.subtract(amount.add(fee));
+        return this;
+    }
+
+    /**
+     * 充值 增加可用金额和充值总金额
+     *
+     * @param amount
+     * @return
+     */
+    public UserFund deposit(BigDecimal amount) {
+        depositAmount = depositAmount.add(amount);
+        availableAmount = availableAmount.add(amount);
+        return this;
+    }
+
 }

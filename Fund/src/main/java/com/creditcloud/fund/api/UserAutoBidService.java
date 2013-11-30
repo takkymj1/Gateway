@@ -2,14 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service;
+package com.creditcloud.fund.api;
 
+import com.creditcloud.fund.model.AutoBidRange;
+import com.creditcloud.fund.model.AutoBidRank;
+import com.creditcloud.fund.model.AutoBidStatistics;
+import com.creditcloud.fund.model.UserAutoBid;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.user.credit.CreditRank;
+import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.fund.AutoBidRange;
-import com.creditcloud.model.user.fund.AutoBidStatistics;
-import com.creditcloud.model.user.fund.UserAutoBid;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -18,6 +23,47 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface UserAutoBidService {
+    
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public AutoBidRank getAutoBidRank(String clientCode, String userId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public UserAutoBid getByUser(String clientCode, String userId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param autoBid 
+     */
+    public void saveConfig(String clientCode, UserAutoBid autoBid);
+
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public boolean deactivate(String clientCode, String userId);
+
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public boolean activate(String clientCode, String userId);
+    
+    public boolean updateLastBidTime(String clientCode, String userId, Date bidTime);
 
     /**
      * 获取总体的用户用户自动投标统计信息
@@ -69,4 +115,8 @@ public interface UserAutoBidService {
                        AutoBidRange range,
                        boolean mortgaged,
                        RepaymentMethod... methods);
+    
+    public List<UserAutoBid> listByLoanAndActivedTime(String clientCode, Loan loan, CreditRank creditRank);
+    
+    public List<UserAutoBid> listByLoanAndLastBidTime(String clientCode, Loan loan, CreditRank creditRank);
 }

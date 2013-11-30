@@ -2,25 +2,25 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.user.fund;
+package com.creditcloud.fund.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 将在用户账户主页上显示的用户投资事件种类
+ * 资金记录操作类型
  *
  * @author rooseek
  */
-public enum InvestEventType implements BaseEnum {
+public enum FundRecordOperation implements BaseEnum {
 
-    INVEST("投资"),
-    INVEST_REPAY("投资回款"),
-    DEPOSIT("充值"),
-    WITHDRAW("提现");
+    FREEZE("冻结"),
+    RELEASE("解冻"),
+    IN("资金转入"),
+    OUT("资金转出");
 
     private final String key;
 
-    private InvestEventType(String key) {
+    private FundRecordOperation(String key) {
         this.key = key;
     }
 
