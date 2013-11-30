@@ -72,6 +72,12 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String deviceRetUrl;
+    
+    /**
+     * Manager三方支付回调url
+     */
+    @XmlElement(required = true)
+    private String adminRetUrl;
 
     /**
      * 最大投资手续费率
@@ -187,5 +193,13 @@ public class PaymentConfig extends BaseConfig {
 
     public void setDeviceRetUrl(String deviceRetUrl) {
         this.deviceRetUrl = deviceRetUrl;
+    }
+
+    public String getAdminRetUrl() {
+        return adminRetUrl;
+    }
+
+    public void setAdminRetUrl(String adminRetUrl) {
+        this.adminRetUrl = adminRetUrl;
     }
 }
