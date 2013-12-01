@@ -72,7 +72,7 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String deviceRetUrl;
-    
+
     /**
      * Manager三方支付回调url
      */
@@ -115,6 +115,7 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(name = "spedtConfig", required = false)
     private PNRAccount spedt;
+
 
     public PaymentConfig() {
     }
