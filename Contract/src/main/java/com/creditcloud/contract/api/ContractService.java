@@ -10,7 +10,7 @@ import com.creditcloud.contract.Contract;
 import com.creditcloud.model.client.Client;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
-import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.loan.Repayment;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -36,7 +36,17 @@ public interface ContractService {
     void generateLoanContract(Client client,
                               Invest invest,
                               Loan loan,
-                              List<LoanRepayment> repayments,
+                              List<Repayment> repayments,
                               FeeConfig feeConfig);
-
+    
+    /**
+     * 读取借款协议.
+     * 
+     * 包含内容
+     * 
+     * @param clientCode
+     * @param investId
+     * @return 
+     */
+    Contract getLoanContract(String clientCode, String investId);
 }
