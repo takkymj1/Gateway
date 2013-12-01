@@ -109,6 +109,12 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(name = "spedtConfig", required = false)
     private PNRAccount spedt;
+    
+    /**
+     * 逾期一定天数的还款将被转化为违约
+     */
+    @XmlElement(required = true)
+    private int daysToBreach;
 
     public PaymentConfig() {
     }
@@ -187,5 +193,13 @@ public class PaymentConfig extends BaseConfig {
 
     public void setDeviceRetUrl(String deviceRetUrl) {
         this.deviceRetUrl = deviceRetUrl;
+    }
+
+    public int getDaysToBreach() {
+        return daysToBreach;
+    }
+
+    public void setDaysToBreach(int daysToBreach) {
+        this.daysToBreach = daysToBreach;
     }
 }

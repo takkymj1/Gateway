@@ -25,4 +25,5 @@
         <accountType>BASEDT</accountType>
         <accountId>accountId</accountId>
     </basedtConfig>
+    <daysToBreach>30</daysToBreach>
 </PaymentConfig>
