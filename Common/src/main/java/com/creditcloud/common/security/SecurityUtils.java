@@ -67,6 +67,7 @@ public final class SecurityUtils {
     /**
      * 生成随机的初始化密码
      *
+     * @param level
      * @return
      */
     public static String randomPassword(SecurityLevel level) {

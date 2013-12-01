@@ -74,6 +74,12 @@ public class PaymentConfig extends BaseConfig {
     private String deviceRetUrl;
 
     /**
+     * Manager三方支付回调url
+     */
+    @XmlElement(required = true)
+    private String adminRetUrl;
+
+    /**
      * 最大投资手续费率
      */
     @XmlElement(required = true)
@@ -109,7 +115,7 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(name = "spedtConfig", required = false)
     private PNRAccount spedt;
-    
+
     /**
      * 逾期一定天数的还款将被转化为违约
      */
@@ -201,5 +207,13 @@ public class PaymentConfig extends BaseConfig {
 
     public void setDaysToBreach(int daysToBreach) {
         this.daysToBreach = daysToBreach;
+    }
+
+    public String getAdminRetUrl() {
+        return adminRetUrl;
+    }
+
+    public void setAdminRetUrl(String adminRetUrl) {
+        this.adminRetUrl = adminRetUrl;
     }
 }
