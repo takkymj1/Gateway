@@ -40,4 +40,5 @@
         <fixed>2.00</fixed>
         <rate>0.0005</rate>
     </withdrawFee>
+    <daysToBreach>30</daysToBreach>
 </FeeConfig>

@@ -70,6 +70,12 @@ public class FeeConfig extends BaseConfig {
     @XmlElement(required = true)
     private Fee loanOverdueFee;
 
+    /**
+     * 逾期一定天数的还款将被转化为违约
+     */
+    @XmlElement(required = true)
+    private int daysToBreach;
+
     public FeeConfig() {
     }
 
@@ -103,5 +109,9 @@ public class FeeConfig extends BaseConfig {
 
     public Fee getLoanOverdueFee() {
         return loanOverdueFee;
+    }
+
+    public int getDaysToBreach() {
+        return daysToBreach;
     }
 }
