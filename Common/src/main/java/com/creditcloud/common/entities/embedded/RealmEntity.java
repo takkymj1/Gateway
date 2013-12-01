@@ -6,6 +6,7 @@ package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.enums.Realm;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
@@ -49,4 +50,31 @@ public class RealmEntity extends BaseEntity {
     public void setEntityId(String entityId) {
         this.entityId = entityId;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.realm);
+        hash = 73 * hash + Objects.hashCode(this.entityId);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final RealmEntity other = (RealmEntity) obj;
+        if (this.realm != other.realm) {
+            return false;
+        }
+        if (!Objects.equals(this.entityId, other.entityId)) {
+            return false;
+        }
+        return true;
+    }
+    
 }
