@@ -86,6 +86,11 @@ public class User extends BaseObject {
 
     @Past
     protected Date registerDate;
+    
+    /**
+     * 用户默认是启用状态
+     */
+    private boolean enabled = true;
 
     public User() {
     }
@@ -222,5 +227,13 @@ public class User extends BaseObject {
 
     public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
