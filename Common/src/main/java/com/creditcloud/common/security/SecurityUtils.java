@@ -27,7 +27,7 @@ public final class SecurityUtils {
     /**
      * 没有字母i和o，防止混淆
      */
-    private static final String randomChars = "abcdefghjklmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+    private static final String randomChars = "abcdefghjklmnpqrstuvwxyz";
 
     /**
      * Salt is Base64(now + identity)
@@ -67,6 +67,7 @@ public final class SecurityUtils {
     /**
      * 生成随机的初始化密码
      *
+     * @param level
      * @return
      */
     public static String randomPassword(SecurityLevel level) {

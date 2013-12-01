@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.fund;
+package com.creditcloud.fund.model;
 
 import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;

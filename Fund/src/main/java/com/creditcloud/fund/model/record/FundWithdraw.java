@@ -2,13 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.fund;
+package com.creditcloud.fund.model.record;
 
-import com.creditcloud.model.enums.user.fund.FundRecordOperation;
-import com.creditcloud.model.enums.user.fund.FundRecordStatus;
-import com.creditcloud.model.enums.user.fund.FundRecordType;
+import com.creditcloud.fund.model.enums.FundRecordOperation;
+import com.creditcloud.fund.model.enums.FundRecordStatus;
+import com.creditcloud.fund.model.enums.FundRecordType;
+import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.user.fund.BankAccount;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,26 +25,25 @@ public class FundWithdraw extends FundRecord {
     }
 
     public FundWithdraw(String id,
-                        UserFund fund,
+                        String userId,
                         BankAccount account,
+                        RealmEntity entity,
                         FundRecordStatus status,
                         FundRecordOperation operation,
                         BigDecimal amount,
                         String orderId,
                         String transactionId,
-                        String description,
-                        Date timeRecorded) {
+                        String description) {
         super(id,
-              fund,
+              userId,
               account,
-              null,
+              entity,
               FundRecordType.WITHDRAW,
               status,
               operation,
               amount,
               orderId,
               transactionId,
-              description,
-              timeRecorded);
+              description);
     }
 }

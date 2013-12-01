@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.user.fund;
+package com.creditcloud.fund.model.record;
 
+import com.creditcloud.model.user.fund.BankAccount;
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.user.fund.FundRecordOperation;
-import com.creditcloud.model.enums.user.fund.FundRecordStatus;
-import com.creditcloud.model.enums.user.fund.FundRecordType;
+import com.creditcloud.fund.model.enums.FundRecordOperation;
+import com.creditcloud.fund.model.enums.FundRecordStatus;
+import com.creditcloud.fund.model.enums.FundRecordType;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -29,8 +30,8 @@ public class FundRecord extends BaseObject {
     private String id;
 
     @NotNull
-    private UserFund fund;
-    
+    private String userId;
+
     private BankAccount account;
 
     /*
@@ -76,14 +77,14 @@ public class FundRecord extends BaseObject {
      * 可能为失败的提示信息
      */
     protected String description;
-    
+
     protected Date timeRecorded;
 
     public FundRecord() {
     }
 
     public FundRecord(String id,
-                      UserFund fund,
+                      String userId,
                       BankAccount account,
                       RealmEntity entity,
                       FundRecordType type,
@@ -92,10 +93,9 @@ public class FundRecord extends BaseObject {
                       BigDecimal amount,
                       String orderId,
                       String transactionId,
-                      String description,
-                      Date timeRecorded) {
+                      String description) {
         this.id = id;
-        this.fund = fund;
+        this.userId = userId;
         this.account = account;
         this.entity = entity;
         this.type = type;
@@ -105,7 +105,6 @@ public class FundRecord extends BaseObject {
         this.orderId = orderId;
         this.transactionId = transactionId;
         this.description = description;
-        this.timeRecorded = timeRecorded;
     }
 
     public String getId() {
@@ -114,10 +113,6 @@ public class FundRecord extends BaseObject {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public UserFund getFund() {
-        return fund;
     }
 
     public RealmEntity getEntity() {
@@ -150,10 +145,6 @@ public class FundRecord extends BaseObject {
 
     public String getDescription() {
         return description;
-    }
-
-    public void setFund(UserFund fund) {
-        this.fund = fund;
     }
 
     public void setEntity(RealmEntity entity) {
@@ -202,5 +193,36 @@ public class FundRecord extends BaseObject {
 
     public void setAccount(BankAccount account) {
         this.account = account;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    //TODO for backward compatibility with jsp
+    public String getTransactionNumber() {
+        return transactionId;
+    }
+
+    //TODO for backward compatibility with jsp
+    public String getOrderNumber() {
+        return orderId;
+    }
+
+    //TODO for backward compatibility with jsp
+    public Date getRecordTime() {
+        return timeRecorded;
+    }
+
+    /*
+     * TODO for backward compatibility with jsp<p>
+     * @see http://creditcloud.com:8082/browse/UND-18
+     */
+    public String getMethod() {
+        return "汇付天下";
     }
 }
