@@ -68,7 +68,7 @@ public interface LoanConstant {
     /**
      * 单笔投资需按照50递增
      */
-    int INVEST_AMOUNT_INCREMENT = 50;
+    int INVEST_AMOUNT_INCREMENT = 10;
 
     /**
      * 单笔投资最大金额

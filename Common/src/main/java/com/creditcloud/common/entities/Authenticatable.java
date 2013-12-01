@@ -51,6 +51,14 @@ public abstract class Authenticatable extends ClientScopeEntity {
      */
     @Column(nullable = false)
     protected boolean needChangePassword;
+    
+    /**
+     * 账户是否可以用.
+     * 
+     * 用于封禁账户或类似功能
+     */
+    @Column(nullable = false)
+    protected boolean enabled;
 
     /**
      * Setup when the entity been created.
@@ -100,5 +108,13 @@ public abstract class Authenticatable extends ClientScopeEntity {
 
     public void setNeedChangePassword(boolean needChangePassword) {
         this.needChangePassword = needChangePassword;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
