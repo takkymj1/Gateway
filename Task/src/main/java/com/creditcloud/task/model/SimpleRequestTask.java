@@ -6,8 +6,6 @@ package com.creditcloud.task.model;
 
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
-import com.creditcloud.model.enums.user.credit.CertificateType;
-import java.util.Collection;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -41,10 +39,9 @@ public class SimpleRequestTask extends Task {
                              TaskStatus status,
                              Date timeStarted,
                              Date timeFinished,
-                             String feedback,
-                             Collection<CertificateType> certificate,
                              int taskProfit,
-                             int employeeProfit) {
+                             int employeeProfit,
+                             boolean profitPayed) {
         super(id,
               parentId,
               employeeId,
@@ -54,10 +51,9 @@ public class SimpleRequestTask extends Task {
               status,
               timeStarted,
               timeFinished,
-              feedback,
-              certificate,
               taskProfit,
-              employeeProfit);
+              employeeProfit,
+              profitPayed);
         this.requestId = requestId;
     }
 
