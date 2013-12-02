@@ -304,4 +304,5 @@ public class Task extends BaseObject {
     public void setProfitPayed(boolean profitPayed) {
         this.profitPayed = profitPayed;
     }
+
 }
