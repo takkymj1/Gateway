@@ -31,17 +31,17 @@ public class LoanCollectTask extends Task {
     }
 
     public LoanCollectTask(String loanRepaymentId,
-                         String id,
-                         String parentId,
-                         String employeeId,
-                         String title,
-                         String description,
-                         TaskStatus status,
-                         Date timeStarted,
-                         Date timeFinished,
-                         String feedback,
-                         int taskProfit,
-                         int employeeProfit) {
+                           String id,
+                           String parentId,
+                           String employeeId,
+                           String title,
+                           String description,
+                           TaskStatus status,
+                           Date timeStarted,
+                           Date timeFinished,
+                           int taskProfit,
+                           int employeeProfit,
+                           boolean profitPayed) {
         super(id,
               parentId,
               employeeId,
@@ -51,10 +51,9 @@ public class LoanCollectTask extends Task {
               status,
               timeStarted,
               timeFinished,
-              feedback,
-              null,
               taskProfit,
-              employeeProfit);
+              employeeProfit,
+              profitPayed);
         this.loanRepaymentId = loanRepaymentId;
     }
 

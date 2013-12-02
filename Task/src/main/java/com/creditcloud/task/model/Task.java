@@ -7,8 +7,6 @@ package com.creditcloud.task.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
-import com.creditcloud.model.enums.user.credit.CertificateType;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
@@ -84,19 +82,6 @@ public class Task extends BaseObject {
     private Date timeFinished;
 
     /**
-     * 员工的反馈
-     */
-    @Column(nullable = true)
-    private String feedback;
-
-    /**
-     * 本次任务需要取证的认证项，员工需要收集这些certificate对应的proof,可以为空
-     */
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
-    private Collection<CertificateType> certificate;
-
-    /**
      * 该任务的收益，是向用户的收费
      */
     private int taskProfit;
@@ -105,6 +90,8 @@ public class Task extends BaseObject {
      * 员工完成该任务后的奖励
      */
     private int employeeProfit;
+    
+    private boolean profitPayed;
 
     private Date timeCreated;
 
@@ -113,19 +100,18 @@ public class Task extends BaseObject {
     public Task() {
     }
 
-    public Task(String id,
-                String parentId,
+    public Task(String id, 
+                String parentId, 
                 String employeeId,
                 String title,
                 String description,
-                TaskType type,
-                TaskStatus status,
+                TaskType type, 
+                TaskStatus status, 
                 Date timeStarted,
-                Date timeFinished,
-                String feedback,
-                Collection<CertificateType> certificate,
-                int taskProfit,
-                int employeeProfit) {
+                Date timeFinished, 
+                int taskProfit, 
+                int employeeProfit, 
+                boolean profitPayed) {
         this.id = id;
         this.parentId = parentId;
         this.employeeId = employeeId;
@@ -135,10 +121,65 @@ public class Task extends BaseObject {
         this.status = status;
         this.timeStarted = timeStarted;
         this.timeFinished = timeFinished;
-        this.feedback = feedback;
-        this.certificate = certificate;
         this.taskProfit = taskProfit;
         this.employeeProfit = employeeProfit;
+        this.profitPayed = profitPayed;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public TaskType getType() {
+        return type;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public Date getTimeStarted() {
+        return timeStarted;
+    }
+
+    public Date getTimeFinished() {
+        return timeFinished;
+    }
+
+    public int getTaskProfit() {
+        return taskProfit;
+    }
+
+    public int getEmployeeProfit() {
+        return employeeProfit;
+    }
+
+    public boolean isProfitPayed() {
+        return profitPayed;
+    }
+
+    public Date getTimeCreated() {
+        return timeCreated;
+    }
+
+    public Date getTimeLastUpdated() {
+        return timeLastUpdated;
     }
 
     public void setId(String id) {
@@ -177,66 +218,6 @@ public class Task extends BaseObject {
         this.timeFinished = timeFinished;
     }
 
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
-    }
-
-    public void setCertificate(Collection<CertificateType> certificate) {
-        this.certificate = certificate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public TaskType getType() {
-        return type;
-    }
-
-    public TaskStatus getStatus() {
-        return status;
-    }
-    
-    public Date getTimeStarted() {
-        return timeStarted;
-    }
-
-    public Date getTimeFinished() {
-        return timeFinished;
-    }
-
-    public String getFeedback() {
-        return feedback;
-    }
-
-    public Collection<CertificateType> getCertificate() {
-        return certificate;
-    }
-
-    public int getTaskProfit() {
-        return taskProfit;
-    }
-
-    public int getEmployeeProfit() {
-        return employeeProfit;
-    }
-
     public void setTaskProfit(int taskProfit) {
         this.taskProfit = taskProfit;
     }
@@ -245,12 +226,8 @@ public class Task extends BaseObject {
         this.employeeProfit = employeeProfit;
     }
 
-    public Date getTimeCreated() {
-        return timeCreated;
-    }
-
-    public Date getTimeLastUpdated() {
-        return timeLastUpdated;
+    public void setProfitPayed(boolean profitPayed) {
+        this.profitPayed = profitPayed;
     }
 
     public void setTimeCreated(Date timeCreated) {
@@ -260,4 +237,5 @@ public class Task extends BaseObject {
     public void setTimeLastUpdated(Date timeLastUpdated) {
         this.timeLastUpdated = timeLastUpdated;
     }
+
 }
