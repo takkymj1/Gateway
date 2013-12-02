@@ -31,6 +31,6 @@
         <module>Payment</module>
         <module>Task</module>
         <module>Contract</module>
-    <module>Fund</module>
-  </modules>
+        <module>Fund</module>
+    </modules>
 </project>
