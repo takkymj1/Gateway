@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.config.enums.utils;
+package com.creditcloud.config.utils;
 
 import com.creditcloud.config.Fee;
 import java.math.BigDecimal;

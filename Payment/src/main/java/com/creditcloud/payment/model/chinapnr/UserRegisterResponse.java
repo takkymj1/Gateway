@@ -39,6 +39,22 @@ public class UserRegisterResponse extends BaseResponse {
     @Size(max = 128)
     private String RetUrl;
     
+    @FormParam("IdType")
+    @Size(min = 2, max = 2)
+    private String IdType;
+
+    @FormParam("IdNo")
+    @Size(max = 30)
+    private String IdNo;
+
+    @FormParam("UsrMp")
+    @Size(max = 11)
+    private String UsrMp;
+
+    @FormParam("UsrEmail")
+    @Size(max = 40)
+    private String UsrEmail;
+    
     public UserRegisterResponse() {
     }
 
@@ -93,6 +109,38 @@ public class UserRegisterResponse extends BaseResponse {
 
     public void setRetUrl(String RetUrl) {
         this.RetUrl = RetUrl;
+    }
+
+    public String getIdType() {
+        return IdType;
+    }
+
+    public void setIdType(String IdType) {
+        this.IdType = IdType;
+    }
+
+    public String getIdNo() {
+        return IdNo;
+    }
+
+    public void setIdNo(String IdNo) {
+        this.IdNo = IdNo;
+    }
+
+    public String getUsrMp() {
+        return UsrMp;
+    }
+
+    public void setUsrMp(String UsrMp) {
+        this.UsrMp = UsrMp;
+    }
+
+    public String getUsrEmail() {
+        return UsrEmail;
+    }
+
+    public void setUsrEmail(String UsrEmail) {
+        this.UsrEmail = UsrEmail;
     }
 
 }
