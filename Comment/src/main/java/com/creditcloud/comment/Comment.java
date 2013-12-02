@@ -21,6 +21,9 @@ public class Comment extends BaseObject {
 
     private static final long serialVersionUID = 20131021L;
 
+    @NotNull
+    private String clientCode;
+
     private String id;
 
     /**
@@ -69,15 +72,16 @@ public class Comment extends BaseObject {
     public Comment() {
     }
 
-    public Comment(String id,
+    public Comment(String clientCode,
+                   String id,
                    String parentId,
                    RealmEntity owner,
                    String content,
                    Realm realm,
                    String sender,
                    String receiver,
-                   CommentStatus status,
-                   Date timeRecorded) {
+                   CommentStatus status) {
+        this.clientCode = clientCode;
         this.id = id;
         this.parentId = parentId;
         this.owner = owner;
@@ -86,7 +90,6 @@ public class Comment extends BaseObject {
         this.sender = sender;
         this.receiver = receiver;
         this.status = status;
-        this.timeRecorded = timeRecorded;
     }
 
     public void setOwner(RealmEntity owner) {
@@ -159,5 +162,13 @@ public class Comment extends BaseObject {
 
     public void setTimeRecorded(Date timeRecorded) {
         this.timeRecorded = timeRecorded;
+    }
+
+    public String getClientCode() {
+        return clientCode;
+    }
+
+    public void setClientCode(String clientCode) {
+        this.clientCode = clientCode;
     }
 }

@@ -21,55 +21,61 @@ public interface CommentService {
     /**
      * add new comment
      *
+     * @param clientCode
      * @param comment
      * @return
      */
-    Comment add(Comment comment);
+    Comment add(String clientCode, Comment comment);
 
     /**
      * list by Owner
      *
+     * @param clientCode
      * @param owner
      * @param pageInfo
      * @param status
      * @return
      */
-    PagedResult<Comment> listByOwner(RealmEntity owner, PageInfo pageInfo, CommentStatus... status);
+    PagedResult<Comment> listByOwner(String clientCode, RealmEntity owner, PageInfo pageInfo, CommentStatus... status);
 
     /**
      * count by Owner
      *
+     * @param clientCode
      * @param owner
      * @param status
      * @return
      */
-    int countByOwner(RealmEntity owner, CommentStatus... status);
+    int countByOwner(String clientCode, RealmEntity owner, CommentStatus... status);
 
     /**
      * list by receiver
      *
+     * @param clientCode
      * @param receiver
      * @param pageInfo
      * @param status
      * @return
      */
-    PagedResult<Comment> listByReceiver(RealmEntity receiver, PageInfo pageInfo, CommentStatus... status);
+    PagedResult<Comment> listByReceiver(String clientCode, RealmEntity receiver, PageInfo pageInfo, CommentStatus... status);
 
     /**
      * count by receiver
      *
+     * @param clientCode
      * @param receiver
      * @param status
      * @return
      */
-    int countByReceiver(RealmEntity receiver, CommentStatus... status);
+    int countByReceiver(String clientCode, RealmEntity receiver, CommentStatus... status);
 
     /**
      * mark status for comments
      *
+     * @param clientCode
      * @param status
      * @param commentIds
      * @return
      */
-    boolean markStatus(CommentStatus status, String... commentIds);
+    boolean markStatus(String clientCode, CommentStatus status, String... commentIds);
 }
