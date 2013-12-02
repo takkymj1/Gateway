@@ -48,7 +48,12 @@ public interface LoanConstant {
     /**
      * 贷款最长期限，单位月
      */
-    int MAX_LOAN_DURATION = 36;
+    int MAX_LOAN_DURATION = 48;
+
+    /**
+     * 最长贷款期限4年
+     */
+    int MAX_LOAN_YEAR = 4;
 
     /**
      * 最小开放募集时间,单位小时
@@ -74,10 +79,9 @@ public interface LoanConstant {
      * 单笔投资最大金额
      */
     int MAX_INVEST_AMOUNT = MAX_LOAN_AMOUNT;
-    
+
     /**
      * 贷后管理期限，只关心还款日在即日起 POSTLOAN_DAYS 天之内的
      */
     int POSTLOAN_DAYS = 40;
-
 }
