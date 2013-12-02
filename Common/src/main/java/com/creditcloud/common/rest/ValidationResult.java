@@ -4,23 +4,27 @@
  */
 package com.creditcloud.common.rest;
 
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * This is the wrapper class for the return JSON result for jqBootstrapValidation plugin.
- * 
+ * This is the wrapper class for the return JSON result for
+ * jqBootstrapValidation plugin.
+ *
  * @author sobranie
  */
 @XmlRootElement
-public class ValidationResult {
+public class ValidationResult extends BaseObject {
 
     private String value;
+
     private boolean valid;
+
     private String message;
 
     public ValidationResult() {
     }
-    
+
     public ValidationResult(final String value) {
         this(value, false, null);
     }

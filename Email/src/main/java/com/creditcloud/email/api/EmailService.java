@@ -7,6 +7,7 @@ package com.creditcloud.email.api;
 import com.creditcloud.email.types.ConfirmResult;
 import com.creditcloud.email.types.Email;
 import com.creditcloud.model.client.Client;
+import com.creditcloud.model.user.User;
 import java.util.concurrent.Future;
 import javax.ejb.Remote;
 
@@ -55,12 +56,10 @@ public interface EmailService {
      *
      * @param client
      * @param emailAddress
-     * @param personal
+     * @param user 需要绑卡的用户，其email不一定是emailAddress
      * @return
      */
-    Future<Boolean> sendAuthentication(Client client, String emailAddress, String personal);
-
-    Future<Boolean> sendAuthentication(Client client, String emailAddress);
+    Future<Boolean> sendAuthentication(Client client, String emailAddress, User user);
 
     /**
      * Confirm the emailAddress is valid, and activate the email
@@ -73,6 +72,17 @@ public interface EmailService {
      * @return
      */
     ConfirmResult confirmEmail(Client client, String emailAddress, String confirmCode);
+    
+    /**
+     * 不但要检验confirmCode和emailAddress，还要检验userId
+     * 
+     * @param client
+     * @param emailAddress
+     * @param confirmCode
+     * @param userId
+     * @return 
+     */
+    ConfirmResult confirmEmail(Client client, String emailAddress, String confirmCode, String userId);
 
     /**
      * check whether email is already activated on behalf of this client
