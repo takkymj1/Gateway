@@ -29,7 +29,7 @@ public class FeeConfig extends BaseConfig {
     private Fee loanGuaranteeFee;
 
     /**
-     * 贷款服务费率，按照贷款金额比率收取，跟借款人收取
+     * 贷款服务费率，按照贷款金额比率收取，跟借款人收取（乙方管理费）
      */
     @XmlElement(required = true)
     private Fee loanServiceFee;
@@ -41,7 +41,7 @@ public class FeeConfig extends BaseConfig {
     private Fee loanVisitFee;
 
     /**
-     * 贷款还款利息管理费费率，按照贷款还款利息比率收费，跟借款人收取
+     * 贷款还款利息管理费费率，按照贷款还款利息比率收费，跟借款人收取（甲方账户管理费）
      */
     @XmlElement(required = true)
     private Fee loanInterestFee;
