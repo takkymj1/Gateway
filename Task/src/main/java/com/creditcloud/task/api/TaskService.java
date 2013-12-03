@@ -27,7 +27,7 @@ public interface TaskService {
      * @param task
      * @return
      */
-    boolean addNew(String clientCode, Task task);
+    Task addNew(String clientCode, Task task);
 
     /**
      * list task for employee by task status
