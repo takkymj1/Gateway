@@ -44,6 +44,7 @@ public interface UserService extends UserSecurityService {
      *
      * @param clientCode
      * @param employeeId
+     * @param info
      * @param source
      * @return
      */
@@ -104,8 +105,10 @@ public interface UserService extends UserSecurityService {
                  Map<String, String> socialInfo);
 
     /**
-     * update user information for client
-     *
+     * update user information for client.
+     * 
+     * 身份证尾号会自动转大写;
+     * 
      * @param clientCode
      * @param user
      * @return user after update
@@ -149,7 +152,9 @@ public interface UserService extends UserSecurityService {
     User findByMobile(String clientCode, String mobile);
 
     /**
-     * find user by idNumber
+     * find user by idNumber.
+     * 
+     * 用户身份证尾号x自动转化为X
      *
      * @param clientCode
      * @param idNumber
@@ -173,8 +178,9 @@ public interface UserService extends UserSecurityService {
     /**
      * delete user by user Id
      *
+     * @deprecated 不能真正删除改用户
      * @param clientCode
-     * @param Id
+     * @param userId
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
@@ -193,7 +199,9 @@ public interface UserService extends UserSecurityService {
     boolean checkMobile(String clientCode, String mobile);
 
     /**
-     * Check if the idNumber is available
+     * Check if the idNumber is available.
+     * 
+     * 尾号x自动转为大写X
      *
      * @param clientCode
      * @param idNumber
