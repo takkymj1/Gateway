@@ -37,29 +37,47 @@ public interface UserSecurityService {
                           String password,
                           Map<String, String> loginInfo,
                           Source source);
-    
+
+    /**
+     * 用户通过手机号登陆.
+     * 
+     * 不要求用户的手机号是绑定成功的，只是检查手机号、密码匹配
+     * 
+     * @param clientCode
+     * @param mobile
+     * @param password
+     * @param loginInfo
+     * @param source
+     * @return 
+     */
+    UserLoginResult loginMobile(String clientCode,
+                                String mobile,
+                                String password,
+                                Map<String, String> loginInfo,
+                                Source source);
+
     /**
      * 验证用户并与SocialId绑定
-     * 
+     *
      * @param clientCode
      * @param loginName
      * @param password
      * @param socialId
      * @param socialInfo
-     * @return 
+     * @return
      */
     UserLoginResult connectSocial(String clientCode,
                                   String loginName,
                                   String password,
                                   SocialId socialId,
                                   Map<String, String> socialInfo);
-    
+
     /**
      * 通过SocialId验证用户登陆
-     * 
+     *
      * @param clientCode
      * @param socialId
-     * @return 
+     * @return
      */
     UserLoginResult loginSocial(String clientCode, SocialId socialId, Map<String, String> loginInfo);
 
