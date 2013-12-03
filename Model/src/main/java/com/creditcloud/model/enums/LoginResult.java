@@ -13,7 +13,11 @@ public enum LoginResult implements BaseEnum {
 
     SUCCESSFUL("登录名密码验证正确,登录成功"),
     NEED_CHANGE_PASSWORD("登录成功,需要修改密码"),
-    FAILED("账号不存在或密码错误");
+    FAILED("账号不存在或密码错误"),
+    /**
+     * 需要返回具体的User/Employee，用于前端控制
+     */
+    TOO_MANY_ATTEMPT("登陆失败次数过多，暂停使用");
 
     private final String key;
 

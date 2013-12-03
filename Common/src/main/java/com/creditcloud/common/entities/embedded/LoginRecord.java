@@ -21,6 +21,12 @@ import javax.persistence.TemporalType;
 @Embeddable
 public class LoginRecord extends BaseEntity {
 
+    /**
+     * 用户登陆的凭据，可能是loginName、mobile、email或联合登陆等任何识别方式
+     */
+    @Column(nullable = false)
+    private String credential;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private Date loginTime;
@@ -35,14 +41,26 @@ public class LoginRecord extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Source source;
+    
+    /**
+     * 是否成功登陆
+     */
+    @Column(nullable = false)
+    private boolean success;
 
     public LoginRecord() {
     }
 
-    public LoginRecord(Date loginTime, String loginInfo, Source source) {
+    public LoginRecord(String credential,
+                       Date loginTime,
+                       String loginInfo,
+                       Source source,
+                       boolean success) {
+        this.credential = credential;
         this.loginTime = loginTime;
         this.loginInfo = loginInfo;
         this.source = source;
+        this.success = success;
     }
 
     public Date getLoginTime() {
@@ -67,5 +85,13 @@ public class LoginRecord extends BaseEntity {
 
     public void setSource(Source source) {
         this.source = source;
+    }
+
+    public String getIdentity() {
+        return credential;
+    }
+
+    public void setIdentity(String identity) {
+        this.credential = identity;
     }
 }
