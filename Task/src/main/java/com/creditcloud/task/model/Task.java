@@ -68,7 +68,7 @@ public class Task extends BaseObject {
     private TaskStatus status;
 
     /**
-     * 员工接到任务后开始执行任务开始时间,这个时间可以让
+     * 员工接到任务后开始执行任务开始时间
      */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = true)
@@ -90,7 +90,10 @@ public class Task extends BaseObject {
      * 员工完成该任务后的奖励
      */
     private int employeeProfit;
-    
+
+    /**
+     * 任务收益是否已经支付
+     */
     private boolean profitPayed;
 
     private Date timeCreated;
@@ -100,17 +103,17 @@ public class Task extends BaseObject {
     public Task() {
     }
 
-    public Task(String id, 
-                String parentId, 
+    public Task(String id,
+                String parentId,
                 String employeeId,
                 String title,
                 String description,
-                TaskType type, 
-                TaskStatus status, 
+                TaskType type,
+                TaskStatus status,
                 Date timeStarted,
-                Date timeFinished, 
-                int taskProfit, 
-                int employeeProfit, 
+                Date timeFinished,
+                int taskProfit,
+                int employeeProfit,
                 boolean profitPayed) {
         this.id = id;
         this.parentId = parentId;
@@ -237,5 +240,4 @@ public class Task extends BaseObject {
     public void setTimeLastUpdated(Date timeLastUpdated) {
         this.timeLastUpdated = timeLastUpdated;
     }
-
 }
