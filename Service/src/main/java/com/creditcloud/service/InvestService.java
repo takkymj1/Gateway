@@ -10,7 +10,7 @@ import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.loan.LoanRepayment;
-import com.creditcloud.model.loan.Repayment;
+import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -66,7 +66,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    Map<Integer, Repayment> settleLoan(String clientCode, Loan loan);
+    SettleLoanResult settleLoan(String clientCode, Loan loan);
 
     /**
      * cancel failed loan , release related invest
