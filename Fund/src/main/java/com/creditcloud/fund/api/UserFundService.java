@@ -143,18 +143,20 @@ public interface UserFundService {
      * @param userId
      * @param amount
      * @param income true for income, false for expense
-     * @return
+     * @return  
      */
     public boolean transfer(String clientCode, String userId, BigDecimal amount, boolean income);
 
     /**
-     * 与第三方支付同步可用和冻结金额
+     * 矫正账户金额.
+     * 
+     * 参数分别是可用余额和冻结余额的增量，需要将UserFund中的相关项 += diff
      *
      * @param clientCode
      * @param userId
-     * @param available 可用金额
-     * @param freeze 冻结金额
+     * @param diffAvailable 可用金额增量
+     * @param diffFreeze 冻结金额增量
      * @return
      */
-    public boolean synWithThirdParty(String clientCode, String userId, BigDecimal available, BigDecimal freeze);
+    public boolean calibrate(String clientCode, String userId, BigDecimal diffAvailable, BigDecimal diffFreeze);
 }
