@@ -13,7 +13,6 @@ import com.creditcloud.fund.model.record.FundDeposit;
 import com.creditcloud.fund.model.record.FundInvest;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -24,7 +23,7 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface FundRecordService {
-    
+
     public FundRecord getById(String clientCode, String id);
 
     /**
@@ -43,6 +42,14 @@ public interface FundRecordService {
      * @param record
      */
     public void update(String clientCode, FundRecord record);
+
+    /**
+     * 更新FundRecord状态
+     *
+     * @param clientCode
+     * @param status
+     */
+    public void updateStatus(String clientCode, String recordId, FundRecordStatus status);
 
     /**
      *
@@ -83,20 +90,19 @@ public interface FundRecordService {
      * @return
      */
     public List<FundWithdraw> listWithdrawRequest(String clientCode);
-    
-    
+
     FundInvest getFundInvestByOrderId(String clientCode, String userId, String pnrOrderId);
 
     FundDeposit getFundDepositByOrderId(String clientCode, String userId, String pnrOrderId);
 
     FundWithdraw getFundWithdrawByOrderId(String clientCode, String userId, String pnrOrderId);
-    
+
     FundInvest getFundInvestByOperationAndStatus(String clientCode,
                                                  String userId,
                                                  String investId,
                                                  FundRecordOperation operation,
                                                  FundRecordStatus status);
-    
+
     FundWithdraw getWithdrawByOperationAndStatus(String clientCode,
                                                  String userId,
                                                  String withdrawId,
