@@ -146,6 +146,18 @@ public interface UserFundService {
      * @return  
      */
     public boolean transfer(String clientCode, String userId, BigDecimal amount, boolean income);
+    
+    /**
+     * 向用户直接收取费用，直接扣减可用余额
+     * 
+     * @param clientCode
+     * @param userId
+     * @param amount 一定是正的数字
+     * @return 
+     */
+    public boolean charge(String clientCode,
+                          String userId,
+                          BigDecimal amount);
 
     /**
      * 矫正账户金额.
