@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -64,7 +65,16 @@ public class UserAutoBid extends BaseObject {
      */
     private Date activedTime;
 
+    /**
+     * 最后一次投标时间
+     */
     private Date lastBidTime;
+
+    /**
+     * 系统管理用，例如对借款人还清贷款前disable自动投标
+     */
+    @Column(nullable = false)
+    private boolean enable;
 
     public UserAutoBid() {
     }
@@ -159,5 +169,13 @@ public class UserAutoBid extends BaseObject {
 
     public void setLastBidTime(Date lastBidTime) {
         this.lastBidTime = lastBidTime;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
+
+    public boolean isEnable() {
+        return enable;
     }
 }

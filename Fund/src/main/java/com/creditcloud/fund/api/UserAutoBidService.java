@@ -23,46 +23,46 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface UserAutoBidService {
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public AutoBidRank getAutoBidRank(String clientCode, String userId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public UserAutoBid getByUser(String clientCode, String userId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
-     * @param autoBid 
+     * @param autoBid
      */
     public void saveConfig(String clientCode, UserAutoBid autoBid);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
-    public boolean deactivate(String clientCode, String userId);
+    public boolean activate(String clientCode, String userId, boolean activate);
 
     /**
-     * 
+     * 更新最后一次投标时间
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @param bidTime
+     * @return
      */
-    public boolean activate(String clientCode, String userId);
-    
     public boolean updateLastBidTime(String clientCode, String userId, Date bidTime);
 
     /**
@@ -115,8 +115,33 @@ public interface UserAutoBidService {
                        AutoBidRange range,
                        boolean mortgaged,
                        RepaymentMethod... methods);
-    
+
+    /**
+     * enable/disable auto bid
+     *
+     * @param clientCode
+     * @param userId
+     * @param enable
+     */
+    void enableAutoBid(String clientCode, String userId, boolean enable);
+
+    /**
+     * 按照开启自动时间列出所有满足贷款的自动投标设置
+     *
+     * @param clientCode
+     * @param loan
+     * @param creditRank
+     * @return
+     */
     public List<UserAutoBid> listByLoanAndActivedTime(String clientCode, Loan loan, CreditRank creditRank);
-    
+
+    /**
+     * 按照最后一次投标时间列出所有满足贷款的自动投标设置
+     *
+     * @param clientCode
+     * @param loan
+     * @param creditRank
+     * @return
+     */
     public List<UserAutoBid> listByLoanAndLastBidTime(String clientCode, Loan loan, CreditRank creditRank);
 }
