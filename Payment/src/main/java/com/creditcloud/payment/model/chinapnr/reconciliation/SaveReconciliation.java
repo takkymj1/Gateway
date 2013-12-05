@@ -53,6 +53,23 @@ public class SaveReconciliation extends BaseObject {
 
     @Size(max = 40)
     private String OpenAcctId;
+    
+    /**
+     * 真实收取的手续费
+     */
+    @NotNull
+    private String FeeAmt;
+    
+    /**
+     * 收取手续费的账号
+     */
+    @NotNull
+    @Size(max = 16)
+    private String FeeCustId;
+    
+    @NotNull
+    @Size(max = 9)
+    private String FeeAcctId;
 
     public SaveReconciliation() {
     }
@@ -147,6 +164,30 @@ public class SaveReconciliation extends BaseObject {
 
     public void setOpenAcctId(String OpenAcctId) {
         this.OpenAcctId = OpenAcctId;
+    }
+
+    public String getFeeAmt() {
+        return FeeAmt;
+    }
+
+    public void setFeeAmt(String FeeAmt) {
+        this.FeeAmt = FeeAmt;
+    }
+
+    public String getFeeCustId() {
+        return FeeCustId;
+    }
+
+    public void setFeeCustId(String FeeCustId) {
+        this.FeeCustId = FeeCustId;
+    }
+
+    public String getFeeAcctId() {
+        return FeeAcctId;
+    }
+
+    public void setFeeAcctId(String FeeAcctId) {
+        this.FeeAcctId = FeeAcctId;
     }
 
 }
