@@ -12,6 +12,7 @@ import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.TransferResult;
 import com.creditcloud.payment.model.UnFreezeResult;
 import com.creditcloud.payment.model.UserBalanceResult;
 import com.creditcloud.payment.model.chinapnr.AccountDetail;
@@ -213,14 +214,14 @@ public interface PaymentService {
      * @param BgRetUrl
      * @return
      */
-    public PaymentResult transfer(String clientCode,
-                                  String ordId,
-                                  String outCustId,
-                                  String outAcctId,
-                                  BigDecimal amount,
-                                  String inCustId,
-                                  String inAcctId,
-                                  String BgRetUrl);
+    public TransferResult transfer(String clientCode,
+                                   String ordId,
+                                   String outCustId,
+                                   String outAcctId,
+                                   BigDecimal amount,
+                                   String inCustId,
+                                   String inAcctId,
+                                   String BgRetUrl);
 
     /**
      * p2p平台取现对账
