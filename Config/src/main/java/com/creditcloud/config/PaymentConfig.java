@@ -93,29 +93,22 @@ public class PaymentConfig extends BaseConfig {
 
     //下面配置的是商户子账户
     /**
-     * 基本借记户
+     * 基本账户用于充值取现,类型:专属借记账户
      */
-    @XmlElement(name = "basedtConfig", required = false)
-    private PNRAccount basedt;
+    @XmlElement(name = "baseAccount", required = false)
+    private PNRAccount baseAccount;
 
     /**
-     * 保证金账户
+     * 收费账户, 类型:专用借记账户
      */
-    @XmlElement(name = "depConfig", required = false)
-    private PNRAccount dep;
+    @XmlElement(name = "feeAccount", required = false)
+    private PNRAccount feeAccount;
 
     /**
-     * 专属借记账户
+     * 风险保证金账户, 类型:专用借记账户
      */
-    @XmlElement(name = "merdtConfig", required = false)
-    private PNRAccount merdt;
-
-    /**
-     * 专用借记账户
-     */
-    @XmlElement(name = "spedtConfig", required = false)
-    private PNRAccount spedt;
-
+    @XmlElement(name = "guaranteeAccount", required = false)
+    private PNRAccount guaranteeAccount;
 
     public PaymentConfig() {
     }
@@ -156,38 +149,6 @@ public class PaymentConfig extends BaseConfig {
         return maxBorrowerRate;
     }
 
-    public PNRAccount getBasedt() {
-        return basedt;
-    }
-
-    public PNRAccount getDep() {
-        return dep;
-    }
-
-    public PNRAccount getMerdt() {
-        return merdt;
-    }
-
-    public PNRAccount getSpedt() {
-        return spedt;
-    }
-
-    public void setBasedt(PNRAccount basedt) {
-        this.basedt = basedt;
-    }
-
-    public void setDep(PNRAccount dep) {
-        this.dep = dep;
-    }
-
-    public void setMerdt(PNRAccount merdt) {
-        this.merdt = merdt;
-    }
-
-    public void setSpedt(PNRAccount spedt) {
-        this.spedt = spedt;
-    }
-
     public String getDeviceRetUrl() {
         return deviceRetUrl;
     }
@@ -202,5 +163,29 @@ public class PaymentConfig extends BaseConfig {
 
     public void setAdminRetUrl(String adminRetUrl) {
         this.adminRetUrl = adminRetUrl;
+    }
+
+    public PNRAccount getBaseAccount() {
+        return baseAccount;
+    }
+
+    public PNRAccount getFeeAccount() {
+        return feeAccount;
+    }
+
+    public PNRAccount getGuaranteeAccount() {
+        return guaranteeAccount;
+    }
+
+    public void setBaseAccount(PNRAccount baseAccount) {
+        this.baseAccount = baseAccount;
+    }
+
+    public void setFeeAccount(PNRAccount feeAccount) {
+        this.feeAccount = feeAccount;
+    }
+
+    public void setGuaranteeAccount(PNRAccount guaranteeAccount) {
+        this.guaranteeAccount = guaranteeAccount;
     }
 }

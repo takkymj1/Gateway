@@ -9,20 +9,16 @@
     <retUrl>http://demo.creditcloud.com</retUrl>
     <maxTenderRate>0.10</maxTenderRate>
     <maxBorrowerRate>0.99</maxBorrowerRate>
-    <basedtConfig>
-        <accountType>BASEDT</accountType>
-        <accountId>accountId</accountId>
-    </basedtConfig>
-    <depConfig>
-        <accountType>DEP</accountType>
-        <accountId>accountId</accountId>
-    </depConfig>
-    <depConfig>
-        <accountType>BASEDT</accountType>
-        <accountId>accountId</accountId>
-    </basedtConfig>
-    <basedtConfig>
-        <accountType>BASEDT</accountType>
-        <accountId>accountId</accountId>
-    </basedtConfig>
+    <baseAccount>
+        <accountType>MERDT</accountType>
+        <accountId>MDT000001</accountId>
+    </baseAccount>
+    <guaranteeAccount>
+        <accountType>SPEDT</accountType>
+        <accountId>SDT000001</accountId>
+    </guaranteeAccount>
+    <feeAccount>
+        <accountType>SPEDT</accountType>
+        <accountId>SDT000002</accountId>
+    </feeAccount>
 </PaymentConfig>
