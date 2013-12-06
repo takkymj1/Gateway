@@ -37,7 +37,7 @@ public enum FundRecordType implements BaseEnum {
     FEE_LOAN_VISIT("实地考察费"),
     FEE_LOAN_GUARANTEE("担保费"),
     FEE_LOAN_PENALTY("逾期罚息"),
-    FEE_DEPOSITE("充值手续费");
+    FEE_DEPOSIT("充值手续费");
 
     private final String key;
 
