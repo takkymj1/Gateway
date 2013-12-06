@@ -35,7 +35,7 @@ public enum InvestStatus implements BaseEnum {
     /**
      * 被后台取消
      */
-    CANECELED("已取消"),
+    CANCELED("已取消"),
     /**
      * 完成资金结算,借贷关系确立
      */
@@ -62,17 +62,5 @@ public enum InvestStatus implements BaseEnum {
     @Override
     public String getKey() {
         return key;
-    }
-
-    public static boolean tryCancel(InvestStatus status) {
-        switch (status) {
-            case PROPOSED:
-            case FROZEN:
-            case FAILED:
-            case FINISHED:
-            case CANECELED:
-                return true;
-        }
-        return false;
     }
 }
