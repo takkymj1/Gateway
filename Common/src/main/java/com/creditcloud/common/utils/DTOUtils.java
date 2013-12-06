@@ -144,7 +144,7 @@ public class DTOUtils {
                 case FINISHED:
                     return InvestStatus.FINISHED;
                 case CANCELED:
-                    return InvestStatus.CANECELED;
+                    return InvestStatus.CANCELED;
                 case SETTLED:
                     return InvestStatus.SETTLED;
                 case CLEARED:
