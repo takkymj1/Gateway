@@ -12,6 +12,7 @@ import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Map;
 import javax.ejb.Remote;
 
@@ -85,6 +86,16 @@ public interface InvestService extends InvestRepayService {
      * the local client
      */
     boolean repayLoan(String clientCode, LoanRepayment loanRepay);
+
+    /**
+     * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差
+     *
+     * @param clientCode
+     * @param loanId
+     * @param period
+     * @return
+     */
+    BigDecimal calculateRepayAmount(String clientCode, LoanRepayment loanRepay);
 
     /**
      * 统计用户对贷款的投资信息
