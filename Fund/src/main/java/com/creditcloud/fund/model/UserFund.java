@@ -113,6 +113,7 @@ public class UserFund extends BaseObject {
     }
 
     //TODO for backward compatibility in jsp
+    @Deprecated
     public BigDecimal getRechargeAmount() {
         return depositAmount;
     }

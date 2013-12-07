@@ -204,16 +204,19 @@ public class FundRecord extends BaseObject {
     }
 
     //TODO for backward compatibility with jsp
+    @Deprecated
     public String getTransactionNumber() {
         return transactionId;
     }
 
     //TODO for backward compatibility with jsp
+    @Deprecated
     public String getOrderNumber() {
         return orderId;
     }
 
     //TODO for backward compatibility with jsp
+    @Deprecated
     public Date getRecordTime() {
         return timeRecorded;
     }
@@ -222,6 +225,7 @@ public class FundRecord extends BaseObject {
      * TODO for backward compatibility with jsp<p>
      * @see http://creditcloud.com:8082/browse/UND-18
      */
+    @Deprecated
     public String getMethod() {
         return "汇付天下";
     }

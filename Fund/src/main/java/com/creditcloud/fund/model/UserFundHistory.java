@@ -7,6 +7,7 @@ package com.creditcloud.fund.model;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
@@ -69,6 +70,15 @@ public class UserFundHistory extends BaseObject {
     @NotNull
     private final BigDecimal withdrawAmount;
 
+    /**
+     * 商户给用户的转账收入或者用户给商户的转账支出<p>
+     * 可能小于零
+     */
+    @Column(nullable = false,
+            precision = 15,
+            scale = 2)
+    private BigDecimal transferAmount;
+
     public UserFundHistory(String userId,
                            Date asOfDate,
                            BigDecimal availableAmount,
@@ -76,7 +86,8 @@ public class UserFundHistory extends BaseObject {
                            BigDecimal dueInAmount,
                            BigDecimal dueOutAmount,
                            BigDecimal depositAmount,
-                           BigDecimal withdrawAmount) {
+                           BigDecimal withdrawAmount,
+                           BigDecimal transferAmount) {
         this.userId = userId;
         this.asOfDate = asOfDate;
         this.availableAmount = availableAmount;
@@ -85,6 +96,7 @@ public class UserFundHistory extends BaseObject {
         this.dueOutAmount = dueOutAmount;
         this.depositAmount = depositAmount;
         this.withdrawAmount = withdrawAmount;
+        this.transferAmount = transferAmount;
     }
 
     public BigDecimal getAvailableAmount() {
@@ -111,11 +123,20 @@ public class UserFundHistory extends BaseObject {
         return userId;
     }
 
+    public BigDecimal getTransferAmount() {
+        return transferAmount;
+    }
+
+    public void setTransferAmount(BigDecimal transferAmount) {
+        this.transferAmount = transferAmount;
+    }
+
     /**
      * remove soon.for backward compatibility with jsp
      *
      * @return
      */
+    @Deprecated
     public BigDecimal getRechargeAmount() {
         return depositAmount;
     }
