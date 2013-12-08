@@ -33,12 +33,18 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
 
     protected abstract boolean checkLogin();
 
+    /**
+     * 检查当前用户是是否拥有<b>任意一个</b>要求的权限
+     * 
+     * @param privileges 要求的权限列表
+     * @return 
+     */
     protected abstract boolean checkPrivileges(final Privilege... privileges);
 
     @Override
     public void filter(ContainerRequestContext requestContext) {
 
-        Set<String> priv = new HashSet<String>();
+        Set<Privilege> priv = new HashSet<>();
 
         PrivilegeRequired pr = resourceInfo.get().getResourceClass().getAnnotation(PrivilegeRequired.class);
         if (pr != null && pr.value() != null && pr.value().length > 0) {

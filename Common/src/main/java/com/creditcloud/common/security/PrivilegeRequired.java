@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.security;
 
+import com.creditcloud.model.enums.client.Privilege;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -24,5 +25,5 @@ public @interface PrivilegeRequired {
      * 
      * @return 
      */
-    public String[] value();
+    public Privilege[] value();
 }
