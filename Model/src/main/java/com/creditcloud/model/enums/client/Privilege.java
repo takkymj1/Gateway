@@ -26,8 +26,15 @@ public enum Privilege implements BaseEnum {
      */
     EMPLOYEE_LIST("列出员工"),
     EMPLOYEE_DETAIL("查看员工详情"),
-    EMPLOYEE_ALTER("添加更改员工信息,包括员工的角色和权限"),
+    EMPLOYEE_ADD("添加员工记录"),
+    EMPLOYEE_ALTER("更改员工信息"),
     EMPLOYEE_DELETE("删除员工"),
+    EMPLOYEE_GRANT("调整员工权限"),
+    /**
+     * 组织结构相关
+     */
+    ROLE_VIEW("查看角色权限配置"),
+    ROLE_ASSIGN("分配角色权限"),
     /**
      * 贷款申请相关权限
      */
@@ -55,7 +62,17 @@ public enum Privilege implements BaseEnum {
      */
     TASK_ASSIGN("创建和分配任务"),
     TASK_UNDERTAKE("承接和执行任务"),
-    TASK_REVIEW("评审任务");
+    TASK_REVIEW("评审任务"),
+    
+    /**
+     * 资金相关
+     */
+    FUND_VIEW("查看平台资金"),
+    CASH_AUDIT("用户提现审批"),
+    FUND_DEPOSIT("商户充值"),
+    FUND_WITHDRAW("商户提现"),
+    FUND_TRANSFER("商户调账"),
+    FUND_USER_TRANSFER("商户向用户转账");
 
     private final String key;
 
