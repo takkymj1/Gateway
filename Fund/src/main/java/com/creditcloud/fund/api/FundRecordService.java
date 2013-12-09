@@ -145,6 +145,7 @@ public interface FundRecordService {
                             String orderId);
 
     /**
+     * 还款成功生成对应的record
      *
      * @param clientCode
      * @param investUserId
