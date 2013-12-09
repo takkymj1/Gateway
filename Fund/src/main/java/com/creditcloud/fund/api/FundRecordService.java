@@ -13,9 +13,12 @@ import com.creditcloud.fund.model.record.FundDeposit;
 import com.creditcloud.fund.model.record.FundInvest;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -108,4 +111,58 @@ public interface FundRecordService {
                                                  String withdrawId,
                                                  FundRecordOperation operation,
                                                  FundRecordStatus status);
+
+    /**
+     * 查看投标进行到那一步,投标成功、取消、已结算
+     *
+     * @param clientCode
+     * @param userId
+     * @param investId
+     * @return null for no record
+     */
+    Pair<FundRecordStatus, FundRecord> checkInvest(String clientCode,
+                                                   String userId,
+                                                   String investId);
+
+    /**
+     * 结标成功生成对应的record
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param investAmount
+     * @param loanUserId
+     * @param loanId
+     * @param fee
+     */
+    void settleInvestRecord(String clientCode,
+                            String investUserId,
+                            String investId,
+                            BigDecimal investAmount,
+                            String loanUserId,
+                            String loanId,
+                            Map<FundRecordType, BigDecimal> feeDetails,
+                            String orderId);
+
+    /**
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     * @param period
+     */
+    void repayInvestRecord(String clientCode,
+                           String investUserId,
+                           String investId,
+                           BigDecimal repayAmount,
+                           String loanUserId,
+                           String loanId,
+                           Map<FundRecordType, BigDecimal> feeDetails,
+                           String orderId,
+                           int period);
 }
