@@ -8,6 +8,7 @@ import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -17,25 +18,31 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class UsrAcctPayResponse extends UserResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("InAcctId")
     @NotNull
     @Size(max = 9)
     private String InAcctId;
 
+    @FormParam("InAcctType")
     @NotNull
     @Size(max = 6)
     private String InAcctType;
 
+    @FormParam("RetUrl")
     @PnRReturnURL
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @PnRReturnURL
     private String BgRetUrl;
