@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
  * @author rooseek
  */
 public class ClientFundRecord extends BaseObject {
-
+    
     private String id;
 
     /**

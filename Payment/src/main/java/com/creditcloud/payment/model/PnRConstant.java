@@ -51,9 +51,20 @@ public interface PnRConstant {
     String REPEATE_TRANSACTION = "107";
 
     /**
+     * 已放款金额加本次放款金额超过投资人原单中的投资金额
+     */
+    String BID_LENDAMT_EQUALS_BIDAMT_ERROR = "334";
+    
+    /**
+     * 本次还款金额加上已还款金额超过还款总额
+     */
+    String  BID_RET_COUNT_ERROR = "349";
+
+    /**
      * 不是汇付定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号
      */
     String ACCOUNT_NOT_FOUND_CODE = "account.not.found";
 
     String ACCOUNT_NOT_FOUND_DESC = "未找到支付账号";
+
 }
