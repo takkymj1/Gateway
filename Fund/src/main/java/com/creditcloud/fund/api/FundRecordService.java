@@ -4,6 +4,7 @@
  */
 package com.creditcloud.fund.api;
 
+import com.creditcloud.fund.model.ClientFundRecord;
 import com.creditcloud.fund.model.record.FundRecord;
 import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
@@ -27,6 +28,12 @@ import org.apache.commons.lang3.tuple.Pair;
 @Remote
 public interface FundRecordService {
 
+    /**
+     * 
+     * @param clientCode
+     * @param id
+     * @return 
+     */
     public FundRecord getById(String clientCode, String id);
 
     /**
@@ -94,18 +101,62 @@ public interface FundRecordService {
      */
     public List<FundWithdraw> listWithdrawRequest(String clientCode);
 
-    FundInvest getFundInvestByOrderId(String clientCode, String userId, String pnrOrderId);
+    /**
+     * 根据orderId查找FundInvest
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    FundInvest getFundInvestByOrderId(String clientCode, String userId, String orderId);
 
-    FundDeposit getFundDepositByOrderId(String clientCode, String userId, String pnrOrderId);
+    /**
+     * 根据orderId查找FundDeposit
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    FundDeposit getFundDepositByOrderId(String clientCode, String userId, String orderId);
 
-    FundWithdraw getFundWithdrawByOrderId(String clientCode, String userId, String pnrOrderId);
+    /**
+     * 根据orderId查找FundWithdraw
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    FundWithdraw getFundWithdrawByOrderId(String clientCode, String userId, String orderId);
 
+    /**
+     * 根据operation和status查找FundInvest
+     *
+     * @param clientCode
+     * @param userId
+     * @param investId
+     * @param operation
+     * @param status
+     * @return
+     */
     FundInvest getFundInvestByOperationAndStatus(String clientCode,
                                                  String userId,
                                                  String investId,
                                                  FundRecordOperation operation,
                                                  FundRecordStatus status);
 
+    /**
+     * 根据operation和status查找FundWithdraw
+     *
+     * @param clientCode
+     * @param userId
+     * @param withdrawId
+     * @param operation
+     * @param status
+     * @return
+     */
     FundWithdraw getWithdrawByOperationAndStatus(String clientCode,
                                                  String userId,
                                                  String withdrawId,
@@ -166,4 +217,52 @@ public interface FundRecordService {
                            Map<FundRecordType, BigDecimal> feeDetails,
                            String orderId,
                            int period);
+
+    /**
+     * 商户子账户之间转账
+     *
+     * @param clientCode
+     * @param inAccount 入账子账户
+     * @param outAccount 出账子账户
+     * @param amount
+     */
+    void clientTransfer(String clientCode,
+                        String inAccount,
+                        BigDecimal amount,
+                        String outAccount,
+                        String orderId);
+
+    /**
+     * 商户和用户之间转账
+     *
+     * @param clientCode
+     * @param account 商户子账户
+     * @param amount
+     * @param userId 用户
+     * @param transferIn true for transfer from client to user
+     */
+    void userTransfer(String clientCode,
+                      String account,
+                      BigDecimal amount,
+                      String userId,
+                      boolean transferIn,
+                      String orderId);
+
+    /**
+     * 列出商户资金记录
+     *
+     * @param clientCode
+     * @param account
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param type
+     * @return
+     */
+    PagedResult<ClientFundRecord> listClientFundRecord(String clientCode,
+                                                       String account,
+                                                       Date from,
+                                                       Date to,
+                                                       PageInfo pageInfo,
+                                                       FundRecordType... type);
 }

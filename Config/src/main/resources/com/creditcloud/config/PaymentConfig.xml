@@ -7,6 +7,8 @@
     <url>http://test.chinapnr.com</url>
     <path>/muser/publicRequests</path>
     <retUrl>http://demo.creditcloud.com</retUrl>
+    <adminRetUrl>http://admin.creditcloud.com</adminRetUrl>
+    <deviceRetUrl>http://device.creditcloud.com</deviceRetUrl>
     <maxTenderRate>0.10</maxTenderRate>
     <maxBorrowerRate>0.99</maxBorrowerRate>
     <baseAccount>
