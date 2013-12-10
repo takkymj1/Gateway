@@ -35,10 +35,10 @@ public class CertificateTypeWeightConfig extends BaseConfig {
         CertificateType[] values = CertificateType.values();
         for(int i = 0, n = values.length, m = weights.length; i < n; i++){
             if (i > m - 1) {
-                BigDecimal weight = new BigDecimal(weights[i]);
+                BigDecimal weight = new BigDecimal(0);
                 weightMap.put(values[i].name(), weight);
             } else {
-                BigDecimal weight = new BigDecimal(0);
+                BigDecimal weight = new BigDecimal(weights[i]);
                 weightMap.put(values[i].name(), weight);
             }
         }
