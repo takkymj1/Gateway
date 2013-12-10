@@ -28,18 +28,18 @@ public class CertificateTypeWeightConfig extends BaseConfig {
     @XmlElement(name = "CertificateType", required = true)
     private String type;
     
-    public HashMap<String, BigDecimal> getCertificateTypeWeight(){
-        HashMap<String, BigDecimal> weightMap = new HashMap<>();
-        String[] weights = type.split(" ");
+    public HashMap<CertificateType, BigDecimal> getCertificateTypeWeight(){
+        HashMap<CertificateType, BigDecimal> weightMap = new HashMap<>();
+        String[] weights = type.split(",");
         
         CertificateType[] values = CertificateType.values();
         for(int i = 0, n = values.length, m = weights.length; i < n; i++){
             if (i > m - 1) {
-                BigDecimal weight = new BigDecimal(0);
-                weightMap.put(values[i].name(), weight);
+                BigDecimal weight = new BigDecimal(1);
+                weightMap.put(values[i], weight);
             } else {
                 BigDecimal weight = new BigDecimal(weights[i]);
-                weightMap.put(values[i].name(), weight);
+                weightMap.put(values[i], weight);
             }
         }
         return weightMap;
