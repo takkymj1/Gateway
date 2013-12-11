@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.misc.Province;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
+import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentResult;
 import com.creditcloud.payment.model.TransferResult;
 import com.creditcloud.payment.model.UnFreezeResult;
@@ -397,11 +398,13 @@ public interface PaymentService {
      * @param amount
      * @param orderId
      * @param BgRetUrl
+     * @param forUser true for merCash for user, false for client
      * @return
      */
-    public PaymentResult merCash(String clientCode,
+    public MerCashResult merCash(String clientCode,
                                  String userId,
                                  BigDecimal amount,
                                  String orderId,
-                                 String BgRetUrl);
+                                 String BgRetUrl,
+                                 boolean forUser);
 }
