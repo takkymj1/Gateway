@@ -8,6 +8,7 @@ package com.creditcloud.payment.model.chinapnr;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,20 +17,25 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class UserUnFreezeResponse extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("OrdDate")
     @NotNull
     @Size(min = 8, max = 8)
     private String OrdDate;
 
+    @FormParam("TrxId")
     @NotNull
     @Size(min = 18, max = 18)
     private String TrxId;
 
+    @FormParam("RetUrl")
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     private String BgRetUrl;
 

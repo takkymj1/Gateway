@@ -53,6 +53,11 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jasypt</groupId>
+            <artifactId>jasypt</artifactId>
+            <version>1.9.1</version>
+        </dependency>
         <!-- Commons -->
         <dependency>
             <groupId>commons-codec</groupId>

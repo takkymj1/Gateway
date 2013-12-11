@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config.api;
 
+import com.creditcloud.config.CertificateTypeWeightConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
@@ -36,4 +37,6 @@ public interface ConfigManager {
     public PaymentConfig getPaymentConfig();
 
     public CreditManagerConfig getCreditManagerConfig();
+    
+    public CertificateTypeWeightConfig getCertificateTypeWeightConfig();
 }
