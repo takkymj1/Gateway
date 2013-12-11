@@ -260,7 +260,7 @@ public interface FundRecordService {
      * @return
      */
     PagedResult<ClientFundRecord> listClientFundRecord(String clientCode,
-                                                       String account,
+                                                       List<String> accountList,
                                                        Date from,
                                                        Date to,
                                                        PageInfo pageInfo,
