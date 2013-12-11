@@ -22,7 +22,7 @@ public abstract class AbstractEncryptConverter implements Converter {
 
     static {
         BTE = new BasicTextEncryptor();
-        BTE.setPassword("CreditCloudRock!".concat(SecurityUtils.readSaltFile()));
+        BTE.setPassword(SecurityUtils.readSaltFile());
     }
 
     @Override
