@@ -7,6 +7,7 @@ package com.creditcloud.payment.model.chinapnr.transfer;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,32 +17,40 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class TransferResponse extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("OutCustId")
     @NotNull
     @Size(max = 16)
     private String OutCustId;
 
+    @FormParam("OutAcctId")
     @NotNull
     @Size(max = 9)
     private String OutAcctId;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("InCustId")
     @NotNull
     @Size(max = 16)
     private String InCustId;
 
+    @FormParam("InAcctId")
     @Size(max = 9)
     private String InAcctId;
 
+    @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
@@ -112,9 +121,9 @@ public class TransferResponse extends BaseResponse {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
-    
+
     @Override
-    public String getMerCustId(){
+    public String getMerCustId() {
         return OutCustId;
     }
 

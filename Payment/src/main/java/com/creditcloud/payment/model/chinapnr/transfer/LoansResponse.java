@@ -7,6 +7,7 @@ package com.creditcloud.payment.model.chinapnr.transfer;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,55 +17,69 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class LoansResponse extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("OrdDate")
     @NotNull
     @Size(min = 8, max = 8)
     private String OrdDate;
 
+    @FormParam("OutCustId")
     @NotNull
     @Size(max = 16)
     private String OutCustId;
 
+    @FormParam("OutAcctId")
     @Size(max = 9)
     private String OutAcctId;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("Fee")
     @NotNull
     @Size(max = 12)
     private String Fee;
 
+    @FormParam("InCustId")
     @NotNull
     @Size(max = 16)
     private String InCustId;
 
+    @FormParam("InAcctId")
     @Size(max = 9)
     private String InAcctId;
 
+    @FormParam("SubOrdId")
     @NotNull
     @Size(max = 20)
     private String SubOrdId;
 
+    @FormParam("SubOrdDate")
     @NotNull
     @Size(min = 8, max = 8)
     private String SubOrdDate;
 
+    @FormParam("IsDefault")
     @NotNull
     @Size(min = 1, max = 1)
     private String IsDefault;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
 
+    @FormParam("OpenBankId")
     @Size(max = 8)
     private String OpenBankId;
 
+    @FormParam("OpenAcctId")
     @Size(max = 40)
     private String OpenAcctId;
 
