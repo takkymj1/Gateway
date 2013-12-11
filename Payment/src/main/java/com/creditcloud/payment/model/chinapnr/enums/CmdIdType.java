@@ -47,6 +47,7 @@ public enum CmdIdType {
     Transfer,
     CashAudit,
     Cash,
+    MerCash,
     UsrAcctPay,
     QueryBalance,
     /**

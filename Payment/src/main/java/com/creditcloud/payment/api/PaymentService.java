@@ -388,4 +388,20 @@ public interface PaymentService {
                                    String orderId,
                                    String checkDate,
                                    String BgRetUrl);
+
+    /**
+     * 商户代取现接口
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount
+     * @param orderId
+     * @param BgRetUrl
+     * @return
+     */
+    public PaymentResult merCash(String clientCode,
+                                 String userId,
+                                 BigDecimal amount,
+                                 String orderId,
+                                 String BgRetUrl);
 }

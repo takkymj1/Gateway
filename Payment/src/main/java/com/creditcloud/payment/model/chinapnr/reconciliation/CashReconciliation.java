@@ -49,6 +49,10 @@ public class CashReconciliation extends BaseObject {
     @NotNull
     private String PnrSeqId;
 
+    @NotNull
+    @Size(max = 14)
+    private String FeeAmt;
+
     public CashReconciliation() {
     }
 
@@ -59,7 +63,8 @@ public class CashReconciliation extends BaseObject {
                               BigDecimal TransAmt,
                               TransStat TransStat,
                               String PnrDate,
-                              String PnrSeqId) {
+                              String PnrSeqId,
+                              String FeeAmt) {
         this.OrdId = OrdId;
         this.MerCustId = MerCustId;
         this.UsrCustId = UsrCustId;
@@ -68,6 +73,7 @@ public class CashReconciliation extends BaseObject {
         this.TransStat = TransStat;
         this.PnrDate = PnrDate;
         this.PnrSeqId = PnrSeqId;
+        this.FeeAmt = FeeAmt;
     }
 
     public String getOrdId() {
@@ -132,5 +138,13 @@ public class CashReconciliation extends BaseObject {
 
     public void setPnrSeqId(String PnrSeqId) {
         this.PnrSeqId = PnrSeqId;
+    }
+
+    public String getFeeAmt() {
+        return FeeAmt;
+    }
+
+    public void setFeeAmt(String FeeAmt) {
+        this.FeeAmt = FeeAmt;
     }
 }
