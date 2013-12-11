@@ -39,7 +39,7 @@ public final class SecurityUtils {
      * @return 
      */
     public static String readSaltFile() {
-        String salt = "CreditCloudRocks!!!";
+        String salt = "CreditCloudRock!";
         File file = new File(GlobalConstant.CREDITCLOUD_HOME + "/salt.donotchange");
         if (file.exists() && file.canRead()) {
             try(Scanner scanner = new Scanner(file)) {
