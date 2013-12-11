@@ -5,6 +5,7 @@
  */
 package com.creditcloud.common.entities.utils;
 
+import com.creditcloud.common.security.SecurityUtils;
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.sessions.Session;
@@ -21,7 +22,7 @@ public abstract class AbstractEncryptConverter implements Converter {
 
     static {
         BTE = new BasicTextEncryptor();
-        BTE.setPassword("CreditCloudRock!");
+        BTE.setPassword("CreditCloudRock!".concat(SecurityUtils.readSaltFile()));
     }
 
     @Override
