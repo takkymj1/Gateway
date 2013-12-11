@@ -248,21 +248,4 @@ public interface FundRecordService {
                       boolean transferIn,
                       String orderId);
 
-    /**
-     * 列出商户资金记录
-     *
-     * @param clientCode
-     * @param account
-     * @param from
-     * @param to
-     * @param pageInfo
-     * @param type
-     * @return
-     */
-    PagedResult<ClientFundRecord> listClientFundRecord(String clientCode,
-                                                       List<String> accountList,
-                                                       Date from,
-                                                       Date to,
-                                                       PageInfo pageInfo,
-                                                       FundRecordType... type);
 }
