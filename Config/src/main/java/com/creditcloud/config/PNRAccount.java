@@ -30,13 +30,14 @@ public class PNRAccount extends BaseObject {
      */
     @XmlElement(required = true)
     private String accountId;
+    
+    /**
+     * 账户中文名称
+     */
+    @XmlElement(required = true)
+    private String name;
 
     public PNRAccount() {
-    }
-
-    public PNRAccount(String accountType, String accountId) {
-        this.accountType = accountType;
-        this.accountId = accountId;
     }
 
     public String getAccountType() {
@@ -45,5 +46,9 @@ public class PNRAccount extends BaseObject {
 
     public String getAccountId() {
         return accountId;
+    }
+    
+    public String getName() {
+        return name;
     }
 }
