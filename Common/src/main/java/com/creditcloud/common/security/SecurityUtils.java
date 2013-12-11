@@ -4,8 +4,12 @@
  */
 package com.creditcloud.common.security;
 
+import com.creditcloud.model.constant.GlobalConstant;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Scanner;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -28,6 +32,26 @@ public final class SecurityUtils {
      * 没有字母i和o，防止混淆
      */
     private static final String randomChars = "abcdefghjklmnpqrstuvwxyz";
+    
+    /**
+     * 从CreditCloud Home读取salt文件内容，没有则返回默认值
+     * 
+     * @return 
+     */
+    public static String readSaltFile() {
+        String salt = "CreditCloudRocks!!!";
+        File file = new File(GlobalConstant.CREDITCLOUD_HOME + "/salt.donotchange");
+        if (file.exists() && file.canRead()) {
+            try(Scanner scanner = new Scanner(file)) {
+                if (scanner.hasNext()) {
+                    salt = scanner.nextLine();
+                }
+            } catch (Exception ex) {
+                logger.error("Error reading salt file !", ex);
+            }
+        }
+        return salt;
+    }
 
     /**
      * Salt is Base64(now + identity)
