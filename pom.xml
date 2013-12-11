@@ -15,7 +15,6 @@
     <name>Gateway</name>
     <modules>
         <module>Common</module>
-        <module>Service</module>
         <module>Model</module>
         <module>Client</module>
         <module>Config</module>
