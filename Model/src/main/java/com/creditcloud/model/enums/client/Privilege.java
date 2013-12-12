@@ -36,27 +36,28 @@ public enum Privilege implements BaseEnum {
     ROLE_VIEW("查看角色权限配置"),
     ROLE_ASSIGN("分配角色权限"),
     /**
-     * 贷款申请相关权限
+     * 借款申请相关权限
      */
-    LOANREQUEST_LIST("列出贷款申请"),
-    LOANREQUEST_DETAIL("查看贷款申请详情,包括申请的各种认证信息"),
-    LOANREQUEST_ALTER("更改贷款申请信息,包括上传申请认证信息"),
+    LOANREQUEST_LIST("列出借款申请"),
+    LOANREQUEST_DETAIL("查看借款申请详情，包括申请的各种认证信息"),
+    LOANREQUEST_ALTER("更改借款申请信息，包括上传申请认证信息"),
+    LOANREQUEST_QUICK("快速录入借款申请，包括用户及其银行卡"),
     /**
-     * 调控贷款申请的流程<p>
-     * 例如申请提交后先让初审和(风控)人员审核贷款和客户信息<p>
+     * 调控借款申请的流程<p>
+     * 例如申请提交后先让初审和(风控)人员审核借款和客户信息<p>
      * 根据初审意见再給外勤人员分配实地勘察任务,外勤人员完成任务后任务评审通过.<p>
      * 再推进流程让风控人员介入评审制定授信额度等<p>
      * 出现逾期和违约时再分配催款任务让外勤人员介入
      */
-    LOANREQUEST_REVIEW("贷款申请评审"),
-    LOANREQUEST_APPROVE("批准贷款申请"),
-    LOANREQUEST_REJECT("拒绝贷款申请,添加审批意见后打回用户"),
+    LOANREQUEST_REVIEW("借款申请评审"),
+    LOANREQUEST_APPROVE("批准借款申请"),
+    LOANREQUEST_REJECT("拒绝借款申请，添加审批意见后打回用户"),
     /**
-     * 贷款相关权限
+     * 借款相关权限
      */
-    LOAN_SPLIT("贷款申请批准后拆标"),
+    LOAN_SPLIT("借款申请批准后拆标"),
     LOAN_SCHEDULE("拆标后发标"),
-    LOAN_SETTLE("贷款满标后审核并结算"),
+    LOAN_SETTLE("借款满标后审核并结算"),
     /**
      * 任务相关权限
      */
