@@ -68,10 +68,10 @@ public interface LoanConstant {
     /**
      * 单笔投资最小金额
      */
-    int MIN_INVEST_AMOUNT = 50;
+    int MIN_INVEST_AMOUNT = 10;
 
     /**
-     * 单笔投资需按照50递增
+     * 单笔投资需按照10递增
      */
     int INVEST_AMOUNT_INCREMENT = 10;
 
