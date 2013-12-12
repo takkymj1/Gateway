@@ -19,6 +19,9 @@ public class PaymentResult extends BaseObject {
     public static final PaymentResult ACCOUNT_NOT_FOUND = new PaymentResult(PnRConstant.ACCOUNT_NOT_FOUND_CODE,
                                                                             PnRConstant.ACCOUNT_NOT_FOUND_DESC);
 
+    public static final PaymentResult VERIFY_FAILED = new PaymentResult("verify.failed",
+                                                                        "Response验证失败");
+
     /**
      * 返回码
      */

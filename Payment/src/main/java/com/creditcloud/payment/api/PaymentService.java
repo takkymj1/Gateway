@@ -8,6 +8,7 @@ package com.creditcloud.payment.api;
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.enums.misc.City;
 import com.creditcloud.model.enums.misc.Province;
+import com.creditcloud.payment.model.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
@@ -146,7 +147,7 @@ public interface PaymentService {
      * @param BgRetUr 后台返回的回调路径
      * @return
      */
-    public PaymentResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
+    public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
 
     /**
      * 放款
