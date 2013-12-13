@@ -88,6 +88,7 @@ public interface PaymentService {
      * @param orderId
      * @param BorrowerDetails
      * @param BgRetUrl
+     * @param merPriv
      * @return
      */
     public PaymentResult autoTender(String clientCode,
@@ -95,7 +96,8 @@ public interface PaymentService {
                                     BigDecimal amount,
                                     String orderId,
                                     List<BorrowerDetail> BorrowerDetails,
-                                    String BgRetUrl);
+                                    String BgRetUrl,
+                                    String merPriv);
 
     /**
      * 查询自动投标计划状态
@@ -114,13 +116,15 @@ public interface PaymentService {
      * @param orderId 此次操作的唯一订单号
      * @param amount
      * @param BgRetUrl 后台返回的回调路径
+     * @param merPriv
      * @return 如果找不到userId对应的支付账号返回null
      */
     public FreezeResult userFreeze(String clientCode,
                                    String userId,
                                    BigDecimal amount,
                                    String orderId,
-                                   String BgRetUrl);
+                                   String BgRetUrl,
+                                   String merPriv);
 
     /**
      * 解冻指定用户的资金
@@ -129,12 +133,14 @@ public interface PaymentService {
      * @param orderId
      * @param trxId
      * @param BgRetUrl
+     * @param merPriv
      * @return 如果找不到userId对应的支付账号返回null
      */
     public UnFreezeResult userUnFreeze(String clientCode,
                                        String orderId,
                                        String trxId,
-                                       String BgRetUrl);
+                                       String BgRetUrl,
+                                       String merPriv);
 
     /**
      * 取现复核
@@ -147,7 +153,12 @@ public interface PaymentService {
      * @param BgRetUr 后台返回的回调路径
      * @return
      */
-    public CashAuditResult cashAudit(String clientCode, String userId, BigDecimal amount, String orderId, AuditFlag auditFlag, String BgRetUr);
+    public CashAuditResult cashAudit(String clientCode,
+                                     String userId, 
+                                     BigDecimal amount,
+                                     String orderId, 
+                                     AuditFlag auditFlag, 
+                                     String BgRetUr);
 
     /**
      * 放款
@@ -163,6 +174,7 @@ public interface PaymentService {
      * @param details 分账账户串
      * @param isDefault 是否需要在放款后发起自动取现
      * @param BgRetUrl
+     * @param merPriv
      * @return
      */
     public PaymentResult loan(String clientCode,
@@ -175,7 +187,8 @@ public interface PaymentService {
                               String loanUserId,
                               List<DivDetail> details,
                               IsDefault isDefault,
-                              String BgRetUrl);
+                              String BgRetUrl,
+                              String merPriv);
 
     /**
      * 还款
@@ -190,6 +203,7 @@ public interface PaymentService {
      * @param investUserId 投资人id
      * @param details 分账信息
      * @param BgRetUrl
+     * @param merPriv
      * @return
      */
     public PaymentResult repay(String clientCode,
@@ -201,7 +215,8 @@ public interface PaymentService {
                                BigDecimal fee,
                                String investUserId,
                                List<DivDetail> details,
-                               String BgRetUrl);
+                               String BgRetUrl,
+                               String merPriv);
 
     /**
      * 自动扣款转账(商户用)
