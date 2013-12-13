@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <CertificateTypeWeightConfig>
-    <CertificateType>1 1 1 1 1 1 1 3 2 1 1 1</CertificateType>
+    <CertificateType>1,1,1,1,1,1,1,3,2,1,1,1</CertificateType>
 </CertificateTypeWeightConfig>
