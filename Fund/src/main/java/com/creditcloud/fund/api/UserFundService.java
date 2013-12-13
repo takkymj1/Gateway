@@ -119,16 +119,14 @@ public interface UserFundService {
      * 如果批准<p>
      * 可用金额-＝outAmount<p>
      * 提现金额+= withdrawAmount<p>
-     * 如果驳回 暂时什么都不做<p>
      *
      * @param clientCode
      * @param userId
      * @param outAmount 实际出账金额,包含取现费用和实际到卡金额
      * @param withdrawAmount 实际到卡金额
-     * @param approved true for approved, false for rejected
      * @return
      */
-    public boolean withdraw(String clientCode, String userId, BigDecimal outAmount, BigDecimal withdrawAmount, boolean approved);
+    public boolean withdraw(String clientCode, String userId, BigDecimal outAmount, BigDecimal withdrawAmount);
 
     /**
      * 用户可用金额转入或者转出<p>
