@@ -27,7 +27,6 @@
         <module>User</module>
         <module>Comment</module>
         <module>File</module>
-        <module>Payment</module>
         <module>Task</module>
         <module>Contract</module>
         <module>Fund</module>
