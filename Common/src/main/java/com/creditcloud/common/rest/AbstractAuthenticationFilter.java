@@ -65,7 +65,8 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
             throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
         if (privileges.length > 0 && !checkPrivileges(privileges)) {
-            throw new WebApplicationException(Response.Status.FORBIDDEN);
+            request.get().setAttribute("insufficientPrivilege", privileges[0].getKey());
+            throw new WebApplicationException(privileges[0].getKey(), Response.Status.FORBIDDEN);
         }
     }
 }
