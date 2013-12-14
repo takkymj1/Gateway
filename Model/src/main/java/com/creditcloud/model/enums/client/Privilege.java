@@ -73,7 +73,11 @@ public enum Privilege implements BaseEnum {
     FUND_DEPOSIT("商户充值"),
     FUND_WITHDRAW("商户提现"),
     FUND_TRANSFER("商户调账"),
-    FUND_USER_TRANSFER("商户向用户转账");
+    FUND_USER_TRANSFER("商户向用户转账"),
+    /**
+     * 其他
+     */
+    CONTRACT_VIEW("查看借款合同");
 
     private final String key;
 
