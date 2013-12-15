@@ -6,7 +6,6 @@ package com.creditcloud.common.security;
 
 import com.creditcloud.model.constant.GlobalConstant;
 import java.io.File;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Scanner;
@@ -34,7 +33,9 @@ public final class SecurityUtils {
     private static final String randomChars = "abcdefghjklmnpqrstuvwxyz";
     
     /**
-     * 从CreditCloud Home读取salt文件内容，没有则返回默认值
+     * 从CreditCloud Home读取salt文件内容，没有则返回默认值.
+     * 
+     * 读取后与Default Salt进行blend操作进一步混淆
      * 
      * @return 
      */
@@ -44,7 +45,8 @@ public final class SecurityUtils {
         if (file.exists() && file.canRead()) {
             try(Scanner scanner = new Scanner(file)) {
                 if (scanner.hasNext()) {
-                    salt = scanner.nextLine();
+                    String content = scanner.nextLine().trim();
+                    salt = new String(blend(salt.getBytes(), content.getBytes()));
                 }
             } catch (Exception ex) {
                 logger.error("Error reading salt file !", ex);

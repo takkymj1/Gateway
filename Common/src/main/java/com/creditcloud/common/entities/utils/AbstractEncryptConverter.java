@@ -6,10 +6,14 @@
 package com.creditcloud.common.entities.utils;
 
 import com.creditcloud.common.security.SecurityUtils;
+import com.creditcloud.common.security.TextCipher;
+import com.creditcloud.common.security.impl.DESTextCipher;
+import java.security.GeneralSecurityException;
 import org.eclipse.persistence.mappings.DatabaseMapping;
 import org.eclipse.persistence.mappings.converters.Converter;
 import org.eclipse.persistence.sessions.Session;
-import org.jasypt.util.text.BasicTextEncryptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 需要将数据库中内容换为加密内容的Converter的基类
@@ -17,17 +21,33 @@ import org.jasypt.util.text.BasicTextEncryptor;
  * @author sobranie
  */
 public abstract class AbstractEncryptConverter implements Converter {
+    
+    Logger logger = LoggerFactory.getLogger(AbstractEncryptConverter.class);
 
-    protected static final BasicTextEncryptor BTE;
-
-    static {
-        BTE = new BasicTextEncryptor();
-        BTE.setPassword(SecurityUtils.readSaltFile());
-    }
+    private final TextCipher cipher = new DESTextCipher();
 
     @Override
     public Object convertObjectValueToDataValue(Object objectValue, Session session) {
-        return BTE.encrypt((String) objectValue);
+        if (objectValue != null && convertObjectValue(objectValue)) {
+            try {
+                return cipher.encrypt((String) objectValue);
+            } catch (GeneralSecurityException ex) {
+                logger.error("Can't encrypt objectValue.[objectValue={}]", (String) objectValue, ex);
+            }
+        }
+        return objectValue;
+    }
+    
+    @Override
+    public Object convertDataValueToObjectValue(Object dataValue, Session session) {
+        if (dataValue != null && convertDataValue(dataValue)) {
+            try {
+                return cipher.decrypt((String) dataValue);
+            } catch (GeneralSecurityException ex) {
+                logger.error("Can't decrypt dataValue.[dataValue={}]", (String) dataValue, ex);
+            }
+        }
+        return dataValue;
     }
 
     @Override
@@ -37,5 +57,24 @@ public abstract class AbstractEncryptConverter implements Converter {
 
     @Override
     public void initialize(DatabaseMapping mapping, Session session) {
+        String salt = SecurityUtils.readSaltFile();
+        cipher.init(salt);
+        logger.debug("TC init.[salt={}]", salt);
     }
+    
+    /**
+     * 判断是否需要转化对象值
+     * 
+     * @param objectValue
+     * @return 
+     */
+    protected abstract boolean convertObjectValue(Object objectValue);
+    
+    /**
+     * 判断是否需要转化数据库值
+     * 
+     * @param dataValue
+     * @return 
+     */
+    protected abstract boolean convertDataValue(Object dataValue);
 }

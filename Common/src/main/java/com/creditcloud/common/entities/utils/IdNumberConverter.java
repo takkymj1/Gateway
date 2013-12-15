@@ -5,8 +5,6 @@
  */
 package com.creditcloud.common.entities.utils;
 
-import org.eclipse.persistence.sessions.Session;
-
 /**
  * 将IdNumber列的数据进行明文、密文转化
  * 
@@ -14,20 +12,20 @@ import org.eclipse.persistence.sessions.Session;
  */
 public class IdNumberConverter extends AbstractEncryptConverter {
 
+    @Override
+    protected boolean convertObjectValue(Object objectValue) {
+        return objectValue != null;
+    }
+
     /**
      * 原有内容为明文时不转化
      * 
      * @param dataValue
-     * @param session
      * @return 
      */
     @Override
-    public Object convertDataValueToObjectValue(Object dataValue, Session session) {
+    protected boolean convertDataValue(Object dataValue) {
         String dbValue = (String) dataValue;
-        if (dbValue.matches("\\d{18}|\\d{17}X|\\d{17}x")) {
-            return dbValue;
-        } else {
-            return BTE.decrypt(dbValue);
-        }
+        return !dbValue.matches("\\d{18}|\\d{17}X|\\d{17}x");
     }
 }
