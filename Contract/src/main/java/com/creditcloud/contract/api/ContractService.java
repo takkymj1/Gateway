@@ -26,6 +26,8 @@ public interface ContractService {
      * 生成一份普通的平台借款合同.
      * 
      * 只是触发远程的生成过程，为异步调用
+     * 
+     * 借款合同命名为 loan title + investor + obligator + date，合同名称不是唯一的！
      *
      * @param client 平台
      * @param invest 投资
@@ -42,11 +44,19 @@ public interface ContractService {
     /**
      * 读取借款协议.
      * 
-     * 包含内容
-     * 
      * @param clientCode
      * @param investId
+     * @param withContent 是否同时取出内容
      * @return 
      */
-    Contract getLoanContract(String clientCode, String investId);
+    Contract getLoanContract(String clientCode, String investId, boolean withContent);
+    
+    /**
+     * 直接获取Contract内容
+     * 
+     * @param clientCode
+     * @param contractId
+     * @return contract不存在返回null
+     */
+    byte[] getContractContent(String clientCode, String contractId);
 }
