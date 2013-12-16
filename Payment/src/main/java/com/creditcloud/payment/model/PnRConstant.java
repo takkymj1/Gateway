@@ -48,7 +48,7 @@ public interface PnRConstant {
     /**
      * 解冻时候如果已经解冻成功会报 107 重复交易,这种情况也可以认为是成功
      */
-    String REPEATE_TRANSACTION = "107";
+    String REPEATED_TRANSACTION = "107";
 
     /**
      * 已放款金额加本次放款金额超过投资人原单中的投资金额
