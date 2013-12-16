@@ -7,6 +7,7 @@ package com.creditcloud.model.client;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.constraints.ClientURL;
+import com.creditcloud.model.constraints.MobileNumber;
 import java.util.Locale;
 import javax.validation.constraints.NotNull;
 
@@ -30,6 +31,18 @@ public class Client extends BaseObject {
      */
     @NotNull
     private String shortName;
+    
+    /**
+     * 显示在Market上的title
+     */
+    @NotNull
+    private String title;
+    
+    /**
+     * 系统使用的手机，用于发送重要消息
+     */
+    @MobileNumber
+    private String mobile;
 
     /**
      * 4 characters codes 唯一标识
@@ -54,11 +67,15 @@ public class Client extends BaseObject {
 
     public Client(String name,
                   String shortName,
+                  String title,
+                  String mobile,
                   String code,
                   String url,
                   Locale locale) {
         this.name = name;
         this.shortName = shortName;
+        this.title = title;
+        this.mobile = mobile;
         this.code = code;
         this.url = url;
         this.locale = locale;
@@ -102,5 +119,21 @@ public class Client extends BaseObject {
 
     public void setShortName(String shortName) {
         this.shortName = shortName;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }
