@@ -6,6 +6,7 @@ package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constant.LoanConstant;
+import static com.creditcloud.model.constant.TimeConstant.MONTHS_PER_YEAR;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.persistence.Embeddable;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -103,5 +104,9 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
             return false;
         }
         return true;
+    }
+    
+    public int getTotalMonths() {
+        return years * MONTHS_PER_YEAR + months;
     }
 }
