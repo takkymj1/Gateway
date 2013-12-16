@@ -29,12 +29,22 @@ import org.apache.commons.lang3.tuple.Pair;
 public interface FundRecordService {
 
     /**
-     * 
+     *
      * @param clientCode
      * @param id
+     * @return
+     */
+    FundRecord getById(String clientCode, String id);
+
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param type
+     * @param orderId
      * @return 
      */
-    public FundRecord getById(String clientCode, String id);
+    FundRecord getByUserAndTypeAndOrderId(String clientCode, String userId, FundRecordType type, String orderId);
 
     /**
      * create new fund record
@@ -43,7 +53,7 @@ public interface FundRecordService {
      * @param record
      * @return
      */
-    public FundRecord addNew(String clientCode, FundRecord record);
+    FundRecord addNew(String clientCode, FundRecord record);
 
     /**
      * update exist fund record
@@ -51,7 +61,7 @@ public interface FundRecordService {
      * @param clientCode
      * @param record
      */
-    public void update(String clientCode, FundRecord record);
+    void update(String clientCode, FundRecord record);
 
     /**
      * 更新FundRecord状态
@@ -59,7 +69,7 @@ public interface FundRecordService {
      * @param clientCode
      * @param status
      */
-    public void updateStatus(String clientCode, String recordId, FundRecordStatus status);
+    void updateStatus(String clientCode, String recordId, FundRecordStatus status);
 
     /**
      *
@@ -71,12 +81,12 @@ public interface FundRecordService {
      * @param type
      * @return
      */
-    public PagedResult<FundRecord> listByUser(String clientCode,
-                                              String userId,
-                                              Date startDate,
-                                              Date endDate,
-                                              PageInfo pageInfo,
-                                              FundRecordType... type);
+    PagedResult<FundRecord> listByUser(String clientCode,
+                                       String userId,
+                                       Date startDate,
+                                       Date endDate,
+                                       PageInfo pageInfo,
+                                       FundRecordType... type);
 
     /**
      *
@@ -87,11 +97,11 @@ public interface FundRecordService {
      * @param operation
      * @return
      */
-    public PagedResult<FundRecord> listByUserAndTypeAndOperation(String clientCode,
-                                                                 String userId,
-                                                                 PageInfo pageInfo,
-                                                                 List<FundRecordType> type,
-                                                                 List<FundRecordOperation> operation);
+    PagedResult<FundRecord> listByUserAndTypeAndOperation(String clientCode,
+                                                          String userId,
+                                                          PageInfo pageInfo,
+                                                          List<FundRecordType> type,
+                                                          List<FundRecordOperation> operation);
 
     /**
      * 返回所有待处理的提现申请记录.
@@ -99,7 +109,7 @@ public interface FundRecordService {
      * @param clientCode
      * @return
      */
-    public List<FundWithdraw> listWithdrawRequest(String clientCode);
+    List<FundWithdraw> listWithdrawRequest(String clientCode);
 
     /**
      * 根据orderId查找FundInvest
@@ -176,6 +186,17 @@ public interface FundRecordService {
                                                    String investId);
 
     /**
+     * 查看投标的第几期还款是否已经还清
+     *
+     * @param clientCode
+     * @param userId
+     * @param investId
+     * @param period
+     * @return
+     */
+    boolean checkInvestRepay(String clientCode, String userId, String investId, int period);
+
+    /**
      * 结标成功生成对应的record
      *
      * @param clientCode
@@ -222,7 +243,7 @@ public interface FundRecordService {
      * 商户子账户之间转账
      *
      * @param clientCode
-     * @param inAccount 入账子账户
+     * @param inAccount  入账子账户
      * @param outAccount 出账子账户
      * @param amount
      */
@@ -236,9 +257,9 @@ public interface FundRecordService {
      * 商户和用户之间转账
      *
      * @param clientCode
-     * @param account 商户子账户
+     * @param account    商户子账户
      * @param amount
-     * @param userId 用户
+     * @param userId     用户
      * @param transferIn true for transfer from client to user
      */
     void userTransfer(String clientCode,
@@ -247,5 +268,4 @@ public interface FundRecordService {
                       String userId,
                       boolean transferIn,
                       String orderId);
-
 }
