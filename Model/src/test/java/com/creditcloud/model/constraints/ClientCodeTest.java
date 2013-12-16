@@ -6,13 +6,13 @@ package com.creditcloud.model.constraints;
 
 import com.creditcloud.model.client.Client;
 import static com.creditcloud.model.constraints.BaseTest.validator;
+import java.util.Locale;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import java.util.Locale;
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
@@ -32,7 +32,7 @@ public class ClientCodeTest extends BaseTest<Client> {
 
     @Before
     public void setUp() {
-        object = new Client("CreditCloud", "CC", "ABCD", "www.creditcloud.com", Locale.CHINESE);
+        object = new Client("CreditCloud", "CC", "creditcloud.com", "13800138000", "ABCD", "www.creditcloud.com", Locale.CHINESE);
     }
 
     @After
