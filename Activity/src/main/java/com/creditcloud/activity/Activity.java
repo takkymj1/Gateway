@@ -6,7 +6,6 @@ package com.creditcloud.activity;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.misc.RealmEntity;
-import java.beans.Transient;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
