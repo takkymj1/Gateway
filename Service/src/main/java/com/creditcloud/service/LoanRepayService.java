@@ -40,7 +40,7 @@ public interface LoanRepayService {
      * @param status
      * @return
      */
-    PagedResult<LoanRepayment> listOverdueRepay(String clientCode, LocalDate today, PageInfo pageInfo);
+    PagedResult<LoanRepayment> listOverdueRepay(String clientCode, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
 
     /**
      * 列出一段时间内到期的LoanRepayment
@@ -120,5 +120,5 @@ public interface LoanRepayService {
      * @param userId
      * @param repayId
      */
-    void repayLoan(String clientCode, String userId, String repayId);
+    boolean repayLoan(String clientCode, String userId, String repayId);
 }

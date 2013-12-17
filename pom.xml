@@ -15,7 +15,6 @@
     <name>Gateway</name>
     <modules>
         <module>Common</module>
-        <module>Service</module>
         <module>Model</module>
         <module>Client</module>
         <module>Config</module>
@@ -28,7 +27,6 @@
         <module>User</module>
         <module>Comment</module>
         <module>File</module>
-        <module>Payment</module>
         <module>Task</module>
         <module>Contract</module>
         <module>Fund</module>
