@@ -39,6 +39,7 @@ public enum ActivityType implements BaseEnum {
     LOAN_CANCEL(LoanStatus.CANCELED.getKey(), Realm.LOAN),
     LOAN_FINISH(LoanStatus.FINISHED.getKey(), Realm.LOAN),
     LOAN_SETTLE(LoanStatus.SETTLED.getKey(), Realm.LOAN),
+    LOAN_REPAY("还款", Realm.LOAN),
     LOAN_CLEAR(LoanStatus.CLEARED.getKey(), Realm.LOAN),
     LOAN_OVERDUE(LoanStatus.OVERDUE.getKey(), Realm.LOAN),
     LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN);
