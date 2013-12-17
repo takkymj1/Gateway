@@ -120,5 +120,5 @@ public interface LoanRepayService {
      * @param userId
      * @param repayId
      */
-    void repayLoan(String clientCode, String userId, String repayId);
+    boolean repayLoan(String clientCode, String userId, String repayId);
 }
