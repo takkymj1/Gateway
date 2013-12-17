@@ -6,6 +6,7 @@ package com.creditcloud.activity;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.misc.RealmEntity;
+import java.beans.Transient;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class Activity extends BaseObject {
     private String id;
 
     /**
-     * 活动发起人,只能是User或者Employee,如果是null则为系统管理员
+     * 活动发起人,可以是User、Employee、Role等,如果是null则为系统管理员
      */
     private RealmEntity performer;
 
@@ -43,6 +44,11 @@ public class Activity extends BaseObject {
     private String content;
 
     private Date timeRecorded;
+    
+    /**
+     * 不存储，用于页面显示
+     */
+    private String performerName;
 
     
     public Activity(String id,
