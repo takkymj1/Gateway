@@ -14,8 +14,8 @@
     
     <name>Gateway</name>
     <modules>
-		<module>Common</module>
-		<module>Service</module>
+        <module>Common</module>
+        <module>Service</module>
         <module>Model</module>
         <module>Client</module>
         <module>Config</module>
@@ -33,5 +33,6 @@
         <module>Fund</module>
         <module>Activity</module>
         <module>Yeepay</module>
-  </modules>
+        <module>Payment</module>
+    </modules>
 </project>
