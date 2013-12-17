@@ -1,44 +1,68 @@
 <?xml version="1.0"?>
 <FeeConfig>
-    <loanGuaranteeFee>
+    <loanGuaranteeFee><!--借款风险金-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.06</rate>
+        <period>SINGLE</period>
+        <scope>PRINCIPAL</scope>
     </loanGuaranteeFee>
-    <loanServiceFee>
+    <loanServiceFee> <!--借款服务费-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.02</rate>
+        <period>SINGLE</period>
+        <scope>PRINCIPAL</scope>
     </loanServiceFee>
-    <loanVisitFee>
+    <loanManagerFee><!--借款管理费-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.003</rate>
+        <period>MONTHLY</period>
+        <scope>PRINCIPAL</scope>
+    </loanManagerFee>
+    <loanVisitFee> <!--借款实地调查费-->
         <type>BOTH</type>
         <fixed>500.00</fixed>
         <rate>0.001</rate>
+        <period>SINGLE</period>
+        <scope>PRINCIPAL</scope>
     </loanVisitFee>
-    <loanInterestFee>
+    <loanInterestFee> <!--借款利息管理费-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.05</rate>
+        <period>SINGLE</period>
+        <scope>INTEREST</scope>
     </loanInterestFee>
-    <loanOverdueFee>
+    <loanOverdueFee> <!--逾期管理费-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.05</rate>
+        <period>DAILY</period>
+         <scope>BOTH</scope>
     </loanOverdueFee>
-    <loanPenaltyFee>
+    <loanPenaltyFee> <!--逾期罚息-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.0005</rate>
+        <period>DAILY</period>
+        <scope>BOTH</scope>
     </loanPenaltyFee>
-    <investInterestFee>
+    <investInterestFee> <!--投资管理费-->
         <type>NONE</type>
         <fixed>0.00</fixed>
         <rate>0.03</rate>
+        <period>SINGLE</period>
+        <scope>INTEREST</scope>
     </investInterestFee>
-    <withdrawFee>
+    <withdrawFee> <!--提现费用-->
         <type>FIXED</type>
         <fixed>2.00</fixed>
         <rate>0.0005</rate>
+        <period>SINGLE</period>
     </withdrawFee>
-    <daysToBreach>30</daysToBreach>
+    <daysToBreach>
+        30
+    </daysToBreach>
 </FeeConfig>
