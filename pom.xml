@@ -32,6 +32,7 @@
         <module>Task</module>
         <module>Contract</module>
         <module>Fund</module>
-    <module>Activity</module>
-  </modules>
+        <module>Activity</module>
+        <module>Yeepay</module>
+    </modules>
 </project>
