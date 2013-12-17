@@ -2,17 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loan;
+package com.creditcloud.activity;
 
 import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.Realm;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.LoanStatus;
 
 /**
- * life cycle activities for loan request and its loans
+ * 活动类型，按照realm分类
  *
  * @author rooseek
  */
-public enum RequestActivityType implements BaseEnum {
+public enum ActivityType implements BaseEnum {
 
     /**
      * 贷款申请类活动
@@ -37,6 +39,7 @@ public enum RequestActivityType implements BaseEnum {
     LOAN_CANCEL(LoanStatus.CANCELED.getKey(), Realm.LOAN),
     LOAN_FINISH(LoanStatus.FINISHED.getKey(), Realm.LOAN),
     LOAN_SETTLE(LoanStatus.SETTLED.getKey(), Realm.LOAN),
+    LOAN_REPAY("还款", Realm.LOAN),
     LOAN_CLEAR(LoanStatus.CLEARED.getKey(), Realm.LOAN),
     LOAN_OVERDUE(LoanStatus.OVERDUE.getKey(), Realm.LOAN),
     LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN);
@@ -45,7 +48,7 @@ public enum RequestActivityType implements BaseEnum {
 
     private final Realm realm;
 
-    private RequestActivityType(String key, Realm realm) {
+    private ActivityType(String key, Realm realm) {
         this.key = key;
         this.realm = realm;
     }

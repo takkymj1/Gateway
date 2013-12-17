@@ -4,6 +4,8 @@
  */
 package com.creditcloud.config;
 
+import com.creditcloud.config.enums.FeePeriod;
+import com.creditcloud.config.enums.FeeScope;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -37,15 +39,20 @@ public class Fee extends BaseObject {
     /**
      * 浮动费率
      */
+    @XmlElement(required = true)
     private BigDecimal rate;
 
-    public Fee() {
-    }
+    /**
+     * 收费周期
+     */
+    private FeePeriod period;
 
-    public Fee(FeeType type, BigDecimal fixed, BigDecimal rate) {
-        this.type = type;
-        this.fixed = fixed;
-        this.rate = rate;
+    /**
+     * 收费范围
+     */
+    private FeeScope scope;
+
+    public Fee() {
     }
 
     public FeeType getType() {
@@ -58,5 +65,13 @@ public class Fee extends BaseObject {
 
     public BigDecimal getRate() {
         return rate;
+    }
+
+    public FeePeriod getPeriod() {
+        return period;
+    }
+
+    public FeeScope getScope() {
+        return scope;
     }
 }
