@@ -33,6 +33,12 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private Fee loanServiceFee;
+    
+    /**
+     * 贷款管理费，按照贷款金额比例按月收取，跟借款人收取
+     */
+    @XmlElement(required = true)
+    private Fee loanManageFee;
 
     /**
      * 贷款实地调查费率，按照贷款金额比率收取，跟借款人收取
@@ -113,5 +119,9 @@ public class FeeConfig extends BaseConfig {
 
     public int getDaysToBreach() {
         return daysToBreach;
+    }
+
+    public Fee getLoanManageFee() {
+        return loanManageFee;
     }
 }
