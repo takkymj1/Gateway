@@ -4,17 +4,12 @@
  */
 package com.creditcloud.model.userinfo;
 
-import com.creditcloud.model.enums.EthnicGroup;
-import com.creditcloud.model.user.info.CompanyInfo;
-import com.creditcloud.model.user.info.FinanceInfo;
+import com.creditcloud.model.Contact;
 import com.creditcloud.model.ContactInfo;
 import com.creditcloud.model.EducationInfo;
-import com.creditcloud.model.PlaceInfo;
-import com.creditcloud.model.Contact;
-import com.creditcloud.model.user.info.UserInfo;
-import com.creditcloud.model.user.info.CareerInfo;
 import com.creditcloud.model.PersonalInfo;
-import com.creditcloud.model.user.User;
+import com.creditcloud.model.PlaceInfo;
+import com.creditcloud.model.enums.EthnicGroup;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.info.CareerStatus;
 import com.creditcloud.model.enums.user.info.CompanyIndustry;
@@ -24,12 +19,18 @@ import com.creditcloud.model.enums.user.info.EducationLevel;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import com.creditcloud.model.enums.user.info.MonthlySalary;
 import com.creditcloud.model.enums.user.info.YearOfService;
+import com.creditcloud.model.user.User;
+import com.creditcloud.model.user.info.CareerInfo;
+import com.creditcloud.model.user.info.CompanyInfo;
+import com.creditcloud.model.user.info.FinanceInfo;
+import com.creditcloud.model.user.info.UserInfo;
 import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  *
@@ -56,6 +57,7 @@ public class UserInfoTest {
     public void tearDown() {
     }
 
+    @Test
     public void test() {
         User user = new User(null,
                              "CRCD",
