@@ -3,26 +3,26 @@
     <loanGuaranteeFee><!--借款风险金-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
-        <rate>0.06</rate>
+        <rate>0.01</rate>
         <period>SINGLE</period>
         <scope>PRINCIPAL</scope>
     </loanGuaranteeFee>
     <loanServiceFee> <!--借款服务费-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
-        <rate>0.02</rate>
+        <rate>0.01</rate>
         <period>SINGLE</period>
         <scope>PRINCIPAL</scope>
     </loanServiceFee>
-    <loanManagerFee><!--借款管理费-->
+    <loanManageFee><!--借款管理费-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.003</rate>
         <period>MONTHLY</period>
         <scope>PRINCIPAL</scope>
-    </loanManagerFee>
+    </loanManageFee>
     <loanVisitFee> <!--借款实地调查费-->
-        <type>BOTH</type>
+        <type>NONE</type>
         <fixed>500.00</fixed>
         <rate>0.001</rate>
         <period>SINGLE</period>
