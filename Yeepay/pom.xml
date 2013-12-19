@@ -17,10 +17,17 @@
     <url>http://maven.apache.org</url>
     
     <dependencies>
+        <!-- CreditCloud -->
         <dependency>
             <groupId>com.creditcloud.model</groupId>
             <artifactId>Model</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- Yeepay -->
+        <dependency>
+            <groupId>com.yeepay</groupId>
+            <artifactId>HTMLcommon</artifactId>
+            <version>3.0.0</version>
         </dependency>
     </dependencies>
 </project>
