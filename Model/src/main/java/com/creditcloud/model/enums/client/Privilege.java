@@ -55,9 +55,13 @@ public enum Privilege implements BaseEnum {
     /**
      * 借款相关权限
      */
+    LOAN_DETIAL("列出借款"),
+    LOAN_LIST("列出借款"),
     LOAN_SPLIT("借款申请批准后拆标"),
     LOAN_SCHEDULE("拆标后发标"),
-    LOAN_SETTLE("借款满标后审核并结算"),
+    LOAN_SETTLE("借款满标流标后审核并结算"),
+    POST_LOAN_MANAGE("贷款管理"),
+    LOAN_REPAY("还款"),
     /**
      * 任务相关权限
      */
