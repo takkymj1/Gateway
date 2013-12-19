@@ -4,7 +4,6 @@
  */
 package com.creditcloud.fund.api;
 
-import com.creditcloud.fund.model.ClientFundRecord;
 import com.creditcloud.fund.model.record.FundRecord;
 import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
@@ -37,12 +36,12 @@ public interface FundRecordService {
     FundRecord getById(String clientCode, String id);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param type
      * @param orderId
-     * @return 
+     * @return
      */
     FundRecord getByUserAndTypeAndOrderId(String clientCode, String userId, FundRecordType type, String orderId);
 
@@ -238,6 +237,27 @@ public interface FundRecordService {
                            Map<FundRecordType, BigDecimal> feeDetails,
                            String orderId,
                            int period);
+
+    /**
+     * 垫付成功生成对应的record
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanId
+     * @param investFee
+     * @param orderId
+     * @param period
+     */
+    void disburseInvestRecord(String clientCode,
+                              String investUserId,
+                              String investId,
+                              BigDecimal repayAmount,
+                              String loanId,
+                              BigDecimal investFee,
+                              String orderId,
+                              int period);
 
     /**
      * 商户子账户之间转账
