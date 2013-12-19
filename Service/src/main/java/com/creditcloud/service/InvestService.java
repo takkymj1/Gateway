@@ -88,6 +88,15 @@ public interface InvestService extends InvestRepayService {
     boolean repayLoan(String clientCode, LoanRepayment loanRepay);
 
     /**
+     * 商户垫付支付
+     *
+     * @param clientCode
+     * @param loanRepay
+     * @return
+     */
+    boolean disburseLoan(String clientCode, LoanRepayment loanRepay);
+
+    /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差
      *
      * @param clientCode
