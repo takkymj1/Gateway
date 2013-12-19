@@ -60,8 +60,10 @@ public class PayRequest {
      * 需要应答机制
      */
     private String pr_NeedResponse = "1";
+    
+    private String hmac;
 
-    public String getHmac() {
+    public String hmac() {
         return PaymentForOnlineService.getReqMd5HmacForOnlinePayment(p0_Cmd,
                                                                      p1_MerId, p2_Order, p3_Amt, p4_Cur, p5_Pid, p6_Pcat, p7_Pdesc,
                                                                      p8_Url, p9_SAF, pa_MP, pd_FrpId, pr_NeedResponse, Constant.keyValue);
