@@ -236,7 +236,9 @@ public interface PaymentService {
                                   String subOrdId,
                                   LocalDate subOrDate,
                                   BigDecimal transAmt,
+                                  BigDecimal fee,
                                   String investUserId,
+                                  List<DivDetail> details,
                                   String BgRetUrl,
                                   String merPriv);
 
