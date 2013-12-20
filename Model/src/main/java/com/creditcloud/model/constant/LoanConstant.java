@@ -28,12 +28,12 @@ public interface LoanConstant {
     /**
      * 最低贷款金额
      */
-    int MIN_LOAN_AMOUNT = 1000;
+    int MIN_LOAN_AMOUNT = 10;
 
     /**
      * 贷款递增需是LOAN_AMOUNT_INCREMENT的倍数
      */
-    int LOAN_AMOUNT_INCREMENT = 1000;
+    int LOAN_AMOUNT_INCREMENT = 10;
 
     /**
      * 最高贷款金额
@@ -68,12 +68,12 @@ public interface LoanConstant {
     /**
      * 单笔投资最小金额
      */
-    int MIN_INVEST_AMOUNT = 10;
+    int MIN_INVEST_AMOUNT = 1;
 
     /**
      * 单笔投资需按照10递增
      */
-    int INVEST_AMOUNT_INCREMENT = 10;
+    int INVEST_AMOUNT_INCREMENT = 1;
 
     /**
      * 单笔投资最大金额
