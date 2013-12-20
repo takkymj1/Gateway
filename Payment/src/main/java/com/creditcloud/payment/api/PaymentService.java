@@ -127,6 +127,22 @@ public interface PaymentService {
                                    String merPriv);
 
     /**
+     * 商户提现冻结
+     *
+     * @param clientCode
+     * @param amount
+     * @param orderId
+     * @param BgRetUrl
+     * @param merPriv
+     * @return
+     */
+    public FreezeResult clientWithdrawFreeze(String clientCode,
+                                             BigDecimal amount,
+                                             String orderId,
+                                             String BgRetUrl,
+                                             String merPriv);
+
+    /**
      * 解冻指定用户的资金
      *
      * @param clientCode
@@ -143,7 +159,7 @@ public interface PaymentService {
                                        String merPriv);
 
     /**
-     * 取现复核
+     * 用户取现复核
      *
      * @param clientCode
      * @param userId
@@ -159,6 +175,22 @@ public interface PaymentService {
                                      String orderId,
                                      AuditFlag auditFlag,
                                      String BgRetUr);
+
+    /**
+     * 商户取现复核
+     *
+     * @param clientCode
+     * @param amount
+     * @param orderId
+     * @param auditFlag
+     * @param BgRetUr
+     * @return
+     */
+    public CashAuditResult clientCashAudit(String clientCode,
+                                           BigDecimal amount,
+                                           String orderId,
+                                           AuditFlag auditFlag,
+                                           String BgRetUr);
 
     /**
      * 放款
