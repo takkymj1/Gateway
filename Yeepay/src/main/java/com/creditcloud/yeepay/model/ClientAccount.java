@@ -7,6 +7,7 @@ package com.creditcloud.yeepay.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
@@ -20,19 +21,28 @@ import lombok.Data;
 public class ClientAccount implements Serializable {
 
     /**
-     * 基本户余额（往来）
+     * 基本户可用余额（往来）
      */
-    private BigDecimal baseBalance;
+    @Min(0)
+    private BigDecimal bookAccountAvailable;
+    
+    /**
+     * 基本户冻结（往来）
+     */
+    @Min(0)
+    private BigDecimal bookAccountFreeze;
 
     /**
      * 风险金账户余额
      */
-    private BigDecimal riskBalance;
+    @Min(0)
+    private BigDecimal riskAccountBalance;
 
     /**
      * 服务费账户余额
      */
-    private BigDecimal serviceBalance;
+    @Min(0)
+    private BigDecimal serviceAccountBalance;
 
     /**
      * 计算商户账户总余额
@@ -40,7 +50,7 @@ public class ClientAccount implements Serializable {
      * @return
      */
     public BigDecimal balance() {
-        return baseBalance.add(riskBalance).add(serviceBalance);
+        return bookAccountAvailable.add(riskAccountBalance).add(serviceAccountBalance);
     }
 
     /**
@@ -51,12 +61,12 @@ public class ClientAccount implements Serializable {
      */
     public BigDecimal byType(SubAccountType type) {
         switch (type) {
-            case BASE:
-                return baseBalance;
+            case BOOK:
+                return bookAccountAvailable;
             case RISK:
-                return riskBalance;
+                return riskAccountBalance;
             case SERVICE:
-                return serviceBalance;
+                return serviceAccountBalance;
             default:
                 return BigDecimal.ZERO;
         }

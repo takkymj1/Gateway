@@ -22,55 +22,77 @@ public interface YeepayAccountService {
     /**
      * 返回应用记录的商户账户信息，不是易宝方面的记录
      * 
+     * @param clientCode
      * @return 
      */
-    ClientAccount queryBalance();
+    ClientAccount queryBalance(String clientCode);
     
     /**
      * 收取服务费的记账
      * 
+     * @param clientCode
      * @param amount 
      */
-    void gainService(BigDecimal amount);
+    void gainService(String clientCode, BigDecimal amount);
     
     /**
      * 收取风险金的记账
      * 
+     * @param clientCode
      * @param amount 
      */
-    void takingRisk(BigDecimal amount);
+    void takingRisk(String clientCode, BigDecimal amount);
     
     /**
      * 扣减风险金，垫付时用
      * 
+     * @param clientCode
      * @param amount 
+     * @return 是否成功，有可能风险金不足
      */
-    void deductRisk(BigDecimal amount);
+    boolean deductRisk(String clientCode, BigDecimal amount);
     
     /**
      * 商户存入资金，只到基本（往来）账户
      * 
+     * @param clientCode
      * @param amount 
      */
-    void deposit(BigDecimal amount);
+    void deposit(String clientCode, BigDecimal amount);
     
     /**
-     * 商户从基本（往来）账户取款
+     * 商户从基本（往来）账户申请取款.
      * 
+     * 将可用余额转为冻结余额
+     * 
+     * @param clientCode
      * @param amount
      * @return 是否成功，有可能余额不足
      */
-    boolean withdraw(BigDecimal amount);
+    boolean withdrawPropose(String clientCode, BigDecimal amount);
+    
+    /**
+     * 商户从基本（往来）账户批准取款.
+     * 
+     * 从冻结余额转出
+     * 
+     * @param clientCode
+     * @param amount
+     * @return 是否成功，有可能冻结余额不足
+     */
+    boolean withdrawApprove(String clientCode, BigDecimal amount);
     
     /**
      * 商户子账户之间调账
      * 
-     * @param outAccout 出账账户
+     * @param clientCode
+     * @param outAccount 出账账户
      * @param intAccount 入账账户
      * @param amount 金额
      * @return 出账金额不能大于出账子账户余额，否则返回false
      */
-    boolean transfer(SubAccountType outAccout,
+    boolean transfer(String clientCode, 
+                     SubAccountType outAccount,
                      SubAccountType intAccount,
                      BigDecimal amount);
 }

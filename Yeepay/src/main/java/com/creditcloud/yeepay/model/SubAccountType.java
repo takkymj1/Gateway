@@ -14,7 +14,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum SubAccountType implements BaseEnum {
 
-    BASE("基本账户"),
+    BOOK("往来账户"),
     RISK("风险金账户"),
     SERVICE("服务费账户");
     
