@@ -103,6 +103,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.yeepay</groupId>
+            <artifactId>YeepayService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -191,6 +197,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.activity</groupId>
                             <artifactId>ActivityService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.yeepay</groupId>
+                            <artifactId>YeepayService</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>
