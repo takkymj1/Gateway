@@ -10,6 +10,8 @@ import static com.creditcloud.model.constant.TimeConstant.DAYS_PER_MONTH;
 import static com.creditcloud.model.constant.TimeConstant.DAYS_PER_YEAR;
 import static com.creditcloud.model.constant.TimeConstant.MONTHS_PER_YEAR;
 import com.creditcloud.model.constraints.IncrementalInteger;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -75,14 +77,16 @@ public class Duration extends BaseObject implements Comparable<Duration> {
         return days;
     }
 
+    @Max(LoanConstant.MAX_LOAN_DURATION)
     public int getTotalMonths() {
         return years * MONTHS_PER_YEAR + months;
     }
 
     /**
-     * @deprecated The return value is WRONG !
+     * @deprecated The return value is WRONG ! ONLY FOR VALIDATION
      * @return
      */
+    @Min(1)
     public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
     }

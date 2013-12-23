@@ -6,9 +6,12 @@ package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constant.LoanConstant;
+import static com.creditcloud.model.constant.TimeConstant.DAYS_PER_MONTH;
 import static com.creditcloud.model.constant.TimeConstant.MONTHS_PER_YEAR;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
@@ -106,7 +109,17 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
         return true;
     }
     
+    @Max(LoanConstant.MAX_LOAN_DURATION)
     public int getTotalMonths() {
         return years * MONTHS_PER_YEAR + months;
+    }
+    
+    /**
+     * @deprecated The return value is WRONG ! ONLY FOR VALIDATION
+     * @return
+     */
+    @Min(1)
+    public int getTotalDays() {
+        return getTotalMonths() * DAYS_PER_MONTH + days;
     }
 }
