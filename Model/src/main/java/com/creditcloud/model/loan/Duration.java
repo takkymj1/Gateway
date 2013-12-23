@@ -5,9 +5,12 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import static com.creditcloud.model.constant.TimeConstant.*;
+import com.creditcloud.model.constant.LoanConstant;
+import static com.creditcloud.model.constant.TimeConstant.DAYS_PER_MONTH;
+import static com.creditcloud.model.constant.TimeConstant.DAYS_PER_YEAR;
+import static com.creditcloud.model.constant.TimeConstant.MONTHS_PER_YEAR;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.ws.rs.FormParam;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -22,15 +25,21 @@ public class Duration extends BaseObject implements Comparable<Duration> {
     private static final long serialVersionUID = 20130918L;
 
     @FormParam("years")
-    @XmlElement(name = "years")
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        max = LoanConstant.MAX_LOAN_YEAR)
     private int years;
 
     @FormParam("months")
-    @XmlElement(name = "months")
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        max = 11)
     private int months;
 
     @FormParam("days")
-    @XmlElement(name = "days")
+    @IncrementalInteger(min = 0,
+                        increment = 1,
+                        max = 31)
     private int days;
 
     public Duration() {

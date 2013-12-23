@@ -25,7 +25,7 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
 
     @IncrementalInteger(min = 0,
                         increment = 1,
-                        max = 12)
+                        max = 11)
     private int months;
 
     @IncrementalInteger(min = 0,
