@@ -5,16 +5,17 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.Source;
-import com.creditcloud.model.enums.loan.LoanRequestStatus;
-import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.MortgageType;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.user.User;
 import java.util.Collection;
 import java.util.Date;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -34,7 +35,6 @@ public class LoanRequest extends BaseObject {
     /**
      * LoanRequest Id
      */
-    @NotNull
     @XmlElement(name = "id")
     private String id;
 
@@ -75,6 +75,7 @@ public class LoanRequest extends BaseObject {
      * 期限
      */
     @NotNull
+    @Valid
     @XmlElement(name = "duration")
     private Duration duration;
 
@@ -99,7 +100,7 @@ public class LoanRequest extends BaseObject {
     /**
      * 描述
      */
-    @Size(max = 500)
+    @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
     @XmlElement(name = "description")
     private String description;
 
