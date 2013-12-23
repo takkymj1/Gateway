@@ -63,6 +63,11 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private Fee withdrawFee;
+    
+    /**
+     * 充值手续费
+     */
+    private Fee depositFee;
 
     /**
      * 贷款逾期罚金费率，以天为单位，按照当期还款金额比率收取，跟借款人收取
@@ -107,6 +112,10 @@ public class FeeConfig extends BaseConfig {
 
     public Fee getWithdrawFee() {
         return withdrawFee;
+    }
+
+    public Fee getDepositFee() {
+        return depositFee;
     }
 
     public Fee getLoanPenaltyFee() {
