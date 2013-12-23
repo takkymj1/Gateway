@@ -12,8 +12,8 @@ import static com.creditcloud.config.enums.FeeScope.BOTH;
 import static com.creditcloud.config.enums.FeeScope.INTEREST;
 import static com.creditcloud.config.enums.FeeScope.PRINCIPAL;
 import com.creditcloud.model.constant.NumberConstant;
-import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.OverduePenalty;
+import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.LocalDate;
@@ -52,19 +52,19 @@ public class FeeUtils {
      * 计算欠款的逾期费用
      *
      * @param config
-     * @param loanRepay
+     * @param repayment
      * @return
      */
-    public static OverduePenalty overdueFee(FeeConfig config, LoanRepayment loanRepay) {
-        if (loanRepay == null) {
+    public static OverduePenalty overdueFee(FeeConfig config, Repayment repayment) {
+        if (repayment == null) {
             return OverduePenalty.NONE;
         }
-        if (LocalDate.now().compareTo(loanRepay.getRepayment().getDueDate()) <= 0) {
+        if (LocalDate.now().compareTo(repayment.getDueDate()) <= 0) {
             return OverduePenalty.NONE;
         }
         //计算天数
         long nowTime = LocalDate.now().toDate().getTime();
-        long dueTime = loanRepay.getRepayment().getDueDate().toDate().getTime();
+        long dueTime = repayment.getDueDate().toDate().getTime();
         BigDecimal days = BigDecimal.valueOf((nowTime - dueTime) / DateUtils.MILLIS_PER_DAY);
 
         /**
@@ -75,13 +75,13 @@ public class FeeUtils {
         if (overdueFee != null) {
             switch (overdueFee.getScope()) {
                 case INTEREST:
-                    overdueAmount = loanRepay.getRepayment().getAmountInterest();
+                    overdueAmount = repayment.getAmountInterest();
                     break;
                 case PRINCIPAL:
-                    overdueAmount = loanRepay.getRepayment().getAmountPrincipal();
+                    overdueAmount = repayment.getAmountPrincipal();
                     break;
                 case BOTH:
-                    overdueAmount = loanRepay.getRepayment().getAmount();
+                    overdueAmount = repayment.getAmount();
                     break;
             }
             switch (overdueFee.getPeriod()) {
@@ -105,13 +105,13 @@ public class FeeUtils {
         if (penaltyFee != null) {
             switch (penaltyFee.getScope()) {
                 case INTEREST:
-                    penaltyAmount = loanRepay.getRepayment().getAmountInterest();
+                    penaltyAmount = repayment.getAmountInterest();
                     break;
                 case PRINCIPAL:
-                    penaltyAmount = loanRepay.getRepayment().getAmountPrincipal();
+                    penaltyAmount = repayment.getAmountPrincipal();
                     break;
                 case BOTH:
-                    penaltyAmount = loanRepay.getRepayment().getAmount();
+                    penaltyAmount = repayment.getAmount();
                     break;
             }
             switch (penaltyFee.getPeriod()) {

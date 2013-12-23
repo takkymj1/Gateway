@@ -38,6 +38,7 @@ public enum FundRecordType implements BaseEnum {
     FEE_LOAN_INTEREST("还款利息管理费"),
     FEE_LOAN_VISIT("实地考察费"),
     FEE_LOAN_GUARANTEE("担保费"),
+    FEE_LOAN_OVERDUE("逾期管理费"),
     FEE_LOAN_PENALTY("逾期罚息"),
     FEE_DEPOSIT("充值手续费");
 
