@@ -5,6 +5,8 @@
 package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
+import com.creditcloud.model.constraints.BankAccountNumber;
+import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -22,6 +24,7 @@ public class BankAccount extends BaseEntity {
     /**
      * 开户人
      */
+    @RealName
     @Column(nullable = false)
     private String name;
 
@@ -47,6 +50,7 @@ public class BankAccount extends BaseEntity {
     /**
      * 账号
      */
+    @BankAccountNumber
     @Column(nullable = false)
     private String account;
 
