@@ -49,6 +49,9 @@ public class BankAccount extends BaseObject {
     @BankAccountNumber
     private String account;
 
+    public BankAccount() {
+    }
+    
     public BankAccount(String name, Bank bank, String location, String branch, String account) {
         this.name = name;
         this.bank = bank;
