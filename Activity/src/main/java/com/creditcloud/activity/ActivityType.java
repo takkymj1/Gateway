@@ -34,6 +34,7 @@ public enum ActivityType implements BaseEnum {
      */
     LOAN_SPLIT("拆标", Realm.LOAN),
     LOAN_SCHEDULE(LoanStatus.SCHEDULED.getKey(), Realm.LOAN),
+    LOAN_RESCHEDULE("重新安排", Realm.LOAN),
     LOAN_OPEN(LoanStatus.OPENED.getKey(), Realm.LOAN),
     LOAN_FAIL(LoanStatus.FAILED.getKey(), Realm.LOAN),
     LOAN_CANCEL(LoanStatus.CANCELED.getKey(), Realm.LOAN),

@@ -40,7 +40,7 @@
         <fixed>0.00</fixed>
         <rate>0.05</rate>
         <period>DAILY</period>
-         <scope>BOTH</scope>
+        <scope>BOTH</scope>
     </loanOverdueFee>
     <loanPenaltyFee> <!--逾期罚息-->
         <type>FLOATING</type>
@@ -62,6 +62,12 @@
         <rate>0.0005</rate>
         <period>SINGLE</period>
     </withdrawFee>
+    <depositFee> <!--充值费用-->
+        <type>NONE</type>
+        <fixed>2.00</fixed>
+        <rate>0.003</rate>
+        <period>SINGLE</period>
+    </depositFee>
     <daysToBreach>
         30
     </daysToBreach>
