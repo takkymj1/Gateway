@@ -41,11 +41,23 @@ public interface LoanRepayService {
      * @return
      */
     PagedResult<LoanRepayment> listOverdueRepay(String clientCode, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
+    
+    /**
+     * 列出特定借款人所有到today为止逾期或违约的LoanRepayment
+     *
+     * @param clientCode
+     * @param userId
+     * @param today
+     * @param pageInfo
+     * @param status
+     * @return
+     */
+    PagedResult<LoanRepayment> listOverdueRepayByUser(String clientCode, String userId, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
 
     /**
      * 列出一段时间内到期的LoanRepayment
      *
-     * @param client
+     * @param clientCode
      * @param from
      * @param to
      * @param pageInfo
@@ -57,6 +69,24 @@ public interface LoanRepayService {
                                             LocalDate to,
                                             PageInfo pageInfo,
                                             RepaymentStatus... status);
+
+    /**
+     * 列出特定借款人在一段时间内到期的LoanRepayment
+     *
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param status
+     * @return
+     */
+    PagedResult<LoanRepayment> listDueRepayByUser(String clientCode,
+                                                  String userId,
+                                                  LocalDate from,
+                                                  LocalDate to,
+                                                  PageInfo pageInfo,
+                                                  RepaymentStatus... status);
 
     /**
      * 统计一定时间段内到期的loan repayment总和
