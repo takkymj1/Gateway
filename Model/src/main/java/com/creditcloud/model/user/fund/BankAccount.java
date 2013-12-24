@@ -5,6 +5,7 @@
 package com.creditcloud.model.user.fund;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constraints.BankAccountNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.validation.constraints.NotNull;
@@ -35,21 +36,22 @@ public class BankAccount extends BaseObject {
     /**
      * 开户行所在地:北京市西城区长安街12号
      */
-    @NotNull
     private String location;
 
     /**
      * 开户支行:工行北京分行海淀支行
      */
-    @NotNull
     private String branch;
 
     /**
      * 账号
      */
-    @NotNull
+    @BankAccountNumber
     private String account;
 
+    public BankAccount() {
+    }
+    
     public BankAccount(String name, Bank bank, String location, String branch, String account) {
         this.name = name;
         this.bank = bank;
