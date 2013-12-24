@@ -15,6 +15,7 @@ import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
+import java.util.logging.Logger;
 import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.LocalDate;
 
@@ -23,6 +24,8 @@ import org.joda.time.LocalDate;
  * @author rooseek
  */
 public class FeeUtils {
+
+    private static final Logger logger = Logger.getLogger(FeeUtils.class.getName());
 
     /**
      * 根据收费项和具体金额返回实际收费
@@ -93,7 +96,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
-                    throw new IllegalArgumentException(String.format("Illegal argument {} for overdue fee", overdueFee.getPeriod()));
+                    logger.warning(String.format("Illegal argument %s for overdue fee. only DAILY and SINGLE allowed.", overdueFee.getPeriod()));
             }
         }
 
@@ -123,7 +126,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
-                    throw new IllegalArgumentException(String.format("Illegal argument {} for penalty fee", penaltyFee.getPeriod()));
+                    logger.warning(String.format("Illegal argument %s for penalty fee. only DAILY and SINGLE allowed", penaltyFee.getPeriod()));
             }
         }
 
