@@ -5,6 +5,7 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.loan.RepayLoanResult;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
@@ -150,5 +151,5 @@ public interface LoanRepayService {
      * @param userId
      * @param repayId
      */
-    boolean repayLoan(String clientCode, String userId, String repayId);
+    RepayLoanResult repayLoan(String clientCode, String userId, String repayId);
 }
