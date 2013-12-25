@@ -88,6 +88,27 @@ public interface FundRecordService {
                                        FundRecordType... type);
 
     /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param startDate
+     * @param endDate
+     * @param pageInfo
+     * @param type
+     * @param operation
+     * @param status
+     * @return 
+     */
+    PagedResult<FundRecord> listByUser(String clientCode,
+                                       String userId,
+                                       Date startDate,
+                                       Date endDate,
+                                       PageInfo pageInfo,
+                                       List<FundRecordType> type,
+                                       List<FundRecordOperation> operation,
+                                       List<FundRecordStatus> status);
+
+    /**
      *
      * @param clientCode
      * @param userId
