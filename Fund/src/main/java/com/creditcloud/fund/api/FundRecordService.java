@@ -11,6 +11,7 @@ import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
 import com.creditcloud.fund.model.record.FundDeposit;
 import com.creditcloud.fund.model.record.FundInvest;
+import com.creditcloud.fund.model.record.FundTransfer;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
@@ -88,7 +89,7 @@ public interface FundRecordService {
                                        FundRecordType... type);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param startDate
@@ -97,7 +98,7 @@ public interface FundRecordService {
      * @param type
      * @param operation
      * @param status
-     * @return 
+     * @return
      */
     PagedResult<FundRecord> listByUser(String clientCode,
                                        String userId,
@@ -160,6 +161,16 @@ public interface FundRecordService {
      * @return
      */
     FundWithdraw getFundWithdrawByOrderId(String clientCode, String userId, String orderId);
+
+    /**
+     * 根据orderId查找FundTransfer
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    FundTransfer getFundTransferByOrderId(String clientCode, String userId, String orderId);
 
     /**
      * 根据operation和status查找FundInvest
