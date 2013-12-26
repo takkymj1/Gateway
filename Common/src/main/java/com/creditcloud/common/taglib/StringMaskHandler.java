@@ -8,6 +8,7 @@ import java.io.IOException;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,7 +30,7 @@ public class StringMaskHandler extends SimpleTagSupport {
      */
     @Override
     public void doTag() throws JspException, IOException {
-        if (beforeMask == null) {
+        if (StringUtils.isBlank(beforeMask)) {
             logger.warn("Invalid beforeMask String is null.");
             return;
         }
@@ -40,10 +41,12 @@ public class StringMaskHandler extends SimpleTagSupport {
         for (int i=0; i<length-2; i++) {
             writer.write("*");
         }
-        writer.write(beforeMask, length-1, 1);
+        if (length > 2) {
+            writer.write(beforeMask, length-1, 1);
+        }
     }
 
     public void setBeforeMask(String beforeMask) {
-        this.beforeMask = beforeMask;
+        this.beforeMask = beforeMask.trim();
     }
 }
