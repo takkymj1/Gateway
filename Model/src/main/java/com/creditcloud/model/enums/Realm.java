@@ -37,10 +37,12 @@ public enum Realm implements BaseEnum {
     /**
      * 业务类型
      */
+    FUND("资金"),
     WITHDRAW("取现"),
     /**
      * 其他
      */
+    CONTRACT("合同"),
     IMAGE("图片"),
     FILE("文件");
     
