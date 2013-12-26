@@ -20,6 +20,7 @@ public class StringMaskHandler extends SimpleTagSupport {
     static Logger logger = LoggerFactory.getLogger(BirthdayHandler.class);
     
     String beforeMask;
+    String type;
     
     /**
      * 字符串打码。例如：keven -> k***n
@@ -36,14 +37,28 @@ public class StringMaskHandler extends SimpleTagSupport {
         
         JspWriter writer = getJspContext().getOut();
         int length = beforeMask.length();
-        writer.write(beforeMask, 0, 1);
-        for (int i=0; i<length-2; i++) {
-            writer.write("*");
+        
+        if (type != null) {
+            if (type.equals("realName")) {
+                writer.write(beforeMask, 0, 1);
+                for (int i=0; i<length-1; i++) {
+                    writer.write("*");
+                }
+            }
+        } else {
+            writer.write(beforeMask, 0, 1);
+            for (int i=0; i<length-2; i++) {
+                writer.write("*");
+            }
+            writer.write(beforeMask, length-1, 1);
         }
-        writer.write(beforeMask, length-1, 1);
     }
 
     public void setBeforeMask(String beforeMask) {
         this.beforeMask = beforeMask;
+    }
+    
+    public void setType(String type) {
+        this.type = type;
     }
 }
