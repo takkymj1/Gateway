@@ -84,9 +84,24 @@ public interface LoanConstant {
      * 贷后管理期限，只关心还款日在即日起 POSTLOAN_DAYS 天之内的
      */
     int POSTLOAN_DAYS = 40;
-    
+
     /**
      * 贷款描述最大长度
      */
     int MAX_LOAN_DESCRIPTION = 1000;
+
+    /**
+     * 抵质押信息最大长度
+     */
+    int MAX_MORTGAGE_INFO = 1000;
+
+    /**
+     * 担保信息最大长度
+     */
+    int MAX_GUARANTEE_INFO = 1000;
+
+    /**
+     * 担保公司名称最大长度
+     */
+    int MAX_GUARANTEE_COMPANY = 60;
 }

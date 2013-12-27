@@ -12,6 +12,7 @@ import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
 import java.util.Collection;
 import java.util.Date;
@@ -22,12 +23,14 @@ import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  *
  * @author sobranie
  */
 @XmlRootElement
+@Data
 public class LoanRequest extends BaseObject {
 
     private static final long serialVersionUID = 20130917L;
@@ -129,6 +132,23 @@ public class LoanRequest extends BaseObject {
     private String employeeId;
     
     private Collection<MortgageType> mortgageType;
+    
+    /**
+     * 抵质押情况说明
+     */
+    @Size(max=LoanConstant.MAX_MORTGAGE_INFO)
+    private String mortgageInfo;
+    
+    /**
+     * 担保实体，可以为用户个人、商户、企业
+     */
+    private RealmEntity guaranteeEntity;
+    
+    /**
+     * 担保情况说明
+     */
+    @Size(max=LoanConstant.MAX_GUARANTEE_INFO)
+    private String guaranteeInfo;
 
     public LoanRequest() {
     }
@@ -161,7 +181,10 @@ public class LoanRequest extends BaseObject {
                        boolean mortgaged,
                        Source source,
                        String employeeId,
-                       Collection<MortgageType> mortgageType) {
+                       Collection<MortgageType> mortgageType,
+                       String mortgageInfo,
+                       RealmEntity guaranteeEntity,
+                       String guaranteeInfo) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -177,6 +200,9 @@ public class LoanRequest extends BaseObject {
         this.source = source;
         this.employeeId = employeeId;
         this.mortgageType = mortgageType;
+        this.mortgageInfo = mortgageInfo;
+        this.guaranteeEntity = guaranteeEntity;
+        this.guaranteeInfo = guaranteeInfo;
     }
 
     public String getId() {
