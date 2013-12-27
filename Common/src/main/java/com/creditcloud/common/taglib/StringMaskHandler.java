@@ -40,10 +40,8 @@ public class StringMaskHandler extends SimpleTagSupport {
         
         if (type != null) {
             if (type.equals("realName")) {
-                writer.write(beforeMask, 0, 1);
-                for (int i=0; i<length-1; i++) {
-                    writer.write("*");
-                }
+                writer.write(beforeMask, 0, length-1);
+                writer.write("*");
             }
         } else {
             writer.write(beforeMask, 0, 1);
