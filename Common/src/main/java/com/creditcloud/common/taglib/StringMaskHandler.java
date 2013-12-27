@@ -17,17 +17,20 @@ import org.slf4j.LoggerFactory;
  * @author keven
  */
 public class StringMaskHandler extends SimpleTagSupport {
-    
+
     static Logger logger = LoggerFactory.getLogger(BirthdayHandler.class);
-    
+
     String beforeMask;
-    String type;
-    
+
+    int start = 1;
+
+    int length = 0;
+
     /**
      * 字符串打码。例如：keven -> k***n
-     * 
+     *
      * @throws JspException
-     * @throws IOException 
+     * @throws IOException
      */
     @Override
     public void doTag() throws JspException, IOException {
@@ -35,32 +38,32 @@ public class StringMaskHandler extends SimpleTagSupport {
             logger.warn("Invalid beforeMask String is null.");
             return;
         }
-        
         JspWriter writer = getJspContext().getOut();
-        int length = beforeMask.length();
-        
-        if (type != null) {
-            if (type.equals("realName")) {
-                writer.write(beforeMask, 0, length-1);
-                writer.write("*");
-            }
-        } else {
-            writer.write(beforeMask, 0, 1);
-            for (int i=0; i<length-2; i++) {
-                writer.write("*");
-            }
-            writer.write(beforeMask, length-1, 1);
+        if (length <= 0) {
+            length = beforeMask.length()-2;
         }
-        if (length > 2) {
-            writer.write(beforeMask, length-1, 1);
-        }
+        System.out.println(start+" "+length);
+        String afterMask = mask(beforeMask, start, length);
+        writer.write(afterMask);
     }
 
     public void setBeforeMask(String beforeMask) {
         this.beforeMask = beforeMask.trim();
     }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
     
-    public void setType(String type) {
-        this.type = type;
+    private static String mask(String content, int offset, int length) {
+        char[] chars = content.toCharArray();
+        for (int i = offset; i < offset + length; i++) {
+            chars[i] = '*';
+        }
+        return new String(chars);
     }
 }
