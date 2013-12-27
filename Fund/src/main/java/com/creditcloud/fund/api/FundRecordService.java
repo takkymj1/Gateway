@@ -110,19 +110,36 @@ public interface FundRecordService {
                                        List<FundRecordStatus> status);
 
     /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param type
+     * @param operation
+     * @param status
+     * @return 
+     */
+    int countByUser(String clientCode,
+                    String userId,
+                    List<FundRecordType> type,
+                    List<FundRecordOperation> operation,
+                    List<FundRecordStatus> status);
+
+    /**
      *
      * @param clientCode
      * @param userId
      * @param pageInfo
      * @param type
      * @param operation
+     * @param status
      * @return
      */
-    PagedResult<FundRecord> listByUserAndTypeAndOperation(String clientCode,
-                                                          String userId,
-                                                          PageInfo pageInfo,
-                                                          List<FundRecordType> type,
-                                                          List<FundRecordOperation> operation);
+    PagedResult<FundRecord> listByUser(String clientCode,
+                                       String userId,
+                                       PageInfo pageInfo,
+                                       List<FundRecordType> type,
+                                       List<FundRecordOperation> operation,
+                                       List<FundRecordStatus> status);
 
     /**
      * 返回所有待处理的提现申请记录.
@@ -295,7 +312,7 @@ public interface FundRecordService {
      * 商户子账户之间转账
      *
      * @param clientCode
-     * @param inAccount  入账子账户
+     * @param inAccount 入账子账户
      * @param outAccount 出账子账户
      * @param amount
      */
@@ -309,9 +326,9 @@ public interface FundRecordService {
      * 商户和用户之间转账
      *
      * @param clientCode
-     * @param account    商户子账户
+     * @param account 商户子账户
      * @param amount
-     * @param userId     用户
+     * @param userId 用户
      * @param transferIn true for transfer from client to user
      */
     void userTransfer(String clientCode,
