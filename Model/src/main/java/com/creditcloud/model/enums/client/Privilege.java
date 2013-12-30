@@ -75,11 +75,15 @@ public enum Privilege implements BaseEnum {
      */
     FUND_VIEW("查看平台资金", Realm.FUND, "资金相关权限"),
     FUND_RECONCILIATION("商户对账", Realm.FUND, "资金相关权限"),
-    CASH_AUDIT("提现审批", Realm.FUND, "资金相关权限"),
+    CLIENT_CASH_AUDIT("商户提现审批", Realm.FUND, "资金相关权限"),
+    USER_CASH_AUDIT("用户提现审批", Realm.FUND, "资金相关权限"),
     FUND_DEPOSIT("商户充值", Realm.FUND, "资金相关权限"),
     FUND_WITHDRAW("商户提现", Realm.FUND, "资金相关权限"),
-    FUND_TRANSFER("商户调账", Realm.FUND, "资金相关权限"),
-    FUND_USER_TRANSFER("商户向用户转账", Realm.FUND, "资金相关权限"),
+    CLIENT_DIRECT_WITHDRAW("商户快速提现", Realm.FUND, "资金相关权限"),
+    USER_DIRECT_WITHDRAW("用户快速提现", Realm.FUND, "资金相关权限"),
+    CLIENT_TRANSFER("商户调账", Realm.FUND, "资金相关权限"),
+    USER_TRANSFER("商户向用户转账", Realm.FUND, "资金相关权限"),
+    USER_TRANSFER_AUDIT("商户向用户转账审批", Realm.FUND, "资金相关权限"),
     /**
      * 合同相关权限
      */
