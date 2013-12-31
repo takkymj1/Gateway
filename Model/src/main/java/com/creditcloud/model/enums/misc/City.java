@@ -2,6 +2,7 @@ package com.creditcloud.model.enums.misc;
 
 import com.creditcloud.model.enums.BaseEnum;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -478,16 +479,19 @@ public enum City implements BaseEnum {
     台湾("9903", Province.台湾);
     private final String key;
     private final Province province;
-    private static final HashMap<Province, List<City>> districtMap = new HashMap<Province, List<City>>();
+    private static final HashMap<Province, List<City>> districtMap;
 
     static {
+        HashMap<Province, List<City>> map = new HashMap<>();
         for (Province province : Province.values()) {
-            districtMap.put(province, new ArrayList<City>());
+            map.put(province, new ArrayList<City>());
         }
 
         for (City city : City.values()) {
-            districtMap.get(city.getProvince()).add(city);
+            map.get(city.getProvince()).add(city);
         }
+        
+        districtMap = (HashMap<Province, List<City>>) Collections.unmodifiableMap(map);
     }
 
     private City(String key, Province province) {
