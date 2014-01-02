@@ -4,19 +4,18 @@
  */
 package com.creditcloud.tag.constants;
 
+import com.creditcloud.model.constant.EntityConstant;
+
 /**
  *
  * @author rooseek
  */
 public interface TagConstant {
 
-    /**
-     * tag名称最大长度
+      /**
+     * 用uuid最大长度作为tag name最大长度
      */
-    int MAX_TAG_NAME = 20;
+    int MAX_TAG_NAME = EntityConstant.UUID_LENGTH;
 
-    /**
-     * tag描述最大长度
-     */
-    int MAX_TAG_DESCRIPTION = 1000;
+    int MAX_TAG_DESCRIPTION = 500;
 }

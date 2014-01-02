@@ -12,6 +12,10 @@ package com.creditcloud.model.enums;
 public enum Realm implements BaseEnum {
 
     /**
+     * 代表跟realm关联的field仅仅是个字符串，不是系统内的实体
+     */
+    STRING("字符串"),
+    /**
      * 基本类型
      */
     USER("用戶"),
@@ -45,7 +49,7 @@ public enum Realm implements BaseEnum {
     CONTRACT("合同"),
     IMAGE("图片"),
     FILE("文件");
-    
+
     private final String key;
 
     private Realm(String key) {
