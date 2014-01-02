@@ -6,6 +6,7 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
@@ -38,7 +39,6 @@ public interface LoanRequestService {
      * the local client
      */
     LoanRequest getRequestById(String clientCode, String requestId);
-
 
     /**
      * list loan request by user id
@@ -81,4 +81,13 @@ public interface LoanRequestService {
      */
     boolean updateLoanRequest(String clientCode,
                               LoanRequest request);
+
+    /**
+     * 贷款申请的费率
+     *
+     * @param clientCode
+     * @param requestId
+     * @return
+     */
+    LoanFee getLoanFee(String clientCode, String requestId);
 }
