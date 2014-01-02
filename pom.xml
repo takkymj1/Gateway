@@ -35,5 +35,6 @@
         <module>Yeepay</module>
         <module>Payment</module>
     <module>Tag</module>
+    <module>Appoint</module>
   </modules>
 </project>

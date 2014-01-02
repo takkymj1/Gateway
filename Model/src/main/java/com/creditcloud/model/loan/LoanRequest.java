@@ -160,7 +160,7 @@ public class LoanRequest extends BaseObject {
      * 投资的限额,如果为Null则表示使用默认的限额
      */
     @Valid
-    private InvestQuota investQuota;
+    private InvestRule investRule;
 
     public LoanRequest() {
     }
@@ -198,7 +198,7 @@ public class LoanRequest extends BaseObject {
                        RealmEntity guaranteeEntity,
                        String guaranteeInfo,
                        String serial,
-                       InvestQuota investQuota) {
+                       InvestRule investRule) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -218,7 +218,7 @@ public class LoanRequest extends BaseObject {
         this.guaranteeEntity = guaranteeEntity;
         this.guaranteeInfo = guaranteeInfo;
         this.serial = serial;
-        this.investQuota = investQuota;
+        this.investRule = investRule;
     }
 
     public String getId() {
