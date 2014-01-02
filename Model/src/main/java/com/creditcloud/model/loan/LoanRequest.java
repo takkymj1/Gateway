@@ -124,48 +124,60 @@ public class LoanRequest extends BaseObject {
 
     @XmlElement(name = "mortgaged")
     private boolean mortgaged;
-    
-    @XmlElement(name="source")
+
+    @XmlElement(name = "source")
     private Source source;
-    
-    @XmlElement(name="employeeId")
+
+    @XmlElement(name = "employeeId")
     private String employeeId;
-    
+
     private Collection<MortgageType> mortgageType;
-    
+
     /**
      * 抵质押情况说明
      */
-    @Size(max=LoanConstant.MAX_MORTGAGE_INFO)
+    @Size(max = LoanConstant.MAX_MORTGAGE_INFO)
     private String mortgageInfo;
-    
+
     /**
      * 担保实体，可以为用户个人、商户、企业
      */
     private RealmEntity guaranteeEntity;
-    
+
     /**
      * 担保情况说明
      */
-    @Size(max=LoanConstant.MAX_GUARANTEE_INFO)
+    @Size(max = LoanConstant.MAX_GUARANTEE_INFO)
     private String guaranteeInfo;
+
+    /**
+     * 商户提供的唯一编号,可以为null
+     */
+    @Size(max = LoanConstant.MAX_LOAN_REQUEST_SERIAL)
+    private String serial;
+
+    /**
+     * 投资的限额,如果为Null则表示使用默认的限额
+     */
+    @Valid
+    private InvestQuota investQuota;
 
     public LoanRequest() {
     }
 
     /**
      *
-     * @param id LoanRequest Id, nullable
-     * @param user 用户
-     * @param title title
-     * @param purpose 目的
-     * @param amount 金额
-     * @param duration 期限
-     * @param rate 年化利率（万分之几）
-     * @param method 偿还方法
+     * @param id          LoanRequest Id, nullable
+     * @param user        用户
+     * @param title       title
+     * @param purpose     目的
+     * @param amount      金额
+     * @param duration    期限
+     * @param rate        年化利率（万分之几）
+     * @param method      偿还方法
      * @param description 描述
-     * @param status 状态(初始状态为：UNASSIGNED)
-     * @param timeSubmit 提交时间
+     * @param status      状态(初始状态为：UNASSIGNED)
+     * @param timeSubmit  提交时间
      */
     public LoanRequest(String id,
                        User user,
@@ -184,7 +196,9 @@ public class LoanRequest extends BaseObject {
                        Collection<MortgageType> mortgageType,
                        String mortgageInfo,
                        RealmEntity guaranteeEntity,
-                       String guaranteeInfo) {
+                       String guaranteeInfo,
+                       String serial,
+                       InvestQuota investQuota) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -203,6 +217,8 @@ public class LoanRequest extends BaseObject {
         this.mortgageInfo = mortgageInfo;
         this.guaranteeEntity = guaranteeEntity;
         this.guaranteeInfo = guaranteeInfo;
+        this.serial = serial;
+        this.investQuota = investQuota;
     }
 
     public String getId() {
