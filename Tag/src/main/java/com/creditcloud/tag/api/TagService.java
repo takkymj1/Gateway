@@ -5,6 +5,7 @@
 package com.creditcloud.tag.api;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.tag.model.Tag;
@@ -29,24 +30,25 @@ public interface TagService {
 
     /**
      * 添加新的tag到可用tag列表中.
-     * 
+     *
      * 注意这里无法将新tag关联到任何RealmEntity
      *
      * @param clientCode
+     * @param realm
      * @param tagName
      * @param tagDescription
      * @return
      */
-    Tag addTag(String clientCode, String tagName, String tagDescription);
+    Tag addTag(String clientCode, Realm realm, String tagName, String tagDescription);
 
     /**
      * 给entity标记tag,覆盖之前的tag
      *
      * @param clientCode
      * @param entity
-     * @param tagNames
+     * @param tags
      */
-    void tag(String clientCode, RealmEntity entity, String... tagNames);
+    void tag(String clientCode, RealmEntity entity, List<RealmEntity> tags);
 
     /**
      * 列出entity所有的tag
@@ -64,25 +66,27 @@ public interface TagService {
      * @param tagName
      * @return
      */
-    int countByTag(String clientCode, String tagName);
+    int countByTag(String clientCode, Realm realm, String tagName);
 
     /**
      * 列出tag标记的所有实体
      *
      * @param clientCode
+     * @param realm
      * @param tagName
      * @param pageInfo
      * @return
      */
-    PagedResult<RealmEntity> listByTag(String clientCode, String tagName, PageInfo pageInfo);
+    PagedResult<RealmEntity> listByTag(String clientCode, Realm realm, String tagName, PageInfo pageInfo);
 
     /**
      * 查看entity是否已经拥有某tag
      *
      * @param clientCode
+     *   * @param realm
      * @param tagName
      * @param entity
      * @return true if already tagged on entity, false for not
      */
-    boolean checkTagExist(String clientCode, String tagName, RealmEntity entity);
+    boolean checkTagExist(String clientCode, Realm realm, String tagName, RealmEntity entity);
 }
