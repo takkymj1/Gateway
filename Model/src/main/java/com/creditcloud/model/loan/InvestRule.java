@@ -17,7 +17,7 @@ import lombok.Data;
  */
 @Data
 @Embeddable
-public class InvestQuota extends BaseObject {
+public class InvestRule extends BaseObject {
 
     private static final long serialVersionUID = 20140102L;
 
@@ -39,10 +39,10 @@ public class InvestQuota extends BaseObject {
     @Min(LoanConstant.INVEST_AMOUNT_INCREMENT)
     private int stepAmount;
 
-    public InvestQuota() {
+    public InvestRule() {
     }
 
-    public InvestQuota(int minAmount, int maxAmount, int stepAmount) {
+    public InvestRule(int minAmount, int maxAmount, int stepAmount) {
         this.minAmount = minAmount;
         this.maxAmount = maxAmount;
         this.stepAmount = stepAmount;

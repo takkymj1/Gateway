@@ -6,7 +6,7 @@ package com.creditcloud.common.utils;
 
 import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.common.entities.embedded.Duration;
-import com.creditcloud.common.entities.embedded.InvestQuota;
+import com.creditcloud.common.entities.embedded.InvestRule;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.common.entities.embedded.Repayment;
@@ -335,27 +335,27 @@ public class DTOUtils {
     }
 
     /**
-     * handle InvestQuota
+     * handle InvestRule
      *
      * @param quota
      * @return
      */
-    public static com.creditcloud.model.loan.InvestQuota getInvestQuota(InvestQuota quota) {
-        com.creditcloud.model.loan.InvestQuota result = null;
-        if (quota != null) {
-            result = new com.creditcloud.model.loan.InvestQuota(quota.getMinAmount(),
-                                                                quota.getMaxAmount(),
-                                                                quota.getStepAmount());
+    public static com.creditcloud.model.loan.InvestRule getInvestRule(InvestRule investRule) {
+        com.creditcloud.model.loan.InvestRule result = null;
+        if (investRule != null) {
+            result = new com.creditcloud.model.loan.InvestRule(investRule.getMinAmount(),
+                                                               investRule.getMaxAmount(),
+                                                               investRule.getStepAmount());
         }
         return result;
     }
 
-    public static InvestQuota convertInvestQuota(com.creditcloud.model.loan.InvestQuota quota) {
-        InvestQuota result = null;
-        if (quota != null) {
-            result = new InvestQuota(quota.getMinAmount(),
-                                     quota.getMaxAmount(),
-                                     quota.getStepAmount());
+    public static InvestRule convertInvestRule(com.creditcloud.model.loan.InvestRule investRule) {
+        InvestRule result = null;
+        if (investRule != null) {
+            result = new InvestRule(investRule.getMinAmount(),
+                                    investRule.getMaxAmount(),
+                                    investRule.getStepAmount());
         }
         return result;
     }

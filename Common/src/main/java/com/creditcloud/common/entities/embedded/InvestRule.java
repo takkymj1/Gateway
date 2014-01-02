@@ -15,7 +15,7 @@ import lombok.Data;
  */
 @Data
 @Embeddable
-public class InvestQuota extends BaseEntity {
+public class InvestRule extends BaseEntity {
 
     private static final long serialVersionUID = 20140102L;
 
@@ -34,10 +34,10 @@ public class InvestQuota extends BaseEntity {
      */
     private int stepAmount;
 
-    public InvestQuota() {
+    public InvestRule() {
     }
 
-    public InvestQuota(int minAmount, int maxAmount, int stepAmount) {
+    public InvestRule(int minAmount, int maxAmount, int stepAmount) {
         this.minAmount = minAmount;
         this.maxAmount = maxAmount;
         this.stepAmount = stepAmount;
