@@ -35,7 +35,7 @@ public class ClientURLTest extends BaseTest<Client> {
 
     @Before
     public void setUp() {
-        object = new Client("CreditCloud", "CC", "creditcloud.com", "13800138000", "ABCD", "www.creditcloud.com", Locale.CHINESE);
+        object = new Client("CreditCloud", "CC", "creditcloud.com", "13800138000", "support@creditcloud.com", "ABCD", "www.creditcloud.com", Locale.CHINESE);
     }
 
     @After
