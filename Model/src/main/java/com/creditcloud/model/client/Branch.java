@@ -42,11 +42,14 @@ public class Branch extends BaseObject {
     private String parentId;
 
     /**
-     * code 分支机构唯一码. 在Client内唯一标识分支机构，不限定格式
+     * code 分支机构唯一码. 在Client内唯一标识分支机构，不限定格式，可以跟name一样
      */
     @NotNull
     private String code;
 
+    /**
+     *  分支机构唯一名称.，不限定格式
+     */
     @NotNull
     private String name;
 

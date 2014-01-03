@@ -45,6 +45,15 @@ public interface BranchService {
     Branch getByCode(String clientCode, String code);
 
     /**
+     * 根据name获取branch
+     *
+     * @param clientCode
+     * @param name
+     * @return
+     */
+    Branch getByName(String clientCode, String name);
+
+    /**
      * 更新现有branch
      *
      * @param clientCode
