@@ -10,6 +10,7 @@ import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.tag.model.Tag;
 import com.creditcloud.tag.model.TagEntity;
+import java.util.List;
 import javax.ejb.Remote;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -60,6 +61,24 @@ public interface TagService {
      * @param tags
      */
     void tag(String clientCode, RealmEntity entity, Pair<Realm, String>... tags);
+
+    /**
+     * 给entity标记tag,覆盖之前的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, Tag... tags);
+
+    /**
+     * 给entity标记tag,覆盖之前的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, List<Tag> tags);
 
     /**
      * 列出entity所有的tag
