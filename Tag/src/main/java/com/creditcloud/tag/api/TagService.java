@@ -12,6 +12,7 @@ import com.creditcloud.tag.model.Tag;
 import com.creditcloud.tag.model.TagEntity;
 import java.util.List;
 import javax.ejb.Remote;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -24,9 +25,20 @@ public interface TagService {
      * 列出所有可用的tag
      *
      * @param clientCode
+     * @param pageInfo
      * @return
      */
-    List<Tag> listAllTags(String clientCode);
+    PagedResult<Tag> listAllTags(String clientCode, PageInfo pageInfo);
+
+    /**
+     * 根据realm列出tag
+     *
+     * @param clientCode
+     * @param realm
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
      * 添加新的tag到可用tag列表中.
@@ -48,7 +60,25 @@ public interface TagService {
      * @param entity
      * @param tags
      */
-    void tag(String clientCode, RealmEntity entity, List<RealmEntity> tags);
+    void tag(String clientCode, RealmEntity entity, Pair<Realm, String>... tags);
+
+    /**
+     * 给entity标记tag,覆盖之前的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, Tag... tags);
+
+    /**
+     * 给entity标记tag,覆盖之前的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, List<Tag> tags);
 
     /**
      * 列出entity所有的tag
