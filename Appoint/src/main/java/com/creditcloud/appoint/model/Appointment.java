@@ -9,6 +9,7 @@ import com.creditcloud.model.loan.InvestRule;
 import com.creditcloud.appoint.AppointConstant;
 import com.creditcloud.appoint.enums.AppointmentStatus;
 import java.util.Date;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,14 +28,14 @@ public class Appointment extends BaseObject {
     private static final long serialVersionUID = 20140102L;
 
     private String id;
-    
+
     /**
      * 认购产品标题或名称
      */
     @NotNull
     @Size(max = AppointConstant.MAX_APPOINT_TITLE)
     private String title;
-    
+
     @NotNull
     private AppointmentStatus status;
 
@@ -60,6 +61,7 @@ public class Appointment extends BaseObject {
      * 投资额度控制
      */
     @NotNull
+    @Valid
     private InvestRule investRule;
 
     @Size(max = AppointConstant.MAX_APPOINT_DESCRIPTION)
@@ -73,6 +75,7 @@ public class Appointment extends BaseObject {
     /**
      * 募集期限(单位小时)
      */
+    @Min(AppointConstant.MIN_APPOINT_TIME_OUT)
     private int timeOut;
 
     /**
@@ -84,15 +87,15 @@ public class Appointment extends BaseObject {
     }
 
     public Appointment(String id,
-                       String title, 
+                       String title,
                        AppointmentStatus status,
                        int quota,
-                       int available, 
-                       int count, 
-                       InvestRule investRule, 
-                       String description, 
+                       int available,
+                       int count,
+                       InvestRule investRule,
+                       String description,
                        Date timeOpened,
-                       int timeOut, 
+                       int timeOut,
                        Date timeFinished) {
         this.id = id;
         this.title = title;
@@ -106,5 +109,4 @@ public class Appointment extends BaseObject {
         this.timeOut = timeOut;
         this.timeFinished = timeFinished;
     }
-    
 }
