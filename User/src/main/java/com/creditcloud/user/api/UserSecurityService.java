@@ -123,13 +123,14 @@ public interface UserSecurityService {
     boolean markIDAuthenticated(String clientCode, String userId);
 
     /**
-     * 邮箱验证通过
+     * 标记邮箱验证结果
      *
      * @param clientCode
      * @param userId
+     * @param authenticated 邮箱验证结果
      * @return
      */
-    boolean markEmailAuthenticated(String clientCode, String userId);
+    boolean markEmailAuthenticated(String clientCode, String userId, boolean authenticated);
 
     /**
      * 手机验证通过
