@@ -7,7 +7,9 @@
 package com.creditcloud.model.misc;
 
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 返回前端简单信息，Ajax请求用
@@ -15,6 +17,8 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ResultMessage implements Serializable {
     
     private boolean result;
