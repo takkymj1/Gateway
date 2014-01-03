@@ -22,6 +22,7 @@ public enum Realm implements BaseEnum {
     EMPLOYEE("员工"),
     ROLE("角色"),
     CLIENT("客戶"),
+    BRANCH("分支"),
     /**
      * 认证
      */

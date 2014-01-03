@@ -5,6 +5,7 @@
 package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.BaseObject;
+import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,21 +40,31 @@ public class AppointAgent extends BaseObject {
     /**
      * 剩余额度
      */
+    @Min(0)
     private int available;
 
     /**
      * 认购数目
      */
+    @Min(0)
     private int count;
+    
+    private Date timeRecorded;
 
     public AppointAgent() {
     }
 
-    public AppointAgent(String userId, String description, int quota, int available, int count) {
+    public AppointAgent(String userId, 
+                        String description, 
+                        int quota, 
+                        int available, 
+                        int count,
+                        Date timeRecorded) {
         this.userId = userId;
         this.description = description;
         this.quota = quota;
         this.available = available;
         this.count = count;
+        this.timeRecorded = timeRecorded;
     }
 }

@@ -7,6 +7,7 @@ package com.creditcloud.appoint.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.appoint.enums.AppointRequestStatus;
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -36,7 +37,7 @@ public class AppointRequest extends BaseObject {
     /**
      * 认购金额
      */
-    @NotNull
+    @Min(0)
     private int amount;
 
     /**

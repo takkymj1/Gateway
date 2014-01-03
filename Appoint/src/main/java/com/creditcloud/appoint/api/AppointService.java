@@ -36,6 +36,15 @@ public interface AppointService {
     Appointment addAppointment(String clientCode, Appointment appointment);
 
     /**
+     * 更新Appointment
+     *
+     * @param clientCode
+     * @param appointment
+     * @return
+     */
+    Appointment updateAppointment(String clientCode, Appointment appointment);
+
+    /**
      * 用户认购
      *
      * @param clientCode
@@ -43,6 +52,14 @@ public interface AppointService {
      * @return
      */
     AppointRequest addRequest(String clientCode, AppointRequest request, String appointmentId);
+
+    /**
+     * 更新AppointRequest
+     *
+     * @param clientCode
+     * @param request
+     */
+    void updateRequest(String clientCode, AppointRequest request);
 
     /**
      * 根据认购产品列出所有的认购申请
