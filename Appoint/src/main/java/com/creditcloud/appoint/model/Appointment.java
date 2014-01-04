@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.loan.InvestRule;
 import com.creditcloud.appoint.AppointConstant;
 import com.creditcloud.appoint.enums.AppointmentStatus;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import java.util.Date;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
@@ -28,9 +29,10 @@ public class Appointment extends BaseObject {
     private static final long serialVersionUID = 20140102L;
 
     private String id;
-    
+
+    @NotNull
     private String clientCode;
-    
+
     /**
      * 认购产品标题或名称
      */
@@ -44,7 +46,9 @@ public class Appointment extends BaseObject {
     /**
      * 总认购金额限度
      */
-    @Min(0)
+    @IncrementalInteger(min = AppointConstant.MIN_QUOTA,
+                        increment = AppointConstant.STEP_QUOTA,
+                        max = AppointConstant.MAX_QUOTA)
     private int quota;
 
     /**
