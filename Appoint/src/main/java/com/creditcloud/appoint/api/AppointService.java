@@ -5,12 +5,14 @@
 package com.creditcloud.appoint.api;
 
 import com.creditcloud.appoint.enums.AppointRequestStatus;
+import com.creditcloud.appoint.enums.AppointmentStatus;
 import com.creditcloud.appoint.model.AppointAgent;
 import com.creditcloud.appoint.model.AppointRequest;
 import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -19,6 +21,31 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface AppointService {
+    
+     
+    /**
+     * 
+     * @param clientCode
+     * @param appointmentId
+     * @return 
+     */
+    Appointment getAppointmentById(String clientCode, String appointmentId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param requestId
+     * @return 
+     */
+    AppointRequest getAppointRequestById(String clientCode,String requestId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param agentId
+     * @return 
+     */
+    AppointAgent getAppointAgentById(String clientCode, String agentId);
 
     /**
      * 添加或更新认购代理人
@@ -37,6 +64,7 @@ public interface AppointService {
      * @return
      */
     Appointment saveAppointment(String clientCode, Appointment appointment);
+    
 
     /**
      * 用户认购
@@ -45,7 +73,7 @@ public interface AppointService {
      * @param request
      * @return
      */
-    AppointRequest appoint(String clientCode, AppointRequest request, String appointmentId);
+    AppointRequest appoint(String clientCode, String userId, int amount, String appointmentId);
 
     /**
      * 更新AppointRequest的status
@@ -55,6 +83,15 @@ public interface AppointService {
      * @param requestIds
      */
     void markRequestStatus(String clientCode, AppointRequestStatus status, String... requestIds);
+
+    /**
+     * 列出认购
+     *
+     * @param clientCode
+     * @param status
+     * @return
+     */
+    List<Appointment> listAppointment(String clientCode, AppointmentStatus... status);
 
     /**
      * 根据认购产品列出所有的认购申请
