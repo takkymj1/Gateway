@@ -26,6 +26,11 @@ public class AppointRequest extends BaseObject {
     private String id;
 
     /**
+     * 预约产品id
+     */
+    private String appointmentId;
+
+    /**
      * 投资者userId
      */
     @NotNull
@@ -48,8 +53,14 @@ public class AppointRequest extends BaseObject {
     public AppointRequest() {
     }
 
-    public AppointRequest(String id, String userId, AppointRequestStatus status, int amount, Date timeRecorded) {
+    public AppointRequest(String id,
+                          String userId,
+                          String appointmentId,
+                          AppointRequestStatus status,
+                          int amount,
+                          Date timeRecorded) {
         this.id = id;
+        this.appointmentId = appointmentId;
         this.userId = userId;
         this.status = status;
         this.amount = amount;

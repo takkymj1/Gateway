@@ -7,6 +7,7 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import lombok.Data;
 
@@ -30,7 +31,7 @@ public class InvestRule extends BaseObject {
     /**
      * 最大投资额
      */
-    @Min(LoanConstant.MAX_INVEST_AMOUNT)
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int maxAmount;
 
     /**
