@@ -4,9 +4,12 @@
  */
 package com.creditcloud.appoint.api;
 
+import com.creditcloud.appoint.enums.AppointRequestStatus;
 import com.creditcloud.appoint.model.AppointAgent;
 import com.creditcloud.appoint.model.AppointRequest;
+import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.Appointment;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
@@ -18,31 +21,22 @@ import javax.ejb.Remote;
 public interface AppointService {
 
     /**
-     * 添加认购代理人
+     * 添加或更新认购代理人
      *
      * @param clientCode
      * @param agent
      * @return
      */
-    AppointAgent addAgent(String clientCode, AppointAgent agent);
+    AppointAgent saveAgent(String clientCode, AppointAgent agent);
 
     /**
-     * 添加新的认购产品
+     * 添加或更新认购产品
      *
      * @param clientCode
      * @param appointment
      * @return
      */
-    Appointment addAppointment(String clientCode, Appointment appointment);
-
-    /**
-     * 更新Appointment
-     *
-     * @param clientCode
-     * @param appointment
-     * @return
-     */
-    Appointment updateAppointment(String clientCode, Appointment appointment);
+    Appointment saveAppointment(String clientCode, Appointment appointment);
 
     /**
      * 用户认购
@@ -51,15 +45,16 @@ public interface AppointService {
      * @param request
      * @return
      */
-    AppointRequest addRequest(String clientCode, AppointRequest request, String appointmentId);
+    AppointRequest appoint(String clientCode, AppointRequest request, String appointmentId);
 
     /**
-     * 更新AppointRequest
+     * 更新AppointRequest的status
      *
      * @param clientCode
-     * @param request
+     * @param status
+     * @param requestIds
      */
-    void updateRequest(String clientCode, AppointRequest request);
+    void markRequestStatus(String clientCode, AppointRequestStatus status, String... requestIds);
 
     /**
      * 根据认购产品列出所有的认购申请
@@ -68,23 +63,25 @@ public interface AppointService {
      * @param appointmentId
      * @return
      */
-    PagedResult<AppointRequest> listRequestByAppointment(String clientCode, String appointmentId);
+    PagedResult<AppointRequest> listRequestByAppointment(String clientCode, String appointmentId, PageInfo pageInfo, AppointRequestStatus... status);
 
     /**
-     * 根据代理人列出认购申请
+     * 根据认购人列出所有认购
      *
      * @param clientCode
-     * @param agentUserId
+     * @param userId
      * @return
      */
-    PagedResult<AppointRequest> listRequestByAgent(String clientCode, String agentUserId);
+    PagedResult<AppointRequest> listRequestByUser(String clientCode, String userId, PageInfo pageInfo, AppointRequestStatus... status);
 
     /**
-     * 列出代理人代理的认购产品
+     * 根据认购产品和认购人列出所有认购
      *
      * @param clientCode
-     * @param agentUserId
+     * @param appointmentId
+     * @param userId
+     * @param status
      * @return
      */
-    PagedResult<Appointment> listAppointmentByAgent(String clientCode, String agentUserId);
+    PagedResult<AppointRequest> listRequestByAppointmentAndUser(String clientCode, String appointmentId, String userId, PageInfo pageInfo, AppointRequestStatus... status);
 }

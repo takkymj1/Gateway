@@ -48,23 +48,19 @@ public class AppointAgent extends BaseObject {
      */
     @Min(0)
     private int count;
-    
-    private Date timeRecorded;
 
     public AppointAgent() {
     }
 
-    public AppointAgent(String userId, 
-                        String description, 
-                        int quota, 
-                        int available, 
-                        int count,
-                        Date timeRecorded) {
+    public AppointAgent(String userId,
+                        String description,
+                        int quota,
+                        int available,
+                        int count) {
         this.userId = userId;
         this.description = description;
         this.quota = quota;
         this.available = available;
         this.count = count;
-        this.timeRecorded = timeRecorded;
     }
 }
