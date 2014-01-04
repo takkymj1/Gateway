@@ -28,7 +28,9 @@ public class Appointment extends BaseObject {
     private static final long serialVersionUID = 20140102L;
 
     private String id;
-
+    
+    private String clientCode;
+    
     /**
      * 认购产品标题或名称
      */
@@ -87,6 +89,7 @@ public class Appointment extends BaseObject {
     }
 
     public Appointment(String id,
+                       String clientCode,
                        String title,
                        AppointmentStatus status,
                        int quota,
@@ -98,6 +101,7 @@ public class Appointment extends BaseObject {
                        int timeOut,
                        Date timeFinished) {
         this.id = id;
+        this.clientCode = clientCode;
         this.title = title;
         this.status = status;
         this.quota = quota;
