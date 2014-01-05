@@ -8,7 +8,6 @@ import com.creditcloud.appoint.enums.AppointRequestStatus;
 import com.creditcloud.appoint.enums.AppointmentStatus;
 import com.creditcloud.appoint.model.AppointAgent;
 import com.creditcloud.appoint.model.AppointRequest;
-import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
