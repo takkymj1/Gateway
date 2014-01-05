@@ -9,7 +9,10 @@ import com.creditcloud.model.constant.LoanConstant;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.ws.rs.FormParam;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 投资的额度限制
@@ -17,6 +20,8 @@ import lombok.Data;
  * @author rooseek
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
 public class InvestRule extends BaseObject {
 
@@ -25,27 +30,21 @@ public class InvestRule extends BaseObject {
     /**
      * 最小投资额
      */
+    @FormParam("minAmount")
     @Min(LoanConstant.MIN_INVEST_AMOUNT)
     private int minAmount;
 
     /**
      * 最大投资额
      */
+    @FormParam("maxAmount")
     @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int maxAmount;
 
     /**
      * 投资金额增量
      */
+    @FormParam("stepAmount")
     @Min(LoanConstant.INVEST_AMOUNT_INCREMENT)
     private int stepAmount;
-
-    public InvestRule() {
-    }
-
-    public InvestRule(int minAmount, int maxAmount, int stepAmount) {
-        this.minAmount = minAmount;
-        this.maxAmount = maxAmount;
-        this.stepAmount = stepAmount;
-    }
 }
