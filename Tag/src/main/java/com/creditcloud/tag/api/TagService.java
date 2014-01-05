@@ -54,6 +54,15 @@ public interface TagService {
     Tag saveTag(String clientCode, Realm realm, String tagName, String tagDescription);
 
     /**
+     * 添加更新的tag到可用tag列表中
+     *
+     * @param clientCode
+     * @param tag
+     * @return
+     */
+    Tag saveTag(String clientCode, Tag tag);
+
+    /**
      * 给entity标记tag,覆盖之前的tag
      *
      * @param clientCode
