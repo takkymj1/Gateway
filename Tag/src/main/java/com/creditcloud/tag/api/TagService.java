@@ -111,7 +111,7 @@ public interface TagService {
      *
      * @param clientCode
      * @param entity
-     * @return
+     * @return 如果没有Tag，会返回null
      */
     TagEntity getTagEntity(String clientCode, RealmEntity entity);
 
