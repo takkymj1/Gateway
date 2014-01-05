@@ -55,7 +55,7 @@ public class Appointment extends BaseObject {
      * 剩余可认购额度
      */
     @Min(0)
-    private int available;
+    private int amount;
 
     /**
      * 认购数额
@@ -97,7 +97,7 @@ public class Appointment extends BaseObject {
                        String title,
                        AppointmentStatus status,
                        int quota,
-                       int available,
+                       int amount,
                        int count,
                        InvestRule investRule,
                        String description,
@@ -109,12 +109,21 @@ public class Appointment extends BaseObject {
         this.title = title;
         this.status = status;
         this.quota = quota;
-        this.available = available;
+        this.amount = amount;
         this.count = count;
         this.investRule = investRule;
         this.description = description;
         this.timeOpened = timeOpened;
         this.timeOut = timeOut;
         this.timeFinished = timeFinished;
+    }
+
+    /**
+     * 剩余可用认购额度
+     *
+     * @return
+     */
+    public int getAvailable() {
+        return quota - amount;
     }
 }

@@ -118,6 +118,12 @@ public class DTOUtils {
         return result;
     }
 
+    /**
+     * handle BankAccount
+     *
+     * @param bankAccount
+     * @return
+     */
     public static com.creditcloud.model.user.fund.BankAccount getBankAccountDTO(BankAccount bankAccount) {
         com.creditcloud.model.user.fund.BankAccount result = null;
         if (bankAccount != null) {
@@ -126,6 +132,18 @@ public class DTOUtils {
                                                                      bankAccount.getLocation(),
                                                                      bankAccount.getBranch(),
                                                                      bankAccount.getAccount());
+        }
+        return result;
+    }
+
+    public static BankAccount convertBankAccountDTO(com.creditcloud.model.user.fund.BankAccount bankAccount) {
+        BankAccount result = null;
+        if (bankAccount != null) {
+            result = new BankAccount(bankAccount.getName(),
+                                     bankAccount.getBank(),
+                                     bankAccount.getLocation(),
+                                     bankAccount.getBranch(),
+                                     bankAccount.getAccount());
         }
         return result;
     }
