@@ -139,10 +139,20 @@ public interface TagService {
      * 查看entity是否已经拥有某tag
      *
      * @param clientCode
-     *   * @param realm
+     * @param realm
      * @param tagName
      * @param entity
      * @return true if already tagged on entity, false for not
      */
     boolean checkTagExist(String clientCode, Realm realm, String tagName, RealmEntity entity);
+    
+    /**
+     * 查看entity是否已经拥有某tag
+     *
+     * @param clientCode
+     * @param tag
+     * @param entity
+     * @return true if already tagged on entity, false for not
+     */
+    boolean checkTagExist(String clientCode, Tag tag, RealmEntity entity);
 }
