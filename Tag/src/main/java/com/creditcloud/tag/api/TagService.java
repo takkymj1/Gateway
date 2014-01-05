@@ -20,6 +20,23 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface TagService {
+    
+    /**
+     * 
+     * @param clientCode
+     * @param tagId
+     * @return 
+     */
+    Tag getTag(String clientCode, String tagId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param realm
+     * @param tagName
+     * @return 
+     */
+    Tag getTag(String clientCode, Realm realm, String tagName);
 
     /**
      * 列出所有可用的tag
