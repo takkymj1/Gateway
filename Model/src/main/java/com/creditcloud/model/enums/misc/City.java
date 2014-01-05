@@ -171,14 +171,14 @@ public enum City implements BaseEnum {
      * 0035 福建
      */
     福州("3501", Province.福建),
-    厦门("3501", Province.福建),
-    龙岩("3501", Province.福建),
-    南平("3501", Province.福建),
-    宁德("3501", Province.福建),
-    莆田("3501", Province.福建),
-    泉州("3501", Province.福建),
-    三明("3501", Province.福建),
-    漳州("3501", Province.福建),
+    厦门("3502", Province.福建),
+    龙岩("3503", Province.福建),
+    南平("3504", Province.福建),
+    宁德("3505", Province.福建),
+    莆田("3506", Province.福建),
+    泉州("3507", Province.福建),
+    三明("3508", Province.福建),
+    漳州("3509", Province.福建),
     /**
      * 0036 江西
      */
