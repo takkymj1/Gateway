@@ -51,7 +51,7 @@ public interface AppointService {
      *
      * @param clientCode
      * @param agent
-     * @return
+     * @return null if save not successful
      */
     AppointAgent saveAgent(String clientCode, AppointAgent agent);
 
@@ -60,7 +60,7 @@ public interface AppointService {
      *
      * @param clientCode
      * @param appointment
-     * @return
+     * @return null if save not successful
      */
     Appointment saveAppointment(String clientCode, Appointment appointment);
     
