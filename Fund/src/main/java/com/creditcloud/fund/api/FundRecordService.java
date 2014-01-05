@@ -4,14 +4,14 @@
  */
 package com.creditcloud.fund.api;
 
-import com.creditcloud.fund.model.record.FundRecord;
-import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
 import com.creditcloud.fund.model.record.FundDeposit;
 import com.creditcloud.fund.model.record.FundInvest;
+import com.creditcloud.fund.model.record.FundRecord;
 import com.creditcloud.fund.model.record.FundTransfer;
+import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
@@ -110,13 +110,13 @@ public interface FundRecordService {
                                        List<FundRecordStatus> status);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param type
      * @param operation
      * @param status
-     * @return 
+     * @return
      */
     int countByUser(String clientCode,
                     String userId,
@@ -148,6 +148,20 @@ public interface FundRecordService {
      * @return
      */
     List<FundWithdraw> listWithdrawRequest(String clientCode);
+
+    /**
+     * 返回特定时间段内成功的提现记录
+     * 
+     * @param clientCode
+     * @param startDate
+     * @param endDate
+     * @param pageInfo
+     * @return 
+     */
+    List<FundWithdraw> listWithdraw(String clientCode,
+                                    Date startDate,
+                                    Date endDate,
+                                    PageInfo pageInfo);
 
     /**
      * 根据orderId查找FundInvest
