@@ -41,7 +41,7 @@ public interface TagService {
     PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
-     * 添加新的tag到可用tag列表中.
+     * 添加更新的tag到可用tag列表中.
      *
      * 注意这里无法将新tag关联到任何RealmEntity
      *
@@ -51,7 +51,7 @@ public interface TagService {
      * @param tagDescription
      * @return
      */
-    Tag addTag(String clientCode, Realm realm, String tagName, String tagDescription);
+    Tag saveTag(String clientCode, Realm realm, String tagName, String tagDescription);
 
     /**
      * 给entity标记tag,覆盖之前的tag
