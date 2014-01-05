@@ -5,6 +5,7 @@
 package com.creditcloud.tag.constants;
 
 import com.creditcloud.model.constant.EntityConstant;
+import com.creditcloud.tag.model.Tag;
 
 /**
  *
@@ -18,4 +19,11 @@ public interface TagConstant {
     int MAX_TAG_NAME = EntityConstant.UUID_LENGTH;
 
     int MAX_TAG_DESCRIPTION = 500;
+    
+    /**
+     * 分隔tag中Realm和String的符号
+     */
+    String SEPERATOR = ":";
+    
+    Tag[] EMPTY_ARRAY = new Tag[]{};
 }
