@@ -39,6 +39,7 @@ public enum Realm implements BaseEnum {
     LOANREPAYMENT("贷款还款"),
     LOANREQUEST("贷款申请"),
     TASK("任务"),
+    APPOINTMENT("认购"),
     /**
      * 业务类型
      */
@@ -50,7 +51,7 @@ public enum Realm implements BaseEnum {
     CONTRACT("合同"),
     IMAGE("图片"),
     FILE("文件");
-
+    
     private final String key;
 
     private Realm(String key) {
