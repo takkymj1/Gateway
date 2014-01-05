@@ -20,6 +20,23 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface TagService {
+    
+    /**
+     * 
+     * @param clientCode
+     * @param tagId
+     * @return 
+     */
+    Tag getTag(String clientCode, String tagId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param realm
+     * @param tagName
+     * @return 
+     */
+    Tag getTag(String clientCode, Realm realm, String tagName);
 
     /**
      * 列出所有可用的tag
@@ -41,7 +58,7 @@ public interface TagService {
     PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
-     * 添加新的tag到可用tag列表中.
+     * 添加更新tag到可用tag列表中.
      *
      * 注意这里无法将新tag关联到任何RealmEntity
      *
@@ -51,7 +68,16 @@ public interface TagService {
      * @param tagDescription
      * @return
      */
-    Tag addTag(String clientCode, Realm realm, String tagName, String tagDescription);
+    Tag saveTag(String clientCode, Realm realm, String tagName, String tagDescription);
+
+    /**
+     * 添加更新tag到可用tag列表中
+     *
+     * @param clientCode
+     * @param tag
+     * @return
+     */
+    Tag saveTag(String clientCode, Tag tag);
 
     /**
      * 给entity标记tag,覆盖之前的tag
