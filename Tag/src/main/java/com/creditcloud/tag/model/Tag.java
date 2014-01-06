@@ -43,4 +43,8 @@ public class Tag extends BaseObject {
     @Size(max = TagConstant.MAX_TAG_DESCRIPTION)
     private String description;
 
+    @Override
+    public String toString() {
+        return realm.name().concat(TagConstant.SEPERATOR).concat(name);
+    }
 }
