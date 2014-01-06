@@ -20,21 +20,21 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface TagService {
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param tagId
-     * @return 
+     * @return
      */
     Tag getTag(String clientCode, String tagId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param realm
      * @param tagName
-     * @return 
+     * @return
      */
     Tag getTag(String clientCode, Realm realm, String tagName);
 
@@ -86,16 +86,18 @@ public interface TagService {
      * @param entity
      * @param tags
      */
+    @Deprecated
     void tag(String clientCode, RealmEntity entity, Pair<Realm, String>... tags);
 
     /**
-     * 给entity标记tag,覆盖之前的tag
+     * 给entity标记tag
      *
      * @param clientCode
      * @param entity
+     * @param overwrite  true for overwrite previous tags, false for append
      * @param tags
      */
-    void tag(String clientCode, RealmEntity entity, Tag... tags);
+    void tag(String clientCode, RealmEntity entity, boolean overwrite, Pair<Realm, String>... tags);
 
     /**
      * 给entity标记tag,覆盖之前的tag
@@ -104,7 +106,38 @@ public interface TagService {
      * @param entity
      * @param tags
      */
+    @Deprecated
+    void tag(String clientCode, RealmEntity entity, Tag... tags);
+
+    /**
+     * 给entity标记tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param overwrite  true for overwrite previous tags, false for append
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, boolean overwrite, Tag... tags);
+
+    /**
+     * 给entity标记tag,覆盖之前的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param tags
+     */
+    @Deprecated
     void tag(String clientCode, RealmEntity entity, List<Tag> tags);
+
+    /**
+     * 给entity标记tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param overwrite  true for overwrite previous tags, false for append
+     * @param tags
+     */
+    void tag(String clientCode, RealmEntity entity, boolean overwrite, List<Tag> tags);
 
     /**
      * 列出entity所有的tag
@@ -145,7 +178,7 @@ public interface TagService {
      * @return true if already tagged on entity, false for not
      */
     boolean checkTagExist(String clientCode, Realm realm, String tagName, RealmEntity entity);
-    
+
     /**
      * 查看entity是否已经拥有某tag
      *
