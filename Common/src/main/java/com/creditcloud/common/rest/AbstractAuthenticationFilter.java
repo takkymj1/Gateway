@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.rest;
 
+import com.creditcloud.common.security.FreeAccess;
 import com.creditcloud.common.security.LoginRequired;
 import com.creditcloud.common.security.PrivilegeRequired;
 import com.creditcloud.model.enums.client.Privilege;
@@ -43,6 +44,10 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
 
     @Override
     public void filter(ContainerRequestContext requestContext) {
+        
+        if (resourceInfo.get().getResourceMethod().isAnnotationPresent(FreeAccess.class)) {
+            return;
+        }
 
         Set<Privilege> priv = new HashSet<>();
 
@@ -60,7 +65,7 @@ public abstract class AbstractAuthenticationFilter implements ContainerRequestFi
         boolean loginRequired = privileges.length > 0
                 || resourceInfo.get().getResourceClass().isAnnotationPresent(LoginRequired.class)
                 || resourceInfo.get().getResourceMethod().isAnnotationPresent(LoginRequired.class);
-
+        
         if (loginRequired && !checkLogin()) {
             throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }

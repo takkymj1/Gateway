@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author sobranie
  */
 @XmlRootElement
-public class Location {
+public class Location extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 

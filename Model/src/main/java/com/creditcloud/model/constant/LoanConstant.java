@@ -36,9 +36,9 @@ public interface LoanConstant {
     int LOAN_AMOUNT_INCREMENT = 10;
 
     /**
-     * 最高贷款金额
+     * 最高贷款金额，一千万
      */
-    int MAX_LOAN_AMOUNT = 1000000;
+    int MAX_LOAN_AMOUNT = 10000000;
 
     /**
      * 贷款最短期限,单位月
@@ -71,9 +71,9 @@ public interface LoanConstant {
     int MIN_INVEST_AMOUNT = 1;
 
     /**
-     * 单笔投资需按照10递增
+     * 单笔投资递增
      */
-    int INVEST_AMOUNT_INCREMENT = 1;
+    int INVEST_AMOUNT_INCREMENT = MIN_INVEST_AMOUNT;
 
     /**
      * 单笔投资最大金额
@@ -104,4 +104,9 @@ public interface LoanConstant {
      * 担保公司名称最大长度
      */
     int MAX_GUARANTEE_COMPANY = 60;
+    
+    /**
+     * 商户提供的贷款申请号最大长度
+     */
+    int MAX_LOAN_REQUEST_SERIAL = 20;
 }

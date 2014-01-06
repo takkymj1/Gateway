@@ -12,12 +12,17 @@ package com.creditcloud.model.enums;
 public enum Realm implements BaseEnum {
 
     /**
+     * 代表跟realm关联的field仅仅是个字符串，不是系统内的实体
+     */
+    STRING("字符串"),
+    /**
      * 基本类型
      */
     USER("用戶"),
     EMPLOYEE("员工"),
     ROLE("角色"),
     CLIENT("客戶"),
+    BRANCH("分支机构"),
     /**
      * 认证
      */
@@ -34,6 +39,7 @@ public enum Realm implements BaseEnum {
     LOANREPAYMENT("贷款还款"),
     LOANREQUEST("贷款申请"),
     TASK("任务"),
+    APPOINTMENT("认购"),
     /**
      * 业务类型
      */

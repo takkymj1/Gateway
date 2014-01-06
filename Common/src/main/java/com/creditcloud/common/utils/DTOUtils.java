@@ -6,6 +6,7 @@ package com.creditcloud.common.utils;
 
 import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.common.entities.embedded.Duration;
+import com.creditcloud.common.entities.embedded.InvestRule;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.common.entities.embedded.Repayment;
@@ -117,6 +118,12 @@ public class DTOUtils {
         return result;
     }
 
+    /**
+     * handle BankAccount
+     *
+     * @param bankAccount
+     * @return
+     */
     public static com.creditcloud.model.user.fund.BankAccount getBankAccountDTO(BankAccount bankAccount) {
         com.creditcloud.model.user.fund.BankAccount result = null;
         if (bankAccount != null) {
@@ -125,6 +132,18 @@ public class DTOUtils {
                                                                      bankAccount.getLocation(),
                                                                      bankAccount.getBranch(),
                                                                      bankAccount.getAccount());
+        }
+        return result;
+    }
+
+    public static BankAccount convertBankAccountDTO(com.creditcloud.model.user.fund.BankAccount bankAccount) {
+        BankAccount result = null;
+        if (bankAccount != null) {
+            result = new BankAccount(bankAccount.getName(),
+                                     bankAccount.getBank(),
+                                     bankAccount.getLocation(),
+                                     bankAccount.getBranch(),
+                                     bankAccount.getAccount());
         }
         return result;
     }
@@ -329,6 +348,32 @@ public class DTOUtils {
         RealmEntity result = null;
         if (entity != null) {
             result = new RealmEntity(entity.getRealm(), entity.getEntityId());
+        }
+        return result;
+    }
+
+    /**
+     * handle InvestRule
+     *
+     * @param quota
+     * @return
+     */
+    public static com.creditcloud.model.loan.InvestRule getInvestRule(InvestRule investRule) {
+        com.creditcloud.model.loan.InvestRule result = null;
+        if (investRule != null) {
+            result = new com.creditcloud.model.loan.InvestRule(investRule.getMinAmount(),
+                                                               investRule.getMaxAmount(),
+                                                               investRule.getStepAmount());
+        }
+        return result;
+    }
+
+    public static InvestRule convertInvestRule(com.creditcloud.model.loan.InvestRule investRule) {
+        InvestRule result = null;
+        if (investRule != null) {
+            result = new InvestRule(investRule.getMinAmount(),
+                                    investRule.getMaxAmount(),
+                                    investRule.getStepAmount());
         }
         return result;
     }

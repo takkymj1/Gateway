@@ -4,19 +4,23 @@
  */
 package com.creditcloud.model.client;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.Location;
 import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.enums.client.BranchType;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  * 客户机构，可以为总部、分公司、办事处、加盟商等等
  *
  * @author sobranie
  */
+@Data
 @XmlRootElement
-public class Branch {
+public class Branch extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
@@ -31,18 +35,21 @@ public class Branch {
 
     /**
      * 上级分支机构ID.
-     * 
+     *
      * 可以等于client.id，表示总部
      */
     @NotNull
     private String parentId;
 
     /**
-     * 分支机构唯一码. 在Client内唯一标识分支机构，不限定格式
+     * code 分支机构唯一码. 在Client内唯一标识分支机构，不限定格式，可以跟name一样
      */
     @NotNull
     private String code;
 
+    /**
+     *  分支机构唯一名称.，不限定格式
+     */
     @NotNull
     private String name;
 
@@ -52,7 +59,6 @@ public class Branch {
     /**
      * 地址及位置信息
      */
-    @NotNull
     private Location location;
 
     /**
@@ -69,6 +75,18 @@ public class Branch {
 
     private String description;
 
+    /**
+     * 认购额度限额
+     */
+    private int quota;
+
+    private Date timeCreated;
+
+    private Date timeLastUpdated;
+
+    public Branch() {
+    }
+
     public Branch(String id,
                   String clientCode,
                   String parentId,
@@ -78,7 +96,8 @@ public class Branch {
                   Location location,
                   Employee principal,
                   Employee contactPerson,
-                  String description) {
+                  String description,
+                  int quota) {
         this.id = id;
         this.clientCode = clientCode;
         this.parentId = parentId;
@@ -89,6 +108,7 @@ public class Branch {
         this.principal = principal;
         this.contactPerson = contactPerson;
         this.description = description;
+        this.quota = quota;
     }
 
     public String getId() {

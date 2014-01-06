@@ -60,7 +60,7 @@ public enum Privilege implements BaseEnum {
     LOAN_LIST("列出借款", Realm.LOAN, "借款相关权限"),
     LOAN_SPLIT("借款申请批准后拆标", Realm.LOAN, "借款相关权限"),
     LOAN_SCHEDULE("拆标后发标", Realm.LOAN, "借款相关权限"),
-    LOAN_SETTLE("借款满标流标后审核并结算", Realm.LOAN, "借款相关权限"),
+    LOAN_SETTLE("借款满标流标后审核", Realm.LOAN, "借款相关权限"),
     POST_LOAN_MANAGE("贷后管理", Realm.LOAN, "借款相关权限"),
     LOAN_REPAY("还款", Realm.LOAN, "借款相关权限"),
     LOAN_DISBURSE("垫付", Realm.LOAN, "借款相关权限"),

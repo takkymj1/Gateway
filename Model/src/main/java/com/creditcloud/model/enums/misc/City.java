@@ -173,14 +173,14 @@ public enum City implements BaseEnum {
      * 0035 福建
      */
     福州("3501", Province.福建),
-    厦门("3501", Province.福建),
-    龙岩("3501", Province.福建),
-    南平("3501", Province.福建),
-    宁德("3501", Province.福建),
-    莆田("3501", Province.福建),
-    泉州("3501", Province.福建),
-    三明("3501", Province.福建),
-    漳州("3501", Province.福建),
+    厦门("3502", Province.福建),
+    龙岩("3503", Province.福建),
+    南平("3504", Province.福建),
+    宁德("3505", Province.福建),
+    莆田("3506", Province.福建),
+    泉州("3507", Province.福建),
+    三明("3508", Province.福建),
+    漳州("3509", Province.福建),
     /**
      * 0036 江西
      */
@@ -480,26 +480,28 @@ public enum City implements BaseEnum {
     台湾("9903", Province.台湾);
     private final String key;
     private final Province province;
-    private static final Map<Province, List<City>> districtMap;
+    private static final Map<Province, List<City>> districtMap = new HashMap<>();
+    /**
+     * 1100 -> 北京
+     */
+    private static final Map<String, City> keyMap = new HashMap<>();
 
     static {
-            HashMap<Province, List<City>> map = new HashMap<>();
-            for (Province province : Province.values()) {
-                    map.put(province, new ArrayList<City>());
-            }
+        for (Province province : Province.values()) {
+            districtMap.put(province, new ArrayList<City>());
+        }
 
-            for (City city : City.values()) {
-                    map.get(city.getProvince()).add(city);
-            }
-
-            districtMap = Collections.unmodifiableMap(map);
+        for (City city : City.values()) {
+            districtMap.get(city.getProvince()).add(city);
+            keyMap.put(city.getKey(), city);
+        }
     }
 
     public static void main(String[] args) {
         System.out.print(districtMap);
         System.out.print(listByProvince(Province.云南));
     }
-    
+
     private City(String key, Province province) {
         this.key = key;
         this.province = province;
@@ -522,5 +524,15 @@ public enum City implements BaseEnum {
      */
     public static List<City> listByProvince(Province province) {
         return districtMap.get(province);
+    }
+
+    /**
+     * 根据城市编码获取City
+     *
+     * @param key
+     * @return
+     */
+    public static City byKey(String key) {
+        return keyMap.get(key);
     }
 }
