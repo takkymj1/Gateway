@@ -55,11 +55,15 @@ public class TagUtils {
      */
     public static Tag[] parseTags(String tagsString, String seperator) {
         if (StringUtils.isBlank(tagsString)
-            || StringUtils.isBlank(seperator)
-            || !StringUtils.contains(tagsString, seperator)) {
+            || StringUtils.isBlank(seperator)) {
             return TagConstant.EMPTY_ARRAY;
         }
-        String[] tagStrings = tagsString.split(seperator);
+        String[] tagStrings;
+        if(tagsString.contains(seperator)) {
+            tagStrings = tagsString.split(seperator);
+        } else {
+            tagStrings = new String[]{tagsString};
+        }
         List<Tag> tags = new ArrayList<>();
         for (String tagString : tagStrings) {
             Tag tag = toTag(tagString);
