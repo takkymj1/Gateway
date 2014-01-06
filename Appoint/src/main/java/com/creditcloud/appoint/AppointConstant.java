@@ -26,17 +26,17 @@ public interface AppointConstant {
     int MIN_APPOINT_TIME_OUT = 24;
 
     /**
-     * 认购额度最小值
+     * 认购额度最小值，一百万
      */
     int MIN_QUOTA = 1000000;
 
     /**
-     * 认购额度步进
+     * 认购额度步进，一百万
      */
     int STEP_QUOTA = MIN_QUOTA;
 
     /**
-     * 认购额度最大值
+     * 认购额度最大值，一亿
      */
     int MAX_QUOTA = 100000000;
 
