@@ -8,12 +8,18 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Realm;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * identify an entity by its id and belonging realm
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 public class RealmEntity extends BaseObject {
 
@@ -25,27 +31,8 @@ public class RealmEntity extends BaseObject {
     @NotNull
     private String entityId;
 
-    public RealmEntity() {
-    }
-
-    public RealmEntity(Realm realm, String entityId) {
-        this.realm = realm;
-        this.entityId = entityId;
-    }
-
-    public Realm getRealm() {
-        return realm;
-    }
-
-    public String getEntityId() {
-        return entityId;
-    }
-
-    public void setRealm(Realm realm) {
-        this.realm = realm;
-    }
-
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
+    @Override
+    public String toString() {
+        return realm + ":" + entityId;
     }
 }

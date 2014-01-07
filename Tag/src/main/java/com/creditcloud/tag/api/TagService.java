@@ -24,14 +24,6 @@ public interface TagService {
     /**
      *
      * @param clientCode
-     * @param tagId
-     * @return
-     */
-    Tag getTag(String clientCode, String tagId);
-
-    /**
-     *
-     * @param clientCode
      * @param realm
      * @param tagName
      * @return
@@ -188,4 +180,14 @@ public interface TagService {
      * @return true if already tagged on entity, false for not
      */
     boolean checkTagExist(String clientCode, Tag tag, RealmEntity entity);
+
+    /**
+     * 查看一组RealmEntity是否有共同的tag
+     *
+     * @param clienCode
+     * @param entityList
+     * @param tag
+     * @return true if all RealmEntity exist and has common tag
+     */
+    boolean checkCommonTags(String clientCode, List<RealmEntity> entityList, Tag tag);
 }
