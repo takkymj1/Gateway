@@ -11,12 +11,18 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * identify an entity by its id and belonging realm
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
 public class RealmEntity extends BaseEntity {
 
@@ -26,30 +32,6 @@ public class RealmEntity extends BaseEntity {
 
     @Column(name = "ENTITYID", nullable = true)
     private String entityId;
-
-    public RealmEntity() {
-    }
-
-    public RealmEntity(Realm realm, String entityId) {
-        this.realm = realm;
-        this.entityId = entityId;
-    }
-
-    public Realm getRealm() {
-        return realm;
-    }
-
-    public String getEntityId() {
-        return entityId;
-    }
-
-    public void setRealm(Realm realm) {
-        this.realm = realm;
-    }
-
-    public void setEntityId(String entityId) {
-        this.entityId = entityId;
-    }
 
     @Override
     public int hashCode() {
@@ -76,5 +58,12 @@ public class RealmEntity extends BaseEntity {
         }
         return true;
     }
-    
+
+    @Override
+    public String toString() {
+        if (realm != null && entityId != null) {
+            return realm + ":" + entityId;
+        }
+        return "null";
+    }
 }

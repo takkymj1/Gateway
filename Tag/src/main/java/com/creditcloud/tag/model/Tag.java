@@ -20,13 +20,13 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"description"})
 public class Tag extends BaseObject {
 
     private static final long serialVersionUID = 20131230L;
-
+    
     /**
      * 如果是Realm.STRING表示name中仅仅是字符串，不是系统中的实体
      */
