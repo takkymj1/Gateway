@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 public class Tag extends BaseObject {
 
     private static final long serialVersionUID = 20131230L;
-    
+
     /**
      * 如果是Realm.STRING表示name中仅仅是字符串，不是系统中的实体
      */
@@ -46,5 +46,9 @@ public class Tag extends BaseObject {
     @Override
     public String toString() {
         return realm.name().concat(TagConstant.SEPERATOR).concat(name);
+    }
+
+    public static Tag valueOf(Realm realm, String tagName) {
+        return new Tag(realm, tagName, null);
     }
 }
