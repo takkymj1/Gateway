@@ -151,17 +151,31 @@ public interface FundRecordService {
 
     /**
      * 返回特定时间段内成功的提现记录
-     * 
+     *
      * @param clientCode
      * @param startDate
      * @param endDate
      * @param pageInfo
-     * @return 
+     * @return
      */
     List<FundWithdraw> listWithdraw(String clientCode,
                                     Date startDate,
                                     Date endDate,
                                     PageInfo pageInfo);
+
+    /**
+     * 列出一定时间段内所有充值记录
+     *
+     * @param clientCode
+     * @param startDate
+     * @param endDate
+     * @param pageInfo
+     * @return
+     */
+    List<FundDeposit> listDeposit(String clientCode,
+                                  Date startDate,
+                                  Date endDate,
+                                  PageInfo pageInfo);
 
     /**
      * 根据orderId查找FundInvest
@@ -326,7 +340,7 @@ public interface FundRecordService {
      * 商户子账户之间转账
      *
      * @param clientCode
-     * @param inAccount 入账子账户
+     * @param inAccount  入账子账户
      * @param outAccount 出账子账户
      * @param amount
      */
@@ -340,9 +354,9 @@ public interface FundRecordService {
      * 商户和用户之间转账
      *
      * @param clientCode
-     * @param account 商户子账户
+     * @param account    商户子账户
      * @param amount
-     * @param userId 用户
+     * @param userId     用户
      * @param transferIn true for transfer from client to user
      */
     void userTransfer(String clientCode,
