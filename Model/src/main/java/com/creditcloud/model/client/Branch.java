@@ -24,7 +24,6 @@ public class Branch extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
-    @NotNull
     private String id;
 
     /**
@@ -36,7 +35,7 @@ public class Branch extends BaseObject {
     /**
      * 上级分支机构ID.
      *
-     * 可以等于client.id，表示总部
+     * 为null表示第一级机构
      */
     @NotNull
     private String parentId;
@@ -48,7 +47,7 @@ public class Branch extends BaseObject {
     private String code;
 
     /**
-     *  分支机构唯一名称.，不限定格式
+     *  分支机构唯一名称，不限定格式
      */
     @NotNull
     private String name;
@@ -75,11 +74,6 @@ public class Branch extends BaseObject {
 
     private String description;
 
-    /**
-     * 认购额度限额
-     */
-    private int quota;
-
     private Date timeCreated;
 
     private Date timeLastUpdated;
@@ -96,8 +90,7 @@ public class Branch extends BaseObject {
                   Location location,
                   Employee principal,
                   Employee contactPerson,
-                  String description,
-                  int quota) {
+                  String description) {
         this.id = id;
         this.clientCode = clientCode;
         this.parentId = parentId;
@@ -107,87 +100,6 @@ public class Branch extends BaseObject {
         this.location = location;
         this.principal = principal;
         this.contactPerson = contactPerson;
-        this.description = description;
-        this.quota = quota;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getClientCode() {
-        return clientCode;
-    }
-
-    public void setClientCode(String clientCode) {
-        this.clientCode = clientCode;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BranchType getType() {
-        return type;
-    }
-
-    public void setType(BranchType type) {
-        this.type = type;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Employee getPrincipal() {
-        return principal;
-    }
-
-    public void setPrincipal(Employee principal) {
-        this.principal = principal;
-    }
-
-    public Employee getContactPerson() {
-        return contactPerson;
-    }
-
-    public void setContactPerson(Employee contactPerson) {
-        this.contactPerson = contactPerson;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 }
