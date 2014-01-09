@@ -27,7 +27,7 @@ public interface AppointService {
      * @param clientCode
      * @param user
      */
-    void addAppointUser(String clientCode, AppointUser user);
+    AppointUser addAppointUser(String clientCode, AppointUser user);
 
     /**
      * 直接从文本中导入AppointUser
@@ -35,7 +35,16 @@ public interface AppointService {
      * @param clientCode
      * @param whiteListFilePath
      */
-    void importAppointUser(String clientCode, String whiteListFilePath);
+    boolean importAppointUser(String clientCode, String whiteListFilePath);
+    
+    /**
+     * 
+     * @param clientCode
+     * @return 
+     */
+    List<AppointUser> listAllAppointUser(String clientCode);
+    
+    
 
     /**
      *
