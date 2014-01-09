@@ -18,13 +18,13 @@ import javax.ejb.Remote;
 public interface BranchService {
 
     /**
-     * 添加新的Branch
+     * 添加或更新Branch
      *
      * @param clientCode
      * @param branch
      * @return
      */
-    Branch addNew(String clientCode, Branch branch);
+    Branch saveBranch(String clientCode, Branch branch);
 
     /**
      * 根据id获取branch
@@ -52,15 +52,6 @@ public interface BranchService {
      * @return
      */
     Branch getByName(String clientCode, String name);
-
-    /**
-     * 更新现有branch
-     *
-     * @param clientCode
-     * @param branch
-     * @return
-     */
-    Branch update(String clientCode, Branch branch);
 
     /**
      * 列出客户所有branch

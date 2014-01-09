@@ -5,7 +5,6 @@
 package com.creditcloud.client.api;
 
 import com.creditcloud.model.client.Client;
-import com.creditcloud.model.client.Branch;
 import javax.ejb.Remote;
 
 /**
@@ -29,13 +28,6 @@ public interface ClientService {
      * @param client
      */
     void saveClient(Client client);
-
-    /**
-     * Save(persist) or update a branch.
-     *
-     * @param branch
-     */
-    void saveBranch(Branch branch);
 
     /**
      * return base64 encoded icon for this client
