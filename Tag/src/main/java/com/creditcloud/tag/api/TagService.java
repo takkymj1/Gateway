@@ -117,6 +117,17 @@ public interface TagService {
     PagedResult<RealmEntity> listByTag(String clientCode, Tag tag, PageInfo pageInfo);
 
     /**
+     * 列出tag标记的属于某realm的所有实体
+     *
+     * @param clientCode
+     * @param tag
+     * @param realm
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<RealmEntity> listByTagAndRealm(String clientCode, Tag tag, Realm realm, PageInfo pageInfo);
+
+    /**
      * 查看entity是否已经拥有某tag
      *
      * @param clientCode
