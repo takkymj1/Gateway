@@ -35,13 +35,13 @@ public class TagUtils {
         String trimmedTagString = tagString.trim();
         int index = trimmedTagString.indexOf(TagConstant.SEPERATOR);
         if (index <= 0) {
-            return new Tag(Realm.STRING, trimmedTagString, null);
+            return new Tag(Realm.STRING, trimmedTagString, null, null);
         } else {
             try {
                 Realm realm = Realm.valueOf(trimmedTagString.substring(0, index));
-                return new Tag(realm, trimmedTagString.substring(index + 1), null);
+                return new Tag(realm, trimmedTagString.substring(index + 1), null, null);
             } catch (IllegalArgumentException ex) {
-                return new Tag(Realm.STRING, trimmedTagString, null);
+                return new Tag(Realm.STRING, trimmedTagString, null, null);
             }
         }
     }
@@ -55,11 +55,11 @@ public class TagUtils {
      */
     public static Tag[] parseTags(String tagsString, String seperator) {
         if (StringUtils.isBlank(tagsString)
-            || StringUtils.isBlank(seperator)) {
+                || StringUtils.isBlank(seperator)) {
             return TagConstant.EMPTY_ARRAY;
         }
         String[] tagStrings;
-        if(tagsString.contains(seperator)) {
+        if (tagsString.contains(seperator)) {
             tagStrings = tagsString.split(seperator);
         } else {
             tagStrings = new String[]{tagsString};

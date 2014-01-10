@@ -6,6 +6,7 @@ package com.creditcloud.message.api;
 
 import com.creditcloud.model.client.Client;
 import com.creditcloud.model.Message;
+import com.creditcloud.model.MessageBody;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.message.MessageStatus;
@@ -170,6 +171,18 @@ public interface MessageService {
                                       String sender,
                                       PageInfo pageInfo,
                                       MessageType... type);
+
+    /**
+     * 列出所有realm
+     *
+     * @param client
+     * @param realm
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<MessageBody> listNotification(Client client,
+                                              PageInfo pageInfo,
+                                              Realm... realms);
 
     /**
      * mark MessageStatus for messages

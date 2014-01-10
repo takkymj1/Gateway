@@ -8,6 +8,7 @@ import com.creditcloud.appoint.enums.AppointRequestStatus;
 import com.creditcloud.appoint.enums.AppointmentStatus;
 import com.creditcloud.appoint.model.AppointAgent;
 import com.creditcloud.appoint.model.AppointRequest;
+import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
@@ -20,29 +21,52 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface AppointService {
+
+    /**
+     *
+     * @param clientCode
+     * @param user
+     */
+    AppointUser addAppointUser(String clientCode, AppointUser user);
+
+    /**
+     * 直接从文本中导入AppointUser
+     *
+     * @param clientCode
+     * @param whiteListFilePath
+     */
+    boolean importAppointUser(String clientCode, String whiteListFilePath);
     
-     
     /**
      * 
+     * @param clientCode
+     * @return 
+     */
+    List<AppointUser> listAllAppointUser(String clientCode);
+    
+    
+
+    /**
+     *
      * @param clientCode
      * @param appointmentId
-     * @return 
+     * @return
      */
     Appointment getAppointmentById(String clientCode, String appointmentId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param requestId
-     * @return 
+     * @return
      */
-    AppointRequest getAppointRequestById(String clientCode,String requestId);
-    
+    AppointRequest getAppointRequestById(String clientCode, String requestId);
+
     /**
-     * 
+     *
      * @param clientCode
      * @param agentId
-     * @return 
+     * @return
      */
     AppointAgent getAppointAgentById(String clientCode, String agentId);
 
@@ -63,7 +87,6 @@ public interface AppointService {
      * @return null if save not successful
      */
     Appointment saveAppointment(String clientCode, Appointment appointment);
-    
 
     /**
      * 用户认购

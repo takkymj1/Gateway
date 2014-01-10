@@ -24,14 +24,6 @@ public interface TagService {
     /**
      *
      * @param clientCode
-     * @param tagId
-     * @return
-     */
-    Tag getTag(String clientCode, String tagId);
-
-    /**
-     *
-     * @param clientCode
      * @param realm
      * @param tagName
      * @return
@@ -58,19 +50,6 @@ public interface TagService {
     PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
-     * 添加更新tag到可用tag列表中.
-     *
-     * 注意这里无法将新tag关联到任何RealmEntity
-     *
-     * @param clientCode
-     * @param realm
-     * @param tagName
-     * @param tagDescription
-     * @return
-     */
-    Tag saveTag(String clientCode, Realm realm, String tagName, String tagDescription);
-
-    /**
      * 添加更新tag到可用tag列表中
      *
      * @param clientCode
@@ -78,16 +57,6 @@ public interface TagService {
      * @return
      */
     Tag saveTag(String clientCode, Tag tag);
-
-    /**
-     * 给entity标记tag,覆盖之前的tag
-     *
-     * @param clientCode
-     * @param entity
-     * @param tags
-     */
-    @Deprecated
-    void tag(String clientCode, RealmEntity entity, Pair<Realm, String>... tags);
 
     /**
      * 给entity标记tag
@@ -100,16 +69,6 @@ public interface TagService {
     void tag(String clientCode, RealmEntity entity, boolean overwrite, Pair<Realm, String>... tags);
 
     /**
-     * 给entity标记tag,覆盖之前的tag
-     *
-     * @param clientCode
-     * @param entity
-     * @param tags
-     */
-    @Deprecated
-    void tag(String clientCode, RealmEntity entity, Tag... tags);
-
-    /**
      * 给entity标记tag
      *
      * @param clientCode
@@ -118,16 +77,6 @@ public interface TagService {
      * @param tags
      */
     void tag(String clientCode, RealmEntity entity, boolean overwrite, Tag... tags);
-
-    /**
-     * 给entity标记tag,覆盖之前的tag
-     *
-     * @param clientCode
-     * @param entity
-     * @param tags
-     */
-    @Deprecated
-    void tag(String clientCode, RealmEntity entity, List<Tag> tags);
 
     /**
      * 给entity标记tag
@@ -152,32 +101,20 @@ public interface TagService {
      * 统计tag标记的entity数量
      *
      * @param clientCode
-     * @param tagName
+     * @param tag
      * @return
      */
-    int countByTag(String clientCode, Realm realm, String tagName);
+    int countByTag(String clientCode, Tag tag);
 
     /**
      * 列出tag标记的所有实体
      *
      * @param clientCode
-     * @param realm
-     * @param tagName
+     * @param tag
      * @param pageInfo
      * @return
      */
-    PagedResult<RealmEntity> listByTag(String clientCode, Realm realm, String tagName, PageInfo pageInfo);
-
-    /**
-     * 查看entity是否已经拥有某tag
-     *
-     * @param clientCode
-     * @param realm
-     * @param tagName
-     * @param entity
-     * @return true if already tagged on entity, false for not
-     */
-    boolean checkTagExist(String clientCode, Realm realm, String tagName, RealmEntity entity);
+    PagedResult<RealmEntity> listByTag(String clientCode, Tag tag, PageInfo pageInfo);
 
     /**
      * 查看entity是否已经拥有某tag
@@ -188,4 +125,14 @@ public interface TagService {
      * @return true if already tagged on entity, false for not
      */
     boolean checkTagExist(String clientCode, Tag tag, RealmEntity entity);
+
+    /**
+     * 查看一组RealmEntity是否有共同的tag
+     *
+     * @param clienCode
+     * @param entityList
+     * @param tag
+     * @return true if all RealmEntity exist and has common tag
+     */
+    boolean checkCommonTags(String clientCode, List<RealmEntity> entityList, Tag tag);
 }

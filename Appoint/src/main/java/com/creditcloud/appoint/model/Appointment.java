@@ -52,7 +52,7 @@ public class Appointment extends BaseObject {
     private int quota;
 
     /**
-     * 剩余可认购额度
+     * 已认购额度
      */
     @Min(0)
     private int amount;

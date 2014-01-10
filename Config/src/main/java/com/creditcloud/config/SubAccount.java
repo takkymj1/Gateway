@@ -9,15 +9,21 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
- * 汇付天下商户子账户配置
+ * 商户子账户配置
  *
  * @author rooseek
  */
-@XmlRootElement(name = "PNRAccount")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@XmlRootElement(name = "SubAccount")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PNRAccount extends BaseObject {
+public class SubAccount extends BaseObject {
 
     /*
      * 账户类型
@@ -36,19 +42,4 @@ public class PNRAccount extends BaseObject {
      */
     @XmlElement(required = true)
     private String name;
-
-    public PNRAccount() {
-    }
-
-    public String getAccountType() {
-        return accountType;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-    
-    public String getName() {
-        return name;
-    }
 }

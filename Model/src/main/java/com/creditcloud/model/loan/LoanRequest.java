@@ -224,7 +224,11 @@ public class LoanRequest extends BaseObject {
     public String getId() {
         return id;
     }
-
+    
+    public InvestRule getIvestRule() {
+        return investRule;
+    }
+    
     public User getUser() {
         return user;
     }
@@ -275,6 +279,10 @@ public class LoanRequest extends BaseObject {
 
     public void setId(String id) {
         this.id = id;
+    }
+    
+    public void setIvestRule(InvestRule rule) {
+        this.investRule = rule;
     }
 
     public void setUser(User user) {
@@ -340,4 +348,6 @@ public class LoanRequest extends BaseObject {
     public void setMortgageTypes(Collection<MortgageType> mortgageType) {
         this.mortgageType = mortgageType;
     }
+    
+    
 }
