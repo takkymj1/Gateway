@@ -50,6 +50,16 @@ public interface TagService {
     PagedResult<Tag> listAllTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
+     * 列出entity所有tag中属于realm的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param realm
+     * @return
+     */
+    List<Tag> listTagByRealm(String clientCode, RealmEntity entity, Realm realm);
+
+    /**
      * 添加更新tag到可用tag列表中
      *
      * @param clientCode
