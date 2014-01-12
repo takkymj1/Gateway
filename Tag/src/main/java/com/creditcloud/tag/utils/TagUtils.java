@@ -39,7 +39,12 @@ public class TagUtils {
         } else {
             try {
                 Realm realm = Realm.valueOf(trimmedTagString.substring(0, index));
-                return new Tag(realm, trimmedTagString.substring(index + 1), null, null);
+                int lastIndex = trimmedTagString.lastIndexOf(TagConstant.SEPERATOR);
+                if (index == lastIndex) {
+                    return new Tag(realm, trimmedTagString.substring(index + 1), null, null);
+                } else {
+                    return new Tag(realm, trimmedTagString.substring(index + 1, lastIndex), trimmedTagString.substring(lastIndex + 1), null);
+                }
             } catch (IllegalArgumentException ex) {
                 return new Tag(Realm.STRING, trimmedTagString, null, null);
             }
