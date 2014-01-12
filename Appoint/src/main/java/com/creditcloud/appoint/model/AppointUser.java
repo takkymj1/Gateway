@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,8 @@ public class AppointUser extends BaseObject {
      */
     @NotNull
     private String branch;
+    
+    private Date timeRecorded;
 
     public AppointUser(String name, String idNumber, String mobile, String branch) {
         this.name = name;

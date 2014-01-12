@@ -33,18 +33,16 @@ public interface AppointService {
      * 直接从文本中导入AppointUser
      *
      * @param clientCode
-     * @param whiteListFilePath
+     * @param filePath
      */
-    boolean importAppointUser(String clientCode, String whiteListFilePath);
-    
+    boolean importAppointUser(String clientCode, String filePath);
+
     /**
-     * 
+     *
      * @param clientCode
-     * @return 
+     * @return
      */
     List<AppointUser> listAllAppointUser(String clientCode);
-    
-    
 
     /**
      *
@@ -96,6 +94,15 @@ public interface AppointService {
      * @return
      */
     AppointRequest appoint(String clientCode, String userId, int amount, String appointmentId);
+
+    /**
+     * 取消之前的认购申请
+     *
+     * @param clientCode
+     * @param requestId
+     * @return true if cancel successful
+     */
+    boolean cancelRequest(String clientCode, String requestId);
 
     /**
      * 更新AppointRequest的status

@@ -40,14 +40,24 @@ public interface TagService {
     PagedResult<Tag> listAllTags(String clientCode, PageInfo pageInfo);
 
     /**
-     * 根据realm列出tag
+     * 根据realm列出所有tag
      *
      * @param clientCode
      * @param realm
      * @param pageInfo
      * @return
      */
-    PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
+    PagedResult<Tag> listAllTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
+
+    /**
+     * 列出entity所有tag中属于realm的tag
+     *
+     * @param clientCode
+     * @param entity
+     * @param realm
+     * @return
+     */
+    List<Tag> listTagByRealm(String clientCode, RealmEntity entity, Realm realm);
 
     /**
      * 添加更新tag到可用tag列表中
@@ -115,6 +125,17 @@ public interface TagService {
      * @return
      */
     PagedResult<RealmEntity> listByTag(String clientCode, Tag tag, PageInfo pageInfo);
+
+    /**
+     * 列出tag标记的属于某realm的所有实体
+     *
+     * @param clientCode
+     * @param tag
+     * @param realm
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<RealmEntity> listByTagAndRealm(String clientCode, Tag tag, Realm realm, PageInfo pageInfo);
 
     /**
      * 查看entity是否已经拥有某tag
