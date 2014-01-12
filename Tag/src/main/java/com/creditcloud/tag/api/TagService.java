@@ -40,14 +40,14 @@ public interface TagService {
     PagedResult<Tag> listAllTags(String clientCode, PageInfo pageInfo);
 
     /**
-     * 根据realm列出tag
+     * 根据realm列出所有tag
      *
      * @param clientCode
      * @param realm
      * @param pageInfo
      * @return
      */
-    PagedResult<Tag> listTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
+    PagedResult<Tag> listAllTagByRealm(String clientCode, Realm realm, PageInfo pageInfo);
 
     /**
      * 添加更新tag到可用tag列表中
