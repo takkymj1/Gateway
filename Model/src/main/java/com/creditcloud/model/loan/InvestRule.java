@@ -47,4 +47,17 @@ public class InvestRule extends BaseObject {
     @FormParam("stepAmount")
     @Min(LoanConstant.INVEST_AMOUNT_INCREMENT)
     private int stepAmount;
+    
+    public static boolean valid(InvestRule rule, int amount) {
+        if (rule == null) {
+            return false;
+        }
+        if (amount < rule.getMinAmount()
+                || amount > rule.getMaxAmount()
+                || (amount - rule.getMinAmount()) % rule.getStepAmount() != 0) {
+            return false;
+        }
+
+        return true;
+    }
 }
