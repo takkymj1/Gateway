@@ -40,4 +40,8 @@ public interface AppointConstant {
      */
     int MAX_QUOTA = 100000000;
 
+    /**
+     * 用户对同一产品认购数上限
+     */
+    int MAX_APPOINT_COUNT = 1;
 }
