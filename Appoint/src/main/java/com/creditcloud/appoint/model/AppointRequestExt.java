@@ -5,11 +5,13 @@
 package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.user.User;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author keven
  */
+@XmlRootElement
 public class AppointRequestExt {
     
     private User user;
