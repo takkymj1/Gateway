@@ -6,7 +6,6 @@ package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IdNumber;
-import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -24,30 +23,26 @@ public class AppointUser extends BaseObject {
 
     private static final long serialVersionUID = 20140109L;
 
+    private String id;
+
     @RealName
-    @NotNull
     private String name;
 
     @IdNumber
-    @NotNull
     private String idNumber;
-
-    @MobileNumber
-    @NotNull
-    private String mobile;
 
     /**
      * 所属机构中文全称
      */
     @NotNull
     private String branch;
-    
+
     private Date timeRecorded;
 
-    public AppointUser(String name, String idNumber, String mobile, String branch) {
+    public AppointUser(String id, String name, String idNumber, String branch) {
+        this.id = id;
         this.name = name;
         this.idNumber = idNumber;
-        this.mobile = mobile;
         this.branch = branch;
     }
 }

@@ -8,6 +8,7 @@ import com.creditcloud.appoint.enums.AppointRequestStatus;
 import com.creditcloud.appoint.enums.AppointmentStatus;
 import com.creditcloud.appoint.model.AppointAgent;
 import com.creditcloud.appoint.model.AppointRequest;
+import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.model.criteria.PageInfo;
@@ -27,8 +28,8 @@ public interface AppointService {
      * @param clientCode
      * @param user
      */
-    AppointUser addAppointUser(String clientCode, AppointUser user);
-
+    AppointUser saveAppointUser(String clientCode, AppointUser user);
+    
     /**
      * 直接从文本中导入AppointUser
      *
@@ -93,7 +94,7 @@ public interface AppointService {
      * @param request
      * @return
      */
-    AppointRequest appoint(String clientCode, String userId, int amount, String appointmentId);
+    AppointResult appoint(String clientCode, String userId, int amount, String appointmentId);
 
     /**
      * 取消之前的认购申请
