@@ -28,7 +28,6 @@ public interface MessageService {
      * @param realm
      * @param title
      * @param content
-     * @param sendSM
      * @param sender
      * @param receiver
      */
@@ -36,7 +35,6 @@ public interface MessageService {
                      Realm realm,
                      String title,
                      String content,
-                     boolean sendSM,
                      String sender,
                      String... receiver);
 
@@ -47,7 +45,6 @@ public interface MessageService {
      * @param realm
      * @param title
      * @param content
-     * @param sendSM
      * @param sender
      * @param receiver
      * @return
@@ -56,7 +53,6 @@ public interface MessageService {
                   Realm realm,
                   String title,
                   String content,
-                  boolean sendSM,
                   String sender,
                   String receiver);
 
@@ -67,14 +63,12 @@ public interface MessageService {
      * @param realm
      * @param title
      * @param content
-     * @param sendSM
      * @param receiver
      */
     void sendNotification(Client client,
                           Realm realm,
                           String title,
                           String content,
-                          boolean sendSM,
                           String... receiver);
 
     /**
@@ -84,13 +78,11 @@ public interface MessageService {
      * @param realm
      * @param title
      * @param content
-     * @param sendSM
      */
     void broadcast(Client client,
                    Realm realm,
                    String title,
-                   String content,
-                   boolean sendSM);
+                   String content);
 
     /**
      * list conversation between sender and receiver, order by sent time in DESC
@@ -173,7 +165,7 @@ public interface MessageService {
                                       MessageType... type);
 
     /**
-     * 列出所有realm
+     * 列出realm对应的通知
      *
      * @param client
      * @param realm

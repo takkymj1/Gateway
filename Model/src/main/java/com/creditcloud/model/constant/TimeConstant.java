@@ -19,6 +19,11 @@ public interface TimeConstant {
     int MONTHS_PER_YEAR = 12;
     
     /**
+     * yyyyMMdd
+     */
+    SimpleDateFormat SHORT_DATE_FORMAT = new SimpleDateFormat("yyyyMMdd");
+    
+    /**
      * yyyy-MM-dd
      */
     SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");

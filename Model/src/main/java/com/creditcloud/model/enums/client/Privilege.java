@@ -6,6 +6,14 @@ package com.creditcloud.model.enums.client;
 
 import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.Realm;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 员工权限集合
@@ -22,6 +30,7 @@ public enum Privilege implements BaseEnum {
     USER_DETAIL("查看用户详情,包括用户的各种认证信息", Realm.USER, "用户相关权限"),
     USER_ALTER("添加更改用户信息,包括上传用户认证信息", Realm.USER, "用户相关权限"),
     USER_DELETE("删除用户", Realm.USER, "用户相关权限"),
+    USER_DOWNLOAD("下载用户信息", Realm.USER, "用户相关权限"),
     /**
      * 员工相关权限
      */
@@ -87,13 +96,46 @@ public enum Privilege implements BaseEnum {
     /**
      * 合同相关权限
      */
-    CONTRACT_VIEW("查看借款合同", Realm.CONTRACT, "合同相关权限");
+    CONTRACT_VIEW("查看借款合同", Realm.CONTRACT, "合同相关权限"),
+    /**
+     * 机构相关权限
+     */
+    BRANCH_LIST("列出机构", Realm.BRANCH, "机构相关权限"),
+    BRANCH_DETAIL("机构详情", Realm.BRANCH, "机构相关权限"),
+    BRANCH_ALTER("更改添加机构", Realm.BRANCH, "机构相关权限"),
+    BRANCH_DELETE("删除机构", Realm.BRANCH, "机构相关权限"),
+    /**
+     * 认购相关权限
+     */
+    APPOINT_USER_IMPORT("导入认购用户", Realm.APPOINTMENT, "认购相关权限"),
+    APPOINT_LIST("列出认购产品", Realm.APPOINTMENT, "认购相关权限"),
+    APPOINT_DETAIL("认购产品详情", Realm.APPOINTMENT, "认购相关权限"),
+    APPOINT_ALTER("添加更改认购产品", Realm.APPOINTMENT, "认购相关权限"),
+    APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限");
 
     private final String key;
 
     private final Realm realm;
 
     private final String description;
+
+    /**
+     * realm所属的所有priviledges
+     */
+    private static final Map<Realm, List<Privilege>> realm2Privilege = new HashMap<>();
+
+    static {
+        for (Privilege privilege : Privilege.values()) {
+            List<Privilege> privilegeList = realm2Privilege.get(privilege.getRealm());
+            if (privilegeList == null) {
+                privilegeList = new ArrayList<>();
+                privilegeList.add(privilege);
+                realm2Privilege.put(privilege.getRealm(), privilegeList);
+            } else {
+                realm2Privilege.get(privilege.getRealm()).add(privilege);
+            }
+        }
+    }
 
     Privilege(String key, Realm realm, String description) {
         this.key = key;
@@ -112,5 +154,45 @@ public enum Privilege implements BaseEnum {
 
     public String getDescription() {
         return description;
+    }
+
+    /**
+     * 获得realm所有对应的priviledge
+     *
+     * @param realm
+     * @return
+     */
+    public static List<Privilege> listByIncludedRealm(Realm... realms) {
+        if (realms == null || realms.length == 0) {
+            return Collections.EMPTY_LIST;
+        }
+        List<Privilege> result = new ArrayList<>();
+        for (Realm realm : realms) {
+            List<Privilege> temp = realm2Privilege.get(realm);
+            if (temp != null && !temp.isEmpty()) {
+                result.addAll(temp);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 列出所有不属于realm的priviledge,主要给不同的客户权限管理显示不同的可用权限列表
+     *
+     * @param realms
+     * @return
+     */
+    public static List<Privilege> listByExcludedRealm(Realm... realms) {
+        List<Privilege> result = new ArrayList<>();
+        Set excludedRealms = new HashSet(Arrays.asList(realms));
+        for (Realm realm : realm2Privilege.keySet()) {
+            if (!excludedRealms.contains(realm)) {
+                List<Privilege> temp = realm2Privilege.get(realm);
+                if (temp != null && !temp.isEmpty()) {
+                    result.addAll(temp);
+                }
+            }
+        }
+        return result;
     }
 }
