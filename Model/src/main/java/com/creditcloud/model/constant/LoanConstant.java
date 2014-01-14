@@ -36,9 +36,9 @@ public interface LoanConstant {
     int LOAN_AMOUNT_INCREMENT = 10;
 
     /**
-     * 最高贷款金额，一千万
+     * 最高贷款金额，一个亿
      */
-    int MAX_LOAN_AMOUNT = 10000000;
+    int MAX_LOAN_AMOUNT = 100000000;
 
     /**
      * 贷款最短期限,单位月
