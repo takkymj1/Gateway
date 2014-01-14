@@ -22,6 +22,7 @@ import lombok.Data;
 public class AppointRequest extends BaseObject {
 
     private static final long serialVersionUID = 20140102L;
+    
 
     private String id;
 
@@ -44,6 +45,11 @@ public class AppointRequest extends BaseObject {
      */
     @Min(0)
     private int amount;
+    
+    /**
+     * 认购人对应的branch名字
+     */
+    private String branch;
 
     /**
      * 认购时间
@@ -58,12 +64,11 @@ public class AppointRequest extends BaseObject {
                           String appointmentId,
                           AppointRequestStatus status,
                           int amount,
-                          Date timeRecorded) {
+                          String branch) {
         this.id = id;
         this.appointmentId = appointmentId;
         this.userId = userId;
         this.status = status;
         this.amount = amount;
-        this.timeRecorded = timeRecorded;
     }
 }
