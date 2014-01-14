@@ -27,9 +27,13 @@ import javax.ejb.Remote;
 public interface AppointService {
 
     /**
-     *
+     * 增加白名单用户.
+     * 
+     * 失败则抛出异常
+     * 
      * @param clientCode
      * @param user
+     * @return 
      */
     AppointUser saveAppointUser(String clientCode, AppointUser user);
 
