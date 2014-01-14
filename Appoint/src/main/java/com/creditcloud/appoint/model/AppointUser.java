@@ -42,8 +42,13 @@ public class AppointUser extends BaseObject {
     @NotNull
     @FormParam("branch")
     private String branch;
-    
-    @FormParam("timeRecorded")
+
+    /**
+     * 导入的时候查询机构名存储branchId,也可能找不到机构则为空.
+     * 导入文件中的机构可能没有
+    */
+    private String branchId;
+
     private Date timeRecorded;
 
     public AppointUser(String id, String name, String idNumber, String branch) {
