@@ -49,7 +49,7 @@ public class AppointRequest extends BaseObject {
     /**
      * 认购人对应的branchId
      */
-    private String branch;
+    private String branchId;
 
     /**
      * 认购时间
@@ -64,11 +64,12 @@ public class AppointRequest extends BaseObject {
                           String appointmentId,
                           AppointRequestStatus status,
                           int amount,
-                          String branch) {
+                          String branchId) {
         this.id = id;
         this.appointmentId = appointmentId;
         this.userId = userId;
         this.status = status;
         this.amount = amount;
+        this.branchId = branchId;
     }
 }

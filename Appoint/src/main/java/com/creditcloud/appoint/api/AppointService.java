@@ -39,6 +39,14 @@ public interface AppointService {
      * @param appointUserId
      * @return
      */
+    boolean deleteAppointUser(String clientCode, String appointUserId);
+
+    /**
+     *
+     * @param clientCode
+     * @param appointUserId
+     * @return
+     */
     AppointUser getAppointUserById(String clientCode, String appointUserId);
 
     /**
