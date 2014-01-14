@@ -20,7 +20,7 @@ import org.glassfish.jersey.server.mvc.Viewable;
 public abstract class BaseResource implements Serializable {
 
     @Context
-    UriInfo uriInfo;
+    protected UriInfo uriInfo;
 
     @Resource
     protected Validator validator;
