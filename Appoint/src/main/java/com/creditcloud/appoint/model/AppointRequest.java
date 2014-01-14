@@ -47,7 +47,7 @@ public class AppointRequest extends BaseObject {
     private int amount;
     
     /**
-     * 认购人对应的branch名字
+     * 认购人对应的branchId
      */
     private String branch;
 
