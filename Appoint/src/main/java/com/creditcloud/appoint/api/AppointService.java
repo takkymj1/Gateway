@@ -34,6 +34,14 @@ public interface AppointService {
     AppointUser saveAppointUser(String clientCode, AppointUser user);
 
     /**
+     *
+     * @param clientCode
+     * @param appointUserId
+     * @return
+     */
+    AppointUser getAppointUserById(String clientCode, String appointUserId);
+
+    /**
      * 直接从文本中导入AppointUser
      *
      * @param clientCode
