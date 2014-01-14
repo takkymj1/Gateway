@@ -9,6 +9,8 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @Data
+@XmlRootElement
 @NoArgsConstructor
 public class AppointUser extends BaseObject {
 
@@ -26,17 +29,21 @@ public class AppointUser extends BaseObject {
     private String id;
 
     @RealName
+    @FormParam("name")
     private String name;
 
     @IdNumber
+    @FormParam("idNumber")
     private String idNumber;
 
     /**
      * 所属机构中文全称
      */
     @NotNull
+    @FormParam("branch")
     private String branch;
-
+    
+    @FormParam("timeRecorded")
     private Date timeRecorded;
 
     public AppointUser(String id, String name, String idNumber, String branch) {
