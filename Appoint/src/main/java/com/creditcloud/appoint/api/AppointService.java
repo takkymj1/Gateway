@@ -11,6 +11,7 @@ import com.creditcloud.appoint.model.AppointRequest;
 import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
@@ -29,7 +30,7 @@ public interface AppointService {
      * @param user
      */
     AppointUser saveAppointUser(String clientCode, AppointUser user);
-    
+
     /**
      * 直接从文本中导入AppointUser
      *
@@ -41,9 +42,38 @@ public interface AppointService {
     /**
      *
      * @param clientCode
+     * @param pageInfo
      * @return
      */
-    List<AppointUser> listAllAppointUser(String clientCode);
+    PagedResult<AppointUser> listAllAppointUser(String clientCode, PageInfo pageInfo);
+
+    /**
+     * 按查询条件列出白名单用户
+     *
+     * @param clientCode
+     * @param criteriaInfo
+     * @return
+     */
+    PagedResult<AppointUser> listAppointUserByCriteria(String clientCode, CriteriaInfo criteriaInfo);
+
+    /**
+     * 按机构列出白名单用户
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param branch
+     * @return
+     */
+    PagedResult<AppointUser> listAppointUserByBranch(String clientCode, PageInfo pageInfo, String... branch);
+
+    /**
+     * 按机构统计白名单用户
+     *
+     * @param clientCode
+     * @param branch
+     * @return
+     */
+    int countAppointUserByBranch(String clientCode, String... branch);
 
     /**
      *
