@@ -36,9 +36,9 @@ public interface AppointConstant {
     int STEP_QUOTA = MIN_QUOTA;
 
     /**
-     * 认购额度最大值，一亿
+     * 认购额度最大值，十亿
      */
-    int MAX_QUOTA = 100000000;
+    int MAX_QUOTA = 1000000000;
 
     /**
      * 用户对同一产品认购数上限
