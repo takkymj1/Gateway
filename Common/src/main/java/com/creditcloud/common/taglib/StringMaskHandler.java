@@ -42,6 +42,9 @@ public class StringMaskHandler extends SimpleTagSupport {
         if (length <= 0) {
             length = beforeMask.length()-2;
         }
+        if (length > beforeMask.length()-1) {
+            length = beforeMask.length()-1;
+        }
         String afterMask = mask(beforeMask, start, length);
         writer.write(afterMask);
     }
