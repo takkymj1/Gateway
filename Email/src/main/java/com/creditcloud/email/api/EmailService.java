@@ -19,7 +19,17 @@ import javax.ejb.Remote;
 public interface EmailService {
 
     /**
+     * 通用的邮件发送接口
+     *
+     * @param client
+     * @param subject      邮件标题
+     * @param content      邮件内容
+     * @param emailAddress 邮件地址
      * @return
+     */
+    Future<Boolean> send(Client client, String subject, String content, String... emailAddress);
+
+    /**
      * send email to user on the behalf of this client
      *
      * There is no guarantee that the user will receive this mail successfully
@@ -57,7 +67,7 @@ public interface EmailService {
      *
      * @param client
      * @param emailAddress
-     * @param user 需要绑卡的用户，其email不一定是emailAddress
+     * @param user         需要绑卡的用户，其email不一定是emailAddress
      * @return
      */
     Future<Boolean> sendAuthentication(Client client, String emailAddress, User user);
@@ -73,15 +83,15 @@ public interface EmailService {
      * @return
      */
     ConfirmResult confirmEmail(Client client, String emailAddress, String confirmCode);
-    
+
     /**
      * 不但要检验confirmCode和emailAddress，还要检验userId
-     * 
+     *
      * @param client
      * @param emailAddress
      * @param confirmCode
      * @param userId
-     * @return 
+     * @return
      */
     ConfirmResult confirmEmail(Client client, String emailAddress, String confirmCode, String userId);
 
