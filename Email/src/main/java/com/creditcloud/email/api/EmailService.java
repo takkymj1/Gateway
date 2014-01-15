@@ -19,6 +19,7 @@ import javax.ejb.Remote;
 public interface EmailService {
 
     /**
+     * @return
      * send email to user on the behalf of this client
      *
      * There is no guarantee that the user will receive this mail successfully
