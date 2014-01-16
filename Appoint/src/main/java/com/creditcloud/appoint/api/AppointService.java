@@ -11,6 +11,8 @@ import com.creditcloud.appoint.model.AppointRequest;
 import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
+import com.creditcloud.appoint.model.BranchAppointStat;
+import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
@@ -25,11 +27,31 @@ import javax.ejb.Remote;
 public interface AppointService {
 
     /**
-     *
+     * 增加白名单用户.
+     * 
+     * 失败则抛出异常
+     * 
      * @param clientCode
      * @param user
+     * @return 
      */
     AppointUser saveAppointUser(String clientCode, AppointUser user);
+
+    /**
+     *
+     * @param clientCode
+     * @param appointUserId
+     * @return
+     */
+    boolean deleteAppointUser(String clientCode, String appointUserId);
+
+    /**
+     *
+     * @param clientCode
+     * @param appointUserId
+     * @return
+     */
+    AppointUser getAppointUserById(String clientCode, String appointUserId);
 
     /**
      * 直接从文本中导入AppointUser
@@ -65,15 +87,6 @@ public interface AppointService {
      * @return
      */
     PagedResult<AppointUser> listAppointUserByBranch(String clientCode, PageInfo pageInfo, String... branch);
-
-    /**
-     * 按机构统计白名单用户
-     *
-     * @param clientCode
-     * @param branch
-     * @return
-     */
-    int countAppointUserByBranch(String clientCode, String... branch);
 
     /**
      *
@@ -121,10 +134,13 @@ public interface AppointService {
      * 用户认购
      *
      * @param clientCode
-     * @param request
+     * @param userId
+     * @param amount
+     * @param appointmentId
+     * @param branchId
      * @return
      */
-    AppointResult appoint(String clientCode, String userId, int amount, String appointmentId);
+    AppointResult appoint(String clientCode, String userId, int amount, String appointmentId, String branchId);
 
     /**
      * 取消之前的认购申请
@@ -181,4 +197,29 @@ public interface AppointService {
      * @return
      */
     PagedResult<AppointRequest> listRequestByAppointmentAndUser(String clientCode, String appointmentId, String userId, PageInfo pageInfo, AppointRequestStatus... status);
+
+    /**
+     * 按照branch 来统计用户数
+     *
+     * @param clientCode
+     * @return
+     */
+    List<ElementCount<String>> countAppointUserByBranch(String clientCode);
+
+    /**
+     * 统计branch的认购数目和金额
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @return
+     */
+    List<BranchAppointStat> getBranchAppointStat(String clientCode, String appointmentId, AppointRequestStatus... status);
+
+    /**
+     * 统计branch的认购数目和金额
+     *
+     * @param clientCode
+     * @return
+     */
+    List<BranchAppointStat> getBranchAppointStat(String clientCode, AppointRequestStatus... status);
 }

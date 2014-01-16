@@ -9,6 +9,8 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @Data
+@XmlRootElement
 @NoArgsConstructor
 public class AppointUser extends BaseObject {
 
@@ -26,16 +29,25 @@ public class AppointUser extends BaseObject {
     private String id;
 
     @RealName
+    @FormParam("name")
     private String name;
 
     @IdNumber
+    @FormParam("idNumber")
     private String idNumber;
 
     /**
      * 所属机构中文全称
      */
     @NotNull
+    @FormParam("branch")
     private String branch;
+
+    /**
+     * 导入的时候查询机构名存储branchId,也可能找不到机构则为空.
+     * 导入文件中的机构可能没有
+    */
+    private String branchId;
 
     private Date timeRecorded;
 
