@@ -231,7 +231,7 @@ public interface AppointService {
      * @param appointmentId
      * @return
      */
-    List<UserAppointStat> getUserAppointStat(String clientCode, String appoinmentId, AppointRequestStatus... status);
+    PagedResult<UserAppointStat> getUserAppointStat(String clientCode, String appoinmentId, PageInfo pageInfo, AppointRequestStatus... status);
 
     /**
      * 统计user的认购数目和金额
@@ -240,5 +240,5 @@ public interface AppointService {
      * @param appointmentId
      * @return
      */
-    List<UserAppointStat> getUserAppointStat(String clientCode, AppointRequestStatus... status);
+    PagedResult<UserAppointStat> getUserAppointStat(String clientCode, PageInfo pageInfo, AppointRequestStatus... status);
 }
