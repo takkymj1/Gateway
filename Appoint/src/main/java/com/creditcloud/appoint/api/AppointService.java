@@ -205,7 +205,24 @@ public interface AppointService {
      * @param clientCode
      * @return
      */
-    List<ElementCount<String>> countAppointUserByBranch(String clientCode);
+    List<ElementCount<String>> countUserByBranch(String clientCode);
+
+    /**
+     * 按照机构统计已经预约的用户数
+     *
+     * @param clientCode
+     * @return
+     */
+    List<ElementCount<String>> countAppointedUserByBranch(String clientCode);
+
+    /**
+     * 按照机构统计已经预约的用户数
+     *
+     * @param clientCode
+     * @param appointmnetId
+     * @return
+     */
+    List<ElementCount<String>> countAppointedUserByBranch(String clientCode, String appointmnetId);
 
     /**
      * 统计branch的认购数目和金额
