@@ -6,7 +6,9 @@ package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 按照机构来统计对产品的认购
@@ -14,6 +16,8 @@ import lombok.Data;
  * @author rooseek
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 public class BranchAppointStat extends BaseObject {
 
@@ -33,13 +37,4 @@ public class BranchAppointStat extends BaseObject {
      * 认购金额
      */
     private long sum;
-
-    public BranchAppointStat() {
-    }
-
-    public BranchAppointStat(String branch, int count, long sum) {
-        this.branch = branch;
-        this.count = count;
-        this.sum = sum;
-    }
 }

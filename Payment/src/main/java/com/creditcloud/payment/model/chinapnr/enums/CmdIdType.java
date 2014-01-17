@@ -4,11 +4,14 @@
  */
 package com.creditcloud.payment.model.chinapnr.enums;
 
+import com.creditcloud.payment.model.chinapnr.UserRegisterRequest;
+
 /**
  *
  * @author yuanh
  */
 public enum CmdIdType {
+
     /**
      * 用户开户
      */
@@ -62,5 +65,14 @@ public enum CmdIdType {
     CashReconciliation,
     QueryAcctDetails,
     SaveReconciliation,
-    QueryReturnDzFee;
+    QueryReturnDzFee,
+    /**
+     * 2014.1.17新加
+     */
+    CorpRegister,
+    UsrTransfer,
+    CreditAssign,
+    CorpRegisterQuery,
+    CreditAssignReconciliation;
+
 }
