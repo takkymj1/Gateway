@@ -5,7 +5,6 @@
 package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.BaseObject;
-import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,9 +38,4 @@ public class UserAppointStat extends BaseObject {
      * 认购总额
      */
     private long sum;
-
-    /**
-     * 认购列表
-     */
-    private List<AppointRequest> request;
 }

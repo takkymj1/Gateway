@@ -12,6 +12,7 @@ import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.appoint.model.BranchAppointStat;
+import com.creditcloud.appoint.model.UserAppointStat;
 import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
@@ -28,12 +29,12 @@ public interface AppointService {
 
     /**
      * 增加白名单用户.
-     * 
+     *
      * 失败则抛出异常
-     * 
+     *
      * @param clientCode
      * @param user
-     * @return 
+     * @return
      */
     AppointUser saveAppointUser(String clientCode, AppointUser user);
 
@@ -222,4 +223,22 @@ public interface AppointService {
      * @return
      */
     List<BranchAppointStat> getBranchAppointStat(String clientCode, AppointRequestStatus... status);
+
+    /**
+     * 统计user的认购数目和金额
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @return
+     */
+    List<UserAppointStat> getUserAppointStat(String clientCode, String appoinmentId, AppointRequestStatus... status);
+
+    /**
+     * 统计user的认购数目和金额
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @return
+     */
+    List<UserAppointStat> getUserAppointStat(String clientCode, AppointRequestStatus... status);
 }
