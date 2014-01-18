@@ -21,7 +21,7 @@ import javax.ejb.Remote;
 public interface TaskService {
 
     /**
-     * 穿件新的任务
+     * 创建新的任务
      *
      * @param clientCode
      * @param task
