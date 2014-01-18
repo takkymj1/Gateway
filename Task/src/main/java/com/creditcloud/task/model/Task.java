@@ -15,12 +15,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 员工的任务
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class Task extends BaseObject {
 
@@ -100,9 +104,6 @@ public class Task extends BaseObject {
 
     private Date timeLastUpdated;
 
-    public Task() {
-    }
-
     public Task(String id,
                 String parentId,
                 String employeeId,
@@ -127,117 +128,5 @@ public class Task extends BaseObject {
         this.taskProfit = taskProfit;
         this.employeeProfit = employeeProfit;
         this.profitPayed = profitPayed;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public TaskType getType() {
-        return type;
-    }
-
-    public TaskStatus getStatus() {
-        return status;
-    }
-
-    public Date getTimeStarted() {
-        return timeStarted;
-    }
-
-    public Date getTimeFinished() {
-        return timeFinished;
-    }
-
-    public int getTaskProfit() {
-        return taskProfit;
-    }
-
-    public int getEmployeeProfit() {
-        return employeeProfit;
-    }
-
-    public boolean isProfitPayed() {
-        return profitPayed;
-    }
-
-    public Date getTimeCreated() {
-        return timeCreated;
-    }
-
-    public Date getTimeLastUpdated() {
-        return timeLastUpdated;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setType(TaskType type) {
-        this.type = type;
-    }
-
-    public void setStatus(TaskStatus status) {
-        this.status = status;
-    }
-
-    public void setTimeStarted(Date timeStarted) {
-        this.timeStarted = timeStarted;
-    }
-
-    public void setTimeFinished(Date timeFinished) {
-        this.timeFinished = timeFinished;
-    }
-
-    public void setTaskProfit(int taskProfit) {
-        this.taskProfit = taskProfit;
-    }
-
-    public void setEmployeeProfit(int employeeProfit) {
-        this.employeeProfit = employeeProfit;
-    }
-
-    public void setProfitPayed(boolean profitPayed) {
-        this.profitPayed = profitPayed;
-    }
-
-    public void setTimeCreated(Date timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
-    public void setTimeLastUpdated(Date timeLastUpdated) {
-        this.timeLastUpdated = timeLastUpdated;
     }
 }
