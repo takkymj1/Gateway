@@ -4,7 +4,6 @@
  */
 package com.creditcloud.payment.model.chinapnr.enums;
 
-import com.sun.org.apache.xerces.internal.impl.dv.xs.YearDV;
 
 /**
  * 是否解冻
