@@ -33,6 +33,9 @@ public class CreditAssignRequest extends BaseRequest {
     @Size(max = 14)
     private String CreditDealAmt;
 
+    /**
+     * 最长10条明细
+     */
     @NotNull
     @Size(max = 2000)
     private String BidDetails;
