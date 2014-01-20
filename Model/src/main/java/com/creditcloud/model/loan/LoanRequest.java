@@ -24,6 +24,7 @@ import javax.validation.groups.Default;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -31,6 +32,7 @@ import lombok.Data;
  */
 @XmlRootElement
 @Data
+@NoArgsConstructor
 public class LoanRequest extends BaseObject {
 
     private static final long serialVersionUID = 20130917L;
@@ -162,9 +164,6 @@ public class LoanRequest extends BaseObject {
     @Valid
     private InvestRule investRule;
 
-    public LoanRequest() {
-    }
-
     /**
      *
      * @param id          LoanRequest Id, nullable
@@ -220,134 +219,4 @@ public class LoanRequest extends BaseObject {
         this.serial = serial;
         this.investRule = investRule;
     }
-
-    public String getId() {
-        return id;
-    }
-    
-    public InvestRule getIvestRule() {
-        return investRule;
-    }
-    
-    public User getUser() {
-        return user;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public LoanPurpose getPurpose() {
-        return purpose;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public RepaymentMethod getMethod() {
-        return method;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public LoanRequestStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(LoanRequestStatus status) {
-        this.status = status;
-    }
-
-    public Date getTimeSubmit() {
-        return timeSubmit;
-    }
-
-    public boolean isMortgaged() {
-        return mortgaged;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-    
-    public void setIvestRule(InvestRule rule) {
-        this.investRule = rule;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setPurpose(LoanPurpose purpose) {
-        this.purpose = purpose;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
-    public void setMethod(RepaymentMethod method) {
-        this.method = method;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setTimeSubmit(Date timeSubmit) {
-        this.timeSubmit = timeSubmit;
-    }
-
-    public void setMortgaged(boolean mortgaged) {
-        this.mortgaged = mortgaged;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public Collection<MortgageType> getMortgageType() {
-        return mortgageType;
-    }
-
-    public void setMortgageTypes(Collection<MortgageType> mortgageType) {
-        this.mortgageType = mortgageType;
-    }
-    
-    
 }

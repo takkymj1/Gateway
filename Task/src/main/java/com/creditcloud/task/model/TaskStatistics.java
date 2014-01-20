@@ -9,12 +9,16 @@ import com.creditcloud.model.ElementCount;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 一段时间内员工任务的统计信息
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class TaskStatistics extends BaseObject {
 
@@ -55,9 +59,6 @@ public class TaskStatistics extends BaseObject {
      */
     private List<ElementCount<Date>> monthlyStatistics;
 
-    public TaskStatistics() {
-    }
-
     public TaskStatistics(String employeeId,
                           Date from,
                           Date to,
@@ -72,61 +73,5 @@ public class TaskStatistics extends BaseObject {
         this.finishedTask = finishedTask;
         this.totalProfit = totalProfit;
         this.monthlyStatistics = monthlyStatistics;
-    }
-
-    public int getTotalTask() {
-        return totalTask;
-    }
-
-    public int getFinishedTask() {
-        return finishedTask;
-    }
-
-    public int getTotalProfit() {
-        return totalProfit;
-    }
-
-    public List<ElementCount<Date>> getMonthlyStatistics() {
-        return monthlyStatistics;
-    }
-
-    public void setTotalTask(int totalTask) {
-        this.totalTask = totalTask;
-    }
-
-    public void setFinishedTask(int finishedTask) {
-        this.finishedTask = finishedTask;
-    }
-
-    public void setTotalProfit(int totalProfit) {
-        this.totalProfit = totalProfit;
-    }
-
-    public void setMonthlyStatistics(List<ElementCount<Date>> monthlyStatistics) {
-        this.monthlyStatistics = monthlyStatistics;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public Date getFrom() {
-        return from;
-    }
-
-    public Date getTo() {
-        return to;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public void setFrom(Date from) {
-        this.from = from;
-    }
-
-    public void setTo(Date to) {
-        this.to = to;
     }
 }

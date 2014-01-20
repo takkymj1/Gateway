@@ -9,12 +9,14 @@ import com.creditcloud.model.enums.loan.TaskType;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  * 对loanrequest实地验证，同时对用户信息实地验证
  *
  * @author rooseek
  */
+@Data
 @XmlRootElement
 public class UserRequestTask extends Task {
 
@@ -62,22 +64,6 @@ public class UserRequestTask extends Task {
               employeeProfit,
               profitPayed);
         this.userId = userId;
-        this.requestId = requestId;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setRequestId(String requestId) {
         this.requestId = requestId;
     }
 }

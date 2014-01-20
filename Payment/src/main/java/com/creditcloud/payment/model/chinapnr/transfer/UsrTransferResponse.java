@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.transfer;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
@@ -13,89 +13,61 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 取现
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public class CashResponse extends BaseResponse {
-    
+public class UsrTransferResponse extends BaseResponse {
+
     @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
-    
+
     @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
-    
+
+    @FormParam("InUsrCustId")
+    @NotNull
+    @Size(max = 16)
+    private String InUsrCustId;
+
     @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
-    
-    @FormParam("OpenAcctId")
-    @Size(max = 40)
-    private String OpenAcctId;
-    
-    @FormParam("OpenBankId")
-    @Size(max = 8)
-    private String OpenBankId;
-    
+
     @FormParam("RetUrl")
+    @NotNull
     @Size(max = 128)
     private String RetUrl;
-    
+
     @FormParam("BgRetUrl")
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
 
-    /**
-     * 真实收取的手续费
-     */
-    @FormParam("FeeAmt")
-    @NotNull
-    private String FeeAmt;
-
-    /**
-     * 收取手续费的账号
-     */
-    @FormParam("FeeCustId")
-    @NotNull
-    @Size(max = 16)
-    private String FeeCustId;
-    
-    @FormParam("FeeAcctId")
-    @NotNull
-    @Size(max = 9)
-    private String FeeAcctId;
-    
-    @FormParam("ServFee")
-    @Size(max = 14)
-    private String ServFee;
-    
-    @FormParam("ServFeeAcctId")
-    @Size(max = 9)
-    private String ServFeeAcctId;
-    
     @FormParam("RespExt")
     @Size(max = 512)
     private String RespExt;
-    
+
     @Override
     public String chkString() {
-        StringBuilder sb = new StringBuilder(baseChkString());
-        sb.append(StringUtils.trimToEmpty(getOrdId()))
+        StringBuilder sb = new StringBuilder()
+                .append(StringUtils.trimToEmpty(getCmdId().name()))
+                .append(StringUtils.trimToEmpty(getRespCode()))
+                .append(StringUtils.trimToEmpty(getOrdId()))
+                .append(StringUtils.trimToEmpty(getMerCustId()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
-                .append(StringUtils.trimToEmpty(getOpenAcctId()))
-                .append(StringUtils.trimToEmpty(getOpenBankId()))
+                .append(StringUtils.trimToEmpty(getInUsrCustId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
-                .append(StringUtils.trimToEmpty(getMerPriv()));
+                .append(StringUtils.trimToEmpty(getMerPriv()))
+                .append(StringUtils.trimToEmpty(getRespExt()));
         return sb.toString();
     }
 }

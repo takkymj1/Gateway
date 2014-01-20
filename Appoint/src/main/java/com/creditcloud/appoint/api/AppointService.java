@@ -12,6 +12,7 @@ import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.appoint.model.BranchAppointStat;
+import com.creditcloud.appoint.model.UserAppointStat;
 import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
@@ -28,12 +29,12 @@ public interface AppointService {
 
     /**
      * 增加白名单用户.
-     * 
+     *
      * 失败则抛出异常
-     * 
+     *
      * @param clientCode
      * @param user
-     * @return 
+     * @return
      */
     AppointUser saveAppointUser(String clientCode, AppointUser user);
 
@@ -204,7 +205,24 @@ public interface AppointService {
      * @param clientCode
      * @return
      */
-    List<ElementCount<String>> countAppointUserByBranch(String clientCode);
+    List<ElementCount<String>> countUserByBranch(String clientCode);
+
+    /**
+     * 按照机构统计已经预约的用户数
+     *
+     * @param clientCode
+     * @return
+     */
+    List<ElementCount<String>> countAppointedUserByBranch(String clientCode);
+
+    /**
+     * 按照机构统计已经预约的用户数
+     *
+     * @param clientCode
+     * @param appointmnetId
+     * @return
+     */
+    List<ElementCount<String>> countAppointedUserByBranch(String clientCode, String appointmnetId);
 
     /**
      * 统计branch的认购数目和金额
@@ -222,4 +240,22 @@ public interface AppointService {
      * @return
      */
     List<BranchAppointStat> getBranchAppointStat(String clientCode, AppointRequestStatus... status);
+
+    /**
+     * 统计user的认购数目和金额
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @return
+     */
+    PagedResult<UserAppointStat> getUserAppointStat(String clientCode, String appoinmentId, PageInfo pageInfo, AppointRequestStatus... status);
+
+    /**
+     * 统计user的认购数目和金额
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @return
+     */
+    PagedResult<UserAppointStat> getUserAppointStat(String clientCode, PageInfo pageInfo, AppointRequestStatus... status);
 }

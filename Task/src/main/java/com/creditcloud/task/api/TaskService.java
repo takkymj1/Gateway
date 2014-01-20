@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.loan.TaskStatus;
 import com.creditcloud.model.enums.loan.TaskType;
 import com.creditcloud.task.model.Task;
 import com.creditcloud.task.model.TaskStatistics;
+import com.creditcloud.task.model.UserRequestTask;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -21,7 +22,7 @@ import javax.ejb.Remote;
 public interface TaskService {
 
     /**
-     * 穿件新的任务
+     * 创建新的任务
      *
      * @param clientCode
      * @param task
@@ -29,6 +30,16 @@ public interface TaskService {
      */
     Task addNew(String clientCode, Task task);
 
+    /**
+     * list task for loanRequest by task status
+     * 
+     * @param clientCode
+     * @param requestId
+     * @param status
+     * @return 
+     */
+    List<Task> listByRequestAndStatus(String clientCode, String requestId, TaskStatus... status);
+    
     /**
      * list task for employee by task status
      *
