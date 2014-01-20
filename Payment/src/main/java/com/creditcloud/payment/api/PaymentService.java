@@ -481,7 +481,7 @@ public interface PaymentService {
                                  boolean forUser);
 
     /**
-     * 前台用户之间转账接口，必须是企业用户和个人用户之间
+     * 前台用户之间转账接口，必须是企业用户和个人用户之间，TODO测试用
      *
      * @param clientCode
      * @param outUserId 
