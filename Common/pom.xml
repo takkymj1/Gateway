@@ -66,5 +66,11 @@
             <version>3.1</version>
             <type>jar</type>
         </dependency>
+        <!-- others -->
+        <dependency>
+            <groupId>nl.captcha</groupId>
+            <artifactId>SimpleCaptcha</artifactId>
+            <version>1.2.2</version>
+        </dependency>
     </dependencies>
 </project>

@@ -479,4 +479,20 @@ public interface PaymentService {
                                  String orderId,
                                  String BgRetUrl,
                                  boolean forUser);
+
+    /**
+     * 前台用户之间转账接口
+     *
+     * @param clientCode
+     * @param outUserId 
+     * @param inUserId
+     * @param orderId
+     * @param amount
+     * @return
+     */
+    public PaymentResult userTransfer(String clientCode,
+                                      String outUserId,
+                                      String inUserId,
+                                      String orderId,
+                                      BigDecimal amount);
 }
