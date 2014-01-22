@@ -6,11 +6,14 @@ package com.creditcloud.config.utils;
 
 import com.creditcloud.config.Fee;
 import com.creditcloud.config.FeeConfig;
+import com.creditcloud.config.enums.FeePeriod;
 import static com.creditcloud.config.enums.FeePeriod.DAILY;
 import static com.creditcloud.config.enums.FeePeriod.SINGLE;
+import com.creditcloud.config.enums.FeeScope;
 import static com.creditcloud.config.enums.FeeScope.BOTH;
 import static com.creditcloud.config.enums.FeeScope.INTEREST;
 import static com.creditcloud.config.enums.FeeScope.PRINCIPAL;
+import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.Repayment;
@@ -131,5 +134,39 @@ public class FeeUtils {
         }
 
         return new OverduePenalty(overdueAmount, penaltyAmount);
+    }
+
+    /**
+     * 合并默认的Feeconfig和LoanFee获得该贷款的实际费率
+     *
+     * @param defaultFee
+     * @param rate
+     * @param scope
+     * @return
+     */
+    public static Fee mergeFee(Fee defaultFee, BigDecimal rate, FeeScope scope) {
+        //LoanFee为null则返回系统默认费用
+        if (rate != null) {
+            if (defaultFee == null) {
+                //找不到系统收费配置，那么尝试用LoanFee来生成费用
+                return new Fee(FeeType.FLOATING,
+                               BigDecimal.ZERO,
+                               rate,
+                               FeePeriod.SINGLE,
+                               scope);
+            } else {
+                FeeType feeType = defaultFee.getType();
+                //如果配置文件不收取此费用，那么按照LoanFee为准仍然收取，且按照浮动费率收取
+                if (feeType.equals(FeeType.NONE)) {
+                    feeType = FeeType.FLOATING;
+                }
+                return new Fee(feeType,
+                               defaultFee.getFixed(),
+                               rate,
+                               defaultFee.getPeriod(),
+                               defaultFee.getScope());
+            }
+        }
+        return defaultFee;
     }
 }
