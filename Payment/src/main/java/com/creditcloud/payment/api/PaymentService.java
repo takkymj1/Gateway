@@ -481,18 +481,20 @@ public interface PaymentService {
                                  boolean forUser);
 
     /**
-     * 前台用户之间转账接口
+     * 前台用户之间转账接口，必须是企业用户和个人用户之间，TODO测试用
      *
      * @param clientCode
      * @param outUserId 
      * @param inUserId
      * @param orderId
      * @param amount
+     * @param BgRetUrl
      * @return
      */
     public PaymentResult userTransfer(String clientCode,
                                       String outUserId,
                                       String inUserId,
                                       String orderId,
-                                      BigDecimal amount);
+                                      BigDecimal amount,
+                                      String BgRetUrl);
 }

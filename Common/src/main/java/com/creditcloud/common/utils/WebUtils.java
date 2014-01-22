@@ -31,7 +31,7 @@ public class WebUtils {
      *
      * @param request
      * @param captcha
-     * @return
+     * @return true代表一致
      */
     public static boolean checkCaptcha(HttpServletRequest request, String captcha) {
         Captcha c = (Captcha) request.getSession().getAttribute(Captcha.NAME);

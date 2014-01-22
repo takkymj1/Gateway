@@ -237,4 +237,15 @@ public interface EmployeeService {
      * @return false if nothing removed or error happend
      */
     boolean removeById(String clientCode, String id);
+    
+      /**
+     * 根据ID重置员工密码.
+     *
+     * 如果ID不存在返回false
+     *
+     * @param clientCode
+     * @param id
+     * @return false if the employee ID does not exisat
+     */
+    boolean resetPassword(String clientCode, String id);
 }
