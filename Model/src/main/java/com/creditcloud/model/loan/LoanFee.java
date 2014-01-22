@@ -45,7 +45,7 @@ public class LoanFee extends BaseObject {
     /**
      * 管理费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
-    @FormParam("loanManagerFee")
+    @FormParam("loanManageFee")
     @Column(nullable = true)
     private BigDecimal loanManageFee;
 
