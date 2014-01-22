@@ -9,6 +9,7 @@ import com.creditcloud.model.BaseObject;
 
 import java.math.BigDecimal;
 import javax.persistence.Column;
+import javax.ws.rs.FormParam;
 import lombok.Data;
 
 /**
@@ -24,35 +25,41 @@ public class LoanFee extends BaseObject {
     /**
      * 对应贷款申请的id
      */
+    @FormParam("requestId")
     private String requestId;
 
     /**
      * 担保费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
+    @FormParam("loanGuaranteeFee")
     @Column(nullable = true)
     private BigDecimal loanGuaranteeFee;
 
     /**
      * 服务费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
+    @FormParam("loanServiceFee")
     @Column(nullable = true)
     private BigDecimal loanServiceFee;
 
     /**
      * 管理费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
+    @FormParam("loanManagerFee")
     @Column(nullable = true)
     private BigDecimal loanManagerFee;
 
     /**
      * 贷款利息管理费,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
+    @FormParam("loanInterestFee")
     @Column(nullable = true)
     private BigDecimal loanInterestFee;
 
     /**
      * 投资利息管理费,为null表示使用配置文件，否则覆盖配置文件中默认费率
      */
+    @FormParam("investInterestFee")
     @Column(nullable = true)
     private BigDecimal investInterestFee;
 
