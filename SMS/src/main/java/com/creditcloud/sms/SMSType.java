@@ -31,6 +31,12 @@ public enum SMSType {
      */
     CREDITMANAGER_MESSAGE("creditmanager.message"),
     /**
+     * CreditManager 中给员工重置密码.
+     * 
+     * 包含client.shortName, new password
+     */
+    CREDITMANAGER_RESET_PASSWORD("creditmanager.reset.password"),
+    /**
      * CreditManager 内给新建员工的短信，包含初始密码. 参数为：client.name, employee.loginName,
      * password
      */
