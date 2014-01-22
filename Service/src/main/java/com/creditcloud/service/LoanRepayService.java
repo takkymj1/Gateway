@@ -42,7 +42,7 @@ public interface LoanRepayService {
      * @return
      */
     PagedResult<LoanRepayment> listOverdueRepay(String clientCode, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
-    
+
     /**
      * 列出特定借款人所有到today为止逾期或违约的LoanRepayment
      *
@@ -152,4 +152,14 @@ public interface LoanRepayService {
      * @param repayId
      */
     RepayLoanResult repayLoan(String clientCode, String userId, String repayId);
+
+    /**
+     * 按状态统计用户的还款
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @return
+     */
+    int countByUserAndStatus(String clientCode, String userId, RepaymentStatus... statusList);
 }

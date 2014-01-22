@@ -12,11 +12,13 @@ import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.appoint.model.AppointUser;
 import com.creditcloud.appoint.model.Appointment;
 import com.creditcloud.appoint.model.BranchAppointStat;
+import com.creditcloud.appoint.model.DailyAppointStat;
 import com.creditcloud.appoint.model.UserAppointStat;
 import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -258,4 +260,27 @@ public interface AppointService {
      * @return
      */
     PagedResult<UserAppointStat> getUserAppointStat(String clientCode, PageInfo pageInfo, AppointRequestStatus... status);
+
+    /**
+     * 按天统计认购
+     *
+     * @param clientCode
+     * @param from
+     * @param to
+     * @param status
+     * @return
+     */
+    List<DailyAppointStat> getDailyAppointStat(String clientCode, Date from, Date to, AppointRequestStatus... status);
+
+    /**
+     * 按天统计认购
+     *
+     * @param clientCode
+     * @param appointmentId
+     * @param from
+     * @param to
+     * @param status
+     * @return
+     */
+    List<DailyAppointStat> getDailyAppointStat(String clientCode, String appointmentId, Date from, Date to, AppointRequestStatus... status);
 }
