@@ -40,6 +40,7 @@ public enum Privilege implements BaseEnum {
     EMPLOYEE_ALTER("更改员工信息", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_DELETE("删除员工", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_GRANT("调整员工权限", Realm.EMPLOYEE, "员工相关权限"),
+    EMPLOYEE_RESETPASSWORD("重置员工密码", Realm.EMPLOYEE, "员工相关权限"),
     /**
      * 组织结构相关
      */

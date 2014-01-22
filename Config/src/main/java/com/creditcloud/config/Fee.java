@@ -13,11 +13,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Fee extends BaseObject {
@@ -52,7 +54,12 @@ public class Fee extends BaseObject {
      */
     private FeeScope scope;
 
-    public Fee() {
+    public Fee(FeeType type, BigDecimal fixed, BigDecimal rate, FeePeriod period, FeeScope scope) {
+        this.type = type;
+        this.fixed = fixed;
+        this.rate = rate;
+        this.period = period;
+        this.scope = scope;
     }
 
     public FeeType getType() {

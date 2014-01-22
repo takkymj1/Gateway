@@ -13,7 +13,7 @@ import javax.ws.rs.FormParam;
 import lombok.Data;
 
 /**
- * 每个贷款申请对应的收费费率
+ * 每个贷款申请对应的收费费率,只能变动浮动费率部分
  *
  * @author rooseek
  */
@@ -47,7 +47,7 @@ public class LoanFee extends BaseObject {
      */
     @FormParam("loanManagerFee")
     @Column(nullable = true)
-    private BigDecimal loanManagerFee;
+    private BigDecimal loanManageFee;
 
     /**
      * 贷款利息管理费,为null表示使用配置文件，否则覆盖配置文件中默认费率
@@ -69,13 +69,13 @@ public class LoanFee extends BaseObject {
     public LoanFee(String requestId,
                    BigDecimal loanGuaranteeFee,
                    BigDecimal loanServiceFee,
-                   BigDecimal loanManagerFee,
+                   BigDecimal loanManageFee,
                    BigDecimal loanInterestFee,
                    BigDecimal investInterestFee) {
         this.requestId = requestId;
         this.loanGuaranteeFee = loanGuaranteeFee;
         this.loanServiceFee = loanServiceFee;
-        this.loanManagerFee = loanManagerFee;
+        this.loanManageFee = loanManageFee;
         this.loanInterestFee = loanInterestFee;
         this.investInterestFee = investInterestFee;
     }
