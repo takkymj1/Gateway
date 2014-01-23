@@ -61,9 +61,9 @@ public interface LoanConstant {
     int MIN_LOAN_TIME_OUT = 0;
 
     /**
-     * 最大开放募集时间,单位小时
+     * 最大开放募集时间,单位小时,目前设为7天
      */
-    int MAX_LOAN_TIME_OUT = 72;
+    int MAX_LOAN_TIME_OUT = 7 * 24;
 
     /**
      * 单笔投资最小金额
@@ -104,9 +104,10 @@ public interface LoanConstant {
      * 担保公司名称最大长度
      */
     int MAX_GUARANTEE_COMPANY = 60;
-    
+
     /**
      * 商户提供的贷款申请号最大长度
      */
     int MAX_LOAN_REQUEST_SERIAL = 20;
+
 }
