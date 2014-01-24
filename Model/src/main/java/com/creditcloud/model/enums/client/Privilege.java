@@ -74,6 +74,7 @@ public enum Privilege implements BaseEnum {
     POST_LOAN_MANAGE("贷后管理", Realm.LOAN, "借款相关权限"),
     LOAN_REPAY("还款", Realm.LOAN, "借款相关权限"),
     LOAN_DISBURSE("垫付", Realm.LOAN, "借款相关权限"),
+    LOAN_DOWNLOAD("借款下载", Realm.LOAN, "借款相关权限"),
     /**
      * 任务相关权限
      */
@@ -89,6 +90,7 @@ public enum Privilege implements BaseEnum {
     USER_CASH_AUDIT("用户提现审批", Realm.FUND, "资金相关权限"),
     FUND_DEPOSIT("商户充值", Realm.FUND, "资金相关权限"),
     FUND_WITHDRAW("商户提现", Realm.FUND, "资金相关权限"),
+    FUND_WITHDRAW_DOWNLOAD("提现记录下载", Realm.FUND, "资金相关权限"),
     CLIENT_DIRECT_WITHDRAW("商户快速提现", Realm.FUND, "资金相关权限"),
     USER_DIRECT_WITHDRAW("用户快速提现", Realm.FUND, "资金相关权限"),
     CLIENT_TRANSFER("商户调账", Realm.FUND, "资金相关权限"),
