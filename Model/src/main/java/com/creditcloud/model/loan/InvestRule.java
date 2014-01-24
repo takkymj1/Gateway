@@ -10,6 +10,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
+@XmlRootElement
 public class InvestRule extends BaseObject {
 
     private static final long serialVersionUID = 20140102L;
