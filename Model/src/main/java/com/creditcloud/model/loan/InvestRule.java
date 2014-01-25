@@ -52,12 +52,29 @@ public class InvestRule extends BaseObject {
         if (rule == null) {
             return false;
         }
-        if (amount < rule.getMinAmount()
-                || amount > rule.getMaxAmount()
-                || (amount - rule.getMinAmount()) % rule.getStepAmount() != 0) {
-            return false;
-        }
 
-        return true;
+        return amount >= rule.getMinAmount() && amount <= rule.getMaxAmount() && (amount - rule.getMinAmount()) % rule.getStepAmount() == 0;
+    }
+    
+    /**
+     * 根据InvestRule规范化投标金额.
+     * 
+     * 所有不合法的投标金额都会规范化为0.
+     * 
+     * @param amount 意愿投标金额，表示最大的意愿投资额
+     * @param investRule
+     * @return 
+     */
+    public static int normalize (InvestRule investRule, final int amount) {
+        if (investRule != null) {
+            if (amount < investRule.getMinAmount()) {
+                return 0;
+            }
+            if (amount > investRule.getMaxAmount()) {
+                return investRule.getMaxAmount();
+            }
+            return amount - (amount - investRule.getMinAmount()) % investRule.getStepAmount();
+        }
+        return amount > 0 ? amount : 0;
     }
 }
