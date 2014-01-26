@@ -6,6 +6,7 @@ package com.creditcloud.activity;
 
 import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.enums.Realm;
+import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 
@@ -44,7 +45,11 @@ public enum ActivityType implements BaseEnum {
     LOAN_DISBURSE("垫付", Realm.LOAN),
     LOAN_CLEAR(LoanStatus.CLEARED.getKey(), Realm.LOAN),
     LOAN_OVERDUE(LoanStatus.OVERDUE.getKey(), Realm.LOAN),
-    LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN);
+    LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN),
+    /**
+     * 投标类活动
+     */
+    INVEST_CANCEL(InvestStatus.CANCELED.getKey(), Realm.INVEST);
 
     private final String key;
 
