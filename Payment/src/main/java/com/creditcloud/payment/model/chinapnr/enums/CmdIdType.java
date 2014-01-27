@@ -67,12 +67,12 @@ public enum CmdIdType {
     SaveReconciliation,
     QueryReturnDzFee,
     /**
-     * 2014.1.17新加
+     * 2014.1.17新加汇付3.0接口
      */
     CorpRegister,
     UsrTransfer,
     CreditAssign,
     CorpRegisterQuery,
-    CreditAssignReconciliation;
-
+    CreditAssignReconciliation,
+    QueryCardInfo;
 }

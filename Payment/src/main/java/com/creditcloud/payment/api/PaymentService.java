@@ -17,7 +17,7 @@ import com.creditcloud.payment.model.PaymentResult;
 import com.creditcloud.payment.model.TransferResult;
 import com.creditcloud.payment.model.UnFreezeResult;
 import com.creditcloud.payment.model.UserBalanceResult;
-import com.creditcloud.payment.model.chinapnr.AccountDetail;
+import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.enums.AcctType;
