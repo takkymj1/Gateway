@@ -121,4 +121,13 @@ public interface InvestService extends InvestRepayService {
      * @return
      */
     Map<String, Integer> getOpenLoanBalance(String clientCode);
+
+    /**
+     * 取消用户的投标
+     *
+     * @param clientCode
+     * @param investId
+     * @return
+     */
+    boolean cancelInvest(String clientCode, String investId);
 }
