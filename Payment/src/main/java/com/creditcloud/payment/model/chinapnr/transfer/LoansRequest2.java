@@ -102,7 +102,7 @@ public class LoansRequest2 extends BaseRequest {
                          String FreezeTrxId,
                          String BgRetUrl,
                          String ReqExt) {
-        super(PnRConstant.Version, CmdIdType.Loans, MerCustId);
+        super(PnRConstant.Version_2, CmdIdType.Loans, MerCustId);
         this.OrdId = OrdId;
         this.OrdDate = OrdDate;
         this.OutCustId = OutCustId;

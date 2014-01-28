@@ -4,8 +4,6 @@
  */
 package com.creditcloud.payment.model.chinapnr.enums;
 
-import com.creditcloud.payment.model.chinapnr.UserRegisterRequest;
-
 /**
  *
  * @author yuanh
