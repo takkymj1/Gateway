@@ -35,10 +35,6 @@ public class LoansResponse2 extends BaseResponse {
     @NotNull
     @Size(max = 16)
     private String OutCustId;
-    
-    private String SubOrdId;
-    
-    private String SubOrdDate;
 
     @FormParam("OutAcctId")
     @Size(max = 9)
