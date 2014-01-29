@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.payment.model.chinapnr.enums.AcctType;
