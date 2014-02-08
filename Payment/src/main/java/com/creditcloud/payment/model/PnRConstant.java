@@ -16,9 +16,14 @@ import java.math.RoundingMode;
 public interface PnRConstant {
 
     /**
-     * 默认的Version
+     * 默认的1.0版本version
      */
     String Version = "10";
+
+    /**
+     * 2.0版本version
+     */
+    String Version_2 = "20";
 
     /**
      * 默认的证件类型，身份证
@@ -54,11 +59,11 @@ public interface PnRConstant {
      * 已放款金额加本次放款金额超过投资人原单中的投资金额
      */
     String BID_LENDAMT_EQUALS_BIDAMT_ERROR = "334";
-    
+
     /**
      * 本次还款金额加上已还款金额超过还款总额
      */
-    String  BID_RET_COUNT_ERROR = "349";
+    String BID_RET_COUNT_ERROR = "349";
 
     /**
      * 不是汇付定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号

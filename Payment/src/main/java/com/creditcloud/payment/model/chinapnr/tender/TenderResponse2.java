@@ -5,78 +5,75 @@
 package com.creditcloud.payment.model.chinapnr.tender;
 
 import com.creditcloud.payment.model.chinapnr.constraint.PnRReturnURL;
-import com.creditcloud.payment.model.PnRConstant;
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
+import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
-import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 主动/自动投标request
+ * 主动/自动投标response,汇付2.0
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public class TenderRequest extends BaseRequest {
+public class TenderResponse2 extends BaseResponse {
 
+    @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
 
+    @FormParam("OrdDate")
     @NotNull
     @PnRDate
     private String OrdDate;
 
+    @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
 
+    @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
 
-    @NotNull
-    @Size(max = 6)
-    private String MaxTenderRate;
+    @FormParam("TrxId")
+    @Size(min = 18, max = 18)
+    private String TrxId;
 
+    @FormParam("IsFreeze")
     @NotNull
-    private String BorrowerDetails;
+    @Size(min = 1, max = 1)
+    private String IsFreeze;
 
+    @FormParam("FreezeOrdId")
+    @Size(max = 20)
+    private String FreezeOrdId;
+
+    @FormParam("FreezeTrxId")
+    @Size(min = 18, max = 18)
+    private String FreezeTrxId;
+
+    @FormParam("RetUrl")
     @PnRReturnURL
     @Size(max = 128)
     private String RetUrl;
 
+    @FormParam("BgRetUrl")
     @NotNull
     @PnRReturnURL
     @Size(max = 128)
     private String BgRetUrl;
 
-    public TenderRequest(CmdIdType CmdId,
-                         String MerCustId,
-                         String OrdId,
-                         String OrdDate,
-                         String TransAmt,
-                         String UsrCustId,
-                         String MaxTenderRate,
-                         String BorrowerDetails,
-                         String RetUrl,
-                         String BgRetUrl) {
-        super(PnRConstant.Version, CmdId, MerCustId);
-        this.OrdId = OrdId;
-        this.OrdDate = OrdDate;
-        this.TransAmt = TransAmt;
-        this.UsrCustId = UsrCustId;
-        this.MaxTenderRate = MaxTenderRate;
-        this.BorrowerDetails = BorrowerDetails;
-        this.RetUrl = RetUrl;
-        this.BgRetUrl = BgRetUrl;
-    }
-
+    @FormParam("RespExt")
+    @Size(max = 512)
+    private String RespExt;
 
     @Override
     public String chkString() {
@@ -85,11 +82,15 @@ public class TenderRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getOrdDate()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
-                .append(StringUtils.trimToEmpty(getMaxTenderRate()))
-                .append(StringUtils.trimToEmpty(getBorrowerDetails()))
+                .append(StringUtils.trimToEmpty(getTrxId()))
+                .append(StringUtils.trimToEmpty(getIsFreeze()))
+                .append(StringUtils.trimToEmpty(getFreezeOrdId()))
+                .append(StringUtils.trimToEmpty(getFreezeTrxId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
-                .append(StringUtils.trimToEmpty(getMerPriv()));
+                .append(StringUtils.trimToEmpty(getMerPriv()))
+                .append(StringUtils.trimToEmpty(getRespExt()));
+
         return sb.toString();
     }
 }

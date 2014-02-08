@@ -12,18 +12,23 @@ import com.creditcloud.payment.model.CashAuditResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
+import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.TenderResult;
 import com.creditcloud.payment.model.TransferResult;
 import com.creditcloud.payment.model.UnFreezeResult;
 import com.creditcloud.payment.model.UserBalanceResult;
-import com.creditcloud.payment.model.chinapnr.AccountDetail;
+import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.enums.AcctType;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
+import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
+import com.creditcloud.payment.model.chinapnr.enums.IsFreeze;
+import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
@@ -96,6 +101,29 @@ public interface PaymentService {
                                     BigDecimal amount,
                                     String orderId,
                                     List<BorrowerDetail> BorrowerDetails,
+                                    String BgRetUrl,
+                                    String merPriv);
+
+    /**
+     * 自动投标，汇付2.0接口
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount
+     * @param orderId
+     * @param BorrowerDetails
+     * @param isFreeze
+     * @param FreezeOrdId
+     * @param BgRetUrl
+     * @param merPriv
+     * @return
+     */
+    public TenderResult autoTender2(String clientCode,
+                                    String userId,
+                                    BigDecimal amount,
+                                    String orderId,
+                                    List<BorrowerDetail> BorrowerDetails,
+                                    String FreezeOrdId,
                                     String BgRetUrl,
                                     String merPriv);
 
@@ -221,6 +249,40 @@ public interface PaymentService {
                               IsDefault isDefault,
                               String BgRetUrl,
                               String merPriv);
+
+    /**
+     * 对应汇付2.0接口
+     *
+     * @param clientCode
+     * @param ordId
+     * @param investUserId
+     * @param amount
+     * @param fee
+     * @param subOrdId
+     * @param subOrdDate
+     * @param loanUserId
+     * @param details
+     * @param isDefault
+     * @param BgRetUrl
+     * @param merPriv
+     * @return
+     */
+    public LoanResult loan2(String clientCode,
+                            String ordId,
+                            String investUserId,
+                            BigDecimal amount,
+                            BigDecimal fee,
+                            String subOrdId,
+                            LocalDate subOrdDate,
+                            String loanUserId,
+                            List<DivDetail> details,
+                            FeeObjFlag feeObjFlag,
+                            IsDefault isDefault,
+                            IsUnFreeze isUnFreeze,
+                            String UnFreezeOrdId,
+                            String FreezeTrxId,
+                            String BgRetUrl,
+                            String merPriv);
 
     /**
      * 还款
@@ -484,7 +546,7 @@ public interface PaymentService {
      * 前台用户之间转账接口，必须是企业用户和个人用户之间，TODO测试用
      *
      * @param clientCode
-     * @param outUserId 
+     * @param outUserId
      * @param inUserId
      * @param orderId
      * @param amount
