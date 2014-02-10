@@ -30,6 +30,7 @@ import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
+import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
@@ -313,7 +314,7 @@ public interface PaymentService {
                                String merPriv);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param ordId
      * @param loanUserId
@@ -326,7 +327,7 @@ public interface PaymentService {
      * @param feeObjFlag
      * @param BgRetUrl
      * @param merPriv
-     * @return 
+     * @return
      */
     public PaymentResult repay2(String clientCode,
                                 String ordId,
@@ -435,6 +436,18 @@ public interface PaymentService {
      * @return
      */
     public TenderReconciliationResult tenderReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize, QueryTransType type);
+
+    /**
+     * 债权转让查询
+     *
+     * @param clientCode
+     * @param beginDate
+     * @param endDate
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public CreditAssignReconciliationResult creditAssignReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
     /**
      * 查询交易状态

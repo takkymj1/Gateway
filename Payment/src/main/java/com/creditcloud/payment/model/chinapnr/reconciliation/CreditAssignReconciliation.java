@@ -5,6 +5,8 @@
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.enums.TransStat;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -36,15 +38,15 @@ public class CreditAssignReconciliation extends BaseObject {
 
     @NotNull
     @Size(max = 14)
-    private String CreditAmt;
+    private BigDecimal CreditAmt;
 
     @NotNull
     @Size(max = 14)
-    private String CreditDealAmt;
+    private BigDecimal CreditDealAmt;
 
     @NotNull
     @Size(max = 14)
-    private String Fee;
+    private BigDecimal Fee;
 
     @NotNull
     @Size(max = 16)
@@ -52,7 +54,7 @@ public class CreditAssignReconciliation extends BaseObject {
 
     @NotNull
     @Size(min = 1, max = 1)
-    private String TransStat;
+    private TransStat TransStat;
 
     @NotNull
     private String PnrDate;
@@ -63,11 +65,11 @@ public class CreditAssignReconciliation extends BaseObject {
     public CreditAssignReconciliation(String OrdId, 
                                       String OrdDate,
                                       String SellCustId, 
-                                      String CreditAmt, 
-                                      String CreditDealAmt, 
-                                      String Fee, 
+                                      BigDecimal CreditAmt, 
+                                      BigDecimal CreditDealAmt, 
+                                      BigDecimal Fee, 
                                       String BuyCustId, 
-                                      String TransStat, 
+                                      TransStat TransStat, 
                                       String PnrDate, 
                                       String PnrSeqId) {
         this.OrdId = OrdId;

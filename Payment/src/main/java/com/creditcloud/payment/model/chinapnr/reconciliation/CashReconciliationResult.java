@@ -7,7 +7,6 @@ package com.creditcloud.payment.model.chinapnr.reconciliation;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.joda.time.LocalDate;
 
 /**
  * 取现对账返回结果
