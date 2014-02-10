@@ -27,7 +27,6 @@ import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationR
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
 import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
-import com.creditcloud.payment.model.chinapnr.enums.IsFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
@@ -36,6 +35,7 @@ import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliatio
 import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
+import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
@@ -275,7 +275,7 @@ public interface PaymentService {
                             String subOrdId,
                             LocalDate subOrdDate,
                             String loanUserId,
-                            List<DivDetail> details,
+                            List<DivDetail2> details,
                             FeeObjFlag feeObjFlag,
                             IsDefault isDefault,
                             IsUnFreeze isUnFreeze,
@@ -304,13 +304,42 @@ public interface PaymentService {
                                String ordId,
                                String loanUserId,
                                String subOrdId,
-                               LocalDate subOrDate,
+                               LocalDate subOrdDate,
                                BigDecimal transAmt,
                                BigDecimal fee,
                                String investUserId,
                                List<DivDetail> details,
                                String BgRetUrl,
                                String merPriv);
+
+    /**
+     * 
+     * @param clientCode
+     * @param ordId
+     * @param loanUserId
+     * @param subOrdId
+     * @param subOrDate
+     * @param transAmt
+     * @param fee
+     * @param investUserId
+     * @param details
+     * @param feeObjFlag
+     * @param BgRetUrl
+     * @param merPriv
+     * @return 
+     */
+    public PaymentResult repay2(String clientCode,
+                                String ordId,
+                                String loanUserId,
+                                String subOrdId,
+                                LocalDate subOrdDate,
+                                BigDecimal transAmt,
+                                BigDecimal fee,
+                                String investUserId,
+                                List<DivDetail2> details,
+                                FeeObjFlag feeObjFlag,
+                                String BgRetUrl,
+                                String merPriv);
 
     /**
      * 垫付
