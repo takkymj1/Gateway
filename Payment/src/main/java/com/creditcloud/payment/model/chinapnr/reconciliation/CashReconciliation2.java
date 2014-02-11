@@ -14,16 +14,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 取现对账记录
+ * 取现对账记录，汇付2.0接口
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class CashReconciliation extends BaseObject {
+public class CashReconciliation2 extends BaseObject {
 
-    private static final long serialVersionUID = 20131112L;
+    private static final long serialVersionUID = 20140211L;
 
     @NotNull
     @Size(max = 20)
@@ -52,4 +52,17 @@ public class CashReconciliation extends BaseObject {
 
     @NotNull
     private String PnrSeqId;
+
+    @NotNull
+    @Size(max = 14)
+    private BigDecimal FeeAmt;
+
+    @NotNull
+    @Size(max = 14)
+    private String ServFee;
+
+    @NotNull
+    @Size(max = 9)
+    private String ServFeeAcctId;
+
 }

@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 取现
+ * 取现，汇付2.0接口
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public class CashRequest extends BaseRequest {
+public class CashRequest2 extends BaseRequest {
 
     @NotNull
     @Size(max = 20)
@@ -34,6 +34,12 @@ public class CashRequest extends BaseRequest {
     @NotNull
     @Size(max = 14)
     private String TransAmt;
+
+    @Size(max = 14)
+    private String ServFee;
+
+    @Size(max = 9)
+    private String ServFeeAcctId;
 
     @Size(max = 40)
     private String OpenAcctId;
@@ -52,15 +58,21 @@ public class CashRequest extends BaseRequest {
 
     private String CharSet;
 
-    public CashRequest(String MerCustId,
-                       String OrdId,
-                       String UsrCustId,
-                       String TransAmt,
-                       String OpenAcctId,
-                       String RetUrl,
-                       String BgRetUrl,
-                       String Remark) {
-        super(PnRConstant.Version, CmdIdType.Cash, MerCustId);
+    @Size(max = 512)
+    private String ReqExt;
+
+    public CashRequest2(String MerCustId,
+                        String OrdId,
+                        String UsrCustId,
+                        String TransAmt,
+                        String OpenAcctId,
+                        String RetUrl,
+                        String BgRetUrl,
+                        String Remark,
+                        String ServeFee,
+                        String ServFeeAcctId,
+                        String ReqExt) {
+        super(PnRConstant.Version_2, CmdIdType.Cash, MerCustId);
         this.OrdId = OrdId;
         this.UsrCustId = UsrCustId;
         this.TransAmt = TransAmt;
@@ -69,6 +81,9 @@ public class CashRequest extends BaseRequest {
         this.BgRetUrl = BgRetUrl;
         this.Remark = Remark;
         this.CharSet = PnRConstant.CharSet;
+        this.ServFee = ServeFee;
+        this.ServFeeAcctId = ServFeeAcctId;
+        this.ReqExt = ReqExt;
     }
 
     @Override
@@ -77,11 +92,14 @@ public class CashRequest extends BaseRequest {
         sb.append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
+                .append(StringUtils.trimToEmpty(getServFee()))
+                .append(StringUtils.trimToEmpty(getServFeeAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
                 .append(StringUtils.trimToEmpty(getRemark()))
-                .append(StringUtils.trimToEmpty(getMerPriv()));
+                .append(StringUtils.trimToEmpty(getMerPriv()))
+                .append(StringUtils.trimToEmpty(getReqExt()));
         return sb.toString();
     }
 }

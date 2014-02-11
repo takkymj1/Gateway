@@ -30,6 +30,7 @@ import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
+import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult2;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
@@ -399,6 +400,18 @@ public interface PaymentService {
      * @return
      */
     public CashReconciliationResult cashReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
+
+    /**
+     * p2p平台取现对账,对应2.0接口
+     *
+     * @param clientCode
+     * @param beginDate
+     * @param endDate
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public CashReconciliationResult2 cashReconciliation2(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
     /**
      * p2p平台充值对账
