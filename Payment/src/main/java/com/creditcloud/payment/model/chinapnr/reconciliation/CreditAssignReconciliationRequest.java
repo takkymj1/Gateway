@@ -4,8 +4,6 @@
  */
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
-import com.creditcloud.payment.model.PnRConstant;
-import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Max;
@@ -22,36 +20,16 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
-public class CreditAssignReconciliationRequest extends BaseRequest {
+public class CreditAssignReconciliationRequest extends ReconciliationRequest {
 
-    @NotNull
     @Size(max = 20)
     private String OrdId;
 
-    @NotNull
     @Size(max = 16)
     private String SellCustId;
 
-    @NotNull
     @Size(max = 16)
     private String BuyCustId;
-
-    @NotNull
-    @PnRDate
-    private String BeginDate;
-
-    @NotNull
-    @PnRDate
-    private String EndDate;
-
-    @NotNull
-    @Min(1)
-    private int PageNum;
-
-    @NotNull
-    @Min(1)
-    @Max(1000)
-    private int PageSize;
 
     @Size(max = 512)
     private String ReqExt;
@@ -65,7 +43,7 @@ public class CreditAssignReconciliationRequest extends BaseRequest {
                                              int PageNum,
                                              int PageSize,
                                              String ReqExt) {
-        super(PnRConstant.Version, CmdIdType.CreditAssignReconciliation, MerCustId);
+        super(CmdIdType.CreditAssignReconciliation, MerCustId, BeginDate, EndDate, PageNum, PageSize);
         this.OrdId = OrdId;
         this.SellCustId = SellCustId;
         this.BuyCustId = BuyCustId;

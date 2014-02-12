@@ -11,6 +11,8 @@ import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -18,27 +20,26 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class ReconciliationRequest extends BaseRequest {
 
     @NotNull
     @PnRDate
-    private String BeginDate;
+    protected String BeginDate;
 
     @NotNull
     @PnRDate
-    private String EndDate;
+    protected String EndDate;
 
     @NotNull
     @Min(1)
-    private int PageNum;
+    protected int PageNum;
 
     @NotNull
     @Min(1)
     @Max(1000)
-    private int PageSize;
-
-    public ReconciliationRequest() {
-    }
+    protected int PageSize;
 
     public ReconciliationRequest(CmdIdType CmdId,
                                  String MerCustId,
@@ -50,38 +51,6 @@ public class ReconciliationRequest extends BaseRequest {
         this.BeginDate = BeginDate;
         this.EndDate = EndDate;
         this.PageNum = PageNum;
-        this.PageSize = PageSize;
-    }
-
-    public String getBeginDate() {
-        return BeginDate;
-    }
-
-    public String getEndDate() {
-        return EndDate;
-    }
-
-    public int getPageNum() {
-        return PageNum;
-    }
-
-    public int getPageSize() {
-        return PageSize;
-    }
-
-    public void setBeginDate(String BeginDate) {
-        this.BeginDate = BeginDate;
-    }
-
-    public void setEndDate(String EndDate) {
-        this.EndDate = EndDate;
-    }
-
-    public void setPageNum(int PageNum) {
-        this.PageNum = PageNum;
-    }
-
-    public void setPageSize(int PageSize) {
         this.PageSize = PageSize;
     }
 

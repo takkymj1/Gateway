@@ -28,15 +28,17 @@ public class BidDetail extends BaseObject {
     @Size(max = 20)
     private String BidOrdId;
 
+    @NotNull
     @Size(min = 8, max = 8)
     private String BidOrdDate;
 
+    @NotNull
     @Size(max = 14)
     private String BidCreditAmt;
 
-    private List BorrowerDetails;
+    private List<BidBorrowerDetail> BorrowerDetails;
 
-    public BidDetail(String BidOrdId, String BidOrdDate, String BidCreditAmt, List BorrowerDetails) {
+    public BidDetail(String BidOrdId, String BidOrdDate, String BidCreditAmt, List<BidBorrowerDetail> BorrowerDetails) {
         this.BidOrdId = BidOrdId;
         this.BidOrdDate = BidOrdDate;
         this.BidCreditAmt = BidCreditAmt;
