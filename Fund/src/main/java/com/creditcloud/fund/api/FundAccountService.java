@@ -96,4 +96,15 @@ public interface FundAccountService {
     public FundAccount getByUserAndAccount(String clientCode,
                                            String userId,
                                            String account);
+    
+    /**
+     * 获取用户默认银行卡账户
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
+    public FundAccount getDefaultByUser(String clientCode,
+                                        String userId);
+    
 }

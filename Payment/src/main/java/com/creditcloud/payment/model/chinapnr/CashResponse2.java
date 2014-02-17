@@ -13,45 +13,36 @@ import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * 取现
+ * 取现，汇付2.0接口
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public class CashResponse extends BaseResponse {
-    
+public class CashResponse2 extends BaseResponse {
+
     @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
     private String OrdId;
-    
+
     @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
-    
+
     @FormParam("TransAmt")
     @NotNull
     @Size(max = 14)
     private String TransAmt;
-    
+
     @FormParam("OpenAcctId")
     @Size(max = 40)
     private String OpenAcctId;
-    
+
     @FormParam("OpenBankId")
     @Size(max = 8)
     private String OpenBankId;
-    
-    @FormParam("RetUrl")
-    @Size(max = 128)
-    private String RetUrl;
-    
-    @FormParam("BgRetUrl")
-    @NotNull
-    @Size(max = 128)
-    private String BgRetUrl;
 
     /**
      * 真实收取的手续费
@@ -67,13 +58,33 @@ public class CashResponse extends BaseResponse {
     @NotNull
     @Size(max = 16)
     private String FeeCustId;
-    
+
     @FormParam("FeeAcctId")
     @NotNull
     @Size(max = 9)
     private String FeeAcctId;
-    
-    
+
+    @FormParam("ServFee")
+    @Size(max = 14)
+    private String ServFee;
+
+    @FormParam("ServFeeAcctId")
+    @Size(max = 9)
+    private String ServFeeAcctId;
+
+    @FormParam("RetUrl")
+    @Size(max = 128)
+    private String RetUrl;
+
+    @FormParam("BgRetUrl")
+    @NotNull
+    @Size(max = 128)
+    private String BgRetUrl;
+
+    @FormParam("RespExt")
+    @Size(max = 512)
+    private String RespExt;
+
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder(baseChkString());
@@ -82,9 +93,16 @@ public class CashResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
+                .append(StringUtils.trimToEmpty(getFeeAmt()))
+                .append(StringUtils.trimToEmpty(getFeeCustId()))
+                .append(StringUtils.trimToEmpty(getFeeAcctId()))
+                .append(StringUtils.trimToEmpty(getServFee()))
+                .append(StringUtils.trimToEmpty(getServFeeAcctId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
-                .append(StringUtils.trimToEmpty(getMerPriv()));
+                .append(StringUtils.trimToEmpty(getMerPriv()))
+                .append(StringUtils.trimToEmpty(getRespExt()));
+
         return sb.toString();
     }
 }
