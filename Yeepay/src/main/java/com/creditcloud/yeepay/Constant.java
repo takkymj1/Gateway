@@ -35,5 +35,5 @@ public interface Constant {
     /**
      * 支付回调Url
      */
-    String p8_Url = "http://www.yeep2p.com/payment/depositReturn";
+    String p8_Url = "https://www.yeepbank.com/payment/depositReturn";
 }
