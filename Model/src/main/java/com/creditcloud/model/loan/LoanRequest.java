@@ -14,8 +14,6 @@ import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import javax.validation.Valid;
