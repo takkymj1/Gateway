@@ -7,6 +7,7 @@ package com.creditcloud.contract;
 import com.creditcloud.model.client.Client;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -14,6 +15,7 @@ import lombok.Data;
  * @author suetming
  */
 @Data
+@AllArgsConstructor
 public class ContractTemplate {
     
     @NotNull
@@ -22,12 +24,12 @@ public class ContractTemplate {
     /**
      * 合同模板名称
      */
-    private String rename;
+    private String name;
 
     /**
-     * 所属Client
+     * 所属ClientCode
      */
-    private Client client;
+    private String clientCode;
     
     /**
      * 创建日期时间
@@ -38,11 +40,5 @@ public class ContractTemplate {
      * 模板内容
      */
     private byte[] content;
-    
-    public ContractTemplate(String id, String name, byte [] content, Date timeCreated) {
-        this.id = id;
-        this.rename = name;
-        this.content = content;
-        this.timeCreated = timeCreated;
-    }
+   
 }

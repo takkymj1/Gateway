@@ -25,7 +25,7 @@ public interface ContractTemplateService {
      * 根据模板Id删除实体
      * @param contractTemplateId 
      */
-    public void deleteById(String contractTemplateId);
+    public void deleteById(String contractTemplateId, String clientCode);
     
     /**
      * 添加模板
@@ -33,7 +33,7 @@ public interface ContractTemplateService {
      * @param content   模板内容
      * @return 
      */
-    public ContractTemplate addNew(String name, byte [] content);
+    public ContractTemplate addNew(String name, byte [] content, String clientCode);
     
     /**
      * 根据模板Id更新名称
@@ -41,5 +41,5 @@ public interface ContractTemplateService {
      * @param name
      * @return 
      */
-    public ContractTemplate update(String id, String name);
+    public ContractTemplate update(String id, String name, String clientCode);
 }
