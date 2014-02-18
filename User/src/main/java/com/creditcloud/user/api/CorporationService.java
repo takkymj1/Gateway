@@ -4,6 +4,7 @@
  */
 package com.creditcloud.user.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.user.corporation.Corporation;
 import com.creditcloud.user.corporation.CorporationType;
@@ -73,8 +74,9 @@ public interface CorporationService {
     /**
      *
      * @param clientCode
+     * @param info
      * @param type
      * @return
      */
-    PagedResult<Corporation> listByType(String clientCode, CorporationType... type);
+    PagedResult<Corporation> listByType(String clientCode, PageInfo info, CorporationType... type);
 }
