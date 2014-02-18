@@ -21,7 +21,7 @@ public interface ContractTemplateService {
      */
     public List<ContractTemplate> listAllTemplates(String clientCode);
     
-    public void deleteById(String contractId);
+    public void deleteById(String contractTemplateId);
     
     public ContractTemplate addNew(String name, byte [] content);
     
