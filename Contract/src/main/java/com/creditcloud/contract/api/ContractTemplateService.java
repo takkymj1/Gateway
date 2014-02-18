@@ -70,6 +70,14 @@ public interface ContractTemplateService {
      * @return null表示一个模板都没有
      */
     public ContractTemplate getDefault(String clientCode);
+    
+    /**
+     * 将某id的ContractTemplate设置为默认
+     * 
+     * @param clientCode
+     * @param id 
+     */
+    public void setDefault(String clientCode, String id);
 
     /**
      * 根据模板Id删除实体
