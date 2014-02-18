@@ -16,6 +16,10 @@ public enum Realm implements BaseEnum {
      */
     STRING("字符串"),
     /**
+     * 名值对，用于存放额外信息，key和value用|分隔
+     */
+    KEYVALUE("名值对"),
+    /**
      * 基本类型
      */
     USER("用戶"),
