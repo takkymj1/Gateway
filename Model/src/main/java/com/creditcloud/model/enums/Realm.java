@@ -49,6 +49,7 @@ public enum Realm implements BaseEnum {
      * 其他
      */
     CONTRACT("合同"),
+    CONTRACTTEMPLATE("合同模板"),
     IMAGE("图片"),
     FILE("文件");
     

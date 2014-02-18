@@ -272,4 +272,33 @@ public class Loan extends BaseObject implements Investable {
     public void setTimeSettled(Date timeSettled) {
         this.timeSettled = timeSettled;
     }
+    
+    /**
+     * 当状态为开放投标时，根据timeOpen和timeOut计算剩余时间.
+     * 
+     * 其他状态统一返回 -1
+     * 
+     * @return 以millionsecond计算的剩余时间
+     */
+    public long getTimeLeft() {
+        if (status == LoanStatus.OPENED) {
+            long elapsed = System.currentTimeMillis() - timeOpen.getTime();
+            return timeOut * 60 * 60 * 1000 >= elapsed ? timeOut * 60 * 60 * 1000 - elapsed : -1;
+        }
+        return -1;
+    }
+    
+    /**
+     * 达到满标的耗时.
+     * 
+     * 如果timeFinished为空则返回 -1
+     * 
+     * @return 以millionsecond计算的时间
+     */
+    public long getTimeElapsed() {
+        if (timeOpen != null && timeFinished != null) {
+            return timeFinished.getTime() - timeOpen.getTime();
+        }
+        return -1;
+    }
 }

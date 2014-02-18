@@ -29,11 +29,6 @@ public class ContractTemplate extends BaseObject {
     private String name;
 
     /**
-     * 所属ClientCode
-     */
-    private String clientCode;
-    
-    /**
      * 创建日期时间
      */
     private Date timeCreated;
