@@ -4,19 +4,21 @@
  */
 package com.creditcloud.contract;
 
-import com.creditcloud.model.client.Client;
+import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author suetming
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class ContractTemplate {
+public class ContractTemplate extends BaseObject {
     
     @NotNull
     private String id;
@@ -37,8 +39,12 @@ public class ContractTemplate {
     private Date timeCreated;
     
     /**
+     * 是否为默认模板
+     */
+    public boolean isDefault;
+    
+    /**
      * 模板内容
      */
     private byte[] content;
-   
 }

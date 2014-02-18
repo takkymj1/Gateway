@@ -123,6 +123,15 @@ public interface InvestService extends InvestRepayService {
     Map<String, Integer> getOpenLoanBalance(String clientCode);
 
     /**
+     * 根据Id获取开标状态的Loan
+     *
+     * @param clientCode
+     * @param loanId
+     * @return
+     */
+    Loan getOpenLoanById(String clientCode, String loanId);
+
+    /**
      * 取消用户的投标
      *
      * @param clientCode
