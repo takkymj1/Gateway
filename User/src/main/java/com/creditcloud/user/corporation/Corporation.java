@@ -1,11 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.creditcloud.corporation.model;
+package com.creditcloud.user.corporation;
 
-import com.creditcloud.corporation.enums.CorporationType;
+
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constant.CorporationConstant;
 import java.util.Date;
 import javax.validation.constraints.Size;
 import lombok.Data;
