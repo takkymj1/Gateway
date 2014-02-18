@@ -31,7 +31,9 @@ public interface ContractTemplateService {
      *
      * name重复则创建失败。
      * 
-     * 如果isDefault为true，则将该client内的其他模板设置为default false，保证每个client只有一个default为true的
+     * 如果isDefault为true，则将该client内的其他模板设置为isDefault=false，保证每个client只有一个default为true的
+     * 
+     * 如果create之后只有唯一一个，则默认设置为isDefault=true
      *
      * @param clientCode
      * @param name 模板名称
@@ -60,9 +62,12 @@ public interface ContractTemplateService {
      * 获取默认的模板.
      * 
      * 每个Client有一个默认的模板.
+     * 如果没有isDefault=true的模板，则将列表中的第一个设置为默认，并返回.
+     * 
+     * 没有任何模板返回null
      * 
      * @param clientCode
-     * @return 
+     * @return null表示一个模板都没有
      */
     public ContractTemplate getDefault(String clientCode);
 
