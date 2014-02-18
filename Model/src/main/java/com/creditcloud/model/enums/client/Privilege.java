@@ -101,6 +101,7 @@ public enum Privilege implements BaseEnum {
      * 合同相关权限
      */
     CONTRACT_VIEW("查看借款合同", Realm.CONTRACT, "合同相关权限"),
+    CONTRACTS_VIEW("合同管理", Realm.CONTRACT, "合同相关权限"),
     /**
      * 机构相关权限
      */
