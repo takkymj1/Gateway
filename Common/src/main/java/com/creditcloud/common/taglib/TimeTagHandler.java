@@ -26,6 +26,12 @@ public class TimeTagHandler extends SimpleTagSupport {
     
     @Override
     public void doTag() throws JspException {
+        
+        if (time < 0) {
+            logger.warn("Illegal time.[time={}]", time);
+            return;
+        }
+        
         //Get JSP Context
         JspContext jspContext = getJspContext();
         
