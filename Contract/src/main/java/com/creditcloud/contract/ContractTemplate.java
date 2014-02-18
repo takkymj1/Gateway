@@ -5,7 +5,6 @@
 package com.creditcloud.contract;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.client.Client;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -29,11 +28,6 @@ public class ContractTemplate extends BaseObject {
      */
     private String name;
 
-    /**
-     * 所属Client
-     */
-    private Client client;
-    
     /**
      * 创建日期时间
      */
