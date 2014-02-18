@@ -20,7 +20,7 @@ public class ContractTemplate {
     private String id;
     
     /**
-     * 合同名称
+     * 合同模板名称
      */
     private String name;
 
@@ -30,12 +30,12 @@ public class ContractTemplate {
     private Client client;
     
     /**
-     * 上传日期时间
+     * 创建日期时间
      */
     private Date timeCreated;
     
     /**
-     * 合同内容
+     * 模板内容
      */
     private byte[] content;
     
