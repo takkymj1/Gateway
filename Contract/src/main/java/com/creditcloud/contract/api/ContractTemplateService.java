@@ -38,8 +38,8 @@ public interface ContractTemplateService {
     /**
      * 根据模板Id更新名称
      * @param id
-     * @param name
+     * @param rename
      * @return 
      */
-    public ContractTemplate update(String id, String name, String clientCode);
+    public ContractTemplate update(String id, String rename, String clientCode);
 }
