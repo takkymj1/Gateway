@@ -22,7 +22,7 @@ public class ContractTemplate {
     /**
      * 合同模板名称
      */
-    private String name;
+    private String rename;
 
     /**
      * 所属Client
@@ -41,7 +41,7 @@ public class ContractTemplate {
     
     public ContractTemplate(String id, String name, byte [] content, Date timeCreated) {
         this.id = id;
-        this.name = name;
+        this.rename = name;
         this.content = content;
         this.timeCreated = timeCreated;
     }
