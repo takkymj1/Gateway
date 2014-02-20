@@ -5,15 +5,20 @@
 package com.creditcloud.fund.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Realm;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户资金
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class UserFund extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
@@ -39,14 +44,12 @@ public class UserFund extends BaseObject {
      * 待收总额
      */
     @NotNull
-    @Min(0)
     private BigDecimal dueInAmount;
 
     /**
      * 待还总额
      */
     @NotNull
-    @Min(0)
     private BigDecimal dueOutAmount;
 
     /**
@@ -70,6 +73,11 @@ public class UserFund extends BaseObject {
     @NotNull
     private BigDecimal transferAmount;
 
+    /**
+     * 账户类别:个人或者企业,如果为null，则默认为个人
+     */
+    private Realm category;
+
     public UserFund(String userId,
                     BigDecimal availableAmount,
                     BigDecimal frozenAmount,
@@ -88,73 +96,10 @@ public class UserFund extends BaseObject {
         this.transferAmount = transferAmount;
     }
 
-    public BigDecimal getAvailableAmount() {
-        return availableAmount;
-    }
-
-    public BigDecimal getFrozenAmount() {
-        return frozenAmount;
-    }
-
-    public BigDecimal getDueInAmount() {
-        return dueInAmount;
-    }
-
-    public BigDecimal getDueOutAmount() {
-        return dueOutAmount;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public BigDecimal getDepositAmount() {
-        return depositAmount;
-    }
 
     //TODO for backward compatibility in jsp
     @Deprecated
     public BigDecimal getRechargeAmount() {
         return depositAmount;
-    }
-
-    public BigDecimal getWithdrawAmount() {
-        return withdrawAmount;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setAvailableAmount(BigDecimal availableAmount) {
-        this.availableAmount = availableAmount;
-    }
-
-    public void setFrozenAmount(BigDecimal frozenAmount) {
-        this.frozenAmount = frozenAmount;
-    }
-
-    public void setDueInAmount(BigDecimal dueInAmount) {
-        this.dueInAmount = dueInAmount;
-    }
-
-    public void setDueOutAmount(BigDecimal dueOutAmount) {
-        this.dueOutAmount = dueOutAmount;
-    }
-
-    public void setDepositAmount(BigDecimal depositAmount) {
-        this.depositAmount = depositAmount;
-    }
-
-    public void setWithdrawAmount(BigDecimal withdrawAmount) {
-        this.withdrawAmount = withdrawAmount;
-    }
-
-    public BigDecimal getTransferAmount() {
-        return transferAmount;
-    }
-
-    public void setTransferAmount(BigDecimal transferAmount) {
-        this.transferAmount = transferAmount;
     }
 }

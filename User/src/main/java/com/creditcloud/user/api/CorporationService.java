@@ -7,6 +7,7 @@ package com.creditcloud.user.api;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.user.corporation.Corporation;
+import com.creditcloud.user.corporation.CorporationInfo;
 import com.creditcloud.user.corporation.CorporationType;
 import javax.ejb.Remote;
 
@@ -27,6 +28,15 @@ public interface CorporationService {
     Corporation save(String clientCode, Corporation corporation);
 
     /**
+     * 更新CorporationInfo
+     *
+     * @param clientCode
+     * @param info
+     * @return
+     */
+    CorporationInfo updateInfo(String clientCode, CorporationInfo info);
+
+    /**
      * 根据唯一Id获取
      *
      * @param clientCode
@@ -34,6 +44,15 @@ public interface CorporationService {
      * @return
      */
     Corporation getById(String clientCode, String corpId);
+
+    /**
+     * 获取CorporationInfo
+     *
+     * @param clientCode
+     * @param id
+     * @return
+     */
+    CorporationInfo getInfoById(String clientCode, String id);
 
     /**
      * 根据企业名称获取
