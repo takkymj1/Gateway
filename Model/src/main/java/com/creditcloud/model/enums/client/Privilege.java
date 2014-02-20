@@ -53,6 +53,7 @@ public enum Privilege implements BaseEnum {
     LOANREQUEST_DETAIL("查看借款申请详情，包括申请的各种认证信息", Realm.LOANREQUEST, "借款申请相关权限"),
     LOANREQUEST_ALTER("更改借款申请信息，包括上传申请认证信息", Realm.LOANREQUEST, "借款申请相关权限"),
     LOANREQUEST_QUICK("快速录入借款申请，包括用户及其银行卡", Realm.LOANREQUEST, "借款申请相关权限"),
+    LOANREQUEST_EDIT("借款申请调整", Realm.LOANREQUEST, "借款申请相关权限"),
     /**
      * 调控借款申请的流程<p>
      * 例如申请提交后先让初审和(风控)人员审核借款和客户信息<p>
