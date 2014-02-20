@@ -9,6 +9,8 @@ import com.creditcloud.config.enums.FeeScope;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,12 +37,15 @@ public class Fee extends BaseObject {
     /**
      * 固定费用
      */
+    @Min(0)
     @XmlElement(required = true)
     private BigDecimal fixed;
 
     /**
      * 浮动费率
      */
+    @Min(0)
+    @Max(1)
     @XmlElement(required = true)
     private BigDecimal rate;
 

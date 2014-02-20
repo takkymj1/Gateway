@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -84,6 +85,7 @@ public class FeeConfig extends BaseConfig {
     /**
      * 逾期一定天数的还款将被转化为违约
      */
+    @Min(1)
     @XmlElement(required = true)
     private int daysToBreach;
 
