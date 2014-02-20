@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.constant;
+package com.creditcloud.user.corporation;
 
 /**
  *
@@ -24,5 +24,8 @@ public interface CorporationConstant {
 
     //税务登记号
     int TAX_CODE_LEN = 30;
+
+    //企业介绍最大长度 
+    int MAX_CORP_DESC = 1024;
 
 }

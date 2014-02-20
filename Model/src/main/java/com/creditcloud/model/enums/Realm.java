@@ -23,6 +23,7 @@ public enum Realm implements BaseEnum {
      * 基本类型
      */
     USER("用戶"),
+    CORPORATION("企业"),
     EMPLOYEE("员工"),
     ROLE("角色"),
     CLIENT("客戶"),
@@ -56,7 +57,7 @@ public enum Realm implements BaseEnum {
     CONTRACTTEMPLATE("合同模板"),
     IMAGE("图片"),
     FILE("文件");
-    
+
     private final String key;
 
     private Realm(String key) {
