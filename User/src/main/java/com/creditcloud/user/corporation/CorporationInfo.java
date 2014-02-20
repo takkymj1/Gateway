@@ -29,11 +29,11 @@ public class CorporationInfo extends BaseObject {
     private String url;
 
     /**
-     * 联系地址
+     * 企业地址
      */
     @Size(max = 128)
-    private String location;
-
+    private String address;
+    
     /**
      * 联系人姓名
      */
@@ -68,4 +68,24 @@ public class CorporationInfo extends BaseObject {
      * 成立时间
      */
     private LocalDate timeEstablished;
+
+    public CorporationInfo(String id,
+                           String url,
+                           String address,
+                           String contactPersion,
+                           String contactPhone,
+                           String contactEmail,
+                           long registeredCapital,
+                           String description,
+                           LocalDate timeEstablished) {
+        this.id = id;
+        this.url = url;
+        this.address = address;
+        this.contactPersion = contactPersion;
+        this.contactPhone = contactPhone;
+        this.contactEmail = contactEmail;
+        this.registeredCapital = registeredCapital;
+        this.description = description;
+        this.timeEstablished = timeEstablished;
+    }
 }

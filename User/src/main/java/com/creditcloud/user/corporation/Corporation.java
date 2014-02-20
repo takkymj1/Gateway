@@ -1,7 +1,6 @@
 package com.creditcloud.user.corporation;
 
 import com.creditcloud.model.BaseObject;
-import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
@@ -45,10 +44,6 @@ public class Corporation extends BaseObject {
     private String taxCode;
 
     private CorporationType type;
-
-    private Date timeCreated;
-
-    private Date timeLastUpdated;
 
     public Corporation(String id,
                        String name,
