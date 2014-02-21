@@ -27,8 +27,13 @@ public class BidBorrowerDetail extends BaseObject {
     @Size(max = 14)
     private String BorrowerCreditAmt;
 
-    public BidBorrowerDetail(String BorrowerCustId, String BorrowerCreditAmt) {
+    @NotNull
+    @Size(max = 14)
+    private String PrintAmt;
+
+    public BidBorrowerDetail(String BorrowerCustId, String BorrowerCreditAmt, String PrintAmt) {
         this.BorrowerCustId = BorrowerCustId;
         this.BorrowerCreditAmt = BorrowerCreditAmt;
+        this.PrintAmt = PrintAmt;
     }
 }

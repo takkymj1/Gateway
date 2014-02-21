@@ -72,5 +72,9 @@ public enum CmdIdType {
     CreditAssign,
     CorpRegisterQuery,
     CreditAssignReconciliation,
-    QueryCardInfo;
+    QueryCardInfo,
+    /**
+     * 2014.2.20新加
+     */
+    DelCard;
 }
