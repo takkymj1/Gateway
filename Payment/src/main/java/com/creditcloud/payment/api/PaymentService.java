@@ -614,4 +614,16 @@ public interface PaymentService {
                                       String orderId,
                                       BigDecimal amount,
                                       String BgRetUrl);
+
+    /**
+     * 删除绑定的银行卡
+     *
+     * @param clientCode
+     * @param userId
+     * @param cardId
+     * @return
+     */
+    public PaymentResult deleteCard(String clientCode,
+                                    String userId,
+                                    String cardId);
 }
