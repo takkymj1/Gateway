@@ -8,11 +8,17 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.LoginResult;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 public class UserLoginResult extends BaseObject {
 
@@ -22,28 +28,12 @@ public class UserLoginResult extends BaseObject {
     private LoginResult result;
 
     private User user;
-
-    public UserLoginResult() {
-    }
-
-    public UserLoginResult(LoginResult result, User user) {
-        this.result = result;
-        this.user = user;
-    }
-
-    public LoginResult getResult() {
-        return result;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setResult(LoginResult result) {
-        this.result = result;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+    
+    /**
+     * 连续登录失败的次数.
+     * 
+     * 包括此次失败
+     */
+    private int failedAttempts;
+    
 }
