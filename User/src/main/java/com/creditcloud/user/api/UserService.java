@@ -4,11 +4,11 @@
  */
 package com.creditcloud.user.api;
 
-import com.creditcloud.model.user.User;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.User;
 import com.creditcloud.user.social.SocialId;
 import java.util.List;
 import java.util.Map;
@@ -185,6 +185,26 @@ public interface UserService extends UserSecurityService {
      * the local client
      */
     void deleteByUserId(String clientCode, String userId);
+    
+    /**
+     * 禁用用户.
+     * 
+     * 用户将不能登录并得到提示
+     * 
+     * @param clientCode
+     * @param userId 
+     */
+    void disableUser(String clientCode, String userId);
+    
+    /**
+     * 启用用户.
+     * 
+     * 与禁用用户相反
+     * 
+     * @param clientCode
+     * @param userId 
+     */
+    void enableUser(String clientCode, String userId);
 
     //check methods used on registration
     /**
