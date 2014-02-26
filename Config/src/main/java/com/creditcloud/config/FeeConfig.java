@@ -9,12 +9,16 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 商户从贷款和投标中的收费配置，应该独立于第三方支付
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement(name = "FeeConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FeeConfig extends BaseConfig {
@@ -88,51 +92,4 @@ public class FeeConfig extends BaseConfig {
     @Min(1)
     @XmlElement(required = true)
     private int daysToBreach;
-
-    public FeeConfig() {
-    }
-
-    public Fee getLoanGuaranteeFee() {
-        return loanGuaranteeFee;
-    }
-
-    public Fee getLoanServiceFee() {
-        return loanServiceFee;
-    }
-
-    public Fee getLoanVisitFee() {
-        return loanVisitFee;
-    }
-
-    public Fee getLoanInterestFee() {
-        return loanInterestFee;
-    }
-
-    public Fee getInvestInterestFee() {
-        return investInterestFee;
-    }
-
-    public Fee getWithdrawFee() {
-        return withdrawFee;
-    }
-
-    public Fee getDepositFee() {
-        return depositFee;
-    }
-
-    public Fee getLoanPenaltyFee() {
-        return loanPenaltyFee;
-    }
-
-    public Fee getLoanOverdueFee() {
-        return loanOverdueFee;
-    }
-
-    public int getDaysToBreach() {
-        return daysToBreach;
-    }
-
-    public Fee getLoanManageFee() {
-        return loanManageFee;
-    }
 }
