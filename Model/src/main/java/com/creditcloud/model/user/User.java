@@ -13,6 +13,7 @@ import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.validation.group.BackSourceCheck;
 import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
@@ -21,11 +22,15 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author sobranie
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class User extends BaseObject {
 
@@ -86,14 +91,16 @@ public class User extends BaseObject {
 
     @Past
     protected Date registerDate;
-    
+
     /**
      * 用户默认是启用状态
      */
     private boolean enabled = true;
 
-    public User() {
-    }
+    /**
+     * 推荐人，可以为空，也可以为用户、员工等
+     */
+    private RealmEntity referralEntity;
 
     public User(String Id,
                 String clientCode,
@@ -105,7 +112,7 @@ public class User extends BaseObject {
                 Source source,
                 String employeeId,
                 String lastModifiedBy) {
-        this(Id, clientCode, name, loginName, idNumber, mobile, email, source, employeeId, lastModifiedBy, null, null);
+        this(Id, clientCode, name, loginName, idNumber, mobile, email, source, employeeId, lastModifiedBy, null, null, null);
     }
 
     public User(String id,
@@ -119,7 +126,8 @@ public class User extends BaseObject {
                 String employeeId,
                 String lastModifiedBy,
                 Date lastLoginDate,
-                Date registerDate) {
+                Date registerDate,
+                RealmEntity referralEntity) {
         this.id = id;
         this.clientCode = clientCode;
         this.name = name;
@@ -131,109 +139,6 @@ public class User extends BaseObject {
         this.employeeId = employeeId;
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLoginName() {
-        return loginName;
-    }
-
-    public void setLoginName(String loginName) {
-        this.loginName = loginName;
-    }
-
-    public String getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getLastLoginDate() {
-        return lastLoginDate;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setLastLoginDate(Date lastLoginDate) {
-        this.lastLoginDate = lastLoginDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
-    }
-
-    public String getClientCode() {
-        return clientCode;
-    }
-
-    public void setClientCode(String clientCode) {
-        this.clientCode = clientCode;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+        this.referralEntity = referralEntity;
     }
 }
