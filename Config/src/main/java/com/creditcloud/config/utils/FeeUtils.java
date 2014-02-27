@@ -15,10 +15,12 @@ import static com.creditcloud.config.enums.FeeScope.INTEREST;
 import static com.creditcloud.config.enums.FeeScope.PRINCIPAL;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.constant.NumberConstant;
+import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
+import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.joda.time.LocalDate;
 
@@ -137,7 +139,7 @@ public class FeeUtils {
     }
 
     /**
-     * 合并默认的Feeconfig和LoanFee获得该贷款的实际费率
+     * 合并默认的Fee和rate/scope
      *
      * @param defaultFee
      * @param rate
@@ -168,5 +170,44 @@ public class FeeUtils {
             }
         }
         return defaultFee;
+    }
+
+    /**
+     * 合并默认的FeeConfig和LoanFee
+     *
+     * @param config
+     * @param loanFee
+     * @return
+     */
+    public static FeeConfig mergeLoanFee(FeeConfig config, LoanFee loanFee) {
+        FeeConfig mergedConfig = SerializationUtils.clone(config);
+        if (loanFee != null) {
+            if (loanFee.getInvestInterestFee() != null) {
+                mergedConfig.setInvestInterestFee(mergeFee(mergedConfig.getInvestInterestFee(),
+                                                           loanFee.getInvestInterestFee(),
+                                                           FeeScope.PRINCIPAL));
+            }
+            if (loanFee.getLoanGuaranteeFee() != null) {
+                mergedConfig.setLoanGuaranteeFee(mergeFee(mergedConfig.getLoanGuaranteeFee(),
+                                                          loanFee.getLoanGuaranteeFee(),
+                                                          FeeScope.PRINCIPAL));
+            }
+            if (loanFee.getLoanInterestFee() != null) {
+                mergedConfig.setLoanInterestFee(mergeFee(mergedConfig.getLoanInterestFee(),
+                                                         loanFee.getLoanInterestFee(),
+                                                         FeeScope.PRINCIPAL));
+            }
+            if (loanFee.getLoanManageFee() != null) {
+                mergedConfig.setLoanManageFee(mergeFee(mergedConfig.getLoanManageFee(),
+                                                       loanFee.getLoanManageFee(),
+                                                       FeeScope.PRINCIPAL));
+            }
+            if (loanFee.getLoanServiceFee() != null) {
+                mergedConfig.setLoanServiceFee(mergeFee(mergedConfig.getLoanServiceFee(),
+                                                        loanFee.getLoanServiceFee(),
+                                                        FeeScope.PRINCIPAL));
+            }
+        }
+        return mergedConfig;
     }
 }

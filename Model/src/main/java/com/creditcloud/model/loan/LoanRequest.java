@@ -153,6 +153,12 @@ public class LoanRequest extends BaseObject {
     private String guaranteeInfo;
 
     /**
+     * 风险信息及措施
+     */
+    @Size(max = LoanConstant.MAX_RISK_INFO)
+    private String riskInfo;
+
+    /**
      * 商户提供的唯一编号,可以为null
      */
     @Size(max = LoanConstant.MAX_LOAN_REQUEST_SERIAL)
@@ -196,6 +202,7 @@ public class LoanRequest extends BaseObject {
                        String mortgageInfo,
                        RealmEntity guaranteeEntity,
                        String guaranteeInfo,
+                       String riskInfo,
                        String serial,
                        InvestRule investRule) {
         this.id = id;
@@ -216,6 +223,7 @@ public class LoanRequest extends BaseObject {
         this.mortgageInfo = mortgageInfo;
         this.guaranteeEntity = guaranteeEntity;
         this.guaranteeInfo = guaranteeInfo;
+        this.riskInfo = riskInfo;
         this.serial = serial;
         this.investRule = investRule;
     }
