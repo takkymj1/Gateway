@@ -93,7 +93,7 @@ public interface ContractTemplateService {
      *
      * @param clientCode
      * @param id
-     * * @param name
+     * @param name
      */
     public void renameById(String clientCode,
                            String id,
