@@ -5,13 +5,13 @@
     <artifactId>Gateway</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    
+    <!--
     <parent>
         <groupId>com.creditcloud</groupId>
         <artifactId>Parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
+    -->
     <name>Gateway</name>
     <modules>
         <module>Common</module>
