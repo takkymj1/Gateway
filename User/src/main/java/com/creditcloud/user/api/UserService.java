@@ -8,6 +8,7 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
 import com.creditcloud.user.social.SocialId;
 import java.util.List;
@@ -87,12 +88,12 @@ public interface UserService extends UserSecurityService {
                  String password,
                  Map<String, String> loginInfo,
                  Source source);
-    
+
     /**
      * 通过社交联合登录增加一个用户，用socialId来识别.
-     * 
+     *
      * 需要在调用前先判断User信息是否已经存在，如存在应该调用connectSocial方法
-     * 
+     *
      * @param clientCode
      * @param user
      * @param socialId
@@ -106,9 +107,9 @@ public interface UserService extends UserSecurityService {
 
     /**
      * update user information for client.
-     * 
+     *
      * 身份证尾号会自动转大写;
-     * 
+     *
      * @param clientCode
      * @param user
      * @return user after update
@@ -153,7 +154,7 @@ public interface UserService extends UserSecurityService {
 
     /**
      * find user by idNumber.
-     * 
+     *
      * 用户身份证尾号x自动转化为X
      *
      * @param clientCode
@@ -185,24 +186,24 @@ public interface UserService extends UserSecurityService {
      * the local client
      */
     void deleteByUserId(String clientCode, String userId);
-    
+
     /**
      * 禁用用户.
-     * 
+     *
      * 用户将不能登录并得到提示
-     * 
+     *
      * @param clientCode
-     * @param userId 
+     * @param userId
      */
     void disableUser(String clientCode, String userId);
-    
+
     /**
      * 启用用户.
-     * 
+     *
      * 与禁用用户相反
-     * 
+     *
      * @param clientCode
-     * @param userId 
+     * @param userId
      */
     void enableUser(String clientCode, String userId);
 
@@ -220,7 +221,7 @@ public interface UserService extends UserSecurityService {
 
     /**
      * Check if the idNumber is available.
-     * 
+     *
      * 尾号x自动转为大写X
      *
      * @param clientCode
@@ -241,4 +242,14 @@ public interface UserService extends UserSecurityService {
      * the local client
      */
     boolean checkLoginName(String clientCode, String loginName);
+
+    /**
+     * 设置或更新推荐人
+     *
+     * @param clientCode
+     * @param userId
+     * @param referral
+     * @return
+     */
+    boolean setReferral(String clientCode, String userId, RealmEntity referral);
 }
