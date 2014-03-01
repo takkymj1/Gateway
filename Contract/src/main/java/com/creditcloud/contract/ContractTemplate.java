@@ -42,5 +42,4 @@ public class ContractTemplate extends BaseObject {
      * 模板内容
      */
     private byte[] content;
-    
 }
