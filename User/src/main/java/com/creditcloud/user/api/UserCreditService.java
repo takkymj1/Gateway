@@ -105,10 +105,11 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param userId
-     * @param type
+     * @param certificateTypes
+     * @param contentTypes
      * @return
      */
-    public List<Proof> listProofByUserAndType(String clientCode, String userId, CertificateType... type);
+    public List<Proof> listProofByUserAndType(String clientCode, String userId, List<CertificateType> certificateTypes, List<ProofContentType> contentTypes);
 
     /**
      * 列出用户关于某贷款请求的proof
@@ -116,9 +117,10 @@ public interface UserCreditService {
      * @param clientCode
      * @param userId
      * @param requestId
+     * @param contentType
      * @return
      */
-    public List<Proof> listProofByLoanRequest(String clientCode, String userId, String requestId);
+    public List<Proof> listProofByLoanRequestAndType(String clientCode, String userId, String requestId, ProofContentType ... contentType);
 
     /**
      * list all certificate for a user
@@ -143,8 +145,7 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param certificate
-     * @param auditor
-     * @param auditorInfo
+     * @return 
      */
     public boolean updateCertificate(String clientCode, Certificate certificate);
 
