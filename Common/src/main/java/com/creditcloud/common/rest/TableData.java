@@ -6,8 +6,8 @@ package com.creditcloud.common.rest;
 
 import com.creditcloud.common.security.PrivacyDimmer;
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.user.User;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.User;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -46,14 +46,17 @@ public class TableData<T> extends BaseObject {
     }
 
     public TableData(final PagedResult pr,
-                     final int sEcho) {
+                     final int sEcho,
+                     final boolean dim) {
         results = pr.getResults();
         totalResords = pr.getTotalSize();
         totalDisplayRecords = pr.getTotalSize();
         this.sEcho = sEcho;
         //dim
-        for (T t : results) {
-            PrivacyDimmer.dim(t);
+        if (dim) {
+            for (T t : results) {
+                PrivacyDimmer.dim(t);
+            }
         }
     }
 }
