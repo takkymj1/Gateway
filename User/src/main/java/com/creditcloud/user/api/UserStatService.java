@@ -97,4 +97,14 @@ public interface UserStatService {
      * @return 
      */
     List<ElementCount<LocalDate>> dailyRegister(String clientCode);
+    
+    /**
+     * 统计每日用户登陆人次.
+     * 
+     * 默认不排重
+     * 
+     * @param clientCode
+     * @return 
+     */
+    List<ElementCount<LocalDate>> dailyLogin(String clientCode);
 }
