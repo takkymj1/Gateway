@@ -59,4 +59,6 @@ public interface ContractService {
      * @return contract不存在返回null
      */
     byte[] getContractContent(String clientCode, String contractId);
+    
+    
 }

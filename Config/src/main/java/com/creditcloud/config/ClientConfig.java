@@ -36,6 +36,9 @@ public final class ClientConfig extends BaseConfig {
 
     @XmlElement(required = true)
     private String wsURL;
+    
+    @XmlElement(required = false)
+    private Features features;
 
     public String getCode() {
         return code;
@@ -43,7 +46,7 @@ public final class ClientConfig extends BaseConfig {
 
     public String getLanguage() {
         return language;
-    }
+    }   
 
     public String getCountry() {
         return country;
@@ -59,5 +62,14 @@ public final class ClientConfig extends BaseConfig {
 
     public String getWsURL() {
         return wsURL;
+    }
+    
+    /**
+     * 不会返回null
+     * 
+     * @return 
+     */
+    public Features getFeatures() {
+        return features == null ? new Features() : features;
     }
 }
