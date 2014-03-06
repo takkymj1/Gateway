@@ -43,7 +43,7 @@ public class FundData<T> extends BaseObject {
     }
 
     public FundData(final PagedResult pr,
-                                    final int sEcho) {
+                    final int sEcho) {
         results = pr.getResults();
         totalResords = pr.getTotalSize();
         totalDisplayRecords = pr.getTotalSize();
