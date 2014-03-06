@@ -5,6 +5,7 @@
 package com.creditcloud.common.rest;
 
 import com.creditcloud.common.security.PrivacyDimmer;
+import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.User;
@@ -24,7 +25,8 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NONE)
 @XmlSeeAlso(value = {
-    User.class
+    User.class,
+    FundWithdraw.class
 })
 public class TableData<T> extends BaseObject {
 
