@@ -42,7 +42,7 @@ public interface UserFundService {
      * @param clientCode
      * @param userId
      * @param amount     必须大于0
-     * @return  true if successful
+     * @return true if successful
      */
     public boolean freeze(String clientCode, String userId, BigDecimal amount);
 
@@ -183,4 +183,12 @@ public interface UserFundService {
      * @return
      */
     public boolean calibrate(String clientCode, String userId, BigDecimal diffAvailable, BigDecimal diffFreeze);
+
+    /**
+     * 获取用户可用资金总和
+     *
+     * @param clientCode
+     * @return
+     */
+    public BigDecimal getTotalAvailable(String clientCode);
 }
