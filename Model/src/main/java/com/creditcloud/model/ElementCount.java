@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
+import org.joda.time.LocalDate;
 
 /**
  * 按element区分来统计某项实体的个数，主要用于前端页面显示用<p>
@@ -37,7 +38,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     CertificateType.class,
     CreditRank.class,
     Boolean.class,
-    Date.class
+    Date.class,
+    LocalDate.class
 })
 public class ElementCount<T> extends BaseObject {
 

@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.user.credit.CreditRank;
 import com.creditcloud.model.enums.user.credit.ProofType;
 import java.util.List;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -78,4 +79,22 @@ public interface UserStatService {
      * @return
      */
     List<ElementCount<CreditRank>> countUserByCreditRank(String clientCode);
+
+    /**
+     * **************************
+     *
+     * 按日期统计信息
+     *
+     ***************************
+     */
+    
+    /**
+     * 统计每日注册用户.
+     * 
+     * 如果某日无用户注册则没有该项
+     * 
+     * @param clientCode
+     * @return 
+     */
+    List<ElementCount<LocalDate>> dailyRegister(String clientCode);
 }
