@@ -67,9 +67,50 @@ public interface TagService {
      * @return
      */
     Tag saveTag(String clientCode, Tag tag);
+    
+    /**
+     * 将两个RealmEntity用tag建立链接
+     * 
+     * @param clientCode
+     * @param source
+     * @param target
+     * @param reverse 是否同时建立反向的链接. 将在target对象上打上以source为内容的tag.
+     * @param replaceLink 如果当前source已经与同Realm的其他target链接，是否将原有链接替换掉
+     * @param replaceReverseLink 当reverse为true时，如果target当前与同Realm的其他source链接，是否将原有反向的链接替换掉
+     * @param alias 链接tag的Readable说明，reverse为true时，也使用同样的alias
+     * @param description 链接tag的详细描述，reverse为true时，也使用同样的description
+     */
+    void link(String clientCode,
+              RealmEntity source,
+              RealmEntity target,
+              boolean reverse,
+              boolean replaceLink,
+              boolean replaceReverseLink,
+              String alias,
+              String description);
+    
+    /**
+     * 解除两个RealmEntity之间的链接
+     * 
+     * @param clientCode
+     * @param source
+     * @param target
+     * @param unlinkReverse 如果有反向链接，是否一并解除
+     */
+    void unlink(String clientCode, RealmEntity source, RealmEntity target, boolean unlinkReverse);
+    
+    /**
+     * 根据source的tag查找对应的target RealmEntity，并以Tag的形式返回
+     * 
+     * @param clientCode
+     * @param source
+     * @param realm
+     * @return null表示没有realm类型的target与source相链接
+     */
+    Tag refer(String clientCode, RealmEntity source, Realm realm);
 
     /**
-     * 给entity标记tag
+     * 给entity标记tag，慎用！
      *
      * @param clientCode
      * @param entity
@@ -79,7 +120,7 @@ public interface TagService {
     void tag(String clientCode, RealmEntity entity, boolean overwrite, Pair<Realm, String>... tags);
 
     /**
-     * 给entity标记tag
+     * 给entity标记tag，慎用！
      *
      * @param clientCode
      * @param entity
@@ -89,7 +130,7 @@ public interface TagService {
     void tag(String clientCode, RealmEntity entity, boolean overwrite, Tag... tags);
 
     /**
-     * 给entity标记tag
+     * 给entity标记tag，慎用！
      *
      * @param clientCode
      * @param entity
@@ -150,7 +191,7 @@ public interface TagService {
     /**
      * 查看一组RealmEntity是否有共同的tag
      *
-     * @param clienCode
+     * @param clientCode
      * @param entityList
      * @param tag
      * @return true if all RealmEntity exist and has common tag

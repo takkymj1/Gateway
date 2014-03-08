@@ -9,8 +9,10 @@ import com.creditcloud.model.enums.Realm;
 import com.creditcloud.tag.constants.TagConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 可以自定义的标签
@@ -18,7 +20,9 @@ import lombok.EqualsAndHashCode;
  * @author rooseek
  */
 @Data
-@EqualsAndHashCode(exclude = {"description", "alias"})
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = {"description", "alias"}, callSuper = false)
 public class Tag extends BaseObject {
 
     private static final long serialVersionUID = 20131230L;
@@ -37,23 +41,16 @@ public class Tag extends BaseObject {
     private String name;
 
     /**
-     * tag的别名，可以不唯一
+     * tag的别名，可以不唯一，Human Readable的Tag解释
      */
     @Size(max = TagConstant.MAX_TAG_NAME)
     private String alias;
 
+    /**
+     * 附加的Tag额外说明
+     */
     @Size(max = TagConstant.MAX_TAG_DESCRIPTION)
     private String description;
-
-    public Tag() {
-    }
-
-    public Tag(Realm realm, String name, String alias, String description) {
-        this.realm = realm;
-        this.name = name;
-        this.alias = alias;
-        this.description = description;
-    }
 
     @Override
     public String toString() {
