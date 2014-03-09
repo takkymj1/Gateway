@@ -100,6 +100,15 @@ public interface TagService {
     void unlink(String clientCode, RealmEntity source, RealmEntity target, boolean unlinkReverse);
     
     /**
+     * 删除entity上所有Realm类的tag关联
+     * 
+     * @param clientCode
+     * @param entity
+     * @param realm 
+     */
+    void unlinkAny(String clientCode, RealmEntity entity, Realm realm);
+    
+    /**
      * 根据source的tag查找对应的target RealmEntity，并以Tag的形式返回
      * 
      * @param clientCode
