@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  */
 public class StringMaskHandler extends SimpleTagSupport {
 
-    static Logger logger = LoggerFactory.getLogger(BirthdayHandler.class);
+    static Logger logger = LoggerFactory.getLogger(StringMaskHandler.class);
 
     String beforeMask;
 
@@ -39,14 +39,13 @@ public class StringMaskHandler extends SimpleTagSupport {
             return;
         }
         JspWriter writer = getJspContext().getOut();
-        if (length <= 0) {
-            length = beforeMask.length()-2;
+        if (length <= 0) {  //没有设置length或默认length
+            length = beforeMask.length() == 2 ? 1 : beforeMask.length() - 2;
         }
-        if (length > beforeMask.length()-1) {
-            length = beforeMask.length()-1;
+        if (length > beforeMask.length() - 1) {
+            length = beforeMask.length() - 1;
         }
-        String afterMask = mask(beforeMask, start, length);
-        writer.write(afterMask);
+        writer.write(mask(beforeMask, start, length));
     }
 
     public void setBeforeMask(String beforeMask) {
@@ -60,12 +59,12 @@ public class StringMaskHandler extends SimpleTagSupport {
     public void setLength(int length) {
         this.length = length;
     }
-    
-    private static String mask(String content, int offset, int length) {
+
+    private static char[] mask(String content, int offset, int length) {
         char[] chars = content.toCharArray();
         for (int i = offset; i < offset + length; i++) {
             chars[i] = '*';
         }
-        return new String(chars);
+        return chars;
     }
 }
