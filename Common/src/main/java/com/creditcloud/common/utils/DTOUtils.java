@@ -10,6 +10,7 @@ import com.creditcloud.common.entities.embedded.InvestRule;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.common.entities.embedded.Repayment;
+import com.creditcloud.common.entities.embedded.Reward;
 import com.creditcloud.common.entities.embedded.info.Contact;
 import com.creditcloud.common.entities.embedded.info.ContactInfo;
 import com.creditcloud.common.entities.embedded.info.EducationInfo;
@@ -355,7 +356,7 @@ public class DTOUtils {
     /**
      * handle InvestRule
      *
-     * @param quota
+     * @param investRule
      * @return
      */
     public static com.creditcloud.model.loan.InvestRule getInvestRule(InvestRule investRule) {
@@ -377,4 +378,27 @@ public class DTOUtils {
         }
         return result;
     }
+
+    /**
+     * handle Reward
+     *
+     * @param reward
+     * @return
+     */
+    public static com.creditcloud.model.misc.Reward getReward(Reward reward) {
+        com.creditcloud.model.misc.Reward result = null;
+        if (reward != null) {
+            result = new com.creditcloud.model.misc.Reward(reward.getType(), reward.getFixed(), reward.getRate());
+        }
+        return result;
+    }
+
+    public static Reward convertReward(com.creditcloud.model.misc.Reward reward) {
+        Reward result = null;
+        if (reward != null) {
+            result = new Reward(reward.getType(), reward.getFixed(), reward.getRate());
+        }
+        return result;
+    }
+
 }
