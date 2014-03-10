@@ -79,11 +79,17 @@ public class Client extends BaseObject {
     protected String code;
 
     /**
-     * url
+     * url，类似 www.apengdai.com
      */
     @FormParam("url")
     @ClientURL
     protected String url;
+    
+    /**
+     * 是否使用https安全连接访问
+     */
+    @FormParam("secure")
+    protected boolean secure;
 
     /**
      * locale setting for this client
