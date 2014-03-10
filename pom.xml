@@ -36,5 +36,6 @@
         <module>Payment</module>
         <module>Tag</module>
         <module>Appoint</module>
-    </modules>
+    <module>CMS</module>
+  </modules>
 </project>
