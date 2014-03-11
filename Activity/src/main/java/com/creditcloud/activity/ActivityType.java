@@ -46,6 +46,8 @@ public enum ActivityType implements BaseEnum {
     LOAN_CLEAR(LoanStatus.CLEARED.getKey(), Realm.LOAN),
     LOAN_OVERDUE(LoanStatus.OVERDUE.getKey(), Realm.LOAN),
     LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN),
+    LOAN_REWARD("奖励",Realm.LOAN),
+
     /**
      * 投标类活动
      */

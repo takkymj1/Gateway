@@ -14,6 +14,7 @@ import com.creditcloud.fund.model.record.FundTransfer;
 import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -365,4 +366,37 @@ public interface FundRecordService {
                       String userId,
                       boolean transferIn,
                       String orderId);
+
+    /**
+     *
+     * @param clientCode
+     * @param account    商户子账户，一般默认是base账户
+     * @param amount     奖励金额
+     * @param userId
+     * @param rewardType 奖励类型
+     * @param target     奖励相关entity,例如对于投标类奖励则记录InvestId
+     * @param orderId
+     */
+    void userReward(String clientCode,
+                    String account,
+                    BigDecimal amount,
+                    String userId,
+                    FundRecordType rewardType,
+                    RealmEntity target,
+                    String orderId);
+
+    /**
+     * 查看是否有关于target的奖励记录</p>
+     * TODO 前提是对于此target的某种奖励方式只有一次奖励
+     *
+     * @param clientCode
+     * @param target
+     * @param rewardType
+     * @param status
+     * @return
+     */
+    boolean checkReward(String clientCode,
+                        RealmEntity target,
+                        FundRecordType rewardType,
+                        FundRecordStatus status);
 }
