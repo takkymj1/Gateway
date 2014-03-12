@@ -15,11 +15,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  *
  * @author sobranie
  */
+@Data
 @XmlRootElement
 public class Loan extends BaseObject implements Investable {
 
@@ -103,6 +105,11 @@ public class Loan extends BaseObject implements Investable {
 
     @NotNull
     private LoanStatus status;
+    
+    /**
+     * 此标的投标金额是否已经奖励
+     */
+    private boolean rewarded;
 
     public Loan() {
     }
