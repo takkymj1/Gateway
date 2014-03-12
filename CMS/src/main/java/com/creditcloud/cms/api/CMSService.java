@@ -19,14 +19,14 @@ import javax.ejb.Remote;
 public interface CMSService {
 
     /**
-     * 创建新的文章
+     * 保存新的文章
      */
-    Article addArticle(Article artticle);
+    Article SaveArticle(Article artticle);
 
     /**
-     * 创建新的栏目
+     * 保存新的栏目
      */
-    Channel addChannel(Channel channel);
+    Channel SaveChannel(Channel channel);
 
     /**
      * 通过类别列出文章
@@ -52,16 +52,6 @@ public interface CMSService {
      * 列出所有的栏目
      */
     PagedResult<Channel> listChannel();
-
-    /**
-     * 更新文章
-     */
-    boolean updateArticle(Article article);
-
-    /**
-     * 更新栏目
-     */
-    boolean updateChannel(Channel channel);
 
     /**
      * 删除栏目
