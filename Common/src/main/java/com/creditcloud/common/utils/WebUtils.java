@@ -35,7 +35,8 @@ public class WebUtils {
      */
     public static boolean checkCaptcha(HttpServletRequest request, String captcha) {
         Captcha c = (Captcha) request.getSession().getAttribute(Captcha.NAME);
-        if (c != null && c.isCorrect(captcha)) {
+        //if (c != null && c.isCorrect(captcha)) {
+        if (c != null && c.getAnswer().toUpperCase().equals(captcha.toUpperCase())) {
             request.getSession().removeAttribute(Captcha.NAME);
             return true;
         }
