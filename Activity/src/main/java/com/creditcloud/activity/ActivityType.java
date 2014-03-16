@@ -18,6 +18,12 @@ import com.creditcloud.model.enums.loan.LoanStatus;
 public enum ActivityType implements BaseEnum {
 
     /**
+     * 用户类活动
+     */
+    USER_ENABLE("开启用户", Realm.USER),
+    USER_DISABLE("关闭用户", Realm.USER),
+    
+    /**
      * 贷款申请类活动
      */
     REQUEST_SUMBIT("提交贷款申请", Realm.LOANREQUEST),
