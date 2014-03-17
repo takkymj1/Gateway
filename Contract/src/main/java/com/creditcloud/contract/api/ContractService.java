@@ -27,6 +27,8 @@ public interface ContractService {
      * 
      * 只是触发远程的生成过程，为异步调用
      * 
+     * 重复调用将生成新的合同，原有合同不删除
+     * 
      * 借款合同命名为 loan title + investor + obligator + date，合同名称不是唯一的！
      *
      * @param client 平台
@@ -43,6 +45,8 @@ public interface ContractService {
     
     /**
      * 读取借款协议.
+     * 
+     * 如果为同一借款生成了多份协议，则只返回最后生成的版本
      * 
      * @param clientCode
      * @param investId
