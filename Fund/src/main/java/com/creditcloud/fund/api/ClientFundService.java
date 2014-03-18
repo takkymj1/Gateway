@@ -25,7 +25,7 @@ public interface ClientFundService {
      * 列出商户资金记录
      *
      * @param clientCode
-     * @param account
+     * @param accountList
      * @param from
      * @param to
      * @param pageInfo
@@ -52,8 +52,9 @@ public interface ClientFundService {
      *
      * @param clientCode
      * @param record
+     * @return 
      */
-    void addRecord(String clientCode, ClientFundRecord record);
+    ClientFundRecord addRecord(String clientCode, ClientFundRecord record);
 
     /**
      * 更新
