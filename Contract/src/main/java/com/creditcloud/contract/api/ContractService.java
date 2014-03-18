@@ -36,12 +36,14 @@ public interface ContractService {
      * @param loan 借款对象
      * @param repayments 还款列表
      * @param feeConfig 费用配置
+     * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
      */
     void generateLoanContract(Client client,
                               Invest invest,
                               Loan loan,
                               List<Repayment> repayments,
-                              FeeConfig feeConfig);
+                              FeeConfig feeConfig,
+                              String templateId);
     
     /**
      * 读取借款协议.
