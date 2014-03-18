@@ -5,6 +5,7 @@
 package com.creditcloud.fund.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Collection;
 import java.util.Date;
@@ -12,16 +13,25 @@ import javax.persistence.Column;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 自动投标
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class UserAutoBid extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
+
+    /**
+     * 账户类别:个人或者企业,如果为null，则默认为个人
+     */
+    private Realm category;
 
     @NotNull
     private String userId;
@@ -76,9 +86,6 @@ public class UserAutoBid extends BaseObject {
     @Column(nullable = false)
     private boolean enable;
 
-    public UserAutoBid() {
-    }
-
     public UserAutoBid(String userId,
                        boolean active,
                        int singleAmount,
@@ -98,84 +105,9 @@ public class UserAutoBid extends BaseObject {
         this.range = range;
         this.lastBidTime = lastBidTime;
     }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public int getSingleAmount() {
-        return singleAmount;
-    }
-
-    public int getReservedAmount() {
-        return reservedAmount;
-    }
-
-    public Collection<RepaymentMethod> getRepayMethod() {
-        return repayMethod;
-    }
-
-    public Date getActivedTime() {
-        return activedTime;
-    }
-
-    public boolean isMortgaged() {
-        return mortgaged;
-    }
-
-    public Date getLastBidTime() {
-        return lastBidTime;
-    }
-
-    public AutoBidRange getRange() {
-        return range;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public void setSingleAmount(int singleAmount) {
-        this.singleAmount = singleAmount;
-    }
-
-    public void setReservedAmount(int reservedAmount) {
-        this.reservedAmount = reservedAmount;
-    }
-
-    public void setRepayMethod(Collection<RepaymentMethod> repayMethod) {
-        this.repayMethod = repayMethod;
-    }
-
-    public void setRange(AutoBidRange range) {
-        this.range = range;
-    }
-
-    public void setMortgaged(boolean mortgaged) {
-        this.mortgaged = mortgaged;
-    }
-
-    public void setActivedTime(Date activedTime) {
-        this.activedTime = activedTime;
-    }
-
-    public void setLastBidTime(Date lastBidTime) {
-        this.lastBidTime = lastBidTime;
-    }
-
-    public void setEnable(boolean enable) {
-        this.enable = enable;
-    }
-
-    public boolean isEnable() {
-        return enable;
+    
+    public Realm getCategory() {
+        //老数据没有category，默认是USER
+        return category == null ? Realm.USER : category;
     }
 }

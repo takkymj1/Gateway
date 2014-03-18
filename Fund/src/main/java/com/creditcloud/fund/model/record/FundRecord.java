@@ -9,18 +9,23 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 资金历史记录
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class FundRecord extends BaseObject {
 
@@ -28,6 +33,11 @@ public class FundRecord extends BaseObject {
 
     @NotNull
     private String id;
+
+    /**
+     * 资金账号类型USER或CORPORATION,为null也表示USER
+     */
+    private Realm category;
 
     @NotNull
     private String userId;
@@ -80,8 +90,6 @@ public class FundRecord extends BaseObject {
 
     protected Date timeRecorded;
 
-    public FundRecord() {
-    }
 
     public FundRecord(String id,
                       String userId,
@@ -107,101 +115,6 @@ public class FundRecord extends BaseObject {
         this.description = description;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public RealmEntity getEntity() {
-        return entity;
-    }
-
-    public FundRecordType getType() {
-        return type;
-    }
-
-    public FundRecordStatus getStatus() {
-        return status;
-    }
-
-    public FundRecordOperation getOperation() {
-        return operation;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setEntity(RealmEntity entity) {
-        this.entity = entity;
-    }
-
-    public void setType(FundRecordType type) {
-        this.type = type;
-    }
-
-    public void setStatus(FundRecordStatus status) {
-        this.status = status;
-    }
-
-    public void setOperation(FundRecordOperation operation) {
-        this.operation = operation;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getTimeRecorded() {
-        return timeRecorded;
-    }
-
-    public void setTimeRecorded(Date timeRecorded) {
-        this.timeRecorded = timeRecorded;
-    }
-
-    public BankAccount getAccount() {
-        return account;
-    }
-
-    public void setAccount(BankAccount account) {
-        this.account = account;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     //TODO for backward compatibility with jsp
     @Deprecated
@@ -222,11 +135,15 @@ public class FundRecord extends BaseObject {
     }
 
     /*
-     * TODO for backward compatibility with jsp<p>
-     * @see http://creditcloud.com:8082/browse/UND-18
+     * TODO for backward compatibility with jsp<p> @see
+     * http://creditcloud.com:8082/browse/UND-18
      */
     @Deprecated
     public String getMethod() {
         return "汇付天下";
+    }
+
+    public Realm getCategory() {
+        return category == null ? Realm.USER : category;
     }
 }

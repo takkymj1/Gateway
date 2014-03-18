@@ -23,6 +23,11 @@ public class UserFund extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
+    /**
+     * 账户类别:个人或者企业,如果为null，则默认为个人
+     */
+    private Realm category;
+
     @NotNull
     private String userId;
 
@@ -73,12 +78,8 @@ public class UserFund extends BaseObject {
     @NotNull
     private BigDecimal transferAmount;
 
-    /**
-     * 账户类别:个人或者企业,如果为null，则默认为个人
-     */
-    private Realm category;
-
-    public UserFund(String userId,
+    public UserFund(Realm category,
+                    String userId,
                     BigDecimal availableAmount,
                     BigDecimal frozenAmount,
                     BigDecimal dueInAmount,
@@ -86,6 +87,7 @@ public class UserFund extends BaseObject {
                     BigDecimal depositAmount,
                     BigDecimal withdrawAmount,
                     BigDecimal transferAmount) {
+        this.category = category;
         this.userId = userId;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
@@ -96,10 +98,14 @@ public class UserFund extends BaseObject {
         this.transferAmount = transferAmount;
     }
 
-
     //TODO for backward compatibility in jsp
     @Deprecated
     public BigDecimal getRechargeAmount() {
         return depositAmount;
+    }
+
+    public Realm getCategory() {
+        //老数据没有category，默认是USER
+        return category == null ? Realm.USER : category;
     }
 }
