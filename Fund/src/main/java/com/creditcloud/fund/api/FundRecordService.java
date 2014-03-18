@@ -52,7 +52,7 @@ public interface FundRecordService {
      *
      * @param clientCode
      * @param record
-     * @return
+     * @return null if fail to add
      */
     FundRecord addNew(String clientCode, FundRecord record);
 
