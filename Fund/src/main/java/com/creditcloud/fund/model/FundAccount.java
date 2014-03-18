@@ -6,21 +6,31 @@ package com.creditcloud.fund.model;
 
 import com.creditcloud.model.user.fund.BankAccount;
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Realm;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 资金账号
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class FundAccount extends BaseObject {
 
     private static final long serialVersionUID = 20131117L;
 
     private String id;
+
+    /**
+     * 资金账号类型USER或CORPORATION,为null也表示USER
+     */
+    private Realm category;
 
     @NotNull
     private String userId;
@@ -40,9 +50,6 @@ public class FundAccount extends BaseObject {
 
     private Date timeRecorded;
 
-    public FundAccount() {
-    }
-
     public FundAccount(String id,
                        String userId,
                        BankAccount account,
@@ -57,51 +64,8 @@ public class FundAccount extends BaseObject {
         this.timeRecorded = timeRecorded;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public BankAccount getAccount() {
-        return account;
-    }
-
-    public void setAccount(BankAccount account) {
-        this.account = account;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    public boolean isDefaultAccount() {
-        return defaultAccount;
-    }
-
-    public void setDefaultAccount(boolean defaultAccount) {
-        this.defaultAccount = defaultAccount;
-    }
-
-    public Date getTimeRecorded() {
-        return timeRecorded;
-    }
-
-    public void setTimeRecorded(Date timeRecorded) {
-        this.timeRecorded = timeRecorded;
+    public Realm getCategory() {
+        //老数据没有category，默认是USER
+        return category == null ? Realm.USER : category;
     }
 }
