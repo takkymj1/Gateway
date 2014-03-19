@@ -1,4 +1,4 @@
-package com.creditcloud.user.corporation;
+package com.creditcloud.model.user.corporation;
 
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;

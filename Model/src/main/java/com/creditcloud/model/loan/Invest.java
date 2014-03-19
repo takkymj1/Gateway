@@ -9,9 +9,11 @@ import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constant.WealthProductConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.user.corporation.Corporation;
 import com.creditcloud.model.validation.group.WealthProductCheck;
 import java.util.Date;
 import javax.validation.constraints.Max;
@@ -19,26 +21,42 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.groups.Default;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class Invest extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
-    private final String id;
+    private String id;
+
+    /**
+     * 投资人类别:个人或者企业,如果为null，则默认为个人
+     */
+    private Realm category;
+
+    /**
+     * 个人用户
+     */
+    private User user;
+
+    /**
+     * 企业用户
+     */
+    private Corporation corporation;
 
     @NotNull
-    private final User user;
+    private String loanId;
 
     @NotNull
-    private final String loanId;
-
-    @NotNull
-    private final BidMethod bidMethod;
+    private BidMethod bidMethod;
 
     @NotNull
     @IncrementalInteger.List({
@@ -53,25 +71,25 @@ public class Invest extends BaseObject {
                             max = WealthProductConstant.MAX_INVEST_AMOUNT,
                             groups = WealthProductCheck.class)
     })
-    private final int amount;
+    private int amount;
 
     @NotNull
     @Min(LoanConstant.MIN_LOAN_RATE)
     @Max(LoanConstant.MAX_LOAN_RATE)
-    private final int rate;
+    private int rate;
 
     @NotNull
-    private final Duration duration;
+    private Duration duration;
 
     @NotNull
-    private final RepaymentMethod repayMethod;
+    private RepaymentMethod repayMethod;
 
     @NotNull
-    private final InvestStatus status;
+    private InvestStatus status;
 
     @NotNull
     @Past
-    private final Date submitTime;
+    private Date submitTime;
 
     public Invest(String id,
                   User user,
@@ -95,43 +113,8 @@ public class Invest extends BaseObject {
         this.submitTime = submitTime;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public InvestStatus getStatus() {
-        return status;
-    }
-
-    public String getLoanId() {
-        return loanId;
-    }
-
-    public int getRate() {
-        return rate;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public Date getSubmitTime() {
-        return submitTime;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public BidMethod getBidMethod() {
-        return bidMethod;
-    }
-
-    public RepaymentMethod getRepayMethod() {
-        return repayMethod;
+    public Realm getCategory() {
+        //老数据没有category，默认是USER
+        return category == null ? Realm.USER : category;
     }
 }

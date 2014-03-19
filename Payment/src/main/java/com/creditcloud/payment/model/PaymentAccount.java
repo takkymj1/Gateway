@@ -6,16 +6,26 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.Realm;
 import java.util.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户在第三方支付上的账号
  *
  * @author sobranie
  */
+@Data
+@NoArgsConstructor
 public class PaymentAccount extends BaseObject {
 
     private static final long serialVersionUID = 20131111L;
+
+    /**
+     * 账户类别:个人或者企业,如果为null，则默认为个人
+     */
+    private Realm category;
 
     /**
      * 用户的唯一ID，与UserService中的一致
@@ -34,48 +44,20 @@ public class PaymentAccount extends BaseObject {
 
     private Date timeCreate;
 
-    public PaymentAccount() {
-    }
-
-    public PaymentAccount(String userId,
+    public PaymentAccount(Realm category,
+                          String userId,
                           String accountId,
                           String accountName,
                           Date timeCreate) {
+        this.category = category;
         this.userId = userId;
         this.accountId = accountId;
         this.accountName = accountName;
         this.timeCreate = timeCreate;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-
-    public Date getTimeCreate() {
-        return timeCreate;
-    }
-
-    public void setTimeCreate(Date timeCreate) {
-        this.timeCreate = timeCreate;
+    public Realm getCategory() {
+        //老数据没有category，默认是USER
+        return category == null ? Realm.USER : category;
     }
 }
