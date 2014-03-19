@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.LoanRequestType;
 import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.RealmEntity;
@@ -55,11 +56,11 @@ public class LoanRequest extends BaseObject {
      */
     @XmlElement(name = "user")
     private User user;
-    
+
     /**
      * 企业用户
      */
-    @XmlElement(name="corporation")
+    @XmlElement(name = "corporation")
     private Corporation corporation;
 
     /**
@@ -68,8 +69,7 @@ public class LoanRequest extends BaseObject {
     @NotNull
     @Size(min = 4, max = 60)
     @XmlElement(name = "title")
-    
-    
+
     private String title;
 
     /**
@@ -185,6 +185,11 @@ public class LoanRequest extends BaseObject {
     private InvestRule investRule;
 
     /**
+     * 贷款类型,可以为null,表示一般标
+     */
+    private LoanRequestType type;
+
+    /**
      *
      * @param id          LoanRequest Id, nullable
      * @param user        用户
@@ -245,5 +250,9 @@ public class LoanRequest extends BaseObject {
     public Realm getCategory() {
         //老数据没有category，默认是USER
         return category == null ? Realm.USER : category;
+    }
+
+    public LoanRequestType getType() {
+        return type == null ? LoanRequestType.GENERAL : type;
     }
 }
