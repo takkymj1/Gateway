@@ -6,9 +6,9 @@ package com.creditcloud.user.api;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.user.corporation.Corporation;
-import com.creditcloud.user.corporation.CorporationInfo;
-import com.creditcloud.user.corporation.CorporationType;
+import com.creditcloud.model.user.corporation.Corporation;
+import com.creditcloud.model.user.corporation.CorporationInfo;
+import com.creditcloud.model.user.corporation.CorporationType;
 import javax.ejb.Remote;
 
 /**
