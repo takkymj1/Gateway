@@ -4,18 +4,35 @@
  */
 package com.creditcloud.payment.model.chinapnr.enums;
 
+import com.creditcloud.model.enums.BaseEnum;
+
 /**
  * 审核状态
  *
  * @author rooseek
  */
-public enum AuditStat {
+public enum AuditStat implements BaseEnum {
 
-    I, //初始
-    T, //提交
-    P, //审核中
-    R, //审核拒绝
-    F, //开户失败
-    K; //开户中
+    /**
+     * 不是汇付定义的,用于表示查询对象不存在
+     */
+    NOTEXIST("不存在"),
+    I("初始"),
+    T("提交"),
+    P("审核中"),
+    R("审核拒绝"),
+    F("开户失败"),
+    K("开户中"),
+    Y("开户成功");
 
+    private final String key;
+
+    private AuditStat(String key) {
+        this.key = key;
+    }
+
+    @Override
+    public String getKey() {
+        return key;
+    }
 }
