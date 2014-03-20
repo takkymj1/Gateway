@@ -42,6 +42,7 @@ public interface InvestService extends InvestRepayService {
      * @param clientCode
      * @param loanId
      * @param info
+     * @param status
      * @return empty list if nothing found or status is null or empty
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
@@ -63,7 +64,7 @@ public interface InvestService extends InvestRepayService {
      * settle a loan , generate related invest repayment
      *
      * @param clientCode
-     * @param loanId
+     * @param loan
      * @return 根据贷款所有投资金额生成的还款计划，用于更新贷款的LoanRepayment中的Repayment
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
@@ -75,14 +76,25 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param loan
+     * @return
      */
     boolean cancelFailedLoan(String clientCode, Loan loan);
+
+    /**
+     * cancel scheduled loan, remove scheduled loan from market cache
+     *
+     * @param clientCode
+     * @param loanId
+     * @return
+     */
+    boolean cancelScheduledLoan(String clientCode, String loanId);
 
     /**
      * repayment of a loan, set repayment status and generate fund record
      *
      * @param clientCode
      * @param loanRepay
+     * @return
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
