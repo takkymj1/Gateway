@@ -55,11 +55,11 @@ public class LoanRequest extends BaseObject {
      */
     @XmlElement(name = "user")
     private User user;
-    
+
     /**
      * 企业用户
      */
-    @XmlElement(name="corporation")
+    @XmlElement(name = "corporation")
     private Corporation corporation;
 
     /**
@@ -68,8 +68,7 @@ public class LoanRequest extends BaseObject {
     @NotNull
     @Size(min = 4, max = 60)
     @XmlElement(name = "title")
-    
-    
+
     private String title;
 
     /**
