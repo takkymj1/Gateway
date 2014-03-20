@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.enums.misc.City;
 import com.creditcloud.model.enums.misc.Province;
 import com.creditcloud.payment.model.CashAuditResult;
+import com.creditcloud.payment.model.CorpRegisterResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.FreezeResult;
@@ -114,7 +115,6 @@ public interface PaymentService {
      * @param amount
      * @param orderId
      * @param BorrowerDetails
-     * @param isFreeze
      * @param FreezeOrdId
      * @param BgRetUrl
      * @param merPriv
@@ -264,7 +264,11 @@ public interface PaymentService {
      * @param subOrdDate
      * @param loanUserId
      * @param details
+     * @param feeObjFlag
      * @param isDefault
+     * @param isUnFreeze
+     * @param UnFreezeOrdId
+     * @param FreezeTrxId
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -293,7 +297,7 @@ public interface PaymentService {
      * @param ordId        本操作订单号
      * @param loanUserId   借款人id
      * @param subOrdId     投标订单号
-     * @param subOrDate    投标订单日期
+     * @param subOrdDate   投标订单日期
      * @param transAmt     还款金额
      * @param fee          手续费
      * @param investUserId 投资人id
@@ -320,7 +324,7 @@ public interface PaymentService {
      * @param ordId
      * @param loanUserId
      * @param subOrdId
-     * @param subOrDate
+     * @param subOrdDate
      * @param transAmt
      * @param fee
      * @param investUserId
@@ -351,7 +355,9 @@ public interface PaymentService {
      * @param subOrdId     投标订单号
      * @param subOrDate    投标订单日期
      * @param transAmt     还款金额
+     * @param fee
      * @param investUserId 投资人id
+     * @param details
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -503,10 +509,12 @@ public interface PaymentService {
      * 用户账户支付，用于测试
      *
      * @param clientCode
+     * @param userId
      * @param orderId
      * @param amount
      * @param inAcctType
      * @param inAcctId
+     * @param BgRetUrl
      */
     public void userAcctPay(String clientCode,
                             String userId,
@@ -527,6 +535,7 @@ public interface PaymentService {
      * @param openAreaId
      * @param OpenBranchName
      * @param isDefault      是否默认银行卡
+     * @return
      */
     public PaymentResult bgBindCard(String clientCode,
                                     String userId,
@@ -626,4 +635,14 @@ public interface PaymentService {
     public PaymentResult deleteCard(String clientCode,
                                     String userId,
                                     String cardId);
+
+    /**
+     * 查询企业注册结果
+     *
+     * @param clientCode
+     * @param busiCode
+     * @return
+     */
+    public CorpRegisterResult queryCorpRegister(String clientCode,
+                                                String busiCode);
 }
