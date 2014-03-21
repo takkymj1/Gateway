@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -28,7 +29,7 @@ public class FeeConfig extends BaseConfig {
     public static final String CONFIG_NAME = "FeeConfig";
 
     /**
-     * 贷款担保费率,按贷款金额比率收取，跟借款人收取，进入商户风险保证金账户
+     * 贷款担保/风险金费率,按贷款金额比率收取，跟借款人收取，进入商户/企业担保费账户
      */
     @XmlElement(required = true)
     private Fee loanGuaranteeFee;
@@ -38,7 +39,7 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private Fee loanServiceFee;
-    
+
     /**
      * 贷款管理费，按照贷款金额比例按月收取，跟借款人收取
      */
@@ -68,23 +69,35 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private Fee withdrawFee;
-    
+
     /**
      * 充值手续费
      */
     private Fee depositFee;
 
     /**
-     * 贷款逾期罚金费率，以天为单位，按照当期还款金额比率收取，跟借款人收取
+     * 逾期罚息，可以给商户也可以给投资人
      */
     @XmlElement(required = true)
     private Fee loanPenaltyFee;
 
     /**
-     * 逾期罚金，一次性按照应还金额收取
+     * 逾期管理费，一般给商户
      */
     @XmlElement(required = true)
     private Fee loanOverdueFee;
+
+    /**
+     * 提前还款违约金,给商户
+     */
+    @XmlElement(required = false)
+    private Fee advanceRepayClientFee;
+
+    /**
+     * 提前还款违约金,给投资人
+     */
+    @XmlElement(required = false)
+    private Fee advanceRepayInvestFee;
 
     /**
      * 逾期一定天数的还款将被转化为违约
@@ -92,4 +105,5 @@ public class FeeConfig extends BaseConfig {
     @Min(1)
     @XmlElement(required = true)
     private int daysToBreach;
+
 }
