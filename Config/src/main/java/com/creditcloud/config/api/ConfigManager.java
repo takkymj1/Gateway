@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config.api;
 
+import com.creditcloud.config.AllWinConfig;
 import com.creditcloud.config.CertificateTypeWeightConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.CreditManagerConfig;
@@ -39,4 +40,11 @@ public interface ConfigManager {
     public CreditManagerConfig getCreditManagerConfig();
     
     public CertificateTypeWeightConfig getCertificateTypeWeightConfig();
+    
+    /**
+     * 获取安融惠众接口配置
+     * 
+     * @return 
+     */
+    public AllWinConfig getAllWinConfig();
 }
