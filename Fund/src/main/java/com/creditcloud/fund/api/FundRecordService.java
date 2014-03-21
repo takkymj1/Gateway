@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 /**
@@ -68,6 +69,7 @@ public interface FundRecordService {
      * 更新FundRecord状态
      *
      * @param clientCode
+     * @param recordId
      * @param status
      */
     void updateStatus(String clientCode, String recordId, FundRecordStatus status);
@@ -282,7 +284,8 @@ public interface FundRecordService {
      * @param investAmount
      * @param loanUserId
      * @param loanId
-     * @param fee
+     * @param feeDetails
+     * @param orderId
      */
     void settleInvestRecord(String clientCode,
                             String investUserId,
@@ -317,6 +320,30 @@ public interface FundRecordService {
                            int period);
 
     /**
+     * 还款成功生成对应的record<p>
+     * TOOD 目前仅用于安润,不影响其他客户，将逐步取代之前的方法
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails: pair中的Boolean为true费用给商户，false给投资人
+     * @param orderId
+     * @param period
+     */
+    void repayInvestRecord2(String clientCode,
+                            String investUserId,
+                            String investId,
+                            BigDecimal repayAmount,
+                            String loanUserId,
+                            String loanId,
+                            Map<FundRecordType, ImmutablePair<Boolean, BigDecimal>> feeDetails,
+                            String orderId,
+                            int period);
+
+    /**
      * 垫付成功生成对应的record
      *
      * @param clientCode
@@ -344,6 +371,7 @@ public interface FundRecordService {
      * @param inAccount  入账子账户
      * @param outAccount 出账子账户
      * @param amount
+     * @param orderId
      */
     void clientTransfer(String clientCode,
                         String inAccount,
@@ -359,6 +387,7 @@ public interface FundRecordService {
      * @param amount
      * @param userId     用户
      * @param transferIn true for transfer from client to user
+     * @param orderId
      */
     void userTransfer(String clientCode,
                       String account,
