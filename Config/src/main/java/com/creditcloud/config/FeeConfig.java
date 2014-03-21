@@ -82,7 +82,7 @@ public class FeeConfig extends BaseConfig {
     private Fee loanPenaltyFee;
 
     /**
-     * 逾期管理费，一般给商户
+     * 逾期管理费一般给商户
      */
     @XmlElement(required = true)
     private Fee loanOverdueFee;
