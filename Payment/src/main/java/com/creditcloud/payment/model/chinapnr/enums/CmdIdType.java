@@ -76,5 +76,13 @@ public enum CmdIdType {
     /**
      * 2014.2.20新加
      */
-    DelCard;
+    DelCard,
+    /**
+     * 2014.3.10生利宝相关
+     */
+    FssTrans,
+    FssPurchaseReconciliation,
+    FssRedeemReconciliation,
+    QueryFss,   //生利宝产品信息查询
+    QueryFssAccts;  //生利宝账户信息查询
 }
