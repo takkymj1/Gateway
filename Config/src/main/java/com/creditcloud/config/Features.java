@@ -28,4 +28,8 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean dimPrivacy = true;  //默认值
+    
+    @XmlElement
+    @Getter
+    private boolean fss = false;  //默认不打开生利宝
 }
