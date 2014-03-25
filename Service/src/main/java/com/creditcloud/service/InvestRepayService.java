@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.OverdueRepayDetail;
@@ -34,7 +35,7 @@ public interface InvestRepayService {
      * 只计算未还款状态的
      *
      * @param clientCode
-     * @param repayId
+     * @param loanRepay
      * @return
      */
     RepayDetail getRepayDetail(String clientCode, LoanRepayment loanRepay);
@@ -42,11 +43,20 @@ public interface InvestRepayService {
     /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
      * 只计算逾期和违约状态的
-     * 
+     *
      *
      * @param clientCode
      * @param loanRepay
      * @return
      */
     OverdueRepayDetail getOverdueRepayDetail(String clientCode, LoanRepayment loanRepay);
+
+    /**
+     * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同
+     *
+     * @param clientCode
+     * @param loanRepay
+     * @return
+     */
+    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, LoanRepayment loanRepay);
 }
