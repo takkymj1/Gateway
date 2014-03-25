@@ -8,12 +8,16 @@ import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 借款人实际需要的还款金额明细，包括各种借款费用.主要用于页面显示
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class RepayDetail extends BaseObject {
 
     private static final long serialVersionUID = 20131222L;
@@ -33,13 +37,6 @@ public class RepayDetail extends BaseObject {
     protected BigDecimal interest;
 
     /**
-     * 借款人管理费
-     */
-    @NotNull
-    @Min(0)
-    private BigDecimal loanFee;
-
-    /**
      * 剩余本息
      */
     @NotNull
@@ -53,55 +50,31 @@ public class RepayDetail extends BaseObject {
     @Min(0)
     private int period;
 
-    public RepayDetail() {
-    }
+    /**
+     * 借款人利息管理费
+     */
+    @NotNull
+    @Min(0)
+    private BigDecimal loanFee;
 
-    public RepayDetail(BigDecimal principal, BigDecimal interest, BigDecimal loanFee, BigDecimal outstanding, int period) {
+    /**
+     * 借款管理费,某些客户不收取所以可能为null
+     */
+    @Min(0)
+    private BigDecimal manageFee;
+
+    public RepayDetail(BigDecimal principal,
+                       BigDecimal interest,
+                       BigDecimal outstanding,
+                       int period,
+                       BigDecimal loanFee,
+                       BigDecimal managerFee) {
         this.principal = principal;
         this.interest = interest;
-        this.loanFee = loanFee;
         this.outstanding = outstanding;
         this.period = period;
-    }
-
-    public BigDecimal getOutstanding() {
-        return outstanding;
-    }
-
-    public int getPeriod() {
-        return period;
-    }
-
-    public void setOutstanding(BigDecimal outstanding) {
-        this.outstanding = outstanding;
-    }
-
-    public void setPeriod(int period) {
-        this.period = period;
-    }
-
-    public BigDecimal getLoanFee() {
-        return loanFee;
-    }
-
-    public void setLoanFee(BigDecimal loanFee) {
         this.loanFee = loanFee;
-    }
-
-    public BigDecimal getPrincipal() {
-        return principal;
-    }
-
-    public BigDecimal getInterest() {
-        return interest;
-    }
-
-    public void setPrincipal(BigDecimal principal) {
-        this.principal = principal;
-    }
-
-    public void setInterest(BigDecimal interest) {
-        this.interest = interest;
+        this.manageFee = managerFee;
     }
 
     /**
@@ -110,6 +83,10 @@ public class RepayDetail extends BaseObject {
      * @return
      */
     public BigDecimal getTotal() {
-        return principal.add(interest).add(loanFee);
+        BigDecimal result = principal.add(interest).add(loanFee);
+        if (manageFee != null) {
+            result = result.add(manageFee);
+        }
+        return result;
     }
 }
