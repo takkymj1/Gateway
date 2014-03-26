@@ -7,7 +7,6 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
-import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
@@ -15,7 +14,6 @@ import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
-import com.creditcloud.model.user.corporation.Corporation;
 import java.util.Collection;
 import java.util.Date;
 import javax.validation.Valid;
@@ -46,21 +44,10 @@ public class LoanRequest extends BaseObject {
     private String id;
 
     /**
-     * 申请人类别:个人或者企业,如果为null，则默认为个人
-     */
-    private Realm category;
-
-    /**
      * 个人用户
      */
     @XmlElement(name = "user")
     private User user;
-
-    /**
-     * 企业用户
-     */
-    @XmlElement(name = "corporation")
-    private Corporation corporation;
 
     /**
      * title
@@ -239,10 +226,5 @@ public class LoanRequest extends BaseObject {
         this.riskInfo = riskInfo;
         this.serial = serial;
         this.investRule = investRule;
-    }
-
-    public Realm getCategory() {
-        //老数据没有category，默认是USER
-        return category == null ? Realm.USER : category;
     }
 }
