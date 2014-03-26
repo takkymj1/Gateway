@@ -85,7 +85,8 @@ public interface ContractService {
     /**
      * 读取借款协议.
      *
-     * 如果为同一借款生成了多份协议，则只返回最后生成的版本 TODO TODO TODO TODO替换上面方法
+     * 如果为同一借款生成了多份协议，则只返回最后生成的版本<p>
+     * TODO替换上面方法
      *
      * @param clientCode
      * @param entity      贷款对应的实体
