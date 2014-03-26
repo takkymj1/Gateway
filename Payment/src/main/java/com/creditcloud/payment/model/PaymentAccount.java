@@ -6,7 +6,6 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.Realm;
 import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +20,6 @@ import lombok.NoArgsConstructor;
 public class PaymentAccount extends BaseObject {
 
     private static final long serialVersionUID = 20131111L;
-
-    /**
-     * 账户类别:个人或者企业,如果为null，则默认为个人
-     */
-    private Realm category;
 
     /**
      * 用户的唯一ID，与UserService中的一致
@@ -44,20 +38,13 @@ public class PaymentAccount extends BaseObject {
 
     private Date timeCreate;
 
-    public PaymentAccount(Realm category,
-                          String userId,
+    public PaymentAccount(String userId,
                           String accountId,
                           String accountName,
                           Date timeCreate) {
-        this.category = category;
         this.userId = userId;
         this.accountId = accountId;
         this.accountName = accountName;
         this.timeCreate = timeCreate;
-    }
-
-    public Realm getCategory() {
-        //老数据没有category，默认是USER
-        return category == null ? Realm.USER : category;
     }
 }

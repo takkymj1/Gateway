@@ -9,7 +9,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
-import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -33,11 +32,6 @@ public class FundRecord extends BaseObject {
 
     @NotNull
     private String id;
-
-    /**
-     * 资金账号类型USER或CORPORATION,为null也表示USER
-     */
-    private Realm category;
 
     @NotNull
     private String userId;
@@ -141,9 +135,5 @@ public class FundRecord extends BaseObject {
     @Deprecated
     public String getMethod() {
         return "汇付天下";
-    }
-
-    public Realm getCategory() {
-        return category == null ? Realm.USER : category;
     }
 }

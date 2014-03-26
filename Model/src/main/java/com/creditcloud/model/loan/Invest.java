@@ -9,11 +9,9 @@ import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constant.WealthProductConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
-import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.user.corporation.Corporation;
 import com.creditcloud.model.validation.group.WealthProductCheck;
 import java.util.Date;
 import javax.validation.constraints.Max;
@@ -38,19 +36,9 @@ public class Invest extends BaseObject {
     private String id;
 
     /**
-     * 投资人类别:个人或者企业,如果为null，则默认为个人
-     */
-    private Realm category;
-
-    /**
      * 个人用户
      */
     private User user;
-
-    /**
-     * 企业用户
-     */
-    private Corporation corporation;
 
     @NotNull
     private String loanId;
@@ -111,10 +99,5 @@ public class Invest extends BaseObject {
         this.repayMethod = repayMethod;
         this.status = status;
         this.submitTime = submitTime;
-    }
-
-    public Realm getCategory() {
-        //老数据没有category，默认是USER
-        return category == null ? Realm.USER : category;
     }
 }

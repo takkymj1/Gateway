@@ -28,11 +28,6 @@ public class UserAutoBid extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
-    /**
-     * 账户类别:个人或者企业,如果为null，则默认为个人
-     */
-    private Realm category;
-
     @NotNull
     private String userId;
 
@@ -104,10 +99,5 @@ public class UserAutoBid extends BaseObject {
         this.activedTime = activedTime;
         this.range = range;
         this.lastBidTime = lastBidTime;
-    }
-    
-    public Realm getCategory() {
-        //老数据没有category，默认是USER
-        return category == null ? Realm.USER : category;
     }
 }
