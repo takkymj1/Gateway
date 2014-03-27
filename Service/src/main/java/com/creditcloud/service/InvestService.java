@@ -72,6 +72,15 @@ public interface InvestService extends InvestRepayService {
     SettleLoanResult settleLoan(String clientCode, Loan loan);
 
     /**
+     * 结标后的一些可能需要的操作<p>
+     * 将所有平台相关交由market处理,避免manager开出太多分支<p>
+     *
+     * @param clientCode
+     * @param loan
+     */
+    void postSettle(String clientCode, Loan loan);
+
+    /**
      * cancel failed loan , release related invest
      *
      * @param clientCode
