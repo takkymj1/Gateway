@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import com.creditcloud.config.enums.LoanContractType;
 import java.util.Locale;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -36,7 +37,7 @@ public final class ClientConfig extends BaseConfig {
 
     @XmlElement(required = true)
     private String wsURL;
-    
+
     @XmlElement(required = false)
     private Features features;
 
@@ -46,7 +47,7 @@ public final class ClientConfig extends BaseConfig {
 
     public String getLanguage() {
         return language;
-    }   
+    }
 
     public String getCountry() {
         return country;
@@ -63,11 +64,11 @@ public final class ClientConfig extends BaseConfig {
     public String getWsURL() {
         return wsURL;
     }
-    
+
     /**
      * 不会返回null
-     * 
-     * @return 
+     *
+     * @return
      */
     public Features getFeatures() {
         return features == null ? new Features() : features;
