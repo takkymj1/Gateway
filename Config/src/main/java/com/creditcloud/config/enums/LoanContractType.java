@@ -19,5 +19,10 @@ public enum LoanContractType {
     /**
      * 一对多合同，每个投标对应一个合同
      */
-    OneToMany;
+    OneToMany,
+    /**
+     * 上述两种合同都需要
+     */
+    Both;
+
 }

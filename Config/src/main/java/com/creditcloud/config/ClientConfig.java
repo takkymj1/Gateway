@@ -41,9 +41,6 @@ public final class ClientConfig extends BaseConfig {
     @XmlElement(required = false)
     private Features features;
 
-    @XmlElement(required = false)
-    private LoanContractType loanContractType;
-
     public String getCode() {
         return code;
     }
@@ -75,14 +72,5 @@ public final class ClientConfig extends BaseConfig {
      */
     public Features getFeatures() {
         return features == null ? new Features() : features;
-    }
-
-    /**
-     * 如果沒有配置默认值OneToOne
-     *
-     * @return
-     */
-    public LoanContractType getLoanContractType() {
-        return loanContractType == null ? LoanContractType.OneToOne : loanContractType;
     }
 }

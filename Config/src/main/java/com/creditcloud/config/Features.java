@@ -6,6 +6,7 @@
 
 package com.creditcloud.config;
 
+import com.creditcloud.config.enums.LoanContractType;
 import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,4 +33,9 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean fss = false;  //默认不打开生利宝
+    
+    //默认一对一合同
+    @XmlElement
+    @Getter
+    private LoanContractType loanContractType = LoanContractType.OneToOne;
 }
