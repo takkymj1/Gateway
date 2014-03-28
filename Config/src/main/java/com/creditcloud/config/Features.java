@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.config;
 
 import com.creditcloud.config.enums.LoanContractType;
@@ -23,19 +22,25 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Features extends BaseObject {
-    
+
     private static final long serialVersionUID = 20140305L;
-    
+
     @XmlElement
     @Getter
     private boolean dimPrivacy = true;  //默认值
-    
+
     @XmlElement
     @Getter
     private boolean fss = false;  //默认不打开生利宝
-    
+
     //默认一对一合同
     @XmlElement
     @Getter
     private LoanContractType loanContractType = LoanContractType.OneToOne;
+
+    //后台用户开户默认密码，如果为null表示使用手机短信发送随机密码
+    @XmlElement
+    @Getter
+    private String defaultPassword;
+
 }
