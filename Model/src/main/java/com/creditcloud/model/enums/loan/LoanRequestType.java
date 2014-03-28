@@ -14,9 +14,10 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum LoanRequestType implements BaseEnum {
 
-    GENERAL("普通标"),
-    CREDITED("信用标"),
-    GUARANTEED("担保标");
+    //GENERAL("普通标"),
+    //默认信用标
+    CREDIT("信用标"),
+    GUARANTEE("担保标");
 
     private final String key;
 
