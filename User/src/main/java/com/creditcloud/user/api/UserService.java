@@ -63,7 +63,7 @@ public interface UserService extends UserSecurityService {
     PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
 
     /**
-     * 增加一个用户，属于后台或平板开户，系统生成随机密码发送到用户手机
+     * 增加一个用户，属于后台或平板开户，系统生成随机密码发送到用户手机,或者使用配置文件中默认密码
      *
      * @param clientCode
      * @param user
