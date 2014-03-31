@@ -69,14 +69,6 @@ public interface LoanService extends LoanRequestService {
     List<Loan> listLoanByRequest(String clientCode, String requestId);
 
     /**
-     * list all loans
-     *
-     * @param clientCode
-     * @return
-     */
-    List<Loan> listAllLoans(String clientCode);
-
-    /**
      * list loans by their status
      *
      * @param clientCode
