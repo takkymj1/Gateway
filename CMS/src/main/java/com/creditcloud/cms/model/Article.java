@@ -77,5 +77,20 @@ public class Article {
      * 新闻作者
      */
     private String author;
+    
+    public Article(String id, String title, String content, Category category, boolean hasImage, boolean priority, String newsId, String url, String pubdate, String media, String author ){
+        this.id=id;
+        this.title=title;
+        this.content=content;
+        this.category=category;
+        this.hasImage=hasImage;
+        this.priority =priority;
+        this.newsId=newsId;
+        this.url=url;
+        this.pubdate=pubdate;
+        this.media=media;
+        this.author=author;
+        
+    }
 
 }

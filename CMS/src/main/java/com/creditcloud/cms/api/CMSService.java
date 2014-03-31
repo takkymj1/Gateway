@@ -22,12 +22,12 @@ public interface CMSService {
     /**
      * 保存新的文章
      */
-    Article SaveArticle(Article artticle);
+    Article save(String title, String id, String url, String pubdate, String media, String author, String content, Category category, boolean hasImage, boolean priority);
 
     /**
      * 保存新的栏目
      */
-    Channel SaveChannel(Channel channel);
+    Channel saveChannel(String name, Category category);
 
     /**
      * 通过类别列出文章
@@ -42,12 +42,12 @@ public interface CMSService {
     /**
      * 通过栏目列出文章
      */
-    PagedResult<Article> listByChannel(String channelName, PageInfo pageInfo);
+    //PagedResult<Article> listByChannel(String channelName, PageInfo pageInfo);
 
     /**
      * 列出最近的文章
      */
-    PagedResult<Article> listByTime(int limit, PageInfo pageInfo);
+    PagedResult<Article> listByTime(PageInfo pageInfo);
 
     /**
      * 列出所有的栏目
@@ -62,11 +62,11 @@ public interface CMSService {
     /**
      * 根据标题查找文章
      */
-    Article GetByName(String title);
+    Article getByName(String title);
 
     /**
      * 根据关键字查找文章
      */
-    PagedResult<Article> ListByKeyword(String keyword, PageInfo pageInfo);
+    PagedResult<Article> listByKeyword(String keyword, PageInfo pageInfo);
 
 }
