@@ -20,6 +20,11 @@ public interface CreditCloudTags {
     Tag VIP_USER = new Tag(Realm.STRING, "VIP", "VIP", "贵宾客户");
 
     /**
+     * 借款中间人
+     */
+    Tag LOAN_AGENT = new Tag(Realm.STRING, "借款中间人", "借款中间人", "借款中间人");
+
+    /**
      * 平台运营方相关的内部客户
      */
     Tag INTERNAL_USER = new Tag(Realm.STRING, "内部用户", "内部用户", "内部用户客户");
@@ -33,7 +38,7 @@ public interface CreditCloudTags {
      * 个人代表企业借款
      */
     Tag LOAN_COMPANY = new Tag(Realm.STRING, "企业借款", "企业借款", "个人代表企业借款");
-    
+
     /**
      * 个人代表企业借款时用的企业名称，一般标记在LoanRequest上
      */
@@ -43,10 +48,10 @@ public interface CreditCloudTags {
      * 个人代销理财产品
      */
     Tag LOAN_WEALTH = new Tag(Realm.STRING, "理财产品", "理财产品", "个人代销理财产品");
-    
+
     /**
      * 合同模板，一般标记在LoanRequest对象上，内容为ContractTemplate的ID
      */
     Tag CONTRACT_TEMPLATE = new Tag(Realm.CONTRACTTEMPLATE, "合同模板", "合同模板", "适用的合同模板");
-    
+
 }

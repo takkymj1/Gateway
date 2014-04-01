@@ -69,7 +69,7 @@ public interface LoanService extends LoanRequestService {
     List<Loan> listLoanByRequest(String clientCode, String requestId);
 
     /**
-     * list loans by their status
+     * list loans by their status 默认不列出hidden的loan
      *
      * @param clientCode
      * @param statusList
@@ -77,6 +77,15 @@ public interface LoanService extends LoanRequestService {
      * @return
      */
     PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
+
+    /**
+     * 列出所有非公开特定用户群体才能投的loan
+     *
+     * @param clientCode
+     * @param statusList
+     * @return
+     */
+    List<Loan> listPersonalLoanByStatus(String clientCode, LoanStatus... statusList);
 
     /**
      * 获得借款人的借款统计信息
