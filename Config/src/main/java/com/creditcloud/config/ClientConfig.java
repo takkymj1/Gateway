@@ -4,7 +4,6 @@
  */
 package com.creditcloud.config;
 
-import com.creditcloud.config.enums.LoanContractType;
 import java.util.Locale;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

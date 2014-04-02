@@ -20,6 +20,10 @@ public enum Realm implements BaseEnum {
      */
     KEYVALUE("名值对"),
     /**
+     * 影子标显示的借款人
+     */
+    SHADOW_BORROWER("影子标显示的借款人"),
+    /**
      * 基本类型
      */
     USER("用戶"),
