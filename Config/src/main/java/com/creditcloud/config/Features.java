@@ -43,4 +43,10 @@ public class Features extends BaseObject {
     @Getter
     private String defaultPassword;
 
+    /**
+     * 是否开启影子标相关功能,默认不允许,主要用于控制页面显示
+     */
+    @XmlElement
+    @Getter
+    private boolean enableShadowLoan = false;
 }
