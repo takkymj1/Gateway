@@ -23,8 +23,8 @@ public enum CertificateType implements BaseEnum {
     REALESTATE("房产认证"),
     LOCATION("居住地认证"),
     VEHICLE("购车认证"),
-    LOANPURPOSE("借款用途认证"),
-    GUARANTEE("担保认证"),
+    LOANPURPOSE("借款用途认证"),//跟借款挂钩
+    GUARANTEE("担保认证"),//跟借款挂钩
     OTHERS("其他认证");
 
     private final String key;
@@ -33,7 +33,9 @@ public enum CertificateType implements BaseEnum {
      * 个人通用的认证类型，与具体贷款本身无关
      */
     private static List<CertificateType> GENERAL_TYPES = Arrays.asList(new CertificateType[]{ID, CREDITREPORT, FAMILY, EDUCATION, INCOME,
-                                                                                             CAREER, REALESTATE, LOCATION, VEHICLE, GUARANTEE, OTHERS});
+                                                                                             CAREER, REALESTATE, LOCATION, VEHICLE, OTHERS});
+
+    private static List<CertificateType> LOANREQUEST_TYPES = Arrays.asList(new CertificateType[]{LOANPURPOSE, GUARANTEE});
 
     private CertificateType(String key) {
         this.key = key;
@@ -55,5 +57,14 @@ public enum CertificateType implements BaseEnum {
      */
     public static List<CertificateType> getGeneralCertificate() {
         return GENERAL_TYPES;
+    }
+
+    /**
+     * 获取跟借款相关的认证类型，与具体借款有关
+     *
+     * @return
+     */
+    public static List<CertificateType> getLoanRequestCertificate() {
+        return LOANREQUEST_TYPES;
     }
 }
