@@ -65,11 +65,12 @@ public enum ProofType implements BaseEnum {
     VEHICLE_PICTURE("车辆照片", CertificateType.VEHICLE),
     VEHICLE_OTHER("其他车辆相关证明", CertificateType.VEHICLE),
     /**
-     * 担保证明
+     * 借款担保证明
      */
-    GUARANTEE_ID("担保人身份", CertificateType.GUARANTEE),
-    GUARANTEE_REALESTATE("担保人房产", CertificateType.GUARANTEE),
-    GUARANTEE_OTHER("其他担保相关证明", CertificateType.GUARANTEE),
+    GUARANTEE_ID("借款担保人身份", CertificateType.GUARANTEE),
+    GUARANTEE_REALESTATE("借款担保人房产", CertificateType.GUARANTEE),
+    GUARANTEE_CONTRACT("借款担保合同或文件", CertificateType.GUARANTEE),
+    GUARANTEE_OTHER("其他借款担保相关证明", CertificateType.GUARANTEE),
     /**
      * 信用报告
      */
@@ -134,5 +135,41 @@ public enum ProofType implements BaseEnum {
      */
     public static List<ProofType> listByCertificate(CertificateType type) {
         return proofMap.get(type);
+    }
+
+    /**
+     * 查看是否是跟借款申请相关的认证
+     *
+     * @param type
+     * @return
+     */
+    public static boolean isLoanRequestProof(ProofType type) {
+        if (type == null) {
+            return false;
+        }
+        for (CertificateType ct : CertificateType.getLoanRequestCertificate()) {
+            if (ct.equals(type.getCertificateType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 查看是否是跟个人相关的认证，与具体借款申请无关
+     *
+     * @param type
+     * @return
+     */
+    public static boolean isGeneralProof(ProofType type) {
+        if (type == null) {
+            return false;
+        }
+        for (CertificateType ct : CertificateType.getGeneralCertificate()) {
+            if (ct.equals(type.getCertificateType())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
