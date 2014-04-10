@@ -48,8 +48,7 @@ public enum FundRecordType implements BaseEnum {
     /**
      * 生利宝
      */
-    FSS_IN("生利宝转入"),//从生利宝转到账号
-    FSS_OUT("生利宝转出");//从账号转到生利宝
+    FSS("生利宝转入");//从生利宝转到账号
 
     private final String key;
 

@@ -31,7 +31,7 @@ public class FundFSS extends FundRecord {
               userId,
               null,
               null,
-              in ? FundRecordType.FSS_IN : FundRecordType.FSS_OUT,
+              FundRecordType.FSS,
               FundRecordStatus.SUCCESSFUL,
               in ? FundRecordOperation.IN : FundRecordOperation.OUT,
               amount,
