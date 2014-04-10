@@ -4,15 +4,16 @@
  */
 package com.creditcloud.common.calculator;
 
-import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.common.utils.DateUtils;
 import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInterest;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
 import com.creditcloud.model.loan.Duration;
+import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
@@ -164,6 +165,33 @@ public final class LoanCalculator {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
                                                                  interests[i],
                                                                  outstandingPrincipals[i],
+                                                                 dueDate));
+                    }
+                }
+                break;
+            case EqualInterest:
+                //times of repayments in months
+                tenure = duration.getYears() * 12 + duration.getMonths();
+                //calc amortized principal and interest
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedInterest = principal.multiply(rateMonth).setScale(2, NumberConstant.ROUNDING_MODE);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                //create LoanDetail
+                result = new LoanDetail(principal, interest, duration, EqualInterest);
+                //deal with amortized items
+                outstandingPrincipal = principal;
+                for (int i = 0; i < tenure; i++) {
+                    outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
+                    dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    if (i == tenure - 1) {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 amortizedInterest,
+                                                                 ZERO,
+                                                                 dueDate));
+                    } else {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 amortizedInterest,
+                                                                 outstandingPrincipal,
                                                                  dueDate));
                     }
                 }
