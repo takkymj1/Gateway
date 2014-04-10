@@ -5,8 +5,8 @@
  */
 package com.creditcloud.payment.model;
 
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.payment.model.chinapnr.enums.AuditStat;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CorpRegisterResult extends BaseObject {
+@XmlRootElement
+public class CorpRegisterResult extends PaymentResult {
 
     private static final long serialVersionUID = 20140320L;
 

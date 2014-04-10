@@ -28,32 +28,33 @@ public class FssTransResponse extends UserResponse {
     @FormParam("OrdId")
     @NotNull
     @Size(max = 20)
-    String OrdId;
+    private String OrdId;
 
     @FormParam("OrdDate")
     @NotNull
     @PnRDate
-    String OrdDate;
+    private String OrdDate;
 
     @FormParam("TransType")
     @NotNull
-    String TransType;
+    private String TransType;
 
     @FormParam("TransAmt")
     @NotNull
-    String TransAmt;
+    private String TransAmt;
 
+    @Size(max = 128)
     @FormParam("RetUrl")
-    String RetUrl;
+    private String RetUrl;
 
     @FormParam("BgRetUrl")
     @NotNull
     @PnRReturnURL
     @Size(max = 128)
-    String BgRetUrl;
+    private String BgRetUrl;
 
     @FormParam("RespExt")
-    String RespExt;
+    private String RespExt;
 
     @Override
     public String chkString() {
@@ -61,7 +62,6 @@ public class FssTransResponse extends UserResponse {
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getOrdDate()))
-                .append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getTransType()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
