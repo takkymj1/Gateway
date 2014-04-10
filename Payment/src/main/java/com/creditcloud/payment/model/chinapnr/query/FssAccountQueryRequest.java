@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
@@ -24,12 +24,12 @@ public class FssAccountQueryRequest extends BaseRequest {
 
     @NotNull
     @Size(max = 16)
-    String UsrCustId;
+    private String UsrCustId;
     
-    String ReqExt;
+    private String ReqExt;
 
     public FssAccountQueryRequest(String MerCustId, String UsrCustId) {
-        super(PnRConstant.Version_2, CmdIdType.QueryFss, MerCustId);
+        super(PnRConstant.Version, CmdIdType.QueryFssAccts, MerCustId);
         this.UsrCustId = UsrCustId;
     }
 

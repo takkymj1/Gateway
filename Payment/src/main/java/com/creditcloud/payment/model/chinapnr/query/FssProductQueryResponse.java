@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.ws.rs.FormParam;
@@ -20,13 +20,13 @@ import org.apache.commons.lang3.StringUtils;
 public class FssProductQueryResponse extends BaseResponse {
 
     @FormParam("AnnuRate")
-    String AnnuRate;
+    private String AnnuRate;
 
     @FormParam("PrdRate")
-    String PrdRate;
+    private String PrdRate;
 
     @FormParam("RespExt")
-    String RespExt;
+    private String RespExt;
 
     @Override
     public String chkString() {

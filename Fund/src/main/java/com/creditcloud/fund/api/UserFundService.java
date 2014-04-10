@@ -191,4 +191,15 @@ public interface UserFundService {
      * @return
      */
     public BigDecimal getTotalAvailable(String clientCode);
+
+    /**
+     * 生利宝接口
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount     金额
+     * @param transferIn true for 从fss转入到可用余额,false for 转出
+     * @return
+     */
+    public boolean fssTransfer(String clientCode, String userId, BigDecimal amount, boolean transferIn);
 }

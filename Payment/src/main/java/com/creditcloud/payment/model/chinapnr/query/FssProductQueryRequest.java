@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
@@ -21,15 +21,14 @@ import org.apache.commons.lang3.StringUtils;
 @NoArgsConstructor
 public class FssProductQueryRequest extends BaseRequest {
 
-    String ReqExt;
+    private String ReqExt;
 
     public FssProductQueryRequest(String MerCustId) {
-        super(PnRConstant.Version_2, CmdIdType.QueryFss, MerCustId);
+        super(PnRConstant.Version, CmdIdType.QueryFss, MerCustId);
     }
 
     @Override
     public String chkString() {
         return baseChkString().concat(StringUtils.trimToEmpty(getReqExt()));
     }
-
 }

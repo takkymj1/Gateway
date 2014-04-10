@@ -43,7 +43,12 @@ public enum FundRecordType implements BaseEnum {
     FEE_LOAN_PENALTY_INVEST("逾期罚息(给投资人)"),//投资人收取
     FEE_DEPOSIT("充值手续费"),
     FEE_ADVANCE_REPAY("提前还款违约金(给商户)"),//商户收取
-    FEE_ADVANCE_REPAY_INVEST("提前还款违约金(给投资人)");//投资人收取
+    FEE_ADVANCE_REPAY_INVEST("提前还款违约金(给投资人)"),//投资人收取
+
+    /**
+     * 生利宝
+     */
+    FSS("生利宝");
 
     private final String key;
 

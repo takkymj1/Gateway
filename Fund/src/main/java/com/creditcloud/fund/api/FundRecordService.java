@@ -318,7 +318,6 @@ public interface FundRecordService {
                            String orderId,
                            int period);
 
-
     /**
      * 垫付成功生成对应的record
      *
@@ -404,4 +403,16 @@ public interface FundRecordService {
                         RealmEntity target,
                         FundRecordType rewardType,
                         FundRecordStatus status);
+
+    /**
+     * 查看orderId对应的fssrecord是否已经存在
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return
+     */
+    boolean checkFss(String clientCode,
+                     String userId,
+                     String orderId);
 }

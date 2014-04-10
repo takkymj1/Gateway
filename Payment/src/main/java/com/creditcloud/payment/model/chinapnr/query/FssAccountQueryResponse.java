@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr;
+package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
@@ -24,16 +24,16 @@ public class FssAccountQueryResponse extends BaseResponse {
     @FormParam("UsrCustId")
     @NotNull
     @Size(max = 16)
-    String UsrCustId;
+    private String UsrCustId;
 
     @FormParam("TotalAsset")
-    String TotalAsset;
+    private String TotalAsset;
 
     @FormParam("TotalProfit")
-    String TotalProfit;
+    private String TotalProfit;
     
     @FormParam("RespExt")
-    String RespExt;
+    private String RespExt;
 
     @Override
     public String chkString() {

@@ -51,7 +51,7 @@ public class FssTransRequest extends BaseRequest {
                            String OrdId,
                            String OrdDate,
                            String BgRetUrl) {
-        super(PnRConstant.Version_2, CmdIdType.FssTrans, MerCustId);
+        super(PnRConstant.Version, CmdIdType.FssTrans, MerCustId);
         this.UsrCustId = UsrCustId;
         this.OrdId = OrdId;
         this.OrdDate = OrdDate;
