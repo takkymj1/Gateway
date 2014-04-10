@@ -184,7 +184,7 @@ public final class LoanCalculator {
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     if (i == tenure - 1) {
-                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                        result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
                                                                  amortizedInterest,
                                                                  ZERO,
                                                                  dueDate));
