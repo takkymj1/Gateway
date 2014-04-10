@@ -49,4 +49,11 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableShadowLoan = false;
+    
+    /**
+     * 是否关闭默认公安部认证，改从后台平台自己来审核身份验证信息
+     */
+    @XmlElement
+    @Getter
+    private boolean bgIDVerify = false;
 }
