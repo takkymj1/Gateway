@@ -29,7 +29,7 @@ public class FssAccountQueryRequest extends BaseRequest {
     private String ReqExt;
 
     public FssAccountQueryRequest(String MerCustId, String UsrCustId) {
-        super(PnRConstant.Version_2, CmdIdType.QueryFssAccts, MerCustId);
+        super(PnRConstant.Version, CmdIdType.QueryFssAccts, MerCustId);
         this.UsrCustId = UsrCustId;
     }
 
