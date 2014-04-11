@@ -8,11 +8,11 @@ import com.creditcloud.model.BaseObject;
 
 
 import java.math.BigDecimal;
-import javax.persistence.Column;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.ws.rs.FormParam;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 每个贷款申请对应的收费费率,只能变动浮动费率部分
@@ -20,6 +20,7 @@ import lombok.Data;
  * @author rooseek
  */
 @Data
+@NoArgsConstructor
 public class LoanFee extends BaseObject {
 
     private static final long serialVersionUID = 20140102L;
@@ -36,7 +37,6 @@ public class LoanFee extends BaseObject {
     @Min(0)
     @Max(1)
     @FormParam("loanGuaranteeFee")
-    @Column(nullable = true)
     private BigDecimal loanGuaranteeFee;
 
     /**
@@ -45,7 +45,6 @@ public class LoanFee extends BaseObject {
     @Min(0)
     @Max(1)
     @FormParam("loanServiceFee")
-    @Column(nullable = true)
     private BigDecimal loanServiceFee;
 
     /**
@@ -54,7 +53,6 @@ public class LoanFee extends BaseObject {
     @Min(0)
     @Max(1)
     @FormParam("loanManageFee")
-    @Column(nullable = true)
     private BigDecimal loanManageFee;
 
     /**
@@ -63,7 +61,6 @@ public class LoanFee extends BaseObject {
     @Min(0)
     @Max(1)
     @FormParam("loanInterestFee")
-    @Column(nullable = true)
     private BigDecimal loanInterestFee;
 
     /**
@@ -72,11 +69,7 @@ public class LoanFee extends BaseObject {
     @Min(0)
     @Max(1)
     @FormParam("investInterestFee")
-    @Column(nullable = true)
     private BigDecimal investInterestFee;
-
-    public LoanFee() {
-    }
 
     public LoanFee(String requestId,
                    BigDecimal loanGuaranteeFee,

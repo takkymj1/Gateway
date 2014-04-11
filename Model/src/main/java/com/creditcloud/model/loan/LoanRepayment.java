@@ -10,12 +10,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 贷款发放后对应的每期还款
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class LoanRepayment extends BaseObject {
 
@@ -52,10 +56,11 @@ public class LoanRepayment extends BaseObject {
      * 实际回款时间
      */
     private  Date repayDate;
-
-    public LoanRepayment() {
-    }
-
+    
+    /**
+     * 费率
+     */
+    private LoanFee loanFee;
 
     public LoanRepayment(String id,
                          String loanId,
@@ -73,69 +78,5 @@ public class LoanRepayment extends BaseObject {
         this.status = status;
         this.repayAmount = repayAmount;
         this.repayDate = repayDate;
-    }
-
-    public int getCurrentPeriod() {
-        return currentPeriod;
-    }
-
-    public Repayment getRepayment() {
-        return repayment;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public RepaymentStatus getStatus() {
-        return status;
-    }
-
-    public BigDecimal getRepayAmount() {
-        return repayAmount;
-    }
-
-    public Date getRepayDate() {
-        return repayDate;
-    }
-
-    public String getLoanId() {
-        return loanId;
-    }
-
-    public void setLoanId(String loanId) {
-        this.loanId = loanId;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setCurrentPeriod(int currentPeriod) {
-        this.currentPeriod = currentPeriod;
-    }
-
-    public void setRepayment(Repayment repayment) {
-        this.repayment = repayment;
-    }
-
-    public void setStatus(RepaymentStatus status) {
-        this.status = status;
-    }
-
-    public void setRepayAmount(BigDecimal repayAmount) {
-        this.repayAmount = repayAmount;
-    }
-
-    public void setRepayDate(Date repayDate) {
-        this.repayDate = repayDate;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 }
