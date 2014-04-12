@@ -39,4 +39,11 @@ public class AdvanceRepayDetail extends BaseObject {
         }
         return detail.getTotal().add(penalty.getTotal());
     }
+
+    public AdvancePenalty getPenalty() {
+        if (penalty == null) {
+            return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        return penalty;
+    }
 }

@@ -7,12 +7,16 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 逾期违约还款明细 包括罚金
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class OverdueRepayDetail extends BaseObject {
 
     private static final long serialVersionUID = 20131222L;
@@ -20,31 +24,18 @@ public class OverdueRepayDetail extends BaseObject {
     @NotNull
     private RepayDetail detail;
 
-    @NotNull
     private OverduePenalty penalty;
-
-    public OverdueRepayDetail() {
-    }
 
     public OverdueRepayDetail(RepayDetail detail, OverduePenalty penalty) {
         this.detail = detail;
         this.penalty = penalty;
     }
 
-    public void setDetail(RepayDetail detail) {
-        this.detail = detail;
-    }
-
-    public RepayDetail getDetail() {
-        return detail;
-    }
-
     public OverduePenalty getPenalty() {
+        if (penalty == null) {
+            return new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
         return penalty;
-    }
-
-    public void setPenalty(OverduePenalty penalty) {
-        this.penalty = penalty;
     }
 
     /**
@@ -53,6 +44,9 @@ public class OverdueRepayDetail extends BaseObject {
      * @return
      */
     public BigDecimal getTotal() {
+        if (penalty == null) {
+            return detail.getTotal();
+        }
         return detail.getTotal().add(penalty.getTotal());
     }
 }
