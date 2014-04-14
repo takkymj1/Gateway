@@ -47,11 +47,11 @@ public class FeeUtils {
             case NONE:
                 return BigDecimal.ZERO;
             case FIXED:
-                return fee.getFixed();
+                return fee.getFixed().setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
             case FLOATING:
-                return amount.multiply(fee.getRate());
+                return amount.multiply(fee.getRate()).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
             case BOTH:
-                return amount.multiply(fee.getRate()).add(fee.getFixed());
+                return amount.multiply(fee.getRate()).add(fee.getFixed()).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
         }
         return BigDecimal.ZERO;
     }
@@ -94,10 +94,10 @@ public class FeeUtils {
             }
             switch (overdueFee.getPeriod()) {
                 case DAILY:
-                    overdueAmount = FeeUtils.calculate(overdueFee, overdueAmount).multiply(days).setScale(2, NumberConstant.ROUNDING_MODE);
+                    overdueAmount = FeeUtils.calculate(overdueFee, overdueAmount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 case SINGLE:
-                    overdueAmount = FeeUtils.calculate(overdueFee, overdueAmount).setScale(2, NumberConstant.ROUNDING_MODE);
+                    overdueAmount = FeeUtils.calculate(overdueFee, overdueAmount).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 default:
                     //逾期类罚息只可能是上两种
@@ -124,10 +124,10 @@ public class FeeUtils {
             }
             switch (penaltyFee.getPeriod()) {
                 case DAILY:
-                    penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).multiply(days).setScale(2, NumberConstant.ROUNDING_MODE);
+                    penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 case SINGLE:
-                    penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).setScale(2, NumberConstant.ROUNDING_MODE);
+                    penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 default:
                     //逾期类罚息只可能是上两种
