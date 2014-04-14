@@ -56,11 +56,6 @@ public class LoanRepayment extends BaseObject {
      * 实际回款时间
      */
     private  Date repayDate;
-    
-    /**
-     * 费率
-     */
-    private LoanFee loanFee;
 
     public LoanRepayment(String id,
                          String loanId,
