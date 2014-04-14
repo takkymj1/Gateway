@@ -90,4 +90,12 @@ public interface LoanRequestService {
      * @return
      */
     LoanFee getLoanFee(String clientCode, String requestId);
+
+    /**
+     *
+     * @param clientCode
+     * @param loanId
+     * @return
+     */
+    LoanFee getLoanFeeByLoanId(String clientCode, String loanId);
 }
