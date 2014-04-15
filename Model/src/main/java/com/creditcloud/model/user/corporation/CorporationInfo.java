@@ -5,6 +5,7 @@
 package com.creditcloud.model.user.corporation;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import lombok.Data;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 
 /**
- * TODO 基本信息之外的企业扩展信息，
+ * 基本信息之外的企业扩展信息，
  *
  * @author rooseek
  */
@@ -22,7 +23,7 @@ public class CorporationInfo extends BaseObject {
 
     private static final long serialVersionUID = 20140217L;
 
-    private String id;
+    private String userId;
 
     //企业url
     @Size(max = CorporationConstant.MAX_CORP_URL)
@@ -33,7 +34,7 @@ public class CorporationInfo extends BaseObject {
      */
     @Size(max = 128)
     private String address;
-    
+
     /**
      * 联系人姓名
      */
@@ -56,7 +57,7 @@ public class CorporationInfo extends BaseObject {
      * 注册资本
      */
     @Min(0)
-    private long registeredCapital;
+    private BigDecimal registeredCapital;
 
     /**
      * 企业描述
@@ -69,16 +70,16 @@ public class CorporationInfo extends BaseObject {
      */
     private LocalDate timeEstablished;
 
-    public CorporationInfo(String id,
+    public CorporationInfo(String userId,
                            String url,
                            String address,
                            String contactPersion,
                            String contactPhone,
                            String contactEmail,
-                           long registeredCapital,
+                           BigDecimal registeredCapital,
                            String description,
                            LocalDate timeEstablished) {
-        this.id = id;
+        this.userId = userId;
         this.url = url;
         this.address = address;
         this.contactPersion = contactPersion;
