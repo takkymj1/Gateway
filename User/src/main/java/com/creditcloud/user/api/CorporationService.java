@@ -4,7 +4,6 @@
  */
 package com.creditcloud.user.api;
 
-import com.apple.eawt.ApplicationBeanInfo;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
