@@ -31,10 +31,10 @@ public class CorpRegisterRequest extends BaseRequest {
     private String InstuCode;
 
     @NotNull
-    @Size(min = 30, max = 30)
+    @Size( max = 30)
     private String BusiCode;
 
-    @Size(min = 30, max = 30)
+    @Size( max = 30)
     private String TaxCode;
 
     private String Charset;
