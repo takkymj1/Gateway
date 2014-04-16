@@ -9,7 +9,6 @@ import com.creditcloud.model.constraints.ClientCode;
 import com.creditcloud.model.enums.device.DeviceType;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
@@ -60,10 +59,8 @@ public class Device extends BaseObject {
 
     private boolean enabled;
 
-    @Past
     private Date initTime;
 
-    @Past
     private Date registerTime;
 
     public Device() {
