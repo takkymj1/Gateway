@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 public class CorpRegisterQueryRequest extends BaseRequest {
 
     @NotNull
-    @Size(min = 30, max = 30)
+    @Size(max = 30)
     private String BusiCode;
 
     @Size(max = 512)

@@ -29,6 +29,15 @@ public interface CorporationService {
     CorporationUser save(String clientCode, CorporationUser corporationUser);
 
     /**
+     * 查看user是否是企业用户
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    boolean isCorporationUser(String clientCode, String userId);
+
+    /**
      * 更新CorporationUserInfo
      *
      * @param clientCode
@@ -101,10 +110,10 @@ public interface CorporationService {
     PagedResult<CorporationUser> listByType(String clientCode, PageInfo info, CorporationType... type);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param info
-     * @return 
+     * @return
      */
     PagedResult<CorporationUser> list(String clientCode, CriteriaInfo info);
 }

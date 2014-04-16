@@ -31,4 +31,12 @@ public class CorpRegisterResult extends PaymentResult {
 
     private String BusiCode;
 
+    /**
+     * 企业开户是否成功
+     *
+     * @return
+     */
+    public boolean auditSuccess() {
+        return AuditStat.Y.equals(AuditStat);
+    }
 }
