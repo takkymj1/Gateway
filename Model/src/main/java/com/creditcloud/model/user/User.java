@@ -101,6 +101,11 @@ public class User extends BaseObject {
      * 推荐人，可以为空，也可以为用户、员工等
      */
     private RealmEntity referralEntity;
+    
+    /**
+     * 默认是个人用户
+     */
+    private boolean enterprise = false;
 
     public User(String Id,
                 String clientCode,
