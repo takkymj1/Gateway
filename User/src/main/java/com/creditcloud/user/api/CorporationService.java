@@ -4,9 +4,11 @@
  */
 package com.creditcloud.user.api;
 
+import com.apple.eawt.ApplicationBeanInfo;
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.corporation.Corporation;
+import com.creditcloud.model.user.corporation.CorporationUser;
 import com.creditcloud.model.user.corporation.CorporationInfo;
 import com.creditcloud.model.user.corporation.CorporationType;
 import javax.ejb.Remote;
@@ -19,16 +21,16 @@ import javax.ejb.Remote;
 public interface CorporationService {
 
     /**
-     * 如果没有则添加，否则更新
+     * 如果没有则添加，否则更新,TODO目前只支持从后台添加
      *
      * @param clientCode
-     * @param corporation
+     * @param corporationUser
      * @return
      */
-    Corporation save(String clientCode, Corporation corporation);
+    CorporationUser save(String clientCode, CorporationUser corporationUser);
 
     /**
-     * 更新CorporationInfo
+     * 更新CorporationUserInfo
      *
      * @param clientCode
      * @param info
@@ -43,7 +45,7 @@ public interface CorporationService {
      * @param corpId
      * @return
      */
-    Corporation getById(String clientCode, String corpId);
+    CorporationUser getById(String clientCode, String corpId);
 
     /**
      * 获取CorporationInfo
@@ -61,7 +63,7 @@ public interface CorporationService {
      * @param name
      * @return
      */
-    Corporation getByName(String clientCode, String name);
+    CorporationUser getByName(String clientCode, String name);
 
     /**
      * 根据营业执照获取
@@ -70,7 +72,7 @@ public interface CorporationService {
      * @param busiCode
      * @return
      */
-    Corporation getByBusiCode(String clientCode, String busiCode);
+    CorporationUser getByBusiCode(String clientCode, String busiCode);
 
     /**
      * 根据税务登记号获取
@@ -79,7 +81,7 @@ public interface CorporationService {
      * @param taxCode
      * @return
      */
-    Corporation getByTaxCode(String clientCode, String taxCode);
+    CorporationUser getByTaxCode(String clientCode, String taxCode);
 
     /**
      * 根据组织机构代码获取
@@ -88,7 +90,7 @@ public interface CorporationService {
      * @param orgCode
      * @return
      */
-    Corporation getByOrgCode(String clientCode, String orgCode);
+    CorporationUser getByOrgCode(String clientCode, String orgCode);
 
     /**
      *
@@ -97,5 +99,13 @@ public interface CorporationService {
      * @param type
      * @return
      */
-    PagedResult<Corporation> listByType(String clientCode, PageInfo info, CorporationType... type);
+    PagedResult<CorporationUser> listByType(String clientCode, PageInfo info, CorporationType... type);
+
+    /**
+     * 
+     * @param clientCode
+     * @param info
+     * @return 
+     */
+    PagedResult<CorporationUser> list(String clientCode, CriteriaInfo info);
 }

@@ -80,6 +80,8 @@ public interface UserSecurityService {
      * @return
      */
     UserLoginResult loginSocial(String clientCode, SocialId socialId, Map<String, String> loginInfo);
+    
+    
 
     /**
      * 修改密码
