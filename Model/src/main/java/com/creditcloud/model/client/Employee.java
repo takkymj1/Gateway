@@ -11,7 +11,6 @@ import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
-import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -55,10 +54,8 @@ public class Employee extends BaseObject {
      */
     private String branchId;
 
-    @Past
     private Date registerDate;
 
-    @Past
     private Date lastLoginDate;
 
     public Employee() {

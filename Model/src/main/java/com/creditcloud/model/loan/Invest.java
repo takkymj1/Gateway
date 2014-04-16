@@ -17,7 +17,6 @@ import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.groups.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -76,7 +75,6 @@ public class Invest extends BaseObject {
     private InvestStatus status;
 
     @NotNull
-    @Past
     private Date submitTime;
 
     public Invest(String id,

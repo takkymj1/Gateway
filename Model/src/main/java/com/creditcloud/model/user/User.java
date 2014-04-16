@@ -19,7 +19,6 @@ import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -86,10 +85,8 @@ public class User extends BaseObject {
 
     private String lastModifiedBy;
 
-    @Past
     protected Date lastLoginDate;
 
-    @Past
     protected Date registerDate;
 
     /**

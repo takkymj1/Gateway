@@ -18,7 +18,6 @@ import java.util.Collection;
 import java.util.Date;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 import javax.xml.bind.annotation.XmlElement;
@@ -120,7 +119,6 @@ public class LoanRequest extends BaseObject {
      * 提交时间
      */
     @NotNull
-    @Past
     @XmlElement(name = "timeSubmit")
     private Date timeSubmit;
 
