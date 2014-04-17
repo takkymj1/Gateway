@@ -28,4 +28,10 @@ public interface CorporationConstant {
     //企业介绍最大长度 
     int MAX_CORP_DESC = 1024;
 
+    //注册地址最大长度
+    int MAX_REGI_LOC_LEN = 128;
+
+    //营业范围最大长度
+    int MAX_BUSI_SCOPE_LEN = 512;
+
 }
