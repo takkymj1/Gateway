@@ -23,6 +23,11 @@ public class CorporationUser extends BaseObject {
 
     private User user;
 
+    /**
+     * corporation对应的user不一定是企业法人,所以可以额外指定某个人用户为企业法人
+     */
+    private String legalPersonId;
+
     //企业全称
     @NotNull
     @Size(max = CorporationConstant.MAX_CORP_NAME)
