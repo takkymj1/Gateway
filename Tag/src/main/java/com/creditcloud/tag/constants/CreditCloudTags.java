@@ -20,6 +20,11 @@ public interface CreditCloudTags {
     Tag VIP_USER = new Tag(Realm.STRING, "VIP", "VIP", "贵宾客户");
 
     /**
+     * 用户账号可以关联到另一个用户账号
+     */
+    Tag USER_CONNECT_ACCOUNT = new Tag(Realm.STRING, "关联账号", "关联账号", "关联账号");
+
+    /**
      * 借款中间人
      */
     Tag LOAN_AGENT = new Tag(Realm.STRING, "借款中间人", "借款中间人", "借款中间人");

@@ -60,15 +60,27 @@ public class CorporationInfo extends BaseObject {
     private BigDecimal registeredCapital;
 
     /**
-     * 企业描述
+     * 注册地址
      */
-    @Size(max = CorporationConstant.MAX_CORP_DESC)
-    private String description;
+    @Size(max = CorporationConstant.MAX_REGI_LOC_LEN)
+    private String registeredLocation;
 
     /**
      * 成立时间
      */
     private LocalDate timeEstablished;
+
+    /**
+     * 经营范围
+     */
+    @Size(max = CorporationConstant.MAX_BUSI_SCOPE_LEN)
+    private String businessScope;
+
+    /**
+     * 企业描述
+     */
+    @Size(max = CorporationConstant.MAX_CORP_DESC)
+    private String description;
 
     public CorporationInfo(String userId,
                            String url,
@@ -77,8 +89,10 @@ public class CorporationInfo extends BaseObject {
                            String contactPhone,
                            String contactEmail,
                            BigDecimal registeredCapital,
-                           String description,
-                           LocalDate timeEstablished) {
+                           String registeredLocation,
+                           LocalDate timeEstablished,
+                           String businessScope,
+                           String description) {
         this.userId = userId;
         this.url = url;
         this.address = address;
@@ -86,7 +100,10 @@ public class CorporationInfo extends BaseObject {
         this.contactPhone = contactPhone;
         this.contactEmail = contactEmail;
         this.registeredCapital = registeredCapital;
-        this.description = description;
+        this.registeredLocation = registeredLocation;
         this.timeEstablished = timeEstablished;
+        this.businessScope = businessScope;
+        this.description = description;
     }
+
 }
