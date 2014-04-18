@@ -55,13 +55,19 @@ public class CorporationUser extends BaseObject {
     @NotNull
     private CorporationType type;
 
+    //营业执照上的公司类型
+    @Size(max = CorporationConstant.MAX_CORP_CTG_LEN)
+    private String category;
+
     public CorporationUser(User user,
                            String name,
                            String shortName,
                            String orgCode,
                            String busiCode,
                            String taxCode,
-                           CorporationType type) {
+                           CorporationType type,
+                           String category,
+                           String legalPersonId) {
         this.user = user;
         this.name = name;
         this.shortName = shortName;
@@ -69,6 +75,8 @@ public class CorporationUser extends BaseObject {
         this.busiCode = busiCode;
         this.taxCode = taxCode;
         this.type = type;
+        this.category = category;
+        this.legalPersonId = legalPersonId;
     }
 
     public String getUserId() {
