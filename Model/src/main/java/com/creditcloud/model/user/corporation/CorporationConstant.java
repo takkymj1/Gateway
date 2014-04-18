@@ -34,4 +34,7 @@ public interface CorporationConstant {
     //营业范围最大长度
     int MAX_BUSI_SCOPE_LEN = 512;
 
+    //营业执照公司类型最大長度
+    int MAX_CORP_CTG_LEN = 128;
+
 }
