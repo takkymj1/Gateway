@@ -31,7 +31,6 @@ public class Invest extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
-    @NotNull
     private String id;
 
     /**

@@ -54,7 +54,7 @@ public class UUIDTest extends BaseTest<User> {
 
         object.setId(null);
         constraintViolations = validator.validateProperty(object, "id");
-        assertEquals(1, constraintViolations.size());
+        assertEquals(0, constraintViolations.size());
 
         object.setId("9C490879+D40B-434F-B05C-D20F6990CF41");
         constraintViolations = validator.validateProperty(object, "id");

@@ -35,7 +35,6 @@ public class User extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
 
-    @NotNull
     @UUID
     protected String id;
 
