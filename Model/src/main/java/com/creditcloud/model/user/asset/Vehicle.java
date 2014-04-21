@@ -11,11 +11,15 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@AllArgsConstructor
 @XmlRootElement
 public class Vehicle extends BaseObject {
 
@@ -61,6 +65,7 @@ public class Vehicle extends BaseObject {
     @FormParam("yearOfPurchase")
     private int yearOfPurchase;
 
+    
     /**
      * 购车价格
      */
@@ -78,6 +83,24 @@ public class Vehicle extends BaseObject {
     @FormParam("description")
     private String description;
 
+    /**
+     * 车辆品牌（奥迪）
+     */
+    @FormParam("brand")
+    private String brand;
+        
+    /**
+     * 车辆性质（运营 or 非运营）
+     */
+    @FormParam("operating")
+    private boolean operating;
+    
+    /**
+     * 行驶里程(公里)
+     */
+    @FormParam("mileage")
+    private int mileage;
+    
     private Date timeCreated;
 
     private Date timeLastUpdated;
@@ -116,118 +139,6 @@ public class Vehicle extends BaseObject {
         this.timeCreated = timeCreated;
         this.timeLastUpdated = timeLastUpdated;
         this.source = source;
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public VehicleType getType() {
-        return type;
-    }
-
-    public String getVehicleLicense() {
-        return vehicleLicense;
-    }
-
-    public String getPlateNumber() {
-        return plateNumber;
-    }
-
-    public int getYearOfPurchase() {
-        return yearOfPurchase;
-    }
-
-    public int getPriceOfPurchase() {
-        return priceOfPurchase;
-    }
-
-    public int getEstimatedValue() {
-        return estimatedValue;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setType(VehicleType type) {
-        this.type = type;
-    }
-
-    public void setVehicleLicense(String vehicleLicense) {
-        this.vehicleLicense = vehicleLicense;
-    }
-
-    public void setPlateNumber(String plateNumber) {
-        this.plateNumber = plateNumber;
-    }
-
-    public void setYearOfPurchase(int yearOfPurchase) {
-        this.yearOfPurchase = yearOfPurchase;
-    }
-
-    public void setPriceOfPurchase(int priceOfPurchase) {
-        this.priceOfPurchase = priceOfPurchase;
-    }
-
-    public void setEstimatedValue(int estimatedValue) {
-        this.estimatedValue = estimatedValue;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getTimeCreated() {
-        return timeCreated;
-    }
-
-    public Date getTimeLastUpdated() {
-        return timeLastUpdated;
-    }
-
-    public void setTimeCreated(Date timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
-    public void setTimeLastUpdated(Date timeLastUpdated) {
-        this.timeLastUpdated = timeLastUpdated;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
         this.lastModifiedBy = lastModifiedBy;
     }
 }
