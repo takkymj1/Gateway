@@ -24,9 +24,9 @@ public enum Realm implements BaseEnum {
      */
     SHADOW_BORROWER("影子标显示的借款人"),
     /**
-     * 用戶账号可以关联到另一个用户的账号
+     * 企业关联法人
      */
-    CONNETED_USER("用户关联账号"),
+    LEGAL_PERSON("企业关联法人"),
     /**
      * 基本类型
      */
