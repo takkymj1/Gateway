@@ -57,7 +57,7 @@ public interface ContractService {
      * 借款合同命名为 loan title + obligator + date，合同名称不是唯一的！
      *
      * @param client     平台
-     * @param userId     当前投资人
+     * @param currentInvest     当前投资人投标
      * @param investList 所有投资人投资列表
      * @param loan       借款对象
      * @param repayments 借款人还款列表
@@ -65,7 +65,7 @@ public interface ContractService {
      * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
      */
     void generateLoanContract(Client client,
-                              String userId,
+                              Invest currentInvest,
                               List<Invest> investList,
                               Loan loan,
                               List<LoanRepayment> repayments,
