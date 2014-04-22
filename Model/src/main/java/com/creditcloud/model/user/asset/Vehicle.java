@@ -96,10 +96,22 @@ public class Vehicle extends BaseObject {
     private boolean operating;
     
     /**
-     * 行驶里程(万公里)
+     * 行驶里程(公里)
      */
     @FormParam("mileage")
     private int mileage;
+    
+    /**
+     * 颜色
+     */
+    @FormParam("color")
+    private String color;
+    
+    /**
+     * 汽车保养类型
+     */
+    @FormParam("maintenanceType")
+    private String maintenanceType;
     
     private Date timeCreated;
 

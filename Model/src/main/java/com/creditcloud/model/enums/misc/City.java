@@ -496,12 +496,7 @@ public enum City implements BaseEnum {
             keyMap.put(city.getKey(), city);
         }
     }
-
-    public static void main(String[] args) {
-        System.out.print(districtMap);
-        System.out.print(listByProvince(Province.云南));
-    }
-
+    
     private City(String key, Province province) {
         this.key = key;
         this.province = province;
@@ -534,5 +529,11 @@ public enum City implements BaseEnum {
      */
     public static City byKey(String key) {
         return keyMap.get(key);
+    }
+    
+    public static void main(String[] args) {
+        String encoding = System.getProperty("file.encoding");
+        String rate = (float)1440 / (float)100 + "%";
+        System.out.println(rate);
     }
 }
