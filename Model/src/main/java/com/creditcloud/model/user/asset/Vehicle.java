@@ -96,7 +96,7 @@ public class Vehicle extends BaseObject {
     private boolean operating;
     
     /**
-     * 行驶里程(公里)
+     * 行驶里程(万公里)
      */
     @FormParam("mileage")
     private int mileage;
