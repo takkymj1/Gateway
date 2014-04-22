@@ -14,6 +14,7 @@ import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -45,7 +46,8 @@ public interface ContractService {
                               Loan loan,
                               List<Repayment> repayments,
                               FeeConfig feeConfig,
-                              String templateId);
+                              String templateId,
+                              Map<String, Object> values);
 
     /**
      * 生成一份普通的平台借款合同(里面会有一份多投资人列表).
