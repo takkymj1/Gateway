@@ -88,7 +88,7 @@ public interface LoanConstant {
     /**
      * 贷款描述最大长度
      */
-    int MAX_LOAN_DESCRIPTION = 1000;
+    int MAX_LOAN_DESCRIPTION = 4000;
 
     /**
      * 抵质押信息最大长度
