@@ -64,4 +64,11 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableEnterpriseUser = false;
 
+    /**
+     * 支持自动投标
+     */
+    @XmlElement
+    @Getter
+    private boolean enableAutoBid = false;
+
 }
