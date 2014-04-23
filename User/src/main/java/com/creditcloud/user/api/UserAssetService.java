@@ -33,8 +33,6 @@ public interface UserAssetService {
      *
      * @param clientCode
      * @param estate
-     * @param addedBy
-     * @param source
      * @param proof
      * @return
      */
@@ -44,8 +42,6 @@ public interface UserAssetService {
      *
      * @param clientCode
      * @param estate
-     * @param modifiedBy
-     * @param source
      * @return
      */
     public boolean updateRealEstate(String clientCode, RealEstate estate);
@@ -96,6 +92,7 @@ public interface UserAssetService {
      *
      * @param clientCode
      * @param vehicle
+     * @param proof
      * @return
      */
     public Vehicle addVehicle(String clientCode, Vehicle vehicle, Proof... proof);
