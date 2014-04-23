@@ -120,14 +120,6 @@ public class EnumsTest {
     }
 
     @Test
-    public void testLoanRequestPurpose() {
-        String key = "购车借款";
-        LoanPurpose expResult = LoanPurpose.CAR;
-        LoanPurpose result = Enums.getEnumByKey(LoanPurpose.class, key);
-        assertEquals(expResult, result);
-    }
-
-    @Test
     public void testLoanRequestMethod() {
         String key = "按月付息到期还本";
         RepaymentMethod expResult = RepaymentMethod.MonthlyInterest;
