@@ -114,6 +114,12 @@ public class PaymentConfig extends BaseConfig {
     private SubAccount guaranteeAccount;
 
     /**
+     * 除了上面三种基本子账户外的其他子账户
+     */
+    @XmlElement(name = "subAccounts", required = false)
+    private SubAccounts subAccounts;
+
+    /**
      * 用户三方支付开户时所使用的账户名、手机、身份证信息后几位<p>
      * 只用于测试环境,用于替换之前账号<p>
      * 例如手机号13810002000被替换为13810002011

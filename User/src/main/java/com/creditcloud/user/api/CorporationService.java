@@ -10,6 +10,7 @@ import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.corporation.CorporationUser;
 import com.creditcloud.model.user.corporation.CorporationInfo;
 import com.creditcloud.model.user.corporation.CorporationType;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -116,4 +117,12 @@ public interface CorporationService {
      * @return
      */
     PagedResult<CorporationUser> list(String clientCode, CriteriaInfo info);
+
+    /**
+     * 列出所有企业用户
+     *
+     * @param clientCode
+     * @return
+     */
+    List<CorporationUser> listAll(String clientCode);
 }

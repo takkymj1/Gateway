@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
 /**
@@ -296,6 +297,28 @@ public interface FundRecordService {
                             String orderId);
 
     /**
+     * 结标成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * TODO 逐步取代上面的方法
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param investAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     */
+    void settleInvestRecord2(String clientCode,
+                             String investUserId,
+                             String investId,
+                             BigDecimal investAmount,
+                             String loanUserId,
+                             String loanId,
+                             Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                             String orderId);
+
+    /**
      * 还款成功生成对应的record
      *
      * @param clientCode
@@ -319,6 +342,30 @@ public interface FundRecordService {
                            int period);
 
     /**
+     * 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * TODO 逐步取代上面的方法
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     * @param period
+     */
+    void repayInvestRecord2(String clientCode,
+                            String investUserId,
+                            String investId,
+                            BigDecimal repayAmount,
+                            String loanUserId,
+                            String loanId,
+                            Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                            String orderId,
+                            int period);
+
+    /**
      * 垫付成功生成对应的record
      *
      * @param clientCode
@@ -336,6 +383,28 @@ public interface FundRecordService {
                               BigDecimal repayAmount,
                               String loanId,
                               BigDecimal investFee,
+                              String orderId,
+                              int period);
+
+    /**
+     * 垫付成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * TODO 逐步取代上面的方法
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanId
+     * @param investAmount
+     * @param orderId
+     * @param period
+     */
+    void disburseInvestRecord(String clientCode,
+                              String investUserId,
+                              String investId,
+                              ImmutablePair<String, BigDecimal> repayAmount,
+                              String loanId,
+                              ImmutablePair<String, BigDecimal> investAmount,
                               String orderId,
                               int period);
 
