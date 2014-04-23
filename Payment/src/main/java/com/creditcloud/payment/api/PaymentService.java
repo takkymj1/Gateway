@@ -110,7 +110,7 @@ public interface PaymentService {
                                     String merPriv);
 
     /**
-     * 自动投标，汇付2.0接口
+     * 自动投标，TODO 2.0接口暂时没用上
      *
      * @param clientCode
      * @param userId
@@ -145,9 +145,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param orderId 此次操作的唯一订单号
+     * @param orderId    此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl 后台返回的回调路径
+     * @param BgRetUrl   后台返回的回调路径
      * @param merPriv
      * @return 如果找不到userId对应的支付账号返回null
      */
@@ -196,9 +196,9 @@ public interface PaymentService {
      * @param clientCode
      * @param userId
      * @param amount
-     * @param orderId 此次操作的唯一订单号
-     * @param auditFlag 复核标识
-     * @param BgRetUr 后台返回的回调路径
+     * @param orderId    此次操作的唯一订单号
+     * @param auditFlag  复核标识
+     * @param BgRetUr    后台返回的回调路径
      * @return
      */
     public CashAuditResult cashAudit(String clientCode,
@@ -228,15 +228,15 @@ public interface PaymentService {
      * 放款
      *
      * @param clientCode
-     * @param ordId 此次操作订单号
+     * @param ordId        此次操作订单号
      * @param investUserId 投资人id
-     * @param amount 投资金额
-     * @param fee 商户扣账手续费
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单号日期?
-     * @param loanUserId 贷款人Id
-     * @param details 分账账户串
-     * @param isDefault 是否需要在放款后发起自动取现
+     * @param amount       投资金额
+     * @param fee          商户扣账手续费
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单号日期?
+     * @param loanUserId   贷款人Id
+     * @param details      分账账户串
+     * @param isDefault    是否需要在放款后发起自动取现
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -255,7 +255,7 @@ public interface PaymentService {
                               String merPriv);
 
     /**
-     * 对应汇付2.0接口
+     * TODO 2.0接口暂时没用上
      *
      * @param clientCode
      * @param ordId
@@ -296,14 +296,14 @@ public interface PaymentService {
      * 还款
      *
      * @param clientCode
-     * @param ordId 本操作订单号
-     * @param loanUserId 借款人id
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单日期
-     * @param transAmt 还款金额
-     * @param fee 手续费
+     * @param ordId        本操作订单号
+     * @param loanUserId   借款人id
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单日期
+     * @param transAmt     还款金额
+     * @param fee          手续费
      * @param investUserId 投资人id
-     * @param details 分账信息
+     * @param details      分账信息
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -321,6 +321,7 @@ public interface PaymentService {
                                String merPriv);
 
     /**
+     * TODO 2.0接口暂时没用上
      *
      * @param clientCode
      * @param ordId
@@ -353,10 +354,10 @@ public interface PaymentService {
      * 垫付
      *
      * @param clientCode
-     * @param ordId 本操作订单号
-     * @param subOrdId 投标订单号
-     * @param subOrDate 投标订单日期
-     * @param transAmt 还款金额
+     * @param ordId        本操作订单号
+     * @param subOrdId     投标订单号
+     * @param subOrDate    投标订单日期
+     * @param transAmt     还款金额
      * @param fee
      * @param investUserId 投资人id
      * @param details
@@ -374,6 +375,35 @@ public interface PaymentService {
                                   List<DivDetail> details,
                                   String BgRetUrl,
                                   String merPriv);
+
+    /**
+     * 垫付，可以指定商户的垫付金子账户<p>
+     * TODO 逐步取代上面的方法
+     *
+     * @param clientCode
+     * @param ordId        本操作订单号
+     * @param subOrdId     投标订单号
+     * @param subOrDate    投标订单日期
+     * @param transAmt     还款金额
+     * @param outAcctId    商户出账账户
+     * @param fee
+     * @param investUserId 投资人id
+     * @param details
+     * @param BgRetUrl
+     * @param merPriv
+     * @return
+     */
+    public PaymentResult disburse2(String clientCode,
+                                   String ordId,
+                                   String subOrdId,
+                                   LocalDate subOrDate,
+                                   BigDecimal transAmt,
+                                   String outAcctId,
+                                   BigDecimal fee,
+                                   String investUserId,
+                                   List<DivDetail> details,
+                                   String BgRetUrl,
+                                   String merPriv);
 
     /**
      * 自动扣款转账(商户用)
@@ -502,7 +532,7 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      *
      * @param clientCode
-     * @param response 返回数据
+     * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);
@@ -530,13 +560,13 @@ public interface PaymentService {
      * 后台绑卡
      *
      * @param clientCode
-     * @param userId 用户Id
+     * @param userId         用户Id
      * @param openAcctId
      * @param openBankId
      * @param openProvId
      * @param openAreaId
      * @param OpenBranchName
-     * @param isDefault 是否默认银行卡
+     * @param isDefault      是否默认银行卡
      * @return
      */
     public PaymentResult bgBindCard(String clientCode,
@@ -553,12 +583,12 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param usrName 真实姓名
-     * @param loginPwd 登陆密码
-     * @param transPwd 交易密码
-     * @param idNo 身份证
-     * @param usrMp 手机号
-     * @param usrEmail 邮箱名
+     * @param usrName    真实姓名
+     * @param loginPwd   登陆密码
+     * @param transPwd   交易密码
+     * @param idNo       身份证
+     * @param usrMp      手机号
+     * @param usrEmail   邮箱名
      * @return 返回null如果创建失败
      */
     public PaymentAccount bgRegister(String clientCode,
@@ -598,7 +628,7 @@ public interface PaymentService {
      * @param amount
      * @param orderId
      * @param BgRetUrl
-     * @param forUser true for merCash for user, false for client
+     * @param forUser    true for merCash for user, false for client
      * @return
      */
     public MerCashResult merCash(String clientCode,
@@ -647,23 +677,22 @@ public interface PaymentService {
      */
     public CorpRegisterResult queryCorpRegister(String clientCode,
                                                 String busiCode);
-    
-    
+
     /**
      * 查询生利宝产品信息
-     * 
+     *
      * @param clientCode
-     * @return 
+     * @return
      */
     public FssProductInfo queryFssProduct(String clientCode);
-    
+
     /**
      * 查询生利宝账户信息
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public FssAccount queryFssAccount(String clientCode, String userId);
-        
+
 }
