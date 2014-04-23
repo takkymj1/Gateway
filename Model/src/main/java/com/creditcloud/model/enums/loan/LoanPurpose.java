@@ -15,8 +15,8 @@ public enum LoanPurpose implements BaseEnum {
     SHORTTERM("短期周转"),
     PERSONAL("个人消费"),
     INVESTMENT("投资创业"),
-    CAR("购车借款"),
-    HOUSE("购房借款"),
+    CAR("车辆融资"),
+    HOUSE("房产融资"),
     CORPORATION("企业融资"),
     OTHER("其它借款");
 

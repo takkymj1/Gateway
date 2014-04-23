@@ -39,9 +39,6 @@ public final class ClientConfig extends BaseConfig {
 
     @XmlElement(required = false)
     private Features features;
-    
-    @XmlElement(required = false)
-    private boolean bgIDVerify;
 
     public String getCode() {
         return code;
@@ -65,10 +62,6 @@ public final class ClientConfig extends BaseConfig {
 
     public String getWsURL() {
         return wsURL;
-    }
-    
-    public boolean isBgIDVerify(){
-        return bgIDVerify;
     }
 
     /**
