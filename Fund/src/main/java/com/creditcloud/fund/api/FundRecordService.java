@@ -399,14 +399,14 @@ public interface FundRecordService {
      * @param orderId
      * @param period
      */
-    void disburseInvestRecord(String clientCode,
-                              String investUserId,
-                              String investId,
-                              ImmutablePair<String, BigDecimal> repayAmount,
-                              String loanId,
-                              ImmutablePair<String, BigDecimal> investAmount,
-                              String orderId,
-                              int period);
+    void disburseInvestRecord2(String clientCode,
+                               String investUserId,
+                               String investId,
+                               ImmutablePair<String, BigDecimal> repayAmount,
+                               String loanId,
+                               ImmutablePair<String, BigDecimal> investAmount,
+                               String orderId,
+                               int period);
 
     /**
      * 商户子账户之间转账
