@@ -101,18 +101,6 @@ public class Vehicle extends BaseObject {
     @FormParam("mileage")
     private int mileage;
     
-    /**
-     * 颜色
-     */
-    @FormParam("color")
-    private String color;
-    
-    /**
-     * 汽车保养类型
-     */
-    @FormParam("maintenanceType")
-    private String maintenanceType;
-    
     private Date timeCreated;
 
     private Date timeLastUpdated;
