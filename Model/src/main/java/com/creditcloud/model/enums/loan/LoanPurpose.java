@@ -17,6 +17,7 @@ public enum LoanPurpose implements BaseEnum {
     INVESTMENT("投资创业"),
     CAR("购车借款"),
     HOUSE("购房借款"),
+    CORPORATION("企业融资"),
     OTHER("其它借款");
 
     private final String key;
