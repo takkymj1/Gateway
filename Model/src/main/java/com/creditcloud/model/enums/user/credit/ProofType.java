@@ -36,7 +36,7 @@ public enum ProofType implements BaseEnum {
     CAREER_TAX_REGISTRATION("税务登记证", CertificateType.CAREER),
     CAREER_ORGANIZATION_REGISTRATION("组织机构代码证", CertificateType.CAREER),
     CAREER_SANITARY_LICENCE("卫生许可证", CertificateType.CAREER),
-    CAREER_BUSINESS_CONTRACT("经营相关合同", CertificateType.CAREER),
+    CAREER_BUSINESS_CONTRACT("经营相关合同及合作协议", CertificateType.CAREER),
     CAREER_BUSINESS_CERTIFICATE("经营相关许可证", CertificateType.CAREER),
     CAREER_BUSINESS_PLACE("经营或施工场所", CertificateType.CAREER),
     CAREER_OTHER("其他工作相关证明", CertificateType.CAREER),
