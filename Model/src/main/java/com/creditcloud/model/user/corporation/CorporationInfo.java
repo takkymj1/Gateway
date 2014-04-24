@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
@@ -22,63 +23,74 @@ import org.joda.time.LocalDate;
 public class CorporationInfo extends BaseObject {
 
     private static final long serialVersionUID = 20140217L;
-
+    
+    @FormParam("userId")
     private String userId;
 
     //企业url
+    @FormParam("url")
     @Size(max = CorporationConstant.MAX_CORP_URL)
     private String url;
 
     /**
      * 企业地址
      */
+    @FormParam("address")
     @Size(max = 128)
     private String address;
 
     /**
      * 联系人姓名
      */
+    @FormParam("contactPersion")
     @Size(max = 10)
     private String contactPersion;
 
     /**
      * 联系电话,手机或者座机
      */
+    @FormParam("contactPhone")
     @Size(max = 20)
     private String contactPhone;
 
     /**
      * 联系邮箱
      */
+    @FormParam("contactEmail")
     @Size(max = 32)
     private String contactEmail;
 
     /**
      * 注册资本
      */
+    @FormParam("registeredCapital")
     @Min(0)
     private BigDecimal registeredCapital;
 
     /**
      * 注册地址
      */
+    @FormParam("registeredLocation")
     @Size(max = CorporationConstant.MAX_REGI_LOC_LEN)
     private String registeredLocation;
 
     /**
      * 成立时间
      */
+    @FormParam("timeEstablished")
     private LocalDate timeEstablished;
 
     /**
      * 经营范围
      */
+    @FormParam("businessScope")
     @Size(max = CorporationConstant.MAX_BUSI_SCOPE_LEN)
     private String businessScope;
 
     /**
      * 企业描述
      */
+    @FormParam("description")
     @Size(max = CorporationConstant.MAX_CORP_DESC)
     private String description;
 
