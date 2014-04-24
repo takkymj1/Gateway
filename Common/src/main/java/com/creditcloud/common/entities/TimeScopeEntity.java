@@ -42,10 +42,6 @@ public abstract class TimeScopeEntity extends UUIDEntity {
         return timeLastUpdated;
     }
 
-    public void setTimeCreated(Date timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
     public void setTimeLastUpdated(Date timeLastUpdated) {
         this.timeLastUpdated = timeLastUpdated;
     }

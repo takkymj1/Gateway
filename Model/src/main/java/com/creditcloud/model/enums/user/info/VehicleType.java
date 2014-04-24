@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum VehicleType implements BaseEnum {
 
-    CAR("轿车"),
+    PASSENGER_CAR("轿车"),
     SPORT_CAR("跑车"),
     SUV("SUV越野"),
     BUS("客车"),

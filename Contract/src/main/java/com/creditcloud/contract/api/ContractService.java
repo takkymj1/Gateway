@@ -63,6 +63,7 @@ public interface ContractService {
      * @param repayments 还款列表
      * @param feeConfig  费用配置
      * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     * @param values
      */
     void generateLoanContract(Client client,
                               Invest invest,
