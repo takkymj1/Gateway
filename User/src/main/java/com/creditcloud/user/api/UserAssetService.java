@@ -99,6 +99,16 @@ public interface UserAssetService {
     public Vehicle getVehicleById(String clientCode, String vehicleId);
 
     /**
+     * 根据user和车牌号获取vehicle
+     *
+     * @param clientCode
+     * @userId
+     * @param plateNumber
+     * @return
+     */
+    public Vehicle getVehicleByUserAndPlateNumber(String clientCode, String userId, String plateNumber);
+
+    /**
      *
      * @param clientCode
      * @param vehicle

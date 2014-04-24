@@ -40,6 +40,7 @@ public class Vehicle extends BaseObject {
     /**
      * 车辆基本型号信息:奥迪A8L
      */
+    @NotNull
     @FormParam("model")
     private String model;
 
@@ -50,30 +51,35 @@ public class Vehicle extends BaseObject {
     /**
      * 机动车行驶证
      */
+    @NotNull
     @FormParam("vehicleLicense")
     private String vehicleLicense;
 
     /*
      * 车牌号
      */
+    @NotNull
     @FormParam("plateNumber")
     private String plateNumber;
 
     /**
      * 购车年月份，2014表示年，如果精确到月格式为201404
      */
+    @NotNull
     @FormParam("yearOfPurchase")
     private int yearOfPurchase;
 
     /**
      * 购车价格
      */
+    @NotNull
     @FormParam("priceOfPurchase")
     private int priceOfPurchase;
 
     /**
      * 现估值
      */
+    @NotNull
     @FormParam("estimatedValue")
     private int estimatedValue;
 
@@ -83,6 +89,7 @@ public class Vehicle extends BaseObject {
     /**
      * 车辆品牌（奥迪）
      */
+    @NotNull
     @FormParam("brand")
     private String brand;
 
