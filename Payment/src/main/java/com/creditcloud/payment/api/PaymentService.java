@@ -35,6 +35,8 @@ import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult2;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationResult;
+import com.creditcloud.payment.model.chinapnr.reconciliation.FssPurchaseReconciliationResult;
+import com.creditcloud.payment.model.chinapnr.reconciliation.FssRedeemReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
@@ -499,6 +501,30 @@ public interface PaymentService {
      * @return
      */
     public CreditAssignReconciliationResult creditAssignReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
+
+    /**
+     * 生利宝转入对账
+     *
+     * @param clientCode
+     * @param beginDate
+     * @param endDate
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public FssPurchaseReconciliationResult fssPurchaseReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
+
+    /**
+     * 生利宝转出对账
+     *
+     * @param clientCode
+     * @param beginDate
+     * @param endDate
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    public FssRedeemReconciliationResult fssRedeemReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
 
     /**
      * 查询交易状态
