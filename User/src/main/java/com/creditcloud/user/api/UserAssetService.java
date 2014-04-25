@@ -4,6 +4,7 @@
  */
 package com.creditcloud.user.api;
 
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.asset.RealEstate;
 import com.creditcloud.model.user.asset.RealEstateRecord;
 import com.creditcloud.model.user.asset.Vehicle;
@@ -81,12 +82,31 @@ public interface UserAssetService {
     public List<RealEstateRecord> listRecordByRealEstate(String clientCode, String estateId);
 
     /**
+     * 根据关联的实体(如贷款申请)列出vehicle
+     *
+     * @param clientCode
+     * @param owner
+     * @return
+     */
+    public List<Vehicle> listVehicleByOwner(String clientCode, RealmEntity owner);
+
+    /**
      *
      * @param clientCode
      * @param vehicleId
      * @return
      */
     public Vehicle getVehicleById(String clientCode, String vehicleId);
+
+    /**
+     * 根据user和车牌号获取vehicle
+     *
+     * @param clientCode
+     * @userId
+     * @param plateNumber
+     * @return
+     */
+    public Vehicle getVehicleByUserAndPlateNumber(String clientCode, String userId, String plateNumber);
 
     /**
      *
