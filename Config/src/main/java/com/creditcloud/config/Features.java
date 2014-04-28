@@ -73,7 +73,6 @@ public class Features extends BaseObject {
 
     /**
      * 提前还款功能，默认提前还款和当期还款处理方式一致<p>
-     * 对于某些特殊的提前还款方式才需要打开
      */
     @XmlElement
     @Getter
