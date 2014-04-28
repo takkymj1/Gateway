@@ -23,9 +23,9 @@ public enum Category implements BaseEnum {
     NEWS("行业新闻", false),
     RECRUITER("工作机会", true),
     LINK("友情链接", true),
-    CONTACT("联系方式", true ),
+    CONTACT("联系方式", true),
     DECLARATION("服务声明", true),
-    PUBLICATION("最新公告",false);
+    PUBLICATION("最新公告", false);
 
     private final String key;
 
@@ -43,6 +43,29 @@ public enum Category implements BaseEnum {
 
     public boolean getSingle() {
         return single;
+    }
+
+    /**
+     * 根据枚举Name值获取一个新的分类
+     *
+     * @param name
+     * @return
+     */
+    public static Category adapte(String name) {
+        //默认没有匹配的，则默认成为行业新闻
+        Category result = Category.NEWS;
+        Category[] categorys = Category.values();
+        for (Category category : categorys) {
+            if (category.name().equals(name)) {
+                result = category;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Category category = Category.COOPERATION;
+        System.out.println(category.ordinal());
     }
 
 }

@@ -76,7 +76,7 @@ public enum Privilege implements BaseEnum {
     LOAN_REPAY("还款", Realm.LOAN, "借款相关权限"),
     LOAN_DISBURSE("垫付", Realm.LOAN, "借款相关权限"),
     LOAN_DOWNLOAD("借款下载", Realm.LOAN, "借款相关权限"),
-    LOAN_CANCEL("取消借款标", Realm.LOAN, "借款相关权限"),  //在后台取消前台正在OPEN或者SCHEDULED状态的loan
+    LOAN_CANCEL("取消借款标", Realm.LOAN, "借款相关权限"), //在后台取消前台正在OPEN或者SCHEDULED状态的loan
     /**
      * 任务相关权限
      */
@@ -90,7 +90,7 @@ public enum Privilege implements BaseEnum {
     FUND_RECONCILIATION("商户对账", Realm.FUND, "资金相关权限"),
     CLIENT_CASH_AUDIT("商户提现审批", Realm.FUND, "资金相关权限"),
     USER_CASH_AUDIT("用户提现审批", Realm.FUND, "资金相关权限"),
-    USER_CASH_REQUEST("用户提现申请", Realm.FUND, "资金相关权限"),  //代用户提交取现申请，与用户快速提现有区别，需要进一步审核
+    USER_CASH_REQUEST("用户提现申请", Realm.FUND, "资金相关权限"), //代用户提交取现申请，与用户快速提现有区别，需要进一步审核
     FUND_DEPOSIT("商户充值", Realm.FUND, "资金相关权限"),
     FUND_WITHDRAW("商户提现", Realm.FUND, "资金相关权限"),
     FUND_WITHDRAW_DOWNLOAD("提现记录下载", Realm.FUND, "资金相关权限"),
@@ -112,6 +112,22 @@ public enum Privilege implements BaseEnum {
     BRANCH_DETAIL("机构详情", Realm.BRANCH, "机构相关权限"),
     BRANCH_ALTER("更改添加机构", Realm.BRANCH, "机构相关权限"),
     BRANCH_DELETE("删除机构", Realm.BRANCH, "机构相关权限"),
+    /**
+     * **
+     * 栏目相关权限
+     */
+    CHANNEL_LIST("列出栏目", Realm.CHANNEL, "栏目相关权限"),
+    CHANNEL_ALTER("更改栏目", Realm.CHANNEL, "栏目相关权限"),
+    CHANNEL_DELETE("删除栏目", Realm.CHANNEL, "栏目相关权限"),
+    CHANNEL_ADD("增加栏目", Realm.CHANNEL, "栏目相关权限"),
+    /**
+     * 文章相关权限
+     */
+    ARTICLE_LIST("列出文章", Realm.ARTICLE, "文章相关权限"),
+    ARTICLE_ALTER("修改文章", Realm.ARTICLE, "文章相关权限"),
+    ARTICLE_DELETE("删除文章", Realm.ARTICLE, "文章相关权限"),
+    ARTICLE_ADD("新增文章", Realm.ARTICLE, "文章相关权限"),
+    ARTICLE_DETAIL("文章详情", Realm.ARTICLE, "文章相关权限"),
     /**
      * 认购相关权限
      */

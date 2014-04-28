@@ -121,6 +121,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.cmsservice</groupId>
+            <artifactId>CMSService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -221,6 +227,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.appoint</groupId>
                             <artifactId>AppointService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.cmsservice</groupId>
+                            <artifactId>CMSService</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>

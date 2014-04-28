@@ -55,6 +55,12 @@ public enum Realm implements BaseEnum {
     FUND("资金"),
     WITHDRAW("取现"),
     /**
+     * **
+     * CMS管理
+     */
+    CHANNEL("CMS栏目"),
+    ARTICLE("CMS文章"),
+    /**
      * 其他
      */
     CONTRACT("合同"),
