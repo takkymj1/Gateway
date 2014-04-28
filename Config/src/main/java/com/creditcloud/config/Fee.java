@@ -15,12 +15,14 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -59,6 +61,11 @@ public class Fee extends BaseObject {
      */
     private FeeScope scope;
 
+    /**
+     * 此费用的详细描述
+     */
+    private String description;
+
     public Fee(FeeType type, BigDecimal fixed, BigDecimal rate, FeePeriod period, FeeScope scope) {
         this.type = type;
         this.fixed = fixed;
@@ -67,23 +74,33 @@ public class Fee extends BaseObject {
         this.scope = scope;
     }
 
-    public FeeType getType() {
-        return type;
+    /**
+     * 考虑费用收取类型后的实际费率
+     *
+     * @return
+     */
+    public BigDecimal getActualRate() {
+        switch (type) {
+            case NONE:
+            case FIXED:
+                return BigDecimal.ZERO;
+            default:
+                return rate;
+        }
     }
 
-    public BigDecimal getFixed() {
-        return fixed;
-    }
-
-    public BigDecimal getRate() {
-        return rate;
-    }
-
-    public FeePeriod getPeriod() {
-        return period;
-    }
-
-    public FeeScope getScope() {
-        return scope;
+    /**
+     * 考虑费用收取类型后的实际固定费用
+     *
+     * @return
+     */
+    public BigDecimal getActualFixed() {
+        switch (type) {
+            case NONE:
+            case FLOATING:
+                return BigDecimal.ZERO;
+            default:
+                return fixed;
+        }
     }
 }

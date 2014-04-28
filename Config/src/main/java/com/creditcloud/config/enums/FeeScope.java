@@ -22,5 +22,10 @@ public enum FeeScope {
     /*
      * 对本息收费
      */
-    BOTH;
+    BOTH,
+    /**
+     * 对剩余本金收费
+     */
+    OUTSTANDING;
+
 }
