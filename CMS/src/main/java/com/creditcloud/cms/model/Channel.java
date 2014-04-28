@@ -6,14 +6,17 @@
 package com.creditcloud.cms.model;
 
 import com.creditcloud.cms.constant.Category;
+import com.creditcloud.model.BaseObject;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author sobranie
  */
 @Data
-public class Channel {
+@NoArgsConstructor
+public class Channel extends BaseObject {
 
     String id;
 

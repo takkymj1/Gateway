@@ -6,6 +6,7 @@
 package com.creditcloud.cms.model;
 
 import com.creditcloud.cms.constant.Category;
+import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class Article {
+public class Article extends BaseObject {
 
     /**
      * 新闻主键
@@ -77,20 +78,20 @@ public class Article {
      * 新闻作者
      */
     private String author;
-    
-    public Article(String id, String title, String content, Category category, boolean hasImage, boolean priority, String newsId, String url, String pubdate, String media, String author ){
-        this.id=id;
-        this.title=title;
-        this.content=content;
-        this.category=category;
-        this.hasImage=hasImage;
-        this.priority =priority;
-        this.newsId=newsId;
-        this.url=url;
-        this.pubdate=pubdate;
-        this.media=media;
-        this.author=author;
-        
+
+    public Article(String id, String title, String content, Category category, boolean hasImage, boolean priority, String newsId, String url, String pubdate, String media, String author) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.hasImage = hasImage;
+        this.priority = priority;
+        this.newsId = newsId;
+        this.url = url;
+        this.pubdate = pubdate;
+        this.media = media;
+        this.author = author;
+
     }
 
 }
