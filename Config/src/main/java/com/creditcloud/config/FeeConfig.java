@@ -4,7 +4,6 @@
  */
 package com.creditcloud.config;
 
-import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -29,10 +28,16 @@ public class FeeConfig extends BaseConfig {
     public static final String CONFIG_NAME = "FeeConfig";
 
     /**
-     * 贷款担保/风险金费率,按贷款金额比率收取，跟借款人收取，进入商户/企业担保费账户
+     * 贷款担保费/保证金,按贷款金额比率收取，跟借款人收取，进入商户/企业担保费账户
      */
     @XmlElement(required = true)
     private Fee loanGuaranteeFee;
+
+    /**
+     * 贷款风险管理费/风险金/备用金,按贷款金额比率收取，跟借款人收取，进入商户风险金账户
+     */
+    @XmlElement(required = false)
+    private Fee loanRiskFee;
 
     /**
      * 贷款服务费率，按照贷款金额比率收取，跟借款人收取（乙方管理费）

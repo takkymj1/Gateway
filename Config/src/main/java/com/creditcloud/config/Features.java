@@ -71,4 +71,11 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableAutoBid = false;
 
+    /**
+     * 提前还款功能，默认提前还款和当期还款处理方式一致<p>
+     */
+    @XmlElement
+    @Getter
+    private boolean enableAdvanceRepay = false;
+
 }

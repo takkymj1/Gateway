@@ -6,7 +6,6 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 
-
 import java.math.BigDecimal;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -38,6 +37,14 @@ public class LoanFee extends BaseObject {
     @Max(1)
     @FormParam("loanGuaranteeFee")
     private BigDecimal loanGuaranteeFee;
+
+    /**
+     * 风险管理费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
+     */
+    @Min(0)
+    @Max(1)
+    @FormParam("loanRiskFee")
+    private BigDecimal loanRiskFee;
 
     /**
      * 服务费率,为null表示使用配置文件，否则覆盖配置文件中默认费率
@@ -73,6 +80,7 @@ public class LoanFee extends BaseObject {
 
     public LoanFee(String requestId,
                    BigDecimal loanGuaranteeFee,
+                   BigDecimal loanRiskFee,
                    BigDecimal loanServiceFee,
                    BigDecimal loanManageFee,
                    BigDecimal loanInterestFee,
