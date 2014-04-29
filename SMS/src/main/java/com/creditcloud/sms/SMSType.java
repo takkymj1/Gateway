@@ -53,7 +53,11 @@ public enum SMSType {
     /**
      * Loan状态变化时发送给用户信息
      */
-    NOTIFICATION_LOAN_STATUS("notification.loan.status");
+    NOTIFICATION_LOAN_STATUS("notification.loan.status"),
+    /**
+    * 用户提交取现申请，参数为 client.shortName, user.name, amount, supportPhone
+    */
+    NOTIFICATION_WITHDRAW_APPLY("notification.withdraw.apply");
 
     private final String key;
 
