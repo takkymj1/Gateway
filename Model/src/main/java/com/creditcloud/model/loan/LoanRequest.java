@@ -50,7 +50,8 @@ public class LoanRequest extends BaseObject {
     private User user;
     
     /**
-     * 企业用户
+     * 企业负责人: 用于借款申请（默认为null）
+     * corporation.id = user.id
      */
     @XmlElement(name = "corporation")
     private CorporationUser corporation;
