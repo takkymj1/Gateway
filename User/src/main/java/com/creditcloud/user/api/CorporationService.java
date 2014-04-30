@@ -134,4 +134,13 @@ public interface CorporationService {
      * @return
      */
     List<String> listLegalPerson(String clientCode);
+
+    /**
+     * 查看是否是法人
+     *
+     * @param clientCode
+     * @param legalPersonId
+     * @return
+     */
+    boolean checkLegalPerson(String clientCode, String legalPersonId);
 }
