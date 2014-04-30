@@ -32,7 +32,7 @@ import javax.validation.Validator;
 
 /**
  * 抽象的DAO类
- * 
+ *
  * @author sobranie
  */
 public abstract class AbstractDAO<T> {
@@ -192,13 +192,13 @@ public abstract class AbstractDAO<T> {
                         break;
                 }
             }
-            if (andCriteria.size() > 0) {
-                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
-                orCriteria.add(and);
-            }
             if (orCriteria.size() > 0) {
                 Predicate or = cb.or(orCriteria.toArray(new Predicate[orCriteria.size()]));
-                cq.where(or);
+                andCriteria.add(or);
+            }
+            if (andCriteria.size() > 0) {
+                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
+                cq.where(and);
             }
         }
 
@@ -226,7 +226,7 @@ public abstract class AbstractDAO<T> {
 
         int totalSize;
         if (paramInfo != null
-            && paramInfo.getParamItems().size() > 0) {
+                && paramInfo.getParamItems().size() > 0) {
             totalSize = count(paramInfo);
         } else {
             totalSize = count();
@@ -272,13 +272,13 @@ public abstract class AbstractDAO<T> {
                         break;
                 }
             }
-            if (andCriteria.size() > 0) {
-                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
-                orCriteria.add(and);
-            }
             if (orCriteria.size() > 0) {
                 Predicate or = cb.or(orCriteria.toArray(new Predicate[orCriteria.size()]));
-                cq.where(or);
+                andCriteria.add(or);
+            }
+            if (andCriteria.size() > 0) {
+                Predicate and = cb.and(andCriteria.toArray(new Predicate[andCriteria.size()]));
+                cq.where(and);
             }
         }
 
