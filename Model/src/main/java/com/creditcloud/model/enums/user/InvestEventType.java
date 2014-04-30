@@ -7,7 +7,7 @@ package com.creditcloud.model.enums.user;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 将在用户账户主页上显示的用户投资事件种类
+ * 将在用户账户主页上显示的用户投资借款类事件种类
  *
  * @author rooseek
  */
@@ -15,6 +15,8 @@ public enum InvestEventType implements BaseEnum {
 
     INVEST("投资"),
     INVEST_REPAY("投资回款"),
+    LOAN("融资"),
+    LOAN_REPAY("融资还款"),
     DEPOSIT("充值"),
     WITHDRAW("提现");
 

@@ -128,6 +128,15 @@ public interface CorporationService {
     List<CorporationUser> listAll(String clientCode);
 
     /**
+     * 列出法人下面所有的企业
+     *
+     * @param clientCode
+     * @param legalPersonId
+     * @return
+     */
+    List<CorporationUser> listByLegalPerson(String clientCode, String legalPersonId);
+
+    /**
      * 列出所有企业用户的法人,剔除重复
      *
      * @param clientCode
