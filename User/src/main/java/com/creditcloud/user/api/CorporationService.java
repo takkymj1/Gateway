@@ -7,6 +7,7 @@ package com.creditcloud.user.api;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.User;
 import com.creditcloud.model.user.corporation.CorporationUser;
 import com.creditcloud.model.user.corporation.CorporationInfo;
 import com.creditcloud.model.user.corporation.CorporationType;
@@ -125,4 +126,12 @@ public interface CorporationService {
      * @return
      */
     List<CorporationUser> listAll(String clientCode);
+
+    /**
+     * 列出所有企业用户的法人,剔除重复
+     *
+     * @param clientCode
+     * @return
+     */
+    List<String> listLegalPerson(String clientCode);
 }
