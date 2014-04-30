@@ -78,4 +78,10 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableAdvanceRepay = false;
 
+    /**
+     * 用于控制manger和market中与平板设备相关操作和界面展示
+     */
+    @Getter
+    private boolean enableDevice = false;
+
 }
