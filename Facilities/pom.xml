@@ -122,7 +122,7 @@
             <type>ejb</type>
         </dependency>
         <dependency>
-            <groupId>com.creditcloud.cmsservice</groupId>
+            <groupId>com.creditcloud.cms</groupId>
             <artifactId>CMSService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
@@ -229,7 +229,7 @@
                             <artifactId>AppointService</artifactId>
                         </ejbModule>
                         <ejbModule>
-                            <groupId>com.creditcloud.cmsservice</groupId>
+                            <groupId>com.creditcloud.cms</groupId>
                             <artifactId>CMSService</artifactId>
                         </ejbModule>
                     </modules>

@@ -5,7 +5,7 @@
  */
 package com.creditcloud.cms.api;
 
-import com.creditcloud.cms.constant.Category;
+import com.creditcloud.cms.enums.Category;
 import com.creditcloud.cms.model.Article;
 import com.creditcloud.cms.model.Channel;
 import com.creditcloud.model.criteria.PageInfo;
@@ -24,10 +24,9 @@ public interface CMSService {
     /**
      * 列出所有的栏目
      *
-     * @param pageInfo
      * @return
      */
-    PagedResult<Channel> listChannel(PageInfo pageInfo);
+    List<Channel> listAllChannel();
 
     /**
      * 删除栏目
@@ -35,7 +34,7 @@ public interface CMSService {
      * @param name
      * @return
      */
-    boolean deleteChannel(String name);
+    boolean deleteChannelByName(String name);
 
     /**
      * 根据主键删除栏目
@@ -46,31 +45,20 @@ public interface CMSService {
     boolean deleteChannelById(String id);
 
     /**
-     * 更新栏目
-     * <p>
-     * 更新之后返回新的数据
-     *
-     * @param channel
-     * @return
-     */
-    public Channel updateChannel(Channel channel);
-
-    /**
      * 根据主键获取一个栏目
      *
      * @param id
      * @return
      */
-    public Channel getChannelById(String id);
+    Channel getChannelById(String id);
 
     /**
      * 保存新的栏目
      *
-     * @param name
-     * @param category
+     * @param channel
      * @return
      */
-    Channel saveChannel(String name, Category category);
+    Channel saveChannel(Channel channel);
 
     /**
      * 通过列出一个类别下的所有栏目
@@ -87,7 +75,7 @@ public interface CMSService {
      * @param title
      * @return
      */
-    Article getByName(String title);
+    Article getArticleByTitle(String title);
 
     /**
      * 根据文章Id获取文章
@@ -104,7 +92,7 @@ public interface CMSService {
      * @param pageInfo
      * @return
      */
-    PagedResult<Article> listByKeyword(String keyword, PageInfo pageInfo);
+    PagedResult<Article> listArticleByKeyword(String keyword, PageInfo pageInfo);
 
     /**
      * 通过类别列出文章
@@ -113,60 +101,23 @@ public interface CMSService {
      * @param pageInfo
      * @return
      */
-    PagedResult<Article> listByCategory(Category category, PageInfo pageInfo);
-
-    /**
-     * 通过类别列出文章
-     *
-     * @param category
-     * @return
-     */
-    Article getBySingle(Category category);
-
-    /**
-     * 通过栏目列出文章
-     */
-    //PagedResult<Article> listByChannel(String channelName, PageInfo pageInfo);
-    /**
-     * 列出最近的文章
-     *
-     * @param pageInfo
-     * @return
-     */
-    PagedResult<Article> listByTime(PageInfo pageInfo);
-
-    /**
-     * 创建新的文章
-     *
-     * @param title
-     * @param url
-     * @param pubdate
-     * @param newsId
-     * @param media
-     * @param author
-     * @param content
-     * @param category
-     * @param hasImage
-     * @param priority
-     * @return
-     */
-    Article createArticle(String title, String url, String pubdate, String newsId, String media, String author, String content, Category category, boolean hasImage, boolean priority);
+    PagedResult<Article> listArticleByCategory(Category category, PageInfo pageInfo);
 
     /**
      * 根据主键删除一篇文章
      *
      * @param id
-     * @return
+     * @return 
      */
     public boolean deleteArticleById(String id);
 
     /**
-     * 更新文章
+     * 创建或更新文章
      * <p>
      * 更新成功之后返回更新成功的文章
      *
      * @param article
      * @return
      */
-    public Article updateArticle(Article article);
+    public Article saveArticle(Article article);
 }
