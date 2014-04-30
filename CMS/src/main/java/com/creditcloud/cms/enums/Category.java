@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.cms.constant;
+package com.creditcloud.cms.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
@@ -25,7 +25,8 @@ public enum Category implements BaseEnum {
     LINK("友情链接", true),
     CONTACT("联系方式", true),
     DECLARATION("服务声明", true),
-    PUBLICATION("最新公告", false);
+    PUBLICATION("最新公告", false),
+    OTHER("其他", true);
 
     private final String key;
 
@@ -41,31 +42,8 @@ public enum Category implements BaseEnum {
         return key;
     }
 
-    public boolean getSingle() {
+    public boolean isSingle() {
         return single;
-    }
-
-    /**
-     * 根据枚举Name值获取一个新的分类
-     *
-     * @param name
-     * @return
-     */
-    public static Category adapte(String name) {
-        //默认没有匹配的，则默认成为行业新闻
-        Category result = Category.NEWS;
-        Category[] categorys = Category.values();
-        for (Category category : categorys) {
-            if (category.name().equals(name)) {
-                result = category;
-            }
-        }
-        return result;
-    }
-
-    public static void main(String[] args) {
-        Category category = Category.COOPERATION;
-        System.out.println(category.ordinal());
     }
 
 }
