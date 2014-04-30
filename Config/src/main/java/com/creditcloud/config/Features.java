@@ -81,6 +81,7 @@ public class Features extends BaseObject {
     /**
      * 用于控制manger和market中与平板设备相关操作和界面展示
      */
+    @XmlElement
     @Getter
     private boolean enableDevice = false;
 
