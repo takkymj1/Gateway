@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanReward;
 import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -56,6 +57,19 @@ public interface LoanService extends LoanRequestService {
      * the local client
      */
     PagedResult<Loan> listLoanByUser(String clientCode, String userId, PageInfo pageInfo);
+
+    /**
+     * list loan by user and status during certain period
+     *
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param status
+     * @return
+     */
+    PagedResult<Loan> listLoanByUser(String clientCode, String userId, Date from, Date to, PageInfo pageInfo, LoanStatus... status);
 
     /**
      * list loan by loan request id
