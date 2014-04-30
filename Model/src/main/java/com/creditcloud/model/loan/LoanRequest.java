@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.creditcloud.model.user.corporation.CorporationUser;
 
 /**
  *
@@ -47,6 +48,13 @@ public class LoanRequest extends BaseObject {
      */
     @XmlElement(name = "user")
     private User user;
+    
+    /**
+     * 企业负责人: 用于借款申请（默认为null）
+     * corporation.id = user.id
+     */
+    @XmlElement(name = "corporation")
+    private CorporationUser corporation;
 
     /**
      * title
