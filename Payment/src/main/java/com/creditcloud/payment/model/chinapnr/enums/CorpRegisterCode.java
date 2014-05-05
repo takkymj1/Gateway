@@ -14,20 +14,27 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum CorpRegisterCode implements BaseEnum {
 
-    CODE_216("企业用户注册信息不存在"),
-    CODE_217("企业用户注册审核拒绝"),
-    CODE_218("企业用户注册审核中"),
-    CODE_219("企业用户注册已提交待审核");
+    CODE_216("216", "企业用户注册信息不存在"),
+    CODE_217("217", "企业用户注册审核拒绝"),
+    CODE_218("218", "企业用户注册审核中"),
+    CODE_219("219", "企业用户注册已提交待审核");
 
     private final String key;
 
-    private CorpRegisterCode(String key) {
+    private final String description;
+
+    private CorpRegisterCode(String key, String description) {
         this.key = key;
+        this.description = description;
     }
 
     @Override
     public String getKey() {
         return key;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }
