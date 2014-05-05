@@ -13,11 +13,15 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class Proof extends BaseObject {
 
@@ -27,7 +31,15 @@ public class Proof extends BaseObject {
 
     @NotNull
     private String id;
-    
+
+    /**
+     * 认证关联的用戶
+     */
+    private String userId;
+
+    /**
+     * 除了用戶外，认证还可以关联到某个实体如车、房、贷款申请等
+     */
     private RealmEntity owner;
 
     @NotNull
@@ -74,9 +86,6 @@ public class Proof extends BaseObject {
      */
     private BigDecimal latitude;
 
-    public Proof() {
-    }
-
     public Proof(String id,
                  RealmEntity owner,
                  ProofType proofType,
@@ -101,101 +110,5 @@ public class Proof extends BaseObject {
         this.mosaic = mosaic;
         this.longitude = longitude;
         this.latitude = latitude;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public String getEmployee() {
-        return employee;
-    }
-
-    public Date getSubmitTime() {
-        return submitTime;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public ProofContentType getContentType() {
-        return contentType;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public boolean isMosaic() {
-        return mosaic;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public ProofType getProofType() {
-        return proofType;
-    }
-
-    public void setProofType(ProofType proofType) {
-        this.proofType = proofType;
-    }
-
-    public void setContentType(ProofContentType contentType) {
-        this.contentType = contentType;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public void setSubmitTime(Date submitTime) {
-        this.submitTime = submitTime;
-    }
-
-    public void setEmployee(String employee) {
-        this.employee = employee;
-    }
-
-    public void setMosaic(boolean mosaic) {
-        this.mosaic = mosaic;
-    }
-
-    public BigDecimal getLongitude() {
-        return longitude;
-    }
-
-    public BigDecimal getLatitude() {
-        return latitude;
-    }
-
-    public void setLongitude(BigDecimal longitude) {
-        this.longitude = longitude;
-    }
-
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
-    }
-
-    public RealmEntity getOwner() {
-        return owner;
-    }
-
-    public void setOwner(RealmEntity owner) {
-        this.owner = owner;
     }
 }

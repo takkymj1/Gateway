@@ -11,6 +11,7 @@ import com.creditcloud.model.user.credit.UserCredit;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.ProofContentType;
 import com.creditcloud.model.enums.user.credit.ProofType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -73,6 +74,7 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param userId
+     * @param owner
      * @param proofType
      * @param contentType
      * @param content
@@ -80,6 +82,7 @@ public interface UserCreditService {
      */
     public Proof getProofByUserAndContent(String clientCode,
                                           String userId,
+                                          RealmEntity owner,
                                           ProofType proofType,
                                           ProofContentType contentType,
                                           String content);
@@ -89,6 +92,7 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param userId
+     * @param owner
      * @param proofType
      * @param contentType
      * @param content
@@ -96,6 +100,7 @@ public interface UserCreditService {
      */
     public boolean deleteProofByUserAndContent(String clientCode,
                                                String userId,
+                                               RealmEntity owner,
                                                ProofType proofType,
                                                ProofContentType contentType,
                                                String content);
