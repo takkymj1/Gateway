@@ -13,11 +13,15 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class RealEstate extends BaseObject implements GPSCoordinates {
 
@@ -81,9 +85,6 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
     @NotNull
     private Source source;
 
-    public RealEstate() {
-    }
-
     public RealEstate(String id,
                       String userId,
                       EstateType type,
@@ -112,121 +113,5 @@ public class RealEstate extends BaseObject implements GPSCoordinates {
         this.latitude = latitude;
         this.lastModifiedBy = lastModifiedBy;
         this.source = source;
-    }
-
-    public EstateType getType() {
-        return type;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public boolean isLoan() {
-        return loan;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setType(EstateType type) {
-        this.type = type;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setArea(double area) {
-        this.area = area;
-    }
-
-    public void setLoan(boolean loan) {
-        this.loan = loan;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getEstimatedValue() {
-        return estimatedValue;
-    }
-
-    public void setEstimatedValue(int estimatedValue) {
-        this.estimatedValue = estimatedValue;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Date getTimeCreated() {
-        return timeCreated;
-    }
-
-    public Date getTimeLastUpdated() {
-        return timeLastUpdated;
-    }
-
-    public void setTimeCreated(Date timeCreated) {
-        this.timeCreated = timeCreated;
-    }
-
-    public void setTimeLastUpdated(Date timeLastUpdated) {
-        this.timeLastUpdated = timeLastUpdated;
-    }
-
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    @Override
-    public BigDecimal getLongitude() {
-        return longitude;
-    }
-
-    @Override
-    public BigDecimal getLatitude() {
-        return latitude;
-    }
-
-    @Override
-    public void setLongitude(BigDecimal longitude) {
-        this.longitude = longitude;
-    }
-
-    @Override
-    public void setLatitude(BigDecimal latitude) {
-        this.latitude = latitude;
     }
 }
