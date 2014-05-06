@@ -136,20 +136,22 @@ public interface LoanRepayService {
     LoanRepayment getRepayById(String clientCode, String repaymentId);
 
     /**
-     * 更新一组LoanRepayment,一般只会更新还款日期和还款状态
+     * 更新LoanRepayment状态
      *
      * @param clientCode
-     * @param repayment
+     * @param status
+     * @param repayIds
      * @return
      */
-    boolean updateLoanRepayment(String clientCode, LoanRepayment... repayment);
-
+    boolean markStatus(String clientCode, RepaymentStatus status, String... repayIds);
+    
     /**
      * 还款
      *
      * @param clientCode
      * @param userId
      * @param repayId
+     * @return
      */
     RepayLoanResult repayLoan(String clientCode, String userId, String repayId);
 
