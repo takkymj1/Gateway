@@ -46,4 +46,11 @@ public enum MortgageType implements BaseEnum {
     public String getKey() {
         return key;
     }
+
+    public static MortgageType getEnumByKey(String key){
+        for(MortgageType mt : MortgageType.values()){
+            if(key.equals(mt.key)) return mt;
+        }
+        return null;
+    }
 }
