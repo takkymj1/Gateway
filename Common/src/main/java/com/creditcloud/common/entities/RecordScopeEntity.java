@@ -31,9 +31,4 @@ public class RecordScopeEntity extends UUIDEntity {
     public Date getTimeRecorded() {
         return timeRecorded;
     }
-
-    public void setTimeRecorded(Date timeRecorded) {
-        this.timeRecorded = timeRecorded;
-    }
-
 }
