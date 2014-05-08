@@ -7,6 +7,7 @@ package com.creditcloud.cms.model;
 
 import com.creditcloud.cms.enums.Category;
 import com.creditcloud.model.BaseObject;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +29,17 @@ public class Channel extends BaseObject {
     @NotNull
     private Category category;
 
+    @NotNull
     private String name;
 
+    private String descrption;
+
+    private Date timeRecorded;
+
+    public Channel(String id, Category category, String name, String descrption) {
+        this.id = id;
+        this.category = category;
+        this.name = name;
+        this.descrption = descrption;
+    }
 }
