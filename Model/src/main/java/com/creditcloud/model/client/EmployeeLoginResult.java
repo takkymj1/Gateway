@@ -8,11 +8,17 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.LoginResult;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @XmlRootElement
 public class EmployeeLoginResult extends BaseObject {
 
@@ -22,29 +28,4 @@ public class EmployeeLoginResult extends BaseObject {
     private LoginResult result;
 
     private Employee employee;
-
-    public EmployeeLoginResult() {
-    }
-
-    public EmployeeLoginResult(LoginResult result,
-                               Employee employee) {
-        this.result = result;
-        this.employee = employee;
-    }
-
-    public LoginResult getResult() {
-        return result;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setResult(LoginResult result) {
-        this.result = result;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }
