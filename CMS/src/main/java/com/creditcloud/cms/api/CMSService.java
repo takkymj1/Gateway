@@ -8,6 +8,7 @@ package com.creditcloud.cms.api;
 import com.creditcloud.cms.enums.Category;
 import com.creditcloud.cms.model.Article;
 import com.creditcloud.cms.model.Channel;
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
@@ -30,16 +31,15 @@ public interface CMSService {
     List<Channel> listAllChannel(String clientCode);
 
     /**
-     * 删除栏目
      *
      * @param clientCode
-     * @param name
+     * @param info
      * @return
      */
-    boolean deleteChannelByName(String clientCode, String name);
+    PagedResult<Channel> listChannel(String clientCode, CriteriaInfo info);
 
     /**
-     * 根据主键删除栏目
+     * 删除栏目同时删除栏目下所有文章
      *
      * @param clientCode
      * @param id
@@ -66,7 +66,7 @@ public interface CMSService {
     Channel saveChannel(String clientCode, Channel channel);
 
     /**
-     * 通过列出一个类别下的所有栏目
+     * 列出一个类别下的所有栏目
      *
      * @param clientCode
      * @param category
@@ -75,15 +75,6 @@ public interface CMSService {
     List<Channel> listChannelByCategory(String clientCode, Category category);
 
     //**********************************************关于文章的API***********************************
-    /**
-     * 根据标题查找文章
-     *
-     * @param clientCode
-     * @param title
-     * @return
-     */
-    Article getArticleByTitle(String clientCode, String title);
-
     /**
      * 根据文章Id获取文章
      *
@@ -94,14 +85,13 @@ public interface CMSService {
     Article getArticleById(String clientCode, String id);
 
     /**
-     * 根据关键字查找文章
+     * list by criteria
      *
      * @param clientCode
-     * @param keyword
-     * @param pageInfo
+     * @param info
      * @return
      */
-    PagedResult<Article> listArticleByKeyword(String clientCode, String keyword, PageInfo pageInfo);
+    PagedResult<Article> listArticle(String clientCode, CriteriaInfo info);
 
     /**
      * 通过类别列出文章
@@ -112,6 +102,16 @@ public interface CMSService {
      * @return
      */
     PagedResult<Article> listArticleByCategory(String clientCode, Category category, PageInfo pageInfo);
+
+    /**
+     * 通过频道列出文章
+     *
+     * @param clientCode
+     * @param channelId
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<Article> listArticleByChannel(String clientCode, String channelId, PageInfo pageInfo);
 
     /**
      * 根据主键删除一篇文章

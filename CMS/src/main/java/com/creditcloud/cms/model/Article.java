@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Article extends BaseObject {
 
     private static final long serialVersionUID = 20140430L;
@@ -28,6 +27,12 @@ public class Article extends BaseObject {
      * 新闻主键
      */
     private String id;
+
+    /**
+     * 频道
+     */
+    @NotNull
+    private String channelId;
 
     /**
      * 新闻标题
@@ -56,11 +61,6 @@ public class Article extends BaseObject {
     private boolean priority;
 
     /**
-     * 新闻创建时间
-     */
-    private Date timeRecorded;
-
-    /**
      * 新闻ID
      */
     private String newsId;
@@ -84,6 +84,32 @@ public class Article extends BaseObject {
      * 新闻作者
      */
     private String author;
-    
-    
+
+    private Date timeRecorded;
+
+    public Article(String id,
+                   String channelId,
+                   String title,
+                   String content,
+                   Category category,
+                   boolean hasImage,
+                   boolean priority,
+                   String newsId,
+                   String url,
+                   Date pubDate,
+                   String media,
+                   String author) {
+        this.id = id;
+        this.channelId = channelId;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.hasImage = hasImage;
+        this.priority = priority;
+        this.newsId = newsId;
+        this.url = url;
+        this.pubDate = pubDate;
+        this.media = media;
+        this.author = author;
+    }
 }

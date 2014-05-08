@@ -15,4 +15,6 @@ public interface CMSConstant {
 
     String DEFAULT_CHANNEL_URL = "/cms/channel";
 
+    int MAX_ARTICLE_CONTENT = 4000;
+
 }
