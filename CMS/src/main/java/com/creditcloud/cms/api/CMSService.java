@@ -24,100 +24,112 @@ public interface CMSService {
     /**
      * 列出所有的栏目
      *
+     * @param clientCode
      * @return
      */
-    List<Channel> listAllChannel();
+    List<Channel> listAllChannel(String clientCode);
 
     /**
      * 删除栏目
      *
+     * @param clientCode
      * @param name
      * @return
      */
-    boolean deleteChannelByName(String name);
+    boolean deleteChannelByName(String clientCode, String name);
 
     /**
      * 根据主键删除栏目
      *
+     * @param clientCode
      * @param id
      * @return
      */
-    boolean deleteChannelById(String id);
+    boolean deleteChannelById(String clientCode, String id);
 
     /**
      * 根据主键获取一个栏目
      *
+     * @param clientCode
      * @param id
      * @return
      */
-    Channel getChannelById(String id);
+    Channel getChannelById(String clientCode, String id);
 
     /**
      * 保存新的栏目
      *
+     * @param clientCode
      * @param channel
      * @return
      */
-    Channel saveChannel(Channel channel);
+    Channel saveChannel(String clientCode, Channel channel);
 
     /**
      * 通过列出一个类别下的所有栏目
      *
+     * @param clientCode
      * @param category
      * @return
      */
-    List<Channel> listChannelByCategory(Category category);
+    List<Channel> listChannelByCategory(String clientCode, Category category);
 
     //**********************************************关于文章的API***********************************
     /**
      * 根据标题查找文章
      *
+     * @param clientCode
      * @param title
      * @return
      */
-    Article getArticleByTitle(String title);
+    Article getArticleByTitle(String clientCode, String title);
 
     /**
      * 根据文章Id获取文章
      *
+     * @param clientCode
      * @param id
      * @return
      */
-    Article getArticleById(String id);
+    Article getArticleById(String clientCode, String id);
 
     /**
      * 根据关键字查找文章
      *
+     * @param clientCode
      * @param keyword
      * @param pageInfo
      * @return
      */
-    PagedResult<Article> listArticleByKeyword(String keyword, PageInfo pageInfo);
+    PagedResult<Article> listArticleByKeyword(String clientCode, String keyword, PageInfo pageInfo);
 
     /**
      * 通过类别列出文章
      *
+     * @param clientCode
      * @param category
      * @param pageInfo
      * @return
      */
-    PagedResult<Article> listArticleByCategory(Category category, PageInfo pageInfo);
+    PagedResult<Article> listArticleByCategory(String clientCode, Category category, PageInfo pageInfo);
 
     /**
      * 根据主键删除一篇文章
      *
+     * @param clientCode
      * @param id
-     * @return 
+     * @return
      */
-    public boolean deleteArticleById(String id);
+    public boolean deleteArticleById(String clientCode, String id);
 
     /**
      * 创建或更新文章
      * <p>
      * 更新成功之后返回更新成功的文章
      *
+     * @param clientCode
      * @param article
      * @return
      */
-    public Article saveArticle(Article article);
+    public Article saveArticle(String clientCode, Article article);
 }
