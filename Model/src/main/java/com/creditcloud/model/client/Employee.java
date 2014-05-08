@@ -13,12 +13,15 @@ import com.creditcloud.model.constraints.RealName;
 import java.util.Date;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * This may be used in both Manager and Agent
  *
  * @author sobranie
  */
+@Data
 @XmlRootElement
 public class Employee extends BaseObject {
 
@@ -57,6 +60,8 @@ public class Employee extends BaseObject {
     private Date registerDate;
 
     private Date lastLoginDate;
+    
+    private boolean enabled = true;
 
     public Employee() {
     }
