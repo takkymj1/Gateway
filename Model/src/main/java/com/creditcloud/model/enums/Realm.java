@@ -67,6 +67,7 @@ public enum Realm implements BaseEnum {
     /**
      * 其他
      */
+    MOBILE("手机号"),
     CONTRACT("合同"),
     CONTRACTTEMPLATE("合同模板"),
     IMAGE("图片"),
