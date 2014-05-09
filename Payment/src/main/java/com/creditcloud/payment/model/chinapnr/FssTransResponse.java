@@ -14,6 +14,7 @@ import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -22,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 @XmlRootElement
 public class FssTransResponse extends UserResponse {
 
