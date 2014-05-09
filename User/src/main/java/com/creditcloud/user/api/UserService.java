@@ -244,6 +244,15 @@ public interface UserService extends UserSecurityService {
     boolean checkLoginName(String clientCode, String loginName);
 
     /**
+     * check if email is available
+     *
+     * @param clientCode
+     * @param email
+     * @return true if this email is available,false if already taken
+     */
+    boolean checkEmail(String clientCode, String email);
+
+    /**
      * 设置或更新推荐人
      *
      * @param clientCode
