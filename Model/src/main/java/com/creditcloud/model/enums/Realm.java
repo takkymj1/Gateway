@@ -31,11 +31,12 @@ public enum Realm implements BaseEnum {
      * 基本类型
      */
     USER("用戶"),
-    CORPORATION("企业"),
+    CORPORATIONUSRE("企业用户"),
     EMPLOYEE("员工"),
     ROLE("角色"),
     CLIENT("客戶"),
     BRANCH("分支机构"),
+    CORPORATION("企业"),//注意不是平台用户
     /**
      * 认证
      */
