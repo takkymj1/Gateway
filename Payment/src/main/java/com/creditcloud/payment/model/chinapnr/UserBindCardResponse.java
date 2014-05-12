@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.payment.model.chinapnr;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author sobranie
  */
+@ToString(callSuper = true)
 public class UserBindCardResponse extends BaseResponse {
-    
+
     @FormParam("OpenAcctId")
     @Size(max = 40)
     private String OpenAcctId;
@@ -39,7 +40,7 @@ public class UserBindCardResponse extends BaseResponse {
     @NotNull
     @Size(max = 128)
     private String BgRetUrl;
-    
+
     public UserBindCardResponse() {
     }
 
@@ -74,5 +75,5 @@ public class UserBindCardResponse extends BaseResponse {
     public String getBgRetUrl() {
         return BgRetUrl;
     }
-    
+
 }

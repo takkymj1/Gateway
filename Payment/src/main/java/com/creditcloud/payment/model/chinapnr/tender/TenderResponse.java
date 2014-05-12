@@ -10,6 +10,7 @@ import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author rooseek
  */
+@ToString(callSuper = true)
 public class TenderResponse extends BaseResponse {
 
     @FormParam("OrdId")

@@ -53,8 +53,15 @@ public class PrivacyDimmer {
         }
         return mask(email, offset, length);
     }
-    
+
     private static String maskName(String name) {
         return mask(name, name.length() - 1, 1);
+    }
+
+    public static String maskLoginName(String loginName) {
+        if (loginName.length() < 2) {
+            return "*";
+        }
+        return mask(loginName, 1, loginName.length() > 2 ? loginName.length() - 2 : 1);
     }
 }

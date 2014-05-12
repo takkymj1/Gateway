@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -18,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author rooseek
  */
 @Data
+@ToString(callSuper = true)
 @NoArgsConstructor
 public class LoansResponse2 extends BaseResponse {
 

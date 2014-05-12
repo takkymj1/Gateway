@@ -72,4 +72,16 @@ public class PrivacyDimmerTest {
         System.out.println("dim name");
         assertEquals(null, "陈小*", user.getName());
     }
+
+    @Test
+    public void testDimLoginName() {
+        String loginName = "";
+        assertEquals("*", PrivacyDimmer.maskLoginName(loginName));
+        loginName = "a";
+        assertEquals("*", PrivacyDimmer.maskLoginName(loginName));
+        loginName = "ab";
+        assertEquals("a*", PrivacyDimmer.maskLoginName(loginName));
+        loginName = "abc";
+        assertEquals("a*c", PrivacyDimmer.maskLoginName(loginName));
+    }
 }

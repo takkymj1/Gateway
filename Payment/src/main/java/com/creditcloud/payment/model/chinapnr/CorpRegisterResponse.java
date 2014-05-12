@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
+import lombok.ToString;
 
 
 /**
@@ -19,6 +20,7 @@ import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
  */
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class CorpRegisterResponse extends BaseResponse {
 
     @FormParam("UsrId")

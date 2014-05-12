@@ -5,12 +5,14 @@
 package com.creditcloud.payment.model.chinapnr.tender;
 
 import com.creditcloud.payment.model.chinapnr.base.UserResponse;
+import lombok.ToString;
 
 /**
  * 自动投标计划状态查询
  *
  * @author rooseek
  */
+@ToString(callSuper = true)
 public class AutoTenderQueryResponse extends UserResponse {
 
     private String TransStat;

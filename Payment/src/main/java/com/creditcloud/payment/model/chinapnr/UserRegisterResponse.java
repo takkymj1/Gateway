@@ -9,6 +9,7 @@ import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author sobranie
  */
+@ToString(callSuper = true)
 public class UserRegisterResponse extends BaseResponse {
 
     @FormParam("UsrId")
@@ -38,7 +40,7 @@ public class UserRegisterResponse extends BaseResponse {
     @FormParam("RetUrl")
     @Size(max = 128)
     private String RetUrl;
-    
+
     @FormParam("IdType")
     @Size(min = 2, max = 2)
     private String IdType;
@@ -54,7 +56,7 @@ public class UserRegisterResponse extends BaseResponse {
     @FormParam("UsrEmail")
     @Size(max = 40)
     private String UsrEmail;
-    
+
     public UserRegisterResponse() {
     }
 
