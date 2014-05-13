@@ -6,12 +6,14 @@ package com.creditcloud.payment.model.chinapnr;
 
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.Size;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author rooseek
  */
+@ToString(callSuper = true)
 public class BgRegisterResponse extends BaseResponse {
 
     @Size(min = 6, max = 25)

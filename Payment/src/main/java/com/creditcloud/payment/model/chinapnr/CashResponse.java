@@ -10,6 +10,7 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class CashResponse extends BaseResponse {
     
     @FormParam("OrdId")

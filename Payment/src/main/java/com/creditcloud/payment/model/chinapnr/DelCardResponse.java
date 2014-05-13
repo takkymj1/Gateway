@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author rooseek
  */
 @Data
+@ToString(callSuper = true)
 @NoArgsConstructor
 @XmlRootElement
 public class DelCardResponse extends UserResponse {

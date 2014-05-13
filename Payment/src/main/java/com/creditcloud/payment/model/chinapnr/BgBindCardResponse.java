@@ -9,12 +9,14 @@ import com.creditcloud.payment.model.chinapnr.base.UserResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author sobranie
  */
+@ToString(callSuper = true)
 public class BgBindCardResponse extends UserResponse {
 
     @FormParam("OpenAcctId")
