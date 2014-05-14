@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     RepaymentMethod.class,
     Source.class,
     Boolean.class,
-    Date.class
+    Date.class,
+    Integer.class
 })
 public class ElementSum<T> extends BaseObject {
 
