@@ -135,22 +135,7 @@ public enum Privilege implements BaseEnum {
     APPOINT_LIST("列出认购产品", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_DETAIL("认购产品详情", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_ALTER("添加更改认购产品", Realm.APPOINTMENT, "认购相关权限"),
-    APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限"),
-    /**
-     * Manager左侧导航栏标签显示权限
-     */
-    EMPLOYEE_MENU("员工管理", Realm.STRING, "显示/隐藏菜单"),
-    USER_MENU("用户管理", Realm.STRING, "显示/隐藏菜单"),
-    LOAN_MENU("借款管理", Realm.STRING, "显示/隐藏菜单"),
-    CONTRACT_MENU("合同管理", Realm.STRING, "显示/隐藏菜单"),
-    POSTLOAN_MENU("贷后管理", Realm.STRING, "显示/隐藏菜单"),
-    APPOINTMENT_MENU("预约管理", Realm.STRING, "显示/隐藏菜单"),
-    FUND_MENU("资金管理", Realm.STRING, "显示/隐藏菜单"),
-    RECONCILIATION_MENU("对账管理", Realm.STRING, "显示/隐藏菜单"),
-    STATISTIC_MENU("数据管理", Realm.STRING, "显示/隐藏菜单"),
-    CMS_MENU("CMS管理", Realm.STRING, "显示/隐藏菜单"),
-    MESSAGE_MENU("消息管理", Realm.STRING, "显示/隐藏菜单"),
-    SETTINGS_MENU("系统设置", Realm.STRING, "显示/隐藏菜单");
+    APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限");
 
     private final String key;
 
