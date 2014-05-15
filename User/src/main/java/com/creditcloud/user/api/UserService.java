@@ -261,4 +261,14 @@ public interface UserService extends UserSecurityService {
      * @return
      */
     boolean setReferral(String clientCode, String userId, RealmEntity referral);
+
+    /**
+     * 根据推荐人列出用户
+     *
+     * @param clientCode
+     * @param referral
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<User> listByReferral(String clientCode, RealmEntity referral, PageInfo pageInfo);
 }
