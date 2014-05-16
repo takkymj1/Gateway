@@ -231,6 +231,7 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param ordId        此次操作订单号
+     * @param ordDate      订单日期
      * @param investUserId 投资人id
      * @param amount       投资金额
      * @param fee          商户扣账手续费
@@ -245,6 +246,7 @@ public interface PaymentService {
      */
     public PaymentResult loan(String clientCode,
                               String ordId,
+                              LocalDate ordDate,
                               String investUserId,
                               BigDecimal amount,
                               BigDecimal fee,
@@ -299,6 +301,7 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param ordId        本操作订单号
+     * @param ordDate      订单日期
      * @param loanUserId   借款人id
      * @param subOrdId     投标订单号
      * @param subOrdDate   投标订单日期
@@ -312,6 +315,7 @@ public interface PaymentService {
      */
     public PaymentResult repay(String clientCode,
                                String ordId,
+                               LocalDate ordDate,
                                String loanUserId,
                                String subOrdId,
                                LocalDate subOrdDate,
