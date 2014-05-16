@@ -22,7 +22,6 @@ public enum ActivityType implements BaseEnum {
      */
     USER_ENABLE("开启用户", Realm.USER),
     USER_DISABLE("关闭用户", Realm.USER),
-    
     /**
      * 贷款申请类活动
      */
@@ -36,6 +35,7 @@ public enum ActivityType implements BaseEnum {
     REQUEST_APPROVE(LoanRequestStatus.APPROVED.getKey(), Realm.LOANREQUEST),
     REQUEST_PUBLISH(LoanRequestStatus.PUBLISHED.getKey(), Realm.LOANREQUEST),
     REQUEST_REJECT(LoanRequestStatus.REJECTED.getKey(), Realm.LOANREQUEST),
+    REQUEST_ARCHIVE(LoanRequestStatus.ARCHIVED.getKey(), Realm.LOANREQUEST),
     /**
      * 贷款类活动
      */
@@ -52,12 +52,12 @@ public enum ActivityType implements BaseEnum {
     LOAN_CLEAR(LoanStatus.CLEARED.getKey(), Realm.LOAN),
     LOAN_OVERDUE(LoanStatus.OVERDUE.getKey(), Realm.LOAN),
     LOAN_BREACH(LoanStatus.BREACH.getKey(), Realm.LOAN),
-    LOAN_REWARD("奖励",Realm.LOAN),
+    LOAN_REWARD("奖励", Realm.LOAN),
+    LOAN_ARCHIVE(LoanStatus.ARCHIVED.getKey(), Realm.LOAN),
     /**
      * 合同类活动
      */
     CONTRACT_REGENERATE("重新生成合同", Realm.CONTRACT),
-
     /**
      * 投标类活动
      */
