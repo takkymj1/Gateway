@@ -52,7 +52,11 @@ public enum LoanStatus implements BaseEnum {
     /**
      * 贷款违约,剩余贷款无法偿还
      */
-    BREACH("违约");
+    BREACH("违约"),
+    /**
+     * 已存档
+     */
+    ARCHIVED("已存档");
 
     private final String key;
 
