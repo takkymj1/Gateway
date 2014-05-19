@@ -331,6 +331,7 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param ordId
+     * @param ordDate
      * @param loanUserId
      * @param subOrdId
      * @param subOrdDate
@@ -345,6 +346,7 @@ public interface PaymentService {
      */
     public PaymentResult repay2(String clientCode,
                                 String ordId,
+                                LocalDate ordDate,
                                 String loanUserId,
                                 String subOrdId,
                                 LocalDate subOrdDate,
@@ -361,8 +363,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param ordId        本操作订单号
+     * @param ordDate      订单日期
      * @param subOrdId     投标订单号
-     * @param subOrDate    投标订单日期
+     * @param subOrdDate   投标订单日期
      * @param transAmt     还款金额
      * @param fee
      * @param investUserId 投资人id
@@ -373,8 +376,9 @@ public interface PaymentService {
      */
     public PaymentResult disburse(String clientCode,
                                   String ordId,
+                                  LocalDate ordDate,
                                   String subOrdId,
-                                  LocalDate subOrDate,
+                                  LocalDate subOrdDate,
                                   BigDecimal transAmt,
                                   BigDecimal fee,
                                   String investUserId,
@@ -388,8 +392,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param ordId        本操作订单号
+     * @param ordDate      订单日期
      * @param subOrdId     投标订单号
-     * @param subOrDate    投标订单日期
+     * @param subOrdDate   投标订单日期
      * @param transAmt     还款金额
      * @param outAcctId    商户出账账户
      * @param fee
@@ -401,8 +406,9 @@ public interface PaymentService {
      */
     public PaymentResult disburse2(String clientCode,
                                    String ordId,
+                                   LocalDate ordDate,
                                    String subOrdId,
-                                   LocalDate subOrDate,
+                                   LocalDate subOrdDate,
                                    BigDecimal transAmt,
                                    String outAcctId,
                                    BigDecimal fee,
