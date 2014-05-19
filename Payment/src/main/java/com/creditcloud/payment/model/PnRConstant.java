@@ -49,6 +49,8 @@ public interface PnRConstant {
      * 成功的返回码
      */
     String SUCCESS_CODE = "000";
+    
+    String SUCCESS_DESP = "成功";
 
     /**
      * 解冻时候如果已经解冻成功会报 107 重复交易,这种情况也可以认为是成功
