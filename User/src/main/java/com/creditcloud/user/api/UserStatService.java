@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.CreditRank;
 import com.creditcloud.model.enums.user.credit.ProofType;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -87,24 +88,37 @@ public interface UserStatService {
      *
      ***************************
      */
-    
     /**
      * 统计每日注册用户.
-     * 
+     *
      * 如果某日无用户注册则没有该项
-     * 
+     *
      * @param clientCode
-     * @return 
+     * @param from
+     * @param to
+     * @return
      */
-    List<ElementCount<LocalDate>> dailyRegister(String clientCode);
-    
+    List<ElementCount<LocalDate>> dailyRegister(String clientCode, Date from, Date to);
+
     /**
      * 统计每日用户登陆人次.
-     * 
+     *
      * 默认不排重
-     * 
+     *
      * @param clientCode
-     * @return 
+     * @param from
+     * @param to
+     * @return
      */
-    List<ElementCount<LocalDate>> dailyLogin(String clientCode);
+    List<ElementCount<LocalDate>> dailyLogin(String clientCode, Date from, Date to);
+
+    /**
+     * 统计每日登录的用户，去除重复登录
+     *
+     * @param clientCode
+     * @param from
+     * @param to
+     * @return
+     */
+    List<ElementCount<LocalDate>> dailyLoginUser(String clientCode, Date from, Date to);
 }
