@@ -89,6 +89,11 @@ public class Loan extends BaseObject implements Investable {
     private Date timeSettled;
 
     /**
+     * 还清时间
+     */
+    private Date timeCleared;
+
+    /**
      * 有无抵押
      */
     private boolean mortgaged;
