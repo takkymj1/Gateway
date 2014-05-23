@@ -7,6 +7,10 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
+import java.util.Date;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,4 +36,28 @@ public class FssAccount extends BaseObject {
      * 历史累计收益
      */
     String TotalProfit;
+    
+    /**
+     * 累计转入
+     */
+    @Min(0)
+    private BigDecimal totalDeposit;
+
+    /**
+     * 累计转出
+     */
+    @Min(0)
+    private BigDecimal totalWithdraw;
+
+    /**
+     * 开通时间
+     */
+    @NotNull
+    private Date timeCreated;
+
+    /**
+     * 最后更新时间
+     */
+    @NotNull
+    private Date timeUpdated;
 }
