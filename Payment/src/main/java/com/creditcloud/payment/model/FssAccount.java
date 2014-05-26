@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 汇付生利宝账户信息.
- * 
+ *
  * @author sobranie
  */
 @Data
@@ -26,17 +25,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @XmlRootElement
 public class FssAccount extends BaseObject {
-    
+
     /**
      * 总金额
      */
     String TotalAsset;
-    
+
     /**
      * 历史累计收益
      */
     String TotalProfit;
-    
+
     /**
      * 累计转入
      */
@@ -60,4 +59,9 @@ public class FssAccount extends BaseObject {
      */
     @NotNull
     private Date timeUpdated;
+
+    public FssAccount(String TotalAsset, String TotalProfit) {
+        this.TotalAsset = TotalAsset;
+        this.TotalProfit = TotalProfit;
+    }
 }
