@@ -111,4 +111,11 @@ public class FeeConfig extends BaseConfig {
     @XmlElement(required = true)
     private int daysToBreach;
 
+    /**
+     * 逾期超过一定天数后，计算相关按日收取费用的天数上限
+     */
+    @Min(1)
+    @XmlElement(required = false)
+    private int maxDaysForOverdueFee = Integer.MAX_VALUE;
+
 }

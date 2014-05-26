@@ -73,7 +73,7 @@ public class FeeUtils {
         //计算天数
         long nowTime = LocalDate.now().toDate().getTime();
         long dueTime = repayment.getDueDate().toDate().getTime();
-        BigDecimal days = BigDecimal.valueOf((nowTime - dueTime) / DateUtils.MILLIS_PER_DAY);
+        BigDecimal days = BigDecimal.valueOf(Math.min(config.getMaxDaysForOverdueFee(), (nowTime - dueTime) / DateUtils.MILLIS_PER_DAY));
 
         /**
          * 逾期管理费计算
