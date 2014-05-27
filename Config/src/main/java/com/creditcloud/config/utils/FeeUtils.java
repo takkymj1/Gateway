@@ -65,10 +65,10 @@ public class FeeUtils {
      */
     public static OverduePenalty overdueFee(FeeConfig config, Repayment repayment) {
         if (repayment == null) {
-            return OverduePenalty.NONE;
+            return new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
         }
         if (LocalDate.now().compareTo(repayment.getDueDate()) <= 0) {
-            return OverduePenalty.NONE;
+            return new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
         }
         //计算天数
         long nowTime = LocalDate.now().toDate().getTime();
@@ -128,6 +128,67 @@ public class FeeUtils {
                     break;
                 case SINGLE:
                     penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+                    break;
+                default:
+                    //逾期类罚息只可能是上两种
+                    logger.warning(String.format("Illegal argument %s for penalty fee. only DAILY and SINGLE allowed", penaltyFee.getPeriod()));
+            }
+        }
+
+        return new OverduePenalty(overdueAmount, penaltyAmount);
+    }
+
+    /**
+     * 计算欠款的逾期费用
+     *
+     * @param config
+     * @param dueDate
+     * @param amount
+     * @return
+     */
+    public static OverduePenalty overdueFee(FeeConfig config, LocalDate dueDate, BigDecimal amount) {
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            return new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        if (dueDate == null || LocalDate.now().compareTo(dueDate) <= 0) {
+            return new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        //计算天数
+        long nowTime = LocalDate.now().toDate().getTime();
+        long dueTime = dueDate.toDate().getTime();
+        BigDecimal days = BigDecimal.valueOf(Math.min(config.getMaxDaysForOverdueFee(), (nowTime - dueTime) / DateUtils.MILLIS_PER_DAY));
+
+        /**
+         * 逾期管理费计算
+         */
+        BigDecimal overdueAmount = BigDecimal.ZERO;
+        Fee overdueFee = config.getLoanOverdueFee();
+        if (overdueFee != null) {
+            switch (overdueFee.getPeriod()) {
+                case DAILY:
+                    overdueAmount = FeeUtils.calculate(overdueFee, amount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+                    break;
+                case SINGLE:
+                    overdueAmount = FeeUtils.calculate(overdueFee, amount).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+                    break;
+                default:
+                    //逾期类罚息只可能是上两种
+                    logger.warning(String.format("Illegal argument %s for overdue fee. only DAILY and SINGLE allowed.", overdueFee.getPeriod()));
+            }
+        }
+
+        /**
+         * 逾期罚息计算
+         */
+        BigDecimal penaltyAmount = BigDecimal.ZERO;
+        Fee penaltyFee = config.getLoanPenaltyFee();
+        if (penaltyFee != null) {
+            switch (penaltyFee.getPeriod()) {
+                case DAILY:
+                    penaltyAmount = FeeUtils.calculate(penaltyFee, amount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+                    break;
+                case SINGLE:
+                    penaltyAmount = FeeUtils.calculate(penaltyFee, amount).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 default:
                     //逾期类罚息只可能是上两种

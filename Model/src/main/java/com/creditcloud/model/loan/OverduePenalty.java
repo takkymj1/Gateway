@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class OverduePenalty extends BaseObject {
 
+    @Deprecated
     public static final OverduePenalty NONE = new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
 
     private static final long serialVersionUID = 20131218L;
