@@ -67,8 +67,10 @@ public class ClientURLTest extends BaseTest<Client> {
         object.setUrl("www.creditcloud.com.");
         constraintViolations = validator.validateProperty(object, "url");
         assertEquals(0, constraintViolations.size());
-        
-        
+
+        object.setUrl("www.x-s-m.com");
+        constraintViolations = validator.validateProperty(object, "url");
+        assertEquals(0, constraintViolations.size());
 
         //illegal url
         object.setUrl("12");
@@ -94,7 +96,6 @@ public class ClientURLTest extends BaseTest<Client> {
 //        object.setUrl("www.creditcloud..com");
 //        constraintViolations = validator.validateProperty(object, "url");
 //        assertEquals(1, constraintViolations.size());
-
         object.setUrl("w@w.creditcloud.com");
         constraintViolations = validator.validateProperty(object, "url");
         assertEquals(1, constraintViolations.size());
