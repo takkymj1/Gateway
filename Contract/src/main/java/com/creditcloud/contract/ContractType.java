@@ -14,7 +14,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ContractType implements BaseEnum {
 
-    LOAN("借款合同");
+    LOAN("借款合同"),
+    ADVANCE_REPAY("提前还款补充合同");
 
     private final String key;
 
