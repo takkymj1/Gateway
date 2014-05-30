@@ -107,7 +107,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
     @Override
     public boolean isValid(String idNumber, ConstraintValidatorContext context) {
         if (idNumber == null) {
-            return false;
+            return true;
         }
 
         return isValid(idNumber);
