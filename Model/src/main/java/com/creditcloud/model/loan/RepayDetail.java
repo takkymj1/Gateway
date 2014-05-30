@@ -27,54 +27,54 @@ public class RepayDetail extends BaseObject {
      */
     @NotNull
     @Min(0)
-    protected BigDecimal principal;
+    protected BigDecimal principal = BigDecimal.ZERO;
 
     /**
      * 利息
      */
     @NotNull
     @Min(0)
-    protected BigDecimal interest;
+    protected BigDecimal interest = BigDecimal.ZERO;
 
     /**
      * 剩余本息
      */
     @NotNull
     @Min(0)
-    private BigDecimal outstanding;
+    private BigDecimal outstanding = BigDecimal.ZERO;
 
     /**
      * 还款期数
      */
     @NotNull
     @Min(0)
-    private int period;
+    private int period = 0;
 
     /**
      * 借款人利息管理费
      */
     @NotNull
     @Min(0)
-    private BigDecimal loanFee;
+    private BigDecimal loanFee = BigDecimal.ZERO;
 
     /**
      * 借款管理费,某些客户不收取所以可能为null
      */
     @Min(0)
-    private BigDecimal manageFee;
+    private BigDecimal manageFee = BigDecimal.ZERO;
 
     public RepayDetail(BigDecimal principal,
                        BigDecimal interest,
                        BigDecimal outstanding,
                        int period,
                        BigDecimal loanFee,
-                       BigDecimal managerFee) {
+                       BigDecimal manageFee) {
         this.principal = principal;
         this.interest = interest;
         this.outstanding = outstanding;
         this.period = period;
         this.loanFee = loanFee;
-        this.manageFee = managerFee;
+        this.manageFee = manageFee;
     }
 
     /**
