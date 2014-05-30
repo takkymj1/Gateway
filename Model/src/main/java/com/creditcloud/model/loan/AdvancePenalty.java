@@ -30,14 +30,14 @@ public class AdvancePenalty extends BaseObject {
      */
     @NotNull
     @Min(0)
-    private BigDecimal feeToClient;
+    private BigDecimal feeToClient = BigDecimal.ZERO;
 
     /**
      * 给投资人费用
      */
     @NotNull
     @Min(0)
-    private BigDecimal feeToInvest;
+    private BigDecimal feeToInvest = BigDecimal.ZERO;
 
     public BigDecimal getTotal() {
         return feeToClient.add(feeToInvest);

@@ -20,7 +20,7 @@ public class ImageUtils {
      * @return
      */
     public static String getDefaultAvatar(String IdNumber) {
-        return getDefaultAvatar(ChineseIdNumber.isMale(IdNumber));
+        return getDefaultAvatar(IdNumber == null ? true : ChineseIdNumber.isMale(IdNumber));
     }
 
     /**

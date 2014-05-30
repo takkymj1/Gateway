@@ -6,6 +6,7 @@ package com.creditcloud.common.security;
 
 import com.creditcloud.common.entities.embedded.BankAccount;
 import com.creditcloud.model.user.User;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -36,6 +37,9 @@ public class PrivacyDimmer {
      * @return
      */
     private static String mask(String content, int offset, int length) {
+        if (StringUtils.isEmpty(content)) {
+            return "";
+        }
         assert content.length() >= offset + length;
         char[] chars = content.toCharArray();
         for (int i = offset; i < offset + length; i++) {
