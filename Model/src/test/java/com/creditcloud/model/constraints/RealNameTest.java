@@ -32,11 +32,18 @@ public class RealNameTest extends BaseTest<User> {
 
     @Before
     public void setUp() {
-        object = new User("123", "123", "123", "123", "123", "123", "123",Source.WEB, null, null);
+        object = new User("123", "123", "123", "123", "123", "123", "123", Source.WEB, null, null);
     }
 
     @After
     public void tearDown() {
+    }
+
+    @Test
+    public void canNull() {
+        object.setName(null);
+        constraintViolations = validator.validateProperty(object, "name");
+        assertEquals(0, constraintViolations.size());
     }
 
     @Test
