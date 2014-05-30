@@ -115,7 +115,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
     protected boolean isValid(String idNumber) {
         if (idNumber == null) {
-            return false;
+            return true;
         }
         
         if (idNumber.length() == 18) {
