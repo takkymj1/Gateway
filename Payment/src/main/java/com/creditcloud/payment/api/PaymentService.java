@@ -731,4 +731,12 @@ public interface PaymentService {
      */
     public FssAccount queryFssAccount(String clientCode, String userId);
 
+    /**
+     * 查询商户生利宝账户信息
+     *
+     * @param clientCode
+     * @return
+     */
+    public FssAccount queryFssAccount(String clientCode);
+
 }
