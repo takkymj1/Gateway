@@ -54,12 +54,12 @@ public class Fee extends BaseObject {
     /**
      * 收费周期
      */
-    private FeePeriod period;
+    private FeePeriod period = FeePeriod.SINGLE;
 
     /**
      * 收费范围
      */
-    private FeeScope scope;
+    private FeeScope scope = FeeScope.PRINCIPAL;
 
     /**
      * 此费用的详细描述

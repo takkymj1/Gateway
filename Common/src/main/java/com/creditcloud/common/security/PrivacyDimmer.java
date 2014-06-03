@@ -49,6 +49,9 @@ public class PrivacyDimmer {
     }
 
     private static String maskEmail(String email) {
+        if (StringUtils.isEmpty(email)) {
+            return "";
+        }
         int offset = 0;
         int length = email.indexOf('@');
         if (length > 2) {
@@ -59,6 +62,9 @@ public class PrivacyDimmer {
     }
 
     private static String maskName(String name) {
+        if (StringUtils.isEmpty(name)) {
+            return "";
+        }
         return mask(name, name.length() - 1, 1);
     }
 
