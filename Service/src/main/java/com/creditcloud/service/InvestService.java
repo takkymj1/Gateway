@@ -98,16 +98,15 @@ public interface InvestService extends InvestRepayService {
      */
     boolean cancelScheduledLoan(String clientCode, String loanId);
 
+
     /**
      * repayment of a loan, set repayment status and generate fund record
      *
      * @param clientCode
-     * @param loanRepay
+     * @param repayDetails
      * @return
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
      */
-    boolean repayLoan(String clientCode, LoanRepayment loanRepay);
+    boolean repayLoan(String clientCode, Map<String, Object> repayDetails);
 
     /**
      * 商户垫付支付
