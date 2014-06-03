@@ -60,7 +60,6 @@ public enum Realm implements BaseEnum {
     FUND("资金"),
     WITHDRAW("取现"),
     /**
-     * **
      * CMS管理
      */
     CHANNEL("CMS栏目"),
@@ -72,7 +71,8 @@ public enum Realm implements BaseEnum {
     CONTRACT("合同"),
     CONTRACTTEMPLATE("合同模板"),
     IMAGE("图片"),
-    FILE("文件");
+    FILE("文件"),
+    FSS("生利宝");
 
     private final String key;
 
