@@ -68,7 +68,7 @@ public class FeeUtils {
         if (repayment == null) {
             return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
         }
-        if (repayment.getDueDate().compareTo(LocalDate.now().plusDays(config.getMinDaysForAdvanceRepay())) <= 0) {
+        if (!isValidAdvanceRepay(config, repayment)) {
             return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
         }
 
@@ -319,7 +319,7 @@ public class FeeUtils {
      * @return
      */
     public static FeeConfig mergeLoanFee(FeeConfig config, LoanFee loanFee) {
-        FeeConfig mergedConfig = SerializationUtils.clone(config);
+        FeeConfig mergedConfig = copyOf(config);
         if (loanFee != null) {
             if (loanFee.getInvestInterestFee() != null) {
                 mergedConfig.setInvestInterestFee(mergeFee(mergedConfig.getInvestInterestFee(),
@@ -353,5 +353,26 @@ public class FeeUtils {
             }
         }
         return mergedConfig;
+    }
+
+    /**
+     * copy FeeConfig
+     *
+     * @param config
+     * @return
+     */
+    public static FeeConfig copyOf(FeeConfig config) {
+        return SerializationUtils.clone(config);
+    }
+
+    /**
+     * 是否是提前还款
+     *
+     * @param config
+     * @param repayment
+     * @return
+     */
+    public static boolean isValidAdvanceRepay(FeeConfig config, Repayment repayment) {
+        return repayment.getDueDate().isAfter(LocalDate.now().plusDays(config.getMinDaysForAdvanceRepay()));
     }
 }
