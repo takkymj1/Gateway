@@ -47,6 +47,41 @@ public class FeeUtilsTest {
     public void tearDown() {
     }
 
+    @Test
+    public void testIsAdvanceRepay() {
+        FeeConfig config = new FeeConfig();
+        config.setMinDaysForAdvanceRepay(5);
+
+        Repayment repayment = new Repayment(BigDecimal.valueOf(10000),
+                                            BigDecimal.valueOf(1000),
+                                            BigDecimal.valueOf(100000),
+                                            LocalDate.now().plusDays(10));
+        boolean result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(result);
+
+        /**
+         * valid advance repay
+         */
+        repayment.setDueDate(LocalDate.now().plusDays(10));
+        result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(result);
+
+        repayment.setDueDate(LocalDate.now().plusDays(6));
+        result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(result);
+
+        /**
+         * invalid advance repay
+         */
+        repayment.setDueDate(LocalDate.now().plusDays(5));
+        result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(!result);
+
+        repayment.setDueDate(LocalDate.now().plusDays(1));
+        result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(!result);
+    }
+
     /**
      * Test of advanceFee method, of class FeeUtils.
      */
@@ -189,6 +224,24 @@ public class FeeUtilsTest {
         if (!equalOverduePenalty(result, expected)) {
             fail("not equal");
         }
+    }
+
+    @Test
+    public void testCopyOf() {
+        FeeConfig config = new FeeConfig();
+        config.setMaxDaysForOverdueFee(1);
+        Fee loanServiceFee = new Fee(FeeType.BOTH, BigDecimal.ZERO, BigDecimal.ZERO, FeePeriod.SINGLE, FeeScope.BOTH);
+        config.setLoanServiceFee(loanServiceFee);
+
+        FeeConfig copy = FeeUtils.copyOf(config);
+        assertEquals(copy.getMaxDaysForOverdueFee(), 1);
+        assertEquals(copy.getLoanServiceFee(), loanServiceFee);
+
+        copy.setMaxDaysForOverdueFee(2);
+        copy.getLoanServiceFee().setPeriod(FeePeriod.MONTHLY);
+
+        assertEquals(config.getMaxDaysForOverdueFee(), 1);
+        assertEquals(config.getLoanServiceFee(), loanServiceFee);
     }
 
     private boolean equalAdvancePenalty(AdvancePenalty result, AdvancePenalty expected) {
