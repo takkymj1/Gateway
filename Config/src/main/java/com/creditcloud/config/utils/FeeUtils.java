@@ -346,6 +346,11 @@ public class FeeUtils {
                                                         loanFee.getLoanServiceFee(),
                                                         FeeScope.PRINCIPAL));
             }
+            if (loanFee.getLoanRiskFee() != null) {
+                mergedConfig.setLoanRiskFee(mergeFee(mergedConfig.getLoanRiskFee(),
+                                                     loanFee.getLoanRiskFee(),
+                                                     FeeScope.PRINCIPAL));
+            }
         }
         return mergedConfig;
     }
