@@ -89,7 +89,6 @@ public class FeeUtils {
                     toClientAmount = repayment.getAmountOutstanding();
                     break;
             }
-            System.out.println(feeToClient.getScope() + ":" + toClientAmount);
 
             switch (feeToClient.getPeriod()) {
                 case SINGLE:
