@@ -15,6 +15,7 @@ import static com.creditcloud.config.enums.FeeScope.INTEREST;
 import static com.creditcloud.config.enums.FeeScope.PRINCIPAL;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.constant.NumberConstant;
+import com.creditcloud.model.loan.AdvancePenalty;
 import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.Repayment;
@@ -54,6 +55,80 @@ public class FeeUtils {
                 return amount.multiply(fee.getRate()).add(fee.getFixed()).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
         }
         return BigDecimal.ZERO;
+    }
+
+    /**
+     * 提前还款费用
+     *
+     * @param config
+     * @param repayment
+     * @return
+     */
+    public static AdvancePenalty advanceFee(FeeConfig config, Repayment repayment) {
+        if (repayment == null) {
+            return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        if (repayment.getDueDate().compareTo(LocalDate.now().plusDays(config.getMinDaysForAdvanceRepay())) <= 0) {
+            return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+
+        BigDecimal toClientAmount = BigDecimal.ZERO;
+        Fee feeToClient = config.getAdvanceRepayClientFee();
+        if (feeToClient != null) {
+            switch (feeToClient.getScope()) {
+                case INTEREST:
+                    toClientAmount = repayment.getAmountInterest();
+                    break;
+                case PRINCIPAL:
+                    toClientAmount = repayment.getAmountPrincipal();
+                    break;
+                case BOTH:
+                    toClientAmount = repayment.getAmount();
+                    break;
+                case OUTSTANDING:
+                    toClientAmount = repayment.getAmountOutstanding();
+                    break;
+            }
+            System.out.println(feeToClient.getScope() + ":" + toClientAmount);
+
+            switch (feeToClient.getPeriod()) {
+                case SINGLE:
+                    toClientAmount = FeeUtils.calculate(feeToClient, toClientAmount);
+                    break;
+                default:
+                    toClientAmount = BigDecimal.ZERO;
+                    logger.warning(String.format("Illegal argument %s for advance repay fee. only SINGLE allowed.", feeToClient.getPeriod()));
+            }
+        }
+
+        BigDecimal toInvestAmount = BigDecimal.ZERO;
+        Fee feeToInvest = config.getAdvanceRepayInvestFee();
+        if (feeToInvest != null) {
+            switch (feeToInvest.getScope()) {
+                case INTEREST:
+                    toInvestAmount = repayment.getAmountInterest();
+                    break;
+                case PRINCIPAL:
+                    toInvestAmount = repayment.getAmountPrincipal();
+                    break;
+                case BOTH:
+                    toInvestAmount = repayment.getAmount();
+                    break;
+                case OUTSTANDING:
+                    toInvestAmount = repayment.getAmountOutstanding();
+                    break;
+            }
+            switch (feeToInvest.getPeriod()) {
+                case SINGLE:
+                    toInvestAmount = FeeUtils.calculate(feeToInvest, toInvestAmount);
+                    break;
+                default:
+                    toInvestAmount = BigDecimal.ZERO;
+                    logger.warning(String.format("Illegal argument %s for advance repay fee. only SINGLE allowed.", feeToInvest.getPeriod()));
+            }
+        }
+
+        return new AdvancePenalty(toClientAmount, toInvestAmount);
     }
 
     /**
@@ -101,6 +176,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
+                    overdueAmount = BigDecimal.ZERO;
                     logger.warning(String.format("Illegal argument %s for overdue fee. only DAILY and SINGLE allowed.", overdueFee.getPeriod()));
             }
         }
@@ -131,6 +207,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
+                    penaltyAmount = BigDecimal.ZERO;
                     logger.warning(String.format("Illegal argument %s for penalty fee. only DAILY and SINGLE allowed", penaltyFee.getPeriod()));
             }
         }
@@ -173,6 +250,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
+                    overdueAmount = BigDecimal.ZERO;
                     logger.warning(String.format("Illegal argument %s for overdue fee. only DAILY and SINGLE allowed.", overdueFee.getPeriod()));
             }
         }
@@ -192,6 +270,7 @@ public class FeeUtils {
                     break;
                 default:
                     //逾期类罚息只可能是上两种
+                    penaltyAmount = BigDecimal.ZERO;
                     logger.warning(String.format("Illegal argument %s for penalty fee. only DAILY and SINGLE allowed", penaltyFee.getPeriod()));
             }
         }

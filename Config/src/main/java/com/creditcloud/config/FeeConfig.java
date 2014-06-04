@@ -103,6 +103,13 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private Fee advanceRepayInvestFee;
+    
+    /**
+     * 提前还款离实际到期还款日的最小天数,间隔低于此天数的提前还款将按照正常还款全额付本还息
+     */
+    @Min(0)
+    @XmlElement(required = false)
+    private int minDaysForAdvanceRepay = 0;
 
     /**
      * 逾期一定天数的还款将被转化为违约
@@ -117,5 +124,4 @@ public class FeeConfig extends BaseConfig {
     @Min(1)
     @XmlElement(required = false)
     private int maxDaysForOverdueFee = Integer.MAX_VALUE;
-
 }
