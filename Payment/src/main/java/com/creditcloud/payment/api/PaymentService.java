@@ -723,8 +723,10 @@ public interface PaymentService {
     public FssProductInfo queryFssProduct(String clientCode);
 
     /**
-     * 查询生利宝账户信息
-     *
+     * 查询生利宝账户信息.
+     * 
+     * 如果日内有更新则直接返回缓存，否则去汇付查询最新净值等信息，并更新数据库
+     * 
      * @param clientCode
      * @param userId
      * @return

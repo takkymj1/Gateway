@@ -29,7 +29,7 @@ public class FssProductInfo extends BaseObject {
     String AnnuRate;
     
     /**
-     * 每万份收益率
+     * 每万份收益
      */
     String PrdRate;
 }
