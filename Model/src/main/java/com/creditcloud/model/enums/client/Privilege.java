@@ -130,6 +130,12 @@ public enum Privilege implements BaseEnum {
     ARTICLE_ADD("新增文章", Realm.ARTICLE, "文章相关权限"),
     ARTICLE_DETAIL("文章详情", Realm.ARTICLE, "文章相关权限"),
     /**
+     * 生利宝
+     */
+    FSS_TRANSFER("商户生利宝转入转出", Realm.FSS, "生利宝相关权限"),
+    FSS_ACCOUNT("查看商户生利宝账户", Realm.FSS, "生利宝相关权限"),
+    FSS_INFO("查看生利宝信息", Realm.FSS, "生利宝相关权限"),
+    /**
      * 认购相关权限
      */
     APPOINT_USER_IMPORT("导入认购用户", Realm.APPOINTMENT, "认购相关权限"),

@@ -107,7 +107,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
     @Override
     public boolean isValid(String idNumber, ConstraintValidatorContext context) {
         if (idNumber == null) {
-            return false;
+            return true;
         }
 
         return isValid(idNumber);
@@ -115,7 +115,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
     protected boolean isValid(String idNumber) {
         if (idNumber == null) {
-            return false;
+            return true;
         }
         
         if (idNumber.length() == 18) {

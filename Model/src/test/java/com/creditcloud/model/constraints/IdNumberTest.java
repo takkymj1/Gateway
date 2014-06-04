@@ -36,7 +36,7 @@ public class IdNumberTest extends BaseTest<User> {
                                                     "152201198310074717",
                                                     "210505197602227836",
                                                     "130304198601048438",
-                                                        "130824198712177753",
+                                                    "130824198712177753",
                                                     "370685198209025871",
                                                     "421223198711056854",
                                                     "41092819760212227X",
@@ -99,10 +99,10 @@ public class IdNumberTest extends BaseTest<User> {
     }
 
     @Test
-    public void notNull() {
+    public void canNull() {
         object.setIdNumber(null);
         constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(2, constraintViolations.size());
+        assertEquals(0, constraintViolations.size());
     }
 
     @Test
@@ -127,7 +127,6 @@ public class IdNumberTest extends BaseTest<User> {
         object.setIdNumber("5101058808x6202");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(1, constraintViolations.size());
-
 
         //17 numbers
         object.setIdNumber("51010519880806202");

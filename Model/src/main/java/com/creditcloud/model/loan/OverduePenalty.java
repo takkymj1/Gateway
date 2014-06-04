@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class OverduePenalty extends BaseObject {
 
+    @Deprecated
     public static final OverduePenalty NONE = new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
 
     private static final long serialVersionUID = 20131218L;
@@ -27,14 +28,14 @@ public class OverduePenalty extends BaseObject {
      */
     @NotNull
     @Min(0)
-    private BigDecimal overdue;
+    private BigDecimal overdue = BigDecimal.ZERO;
 
     /**
      * 逾期罚息，如每日收取应还金额的0.05%
      */
     @NotNull
     @Min(0)
-    private BigDecimal penalty;
+    private BigDecimal penalty = BigDecimal.ZERO;
 
     public OverduePenalty() {
     }
