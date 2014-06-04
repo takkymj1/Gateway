@@ -40,25 +40,25 @@ public class FssAccount extends BaseObject {
      * 累计转入
      */
     @Min(0)
-    private BigDecimal totalDeposit;
+    private BigDecimal totalDeposit = BigDecimal.ZERO;
 
     /**
      * 累计转出
      */
     @Min(0)
-    private BigDecimal totalWithdraw;
+    private BigDecimal totalWithdraw = BigDecimal.ZERO;
 
     /**
      * 开通时间
      */
     @NotNull
-    private Date timeCreated;
+    private Date timeCreated = new Date();
 
     /**
      * 最后更新时间
      */
     @NotNull
-    private Date timeUpdated;
+    private Date timeUpdated = new Date();
 
     public FssAccount(String TotalAsset, String TotalProfit) {
         this.TotalAsset = TotalAsset;
