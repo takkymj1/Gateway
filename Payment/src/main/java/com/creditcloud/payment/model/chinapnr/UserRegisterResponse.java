@@ -9,6 +9,8 @@ import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
@@ -17,6 +19,8 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author sobranie
  */
+@Data
+@NoArgsConstructor
 @ToString(callSuper = true)
 public class UserRegisterResponse extends BaseResponse {
 
@@ -56,9 +60,10 @@ public class UserRegisterResponse extends BaseResponse {
     @FormParam("UsrEmail")
     @Size(max = 40)
     private String UsrEmail;
-
-    public UserRegisterResponse() {
-    }
+    
+    @FormParam("UsrName")
+    @Size(max = 40)
+    private String UsrName;
 
     @Override
     public String chkString() {
@@ -72,77 +77,4 @@ public class UserRegisterResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
-
-    public String getUsrId() {
-        return UsrId;
-    }
-
-    public void setUsrId(String UsrId) {
-        this.UsrId = UsrId;
-    }
-
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
-    }
-
-    public String getBgRetUrl() {
-        return BgRetUrl;
-    }
-
-    public void setBgRetUrl(String BgRetUrl) {
-        this.BgRetUrl = BgRetUrl;
-    }
-
-    public String getTrxId() {
-        return TrxId;
-    }
-
-    public void setTrxId(String TrxId) {
-        this.TrxId = TrxId;
-    }
-
-    public String getRetUrl() {
-        return RetUrl;
-    }
-
-    public void setRetUrl(String RetUrl) {
-        this.RetUrl = RetUrl;
-    }
-
-    public String getIdType() {
-        return IdType;
-    }
-
-    public void setIdType(String IdType) {
-        this.IdType = IdType;
-    }
-
-    public String getIdNo() {
-        return IdNo;
-    }
-
-    public void setIdNo(String IdNo) {
-        this.IdNo = IdNo;
-    }
-
-    public String getUsrMp() {
-        return UsrMp;
-    }
-
-    public void setUsrMp(String UsrMp) {
-        this.UsrMp = UsrMp;
-    }
-
-    public String getUsrEmail() {
-        return UsrEmail;
-    }
-
-    public void setUsrEmail(String UsrEmail) {
-        this.UsrEmail = UsrEmail;
-    }
-
 }
