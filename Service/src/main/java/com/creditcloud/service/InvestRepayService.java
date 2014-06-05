@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -55,8 +56,8 @@ public interface InvestRepayService {
      * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同
      *
      * @param clientCode
-     * @param loanRepay
+     * @param repayDetails
      * @return
      */
-    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, LoanRepayment loanRepay);
+    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, Map<String, Object> repayDetails);
 }
