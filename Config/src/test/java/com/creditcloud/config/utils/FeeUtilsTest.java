@@ -80,6 +80,10 @@ public class FeeUtilsTest {
         repayment.setDueDate(LocalDate.now().plusDays(1));
         result = FeeUtils.isValidAdvanceRepay(config, repayment);
         assertTrue(!result);
+
+        repayment.setDueDate(LocalDate.now().minusDays(1));
+        result = FeeUtils.isValidAdvanceRepay(config, repayment);
+        assertTrue(!result);
     }
 
     /**
