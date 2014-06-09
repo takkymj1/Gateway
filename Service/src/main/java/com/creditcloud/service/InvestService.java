@@ -50,6 +50,16 @@ public interface InvestService extends InvestRepayService {
     PagedResult<Invest> listInvestByLoan(String clientCode, String loanId, PageInfo info, InvestStatus... status);
 
     /**
+     * count Invest by loan id
+     *
+     * @param clientCode
+     * @param loanId
+     * @param status
+     * @return
+     */
+    int countInvestByLoan(String clientCode, String loanId, InvestStatus... status);
+
+    /**
      * notify a status of loan to all its invests
      *
      * @param clientCode
@@ -97,7 +107,6 @@ public interface InvestService extends InvestRepayService {
      * @return
      */
     boolean cancelScheduledLoan(String clientCode, String loanId);
-
 
     /**
      * repayment of a loan, set repayment status and generate fund record

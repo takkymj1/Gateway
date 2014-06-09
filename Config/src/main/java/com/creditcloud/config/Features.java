@@ -85,4 +85,11 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableDevice = false;
 
+    /**
+     * 对于流标，结算的时候允许为剩余金额自动创建新标
+     */
+    @XmlElement
+    @Getter
+    private boolean extendFailedLoan = false;
+
 }
