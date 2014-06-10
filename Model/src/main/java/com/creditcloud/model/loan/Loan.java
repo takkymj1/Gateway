@@ -16,12 +16,14 @@ import javax.validation.groups.Default;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author sobranie
  */
 @Data
+@NoArgsConstructor
 @XmlRootElement
 public class Loan extends BaseObject implements Investable {
 
@@ -121,8 +123,10 @@ public class Loan extends BaseObject implements Investable {
      */
     private boolean hidden;
 
-    public Loan() {
-    }
+    /**
+     * 是否是流标后结算自动拆标生成的，同用戶手动拆标区分开
+     */
+    private boolean autoSplitted;
 
     public Loan(String id,
                 String title,
@@ -156,138 +160,6 @@ public class Loan extends BaseObject implements Investable {
         this.mortgaged = mortgaged;
         this.bidNumber = bidNumber;
         this.bidAmount = bidAmount;
-    }
-
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    public int getOrdinal() {
-        return ordinal;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public int getTimeOut() {
-        return timeOut;
-    }
-
-    public LoanStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(LoanStatus status) {
-        this.status = status;
-    }
-
-    public LoanRequest getLoanRequest() {
-        return loanRequest;
-    }
-
-    public Date getTimeOpen() {
-        return timeOpen;
-    }
-
-    public Date getTimeFinished() {
-        return timeFinished;
-    }
-
-    public void setTimeFinished(Date timeFinished) {
-        this.timeFinished = timeFinished;
-    }
-
-    @Override
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public boolean isMortgaged() {
-        return mortgaged;
-    }
-
-    public int getBidNumber() {
-        return bidNumber;
-    }
-
-    public void setBidNumber(int bidNumber) {
-        this.bidNumber = bidNumber;
-    }
-
-    @Override
-    public int getRate() {
-        return rate;
-    }
-
-    @Override
-    public RepaymentMethod getMethod() {
-        return method;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setMethod(RepaymentMethod method) {
-        this.method = method;
-    }
-
-    public void setOrdinal(int ordinal) {
-        this.ordinal = ordinal;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
-    public void setTimeOut(int timeOut) {
-        this.timeOut = timeOut;
-    }
-
-    public void setLoanRequest(LoanRequest loanRequest) {
-        this.loanRequest = loanRequest;
-    }
-
-    public void setTimeOpen(Date timeOpen) {
-        this.timeOpen = timeOpen;
-    }
-
-    public void setMortgaged(boolean mortgaged) {
-        this.mortgaged = mortgaged;
-    }
-
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
-
-    public int getBidAmount() {
-        return bidAmount;
-    }
-
-    public void setBidAmount(int bidAmount) {
-        this.bidAmount = bidAmount;
-    }
-
-    public Date getTimeSettled() {
-        return timeSettled;
-    }
-
-    public void setTimeSettled(Date timeSettled) {
-        this.timeSettled = timeSettled;
     }
 
     /**
