@@ -13,6 +13,7 @@ import com.creditcloud.payment.model.CorpRegisterResult;
 import com.creditcloud.payment.model.FreezeResult;
 import com.creditcloud.payment.model.FssAccount;
 import com.creditcloud.payment.model.FssProductInfo;
+import com.creditcloud.payment.model.FssStats;
 import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
@@ -740,5 +741,13 @@ public interface PaymentService {
      * @return
      */
     public FssAccount queryFssAccount(String clientCode);
+    
+    /**
+     * 所有用户生利宝统计
+     * 
+     * @param clientCode
+     * @return 所有数据均为ZERO的FssStats对象
+     */
+    public FssStats fssStats(String clientCode);
 
 }
