@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.user.credit.CertificateType;
 import com.creditcloud.model.enums.user.credit.CreditRank;
 import com.creditcloud.model.enums.user.credit.ProofType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -39,7 +40,8 @@ import org.joda.time.LocalDate;
     CreditRank.class,
     Boolean.class,
     Date.class,
-    LocalDate.class
+    LocalDate.class,
+    RealmEntity.class
 })
 public class ElementCount<T> extends BaseObject {
 

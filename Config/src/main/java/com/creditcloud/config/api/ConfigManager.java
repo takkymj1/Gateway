@@ -13,6 +13,7 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.PaymentConfig;
+import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
@@ -69,4 +70,6 @@ public interface ConfigManager {
      * @return
      */
     public FeeConfig getFeeConfig(LoanRequestType type);
+
+    public RewardConfig getRewardConfig();
 }
