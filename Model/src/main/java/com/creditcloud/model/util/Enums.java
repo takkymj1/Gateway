@@ -59,4 +59,27 @@ public class Enums {
         }
         return result;
     }
+
+    public static <T extends Enum<T> & BaseEnum> T getEnumByNameOrNull(Class<T> enumType, String name) {
+        if (enumType == null || name == null) {
+            return null;
+        }
+
+        //must be subclass of Enum
+        if (!Enum.class.isAssignableFrom(enumType)) {
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be a subclass of Enum.");
+        }
+
+        //must be implementation of BaseEnum
+        if (!BaseEnum.class.isAssignableFrom(enumType)) {
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be an implementation of BaseEnum.");
+        }
+
+        T result = null;
+        try {
+            result = T.valueOf(enumType, name);
+        } catch (IllegalArgumentException e) {}
+        return result;
+    }
+
 }
