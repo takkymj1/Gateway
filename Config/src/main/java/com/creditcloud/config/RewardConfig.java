@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Getter;
 
 /**
  * config related to reward
@@ -24,7 +23,10 @@ public final class RewardConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "RewardConfig";
 
-    @Getter
     @XmlElement(name = "ReferralReward", required = false)
     private ReferralReward referralReward;
+
+    public ReferralReward getReferralReward() {
+        return referralReward == null ? null : new ReferralReward();
+    }
 }
