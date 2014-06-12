@@ -310,16 +310,18 @@ public interface UserService extends UserSecurityService {
      * @param clientCode
      * @param from
      * @param to
+     * @param all        true for all, false for only unrewarded referral
      * @return
      */
-    List<ElementCount<RealmEntity>> countAllByReferral(String clientCode, Date from, Date to);
+    List<ElementCount<RealmEntity>> countAllByReferral(String clientCode, Date from, Date to, boolean all);
 
     /**
      *
      * @param clientCode
      * @param from
      * @param to
+     * @param all        true for all, false for only unrewarded referral
      * @return
      */
-    Map<RealmEntity, List<String>> listAllByReferral(String clientCode, Date from, Date to);
+    Map<RealmEntity, List<User>> listAllByReferral(String clientCode, Date from, Date to, boolean all);
 }
