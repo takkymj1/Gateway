@@ -293,8 +293,8 @@ public interface UserService extends UserSecurityService {
      *
      * @param clientCode
      * @param pageInfo
-     * @param from  zhu'ce
-     * @param to
+     * @param from       推荐人注册起始时间
+     * @param to         推荐人注册截止时间
      * @return
      */
     PagedResult<RealmEntity> listReferral(String clientCode, Date from, Date to, PageInfo pageInfo);
@@ -303,8 +303,8 @@ public interface UserService extends UserSecurityService {
      * 统计所有推荐人
      *
      * @param clientCode
-     * @param from
-     * @param to
+     * @param from       推荐人注册起始时间
+     * @param to         推荐人注册截止时间
      * @return
      */
     int countReferral(String clientCode, Date from, Date to);
@@ -313,8 +313,8 @@ public interface UserService extends UserSecurityService {
      * 统计一段时间内每个推荐人的推荐注册用户数,按照用戶注册时间filter
      *
      * @param clientCode
-     * @param from
-     * @param to
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
      * @param all        true for all, false for only unrewarded referral
      * @return
      */
@@ -323,8 +323,8 @@ public interface UserService extends UserSecurityService {
     /**
      *
      * @param clientCode
-     * @param from
-     * @param to
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
      * @param all        true for all, false for only unrewarded referral
      * @return
      */
