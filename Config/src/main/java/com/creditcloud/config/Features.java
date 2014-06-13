@@ -91,5 +91,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean extendFailedLoan = false;
+    
+    /**
+     * 推荐奖励功能
+     */
+    @XmlElement
+    @Getter
+    private boolean enableReferralReward = false;
 
 }
