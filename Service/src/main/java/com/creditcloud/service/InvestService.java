@@ -13,6 +13,8 @@ import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.ReferralUser;
+import java.util.Date;
 import java.util.Map;
 import javax.ejb.Remote;
 
@@ -177,4 +179,16 @@ public interface InvestService extends InvestRepayService {
      * @return
      */
     Invest getInvestById(String clientCode, String investId);
+
+    /**
+     * list referral info by user
+     *
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<ReferralUser> listByReferral(String clientCode, String userId, Date from, Date to, PageInfo pageInfo);
 }
