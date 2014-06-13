@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement
-public class ReferralUser extends BaseObject{
+public class ReferralUser extends BaseObject {
 
     private static final long serialVersionUID = 20140612L;
 

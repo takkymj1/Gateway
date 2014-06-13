@@ -6,6 +6,7 @@ package com.creditcloud.model.misc;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.Message;
+import com.creditcloud.model.user.ReferralUser;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,7 +20,8 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlSeeAlso(value = {
-    Message.class
+    Message.class,
+    ReferralUser.class
 })
 public class PagedResult<T> extends BaseObject {
 

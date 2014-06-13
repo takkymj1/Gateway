@@ -269,26 +269,31 @@ public interface UserService extends UserSecurityService {
      *
      * @param clientCode
      * @param referral
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
      * @param pageInfo
      * @return
      */
-    PagedResult<User> listByReferral(String clientCode, RealmEntity referral, PageInfo pageInfo);
+    PagedResult<User> listByReferral(String clientCode, Date from, Date to, RealmEntity referral, PageInfo pageInfo);
 
     /**
      * 按照referral来统计
      *
      * @param clientCode
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
      * @param referral
      * @return
      */
-    int countByReferral(String clientCode, RealmEntity referral);
+    @Deprecated
+    int countByReferral(String clientCode, Date from, Date to, RealmEntity referral);
 
     /**
      * 列出所有推荐人
      *
      * @param clientCode
      * @param pageInfo
-     * @param from
+     * @param from  zhu'ce
      * @param to
      * @return
      */

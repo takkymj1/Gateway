@@ -27,6 +27,6 @@ public final class RewardConfig extends BaseConfig {
     private ReferralReward referralReward;
 
     public ReferralReward getReferralReward() {
-        return referralReward == null ? null : new ReferralReward();
+        return referralReward == null ? new ReferralReward() : referralReward;
     }
 }
