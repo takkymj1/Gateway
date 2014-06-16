@@ -1,0 +1,108 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.creditcloud.user.api;
+
+import com.creditcloud.model.ElementCount;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.user.User;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * user referral related
+ *
+ * @author rooseek
+ */
+public interface UserReferralService {
+
+    /**
+     * 设置或更新推荐人
+     *
+     * @param clientCode
+     * @param userId
+     * @param referral
+     * @return
+     */
+    boolean setReferral(String clientCode, String userId, RealmEntity referral);
+
+    /**
+     * 根据推荐人列出用户
+     *
+     * @param clientCode
+     * @param referral
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<User> listByReferral(String clientCode, Date from, Date to, RealmEntity referral, PageInfo pageInfo);
+
+    /**
+     * 按照referral来统计
+     *
+     * @param clientCode
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
+     * @param referral
+     * @return
+     */
+    @Deprecated
+    int countByReferral(String clientCode, Date from, Date to, RealmEntity referral);
+
+    /**
+     * 列出所有推荐人
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param from       推荐人注册起始时间
+     * @param to         推荐人注册截止时间
+     * @return
+     */
+    PagedResult<RealmEntity> listReferral(String clientCode, Date from, Date to, PageInfo pageInfo);
+
+    /**
+     * 统计所有推荐人
+     *
+     * @param clientCode
+     * @param from       推荐人注册起始时间
+     * @param to         推荐人注册截止时间
+     * @return
+     */
+    int countReferral(String clientCode, Date from, Date to);
+
+    /**
+     * 统计一段时间内每个推荐人的推荐注册用户数,按照用戶注册时间filter
+     *
+     * @param clientCode
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
+     * @param all        true for all, false for only unrewarded referral
+     * @return
+     */
+    List<ElementCount<RealmEntity>> countAllByReferral(String clientCode, Date from, Date to, boolean all);
+
+    /**
+     *
+     * @param clientCode
+     * @param from       被推荐用户注册起始时间
+     * @param to         被推荐用户注册截止时间
+     * @param all        true for all, false for only unrewarded referral
+     * @return
+     */
+    Map<RealmEntity, List<User>> listAllByReferral(String clientCode, Date from, Date to, boolean all);
+
+    /**
+     * 推荐用户已被奖励
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    boolean markReferralRewarded(String clientCode, String... userId);
+}

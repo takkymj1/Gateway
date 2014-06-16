@@ -36,4 +36,16 @@ public class ReferralUser extends BaseObject {
      */
     private int rewardAmount;
 
+    /**
+     * 是否已经奖励
+     *
+     * @return
+     */
+    public boolean isRewarded() {
+        if (user == null) {
+            return false;
+        }
+        return user.isReferralRewarded();
+    }
+
 }
