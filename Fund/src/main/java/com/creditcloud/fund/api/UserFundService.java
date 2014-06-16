@@ -5,6 +5,8 @@
 package com.creditcloud.fund.api;
 
 import com.creditcloud.fund.model.UserFund;
+import com.creditcloud.model.criteria.CriteriaInfo;
+import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 
@@ -191,6 +193,15 @@ public interface UserFundService {
      * @return
      */
     public BigDecimal getTotalAvailable(String clientCode);
+    
+    /**
+     * 根据条件分页获取用户账户信息
+     * 
+     * @param clientCode
+     * @param criteriaInfo
+     * @return 
+     */
+    public PagedResult<UserFund> listUserFunds(String clientCode, CriteriaInfo criteriaInfo);
 
     /**
      * 生利宝接口
