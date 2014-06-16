@@ -46,6 +46,7 @@ import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -749,5 +750,15 @@ public interface PaymentService {
      * @return 所有数据均为ZERO的FssStats对象
      */
     public FssStats fssStats(String clientCode);
+    
+    /**
+     * 获得所有生利宝账户信息.
+     * 
+     * 从缓存中读取
+     * 
+     * @param clientCode
+     * @return not null
+     */
+    public Map<String, FssAccount> getAllFssAccounts(String clientCode);
 
 }
