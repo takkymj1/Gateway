@@ -6,8 +6,10 @@ package com.creditcloud.fund.api;
 
 import com.creditcloud.fund.model.UserFund;
 import com.creditcloud.model.criteria.CriteriaInfo;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -187,23 +189,6 @@ public interface UserFundService {
     public boolean calibrate(String clientCode, String userId, BigDecimal diffAvailable, BigDecimal diffFreeze);
 
     /**
-     * 获取用户可用资金总和
-     *
-     * @param clientCode
-     * @return
-     */
-    public BigDecimal getTotalAvailable(String clientCode);
-    
-    /**
-     * 根据条件分页获取用户账户信息
-     * 
-     * @param clientCode
-     * @param criteriaInfo
-     * @return 
-     */
-    public PagedResult<UserFund> listUserFunds(String clientCode, CriteriaInfo criteriaInfo);
-
-    /**
      * 生利宝接口
      *
      * @param clientCode
@@ -213,4 +198,31 @@ public interface UserFundService {
      * @return
      */
     public boolean fssTransfer(String clientCode, String userId, BigDecimal amount, boolean transferIn);
+
+    /**
+     * 根据条件分页获取用户账户信息
+     *
+     * @param clientCode
+     * @param criteriaInfo
+     * @return
+     */
+    public PagedResult<UserFund> listUserFunds(String clientCode, CriteriaInfo criteriaInfo);
+
+    /**
+     * list a group of UserFund by their userid
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param userIds
+     * @return
+     */
+    public PagedResult<UserFund> listUserFunds(String clientCode, PageInfo pageInfo, String... userIds);
+
+    /**
+     * 获取用户可用资金总和
+     *
+     * @param clientCode
+     * @return
+     */
+    public BigDecimal getTotalAvailable(String clientCode);
 }
