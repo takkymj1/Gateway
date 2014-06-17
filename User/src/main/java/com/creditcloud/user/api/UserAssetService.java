@@ -79,6 +79,7 @@ public interface UserAssetService {
      * @param estateId
      * @return
      */
+    @Deprecated
     public List<RealEstateRecord> listRecordByRealEstate(String clientCode, String estateId);
 
     /**
@@ -102,11 +103,11 @@ public interface UserAssetService {
      * 根据user和车牌号获取vehicle
      *
      * @param clientCode
-     * @userId
+     * @param userId
      * @param plateNumber
      * @return
      */
-    public Vehicle getVehicleByUserAndPlateNumber(String clientCode, String userId, String plateNumber);
+    public List<Vehicle> listVehicleByUserAndPlateNumber(String clientCode, String userId, String plateNumber);
 
     /**
      *
@@ -156,5 +157,6 @@ public interface UserAssetService {
      * @param vehicleId
      * @return
      */
+    @Deprecated
     public List<VehicleRecord> listRecordByVehicle(String clientCode, String vehicleId);
 }
