@@ -64,6 +64,12 @@ public class Client extends BaseObject {
     private String supportEmail;
     
     /**
+     * 支持/客服电话
+     */
+    @FormParam("supportPhone")
+    private String supportPhone;
+    
+    /**
      * 内部邮件特征字符串，邮件域名中包含creditcloud的即为CRCD的内部客户.
      * 
      * 多个字符串用逗号分割
