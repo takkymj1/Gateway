@@ -16,41 +16,49 @@ import com.creditcloud.common.validation.ValidatorWrapper;
 public class ValidateUtils {
 
     /**
-     * validate name
+     * validate for values in class
      *
      * @param validator
-     * @param claszz
-     * @param name
+     * @param clazz
+     * @param fieldName
+     * @param value
      * @return
      */
-    public static ValidationResult validateName(ValidatorWrapper validator, Class claszz, String name) {
-        ValidationResult result = new ValidationResult(name);
+    public static ValidationResult validate(ValidatorWrapper validator, Class clazz, String fieldName, String value) {
+        ValidationResult result = new ValidationResult(value);
         try {
-            validator.tryValidateValue(claszz, "name", name);
+            validator.tryValidateValue(clazz, fieldName, value);
             result.setValid(true);
         } catch (InvalidException ex) {
+            result.setMessage(ex.getMessage());
+        } catch (IllegalArgumentException ex) {
             result.setMessage(ex.getMessage());
         }
         return result;
     }
 
     /**
+     * validate name
+     *
+     * @param validator
+     * @param clazz
+     * @param name
+     * @return
+     */
+    public static ValidationResult validateName(ValidatorWrapper validator, Class clazz, String name) {
+        return validate(validator, clazz, "name", name);
+    }
+
+    /**
      * validate mobile
      *
      * @param validator
-     * @param claszz
+     * @param clazz
      * @param mobile
      * @return
      */
-    public static ValidationResult validateMobile(ValidatorWrapper validator, Class claszz, String mobile) {
-        ValidationResult result = new ValidationResult(mobile);
-        try {
-            validator.tryValidateValue(claszz, "mobile", mobile);
-            result.setValid(true);
-        } catch (InvalidException ex) {
-            result.setMessage(ex.getMessage());
-        }
-        return result;
+    public static ValidationResult validateMobile(ValidatorWrapper validator, Class clazz, String mobile) {
+        return validate(validator, clazz, "mobile", mobile);
     }
 
     /**
@@ -62,14 +70,7 @@ public class ValidateUtils {
      * @return
      */
     public static ValidationResult validateIdNumber(ValidatorWrapper validator, Class clazz, String idNumber) {
-        ValidationResult result = new ValidationResult(idNumber);
-        try {
-            validator.tryValidateValue(clazz, "idNumber", idNumber);
-            result.setValid(true);
-        } catch (InvalidException ex) {
-            result.setMessage(ex.getMessage());
-        }
-        return result;
+        return validate(validator, clazz, "idNumber", idNumber);
     }
 
     /**
@@ -81,14 +82,7 @@ public class ValidateUtils {
      * @return
      */
     public static ValidationResult validateLoginName(ValidatorWrapper validator, Class clazz, String loginName) {
-        ValidationResult result = new ValidationResult(loginName);
-        try {
-            validator.tryValidateValue(clazz, "loginName", loginName);
-            result.setValid(true);
-        } catch (InvalidException ex) {
-            result.setMessage(ex.getMessage());
-        }
-        return result;
+        return validate(validator, clazz, "loginName", loginName);
     }
 
     /**
@@ -100,13 +94,6 @@ public class ValidateUtils {
      * @return
      */
     public static ValidationResult validateEmail(ValidatorWrapper validator, Class clazz, String email) {
-        ValidationResult result = new ValidationResult(email);
-        try {
-            validator.tryValidateValue(clazz, "email", email);
-            result.setValid(true);
-        } catch (InvalidException ex) {
-            result.setMessage(ex.getMessage());
-        }
-        return result;
+        return validate(validator, clazz, "email", email);
     }
 }
