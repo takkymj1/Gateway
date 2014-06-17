@@ -70,6 +70,9 @@ public final class ClientConfig extends BaseConfig {
      * @return
      */
     public Features getFeatures() {
-        return features == null ? new Features() : features;
+        if (features == null) {
+            features = new Features();
+        }
+        return features;
     }
 }
