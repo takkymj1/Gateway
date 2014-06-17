@@ -31,6 +31,10 @@ public class Features extends BaseObject {
 
     @XmlElement
     @Getter
+    private boolean enableApi = false;  //是否开放 /api/* 路径
+
+    @XmlElement
+    @Getter
     private boolean fss = false;  //默认不打开生利宝
 
     //默认一对一合同
