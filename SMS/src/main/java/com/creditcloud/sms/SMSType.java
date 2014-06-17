@@ -55,6 +55,18 @@ public enum SMSType {
      */
     NOTIFICATION_LOAN_STATUS("notification.loan.status"),
     /**
+     * InvestRepay成功发生时发送给investor的提示信息.
+     * 
+     * 参数：loan.title, InvestRepayment.currentPeriod, InvestRepayment.repayAmount, client.name, client.helpPhone
+     */
+    NOTIFICATION_LOAN_REPAY("notification.loan.repay"),
+    /**
+     * Loan还清时发送给investor的提示信息.
+     * 
+     * 参数：loan.title, client.helpPhone
+     */
+    NOTIFICATION_LOAN_CLEARED("notification.loan.cleared"),
+    /**
     * 用户提交取现申请，参数为 client.shortName, user.name, amount, supportPhone
     */
     NOTIFICATION_WITHDRAW_APPLY("notification.withdraw.apply");
