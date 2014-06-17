@@ -27,6 +27,16 @@ import lombok.NoArgsConstructor;
 public class FssAccount extends BaseObject {
 
     /**
+     * 用户的唯一ID，与UserService中的一致
+     */
+    private String userId;
+
+    /**
+     * 由三方支付生成的用户唯一ID, UsrCustId
+     */
+    private String accountId;
+
+    /**
      * 总金额
      */
     String TotalAsset;
