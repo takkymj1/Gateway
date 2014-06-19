@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author rooseek
  */
-public interface UserReferralService {
+public interface UserRewardService {
 
     /**
      * 设置或更新推荐人
@@ -98,11 +98,30 @@ public interface UserReferralService {
     Map<RealmEntity, List<User>> listAllByReferral(String clientCode, Date from, Date to, boolean all);
 
     /**
-     * 推荐用户已被奖励
+     * 推荐用户奖励
      *
      * @param clientCode
      * @param userId
+     */
+    void markReferralRewarded(String clientCode, String... userId);
+
+    /**
+     * 列出一段时间内注册的用户
+     *
+     * @param clientCode
+     * @param from       用戶注册起始时间
+     * @param to         用户注册截止时间
+     * @param info
+     * @param all        true for all, false for only unrewarded user
      * @return
      */
-    boolean markReferralRewarded(String clientCode, String... userId);
+    PagedResult<User> listByRegisterDate(String clientCode, Date from, Date to, PageInfo info, boolean all);
+
+    /**
+     * 注册用户奖励
+     *
+     * @param clientCode
+     * @param userId
+     */
+    void markRegistryRewarded(String clientCode, String... userId);
 }

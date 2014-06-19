@@ -13,31 +13,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 
 /**
- * config for referral reward
+ * config for registry reward
  *
  * @author rooseek
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public final class ReferralReward extends BaseConfig {
+public final class RegistryReward extends BaseConfig {
 
-    private static final long serialVersionUID = 20140611L;
-
-    /**
-     * 注册天数
-     */
-    @Min(0)
-    @Getter
-    @XmlElement(required = false)
-    private int registerDays = 0;
+    private static final long serialVersionUID = 20140619L;
 
     /**
-     * 投标金额
+     * 在某日期之后注册的用户才给与奖励
      */
-    @Min(0)
     @Getter
     @XmlElement(required = false)
-    private int investAmount = 0;
+    private String startDate = "1970-01-01";
 
     /**
      * 奖励金额

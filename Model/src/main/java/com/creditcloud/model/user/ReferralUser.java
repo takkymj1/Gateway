@@ -6,6 +6,7 @@
 package com.creditcloud.model.user;
 
 import com.creditcloud.model.BaseObject;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,11 +30,13 @@ public class ReferralUser extends BaseObject {
     /**
      * 成功投标金额
      */
+    @Min(0)
     private long investAmount;
 
     /**
      * 奖励金额
      */
+    @Min(0)
     private int rewardAmount;
 
     /**

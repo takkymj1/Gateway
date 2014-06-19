@@ -26,7 +26,14 @@ public final class RewardConfig extends BaseConfig {
     @XmlElement(name = "ReferralReward", required = false)
     private ReferralReward referralReward;
 
+    @XmlElement(name = "RegistryReward", required = false)
+    private RegistryReward registryReward;
+
     public ReferralReward getReferralReward() {
         return referralReward == null ? new ReferralReward() : referralReward;
+    }
+
+    public RegistryReward getRegistryReward() {
+        return registryReward == null ? new RegistryReward() : registryReward;
     }
 }
