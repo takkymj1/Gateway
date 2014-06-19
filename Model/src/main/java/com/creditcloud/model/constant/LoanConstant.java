@@ -18,7 +18,7 @@ public interface LoanConstant {
     /**
      * 最低贷款利率
      */
-    int MIN_LOAN_RATE = 800;
+    int MIN_LOAN_RATE = 0;
 
     /**
      * 最高贷款利率
