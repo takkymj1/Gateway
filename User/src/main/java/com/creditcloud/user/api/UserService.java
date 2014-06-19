@@ -10,6 +10,7 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.User;
 import com.creditcloud.user.social.SocialId;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -19,7 +20,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService extends UserSecurityService, UserReferralService {
+public interface UserService extends UserSecurityService, UserRewardService {
 
     /**
      * list all users for client
