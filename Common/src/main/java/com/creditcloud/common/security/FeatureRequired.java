@@ -18,6 +18,7 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Retention(value = RetentionPolicy.RUNTIME)
-@Target(value = {ElementType.TYPE})
-public @interface EnableApiRequired {
+@Target(value = {ElementType.TYPE, ElementType.METHOD})
+public @interface FeatureRequired {
+    public String value();
 }
