@@ -11,11 +11,15 @@ import com.creditcloud.model.enums.user.info.YearOfService;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class CareerInfo extends BaseObject {
 
@@ -61,16 +65,21 @@ public class CareerInfo extends BaseObject {
     @XmlElement(name = "workMail")
     private String workMail;
 
+    //从出道开始总工作年限
+    @FormParam("totalYearOfService")
+    @XmlElement(name = "totalYearOfService")
+    private YearOfService totalYearOfService;
+
     /**
      *
-     * @param careerStatus 职业状态
-     * @param company 公司信息
-     * @param province 工作省市
-     * @param city 工作城市
-     * @param position 职位
-     * @param salary 月收入
+     * @param careerStatus  职业状态
+     * @param company       公司信息
+     * @param province      工作省市
+     * @param city          工作城市
+     * @param position      职位
+     * @param salary        月收入
      * @param yearOfService 在现单位工作年限
-     * @param workMail 工作邮箱
+     * @param workMail      工作邮箱
      */
     public CareerInfo(CareerStatus careerStatus,
                       CompanyInfo company,
@@ -87,73 +96,6 @@ public class CareerInfo extends BaseObject {
         this.position = position;
         this.salary = salary;
         this.yearOfService = yearOfService;
-        this.workMail = workMail;
-    }
-
-    public CareerInfo() {
-    }
-
-    public CompanyInfo getCompany() {
-        return company;
-    }
-
-    public CareerStatus getCareerStatus() {
-        return careerStatus;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public MonthlySalary getSalary() {
-        return salary;
-    }
-
-    public YearOfService getYearOfService() {
-        return yearOfService;
-    }
-
-    public String getWorkMail() {
-        return workMail;
-    }
-
-    public void setCareerStatus(CareerStatus careerStatus) {
-        this.careerStatus = careerStatus;
-    }
-
-    public void setCompany(CompanyInfo company) {
-        this.company = company;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public void setSalary(MonthlySalary salary) {
-        this.salary = salary;
-    }
-
-    public void setYearOfService(YearOfService yearOfService) {
-        this.yearOfService = yearOfService;
-    }
-
-    public void setWorkMail(String workMail) {
         this.workMail = workMail;
     }
 }

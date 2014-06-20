@@ -6,6 +6,8 @@ package com.creditcloud.common.entities.embedded.info;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.enums.EthnicGroup;
+import com.creditcloud.model.enums.user.info.HouseStatus;
+import com.creditcloud.model.enums.user.info.HukouType;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import com.creditcloud.model.validation.group.LoanRequestCheck;
 import java.util.Date;
@@ -17,11 +19,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @Embeddable
 public class PersonalInfo extends BaseEntity {
 
@@ -69,8 +75,15 @@ public class PersonalInfo extends BaseEntity {
     //个人头像图片名
     private String avatar;
 
-    public PersonalInfo() {
-    }
+    //户口类型
+    @Enumerated(EnumType.STRING)
+    @Column(name = "HUKOU_TYPE", nullable = true)
+    private HukouType hukouType;
+
+    //住房状况
+    @Enumerated(EnumType.STRING)
+    @Column(name = "HOUSE_STATUS", nullable = true)
+    private HouseStatus houseStatus;
 
     /**
      *
@@ -101,71 +114,7 @@ public class PersonalInfo extends BaseEntity {
         this.avatar = avatar;
     }
 
-    public boolean isMale() {
-        return male;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public MaritalStatus getMaritalStatus() {
-        return maritalStatus;
-    }
-
     public boolean hasChildren() {
         return children;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setMale(boolean male) {
-        this.male = male;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setMaritalStatus(MaritalStatus maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public void setChildren(boolean children) {
-        this.children = children;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public boolean isChildren() {
-        return children;
-    }
-
-    public EducationInfo getEducation() {
-        return education;
-    }
-
-    public PlaceInfo getPlace() {
-        return place;
-    }
-
-    public void setEducation(EducationInfo education) {
-        this.education = education;
-    }
-
-    public void setPlace(PlaceInfo place) {
-        this.place = place;
-    }
-
-    public EthnicGroup getEthnic() {
-        return ethnic;
-    }
-
-    public void setEthnic(EthnicGroup ethnic) {
-        this.ethnic = ethnic;
     }
 }

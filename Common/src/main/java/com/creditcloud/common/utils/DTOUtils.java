@@ -310,6 +310,8 @@ public class DTOUtils {
                                                             getEducationInfo(personal.getEducation()),
                                                             getPlaceInfo(personal.getPlace()),
                                                             personal.getAvatar());
+            result.setHouseStatus(personal.getHouseStatus());
+            result.setHukouType(personal.getHukouType());
         }
 
         return result;
@@ -326,6 +328,8 @@ public class DTOUtils {
                                       convertEducationInfo(personal.getEducation()),
                                       convertPlaceInfo(personal.getPlace()),
                                       personal.getAvatar());
+            result.setHouseStatus(personal.getHouseStatus());
+            result.setHukouType(personal.getHukouType());
         }
 
         return result;

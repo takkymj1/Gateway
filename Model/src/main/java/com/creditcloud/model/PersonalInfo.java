@@ -5,16 +5,22 @@
 package com.creditcloud.model;
 
 import com.creditcloud.model.enums.EthnicGroup;
+import com.creditcloud.model.enums.user.info.HouseStatus;
+import com.creditcloud.model.enums.user.info.HukouType;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import java.util.Date;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class PersonalInfo extends BaseObject {
 
@@ -58,6 +64,16 @@ public class PersonalInfo extends BaseObject {
     @FormParam("avatar")
     @XmlElement(name = "avatar")
     private String avatar;
+        
+    //户口类型
+    @FormParam("hukouType")
+    @XmlElement(name = "hukouType")
+    private HukouType hukouType;
+    
+    //住房状况
+    @FormParam("houseStatus")
+    @XmlElement(name="houseStatus")
+    private HouseStatus houseStatus;
 
     /**
      *
@@ -88,70 +104,7 @@ public class PersonalInfo extends BaseObject {
         this.ethnic = ethnic;
     }
 
-    public PersonalInfo() {
-    }
-
-    public boolean isMale() {
-        return male;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public MaritalStatus getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public boolean hasChildren() {
+    public boolean hasChildren(){
         return children;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public EducationInfo getEducation() {
-        return education;
-    }
-
-    public PlaceInfo getPlace() {
-        return place;
-    }
-
-    public void setMale(boolean male) {
-        this.male = male;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setMaritalStatus(MaritalStatus maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public void setChildren(boolean children) {
-        this.children = children;
-    }
-
-    public void setEducation(EducationInfo education) {
-        this.education = education;
-    }
-
-    public void setPlace(PlaceInfo place) {
-        this.place = place;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public void setEthnic(EthnicGroup ethnic) {
-        this.ethnic = ethnic;
-    }
-
-    public EthnicGroup getEthnic() {
-        return ethnic;
     }
 }

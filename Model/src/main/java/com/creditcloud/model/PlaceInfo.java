@@ -7,11 +7,15 @@ package com.creditcloud.model;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class PlaceInfo extends BaseObject {
 
@@ -67,57 +71,6 @@ public class PlaceInfo extends BaseObject {
         this.hukouProvince = hukouProvince;
         this.hukouCity = hukouCity;
         this.currentAddress = currentAddress;
-        this.currentPhone = currentPhone;
-    }
-
-    public PlaceInfo() {
-    }
-
-    public String getNativeProvince() {
-        return nativeProvince;
-    }
-
-    public String getNativeCity() {
-        return nativeCity;
-    }
-
-    public String getHukouProvince() {
-        return hukouProvince;
-    }
-
-    public String getHukouCity() {
-        return hukouCity;
-    }
-
-    public String getCurrentAddress() {
-        return currentAddress;
-    }
-
-    public String getCurrentPhone() {
-        return currentPhone;
-    }
-
-    public void setNativeProvince(String nativeProvince) {
-        this.nativeProvince = nativeProvince;
-    }
-
-    public void setNativeCity(String nativeCity) {
-        this.nativeCity = nativeCity;
-    }
-
-    public void setHukouProvince(String hukouProvince) {
-        this.hukouProvince = hukouProvince;
-    }
-
-    public void setHukouCity(String hukouCity) {
-        this.hukouCity = hukouCity;
-    }
-
-    public void setCurrentAddress(String currentAddress) {
-        this.currentAddress = currentAddress;
-    }
-
-    public void setCurrentPhone(String currentPhone) {
         this.currentPhone = currentPhone;
     }
 }
