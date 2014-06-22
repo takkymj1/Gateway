@@ -89,8 +89,10 @@ public enum Privilege implements BaseEnum {
      */
     FUND_VIEW("查看平台资金", Realm.FUND, "资金相关权限"),
     FUND_RECONCILIATION("商户对账", Realm.FUND, "资金相关权限"),
-    CLIENT_CASH_AUDIT("商户提现审批", Realm.FUND, "资金相关权限"),
-    USER_CASH_AUDIT("用户提现审批", Realm.FUND, "资金相关权限"),
+    CLIENT_CASH_APPROVE("商户提现审批", Realm.FUND, "资金相关权限"),
+    CLIENT_CASH_AUDIT("商户提现复核", Realm.FUND, "资金相关权限"),
+    USER_CASH_APPROVE("用户提现审批", Realm.FUND, "资金相关权限"), //提现申请需要先审批通过再复核才能真正放款
+    USER_CASH_AUDIT("用户提现复核", Realm.FUND, "资金相关权限"),
     USER_CASH_REQUEST("用户提现申请", Realm.FUND, "资金相关权限"), //代用户提交取现申请，与用户快速提现有区别，需要进一步审核
     FUND_DEPOSIT("商户充值", Realm.FUND, "资金相关权限"),
     FUND_WITHDRAW("商户提现", Realm.FUND, "资金相关权限"),
