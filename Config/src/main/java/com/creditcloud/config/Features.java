@@ -110,4 +110,11 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableRegistryReward = false;
 
+    /**
+     * 是否拆分提现审批为审核和批准/拒绝两个步骤
+     */
+    @XmlElement
+    @Getter
+    private boolean splitCashAudit = false;
+
 }
