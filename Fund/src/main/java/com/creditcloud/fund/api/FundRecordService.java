@@ -148,9 +148,10 @@ public interface FundRecordService {
      * 返回所有待处理的提现申请记录.
      *
      * @param clientCode
+     * @param status     如果为空默认返回Auditing状态取现申请
      * @return
      */
-    List<FundWithdraw> listWithdrawRequest(String clientCode);
+    List<FundWithdraw> listWithdrawRequest(String clientCode, FundRecordStatus... status);
 
     /**
      * 返回特定时间段内成功的提现记录

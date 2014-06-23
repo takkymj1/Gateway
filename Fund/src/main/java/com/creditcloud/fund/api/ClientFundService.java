@@ -52,7 +52,7 @@ public interface ClientFundService {
      *
      * @param clientCode
      * @param record
-     * @return 
+     * @return
      */
     ClientFundRecord addRecord(String clientCode, ClientFundRecord record);
 
@@ -77,9 +77,10 @@ public interface ClientFundService {
      * 列出商户所有未处理的取现请求
      *
      * @param clientCode
+     * @param status     如果为空则默认列出AUDITING状态
      * @return
      */
-    List<ClientFundRecord> listWithdrawRequest(String clientCode);
+    List<ClientFundRecord> listWithdrawRequest(String clientCode, FundRecordStatus... status);
 
     /**
      * 根据orderId获取取现请求记录
