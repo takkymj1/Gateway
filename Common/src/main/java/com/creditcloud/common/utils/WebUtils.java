@@ -51,6 +51,13 @@ public class WebUtils {
      */
     public static String getIP(HttpServletRequest request) {
         String IP = request.getRemoteAddr();
+        String forwarded = request.getHeader("x-forwarded-for");
+        if (forwarded != null) {
+            forwarded = forwarded.split(",", 2)[0];
+            if (pattern.matcher(forwarded).matches()) {
+                return forwarded;
+            }
+        }
         if (pattern.matcher(IP).matches()) {
             return IP;
         } else {
