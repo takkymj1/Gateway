@@ -40,15 +40,15 @@ public interface UserSecurityService {
 
     /**
      * 用户通过手机号登陆.
-     * 
+     *
      * 不要求用户的手机号是绑定成功的，只是检查手机号、密码匹配
-     * 
+     *
      * @param clientCode
      * @param mobile
      * @param password
      * @param loginInfo
      * @param source
-     * @return 
+     * @return
      */
     UserLoginResult loginMobile(String clientCode,
                                 String mobile,
@@ -77,11 +77,10 @@ public interface UserSecurityService {
      *
      * @param clientCode
      * @param socialId
+     * @param loginInfo
      * @return
      */
     UserLoginResult loginSocial(String clientCode, SocialId socialId, Map<String, String> loginInfo);
-    
-    
 
     /**
      * 修改密码
@@ -91,7 +90,7 @@ public interface UserSecurityService {
      * @param oldPassword
      * @param newPassword
      * @return true if loginName exist and old password word match, and set new
-     * password successful
+     *         password successful
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
@@ -142,4 +141,22 @@ public interface UserSecurityService {
      * @return
      */
     boolean markMobileAuthenticated(String clientCode, String userId);
+
+    /**
+     * 微博认证通过
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    boolean markWeiboAuthenticated(String clientCode, String userId);
+
+    /**
+     * 微信认证通过
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    boolean markWebchatAuthenticated(String clientCode, String userId);
 }

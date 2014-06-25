@@ -6,11 +6,13 @@ package com.creditcloud.user;
 
 import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 
 /**
  *
  * @author rooseek
  */
+@Data
 @XmlRootElement
 public class UserAuthenticate extends BaseObject {
 
@@ -33,6 +35,16 @@ public class UserAuthenticate extends BaseObject {
      */
     private boolean emailAuthenticated;
 
+    /**
+     * 微博认证是否通过
+     */
+    private boolean weiboAuthenticated;
+
+    /**
+     * 微信认证是否通过
+     */
+    private boolean webchatAuthenticated;
+
     public UserAuthenticate() {
     }
 
@@ -43,38 +55,6 @@ public class UserAuthenticate extends BaseObject {
         this.userId = userId;
         this.IDAuthenticated = IDAuthenticated;
         this.mobileAuthenticated = mobileAuthenticated;
-        this.emailAuthenticated = emailAuthenticated;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public boolean isIDAuthenticated() {
-        return IDAuthenticated;
-    }
-
-    public boolean isMobileAuthenticated() {
-        return mobileAuthenticated;
-    }
-
-    public boolean isEmailAuthenticated() {
-        return emailAuthenticated;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public void setIDAuthenticated(boolean IDAuthenticated) {
-        this.IDAuthenticated = IDAuthenticated;
-    }
-
-    public void setMobileAuthenticated(boolean mobileAuthenticated) {
-        this.mobileAuthenticated = mobileAuthenticated;
-    }
-
-    public void setEmailAuthenticated(boolean emailAuthenticated) {
         this.emailAuthenticated = emailAuthenticated;
     }
 }

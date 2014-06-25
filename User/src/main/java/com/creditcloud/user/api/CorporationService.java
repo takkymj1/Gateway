@@ -7,7 +7,6 @@ package com.creditcloud.user.api;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.User;
 import com.creditcloud.model.user.corporation.CorporationUser;
 import com.creditcloud.model.user.corporation.CorporationInfo;
 import com.creditcloud.model.user.corporation.CorporationType;

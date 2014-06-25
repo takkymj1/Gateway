@@ -112,12 +112,12 @@ public class UserInfoTest {
                                                           "同事",
                                                           "13512345678"));
 
-
         UserInfo userInfo = new UserInfo(user,
                                          personal,
                                          finance,
                                          career,
-                                         contact);
+                                         contact,
+                                         null);
         Assert.assertNotNull(userInfo);
     }
 }

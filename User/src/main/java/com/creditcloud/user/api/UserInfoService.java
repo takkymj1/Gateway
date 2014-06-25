@@ -8,6 +8,7 @@ import com.creditcloud.model.user.info.CareerInfo;
 import com.creditcloud.model.ContactInfo;
 import com.creditcloud.model.user.info.FinanceInfo;
 import com.creditcloud.model.PersonalInfo;
+import com.creditcloud.model.SocialInfo;
 import com.creditcloud.model.user.info.UserInfo;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
@@ -45,10 +46,10 @@ public interface UserInfoService {
      * update UserInfo once for all, mostly called from mobile
      *
      * @param clientCode
-     * @param userId
      * @param info
      * @return
      */
+    @Deprecated
     boolean updateUserInfo(String clientCode, UserInfo info);
 
     /**
@@ -126,6 +127,16 @@ public interface UserInfoService {
      * @return
      */
     boolean updateContactInfo(String clientCode, String userId, ContactInfo info);
+
+    /**
+     * update social info
+     *
+     * @param clientCode
+     * @param userId
+     * @param info
+     * @return
+     */
+    boolean updateSocialInfo(String clientCode, String userId, SocialInfo info);
 
     /**
      * checks whether user information is sufficient to submit a loan request

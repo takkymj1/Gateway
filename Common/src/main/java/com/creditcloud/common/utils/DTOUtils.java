@@ -16,6 +16,7 @@ import com.creditcloud.common.entities.embedded.info.ContactInfo;
 import com.creditcloud.common.entities.embedded.info.EducationInfo;
 import com.creditcloud.common.entities.embedded.info.PersonalInfo;
 import com.creditcloud.common.entities.embedded.info.PlaceInfo;
+import com.creditcloud.common.entities.embedded.info.SocialInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import static com.creditcloud.model.enums.loan.LoanStatus.BREACH;
@@ -332,6 +333,28 @@ public class DTOUtils {
             result.setHukouType(personal.getHukouType());
         }
 
+        return result;
+    }
+
+    /**
+     * handle social info
+     *
+     * @param info
+     * @return
+     */
+    public static com.creditcloud.model.SocialInfo getSocialInfo(SocialInfo info) {
+        com.creditcloud.model.SocialInfo result = null;
+        if (info != null) {
+            result = new com.creditcloud.model.SocialInfo(info.getWeibo(), info.getWebchat());
+        }
+        return result;
+    }
+
+    public static SocialInfo convertSocialInfo(com.creditcloud.model.SocialInfo info) {
+        SocialInfo result = null;
+        if (info != null) {
+            result = new SocialInfo(info.getWeibo(), info.getWebchat());
+        }
         return result;
     }
 
