@@ -48,6 +48,19 @@ public class FeeUtilsTest {
     }
 
     @Test
+    public void testMergeFee() {
+        Fee expectedFee;
+        BigDecimal rate = new BigDecimal("0.02");
+        FeeScope scope = FeeScope.PRINCIPAL;
+        FeePeriod period = FeePeriod.SINGLE;
+
+        Fee defaultFee = new Fee(FeeType.FLOATING, BigDecimal.ZERO, rate, period, scope);
+        Fee result = FeeUtils.mergeFee(defaultFee, BigDecimal.ZERO, scope);
+        expectedFee = new Fee(FeeType.FLOATING, BigDecimal.ZERO, BigDecimal.ZERO, period, scope);
+        assertEquals(expectedFee, result);
+    }
+
+    @Test
     public void testIsAdvanceRepay() {
         FeeConfig config = new FeeConfig();
         config.setMinDaysForAdvanceRepay(5);
