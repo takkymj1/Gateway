@@ -14,6 +14,13 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ContractType implements BaseEnum {
 
+    /**
+     * 平台与借款人之间合同双方合同
+     */
+    LOAN_CLIENT("借款人与平台合同"),
+    /**
+     * 借款人和投资人之间双方合同或包含平台的三方合同,是默认合同类型
+     */
     LOAN("借款合同"),
     ADVANCE_REPAY("提前还款补充合同");
 
