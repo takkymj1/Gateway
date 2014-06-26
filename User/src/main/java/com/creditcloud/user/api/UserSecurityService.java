@@ -158,5 +158,5 @@ public interface UserSecurityService {
      * @param userId
      * @return
      */
-    boolean markWebchatAuthenticated(String clientCode, String userId);
+    boolean markWechatAuthenticated(String clientCode, String userId);
 }

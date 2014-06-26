@@ -43,7 +43,7 @@ public class UserAuthenticate extends BaseObject {
     /**
      * 微信认证是否通过
      */
-    private boolean webchatAuthenticated;
+    private boolean wechatAuthenticated;
 
     public UserAuthenticate() {
     }

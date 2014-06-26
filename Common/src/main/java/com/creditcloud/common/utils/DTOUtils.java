@@ -345,7 +345,7 @@ public class DTOUtils {
     public static com.creditcloud.model.SocialInfo getSocialInfo(SocialInfo info) {
         com.creditcloud.model.SocialInfo result = null;
         if (info != null) {
-            result = new com.creditcloud.model.SocialInfo(info.getWeibo(), info.getWebchat());
+            result = new com.creditcloud.model.SocialInfo(info.getWeibo(), info.getWechat());
         }
         return result;
     }
@@ -353,7 +353,7 @@ public class DTOUtils {
     public static SocialInfo convertSocialInfo(com.creditcloud.model.SocialInfo info) {
         SocialInfo result = null;
         if (info != null) {
-            result = new SocialInfo(info.getWeibo(), info.getWebchat());
+            result = new SocialInfo(info.getWeibo(), info.getWechat());
         }
         return result;
     }
