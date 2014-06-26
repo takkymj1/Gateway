@@ -11,6 +11,7 @@ import com.creditcloud.model.client.Client;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.List;
@@ -24,7 +25,27 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface ContractService {
-
+    
+    /**
+     * 生成一份普通的平台借款合同(平台和借款人签订的合同).
+     *
+     * 只是触发远程的生成过程，为异步调用
+     *
+     * 重复调用将生成新的合同，原有合同不删除
+     *
+     * 借款合同命名为 loan title + client + date，合同名称不是唯一的！
+     *
+     * @param client        平台
+     * @param loanRequest   借款对象
+     * @param repayments    还款列表
+     * @param feeConfig     费用配置
+     * @param templateId    合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     */
+    public void generateLoanContract(Client client, LoanRequest loanRequest,
+                                     List<Repayment> repaymentList,
+                                     FeeConfig feeConfig,
+                                     String templateId);
+    
     /**
      * 生成一份普通的平台借款合同.
      *
