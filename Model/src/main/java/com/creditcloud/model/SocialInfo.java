@@ -28,10 +28,10 @@ public class SocialInfo extends BaseObject {
     /**
      * 微信
      */
-    private String webchat;
+    private String wechat;
 
-    public SocialInfo(String weibo, String webchat) {
+    public SocialInfo(String weibo, String wechat) {
         this.weibo = weibo;
-        this.webchat = webchat;
+        this.wechat = wechat;
     }
 }
