@@ -11,7 +11,9 @@ import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
 import java.util.Date;
 import java.util.Map;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 合同对象
@@ -19,9 +21,15 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Contract extends BaseObject {
     
+<<<<<<< HEAD
     private static final long serialVersionUID = 20140626L;
+=======
+    private static final long serialVersionUID = 20140627L;
+>>>>>>> upstream/master
     
     /**
      * 合同编号
