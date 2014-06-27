@@ -21,6 +21,8 @@ import lombok.Data;
 @Data
 public class Contract extends BaseObject {
     
+    private static final long serialVersionUID = 20140626L;
+    
     /**
      * 合同编号
      */
