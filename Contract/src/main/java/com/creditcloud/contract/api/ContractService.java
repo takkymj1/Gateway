@@ -46,7 +46,7 @@ public interface ContractService {
                                      List<Repayment> repaymentList,
                                      FeeConfig feeConfig,
                                      String templateId,
-                                     byte[] writing);
+                                     byte[] writing, int page, float percentX, float percentY);
     
     /**
      * 生成一份普通的平台借款合同.
