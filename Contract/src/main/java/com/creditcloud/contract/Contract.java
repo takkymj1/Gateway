@@ -25,7 +25,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Contract extends BaseObject {
     
+<<<<<<< HEAD
+    private static final long serialVersionUID = 20140626L;
+=======
     private static final long serialVersionUID = 20140627L;
+>>>>>>> upstream/master
     
     /**
      * 合同编号

@@ -40,11 +40,13 @@ public interface ContractService {
      * @param repayments    还款列表
      * @param feeConfig     费用配置
      * @param templateId    合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     * @param writing       签名
      */
     public void generateLoanContract(Client client, LoanRequest loanRequest,
                                      List<Repayment> repaymentList,
                                      FeeConfig feeConfig,
-                                     String templateId);
+                                     String templateId,
+                                     byte[] writing, int page, float percentX, float percentY);
     
     /**
      * 生成一份普通的平台借款合同.

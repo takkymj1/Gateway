@@ -22,6 +22,8 @@ public class ContractTemplate extends BaseObject {
     
     private static final long serialVersionUID = 20140627L;
 
+    private static final long serialVersionUID = 20140627L;
+    
     @NotNull
     private String id;
 
