@@ -24,7 +24,7 @@ public final class ReferralReward extends BaseConfig {
     private static final long serialVersionUID = 20140611L;
 
     /**
-     * 注册天数
+     * 注册天数,如果为0表示注册就有资格获得奖励
      */
     @Min(0)
     @Getter
@@ -32,7 +32,7 @@ public final class ReferralReward extends BaseConfig {
     private int registerDays = 0;
 
     /**
-     * 投标金额
+     * 投标金额,如果为0表示无需投资就有资格获得奖励
      */
     @Min(0)
     @Getter
