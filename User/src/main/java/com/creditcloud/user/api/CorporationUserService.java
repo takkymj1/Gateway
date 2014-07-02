@@ -18,7 +18,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface CorporationService {
+public interface CorporationUserService {
 
     /**
      * 如果没有则添加，否则更新,TODO目前只支持从后台添加
