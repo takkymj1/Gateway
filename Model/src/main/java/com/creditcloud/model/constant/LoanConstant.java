@@ -61,9 +61,9 @@ public interface LoanConstant {
     int MIN_LOAN_TIME_OUT = 0;
 
     /**
-     * 最大开放募集时间,单位小时,目前设为7天
+     * 最大开放募集时间,单位小时,目前设为30天
      */
-    int MAX_LOAN_TIME_OUT = 14 * 24;
+    int MAX_LOAN_TIME_OUT = 30 * 24;
 
     /**
      * 单笔投资最小金额

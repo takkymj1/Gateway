@@ -5,6 +5,7 @@
 package com.creditcloud.config;
 
 import com.creditcloud.config.enums.FeePeriod;
+import com.creditcloud.config.enums.FeePhase;
 import com.creditcloud.config.enums.FeeScope;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.BaseObject;
@@ -60,6 +61,11 @@ public class Fee extends BaseObject {
      * 收费范围
      */
     private FeeScope scope = FeeScope.PRINCIPAL;
+
+    /**
+     * 何时收费
+     */
+    private FeePhase phase = FeePhase.LOAN;
 
     /**
      * 此费用的详细描述

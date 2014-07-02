@@ -87,6 +87,7 @@ public class LoanFee extends BaseObject {
                    BigDecimal investInterestFee) {
         this.requestId = requestId;
         this.loanGuaranteeFee = loanGuaranteeFee;
+        this.loanRiskFee = loanRiskFee;
         this.loanServiceFee = loanServiceFee;
         this.loanManageFee = loanManageFee;
         this.loanInterestFee = loanInterestFee;
