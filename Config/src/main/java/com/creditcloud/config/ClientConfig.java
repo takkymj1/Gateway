@@ -37,8 +37,17 @@ public final class ClientConfig extends BaseConfig {
     @XmlElement(required = true)
     private String wsURL;
 
+    /**
+     * 各平台通用功能
+     */
     @XmlElement(required = false)
     private Features features;
+
+    /**
+     * 平台不通用功能
+     */
+    @XmlElement(required = false)
+    private ClientFeatures clientFeatures;
 
     public String getCode() {
         return code;
@@ -74,5 +83,12 @@ public final class ClientConfig extends BaseConfig {
             features = new Features();
         }
         return features;
+    }
+
+    public ClientFeatures getClientFeatures() {
+        if (clientFeatures == null) {
+            clientFeatures = new ClientFeatures();
+        }
+        return clientFeatures;
     }
 }

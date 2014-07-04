@@ -37,5 +37,6 @@
         <module>Tag</module>
         <module>Appoint</module>
     <module>CMS</module>
+    <module>Corporation</module>
   </modules>
 </project>
