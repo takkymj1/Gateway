@@ -4,14 +4,12 @@
  */
 package com.creditcloud.model.user.info;
 
-import com.creditcloud.model.PersonalInfo;
-import com.creditcloud.model.ContactInfo;
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.ContactInfo;
+import com.creditcloud.model.PersonalInfo;
 import com.creditcloud.model.SocialInfo;
-import com.creditcloud.model.constant.UserConstant;
 import com.creditcloud.model.user.User;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -52,7 +50,6 @@ public class UserInfo extends BaseObject {
     /**
      * 平台自定义域,可以用于存储平台相关的用户信息,一般存json格式key-value
      */
-    @Size(max = UserConstant.MAX_USER_INFO_PRIV)
     private String priv;
 
     /**
