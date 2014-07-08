@@ -14,7 +14,6 @@ import java.util.Date;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * This may be used in both Manager and Agent
