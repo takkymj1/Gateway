@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
@@ -43,7 +44,7 @@ public class ContractTemplate extends BaseObject {
     /**
      * 是否为默认模板
      */
-    public boolean isDefault;
+    private boolean isDefault;
 
     /**
      * 模板内容
@@ -53,5 +54,14 @@ public class ContractTemplate extends BaseObject {
     public ContractType getType() {
         //默认类型是LOAN
         return type == null ? ContractType.LOAN : type;
+    }
+
+    public static ContractTemplate copyOf(ContractTemplate original, boolean includeContent) {
+        return new ContractTemplate(original.getId(),
+                                    original.getName(),
+                                    original.getType(),
+                                    original.getTimeCreated(),
+                                    original.isDefault(),
+                                    includeContent ? original.getContent() : ArrayUtils.EMPTY_BYTE_ARRAY);
     }
 }
