@@ -3,17 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.constant;
+package com.creditcloud.config.enums;
 
 /**
+ * 什么阶段收费
  *
  * @author rooseek
  */
-public interface UserConstant {
+public enum FeePhase {
 
     /**
-     * UserInfo私有域最大长度
+     * 放款收
      */
-    int MAX_USER_INFO_PRIV = 1000;
+    LOAN,
+    /**
+     * 还款收
+     */
+    REPAY;
 
 }

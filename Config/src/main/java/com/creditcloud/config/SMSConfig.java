@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Getter;
 
 /**
  *
@@ -17,35 +18,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public final class SMSConfig extends BaseConfig {
 
-    private static final long serialVersionUID = 20131015L;
+    private static final long serialVersionUID = 20140702L;
 
     public static final String CONFIG_NAME = "SMSConfig";
 
-    @XmlElement(required = true)
-    private String charsetName;
+    @XmlElement(required = false)
+    @Getter
+    private String platform;
 
-    @XmlElement(required = true)
-    private String uid;
-
-    @XmlElement(required = true)
-    private String key;
-
-    @XmlElement(required = true)
+    @XmlElement
+    @Getter
     private String url;
 
-    public String getCharsetName() {
-        return charsetName;
-    }
+    @XmlElement
+    @Getter
+    private String uid;
 
-    public String getUid() {
-        return uid;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public String getUrl() {
-        return url;
-    }
+    @XmlElement
+    @Getter
+    private String key;
 }
