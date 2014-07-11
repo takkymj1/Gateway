@@ -37,4 +37,8 @@ public final class SMSConfig extends BaseConfig {
     @XmlElement
     @Getter
     private String key;
+
+    @XmlElement(required = false)
+    @Getter
+    private String cid;
 }
