@@ -128,6 +128,12 @@ public class Loan extends BaseObject implements Investable {
      */
     private boolean autoSplitted;
 
+    /**
+     * 每个投资人最大投资次数
+     */
+    @Min(0)
+    private int maxInvestTimes = Integer.MAX_VALUE;
+
     public Loan(String id,
                 String title,
                 RepaymentMethod method,
