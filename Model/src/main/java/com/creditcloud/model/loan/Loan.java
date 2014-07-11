@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.time.DateUtils;
 
 /**
  *
@@ -176,9 +177,8 @@ public class Loan extends BaseObject implements Investable {
      * @return 以millionsecond计算的剩余时间
      */
     public long getTimeLeft() {
-        if (status == LoanStatus.OPENED) {
-            long elapsed = System.currentTimeMillis() - timeOpen.getTime();
-            return timeOut * 60 * 60 * 1000 >= elapsed ? timeOut * 60 * 60 * 1000 - elapsed : -1;
+        if (this.status == LoanStatus.OPENED) {
+            return this.timeOpen.getTime() + this.timeOut * DateUtils.MILLIS_PER_HOUR - System.currentTimeMillis();
         }
         return -1;
     }
