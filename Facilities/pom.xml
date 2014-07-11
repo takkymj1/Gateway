@@ -32,12 +32,6 @@
             <type>ejb</type>
         </dependency>
         <dependency>
-            <groupId>com.creditcloud.dictionary</groupId>
-            <artifactId>DictionaryService</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>
-        <dependency>
             <groupId>com.creditcloud.message</groupId>
             <artifactId>MessageService</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -100,12 +94,6 @@
         <dependency>
             <groupId>com.creditcloud.activity</groupId>
             <artifactId>ActivityService</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>
-        <dependency>
-            <groupId>com.creditcloud.yeepay</groupId>
-            <artifactId>YeepayService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
@@ -175,10 +163,6 @@
                             <artifactId>EmailService</artifactId>
                         </ejbModule>
                         <ejbModule>
-                            <groupId>com.creditcloud.dictionary</groupId>
-                            <artifactId>DictionaryService</artifactId>
-                        </ejbModule>
-                        <ejbModule>
                             <groupId>com.creditcloud.message</groupId>
                             <artifactId>MessageService</artifactId>
                         </ejbModule>
@@ -221,10 +205,6 @@
                         <ejbModule>
                             <groupId>com.creditcloud.activity</groupId>
                             <artifactId>ActivityService</artifactId>
-                        </ejbModule>
-                        <ejbModule>
-                            <groupId>com.creditcloud.yeepay</groupId>
-                            <artifactId>YeepayService</artifactId>
                         </ejbModule>
                         <ejbModule>
                             <groupId>com.creditcloud.tag</groupId>
