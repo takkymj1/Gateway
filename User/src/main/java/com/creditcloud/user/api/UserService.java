@@ -184,6 +184,7 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     void deleteByUserId(String clientCode, String userId);
 
     /**
