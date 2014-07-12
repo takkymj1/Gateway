@@ -18,7 +18,7 @@ import lombok.Getter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public final class SMSConfig extends BaseConfig {
 
-    private static final long serialVersionUID = 20140702L;
+    private static final long serialVersionUID = 20140711L;
 
     public static final String CONFIG_NAME = "SMSConfig";
 
@@ -40,5 +40,5 @@ public final class SMSConfig extends BaseConfig {
 
     @XmlElement(required = false)
     @Getter
-    private String cid;
+    private CID cid;
 }
