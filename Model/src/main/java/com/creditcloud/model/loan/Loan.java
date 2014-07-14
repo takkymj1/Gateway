@@ -135,6 +135,12 @@ public class Loan extends BaseObject implements Investable {
     @Min(0)
     private int maxInvestTimes = Integer.MAX_VALUE;
 
+    /**
+     * 每个投资人最大投资金额
+     */
+    @Min(0)
+    private int maxInvestAmount = Integer.MAX_VALUE;
+
     public Loan(String id,
                 String title,
                 RepaymentMethod method,
