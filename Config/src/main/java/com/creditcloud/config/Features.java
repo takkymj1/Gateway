@@ -128,5 +128,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean splitCashAudit = false;
+    
+    /**
+     * 可以控制用户对标的投资金额和次数等限制
+     */
+    @XmlElement
+    @Getter
+    private boolean enableInvestLimit = false;
 
 }
