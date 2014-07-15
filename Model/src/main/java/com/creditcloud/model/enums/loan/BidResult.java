@@ -16,7 +16,9 @@ public enum BidResult implements BaseEnum {
     PARTLY_SUCCESSFUL("投资成功,资金被冻结"),//但可贷款余额不足,只能满足部分投资
     BID_NOT_OPEN("贷款标没有开始,或者已经结束"),
     BID_NO_BALANCE("已满标"),
-    BID_EXCESS_LIMIT("投标次数超过限制"),
+    BID_EXCEED_TIMES_LIMIT("投标次数超过上限"),
+    BID_EXCEED_TOTAL_AMOUNT_LIMIT("投标总金额超过上限"),
+    BID_EXCEED_SINGLE_AMOUNT_LIMIT("投标单次金额超过上限"),
     /**
      * 收到重复的bid请求
      */
