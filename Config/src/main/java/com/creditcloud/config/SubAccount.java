@@ -42,4 +42,10 @@ public class SubAccount extends BaseObject {
      */
     @XmlElement(required = true)
     private String name;
+    
+    /**
+     * 账户功能描述
+     */
+    @XmlElement(required = false)
+    private String description;
 }
