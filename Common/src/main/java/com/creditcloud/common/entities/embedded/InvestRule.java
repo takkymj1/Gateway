@@ -7,9 +7,12 @@ package com.creditcloud.common.entities.embedded;
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constant.LoanConstant;
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.ws.rs.FormParam;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 投资的额度限制
@@ -17,6 +20,7 @@ import lombok.Data;
  * @author rooseek
  */
 @Data
+@NoArgsConstructor
 @Embeddable
 public class InvestRule extends BaseEntity {
 
@@ -40,25 +44,25 @@ public class InvestRule extends BaseEntity {
     @Min(LoanConstant.INVEST_AMOUNT_INCREMENT)
     private int stepAmount;
 
-    public InvestRule() {
-    }
+    /**
+     * 总的投标金额
+     */
+    @Transient
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
+    private int maxTotalAmount = LoanConstant.MAX_INVEST_AMOUNT;
 
-    public InvestRule(int minAmount, int maxAmount, int stepAmount) {
+    /**
+     * 投标次数限制
+     */
+    @Transient
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
+    private int maxTimes = LoanConstant.MAX_INVEST_AMOUNT;
+
+    public InvestRule(int minAmount, int maxAmount, int stepAmount, int maxTotalAmount, int maxTimes) {
         this.minAmount = minAmount;
         this.maxAmount = maxAmount;
         this.stepAmount = stepAmount;
-    }
-
-    public static boolean valid(InvestRule rule, int amount) {
-        if (rule == null) {
-            return false;
-        }
-        if (amount < rule.getMinAmount()
-                || amount > rule.getMaxAmount()
-                || (amount - rule.getMinAmount()) % rule.getStepAmount() != 0) {
-            return false;
-        }
-
-        return true;
+        this.maxTotalAmount = maxTotalAmount;
+        this.maxTimes = maxTimes;
     }
 }
