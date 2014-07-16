@@ -9,12 +9,18 @@ import com.creditcloud.payment.model.chinapnr.enums.AcctType;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 商户子账户详情
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 public class AccountDetail extends BaseObject {
 
@@ -35,46 +41,4 @@ public class AccountDetail extends BaseObject {
     @NotNull
     private BigDecimal FrzBal;
 
-    public AccountDetail() {
-    }
-
-    public void setAcctType(AcctType AcctType) {
-        this.AcctType = AcctType;
-    }
-
-    public void setAvlBal(BigDecimal AvlBal) {
-        this.AvlBal = AvlBal;
-    }
-
-    public void setSubAcctId(String SubAcctId) {
-        this.SubAcctId = SubAcctId;
-    }
-
-    public void setAcctBal(BigDecimal AcctBal) {
-        this.AcctBal = AcctBal;
-    }
-
-    public String getSubAcctId() {
-        return SubAcctId;
-    }
-
-    public BigDecimal getAcctBal() {
-        return AcctBal;
-    }
-
-    public void setFrzBal(BigDecimal FrzBal) {
-        this.FrzBal = FrzBal;
-    }
-
-    public AcctType getAcctType() {
-        return AcctType;
-    }
-
-    public BigDecimal getAvlBal() {
-        return AvlBal;
-    }
-
-    public BigDecimal getFrzBal() {
-        return FrzBal;
-    }
 }
