@@ -9,9 +9,9 @@ import com.creditcloud.cms.enums.Category;
 import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -73,7 +73,7 @@ public class Article extends BaseObject {
     /**
      * 新闻发布日期
      */
-    private Date pubDate;
+    private DateTime pubDate;
 
     /**
      * 新闻发布媒体
@@ -96,7 +96,7 @@ public class Article extends BaseObject {
                    boolean priority,
                    String newsId,
                    String url,
-                   Date pubDate,
+                   DateTime pubDate,
                    String media,
                    String author) {
         this.id = id;
