@@ -33,7 +33,7 @@ public class InvestRuleTest {
 
     @Before
     public void setUp() {
-        rule = new InvestRule(1000, 100000, 1000);
+        rule = new InvestRule(1000, 100000, 1000, 1000, 1000);
     }
 
     @After

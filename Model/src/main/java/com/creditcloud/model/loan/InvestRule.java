@@ -6,12 +6,10 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
-import javax.persistence.Embeddable;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,8 +20,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Embeddable
 @XmlRootElement
 public class InvestRule extends BaseObject {
 
@@ -49,7 +45,29 @@ public class InvestRule extends BaseObject {
     @FormParam("stepAmount")
     @Min(LoanConstant.INVEST_AMOUNT_INCREMENT)
     private int stepAmount;
-    
+
+    /**
+     * 总的投标金额
+     */
+    @FormParam("maxTotalAmount")
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
+    private int maxTotalAmount = LoanConstant.MAX_INVEST_AMOUNT;
+
+    /**
+     * 投标次数限制
+     */
+    @FormParam("maxTimes")
+    @Max(LoanConstant.MAX_INVEST_AMOUNT)
+    private int maxTimes = LoanConstant.MAX_INVEST_AMOUNT;
+
+    public InvestRule(int minAmount, int maxAmount, int stepAmount, int maxTotalAmount, int maxTimes) {
+        this.minAmount = minAmount;
+        this.maxAmount = maxAmount;
+        this.stepAmount = stepAmount;
+        this.maxTotalAmount = maxTotalAmount;
+        this.maxTimes = maxTimes;
+    }
+
     public static boolean valid(InvestRule rule, int amount) {
         if (rule == null) {
             return false;
@@ -57,17 +75,17 @@ public class InvestRule extends BaseObject {
 
         return amount >= rule.getMinAmount() && amount <= rule.getMaxAmount() && (amount - rule.getMinAmount()) % rule.getStepAmount() == 0;
     }
-    
+
     /**
      * 根据InvestRule规范化投标金额.
-     * 
+     *
      * 所有不合法的投标金额都会规范化为0.
-     * 
-     * @param amount 意愿投标金额，表示最大的意愿投资额
+     *
+     * @param amount     意愿投标金额，表示最大的意愿投资额
      * @param investRule
-     * @return 
+     * @return
      */
-    public static int normalize (InvestRule investRule, final int amount) {
+    public static int normalize(InvestRule investRule, final int amount) {
         if (investRule != null) {
             if (amount < investRule.getMinAmount()) {
                 return 0;
