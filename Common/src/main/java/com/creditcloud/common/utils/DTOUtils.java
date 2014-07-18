@@ -391,7 +391,9 @@ public class DTOUtils {
         if (investRule != null) {
             result = new com.creditcloud.model.loan.InvestRule(investRule.getMinAmount(),
                                                                investRule.getMaxAmount(),
-                                                               investRule.getStepAmount());
+                                                               investRule.getStepAmount(),
+                                                               investRule.getMaxTotalAmount(),
+                                                               investRule.getMaxTimes());
         }
         return result;
     }
@@ -401,7 +403,9 @@ public class DTOUtils {
         if (investRule != null) {
             result = new InvestRule(investRule.getMinAmount(),
                                     investRule.getMaxAmount(),
-                                    investRule.getStepAmount());
+                                    investRule.getStepAmount(),
+                                    investRule.getMaxTotalAmount(),
+                                    investRule.getMaxTimes());
         }
         return result;
     }

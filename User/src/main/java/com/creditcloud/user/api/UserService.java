@@ -10,6 +10,7 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.User;
 import com.creditcloud.user.social.SocialId;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -60,6 +61,16 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * the local client
      */
     PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @return 
+     */
+    PagedResult<User> listByLoginDate(String clientCode, Date from, Date to, PageInfo pageInfo);
 
     /**
      * 增加一个用户，属于后台或平板开户，系统生成随机密码发送到用户手机,或者使用配置文件中默认密码
@@ -184,6 +195,7 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     void deleteByUserId(String clientCode, String userId);
 
     /**

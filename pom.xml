@@ -20,7 +20,6 @@
         <module>Client</module>
         <module>Config</module>
         <module>Email</module>
-        <module>Dictionary</module>
         <module>Image</module>
         <module>Message</module>
         <module>SMS</module>
@@ -32,7 +31,6 @@
         <module>Contract</module>
         <module>Fund</module>
         <module>Activity</module>
-        <module>Yeepay</module>
         <module>Payment</module>
         <module>Tag</module>
         <module>Appoint</module>

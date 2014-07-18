@@ -112,6 +112,12 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(name = "guaranteeAccount", required = false)
     private SubAccount guaranteeAccount;
+    
+    /**
+     * 商户在三方支付的保证金账户
+     */
+    @XmlElement(name="marginAccount",required = false)
+    private SubAccount marginAccount;
 
     /**
      * 除了上面三种基本子账户外的其他子账户

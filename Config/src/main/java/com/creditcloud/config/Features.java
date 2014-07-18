@@ -7,6 +7,9 @@ package com.creditcloud.config;
 
 import com.creditcloud.config.enums.LoanContractType;
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -74,6 +77,15 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableAutoBid = false;
+    
+    /**
+     * 自动投标占贷款总金额最大百分比
+     */
+    @XmlElement
+    @Getter
+    @Min(0)
+    @Max(1)
+    private BigDecimal maxAutoBidPercent = BigDecimal.ONE;
 
     /**
      * TODO提前还款功能，默认提前还款和当期还款处理方式一致
@@ -116,5 +128,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean splitCashAudit = false;
+    
+    /**
+     * 可以控制用户对标的投资金额和次数等限制
+     */
+    @XmlElement
+    @Getter
+    private boolean enableInvestLimit = false;
 
 }

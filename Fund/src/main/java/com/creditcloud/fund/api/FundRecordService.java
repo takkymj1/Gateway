@@ -433,13 +433,15 @@ public interface FundRecordService {
      * @param userId     用户
      * @param transferIn true for transfer from client to user
      * @param orderId
+     * @param description 
      */
     void userTransfer(String clientCode,
                       String account,
                       BigDecimal amount,
                       String userId,
                       boolean transferIn,
-                      String orderId);
+                      String orderId,
+                      String description);
 
     /**
      *
