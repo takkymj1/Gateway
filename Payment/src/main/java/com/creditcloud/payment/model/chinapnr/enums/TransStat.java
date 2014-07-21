@@ -11,7 +11,7 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum TransStat implements BaseEnum{
+public enum TransStat implements BaseEnum {
 
     /**
      * 成功
@@ -38,17 +38,23 @@ public enum TransStat implements BaseEnum{
      */
     R("拒绝"),
     /**
-     * TODO 不在汇付文档中,查询自动投标状态表示开启!<p>
+     * TODO 不在汇付文档中,查询自动投标状态表示开启!
+     * <p>
      */
     N("开启"),
     /**
-     * TODO  不在汇付文档中,查询自动投标状态表示关闭!<p>
+     * TODO  不在汇付文档中,查询自动投标状态表示关闭!
+     * <p>
      */
     C("关闭"),
     /**
      * <b>不是汇付的返回状态，自定义用于表示查询对象不存在<b>
      */
-    NOTEXIST("不存在");
+    NOTEXIST("不存在"),
+    /**
+     * 不是汇付返回状态,自定义用于表示某交易无需跟汇付结算
+     */
+    NOTRANS("无交易");
 
     private final String key;
 
