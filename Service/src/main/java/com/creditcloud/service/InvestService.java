@@ -5,6 +5,7 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
@@ -124,9 +125,10 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param loanRepay
+     * @param type
      * @return
      */
-    boolean disburseLoan(String clientCode, LoanRepayment loanRepay);
+    boolean disburseLoan(String clientCode, LoanRepayment loanRepay, DisburseType type);
 
     /**
      * 统计用户对贷款的投资信息
