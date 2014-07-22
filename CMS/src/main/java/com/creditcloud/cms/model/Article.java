@@ -7,9 +7,9 @@ package com.creditcloud.cms.model;
 
 import com.creditcloud.cms.enums.Category;
 import com.creditcloud.model.BaseObject;
+import java.beans.Transient;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -86,6 +86,21 @@ public class Article extends BaseObject {
     private String author;
 
     private Date timeRecorded;
+    
+    /**
+     * 主要用于页面显示,如上一篇文章链接
+     */
+    private String previous;
+    
+    /**
+     * 主要用于页面显示,如下一篇文章链接
+     */
+    private String next;
+    
+    /**
+     * 主要用于页面显示，如首页或上级目录
+     */
+    private String parent;
 
     public Article(String id,
                    String channelId,
