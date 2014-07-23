@@ -30,7 +30,7 @@ public class DebtCorporation extends Corporation {
                     String orgCode,
                     String busiCode,
                     String taxCode,
-                    String Description) {
-        super(id, name, shortName, orgCode, busiCode, taxCode, Description);
+                    String description) {
+        super(id, name, shortName, orgCode, busiCode, taxCode, description);
     }
 }
