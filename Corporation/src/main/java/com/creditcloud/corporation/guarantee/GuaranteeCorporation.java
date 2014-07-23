@@ -23,6 +23,11 @@ import lombok.ToString;
 public class GuaranteeCorporation extends Corporation {
 
     private static final long serialVersionUID = 20140723L;
+    
+    /**
+     * 融资性担保机构经营许可证
+     */
+    private String guaranteeLicense;
 
     public GuaranteeCorporation(String id,
                                 String name,
@@ -30,7 +35,9 @@ public class GuaranteeCorporation extends Corporation {
                                 String orgCode,
                                 String busiCode,
                                 String taxCode,
-                                String description) {
+                                String description,
+                                String guaranteeLicense) {
         super(id, name, shortName, orgCode, busiCode, taxCode, description);
+        this.guaranteeLicense = guaranteeLicense;
     }
 }
