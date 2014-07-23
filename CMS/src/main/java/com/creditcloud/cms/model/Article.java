@@ -10,7 +10,6 @@ import com.creditcloud.model.BaseObject;
 import java.beans.Transient;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
