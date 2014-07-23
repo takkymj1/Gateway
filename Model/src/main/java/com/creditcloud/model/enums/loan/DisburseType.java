@@ -14,9 +14,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum DisburseType implements BaseEnum {
 
-    Principal("全部剩余本金"),
-    PrincipalAndInterest("全部剩余本息"),
-    PrincipalAndFirstInterest("当期利息加所有剩余本金");
+    Principal("本金"),
+    PrincipalAndInterest("本息"),
+    Interest("利息");
 
     private final String key;
 
