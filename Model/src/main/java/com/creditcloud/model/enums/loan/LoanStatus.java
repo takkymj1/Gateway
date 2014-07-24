@@ -40,7 +40,7 @@ public enum LoanStatus implements BaseEnum {
     /**
      * 资金进入借款人账户，进入还款周期
      */
-    SETTLED("已结算"),
+    SETTLED("还款中"),
     /**
      * 所有还款成功结束
      */
