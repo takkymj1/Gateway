@@ -6,6 +6,7 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -56,6 +57,11 @@ public class LoanRepayment extends BaseObject {
      * 实际回款时间
      */
     private  Date repayDate;
+    
+    /**
+     * 还款来源，实际还款人，如果为null则为loan中借款人，还可以为平台或者担保公司等
+     */
+    private RealmEntity repaySource;
 
     public LoanRepayment(String id,
                          String loanId,
@@ -64,7 +70,8 @@ public class LoanRepayment extends BaseObject {
                          Repayment repayment,
                          RepaymentStatus status,
                          BigDecimal repayAmount,
-                         Date repayDate) {
+                         Date repayDate,
+                         RealmEntity repaySource) {
         this.id = id;
         this.loanId = loanId;
         this.userId = userId;
@@ -73,5 +80,6 @@ public class LoanRepayment extends BaseObject {
         this.status = status;
         this.repayAmount = repayAmount;
         this.repayDate = repayDate;
+        this.repaySource = repaySource;
     }
 }
