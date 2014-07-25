@@ -7,10 +7,8 @@ package com.creditcloud.common.entities.embedded;
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constant.LoanConstant;
 import javax.persistence.Embeddable;
-import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
-import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -47,14 +45,12 @@ public class InvestRule extends BaseEntity {
     /**
      * 总的投标金额
      */
-    @Transient
     @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int maxTotalAmount = LoanConstant.MAX_INVEST_AMOUNT;
 
     /**
      * 投标次数限制
      */
-    @Transient
     @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int maxTimes = LoanConstant.MAX_INVEST_AMOUNT;
 
