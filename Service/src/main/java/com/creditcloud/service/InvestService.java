@@ -8,6 +8,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanInvestStatistics;
@@ -116,9 +117,10 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param repayDetails
+     * @param type
      * @return
      */
-    boolean repayLoan(String clientCode, Map<String, Object> repayDetails);
+    boolean repayLoan(String clientCode, Map<String, Object> repayDetails, RepayType type);
 
     /**
      * 商户垫付支付
