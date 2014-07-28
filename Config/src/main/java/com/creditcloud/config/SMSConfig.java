@@ -41,4 +41,9 @@ public final class SMSConfig extends BaseConfig {
     @XmlElement(required = false)
     @Getter
     private CID cid;
+
+    @XmlElement(required = false)
+    @Getter
+    private String cgid;
+
 }
