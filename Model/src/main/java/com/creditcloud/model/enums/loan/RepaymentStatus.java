@@ -18,6 +18,7 @@ public enum RepaymentStatus implements BaseEnum {
     BREACH("违约"),
     REPAYED("已还清"),
     /**
+     * TODO 暂时未用上,一律用REPAYED表示已还状态</p>
      * 出现逾期或违约后，回收或垫付的状态
      */
     COLLECTED("已回收");

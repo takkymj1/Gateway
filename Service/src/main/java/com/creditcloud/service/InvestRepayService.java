@@ -4,6 +4,8 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.enums.loan.DisburseType;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.LoanRepayment;
@@ -57,7 +59,18 @@ public interface InvestRepayService {
      *
      * @param clientCode
      * @param repayDetails
+     * @param type
      * @return
      */
-    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, Map<String, Object> repayDetails);
+    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, Map<String, Object> repayDetails, RepayType type);
+
+    /**
+     * 垫付明细
+     *
+     * @param clientCode
+     * @param loanRepay
+     * @param type
+     * @return
+     */
+    RepayDetail getDisburseDetail(String clientCode, LoanRepayment loanRepay, DisburseType type);
 }

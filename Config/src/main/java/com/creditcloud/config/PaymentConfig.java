@@ -98,19 +98,19 @@ public class PaymentConfig extends BaseConfig {
     /**
      * 基本账户用于充值取现,类型:专属借记账户
      */
-    @XmlElement(name = "baseAccount", required = false)
+    @XmlElement(name = "baseAccount", required = true)
     private SubAccount baseAccount;
 
     /**
      * 收费账户, 类型:专用借记账户
      */
-    @XmlElement(name = "feeAccount", required = false)
+    @XmlElement(name = "feeAccount", required = true)
     private SubAccount feeAccount;
 
     /**
      * 风险保证金账户, 类型:专用借记账户
      */
-    @XmlElement(name = "guaranteeAccount", required = false)
+    @XmlElement(name = "guaranteeAccount", required = true)
     private SubAccount guaranteeAccount;
     
     /**
