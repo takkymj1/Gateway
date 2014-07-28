@@ -30,6 +30,12 @@ import lombok.NoArgsConstructor;
 public class Fee extends BaseObject {
 
     private static final long serialVersionUID = 20131201L;
+    
+    /**
+     * 费用名称
+     */
+    @XmlElement(required = false)
+    private String name;
 
     /**
      * 费用类型
