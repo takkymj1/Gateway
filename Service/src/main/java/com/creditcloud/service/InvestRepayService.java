@@ -72,5 +72,5 @@ public interface InvestRepayService {
      * @param type
      * @return
      */
-    RepayDetail disburseDetail(String clientCode, LoanRepayment loanRepay, DisburseType type);
+    RepayDetail getDisburseDetail(String clientCode, LoanRepayment loanRepay, DisburseType type);
 }
