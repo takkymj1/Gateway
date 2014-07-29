@@ -155,6 +155,6 @@ public class Features extends BaseObject {
      */
     @XmlElement
     @Getter
-    private boolean enableDynamicCaptcha = false;
+    private String dynamicCaptchaServerUrl;
 
 }
