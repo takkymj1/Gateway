@@ -10,6 +10,7 @@ import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.enums.FeePeriod;
 import com.creditcloud.config.enums.FeeScope;
 import com.creditcloud.config.enums.FeeType;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.AdvancePenalty;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.Repayment;
@@ -174,7 +175,7 @@ public class FeeUtilsTest {
         config.getAdvanceRepayClientFee().setScope(FeeScope.OUTSTANDING);
         config.getAdvanceRepayInvestFee().setScope(FeeScope.OUTSTANDING);
         result = FeeUtils.advanceFee(config, repayment);
-        expected = new AdvancePenalty(BigDecimal.valueOf(50000.00), BigDecimal.valueOf(10000.00));
+        expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
         if (!equalAdvancePenalty(result, expected)) {
             fail("not equal");
         }
@@ -183,6 +184,76 @@ public class FeeUtilsTest {
         config.getAdvanceRepayInvestFee().setPeriod(FeePeriod.MONTHLY);
         result = FeeUtils.advanceFee(config, repayment);
         expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+    }
+
+    @Test
+    public void testAdvanceFeeWithRepayType() {
+        FeeConfig config = new FeeConfig();
+        Fee feeToClient = new Fee(FeeType.FLOATING, BigDecimal.ZERO, BigDecimal.valueOf(0.50), FeePeriod.SINGLE, FeeScope.INTEREST);
+        Fee feeToInvest = new Fee(FeeType.FLOATING, BigDecimal.ZERO, BigDecimal.valueOf(0.10), FeePeriod.SINGLE, FeeScope.INTEREST);
+        config.setAdvanceRepayClientFee(feeToClient);
+        config.setAdvanceRepayInvestFee(feeToInvest);
+        config.setMinDaysForAdvanceRepay(5);
+
+        Repayment repayment = new Repayment(BigDecimal.valueOf(10000), BigDecimal.valueOf(1000), BigDecimal.valueOf(100000), LocalDate.now().plusDays(10));
+        AdvancePenalty result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        AdvancePenalty expected = new AdvancePenalty(BigDecimal.valueOf(5000.00), BigDecimal.valueOf(1000.00));
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        //min days advance repay without any advance penalty
+        repayment.setDueDate(LocalDate.now().plusDays(1));
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        config.setMinDaysForAdvanceRepay(0);
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.valueOf(5000.00), BigDecimal.valueOf(1000.00));
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        repayment.setDueDate(LocalDate.now());
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        config.setMinDaysForAdvanceRepay(5);
+        repayment.setDueDate(LocalDate.now().plusDays(5));
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        repayment.setDueDate(LocalDate.now().plusDays(6));
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        if (equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        config.getAdvanceRepayClientFee().setScope(FeeScope.PRINCIPAL);
+        config.getAdvanceRepayInvestFee().setScope(FeeScope.PRINCIPAL);
+        result = FeeUtils.advanceFee(config, repayment, RepayType.Principal);
+        expected = new AdvancePenalty(BigDecimal.valueOf(5000.00), BigDecimal.valueOf(1000.00));
+        if (!equalAdvancePenalty(result, expected)) {
+            fail("not equal");
+        }
+
+        config.getAdvanceRepayClientFee().setScope(FeeScope.BOTH);
+        config.getAdvanceRepayInvestFee().setScope(FeeScope.BOTH);
+        result = FeeUtils.advanceFee(config, repayment, RepayType.PrincipalAndInterest);
+        expected = new AdvancePenalty(BigDecimal.valueOf(5500.00), BigDecimal.valueOf(1100.00));
         if (!equalAdvancePenalty(result, expected)) {
             fail("not equal");
         }
