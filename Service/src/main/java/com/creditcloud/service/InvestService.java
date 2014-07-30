@@ -117,7 +117,7 @@ public interface InvestService extends InvestRepayService {
      *
      * @param clientCode
      * @param repayDetails
-     * @param type
+     * @param type         TODO目前只有提前还款用到此参数
      * @return
      */
     boolean repayLoan(String clientCode, Map<String, Object> repayDetails, RepayType type);

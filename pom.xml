@@ -36,5 +36,6 @@
         <module>Appoint</module>
     <module>CMS</module>
     <module>Corporation</module>
+    <module>Fuiou</module>
   </modules>
 </project>

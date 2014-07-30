@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ClientFeatures extends BaseObject {
 
-    private static final long serialVersionUID = 20140704L;
+    private static final long serialVersionUID = 20140729L;
 
     /**
      * 保理业务
@@ -31,4 +31,5 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableFactoring = false;
+
 }

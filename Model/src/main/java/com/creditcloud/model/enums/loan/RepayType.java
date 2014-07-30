@@ -21,7 +21,11 @@ public enum RepayType implements BaseEnum {
     /**
      * 本息都还
      */
-    PrincipalAndInterest("本息");
+    PrincipalAndInterest("本息"),
+    /**
+     * 只还利息
+     */
+    Interest("利息");
 
     private final String key;
 

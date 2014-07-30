@@ -145,7 +145,8 @@ public enum Privilege implements BaseEnum {
     APPOINT_DETAIL("认购产品详情", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_ALTER("添加更改认购产品", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限");
-
+    
+    
     private final String key;
 
     private final Realm realm;
