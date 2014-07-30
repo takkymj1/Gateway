@@ -15,6 +15,7 @@ import static com.creditcloud.config.enums.FeeScope.INTEREST;
 import static com.creditcloud.config.enums.FeeScope.PRINCIPAL;
 import com.creditcloud.config.enums.FeeType;
 import com.creditcloud.model.constant.NumberConstant;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.AdvancePenalty;
 import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.OverduePenalty;
@@ -58,12 +59,50 @@ public class FeeUtils {
     }
 
     /**
+     * 提前还款费用计算
+     *
+     * @param config
+     * @param repayment
+     * @param type
+     * @return
+     */
+    public static AdvancePenalty advanceFee(FeeConfig config, Repayment repayment, RepayType type) {
+        if (repayment == null) {
+            return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+        if (!isValidAdvanceRepay(config, repayment)) {
+            return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        }
+
+        Fee feeToClient = config.getAdvanceRepayClientFee();
+        Fee feeToInvest = config.getAdvanceRepayInvestFee();
+        BigDecimal toInvestAmount = BigDecimal.ZERO;
+        BigDecimal toClientAmount = BigDecimal.ZERO;
+        switch (type) {
+            case Principal:
+                toClientAmount = repayment.getAmountPrincipal();
+                toInvestAmount = repayment.getAmountPrincipal();
+                break;
+            case PrincipalAndInterest:
+                toClientAmount = repayment.getAmount();
+                toInvestAmount = repayment.getAmount();
+                break;
+            default:
+        }
+        toClientAmount = FeeUtils.calculate(feeToClient, toClientAmount);
+        toInvestAmount = FeeUtils.calculate(feeToInvest, toInvestAmount);
+
+        return new AdvancePenalty(toClientAmount, toInvestAmount);
+    }
+
+    /**
      * 提前还款费用
      *
      * @param config
      * @param repayment
      * @return
      */
+    @Deprecated
     public static AdvancePenalty advanceFee(FeeConfig config, Repayment repayment) {
         if (repayment == null) {
             return new AdvancePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
@@ -85,9 +124,8 @@ public class FeeUtils {
                 case BOTH:
                     toClientAmount = repayment.getAmount();
                     break;
-                case OUTSTANDING:
-                    toClientAmount = repayment.getAmountOutstanding();
-                    break;
+                default:
+                    logger.warning(String.format("illegal scope %s for advance fee", feeToClient.getScope()));
             }
 
             switch (feeToClient.getPeriod()) {
@@ -113,9 +151,8 @@ public class FeeUtils {
                 case BOTH:
                     toInvestAmount = repayment.getAmount();
                     break;
-                case OUTSTANDING:
-                    toInvestAmount = repayment.getAmountOutstanding();
-                    break;
+                default:
+                    logger.warning(String.format("illegal scope %s for advance fee", feeToClient.getScope()));
             }
             switch (feeToInvest.getPeriod()) {
                 case SINGLE:
