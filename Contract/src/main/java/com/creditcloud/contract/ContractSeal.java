@@ -27,4 +27,8 @@ public class ContractSeal {
     
     private int y;
     
+    public static ContractSeal generatePersonContractSeal(String code, int page, int x, int y) {
+        Seal seal = new Seal(code, 0, null);
+        return new ContractSeal(seal, page, x, y);
+    }
 }
