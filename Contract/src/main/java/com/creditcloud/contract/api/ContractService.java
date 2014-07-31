@@ -15,6 +15,7 @@ import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.user.User;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -26,6 +27,8 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface ContractService {
+    
+    ContractSeal generatePersonalSeal(User user, int page, int x, int y);
     
     /**
      * 生成一份普通的平台借款合同（电子签名和电子签章） for FMAX.

@@ -17,10 +17,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Seal {
     
-    // 印章特性码
+    // 公章特性码 or 私章证书ID
     private String code;
     
-    // 印章类型
+    // 印章类型 （1：公章 0：私章）
     private int type;
     
     // 印章内容
