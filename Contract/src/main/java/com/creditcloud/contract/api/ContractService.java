@@ -7,6 +7,7 @@ package com.creditcloud.contract.api;
 
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.contract.Contract;
+import com.creditcloud.contract.ContractSeal;
 import com.creditcloud.model.client.Client;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
@@ -25,6 +26,33 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface ContractService {
+    
+    /**
+     * 生成一份普通的平台借款合同（电子签名和电子签章） for FMAX.
+     *
+     * 只是触发远程的生成过程，为异步调用
+     *
+     * 重复调用将生成新的合同，原有合同不删除
+     *
+     * 借款合同命名为 loan title + investor + obligator + date，合同名称不是唯一的！
+     *
+     * @param client     平台
+     * @param invest     投资
+     * @param loan       借款对象
+     * @param repayments 还款列表
+     * @param feeConfig  费用配置
+     * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     * @param values
+     * @param seals      合同签章
+     */
+    void generateLoanContract(Client client,
+                              Invest invest,
+                              Loan loan,
+                              List<Repayment> repayments,
+                              FeeConfig feeConfig,
+                              String templateId,
+                              Map<String, Object> values,
+                              List<ContractSeal> seals);
     
     /**
      * 生成一份普通的平台借款合同(平台和借款人签订的合同).

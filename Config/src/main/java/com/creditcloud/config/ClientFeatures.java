@@ -32,4 +32,10 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableFactoring = false;
 
+    /**
+     * fmax 电子公章
+     */
+    @XmlElement
+    @Getter
+    private String apiPDFAddSeal = "http://27.111.200.83:9090/APWebPF/PFXSealServlet";
 }
