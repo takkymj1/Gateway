@@ -142,12 +142,26 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableReferralLink = false;
-    
+
     /**
      * 平台垫付所有剩余还款,或称债权托管
      */
     @XmlElement
     @Getter
     private boolean enableDisburseAll = false;
+
+    /**
+     * 动态密码登录
+     */
+    @XmlElement
+    @Getter
+    private String dynamicCaptchaServerUrl;
+    
+    /**
+     * 可以对贷款申请加tag
+     */
+    @XmlElement
+    @Getter
+    private boolean enableLoanRequestTag = false;
 
 }

@@ -39,21 +39,18 @@ public class RepayDetail extends BaseObject {
     /**
      * 剩余本息
      */
-    @NotNull
     @Min(0)
     private BigDecimal outstanding = BigDecimal.ZERO;
 
     /**
      * 还款期数
      */
-    @NotNull
     @Min(0)
     private int period = 0;
 
     /**
      * 借款人利息管理费
      */
-    @NotNull
     @Min(0)
     private BigDecimal loanFee = BigDecimal.ZERO;
 
