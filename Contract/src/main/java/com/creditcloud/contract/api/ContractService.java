@@ -28,7 +28,7 @@ import javax.ejb.Remote;
 @Remote
 public interface ContractService {
     
-    void testGenerateContract(Client client,String templateId, List<ContractSeal> seals);
+    void testGenerateContract(Client client, Loan loan, String templateId, List<ContractSeal> seals);
     
     /**
      * 生成私章（for user）
