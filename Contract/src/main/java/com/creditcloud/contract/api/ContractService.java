@@ -28,6 +28,16 @@ import javax.ejb.Remote;
 @Remote
 public interface ContractService {
     
+    void testGenerateContract(Client client,String templateId, List<ContractSeal> seals);
+    
+    /**
+     * 生成私章（for user）
+     * @param user
+     * @param page
+     * @param x
+     * @param y
+     * @return 
+     */
     ContractSeal generatePersonalSeal(User user, int page, int x, int y);
     
     /**
