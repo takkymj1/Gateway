@@ -37,5 +37,5 @@ public class ClientFeatures extends BaseObject {
      */
     @XmlElement
     @Getter
-    private boolean enableSignature = false;
+    private boolean enablePDFSignature = false;
 }
