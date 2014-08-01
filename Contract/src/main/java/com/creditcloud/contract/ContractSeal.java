@@ -52,7 +52,7 @@ public class ContractSeal extends BaseObject {
      * @return 
      */
     public static ContractSeal generateContractSeal(String code, int page, int x, int y) {
-        Seal seal = new Seal(code, 0, null);
+        Seal seal = new Seal(code, 1, null);
         return new ContractSeal(seal, page, x, y);
     }
 }
