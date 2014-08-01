@@ -20,6 +20,10 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FormaxConfig extends BaseConfig {
     
+    private static final long serialVersionUID = 20140801L;
+
+    public static final String CONFIG_NAME = "FormaxConfig";
+    
     /**
      * 电子公章
      */
