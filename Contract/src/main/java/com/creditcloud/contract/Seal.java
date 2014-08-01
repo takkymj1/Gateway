@@ -4,6 +4,7 @@
  */
 package com.creditcloud.contract;
 
+import com.creditcloud.model.BaseObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Seal {
+public class Seal extends BaseObject {
+    
+    private static final long serialVersionUID = 20140801L;
     
     // 公章特性码 or 私章证书ID
     private String code;
