@@ -11,6 +11,8 @@ import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
+import com.creditcloud.service.model.DisburseInfo;
+import com.creditcloud.service.model.RepayInfo;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -37,22 +39,19 @@ public interface InvestRepayService {
      * repayment of a loan, set repayment status and generate fund record
      *
      * @param clientCode
-     * @param repayDetails
-     * @param type                  目前只有提前还款用到此参数,也将用于逾期违约等还款处理
-     * @param advanceRepayWhenUndue 如果未到还款日还款是否按照提前还款流程走，false则按正常还款流程
+     * @param repayInfo
      * @return
      */
-    boolean repayLoan(String clientCode, Map<String, Object> repayDetails, RepayType type, boolean advanceRepayWhenUndue);
+    boolean repayLoan(String clientCode, RepayInfo repayInfo);
 
     /**
      * 商户垫付支付
      *
      * @param clientCode
-     * @param loanRepay
-     * @param type
+     * @param disburseInfo
      * @return
      */
-    boolean disburseLoan(String clientCode, LoanRepayment loanRepay, DisburseType type);
+    boolean disburseLoan(String clientCode, DisburseInfo disburseInfo);
 
     /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
@@ -79,20 +78,18 @@ public interface InvestRepayService {
      * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同
      *
      * @param clientCode
-     * @param repayDetails
-     * @param type
+     * @param repayInfo
      * @return
      */
-    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, Map<String, Object> repayDetails, RepayType type);
+    AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, RepayInfo repayInfo);
 
     /**
      * 垫付明细
      *
      * @param clientCode
-     * @param loanRepay
-     * @param type
+     * @param disburseInfo
      * @return
      */
-    RepayDetail getDisburseDetail(String clientCode, LoanRepayment loanRepay, DisburseType type);
+    RepayDetail getDisburseDetail(String clientCode, DisburseInfo disburseInfo);
 
 }

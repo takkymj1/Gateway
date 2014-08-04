@@ -13,7 +13,7 @@ import javax.ejb.ApplicationException;
  * @author rooseek
  */
 @ApplicationException(rollback = true)
-public class PaymentException extends RuntimeException {
+public class PaymentException extends CreditCloudException {
 
     private static final long serialVersionUID = 20140731L;
 

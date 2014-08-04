@@ -10,7 +10,7 @@ package com.creditcloud.model.exception;
  *
  * @author rooseek
  */
-public class ClientCodeNotMatchException extends RuntimeException {
+public class ClientCodeNotMatchException extends CreditCloudException {
 
     static final long serialVersionUID = 20130713;
 
