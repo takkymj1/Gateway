@@ -31,5 +31,10 @@ public class DisburseInfo extends BaseObject {
     private FeeConfig feeConfig;
 
     private DisburseType type;
+    
+    public DisburseInfo(LoanRepayment loanRepayment,DisburseType type){
+        this.loanRepayment = loanRepayment;
+        this.type = type;
+    }
 
 }
