@@ -38,7 +38,7 @@ public interface ContractService {
      * @param y
      * @return 
      */
-    ContractSeal generatePersonalSeal(User user, int page, int x, int y);
+    ContractSeal generatePersonalSeal(Client client, User user, int page, int x, int y);
     
     /**
      * 生成一份普通的平台借款合同（电子签名和电子签章） for FMAX.
