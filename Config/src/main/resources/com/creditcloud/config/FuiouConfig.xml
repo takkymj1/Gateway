@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<FuiouConfig>
+    <merId>0002900F0345171</merId>
+    <merPwd>123456</merPwd>
+    <url>http://wwwtest.fuiou.com:8992</url>
+    <!-- url>http://www-1.fuiou.com:8992</url -->
+    <path>/fuMer/req.do</path>
+</FuiouConfig>
