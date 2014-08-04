@@ -58,5 +58,10 @@ public interface CreditCloudTags {
      * 合同模板，一般标记在LoanRequest对象上，内容为ContractTemplate的ID
      */
     Tag CONTRACT_TEMPLATE = new Tag(Realm.CONTRACTTEMPLATE, "合同模板", "合同模板", "适用的合同模板");
+    
+    /**
+     * 新手标
+     */
+    Tag NEWBIE_LOAN = new Tag(Realm.LOAN_TYPE, "新手标", "新手标", "借款类型");
 
 }

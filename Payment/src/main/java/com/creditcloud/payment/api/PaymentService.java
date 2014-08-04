@@ -92,6 +92,15 @@ public interface PaymentService {
      * @return
      */
     public UserBalanceResult queryBalance(String clientCode, String userId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param rollbackOnException
+     * @return 
+     */
+    public UserBalanceResult queryBalance(String clientCode, String userId, boolean rollbackOnException);
 
     /**
      * 自动投标

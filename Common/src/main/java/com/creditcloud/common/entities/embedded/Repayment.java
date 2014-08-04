@@ -6,6 +6,7 @@ package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.common.entities.utils.LocalDateConverter;
+import com.creditcloud.model.enums.loan.RepayType;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -99,16 +100,53 @@ public class Repayment extends BaseEntity {
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
-    
+
     /**
      * 获得当期的应还款总额.
-     * 
+     *
      * amountInterest + amountPrincipal
-     * 
-     * @return 
+     *
+     * @return
      */
     @Transient
     public BigDecimal getAmount() {
         return amountInterest.add(amountPrincipal);
+    }
+
+    public BigDecimal getAmount(RepayType type) {
+        switch (type) {
+            case Principal:
+                return amountPrincipal;
+            case PrincipalAndInterest:
+                return getAmount();
+            case Interest:
+                return amountInterest;
+            default:
+                return BigDecimal.ZERO;
+        }
+    }
+
+    public BigDecimal getPrincipal(RepayType type) {
+        switch (type) {
+            case Principal:
+            case PrincipalAndInterest:
+                return amountPrincipal;
+            case Interest:
+                return BigDecimal.ZERO;
+            default:
+                return BigDecimal.ZERO;
+        }
+    }
+
+    public BigDecimal getInterest(RepayType type) {
+        switch (type) {
+            case Interest:
+            case PrincipalAndInterest:
+                return amountInterest;
+            case Principal:
+                return BigDecimal.ZERO;
+            default:
+                return BigDecimal.ZERO;
+        }
     }
 }
