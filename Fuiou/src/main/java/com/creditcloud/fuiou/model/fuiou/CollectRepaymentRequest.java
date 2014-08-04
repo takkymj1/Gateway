@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)  
-@XmlRootElement(name = "sincomeforreq")  
+@XmlRootElement(name = "incomeforreq")  
 @XmlType(propOrder = { "merdt", "orderno", "bankno", "accntno", "accntnm", "amt", "entseq", "memo", "mobile", "certtp", "certno" })
 public class CollectRepaymentRequest extends BaseRequest{
     

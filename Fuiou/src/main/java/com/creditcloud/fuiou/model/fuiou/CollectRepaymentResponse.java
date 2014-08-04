@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)  
-@XmlRootElement(name = "sincomeforrsp")
+@XmlRootElement(name = "incomeforrsp")
 public class CollectRepaymentResponse extends BaseResponse{
 
     public CollectRepaymentResponse(String ret, String memo) {
