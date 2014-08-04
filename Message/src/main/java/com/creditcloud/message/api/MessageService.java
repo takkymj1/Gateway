@@ -12,6 +12,8 @@ import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.enums.message.MessageStatus;
 import com.creditcloud.model.enums.message.MessageType;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.concurrent.Future;
+import javax.ejb.Asynchronous;
 import javax.ejb.Remote;
 
 /**
@@ -31,6 +33,7 @@ public interface MessageService {
      * @param sender
      * @param receiver
      */
+    @Asynchronous
     void sendMessage(Client client,
                      Realm realm,
                      String title,
@@ -49,12 +52,13 @@ public interface MessageService {
      * @param receiver
      * @return
      */
-    Message reply(Client client,
-                  Realm realm,
-                  String title,
-                  String content,
-                  String sender,
-                  String receiver);
+    @Asynchronous
+    Future<Message> reply(Client client,
+                          Realm realm,
+                          String title,
+                          String content,
+                          String sender,
+                          String receiver);
 
     /**
      * send system notifications to some receivers
@@ -65,6 +69,7 @@ public interface MessageService {
      * @param content
      * @param receiver
      */
+    @Asynchronous
     void sendNotification(Client client,
                           Realm realm,
                           String title,
@@ -79,6 +84,7 @@ public interface MessageService {
      * @param title
      * @param content
      */
+    @Asynchronous
     void broadcast(Client client,
                    Realm realm,
                    String title,
@@ -137,7 +143,7 @@ public interface MessageService {
     /**
      * count messages for sender by type
      *
-     * @param Client
+     * @param client
      * @param realm
      * @param sender
      * @param type
@@ -168,7 +174,7 @@ public interface MessageService {
      * 列出realm对应的通知
      *
      * @param client
-     * @param realm
+     * @param realms
      * @param pageInfo
      * @return
      */
@@ -183,5 +189,6 @@ public interface MessageService {
      * @param status
      * @param messageIds
      */
+    @Asynchronous
     public void markStatus(Client client, MessageStatus status, String... messageIds);
 }
