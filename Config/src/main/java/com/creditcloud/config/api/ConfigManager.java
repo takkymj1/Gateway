@@ -11,6 +11,7 @@ import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
+import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RewardConfig;
@@ -72,4 +73,11 @@ public interface ConfigManager {
     public FeeConfig getFeeConfig(LoanRequestType type);
 
     public RewardConfig getRewardConfig();
+    
+    /**
+     * 获取Fuiou代收付配置
+     * 
+     * @return
+     */
+    public FuiouConfig getFuiouConfig();
 }
