@@ -113,26 +113,6 @@ public interface InvestService extends InvestRepayService {
     boolean cancelScheduledLoan(String clientCode, String loanId);
 
     /**
-     * repayment of a loan, set repayment status and generate fund record
-     *
-     * @param clientCode
-     * @param repayDetails
-     * @param type
-     * @return
-     */
-    boolean repayLoan(String clientCode, Map<String, Object> repayDetails, RepayType type);
-
-    /**
-     * 商户垫付支付
-     *
-     * @param clientCode
-     * @param loanRepay
-     * @param type
-     * @return
-     */
-    boolean disburseLoan(String clientCode, LoanRepayment loanRepay, DisburseType type);
-
-    /**
      * 统计用户对贷款的投资信息
      *
      * @param clientCode
