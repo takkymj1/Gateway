@@ -70,6 +70,17 @@ public interface UserCreditService {
     public boolean deleteProof(String clientCode, String proofId);
 
     /**
+     * owner为proof关联的RealmEntity,如果不为null,则将此proof设为cover,其他proof设置为非cover</p>
+     * 如果为null，则只将此proof设为cover,那么可能导致同一RealmEntity对应proof中有多个cover</p>
+     *
+     * @param clientCode
+     * @param userId
+     * @param owner
+     * @param proofId
+     */
+    public void markProofAsCover(String clientCode, String userId, RealmEntity owner, String proofId);
+
+    /**
      * get proof by user and content
      *
      * @param clientCode
@@ -125,7 +136,7 @@ public interface UserCreditService {
      * @param contentType
      * @return
      */
-    public List<Proof> listProofByLoanRequestAndType(String clientCode, String userId, String requestId, ProofContentType ... contentType);
+    public List<Proof> listProofByLoanRequestAndType(String clientCode, String userId, String requestId, ProofContentType... contentType);
 
     /**
      * list all certificate for a user
@@ -150,7 +161,7 @@ public interface UserCreditService {
      *
      * @param clientCode
      * @param certificate
-     * @return 
+     * @return
      */
     public boolean updateCertificate(String clientCode, Certificate certificate);
 
