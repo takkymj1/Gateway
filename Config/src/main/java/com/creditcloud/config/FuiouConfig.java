@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
  * 
  * @author kdliu
  */
-@Data
 @NoArgsConstructor
 @XmlRootElement(name = "FuiouConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -32,25 +31,29 @@ public class FuiouConfig extends BaseConfig {
     /**
      * Fuiou分配的客户ID
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
+    @Getter
     private String merId;
 
     /**
      * 客户的密钥匙
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
+    @Getter
     private String merPwd;
 
     /**
      * Fuiou支付服务器的URL
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
+    @Getter
     private URL url;
     
     /**
      * Fuiou代收付服务的远程路径
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
+    @Getter
     private String path;
 
 }

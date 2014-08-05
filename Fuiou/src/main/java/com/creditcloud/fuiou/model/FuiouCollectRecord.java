@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class CollectRecord extends BaseObject{
+public class FuiouCollectRecord extends BaseObject{
 
     private static final long serialVersionUID = 20140803L;
     
@@ -54,7 +54,7 @@ public class CollectRecord extends BaseObject{
 
     private Date timeUpdated;
 
-    public CollectRecord(String collectRecordId, 
+    public FuiouCollectRecord(String collectRecordId, 
                          String repaymentId, 
                          BigDecimal amount, 
                          CollectRecordStatus collectRecordStatus, 
@@ -85,6 +85,4 @@ public class CollectRecord extends BaseObject{
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
     }
-    
-    
 }
