@@ -32,7 +32,7 @@ public class ClientCodeTest extends BaseTest<Client> {
 
     @Before
     public void setUp() {
-        object = new Client("CreditCloud", "CC", "creditcloud.com", "13800138000", "support@creditcloud.com", "4008-888-888", "creditcloud", "ABCD", "www.creditcloud.com", false, Locale.CHINESE);
+        object = new Client("CreditCloud", "CC", "creditcloud.com", "13800138000", "support@creditcloud.com", "4008-888-888", "creditcloud", "ABCD", "www.creditcloud.com", false, Locale.CHINESE, null);
     }
 
     @After
