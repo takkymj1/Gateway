@@ -16,7 +16,8 @@ public enum CollectRecordStatus implements BaseEnum{
     INITIALIZED("初始"),
     PROCESSING("处理中"),
     SUCCESSFUL("成功"),
-    FAILED("失败");
+    FAILED("失败"),
+    ERROR("错误");
 
     private final String key;
 

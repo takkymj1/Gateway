@@ -20,6 +20,8 @@ public interface FuiouConstant {
     
     String QUERY_EMPTY_CODE = "200029";
     
+    String TIMEOUT_CODE = "999999";
+    
     String VERSION_1 = "1.0";
     
     String CURRENT_VERSION = VERSION_1;
@@ -37,4 +39,6 @@ public interface FuiouConstant {
     String CHECKSUM_METHOD = "MD5";
     
     String BUSSINESS_COLLECT = "AC01";
+    
+    int ORDER_NO_LENGTH = 20;
 }
