@@ -22,6 +22,9 @@ public class CollectResult extends BaseObject {
     public static final CollectResult PARAM_ERROR = new CollectResult( "-1" , "参数错误");
     public static final CollectResult TRANS_PROCESSING = new CollectResult( "-1" , "已经在处理");
     public static final CollectResult TRANS_FAILED = new CollectResult( "-1" , "交易失败");
+    
+    public static final CollectResult OPERATION_SUCESS = new CollectResult( "0000" , "操作成功");
+    public static final CollectResult ORDER_NOT_FOUND = new CollectResult( "-1" , "订单未找到");
 
     @NotNull
     private String respCode;
