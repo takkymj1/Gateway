@@ -9,6 +9,7 @@ package com.creditcloud.fuiou.model;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@XmlRootElement
 public class CollectRecord extends BaseObject{
 
     private static final long serialVersionUID = 20140803L;
