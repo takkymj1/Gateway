@@ -13,11 +13,12 @@ import com.creditcloud.model.enums.BaseEnum;
  * @author kdliu
  */
 public enum CollectRecordStatus implements BaseEnum{
-    INITIALIZED("初始"),
+    INITIALIZED("初始化"),
     PROCESSING("处理中"),
-    SUCCESSFUL("成功"),
-    FAILED("失败"),
-    ERROR("错误");
+    SUCCESS("成功"),
+    FAIL("失败"),
+    ERROR("错误"),
+    REMOVED("作废");
 
     private final String key;
 

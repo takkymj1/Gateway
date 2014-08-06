@@ -41,4 +41,6 @@ public interface FuiouConstant {
     String BUSSINESS_COLLECT = "AC01";
     
     int ORDER_NO_LENGTH = 20;
+    
+    String DATE_STRING_PATTERN = "yyyyMMdd";
 }
