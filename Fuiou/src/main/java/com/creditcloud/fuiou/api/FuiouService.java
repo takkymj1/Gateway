@@ -6,8 +6,9 @@
 
 package com.creditcloud.fuiou.api;
 
-import com.creditcloud.fuiou.model.CollectRecord;
+import com.creditcloud.fuiou.model.CollectRecordStatus;
 import com.creditcloud.fuiou.model.CollectResult;
+import com.creditcloud.fuiou.model.FuiouCollectRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.misc.PagedResult;
@@ -32,15 +33,18 @@ public interface FuiouService {
      * @param accountNo not null
      * @param accountName not null
      * @param amount not null
+     * @param reExIfLastFailed
      * @return 
      */
-    public CollectResult collectRepayment(String clientCode, 
+    public CollectResult collectRepayment(String clientCode,
+                                          String userId,
                                           String repayId,
                                           String date,
                                           Bank bank,
                                           String accountNo,
                                           String accountName,
-                                          BigDecimal amount);
+                                          BigDecimal amount,
+                                          Boolean reExIfLastFailed);
  
     /**
      * Query the remote Fuiou server to get transaction status
@@ -64,9 +68,20 @@ public interface FuiouService {
      * @param pageInfo not null
      * @return 
      */
-    public PagedResult<CollectRecord> listCollectRecord(String clientCode,
+    public PagedResult<FuiouCollectRecord> listCollectRecord(String clientCode,
                                                         Date from,
                                                         Date to,
                                                         PageInfo pageInfo);
+    
+    /**
+     * Mark the given collect order no to be the given status.
+     * 
+     * @param orderNo not null
+     * @param status not null, FAILED or SUCCESSFUL
+     * @return 
+     */
+    public CollectResult markCollectRecordStatus(String clientCode,
+                                                 String orderNo,
+                                                 CollectRecordStatus status);
     
 }

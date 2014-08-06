@@ -156,12 +156,19 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private String dynamicCaptchaServerUrl;
-    
+
     /**
      * 可以对贷款申请加tag
      */
     @XmlElement
     @Getter
     private boolean enableLoanRequestTag = false;
+
+    /**
+     * 第三方平台代扣
+     */
+    @XmlElement
+    @Getter
+    private boolean enableThirdPartyCollect = false;
 
 }

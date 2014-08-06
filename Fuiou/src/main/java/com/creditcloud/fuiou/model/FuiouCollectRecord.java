@@ -9,6 +9,7 @@ package com.creditcloud.fuiou.model;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +19,8 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class CollectRecord extends BaseObject{
+@XmlRootElement
+public class FuiouCollectRecord extends BaseObject{
 
     private static final long serialVersionUID = 20140803L;
     
@@ -52,7 +54,7 @@ public class CollectRecord extends BaseObject{
 
     private Date timeUpdated;
 
-    public CollectRecord(String collectRecordId, 
+    public FuiouCollectRecord(String collectRecordId, 
                          String repaymentId, 
                          BigDecimal amount, 
                          CollectRecordStatus collectRecordStatus, 
@@ -83,6 +85,4 @@ public class CollectRecord extends BaseObject{
         this.timeCreated = timeCreated;
         this.timeUpdated = timeUpdated;
     }
-    
-    
 }
