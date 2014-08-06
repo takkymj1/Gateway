@@ -5,14 +5,11 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
-import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanInvestStatistics;
-import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.ReferralUser;
