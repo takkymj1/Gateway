@@ -41,37 +41,37 @@ public class Client extends BaseObject {
     @FormParam("shortName")
     @NotNull
     private String shortName;
-    
+
     /**
      * 显示在Market上的title
      */
     @FormParam("title")
     @NotNull
     private String title;
-    
+
     /**
      * 系统使用的手机，用于发送重要消息
      */
     @FormParam("mobile")
     @MobileNumber
     private String mobile;
-    
+
     /**
      * 技术支持邮件，在异常等状况下应用
      */
     @FormParam("supportEmail")
     @EmailAddress
     private String supportEmail;
-    
+
     /**
      * 支持/客服电话
      */
     @FormParam("supportPhone")
     private String supportPhone;
-    
+
     /**
      * 内部邮件特征字符串，邮件域名中包含creditcloud的即为CRCD的内部客户.
-     * 
+     *
      * 多个字符串用逗号分割
      */
     @FormParam("internalEmailIndicators")
@@ -90,7 +90,7 @@ public class Client extends BaseObject {
     @FormParam("url")
     @ClientURL
     protected String url;
-    
+
     /**
      * 是否使用https安全连接访问
      */
@@ -102,5 +102,11 @@ public class Client extends BaseObject {
      */
     @NotNull
     protected Locale locale;
-    
+
+    /**
+     * 平台logo url或者base64编码logo
+     */
+    @FormParam("logo")
+    private String logo;
+
 }

@@ -86,6 +86,11 @@ public class Proof extends BaseObject {
      */
     private BigDecimal latitude;
 
+    /**
+     * 一组proof中的标志性或封面proof
+     */
+    private boolean cover;
+    
     public Proof(String id,
                  RealmEntity owner,
                  ProofType proofType,
