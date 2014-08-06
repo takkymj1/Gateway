@@ -40,6 +40,11 @@ public class RepayInfo extends BaseObject {
      */
     private boolean advanceRepayWhenUndue;
 
+    
+    public RepayInfo(LoanRepayment loanRepayment){
+        this.loanRepayment = loanRepayment;
+    }
+    
     public RepayInfo(LoanRepayment loanRepayment, FeeConfig feeConfig, RepayType type) {
         this.loanRepayment = loanRepayment;
         this.feeConfig = feeConfig;
