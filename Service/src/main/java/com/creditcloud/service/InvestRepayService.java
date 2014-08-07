@@ -11,14 +11,12 @@ import com.creditcloud.model.loan.RepayDetail;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
 import java.util.List;
-import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
-@Remote
-public interface InvestRepayService {
+interface InvestRepayService {
 
     /**
      * list InvestRepayment by invest id

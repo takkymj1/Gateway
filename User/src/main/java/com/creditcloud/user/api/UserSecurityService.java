@@ -9,7 +9,6 @@ import com.creditcloud.model.user.UserLoginResult;
 import com.creditcloud.user.UserAuthenticate;
 import com.creditcloud.user.social.SocialId;
 import java.util.Map;
-import javax.ejb.Remote;
 
 /**
  * wrap security related methods for user<p>
@@ -17,8 +16,7 @@ import javax.ejb.Remote;
  *
  * @author rooseek
  */
-@Remote
-public interface UserSecurityService {
+interface UserSecurityService {
 
     /**
      * validate user password for loginName
