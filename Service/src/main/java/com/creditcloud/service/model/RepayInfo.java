@@ -40,14 +40,30 @@ public class RepayInfo extends BaseObject {
      */
     private boolean advanceRepayWhenUndue;
 
-    
-    public RepayInfo(LoanRepayment loanRepayment){
+    /**
+     * 是否是一组还款中得首期还款
+     */
+    private boolean firstRepayment;
+
+    public RepayInfo(LoanRepayment loanRepayment) {
         this.loanRepayment = loanRepayment;
     }
-    
-    public RepayInfo(LoanRepayment loanRepayment, FeeConfig feeConfig, RepayType type) {
+
+    public RepayInfo(LoanRepayment loanRepayment,
+                     FeeConfig feeConfig,
+                     RepayType type) {
         this.loanRepayment = loanRepayment;
         this.feeConfig = feeConfig;
         this.type = type;
+    }
+
+    public RepayInfo(LoanRepayment loanRepayment,
+                     FeeConfig feeConfig,
+                     RepayType type,
+                     boolean firstRepayment) {
+        this.loanRepayment = loanRepayment;
+        this.feeConfig = feeConfig;
+        this.type = type;
+        this.firstRepayment = firstRepayment;
     }
 }
