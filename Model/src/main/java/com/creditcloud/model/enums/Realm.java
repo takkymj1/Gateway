@@ -28,6 +28,10 @@ public enum Realm implements BaseEnum {
      */
     LOAN_TYPE("借款类型"),
     /**
+     * 借款附加利率
+     */
+    LOAN_ADDTIONAL_RATE("借款附加利率"),
+    /**
      * 企业关联法人
      */
     LEGAL_PERSON("企业关联法人"),
