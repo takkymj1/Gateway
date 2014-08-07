@@ -39,25 +39,12 @@ public interface FuiouService {
     public CollectResult collectRepayment(String clientCode,
                                           String userId,
                                           String repayId,
-                                          String date,
+                                          Date date,
                                           Bank bank,
                                           String accountNo,
                                           String accountName,
                                           BigDecimal amount,
                                           Boolean reExIfLastFailed);
- 
-    /**
-     * Query the remote Fuiou server to get transaction status
-     * 
-     * @param clientCode not null
-     * @param repayId nullable
-     * @param startDate not null
-     * @param endDate  not null
-     */
-    public void queryTransaction(String clientCode,
-                                 String repayId, 
-                                 String startDate,
-                                 String endDate);
     
     /**
      * Query the collect records in the given time range.
@@ -66,18 +53,20 @@ public interface FuiouService {
      * @param from not null
      * @param to not null
      * @param pageInfo not null
+     * @param excludeRemoved not show records in 'REMOVED' status
      * @return 
      */
     public PagedResult<FuiouCollectRecord> listCollectRecord(String clientCode,
-                                                        Date from,
-                                                        Date to,
-                                                        PageInfo pageInfo);
+                                                             Date from,
+                                                             Date to,
+                                                             PageInfo pageInfo,
+                                                             Boolean excludeRemoved);
     
     /**
      * Mark the given collect order no to be the given status.
      * 
      * @param orderNo not null
-     * @param status not null, FAILED or SUCCESSFUL
+     * @param status not null, FAIL or SUCCESS
      * @return 
      */
     public CollectResult markCollectRecordStatus(String clientCode,
