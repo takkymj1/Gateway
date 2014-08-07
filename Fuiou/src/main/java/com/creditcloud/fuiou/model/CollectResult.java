@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CollectResult extends BaseObject {
 
     public static final CollectResult ALREADY_COLLECT = new CollectResult( "-1", "已经代扣成功");
+    public static final CollectResult ALREADY_ORDER = new CollectResult( "-1", "已经生成订单");
     public static final CollectResult INTERNAL_ERROR = new CollectResult( "-1" , "内部错误");
     public static final CollectResult PARAM_ERROR = new CollectResult( "-1" , "参数错误");
     public static final CollectResult TRANS_PROCESSING = new CollectResult( "-1" , "已经在处理");
