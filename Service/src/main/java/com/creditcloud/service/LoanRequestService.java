@@ -10,14 +10,12 @@ import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
-import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
-@Remote
-public interface LoanRequestService {
+interface LoanRequestService {
 
     /**
      *
