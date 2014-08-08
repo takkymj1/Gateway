@@ -19,7 +19,7 @@ import java.util.Map;
  *
  * @author rooseek
  */
-public interface UserRewardService {
+interface UserRewardService {
 
     /**
      * 设置或更新推荐人
