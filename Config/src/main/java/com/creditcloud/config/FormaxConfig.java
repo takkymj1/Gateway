@@ -43,5 +43,5 @@ public class FormaxConfig extends BaseConfig {
      */
     @XmlElement
     @Getter
-    private String apiPDFApplyCert = "http://121.199.18.174:8181/APWebPF/APWebPF/CfcaCertServlet";
+    private String apiPDFApplyCert = "http://121.199.18.174:8181/APWebPF/CfcaCertServlet";
 }
