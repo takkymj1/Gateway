@@ -7,6 +7,7 @@
 package com.creditcloud.ump.model.ump.base;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import com.creditcloud.ump.model.ump.utils.MessageUtils;
 import com.google.common.base.Joiner;
@@ -52,8 +53,24 @@ public abstract class BaseRequest extends BaseObject {
         this.version = version;
     }
     
-    public void buildChkString() {
-        this.setSign(this.chkString());
+    public BaseRequest(CmdIdType service) {
+        this.service = service;
+    }
+    
+    public BaseRequest(CmdIdType service, String mer_id) {
+        this.service = service;
+        this.mer_id = mer_id;
+        this.sign_type = UmpConstant.SIGN_TYPE;
+        this.charset = UmpConstant.ENCODE_TYPE;
+        this.res_format = UmpConstant.RESPONSE_FORMAT;
+        this.sign = "";
+        this.mer_id = mer_id;
+        this.version = UmpConstant.CURRENT_VERSION;
+    }
+    
+    public void buildSignature() {
+        //TODO
+        //this.setSign(this.chkString());
     }
     
     public String chkString() {

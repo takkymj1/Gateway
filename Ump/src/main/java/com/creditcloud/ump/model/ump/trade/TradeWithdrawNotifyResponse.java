@@ -6,10 +6,40 @@
 
 package com.creditcloud.ump.model.ump.trade;
 
+import com.creditcloud.ump.model.ump.base.BaseResponse;
+import com.creditcloud.ump.model.ump.enums.CmdIdRspType;
+import lombok.Data;
+
 /**
  *
  * @author kdliu
  */
-public class TradeWithdrawNotifyResponse {
+@Data
+public class TradeWithdrawNotifyResponse extends BaseResponse {
+    
+    private String order_id;
+    
+    private String mer_date;
+
+    public TradeWithdrawNotifyResponse() {
+        super(CmdIdRspType.NOTIFY_WITHDRAW_RSP);
+    }
+    
+    public TradeWithdrawNotifyResponse(String sign_type, 
+                                       String sign, 
+                                       String mer_id, 
+                                       String version, 
+                                       String ret_code, 
+                                       String order_id, 
+                                       String mer_date) {
+        super(CmdIdRspType.NOTIFY_WITHDRAW_RSP, sign_type, sign, mer_id, version, ret_code, null);
+        this.order_id = order_id;
+        this.mer_date = mer_date;
+    }
+    
+    @Override
+    public void setRet_msg(String ret_msg) {
+        super.setRet_msg(null);
+    }
     
 }

@@ -61,6 +61,23 @@ public abstract class BaseResponse extends BaseObject {
         this.ret_msg = ret_msg;
     }
     
+    public BaseResponse(CmdIdRspType rspType, 
+                        String mer_id,
+                        String ret_code,
+                        String ret_msg) {
+        this.rspType = rspType;
+        this.mer_id = mer_id;
+        this.sign_type = UmpConstant.SIGN_TYPE;
+        this.sign = "";
+        this.mer_id = mer_id;
+        this.version = UmpConstant.CURRENT_VERSION;
+    }
+    
+    public void buildSignature() {
+        //TODO
+        //this.setSign(this.chkString());
+    }
+        
     public String chkString() {
         Map<String, String> values = MessageUtils.getFieldValuesMap(this);
         Set<String> sets = new TreeSet<>();
@@ -100,5 +117,13 @@ public abstract class BaseResponse extends BaseObject {
         }
         
         return response;
+    }
+    
+    public String toRsponseHTML() {
+        String content = this.chkString();
+        this.buildSignature();
+        String responseStr = content + ".&sign=" + this.getSign();
+        
+        return MessageUtils.createResponse(responseStr);
     }
 }

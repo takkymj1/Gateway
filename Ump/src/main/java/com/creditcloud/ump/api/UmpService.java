@@ -6,6 +6,8 @@
 
 package com.creditcloud.ump.api;
 
+import com.creditcloud.model.enums.user.credit.ProofType;
+import com.creditcloud.ump.model.ump.base.BaseRequest;
 import javax.ejb.Remote;
 
 /**
@@ -26,6 +28,28 @@ public interface UmpService {
      * @param mobileId
      * @param email 
      */
-    public void registerPerson(String clientCode, String custId, String custName, String idType, String idCode, String mobileId);
+    public void registerUmpUser(String clientCode, String custId, String custName, String idType, String idCode, String mobileId);
+    
+    /**
+     * 个人用户绑定银行卡
+     * 
+     * @param clientCode
+     * @param umpUserId
+     * @param accountId
+     * @param accountName
+     * @param type
+     * @param idCode 
+     */
+    public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, ProofType type, String idCode);
+    
+    /**
+     * 获得请求的签名值
+     * 
+     * @param clientCode
+     * @param baseRequest
+     * @return 
+     */
+    public String getSignValue(String clientCode, BaseRequest baseRequest);
+    
     
 }

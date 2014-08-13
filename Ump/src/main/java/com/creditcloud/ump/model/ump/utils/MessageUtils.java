@@ -25,7 +25,8 @@ import org.apache.commons.beanutils.BeanMap;
  */
 public class MessageUtils {
     
-    private static final Pattern responseTemplate = Pattern.compile("<META NAME=\"MobilePayPlatform\" CONTENT=\"(.*)\"/>");
+    private static final Pattern responsePattern = Pattern.compile("<META NAME=\"MobilePayPlatform\" CONTENT=\"(.*)\"/>");
+    private static final String responseTemplate = "<HTML><HEAD><META NAME=\"MobilePayPlatform\" CONTENT=\"*\"/></HEAD></HTML>";
     private static Logger logger = Logger.getLogger(MessageUtils.class.getName());
     
     public static Map<String, String> getFieldValuesMap(BaseRequest request) {
@@ -55,7 +56,7 @@ public class MessageUtils {
     }
     
    public static Map<String, String> getFieldValuesMap(String html) {
-       Matcher matcher = responseTemplate.matcher(html);
+       Matcher matcher = responsePattern.matcher(html);
        Map<String, String> values = new HashMap<>();
         if(matcher.find()) {
             String responseStr = matcher.group(1);
@@ -80,4 +81,8 @@ public class MessageUtils {
         
         return values;
     }
+   
+   public static String createResponse(String rawContent) {
+       return responseTemplate.replace("*", rawContent);
+   }
 }

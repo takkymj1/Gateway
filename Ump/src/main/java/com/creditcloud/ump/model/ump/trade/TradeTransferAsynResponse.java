@@ -6,10 +6,12 @@
 
 package com.creditcloud.ump.model.ump.trade;
 
+import com.creditcloud.ump.model.ump.base.BaseResponse;
+
 /**
  *
  * @author kdliu
  */
-public class TradeTransferAsynResponse {
+public class TradeTransferAsynResponse extends BaseResponse{
     
 }
