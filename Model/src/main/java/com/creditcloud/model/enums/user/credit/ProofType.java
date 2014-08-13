@@ -72,6 +72,13 @@ public enum ProofType implements BaseEnum {
     GUARANTEE_CONTRACT("借款担保合同或文件", CertificateType.GUARANTEE),
     GUARANTEE_OTHER("其他借款担保相关证明", CertificateType.GUARANTEE),
     /**
+     * 保理项目认证
+     */
+    FACTORING_HISTORY("历史交易", CertificateType.FACTORING),
+    FACTORING_PROJECT("保理项目", CertificateType.FACTORING),
+    FACTORING_ANTI("反保理措施", CertificateType.FACTORING),
+    FACTORING_FINANCE_CORP("融资企业", CertificateType.FACTORING),
+    /**
      * 信用报告
      */
     CREDITREPORT("信用报告", CertificateType.CREDITREPORT),
@@ -147,6 +154,9 @@ public enum ProofType implements BaseEnum {
         if (type == null) {
             return false;
         }
+        if (isSpecialGeneralProof(type)) {
+            return false;
+        }
         for (CertificateType ct : CertificateType.getLoanRequestCertificate()) {
             if (ct.equals(type.getCertificateType())) {
                 return true;
@@ -165,10 +175,27 @@ public enum ProofType implements BaseEnum {
         if (type == null) {
             return false;
         }
+        if (isSpecialGeneralProof(type)) {
+            return true;
+        }
         for (CertificateType ct : CertificateType.getGeneralCertificate()) {
             if (ct.equals(type.getCertificateType())) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * 某些CertificateType虽然跟LoanRequest挂钩，但其中的个别ProofType需要特殊处理
+     *
+     * @param type
+     * @return
+     */
+    private static boolean isSpecialGeneralProof(ProofType type) {
+        //保理項目中的融资企业认证属于保理企业用户,且不跟随贷款变动而变动
+        if (type.equals(ProofType.FACTORING_FINANCE_CORP)) {
+            return true;
         }
         return false;
     }
