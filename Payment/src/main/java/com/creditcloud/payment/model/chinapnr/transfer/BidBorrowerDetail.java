@@ -29,11 +29,11 @@ public class BidBorrowerDetail extends BaseObject {
 
     @NotNull
     @Size(max = 14)
-    private String PrintAmt;
+    private String PrinAmt;
 
-    public BidBorrowerDetail(String BorrowerCustId, String BorrowerCreditAmt, String PrintAmt) {
+    public BidBorrowerDetail(String BorrowerCustId, String BorrowerCreditAmt, String PrinAmt) {
         this.BorrowerCustId = BorrowerCustId;
         this.BorrowerCreditAmt = BorrowerCreditAmt;
-        this.PrintAmt = PrintAmt;
+        this.PrinAmt = PrinAmt;
     }
 }
