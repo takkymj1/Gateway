@@ -5,7 +5,8 @@
 package com.creditcloud.model.enums.user.credit;
 
 import com.creditcloud.model.enums.BaseEnum;
-import com.google.common.collect.ImmutableList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,10 +34,10 @@ public enum CertificateType implements BaseEnum {
     /**
      * 个人通用的认证类型，与具体贷款本身无关
      */
-    private static final List<CertificateType> GENERAL_TYPES = ImmutableList.of(ID, CREDITREPORT, FAMILY, EDUCATION, INCOME,
-                                                                          CAREER, REALESTATE, LOCATION, VEHICLE, OTHERS);
+    private static final List<CertificateType> GENERAL_TYPES = Collections.unmodifiableList(Arrays.asList(ID, CREDITREPORT, FAMILY, EDUCATION, INCOME,
+                                                                                                          CAREER, REALESTATE, LOCATION, VEHICLE, OTHERS));
 
-    private static final List<CertificateType> LOANREQUEST_TYPES = ImmutableList.of(LOANPURPOSE, GUARANTEE, FACTORING);
+    private static final List<CertificateType> LOANREQUEST_TYPES = Collections.unmodifiableList(Arrays.asList(LOANPURPOSE, GUARANTEE, FACTORING));
 
     private CertificateType(String key) {
         this.key = key;
