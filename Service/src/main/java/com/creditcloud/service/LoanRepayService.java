@@ -144,7 +144,16 @@ public interface LoanRepayService {
      * @return
      */
     boolean markStatus(String clientCode, RepaymentStatus status, String... repayIds);
-    
+
+    /**
+     * 债权转让时需要实时更新LoanRepayment中的Repayment
+     *
+     * @param clientCode
+     * @param repayment
+     * @return
+     */
+    boolean updateOnCreditAssign(String clientCode, List<com.creditcloud.model.loan.LoanRepayment> repayment);
+
     /**
      * 还款
      *
