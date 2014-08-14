@@ -35,11 +35,6 @@
             <version>2.2</version>
             <type>jar</type>
         </dependency>
-        <dependency>
-            <groupId>com.google.collections</groupId>
-            <artifactId>google-collections</artifactId>
-            <version>1.0</version>
-        </dependency>
         <!-- test -->
         <dependency>
             <groupId>org.hibernate</groupId>
