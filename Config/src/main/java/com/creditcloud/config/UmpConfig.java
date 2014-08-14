@@ -57,5 +57,8 @@ public class UmpConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String path;
+    
+    @XmlElement(name = "baseAccount", required = true) 
+    private UmpSubAccount baseAccount;
 
 }

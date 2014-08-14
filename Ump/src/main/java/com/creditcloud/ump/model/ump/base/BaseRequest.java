@@ -15,12 +15,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@NoArgsConstructor
 public abstract class BaseRequest extends BaseObject {
     
     private CmdIdType service;
@@ -66,11 +68,6 @@ public abstract class BaseRequest extends BaseObject {
         this.sign = "";
         this.mer_id = mer_id;
         this.version = UmpConstant.CURRENT_VERSION;
-    }
-    
-    public void buildSignature() {
-        //TODO
-        //this.setSign(this.chkString());
     }
     
     public String chkString() {

@@ -6,9 +6,14 @@
 
 package com.creditcloud.ump.api;
 
+import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.enums.user.credit.ProofType;
+import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
+import com.creditcloud.ump.model.ump.base.BaseResponse;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  * 联动优势(UMP)相关服务
@@ -18,38 +23,21 @@ import javax.ejb.Remote;
 @Remote
 public interface UmpService {
     
-    /**
-     * 个人用户注册
-     * 
-     * @param custName
-     * @param custId
-     * @param idType
-     * @param idCode
-     * @param mobileId
-     * @param email 
-     */
-    public void registerUmpUser(String clientCode, String custId, String custName, String idType, String idCode, String mobileId);
+    public UmpAccount createUmpAccount(String clientCode, String userId, String userName, ProofType idType, String idCode, String mobileId);
     
-    /**
-     * 个人用户绑定银行卡
-     * 
-     * @param clientCode
-     * @param umpUserId
-     * @param accountId
-     * @param accountName
-     * @param type
-     * @param idCode 
-     */
+    public UmpAccount getUmpAccount(String clientCode, String userId);
+    
+    public String getUserIdByAccountId(String clientCode, String accountId);
+    
+    public void submitEntRecharge(String clientCode, String notify_url, String orderId, LocalDate merDate, String payType, String rechargeMerId, String accoutId, BigDecimal amount, Bank bank);
+    
     public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, ProofType type, String idCode);
     
-    /**
-     * 获得请求的签名值
-     * 
-     * @param clientCode
-     * @param baseRequest
-     * @return 
-     */
-    public String getSignValue(String clientCode, BaseRequest baseRequest);
+    public String getSignature(String clientCode, BaseRequest baseRequest);
     
+    public String getSignature(String clientCode, BaseResponse baseResponse);
     
+    public boolean verifyRequest(String clientCode, BaseRequest baseRequest);
+    
+    public boolean verifyResponse(String clientCode, BaseResponse baseResponse);
 }

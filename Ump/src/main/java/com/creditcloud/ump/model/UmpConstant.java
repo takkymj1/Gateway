@@ -29,4 +29,6 @@ public interface UmpConstant {
     String ENCRYPT_ENCODE = "GBK";
     
     String SUCCESS_CODE = "0000";
+    
+    String MER_DATE_FORMAT = "yyyyMMdd";
 }
