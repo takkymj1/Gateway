@@ -73,4 +73,15 @@ public interface FuiouService {
                                                  String orderNo,
                                                  CollectRecordStatus status);
     
+    /**
+     * Get the collect record of the given repayment id. If there are more than one,
+     * only the one with latest created time is returned.
+     * 
+     * @param clientCode not null
+     * @param repayId not null
+     * @return null if not found
+     */
+    public FuiouCollectRecord getByRepaymentId(String clientCode,
+                                               String repayId);
+    
 }
