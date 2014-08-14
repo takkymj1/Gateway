@@ -103,7 +103,13 @@ public class FeeConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private Fee advanceRepayInvestFee;
-    
+
+    /**
+     * 债权转让费，给平台
+     */
+    @XmlElement(required = false)
+    private Fee creditAssignFee;
+
     /**
      * 提前还款离实际到期还款日的最小天数,间隔低于此天数的提前还款将按照正常还款全额付本还息
      */
@@ -124,4 +130,5 @@ public class FeeConfig extends BaseConfig {
     @Min(1)
     @XmlElement(required = false)
     private int maxDaysForOverdueFee = Integer.MAX_VALUE;
+
 }
