@@ -79,7 +79,7 @@ public class User extends BaseObject {
     @NotNull
     protected Source source;
 
-    @NotNull(groups = {BackSourceCheck.class, MobileSourceCheck.class})
+    @NotNull(groups = {BackSourceCheck.class})
     private String employeeId;
 
     private String lastModifiedBy;
