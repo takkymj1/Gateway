@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,14 +19,24 @@ import lombok.NoArgsConstructor;
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class CreditAssign extends BaseObject {
 
     private static final long serialVersionUID = 20140811L;
 
     private String id;
-    
-    private CreditAssignStatus status;
+
+    /**
+     * 对应借款id
+     */
+    private String loanId;
+
+    /**
+     * 原始借款投标id
+     */
+    private String investId;
 
     /**
      * 转让人
@@ -38,7 +47,19 @@ public class CreditAssign extends BaseObject {
      * 债权转让转出的本金
      */
     private BigDecimal creditAmount;
-    
+
+    /**
+     * 投标数
+     */
+    private int bidNumber;
+
+    /**
+     * 实际投标金额
+     */
+    private BigDecimal bidAmount;
+
+    private CreditAssignStatus status;
+
     /**
      * 债权转让折价率
      */
@@ -49,26 +70,46 @@ public class CreditAssign extends BaseObject {
      */
     private BigDecimal creditDealAmount;
 
-    private String loanId;
-
-    private String investId;
-
-    /**
-     * 该债权对应的未还还款 
-     */
-    private List<Repayment> repayment;
-    
     private Date timeOpen;
-    
+
     /**
      * 承接期，单位小时
      */
     private int timeOut;
-    
+
     private Date timeFinished;
-    
+
     /**
-     * 结算时间
+     * 该债权对应的未还还款
      */
-    private Date timeSettled;
+    private List<Repayment> repayment;
+
+    public CreditAssign(String id,
+                        String loanId,
+                        String investId,
+                        String userId,
+                        BigDecimal creditAmount,
+                        int bidNumber,
+                        BigDecimal bidAmount,
+                        CreditAssignStatus status,
+                        BigDecimal creditDealRate,
+                        BigDecimal creditDealAmount,
+                        Date timeOpen,
+                        int timeOut,
+                        Date timeFinished) {
+        this.id = id;
+        this.loanId = loanId;
+        this.investId = investId;
+        this.userId = userId;
+        this.creditAmount = creditAmount;
+        this.bidNumber = bidNumber;
+        this.bidAmount = bidAmount;
+        this.status = status;
+        this.creditDealRate = creditDealRate;
+        this.creditDealAmount = creditDealAmount;
+        this.timeOpen = timeOpen;
+        this.timeOut = timeOut;
+        this.timeFinished = timeFinished;
+    }
+
 }
