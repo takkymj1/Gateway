@@ -10,12 +10,12 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import com.creditcloud.ump.model.ump.utils.MessageUtils;
-import com.google.common.base.Joiner;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -84,8 +84,7 @@ public abstract class BaseRequest extends BaseObject {
                 }
             }
         }
-        Joiner joiner = Joiner.on("&");
         
-        return joiner.join(sets.iterator());
+        return StringUtils.join(sets, "&");
     }
 }
