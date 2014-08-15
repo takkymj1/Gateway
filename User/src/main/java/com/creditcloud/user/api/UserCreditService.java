@@ -139,6 +139,18 @@ public interface UserCreditService {
     public List<Proof> listProofByLoanRequestAndType(String clientCode, String userId, String requestId, ProofContentType... contentType);
 
     /**
+     * 列出某个用户名下某个entity的proof</p>
+     * 是上面方法的通用版本
+     *
+     * @param clientCode
+     * @param userId
+     * @param entity
+     * @param contentType
+     * @return
+     */
+    public List<Proof> listProofByEntityAndType(String clientCode, String userId, RealmEntity entity, ProofContentType... contentType);
+
+    /**
      * list all certificate for a user
      *
      * @param clientCode

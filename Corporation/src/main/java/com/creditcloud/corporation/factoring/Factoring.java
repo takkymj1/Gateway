@@ -75,6 +75,16 @@ public class Factoring extends BaseObject {
 
     protected Date timeLastUpdated;
 
+    /**
+     * 反保理措施描述
+     */
+    private String antiDescription;
+
+    /**
+     * 历史交易信息
+     */
+    private String historyDescription;
+
     public Factoring(String id,
                      String factoringCorporation,
                      String centralBankRegisterNo,
@@ -82,7 +92,9 @@ public class Factoring extends BaseObject {
                      int receivables,
                      String financeCorporation,
                      String debtDescription,
-                     String description) {
+                     String description,
+                     String antiDescription,
+                     String historyDescription) {
         this.id = id;
         this.factoringCorporation = factoringCorporation;
         this.centralBankRegisterNo = centralBankRegisterNo;
@@ -91,6 +103,8 @@ public class Factoring extends BaseObject {
         this.financeCorporation = financeCorporation;
         this.debtDescription = debtDescription;
         this.description = description;
+        this.antiDescription = antiDescription;
+        this.historyDescription = historyDescription;
     }
 
     /**

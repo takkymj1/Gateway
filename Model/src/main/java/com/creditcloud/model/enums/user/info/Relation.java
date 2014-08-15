@@ -15,9 +15,18 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum Relation implements BaseEnum {
 
-    MotherDaughter("母女"), FatherDaughter("父女"), FatherSon("父子"), MotherSon(
-    "母子"), Brother("兄弟"), Sister("姐妹"), Colleague("同事"), Higher(
-    "上级"), Lower("下级"), Relative("亲戚"), Other("其他");
+    MotherDaughter("母女"),
+    FatherDaughter("父女"),
+    FatherSon("父子"), 
+    MotherSon("母子"), 
+    Brother("兄弟"),
+    Sister("姐妹"),
+    Colleague("同事"), 
+    Higher("上级"), 
+    Lower("下级"), 
+    Relative("亲戚"), 
+    Other("其他");
+
     private final String key;
 
     Relation(String key) {

@@ -28,7 +28,7 @@ public enum ProofType implements BaseEnum {
     ID_VIDEO("本人视频", CertificateType.ID),
     ID_OTHER("其他个人身份证明", CertificateType.ID),
     /**
-     * 工作经营证明
+     * 工作/企业/经营证明
      */
     CAREER_LABOUR_CONTRACT("劳动合同", CertificateType.CAREER),
     CAREER_LABOUR_CERTIFICATE("技术职称及技能认证", CertificateType.CAREER),
@@ -39,6 +39,8 @@ public enum ProofType implements BaseEnum {
     CAREER_BUSINESS_CONTRACT("经营相关合同及合作协议", CertificateType.CAREER),
     CAREER_BUSINESS_CERTIFICATE("经营相关许可证", CertificateType.CAREER),
     CAREER_BUSINESS_PLACE("经营或施工场所", CertificateType.CAREER),
+    CAREER_CORP_COVER("企业大图", CertificateType.CAREER),
+    CAREER_CORP_LOGO("企业logo", CertificateType.CAREER),
     CAREER_OTHER("其他工作相关证明", CertificateType.CAREER),
     /**
      * 收入认证证明
@@ -71,6 +73,13 @@ public enum ProofType implements BaseEnum {
     GUARANTEE_REALESTATE("借款担保人房产", CertificateType.GUARANTEE),
     GUARANTEE_CONTRACT("借款担保合同或文件", CertificateType.GUARANTEE),
     GUARANTEE_OTHER("其他借款担保相关证明", CertificateType.GUARANTEE),
+    /**
+     * 保理项目认证
+     */
+    FACTORING_HISTORY("历史交易", CertificateType.FACTORING),
+    FACTORING_PROJECT("保理项目", CertificateType.FACTORING),
+    FACTORING_ANTI("反保理措施", CertificateType.FACTORING),
+    FACTORING_FINANCE_CORP("融资企业", CertificateType.FACTORING),
     /**
      * 信用报告
      */
@@ -147,6 +156,9 @@ public enum ProofType implements BaseEnum {
         if (type == null) {
             return false;
         }
+        if (isSpecialGeneralProof(type)) {
+            return false;
+        }
         for (CertificateType ct : CertificateType.getLoanRequestCertificate()) {
             if (ct.equals(type.getCertificateType())) {
                 return true;
@@ -165,10 +177,27 @@ public enum ProofType implements BaseEnum {
         if (type == null) {
             return false;
         }
+        if (isSpecialGeneralProof(type)) {
+            return true;
+        }
         for (CertificateType ct : CertificateType.getGeneralCertificate()) {
             if (ct.equals(type.getCertificateType())) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    /**
+     * 某些CertificateType虽然跟LoanRequest挂钩，但其中的个别ProofType需要特殊处理
+     *
+     * @param type
+     * @return
+     */
+    private static boolean isSpecialGeneralProof(ProofType type) {
+        //保理項目中的融资企业认证属于保理企业用户,且不跟随贷款变动而变动
+        if (type.equals(ProofType.FACTORING_FINANCE_CORP)) {
+            return true;
         }
         return false;
     }
