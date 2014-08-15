@@ -6,7 +6,7 @@
 
 package com.creditcloud.ump.model.ump.user;
 
-import com.creditcloud.ump.model.ump.base.BaseRequest;
+import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
 
@@ -15,7 +15,7 @@ import lombok.Data;
  * @author kdliu
  */
 @Data
-public class UserUnbindAgreementNotifyRequest extends BaseRequest {
+public class UserUnbindAgreementNotifyRequest extends NotifyRequest {
     
     private String user_id;
     
@@ -23,8 +23,9 @@ public class UserUnbindAgreementNotifyRequest extends BaseRequest {
 
     public UserUnbindAgreementNotifyRequest(String mer_id, 
                                             String user_id, 
+                                            String ret_code,
                                             String user_unbind_agreement_list) {
-        super(CmdIdType.MER_UNBIND_AGREEMNT_NOTIFY, mer_id);
+        super(CmdIdType.MER_UNBIND_AGREEMNT_NOTIFY, mer_id, ret_code, null);
         this.user_id = user_id;
         this.user_unbind_agreement_list = user_unbind_agreement_list;
     }

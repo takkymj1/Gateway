@@ -6,8 +6,7 @@
 
 package com.creditcloud.ump.model.ump.trade;
 
-import com.creditcloud.ump.model.UmpConstant;
-import com.creditcloud.ump.model.ump.base.BaseRequest;
+import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
 
@@ -16,7 +15,7 @@ import lombok.Data;
  * @author kdliu
  */
 @Data
-public class TradeTransferNotifyRequest extends BaseRequest {
+public class TradeTransferNotifyRequest extends NotifyRequest {
     
     private String order_id;
     
@@ -25,31 +24,16 @@ public class TradeTransferNotifyRequest extends BaseRequest {
     private String trade_no;
     
     private String mer_check_date;
-
-    public TradeTransferNotifyRequest(String sign_type, 
-                                      String charset, 
-                                      String res_format, 
-                                      String sign, 
-                                      String mer_id, 
-                                      String version,
-                                      String order_id, 
-                                      String mer_date, 
-                                      String trade_no, 
-                                      String mer_check_date) {
-        super(CmdIdType.TRANSFER_NOTIFY, sign_type, charset, res_format, sign, mer_id, version);
-        this.order_id = order_id;
-        this.mer_date = mer_date;
-        this.trade_no = trade_no;
-        this.mer_check_date = mer_check_date;
-    }
     
     public TradeTransferNotifyRequest(String mer_id, 
                                       String version,
                                       String order_id, 
                                       String mer_date, 
                                       String trade_no, 
-                                      String mer_check_date) {
-        super(CmdIdType.TRANSFER_NOTIFY, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);
+                                      String mer_check_date,
+                                      String ret_code,
+                                      String ret_msg) {
+        super(CmdIdType.TRANSFER_NOTIFY, mer_id, ret_code, ret_msg);
         this.order_id = order_id;
         this.mer_date = mer_date;
         this.trade_no = trade_no;

@@ -6,7 +6,10 @@
 
 package com.creditcloud.ump.model;
 
+import com.creditcloud.model.BaseObject;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +19,9 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class UmpAccount {
+@AllArgsConstructor
+@XmlRootElement
+public class UmpAccount extends BaseObject{
     
     private String accountId;
     
@@ -27,12 +32,4 @@ public class UmpAccount {
     private String regDate;
     
     private Date timeCreate;
-
-    public UmpAccount(String accountId, String accountName, String userId, String regDate, Date timeCreate) {
-        this.accountId = accountId;
-        this.accountName = accountName;
-        this.userId = userId;
-        this.regDate = regDate;
-        this.timeCreate = timeCreate;
-    }
 }

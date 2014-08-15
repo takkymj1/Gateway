@@ -6,6 +6,7 @@
 
 package com.creditcloud.config;
 
+import com.creditcloud.config.enums.UmpEntPayType;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,7 +34,7 @@ public class UmpSubAccount {
     private String accountId;
     
     @XmlElement(required = true)
-    private String payType;
+    private UmpEntPayType payType;
     
     @XmlElement(required = true)
     private Bank bank;

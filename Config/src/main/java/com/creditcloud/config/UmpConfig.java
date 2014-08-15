@@ -58,6 +58,9 @@ public class UmpConfig extends BaseConfig {
     @XmlElement(required = true)
     private String path;
     
+    /**
+     * 商户在UMP的账户
+     */
     @XmlElement(name = "baseAccount", required = true) 
     private UmpSubAccount baseAccount;
 

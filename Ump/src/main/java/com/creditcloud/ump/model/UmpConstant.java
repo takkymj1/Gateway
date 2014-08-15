@@ -16,10 +16,16 @@ public interface UmpConstant {
     
     String CURRENT_VERSION = VERSION_1;
     
+    /**
+     * 签名方式，目前仅有"RSA"
+     */
     String SIGN_TYPE = "RSA";
     
     String ENCODE_TYPE = "UTF-8";
     
+    /**
+     * 响应数据格式，目前仅有“HTML”
+     */
     String RESPONSE_FORMAT = "HTML";
     
     String ALGORITHM = "RSA";
@@ -31,4 +37,9 @@ public interface UmpConstant {
     String SUCCESS_CODE = "0000";
     
     String MER_DATE_FORMAT = "yyyyMMdd";
+    
+    /**
+     * 企业账户类型, 01为现金账户, 目前仅有
+     */
+    String ENT_ACCOUNT_TYPE = "01";
 }

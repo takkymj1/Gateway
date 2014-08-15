@@ -6,8 +6,7 @@
 
 package com.creditcloud.ump.model.ump.trade;
 
-import com.creditcloud.ump.model.UmpConstant;
-import com.creditcloud.ump.model.ump.base.BaseRequest;
+import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
 
@@ -16,7 +15,7 @@ import lombok.Data;
  * @author kdliu
  */
 @Data
-public class TradeWithdrawNotifyRequest extends BaseRequest {
+public class TradeWithdrawNotifyRequest extends NotifyRequest {
     
     private String order_id;
     
@@ -31,30 +30,6 @@ public class TradeWithdrawNotifyRequest extends BaseRequest {
     private String transfer_date;
     
     private String transfer_settle_date;
-
-    public TradeWithdrawNotifyRequest(CmdIdType service, 
-                                      String sign_type, 
-                                      String charset, 
-                                      String res_format, 
-                                      String sign, 
-                                      String mer_id, 
-                                      String version, 
-                                      String order_id, 
-                                      String mer_date, 
-                                      String trade_no, 
-                                      String amount, 
-                                      String trade_state, 
-                                      String transfer_date, 
-                                      String transfer_settle_date) {
-        super(CmdIdType.NOTIFY_WITHDRAW, sign_type, charset, res_format, sign, mer_id, version);
-        this.order_id = order_id;
-        this.mer_date = mer_date;
-        this.trade_no = trade_no;
-        this.amount = amount;
-        this.trade_state = trade_state;
-        this.transfer_date = transfer_date;
-        this.transfer_settle_date = transfer_settle_date;
-    }
     
     public TradeWithdrawNotifyRequest(String mer_id,
                                       String order_id, 
@@ -63,8 +38,10 @@ public class TradeWithdrawNotifyRequest extends BaseRequest {
                                       String amount, 
                                       String trade_state, 
                                       String transfer_date, 
-                                      String transfer_settle_date) {
-        super(CmdIdType.NOTIFY_WITHDRAW, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);
+                                      String transfer_settle_date,
+                                      String ret_code,
+                                      String ret_msg) {
+        super(CmdIdType.NOTIFY_WITHDRAW, mer_id, ret_code, ret_msg);
         this.order_id = order_id;
         this.mer_date = mer_date;
         this.trade_no = trade_no;
