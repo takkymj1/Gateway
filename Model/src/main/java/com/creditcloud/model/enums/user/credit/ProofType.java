@@ -28,7 +28,7 @@ public enum ProofType implements BaseEnum {
     ID_VIDEO("本人视频", CertificateType.ID),
     ID_OTHER("其他个人身份证明", CertificateType.ID),
     /**
-     * 工作经营证明
+     * 工作/企业/经营证明
      */
     CAREER_LABOUR_CONTRACT("劳动合同", CertificateType.CAREER),
     CAREER_LABOUR_CERTIFICATE("技术职称及技能认证", CertificateType.CAREER),
@@ -39,7 +39,8 @@ public enum ProofType implements BaseEnum {
     CAREER_BUSINESS_CONTRACT("经营相关合同及合作协议", CertificateType.CAREER),
     CAREER_BUSINESS_CERTIFICATE("经营相关许可证", CertificateType.CAREER),
     CAREER_BUSINESS_PLACE("经营或施工场所", CertificateType.CAREER),
-    CAREER_BANK_ACCOUNT("银行开户许可证", CertificateType.CAREER),
+    CAREER_CORP_COVER("企业大图", CertificateType.CAREER),
+    CAREER_CORP_LOGO("企业logo", CertificateType.CAREER),
     CAREER_OTHER("其他工作相关证明", CertificateType.CAREER),
     /**
      * 收入认证证明

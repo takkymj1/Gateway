@@ -145,4 +145,10 @@ public class PaymentConfig extends BaseConfig {
     @XmlElement(name = "userRegisterSuffix", required = false)
     private String userRegisterSuffix;
 
+    /**
+     * 债权转让相关配置
+     */
+    @XmlElement(name = "creditAssignConfig", required = false)
+    private CreditAssignConfig creditAssignConfig;
+
 }
