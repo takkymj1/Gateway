@@ -86,6 +86,42 @@ public class Invest extends BaseObject {
     /**
      * TODO temporal compatibility
      *
+     * @param id
+     * @param user
+     * @param loanId
+     * @param bidMethod
+     * @param amount
+     * @param rate
+     * @param duration
+     * @param repayMethod
+     * @param status
+     * @param submitTime
+     */
+    public Invest(String id,
+                  User user,
+                  String loanId,
+                  BidMethod bidMethod,
+                  int amount,
+                  int rate,
+                  Duration duration,
+                  RepaymentMethod repayMethod,
+                  InvestStatus status,
+                  Date submitTime) {
+        this.id = id;
+        this.user = user;
+        this.loanId = loanId;
+        this.bidMethod = bidMethod;
+        this.amount = BigDecimal.valueOf(amount);
+        this.rate = rate;
+        this.duration = duration;
+        this.repayMethod = repayMethod;
+        this.status = status;
+        this.submitTime = submitTime;
+    }
+
+    /**
+     * TODO temporal compatibility
+     *
      * @return
      */
     public int getAmount() {
