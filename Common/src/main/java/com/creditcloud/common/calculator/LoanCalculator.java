@@ -45,7 +45,7 @@ public final class LoanCalculator {
      *
      * @param amount
      * @param duration
-     * @param rate 2400 means 24.00%
+     * @param rate     2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
@@ -55,9 +55,26 @@ public final class LoanCalculator {
                                      final int rate,
                                      final RepaymentMethod method,
                                      final LocalDate asOfDate) {
+        return analyze(BigDecimal.valueOf(amount), duration, rate, method, asOfDate);
+    }
+
+    /**
+     *
+     * @param amount
+     * @param duration
+     * @param rate     2400 means 24.00%
+     * @param method
+     * @param asOfDate
+     * @return
+     */
+    public static LoanDetail analyze(final BigDecimal amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate) {
         LoanDetail result = null;
         //principal
-        BigDecimal principal = new BigDecimal(amount);
+        BigDecimal principal = amount;
         //now get rates
         BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
         BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
@@ -211,8 +228,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount 金额
-     * @param rate 利率，2400代表24%
+     * @param amount   金额
+     * @param rate     利率，2400代表24%
      * @param duration 期限
      * @return
      */

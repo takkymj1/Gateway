@@ -22,7 +22,7 @@ public interface NumberConstant {
     BigDecimal ZERO = new BigDecimal(BigInteger.ZERO, DEFAULT_SCALE, DEFAULT_MATHCONTEXT);
     
     /**
-     * 默认使用四舍五入，跟第三方支付一致
+     * 默认使用银行家舍入法
      */
     RoundingMode ROUNDING_MODE = RoundingMode.HALF_EVEN;
 }
