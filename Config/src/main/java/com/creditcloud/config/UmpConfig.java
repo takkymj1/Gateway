@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
  *
  * @author kdliu
  */
-@Data
 @NoArgsConstructor
 @XmlRootElement(name = "UmpConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -32,36 +31,55 @@ public class UmpConfig extends BaseConfig {
      * UMP分配合作商户唯一标识
      */
     @XmlElement(required = true)
+    @Getter
     private String merId;
 
     /**
      * 商户的私钥文件路径
      */
     @XmlElement(required = true)
+    @Getter
     private String privateKeyPath;
 
     /**
      * UMP公钥文件路径
      */
     @XmlElement(required = true)
+    @Getter
     private String publicKeyPath;
 
     /**
      * UMP服务器的URL
      */
     @XmlElement(required = true)
+    @Getter
     private URL url;
 
     /**
      * UMP服务的远程路径
      */
     @XmlElement(required = true)
+    @Getter
     private String path;
     
+    /**
+     * UMP的通知回调地址(Market端)
+     */
+    @XmlElement(required = true)
+    @Getter
+    private String retUrl;
+    
+    /**
+     * UMP的通知回调地址(Manager端)
+     */
+    @XmlElement(required = true)
+    @Getter
+    private String adminRetUrl;
     /**
      * 商户在UMP的账户
      */
     @XmlElement(name = "baseAccount", required = true) 
+    @Getter
     private UmpSubAccount baseAccount;
 
 }

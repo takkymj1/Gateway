@@ -7,10 +7,10 @@
 package com.creditcloud.ump.api;
 
 import com.creditcloud.model.enums.misc.Bank;
-import com.creditcloud.model.enums.user.credit.ProofType;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.base.BaseResponse;
+import com.creditcloud.ump.model.ump.enums.UmpIdentityType;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -23,7 +23,7 @@ import org.joda.time.LocalDate;
 @Remote
 public interface UmpService {
     
-    public UmpAccount createUmpAccount(String clientCode, String userId, String userName, ProofType idType, String idCode, String mobileId);
+    public UmpAccount createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
     
     public UmpAccount getUmpAccount(String clientCode, String userId);
     
@@ -31,7 +31,7 @@ public interface UmpService {
     
     public void submitEntRecharge(String clientCode, String notify_url, String orderId, LocalDate merDate, String payType, String rechargeMerId, String accoutId, BigDecimal amount, Bank bank);
     
-    public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, ProofType type, String idCode);
+    public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, UmpIdentityType idType, String idCode);
     
     public String getSignature(String clientCode, BaseRequest baseRequest);
     

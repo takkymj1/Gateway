@@ -18,7 +18,7 @@ public class UserRegisterRequestTest {
 
     @Test
     public void testChkString() {
-        UserRegisterRequest request = new UserRegisterRequest("0898912213", "2001212", "习近平", UmpIdentityType.IDENTITY_CARD.getUmpCode(), "110102197407013870", "13800138000");
+        UserRegisterRequest request = new UserRegisterRequest("0898912213", "2001212", "习近平", UmpIdentityType.IDENTITY_CARD.name(), "110102197407013870", "13800138000");
 
         Assert.assertEquals("checksum string is wrong",
                             "charset=UTF-8&identity_code=110102197407013870&identity_type=IDENTITY_CARD&mer_cust_id=2001212&mer_cust_name=习近平&mer_id=0898912213&mobile_id=13800138000&res_format=HTML&service=mer_register_person&version=1.0",
