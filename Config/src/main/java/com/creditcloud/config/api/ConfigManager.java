@@ -17,6 +17,7 @@ import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
+import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
@@ -88,4 +89,11 @@ public interface ConfigManager {
      * @return
      */
     public FuiouConfig getFuiouConfig();
+    
+    /**
+     * 获取联动优势(UMP)的配置
+     * 
+     * @return 
+     */
+    public UmpConfig getUmpConfig();
 }
