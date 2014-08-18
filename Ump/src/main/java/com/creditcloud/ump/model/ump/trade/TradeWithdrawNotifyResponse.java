@@ -25,14 +25,11 @@ public class TradeWithdrawNotifyResponse extends BaseResponse {
         super(CmdIdRspType.NOTIFY_WITHDRAW_RSP);
     }
     
-    public TradeWithdrawNotifyResponse(String sign_type, 
-                                       String sign, 
-                                       String mer_id, 
-                                       String version, 
+    public TradeWithdrawNotifyResponse(String mer_id, 
                                        String ret_code, 
                                        String order_id, 
                                        String mer_date) {
-        super(CmdIdRspType.NOTIFY_WITHDRAW_RSP, sign_type, sign, mer_id, version, ret_code, null);
+        super(CmdIdRspType.NOTIFY_WITHDRAW_RSP, mer_id, ret_code, null);
         this.order_id = order_id;
         this.mer_date = mer_date;
     }

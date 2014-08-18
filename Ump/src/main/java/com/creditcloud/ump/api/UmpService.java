@@ -31,6 +31,8 @@ public interface UmpService {
     
     public void submitEntRecharge(String clientCode, String notify_url, String orderId, LocalDate merDate, String payType, String rechargeMerId, String accoutId, BigDecimal amount, Bank bank);
     
+    public void submitEntWithdrawal(String clientCode, String ret_url, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
+
     public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, UmpIdentityType idType, String idCode);
     
     public String getSignature(String clientCode, BaseRequest baseRequest);
