@@ -91,4 +91,12 @@ public class Invest extends BaseObject {
     public int getAmount() {
         return amount.intValue();
     }
+
+    /**
+     * TODO temporal compatibility
+     *
+     */
+    public void setAmount(int amount) {
+        this.amount = BigDecimal.valueOf(amount);
+    }
 }
