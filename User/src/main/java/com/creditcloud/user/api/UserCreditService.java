@@ -81,6 +81,16 @@ public interface UserCreditService {
     public void markProofAsCover(String clientCode, String userId, RealmEntity owner, String proofId);
 
     /**
+     * get cover proof
+     *
+     * @param clientCode
+     * @param userId
+     * @param owner
+     * @return all proof that set be cover
+     */
+    public List<Proof> getCoverProof(String clientCode, String userId, RealmEntity owner);
+
+    /**
      * get proof by user and content
      *
      * @param clientCode

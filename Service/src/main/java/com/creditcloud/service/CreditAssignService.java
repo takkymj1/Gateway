@@ -5,6 +5,8 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.CriteriaInfo;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.CreditAssignStatus;
 import com.creditcloud.model.loan.CreditAssign;
 import com.creditcloud.model.loan.CreditAssignInvest;
@@ -29,15 +31,29 @@ public interface CreditAssignService {
     public void markStatus(String clientCode, CreditAssignStatus status, String... creditAssignIds);
 
     /**
-     * list by time and status
+     * list by open time and status
      *
      * @param clientCode
      * @param from
      * @param to
+     * @param info
      * @param status
      * @return
      */
-    public PagedResult<CreditAssign> list(String clientCode, Date from, Date to, CreditAssignStatus... status);
+    public PagedResult<CreditAssign> list(String clientCode,
+                                          Date from, Date to,
+                                          PageInfo info,
+                                          CreditAssignStatus... status);
+
+    /**
+     * list by criteriaInfo info
+     *
+     * @param clientCode
+     * @param criteriaInfo
+     * @return
+     */
+    public PagedResult<CreditAssign> list(String clientCode,
+                                          CriteriaInfo criteriaInfo);
 
     /**
      * list invest on a credit assign

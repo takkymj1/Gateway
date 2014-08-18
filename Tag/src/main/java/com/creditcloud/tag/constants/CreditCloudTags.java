@@ -63,5 +63,9 @@ public interface CreditCloudTags {
      * 新手标
      */
     Tag NEWBIE_LOAN = new Tag(Realm.LOAN_TYPE, "新手标", "新手标", "借款类型");
-
+    
+    /**
+     * 云艺贷
+     */
+    Tag ART_LOAN = new Tag(Realm.LOAN_TYPE, "云艺贷", "云艺贷", "借款类型");
 }
