@@ -34,8 +34,9 @@
         <module>Payment</module>
         <module>Tag</module>
         <module>Appoint</module>
-    <module>CMS</module>
-    <module>Corporation</module>
-    <module>Fuiou</module>
+        <module>CMS</module>
+        <module>Corporation</module>
+        <module>Fuiou</module>
+        <module>Ump</module>
   </modules>
 </project>

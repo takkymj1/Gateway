@@ -1,0 +1,123 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.creditcloud.ump.model.ump.enums;
+
+/**
+ * UMP接口操作类型
+ * 
+ * @author kdliu
+ */
+public enum CmdIdType {
+    /**
+     * 个人用户注册
+     */
+    MER_REGISTER_PERSON,
+    /**
+     * 绑定银行卡
+     */
+    MER_BIND_CARD,
+    /**
+     * 绑定银行卡结果通知
+     */
+    MER_BIND_CARD_NOTIFY,
+    /**
+     * 无密签约
+     */
+    MER_BIND_AGREEMENT,
+    /**
+     * 无密签约结果通知
+     */
+    MER_BIND_AGREEMENT_NOTIFY,
+    /**
+     * 授权解约
+     */
+    MER_UNBIND_AGREEMENT,
+    /**
+     * 授权解约结果
+     */
+    MER_UNBIND_AGREEMNT_NOTIFY,
+    /**
+     * 发标
+     */
+    MER_BIND_PROJECT,
+    /**
+     * 标的更新
+     */
+    MER_UPDATE_PROJECT,
+    /**
+     * 标的转账
+     */
+    PROJECT_TRANSFER,
+    /**
+     * 标的交易通知
+     */
+    PROJECT_TRANSFER_NOTIFY,
+    /**
+     * 无密标的转入
+     */
+    PROJECT_TRANSFER_NOPWD,
+    /**
+     * 个人客户充值申请
+     */
+    MER_RECHARGE_PERSON,
+    /**
+     * 企业客户充值申请
+     */
+    MER_RECHARGE,
+    /**
+     * 充值结果通知
+     */
+    RECHARGE_NOTIFY,
+    /**
+     * 无密个人客户充值
+     */
+    MER_RECHARGE_PERSON_NOPWD,
+    /**
+     * 个人账户提现
+     */
+    CUST_WITHDRAWALS,
+    /**
+     * 企业客户提现
+     */
+    MER_WITHDRAWALS,
+    /**
+     * 提现通知
+     */
+    NOTIFY_WITHDRAW,
+    /**
+     * 普通免密转账
+     */
+    TRANSFER,
+    /**
+     * 普通验密转账
+     */
+    TRANSFER_ASYN,
+    /**
+     * 普通转账通知
+     */
+    TRANSFER_NOTIFY,
+    /**
+     * 交易查询
+     */
+    TRANSFER_SEARCH,
+    /**
+     * 用户查询
+     */
+    USER_SEARCH,
+    /**
+     * 标的查询
+     */
+    PROJECT_ACCOUNT_SEARCH,
+    /**
+     * 账户流水查询
+     */
+    TRANSEQ_SEARCH,
+    /**
+     * 商户账户查询
+     */
+    PTP_MER_QUERY;
+}
