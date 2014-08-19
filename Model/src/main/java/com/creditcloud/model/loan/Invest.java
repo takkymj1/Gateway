@@ -7,17 +7,14 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
-import com.creditcloud.model.constant.WealthProductConstant;
-import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.validation.group.WealthProductCheck;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.groups.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -45,19 +42,7 @@ public class Invest extends BaseObject {
     private BidMethod bidMethod;
 
     @NotNull
-    @IncrementalInteger.List({
-        //validation for loan
-        @IncrementalInteger(min = LoanConstant.MIN_INVEST_AMOUNT,
-                            increment = LoanConstant.INVEST_AMOUNT_INCREMENT,
-                            max = LoanConstant.MAX_INVEST_AMOUNT,
-                            groups = Default.class),
-        //validation for wealth product
-        @IncrementalInteger(min = WealthProductConstant.MIN_INVEST_AMOUNT,
-                            increment = WealthProductConstant.INVEST_AMOUNT_INCREMENT,
-                            max = WealthProductConstant.MAX_INVEST_AMOUNT,
-                            groups = WealthProductCheck.class)
-    })
-    private int amount;
+    private BigDecimal amount;
 
     @NotNull
     @Min(LoanConstant.MIN_LOAN_RATE)
@@ -80,7 +65,7 @@ public class Invest extends BaseObject {
                   User user,
                   String loanId,
                   BidMethod bidMethod,
-                  int amount,
+                  BigDecimal amount,
                   int rate,
                   Duration duration,
                   RepaymentMethod repayMethod,
@@ -96,5 +81,58 @@ public class Invest extends BaseObject {
         this.repayMethod = repayMethod;
         this.status = status;
         this.submitTime = submitTime;
+    }
+
+    /**
+     * TODO temporal compatibility
+     *
+     * @param id
+     * @param user
+     * @param loanId
+     * @param bidMethod
+     * @param amount
+     * @param rate
+     * @param duration
+     * @param repayMethod
+     * @param status
+     * @param submitTime
+     */
+    public Invest(String id,
+                  User user,
+                  String loanId,
+                  BidMethod bidMethod,
+                  int amount,
+                  int rate,
+                  Duration duration,
+                  RepaymentMethod repayMethod,
+                  InvestStatus status,
+                  Date submitTime) {
+        this.id = id;
+        this.user = user;
+        this.loanId = loanId;
+        this.bidMethod = bidMethod;
+        this.amount = BigDecimal.valueOf(amount);
+        this.rate = rate;
+        this.duration = duration;
+        this.repayMethod = repayMethod;
+        this.status = status;
+        this.submitTime = submitTime;
+    }
+
+    /**
+     * TODO temporal compatibility
+     *
+     * @return
+     */
+    public int getAmount() {
+        return amount.intValue();
+    }
+
+    /**
+     * TODO temporal compatibility
+     *
+     */
+    public void setAmount(int amount) {
+        this.amount = BigDecimal.valueOf(amount);
     }
 }
