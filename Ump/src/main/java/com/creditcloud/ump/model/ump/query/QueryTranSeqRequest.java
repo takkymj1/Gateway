@@ -27,18 +27,13 @@ public class QueryTranSeqRequest extends BaseRequest {
     
     private String page_num;
 
-    public QueryTranSeqRequest(String sign_type,
-                               String charset, 
-                               String res_format,
-                               String sign, 
-                               String mer_id, 
-                               String version,
+    public QueryTranSeqRequest(String mer_id, 
                                String account_id, 
                                String account_type, 
                                String start_date, 
                                String end_date, 
                                String page_num) {
-        super(CmdIdType.TRANSEQ_SEARCH, sign_type, charset, res_format, sign, mer_id, version);
+        super(CmdIdType.TRANSEQ_SEARCH, mer_id);
         this.account_id = account_id;
         this.account_type = account_type;
         this.start_date = start_date;

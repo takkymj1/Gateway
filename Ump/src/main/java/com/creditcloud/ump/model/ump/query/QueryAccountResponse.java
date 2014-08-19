@@ -8,11 +8,13 @@ package com.creditcloud.ump.model.ump.query;
 
 import com.creditcloud.ump.model.ump.base.BaseResponse;
 import com.creditcloud.ump.model.ump.enums.CmdIdRspType;
+import lombok.Data;
 
 /**
  *
  * @author kdliu
  */
+@Data
 public class QueryAccountResponse extends BaseResponse {
     
     private String plat_user_id;

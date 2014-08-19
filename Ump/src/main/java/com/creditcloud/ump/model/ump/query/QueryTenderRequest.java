@@ -19,17 +19,9 @@ public class QueryTenderRequest extends BaseRequest {
     
     private String project_id;
 
-    public QueryTenderRequest(CmdIdType service, 
-                              String sign_type, 
-                              String charset, 
-                              String res_format, 
-                              String sign, 
-                              String mer_id, 
-                              String version,
+    public QueryTenderRequest(String mer_id,
                               String project_id) {
-        super(CmdIdType.PROJECT_ACCOUNT_SEARCH, sign_type, charset, res_format, sign, mer_id, version);
+        super(CmdIdType.PROJECT_ACCOUNT_SEARCH, mer_id);
         this.project_id = project_id;
     }
-    
-    
 }
