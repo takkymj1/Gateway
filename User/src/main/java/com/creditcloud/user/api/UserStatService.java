@@ -121,4 +121,13 @@ public interface UserStatService {
      * @return
      */
     List<ElementCount<LocalDate>> dailyLoginUser(String clientCode, Date from, Date to);
+    
+    /**
+     * 統計登錄用戶 by Date
+     * @param clientCode
+     * @param from
+     * @param to
+     * @return 
+     */
+    List<String> listByLoginDate(String clientCode, Date from, Date to);
 }
