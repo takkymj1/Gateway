@@ -25,7 +25,7 @@ import org.apache.commons.beanutils.BeanMap;
  */
 public class MessageUtils {
     
-    private static final Pattern responsePattern = Pattern.compile("<META NAME=\"MobilePayPlatform\" CONTENT=\"(.*)\"/>");
+    private static final Pattern responsePattern = Pattern.compile("<META NAME=\"MobilePayPlatform\" CONTENT=\"(.*)\"/>", Pattern.CASE_INSENSITIVE);
     private static final String responseTemplate = "<HTML><HEAD><META NAME=\"MobilePayPlatform\" CONTENT=\"*\"/></HEAD></HTML>";
     private static Logger logger = Logger.getLogger(MessageUtils.class.getName());
     

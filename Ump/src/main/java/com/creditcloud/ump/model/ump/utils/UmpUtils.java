@@ -6,7 +6,11 @@
 
 package com.creditcloud.ump.model.ump.utils;
 
+import com.creditcloud.ump.model.ump.enums.UmpAgreementType;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -23,5 +27,15 @@ public class UmpUtils {
         BigDecimal amount = new BigDecimal(amountInCents).setScale(2);
         
         return amount.divide(HUNDRED);
+    }
+    
+    public static String agreementTypesToString(UmpAgreementType... types) {
+        List<String> agreementNames = new ArrayList<>();
+        if (types != null) {
+            for (UmpAgreementType type : types) {
+                agreementNames.add(type.name());
+            }
+        }
+        return StringUtils.join(agreementNames, "|");
     }
 }

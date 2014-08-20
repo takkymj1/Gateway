@@ -49,6 +49,15 @@ public interface FundRecordService {
     FundRecord getByUserAndTypeAndOrderId(String clientCode, String userId, FundRecordType type, String orderId);
 
     /**
+     *
+     * @param clientCode
+     * @param type
+     * @param orderId
+     * @return
+     */
+    FundRecord getByTypeAndOrderId(String clientCode, FundRecordType type, String orderId);
+    
+    /**
      * create new fund record
      *
      * @param clientCode

@@ -8,6 +8,7 @@ package com.creditcloud.ump.api;
 
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.ump.model.UmpAccount;
+import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpTender;
 import com.creditcloud.ump.model.UmpTransaction;
@@ -38,6 +39,12 @@ public interface UmpService {
     public UmpAccount getUmpAccount(String clientCode, String userId);
     
     public String getUserIdByAccountId(String clientCode, String accountId);
+    
+    public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement);
+    
+    public boolean updateUmpAgreement(String clientCode, UmpAgreement agreement);
+    
+    public UmpAgreement getUmpAgreement(String clientCode, String userId);
     
     public void submitEntRecharge(String clientCode, String notify_url, String orderId, LocalDate merDate, String payType, String rechargeMerId, String accoutId, BigDecimal amount, Bank bank);
     
