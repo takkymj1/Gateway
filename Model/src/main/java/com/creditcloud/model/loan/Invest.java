@@ -118,21 +118,4 @@ public class Invest extends BaseObject {
         this.status = status;
         this.submitTime = submitTime;
     }
-
-    /**
-     * TODO temporal compatibility
-     *
-     * @return
-     */
-    public int getAmount() {
-        return amount.intValue();
-    }
-
-    /**
-     * TODO temporal compatibility
-     *
-     */
-    public void setAmount(int amount) {
-        this.amount = BigDecimal.valueOf(amount);
-    }
 }
