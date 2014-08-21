@@ -61,6 +61,11 @@ public class Invest extends BaseObject {
     @NotNull
     private Date submitTime;
 
+    /**
+     * 对应债权转让id，如果非空表示此Invest是对某债权转让的投标,为空表示正常投标
+     */
+    private String creditAssignId;
+
     public Invest(String id,
                   User user,
                   String loanId,

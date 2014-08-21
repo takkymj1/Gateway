@@ -8,8 +8,9 @@ package com.creditcloud.service;
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.CreditAssignStatus;
+import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.loan.CreditAssign;
-import com.creditcloud.model.loan.CreditAssignInvest;
+import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
 import javax.ejb.Remote;
@@ -29,6 +30,15 @@ public interface CreditAssignService {
      * @param creditAssignIds
      */
     public void markStatus(String clientCode, CreditAssignStatus status, String... creditAssignIds);
+
+    /**
+     * get by id
+     *
+     * @param clientCode
+     * @param creditAssignId
+     * @return
+     */
+    public CreditAssign getById(String clientCode, String creditAssignId);
 
     /**
      * list by open time and status
@@ -60,7 +70,8 @@ public interface CreditAssignService {
      *
      * @param clientCode
      * @param creditAssignId
+     * @param status
      * @return
      */
-    public PagedResult<CreditAssignInvest> listInvest(String clientCode, String creditAssignId);
+    public PagedResult<Invest> listInvest(String clientCode, String creditAssignId, InvestStatus... status);
 }
