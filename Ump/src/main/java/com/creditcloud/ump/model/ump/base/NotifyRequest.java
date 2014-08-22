@@ -32,7 +32,7 @@ public abstract class NotifyRequest extends BaseRequest {
         this.ret_msg = ret_msg;
     }
     
-    public boolean isSuccess() {
+    public boolean success() {
         if(ret_code!=null) {
             return ret_code.equals(UmpConstant.SUCCESS_CODE);
         }

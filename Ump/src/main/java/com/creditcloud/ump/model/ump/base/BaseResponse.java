@@ -72,11 +72,6 @@ public abstract class BaseResponse extends BaseObject {
         this.mer_id = mer_id;
         this.version = UmpConstant.CURRENT_VERSION;
     }
-    
-    public void buildSignature() {
-        //TODO
-        //this.setSign(this.chkString());
-    }
         
     public String chkString() {
         Map<String, String> values = MessageUtils.getFieldValuesMap(this);
@@ -87,8 +82,7 @@ public abstract class BaseResponse extends BaseObject {
             if(!key.equals("sign") && !key.equals("sign_type") && !key.equals("rspType")) {
                 // skip sign and sign_type and rspType field, they are not in checksum string
                 if(value!=null) {
-                    String theValue = key.equals("service")? value.toLowerCase():value;
-                    sets.add(key + "=" +theValue);
+                    sets.add(key + "=" +value);
                 }
             }
         }
@@ -96,7 +90,24 @@ public abstract class BaseResponse extends BaseObject {
         return StringUtils.join(sets, "&");
     }
 
-    public boolean isSuccess() {
+    public String contentString() {
+        Map<String, String> values = MessageUtils.getFieldValuesMap(this);
+        Set<String> sets = new TreeSet<>();
+        
+        for(String key : values.keySet()) {
+            String value = values.get(key);
+            if(!key.equals("sign") && !key.equals("rspType")) {
+                // skip sign and rspType field, they are not in the content string
+                if(value!=null) {
+                    sets.add(key + "=" +value);
+                }
+            }
+        }
+        
+        return StringUtils.join(sets, "&");
+    }
+        
+    public boolean success() {
         if(ret_code!=null) {
             return ret_code.equals(UmpConstant.SUCCESS_CODE);
         }else{
@@ -118,11 +129,10 @@ public abstract class BaseResponse extends BaseObject {
         return response;
     }
     
-    public String toRsponseHTML() {
-        String content = this.chkString();
-        this.buildSignature();
-        String responseStr = content + ".&sign=" + this.getSign();
+    public String toResponseStr() {
+        String content = this.contentString();
         
-        return MessageUtils.createResponse(responseStr);
+        return StringUtils.join(content, "&sign=", this.getSign());
     }
+
 }

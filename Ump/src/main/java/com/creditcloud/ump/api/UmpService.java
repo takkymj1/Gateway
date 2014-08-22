@@ -71,4 +71,11 @@ public interface UmpService {
     public List<UmpTransaction> queryUserTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
     
     public UmpEntUser queryEntUser(String clientCode, String accountId);
+    
+    public boolean createTender(String clientCode, String tenderId, String tenderName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
+
+    public boolean scheduleTender(String clientCode, String tenderId, String tenderName, BigDecimal amount, LocalDate expireDate);
+    
+    public boolean openTender(String clientCode, String tenderId);
+    
 }

@@ -75,11 +75,19 @@ public class UmpConfig extends BaseConfig {
     @XmlElement(required = true)
     @Getter
     private String adminRetUrl;
+    
     /**
      * 商户在UMP的账户
      */
     @XmlElement(name = "baseAccount", required = true) 
     @Getter
     private UmpSubAccount baseAccount;
+    
+    /**
+     * 担保方UMP的账户
+     */
+    @XmlElement(name = "guaranteeAccount", required = true) 
+    @Getter
+    private UmpSubAccount guaranteeAccount;
 
 }
