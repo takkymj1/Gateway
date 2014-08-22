@@ -61,6 +61,11 @@ public class Invest extends BaseObject {
     @NotNull
     private Date submitTime;
 
+    /**
+     * 对应债权转让id，如果非空表示此Invest是对某债权转让的投标,为空表示正常投标
+     */
+    private String creditAssignId;
+
     public Invest(String id,
                   User user,
                   String loanId,
@@ -81,58 +86,5 @@ public class Invest extends BaseObject {
         this.repayMethod = repayMethod;
         this.status = status;
         this.submitTime = submitTime;
-    }
-
-    /**
-     * TODO temporal compatibility
-     *
-     * @param id
-     * @param user
-     * @param loanId
-     * @param bidMethod
-     * @param amount
-     * @param rate
-     * @param duration
-     * @param repayMethod
-     * @param status
-     * @param submitTime
-     */
-    public Invest(String id,
-                  User user,
-                  String loanId,
-                  BidMethod bidMethod,
-                  int amount,
-                  int rate,
-                  Duration duration,
-                  RepaymentMethod repayMethod,
-                  InvestStatus status,
-                  Date submitTime) {
-        this.id = id;
-        this.user = user;
-        this.loanId = loanId;
-        this.bidMethod = bidMethod;
-        this.amount = BigDecimal.valueOf(amount);
-        this.rate = rate;
-        this.duration = duration;
-        this.repayMethod = repayMethod;
-        this.status = status;
-        this.submitTime = submitTime;
-    }
-
-    /**
-     * TODO temporal compatibility
-     *
-     * @return
-     */
-    public int getAmount() {
-        return amount.intValue();
-    }
-
-    /**
-     * TODO temporal compatibility
-     *
-     */
-    public void setAmount(int amount) {
-        this.amount = BigDecimal.valueOf(amount);
     }
 }
