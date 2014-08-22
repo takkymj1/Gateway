@@ -121,6 +121,22 @@ public interface UserFundService {
                                   BigDecimal inAmount);
 
     /**
+     * 债权转让
+     *
+     * @param clientCode
+     * @param inUserId
+     * @param inAmount
+     * @param outUserId
+     * @param outAmount
+     * @return
+     */
+    public boolean creditAssign(String clientCode,
+                                String inUserId,
+                                BigDecimal inAmount,
+                                String outUserId,
+                                BigDecimal outAmount);
+
+    /**
      * 充值<p>
      * 可用金额+＝amount<p>
      * 充值金额+＝amount
