@@ -57,6 +57,7 @@ public enum Realm implements BaseEnum {
      */
     INVEST("投标"),
     LOAN("贷款"),
+    CREDITASSIGN("债权转让"),
     INVESTREPAYMENT("投资还款"),
     LOANREPAYMENT("贷款还款"),
     LOANREQUEST("贷款申请"),
