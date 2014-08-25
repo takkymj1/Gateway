@@ -35,6 +35,10 @@ public enum Realm implements BaseEnum {
      * 企业关联法人
      */
     LEGAL_PERSON("企业关联法人"),
+    /*
+     * 融资企业
+     */
+    FINANCE_CORPORATION("融资企业"),
     /**
      * 基本类型
      */
