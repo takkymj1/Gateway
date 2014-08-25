@@ -30,7 +30,7 @@ public interface UmpConstant {
     
     String ALGORITHM = "RSA";
     
-    String SIGN_ALGORITHM = "MD5withRSA";
+    String SIGN_ALGORITHM = "SHA1withRSA";
     
     String ENCRYPT_ENCODE = "GBK";
     
