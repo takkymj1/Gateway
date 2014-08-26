@@ -34,10 +34,11 @@ public class MessageUtils {
             String key = entry.getKey().toString();
             String value = entry.getValue() == null ? null : entry.getValue().toString();
             if (!key.equalsIgnoreCase("class")) {
+                // not put null field
                 if(value!=null) {
                     value = key.equals("service")? value.toLowerCase():value;
+                    result.put(key, value);
                 }
-                result.put(key, value);
             }
         }
         return result;
