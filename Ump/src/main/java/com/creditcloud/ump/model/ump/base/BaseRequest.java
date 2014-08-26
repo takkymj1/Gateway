@@ -13,6 +13,7 @@ import com.creditcloud.ump.model.ump.utils.MessageUtils;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -27,16 +28,22 @@ public abstract class BaseRequest extends BaseObject {
     
     private CmdIdType service;
     
+    @QueryParam("sign_type")
     private String sign_type;
     
+    @QueryParam("charset")
     private String charset;
     
+    @QueryParam("res_format")
     private String res_format;
     
+    @QueryParam("sign")
     private String sign;
     
+    @QueryParam("mer_id")
     private String mer_id;
     
+    @QueryParam("version")
     private String version;
 
     public BaseRequest(CmdIdType service,

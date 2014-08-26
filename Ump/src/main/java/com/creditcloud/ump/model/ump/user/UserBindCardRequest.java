@@ -6,7 +6,6 @@
 
 package com.creditcloud.ump.model.ump.user;
 
-import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
@@ -92,7 +91,7 @@ public class UserBindCardRequest extends BaseRequest{
                                String cnaps_code, 
                                String account_area, 
                                String card_branch_name) {
-        super(CmdIdType.MER_BIND_CARD, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);
+        super(CmdIdType.MER_BIND_CARD, mer_id);
         this.ret_url = ret_url;
         this.notify_url = notify_url;
         this.order_id = order_id;

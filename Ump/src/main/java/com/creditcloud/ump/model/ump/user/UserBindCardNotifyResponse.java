@@ -19,14 +19,11 @@ public class UserBindCardNotifyResponse extends BaseResponse {
     
     private String user_id;
 
-    public UserBindCardNotifyResponse(String sign_type, 
-                                      String sign, 
-                                      String mer_id, 
-                                      String version, 
+    public UserBindCardNotifyResponse(String mer_id, 
                                       String ret_code, 
                                       String ret_msg, 
                                       String user_id) {
-        super(CmdIdRspType.MER_BIND_CARD_NOTIFY_RSP, sign_type, sign, mer_id, version, ret_code, ret_msg);
+        super(CmdIdRspType.MER_BIND_CARD_NOTIFY_RSP, mer_id, ret_code, ret_msg);
         this.user_id = user_id;
     }
     
