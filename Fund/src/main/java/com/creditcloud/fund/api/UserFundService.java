@@ -124,6 +124,7 @@ public interface UserFundService {
      * 债权转让
      *
      * @param clientCode
+     * @param dueAmount
      * @param inUserId
      * @param inAmount
      * @param outUserId
@@ -131,6 +132,7 @@ public interface UserFundService {
      * @return
      */
     public boolean creditAssign(String clientCode,
+                                BigDecimal dueAmount,
                                 String inUserId,
                                 BigDecimal inAmount,
                                 String outUserId,

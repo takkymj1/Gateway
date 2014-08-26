@@ -10,6 +10,7 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.service.model.LoanRepaymentCorrection;
 import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -146,13 +147,13 @@ public interface LoanRepayService {
     boolean markStatus(String clientCode, RepaymentStatus status, String... repayIds);
 
     /**
-     * 债权转让时需要实时更新LoanRepayment中的Repayment
+     * 债权转让时需要实时矫正LoanRepayment中的Repayment
      *
      * @param clientCode
-     * @param repayment
+     * @param corrections
      * @return
      */
-    boolean updateOnCreditAssign(String clientCode, List<com.creditcloud.model.loan.LoanRepayment> repayment);
+    boolean correctOnCreditAssign(String clientCode, List<LoanRepaymentCorrection> corrections);
 
     /**
      * 还款
