@@ -13,6 +13,7 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -108,12 +109,12 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
         }
         return true;
     }
-    
+
     @Max(LoanConstant.MAX_LOAN_DURATION)
     public int getTotalMonths() {
         return years * MONTHS_PER_YEAR + months;
     }
-    
+
     /**
      * @deprecated The return value is WRONG ! ONLY FOR VALIDATION
      * @return
@@ -122,4 +123,42 @@ public class Duration extends BaseEntity implements Comparable<Duration> {
     public int getTotalDays() {
         return getTotalMonths() * DAYS_PER_MONTH + days;
     }
+
+    /**
+     * return copy of Duration minus specified number of months
+     *
+     * @param months
+     * @return
+     */
+    public Duration minusMonths(int months) {
+        if (months < 0) {
+            return null;
+        }
+        int totalMonths = getTotalMonths() - months;
+        if (totalMonths < 0) {
+            return null;
+        }
+        int years_ = totalMonths / 12;
+        int months_ = totalMonths - 12 * years_;
+        int days_ = days;
+        return new Duration(years_, months_, days_);
+    }
+
+    /**
+     * return copy of Duration plus specified number of months
+     *
+     * @param months
+     * @return
+     */
+    public Duration plusMonths(int months) {
+        if (months < 0) {
+            return null;
+        }
+        int totalMonths = getTotalMonths() + months;
+        int years_ = totalMonths / 12;
+        int months_ = totalMonths - 12 * years_;
+        int days_ = days;
+        return new Duration(years_, months_, days_);
+    }
+
 }
