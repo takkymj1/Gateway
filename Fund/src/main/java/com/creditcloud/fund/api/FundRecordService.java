@@ -7,6 +7,7 @@ package com.creditcloud.fund.api;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
+import com.creditcloud.fund.model.record.FundCreditAssign;
 import com.creditcloud.fund.model.record.FundDeposit;
 import com.creditcloud.fund.model.record.FundInvest;
 import com.creditcloud.fund.model.record.FundRecord;
@@ -229,6 +230,15 @@ public interface FundRecordService {
      * @return
      */
     FundTransfer getFundTransferByOrderId(String clientCode, String userId, String orderId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return 
+     */
+    FundCreditAssign getFundCreditAssignByOrderId(String clientCode, String userId, String orderId);
 
     /**
      * 根据operation和status查找FundInvest

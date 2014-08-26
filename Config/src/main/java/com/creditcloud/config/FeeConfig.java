@@ -111,6 +111,20 @@ public class FeeConfig extends BaseConfig {
     private Fee creditAssignFee;
 
     /**
+     * 持有原始债权一定天数后才转让将免收债权转让费用
+     */
+    @Min(1)
+    @XmlElement(required = false)
+    private int maxDaysForCreditAssignFee = Integer.MAX_VALUE;
+
+    /**
+     * 债权转让开放承接最大时间，单位小时
+     */
+    @Min(1)
+    @XmlElement(required = false)
+    private int maxTimeOutForCreditAssign = 72;
+
+    /**
      * 提前还款离实际到期还款日的最小天数,间隔低于此天数的提前还款将按照正常还款全额付本还息
      */
     @Min(0)

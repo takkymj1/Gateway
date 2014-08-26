@@ -35,6 +35,10 @@ public enum Realm implements BaseEnum {
      * 企业关联法人
      */
     LEGAL_PERSON("企业关联法人"),
+    /*
+     * 融资企业
+     */
+    FINANCE_CORPORATION("融资企业"),
     /**
      * 基本类型
      */
@@ -57,6 +61,7 @@ public enum Realm implements BaseEnum {
      */
     INVEST("投标"),
     LOAN("贷款"),
+    CREDITASSIGN("债权转让"),
     INVESTREPAYMENT("投资还款"),
     LOANREPAYMENT("贷款还款"),
     LOANREQUEST("贷款申请"),
