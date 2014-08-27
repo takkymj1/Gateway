@@ -33,6 +33,16 @@ public interface UserService extends UserSecurityService, UserRewardService {
     List<User> listAllUsers(String clientCode);
 
     /**
+     * list all disabled users for client
+     *
+     * @param clientCode
+     * @return empty list if no user found
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    List<User> listDisabledUsers(String clientCode);
+
+    /**
      * count all users for client
      *
      * @param clientCode
@@ -61,14 +71,14 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * the local client
      */
     PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param from
      * @param to
      * @param pageInfo
-     * @return 
+     * @return
      */
     PagedResult<User> listByLoginDate(String clientCode, Date from, Date to, PageInfo pageInfo);
 
