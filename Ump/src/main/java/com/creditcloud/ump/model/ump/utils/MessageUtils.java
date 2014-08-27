@@ -6,11 +6,16 @@
 
 package com.creditcloud.ump.model.ump.utils;
 
+import com.creditcloud.ump.model.UmpAgreementResult;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.base.BaseResponse;
+import com.creditcloud.ump.model.ump.enums.UmpAgreementType;
 import com.umpay.api.common.ReqData;
 import com.umpay.api.exception.ReqDataException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
@@ -18,6 +23,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.beanutils.BeanMap;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -100,4 +106,31 @@ public class MessageUtils {
         
         return values;
     }
+
+    public static List<UmpAgreementResult> parseAgreementList(String agreementList) {
+        if (StringUtils.isEmpty(agreementList)) {
+            return Collections.EMPTY_LIST;
+        }
+
+        String[] agreementStrList = agreementList.split("|");
+        List<UmpAgreementResult> results = new ArrayList<>(agreementStrList.length);
+        for (String agreement : agreementStrList) {
+            String[] args = agreement.split(",");
+            if (args.length < 2 ) {
+                String errMsg = String.format("wrong format in ump agreement list:%s, ignore", agreement);
+                logger.log(Level.SEVERE, errMsg);
+                continue;
+            }
+            UmpAgreementType type = UmpAgreementType.valueOf(args[0]);
+            String code = args[1];
+            String msg = null;
+            if(args.length >2) {
+                msg = args[2];
+            }
+            results.add(new UmpAgreementResult(type, code, msg));
+        }
+        
+        return results;
+    }
+   
 }

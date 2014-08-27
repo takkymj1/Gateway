@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 public class UmpAgreement {
 
-    private String accountId;
+    private String accountName;
 
     private String userId;
 
@@ -43,5 +43,7 @@ public class UmpAgreement {
     /**
      * 无密还款协议
      */
-    private boolean debit;    
+    private boolean debit;
+    
+    private String cardNo;
 }

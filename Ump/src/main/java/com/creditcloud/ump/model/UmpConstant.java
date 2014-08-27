@@ -46,4 +46,9 @@ public interface UmpConstant {
      * 企业账户类型, 01为现金账户, 目前仅有
      */
     String ENT_ACCOUNT_TYPE = "01";
+    
+    /**
+     * 证件类型, 身份证, 目前仅有
+     */
+    String IDENTITY_TYPE = "IDENTITY_CARD";
 }

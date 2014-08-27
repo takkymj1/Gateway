@@ -42,6 +42,8 @@ public class UmpUser extends BaseObject{
     
     private String cardId;
     
+    private String gateId;
+    
     private String userBindAgreementList;
     
     

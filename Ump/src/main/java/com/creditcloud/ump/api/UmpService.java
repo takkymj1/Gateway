@@ -40,7 +40,7 @@ public interface UmpService {
     
     public String getUserIdByAccountId(String clientCode, String accountId);
     
-    public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement);
+    public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement, String cardNo);
     
     public boolean updateUmpAgreement(String clientCode, UmpAgreement agreement);
     
