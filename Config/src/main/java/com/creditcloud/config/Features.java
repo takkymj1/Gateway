@@ -171,4 +171,10 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableThirdPartyCollect = false;
 
+    /**
+     * 使用联动优势资金托管平台, 否则为汇付天下资金托管平台
+     */
+    @XmlElement
+    @Getter
+    private boolean useUnionMobilePayment = false;
 }

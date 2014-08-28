@@ -8,28 +8,37 @@ package com.creditcloud.ump.model.ump.trade;
 
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
  * @author kdliu
  */
 @Data
-@NoArgsConstructor
 public class TradeRechargeNotifyRequest extends NotifyRequest{
     
+    @QueryParam("order_id")
     private String order_id;
     
+    @QueryParam("mer_date")
     private String mer_date;
     
+    @QueryParam("trade_no")
     private String trade_no;
     
+    @QueryParam("mer_check_date")
     private String mer_check_date;
     
+    @QueryParam("balance")
     private String balance;
     
+    @QueryParam("com_amt")
     private String com_amt;
+    
+    public TradeRechargeNotifyRequest() {
+        super(CmdIdType.RECHARGE_NOTIFY);
+    }
     
     public TradeRechargeNotifyRequest(String mer_id,
                                       String order_id, 

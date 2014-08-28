@@ -31,5 +31,10 @@
             <version>3.2.1</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>com.umpay</groupId>
+            <artifactId>umpay_sign</artifactId>
+            <version>4.0</version>
+        </dependency>
     </dependencies>
 </project>

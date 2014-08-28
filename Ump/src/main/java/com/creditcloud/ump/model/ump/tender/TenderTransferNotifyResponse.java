@@ -4,28 +4,30 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model.ump.trade;
+package com.creditcloud.ump.model.ump.tender;
 
 import com.creditcloud.ump.model.ump.base.BaseResponse;
 import com.creditcloud.ump.model.ump.enums.CmdIdRspType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
-public class TradeWithdrawNotifyResponse extends BaseResponse {
+@ToString(callSuper=true)
+public class TenderTransferNotifyResponse extends BaseResponse {
     
     private String order_id;
     
     private String mer_date;
 
-    public TradeWithdrawNotifyResponse() {
-        super(CmdIdRspType.NOTIFY_WITHDRAW_RSP);
+    public TenderTransferNotifyResponse() {
+        super(CmdIdRspType.PROJECT_TRANFER_NOTIFY_RSP);
     }
     
-    public TradeWithdrawNotifyResponse(String mer_id, 
+    public TenderTransferNotifyResponse(String mer_id, 
                                        String ret_code, 
                                        String order_id, 
                                        String mer_date) {

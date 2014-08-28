@@ -8,6 +8,7 @@ package com.creditcloud.ump.model.ump.user;
 
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
 
 /**
@@ -17,11 +18,18 @@ import lombok.Data;
 @Data
 public class UserBindCardNotifyRequest extends NotifyRequest {
     
+    @QueryParam("user_id")
     private String user_id;
     
+    @QueryParam("last_four_cardid")
     private String last_four_cardid;
     
+    @QueryParam("user_bind_agreement_list")
     private String user_bind_agreement_list;
+    
+    public UserBindCardNotifyRequest() {
+        super(CmdIdType.MER_BIND_CARD_NOTIFY);
+    }
     
     public UserBindCardNotifyRequest(String mer_id, 
                                      String user_id, 

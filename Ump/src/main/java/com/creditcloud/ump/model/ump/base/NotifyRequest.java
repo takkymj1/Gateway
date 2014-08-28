@@ -8,20 +8,25 @@ package com.creditcloud.ump.model.ump.base;
 
 import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
  * @author kdliu
  */
 @Data
-@NoArgsConstructor
 public abstract class NotifyRequest extends BaseRequest {
     
+    @QueryParam("ret_code")
     private String ret_code;
-    
+
+    @QueryParam("ret_msg")
     private String ret_msg;
+    
+    public NotifyRequest(CmdIdType service) {
+        super(service);
+    }
     
     public NotifyRequest(CmdIdType service, 
                          String mer_id, 
@@ -32,7 +37,7 @@ public abstract class NotifyRequest extends BaseRequest {
         this.ret_msg = ret_msg;
     }
     
-    public boolean isSuccess() {
+    public boolean success() {
         if(ret_code!=null) {
             return ret_code.equals(UmpConstant.SUCCESS_CODE);
         }

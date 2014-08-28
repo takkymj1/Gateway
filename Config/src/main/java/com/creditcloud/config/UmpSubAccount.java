@@ -7,6 +7,7 @@
 package com.creditcloud.config;
 
 import com.creditcloud.config.enums.UmpEntPayType;
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -25,7 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @XmlRootElement(name = "UmpSubAccount")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class UmpSubAccount {
+public class UmpSubAccount extends BaseObject {
 
     @XmlElement(required = true)
     private String merId;
@@ -38,4 +39,7 @@ public class UmpSubAccount {
     
     @XmlElement(required = true)
     private Bank bank;
+    
+    @XmlElement(required = true)
+    private String name;
 }

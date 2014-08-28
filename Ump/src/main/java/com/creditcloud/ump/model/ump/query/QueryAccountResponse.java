@@ -8,11 +8,13 @@ package com.creditcloud.ump.model.ump.query;
 
 import com.creditcloud.ump.model.ump.base.BaseResponse;
 import com.creditcloud.ump.model.ump.enums.CmdIdRspType;
+import lombok.Data;
 
 /**
  *
  * @author kdliu
  */
+@Data
 public class QueryAccountResponse extends BaseResponse {
     
     private String plat_user_id;
@@ -34,6 +36,8 @@ public class QueryAccountResponse extends BaseResponse {
     private String balance;
     
     private String card_id;
+    
+    private String gate_id;
     
     private String user_bind_agreement_list;
 
@@ -57,8 +61,9 @@ public class QueryAccountResponse extends BaseResponse {
                                 String account_state, 
                                 String balance, 
                                 String card_id, 
+                                String gate_id,
                                 String user_bind_agreement_list) {
-        super(CmdIdRspType.USER_SEARCH_RSP, sign_type, sign, mer_id, version, ret_code, ret_msg);
+        super(CmdIdRspType.USER_SEARCH_RSP, mer_id, ret_code, ret_msg);
         this.plat_user_id = plat_user_id;
         this.account_id = account_id;
         this.cust_name = cust_name;
@@ -69,6 +74,7 @@ public class QueryAccountResponse extends BaseResponse {
         this.account_state = account_state;
         this.balance = balance;
         this.card_id = card_id;
+        this.gate_id = gate_id;
         this.user_bind_agreement_list = user_bind_agreement_list;
     }
     

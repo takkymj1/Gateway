@@ -25,14 +25,11 @@ public class TradeTransferNotifyResponse extends BaseResponse {
         super(CmdIdRspType.TRANSFER_NOTIFY_RSP);
     }
     
-    public TradeTransferNotifyResponse(String sign_type, 
-                                       String sign, 
-                                       String mer_id, 
-                                       String version, 
+    public TradeTransferNotifyResponse(String mer_id, 
                                        String ret_code, 
                                        String order_id, 
                                        String mer_date) {
-        super(CmdIdRspType.TRANSFER_NOTIFY_RSP, sign_type, sign, mer_id, version, ret_code, null);
+        super(CmdIdRspType.TRANSFER_NOTIFY_RSP, mer_id, ret_code, null);
         this.order_id = order_id;
         this.mer_date = mer_date;
     }

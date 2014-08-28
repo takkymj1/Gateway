@@ -55,7 +55,7 @@ public enum CmdIdRspType {
     /**
      * 标的交易通知
      */
-    PROJECT_TRANSFER_NOTIFY_RSP,
+    PROJECT_TRANFER_NOTIFY_RSP,
     /**
      * 无密标的转入
      */

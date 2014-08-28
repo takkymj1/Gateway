@@ -30,11 +30,15 @@ public interface UmpConstant {
     
     String ALGORITHM = "RSA";
     
-    String SIGN_ALGORITHM = "MD5withRSA";
+    String SIGN_ALGORITHM = "SHA1withRSA";
     
     String ENCRYPT_ENCODE = "GBK";
     
     String SUCCESS_CODE = "0000";
+    
+    String ERROR_CODE = "9999";
+    
+    String UNKNOWN_CODE = "00240000";
     
     String MER_DATE_FORMAT = "yyyyMMdd";
     
@@ -42,4 +46,11 @@ public interface UmpConstant {
      * 企业账户类型, 01为现金账户, 目前仅有
      */
     String ENT_ACCOUNT_TYPE = "01";
+    
+    /**
+     * 证件类型, 身份证, 目前仅有
+     */
+    String IDENTITY_TYPE = "IDENTITY_CARD";
+    
+    int UMP_TENDER_ID_LENGTH = 32;
 }

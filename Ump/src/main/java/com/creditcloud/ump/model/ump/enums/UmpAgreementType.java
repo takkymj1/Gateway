@@ -10,25 +10,27 @@ import com.creditcloud.model.enums.BaseEnum;
 import com.creditcloud.model.util.Enums;
 
 /**
- * UMP的证件类型
+ * UMP的用户协议类型
  * 
  * @author kdliu
  */
-public enum UmpIdentityType implements BaseEnum{
-    IDENTITY_CARD("身份证");
+public enum UmpAgreementType implements BaseEnum {
+    ZCZP0800("无密快捷协议"),
+    ZTBB0G00("无密投资协议"),
+    ZHKB0H01("无密还款协议"),
+    ZKJP0700("借记卡快捷协议");
     
     private final String key;
     
-    UmpIdentityType(String key) {
+    UmpAgreementType(String key) {
         this.key = key;
     }
     
-    public static UmpIdentityType getEnum(String key) {
-        return Enums.getEnumByKey(UmpIdentityType.class, key);
-    }
-
     public String getKey() {
         return key;
     }
-
+    
+    public static UmpAgreementType getEnum(String key) {
+        return Enums.getEnumByKey(UmpAgreementType.class, key);
+    }
 }

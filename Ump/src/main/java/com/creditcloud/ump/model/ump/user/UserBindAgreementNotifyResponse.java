@@ -23,8 +23,11 @@ public class UserBindAgreementNotifyResponse extends BaseResponse {
         super(CmdIdRspType.MER_BIND_AGREEMENT_NOTIFY_RSP);
     }
         
-    public UserBindAgreementNotifyResponse(String user_id) {
-        super(CmdIdRspType.MER_BIND_AGREEMENT_NOTIFY_RSP);
+    public UserBindAgreementNotifyResponse(String mer_id,
+                                           String ret_code,
+                                           String ret_msg,
+                                           String user_id) {
+        super(CmdIdRspType.MER_BIND_AGREEMENT_NOTIFY_RSP, mer_id, ret_code, ret_msg);
         this.user_id = user_id;
     }
 }
