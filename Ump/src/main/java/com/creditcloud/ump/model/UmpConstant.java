@@ -51,4 +51,6 @@ public interface UmpConstant {
      * 证件类型, 身份证, 目前仅有
      */
     String IDENTITY_TYPE = "IDENTITY_CARD";
+    
+    int UMP_TENDER_ID_LENGTH = 32;
 }

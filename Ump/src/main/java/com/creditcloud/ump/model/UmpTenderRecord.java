@@ -7,6 +7,7 @@
 package com.creditcloud.ump.model;
 
 import com.creditcloud.model.BaseObject;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,13 +19,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UmpTender extends BaseObject {
-
-    private String loanId;
+@XmlRootElement
+public class UmpTenderRecord extends BaseObject {
     
-    private String umpTenderId;
+    private String tenderId;
     
     private String umpTenderAccountId;
     
-    private String umpCheckDate;
+    private String accountState;
+    
+    private String tenderState;
+    
+    private String balance;
+
 }

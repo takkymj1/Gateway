@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model;
+package com.creditcloud.ump.model.ump.enums;
 
 /**
  *
  * @author kdliu
  */
-public enum TenderChangeType {
-    UPDATE_STATE("01");
+public enum UmpTenderAction {
+    INFLOW("01"),
+    OUTFLOW("02");
     
     private String code;
     
-    TenderChangeType(String code) {
+    UmpTenderAction(String code) {
         this.code = code;
     }
     

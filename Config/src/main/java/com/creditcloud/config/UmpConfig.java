@@ -84,9 +84,9 @@ public class UmpConfig extends BaseConfig {
     private UmpSubAccount baseAccount;
     
     /**
-     * 担保方UMP的账户
+     * 担保方UMP的账户, 可以无担保方
      */
-    @XmlElement(name = "guaranteeAccount", required = true) 
+    @XmlElement(name = "guaranteeAccount", required = false) 
     @Getter
     private UmpSubAccount guaranteeAccount;
 

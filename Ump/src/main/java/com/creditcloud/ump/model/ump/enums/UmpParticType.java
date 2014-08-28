@@ -4,22 +4,22 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model;
+package com.creditcloud.ump.model.ump.enums;
 
 /**
  *
  * @author kdliu
  */
-public enum UmpTenderState {
-    SCHEDULE("0"),
-    OPEN("1"),
-    REPAY("2"),
-    ALREADY_REAPY("3"),
-    DONE("4");
+public enum UmpParticType {
+    INVESTOR("01"),
+    FINANCER("02"),
+    PLATFORM("03"),
+    GUARATEE("04"),
+    RECEIVER("05");
     
-    private String code;
+    String code;
     
-    UmpTenderState(String code) {
+    UmpParticType(String code) {
         this.code = code;
     }
     

@@ -55,7 +55,7 @@ public enum CmdIdType {
     /**
      * 标的交易通知
      */
-    PROJECT_TRANSFER_NOTIFY,
+    PROJECT_TRANFER_NOTIFY,
     /**
      * 无密标的转入
      */

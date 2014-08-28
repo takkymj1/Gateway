@@ -11,6 +11,8 @@ import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpTender;
+import com.creditcloud.ump.model.UmpTenderRecord;
+import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
 import com.creditcloud.ump.model.UmpTransaction;
 import com.creditcloud.ump.model.UmpTransferResult;
 import com.creditcloud.ump.model.UmpUser;
@@ -66,15 +68,17 @@ public interface UmpService {
     
     public UmpUser queryUser(String clientCode, String userId);
     
-    public UmpTender queryTender(String clientCode, String tenderId);
+    public UmpTenderRecord queryTender(String clientCode, String tenderId);
     
     public List<UmpTransaction> queryUserTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
     
     public UmpEntUser queryEntUser(String clientCode, String accountId);
     
-    public boolean createTender(String clientCode, String tenderId, String tenderName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
+    public UmpTender createUmpTender(String clientCode, String loanId, String loanName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
 
-    public boolean scheduleTender(String clientCode, String tenderId, String tenderName, BigDecimal amount, LocalDate expireDate);
+    public UmpTender getUmpTender(String clientCode, String loanId);
+    
+    public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
     
     public boolean openTender(String clientCode, String tenderId);
     
