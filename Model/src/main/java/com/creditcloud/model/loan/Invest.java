@@ -66,6 +66,11 @@ public class Invest extends BaseObject {
      */
     private String creditAssignId;
 
+    /**
+     * 原始投标金额
+     */
+    private BigDecimal originalAmount;
+
     public Invest(String id,
                   User user,
                   String loanId,
@@ -86,5 +91,9 @@ public class Invest extends BaseObject {
         this.repayMethod = repayMethod;
         this.status = status;
         this.submitTime = submitTime;
+    }
+
+    public BigDecimal getOriginalAmount() {
+        return originalAmount == null ? amount : originalAmount;
     }
 }
