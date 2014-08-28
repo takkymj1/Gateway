@@ -10,6 +10,8 @@ import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 投资成功后对应的每期回款
@@ -21,33 +23,48 @@ public class InvestRepayment extends BaseObject {
     private static final long serialVersionUID = 20130918L;
 
     @NotNull
+    @Getter
     private final String id;
 
     @NotNull
+    @Getter
     private final Invest invest;
 
     //当前回款期数
     @NotNull
+    @Getter
     private final int currentPeriod;
 
     //当期回款
     @NotNull
+    @Getter
     private final Repayment repayment;
 
     //回款状态
     @NotNull
+    @Getter
     private final RepaymentStatus status;
 
     //实际回款
+    @Getter
     private final BigDecimal repayAmount;
 
     //实际回款日期
+    @Getter
     private final Date repayDate;
 
     /**
      * 还款来源，实际还款人，如果为null则为loan中借款人，还可以为平台或者担保公司等
      */
-    private RealmEntity repaySource;
+    @Getter
+    private final RealmEntity repaySource;
+
+    /**
+     * 相对期数,例如对于债券转让的还款,原始期数为12期，从第5期承接转让，那么currentPeriod为5-12，relativePeiod为1-8
+     */
+    @Setter
+    @Getter
+    private int relativePeriod;
 
     public InvestRepayment(String id,
                            Invest invest,
@@ -65,37 +82,5 @@ public class InvestRepayment extends BaseObject {
         this.repayAmount = repayAmount;
         this.repayDate = repayDate;
         this.repaySource = repaySource;
-    }
-
-    public int getCurrentPeriod() {
-        return currentPeriod;
-    }
-
-    public Repayment getRepayment() {
-        return repayment;
-    }
-
-    public Invest getInvest() {
-        return invest;
-    }
-
-    public RepaymentStatus getStatus() {
-        return status;
-    }
-
-    public BigDecimal getRepayAmount() {
-        return repayAmount;
-    }
-
-    public Date getRepayDate() {
-        return repayDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public RealmEntity getRepaySource() {
-        return repaySource;
     }
 }
