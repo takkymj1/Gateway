@@ -26,24 +26,27 @@ public class UmpAgreement {
     private String userId;
 
     /**
-     * 借记卡快捷协议
+     * 无密快捷协议
      */
     private boolean instant;
 
     /**
-     * 无密快捷协议
+     * 无密投资协议
      */
     private boolean invest;
 
     /**
-     * 无密投资协议
+     * 无密还款协议
      */
     private boolean repay;
 
     /**
-     * 无密还款协议
+     * 借记卡快捷协议
      */
     private boolean debit;
     
+    /**
+     * 卡号暂存，UMP绑卡结果只包含经过遮挡的卡号
+     */
     private String cardNo;
 }
