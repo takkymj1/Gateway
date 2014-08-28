@@ -78,7 +78,6 @@ public class LoanCalculatorTest {
         for (Repayment repayment : loanDetail.getRepayments()) {
             Assert.assertTrue(expected.equals(repayment.getDueDate()));
             expected = expected.plusMonths(1);
-            System.out.println(repayment.getDueDate());
         }
     }
 }
