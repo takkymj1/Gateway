@@ -9,12 +9,14 @@ package com.creditcloud.ump.model.ump.trade;
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class TradeTransferNotifyRequest extends NotifyRequest {
     
     private String order_id;
@@ -24,6 +26,10 @@ public class TradeTransferNotifyRequest extends NotifyRequest {
     private String trade_no;
     
     private String mer_check_date;
+    
+    public TradeTransferNotifyRequest() {
+        super(CmdIdType.TRANSFER_NOTIFY);
+    }
     
     public TradeTransferNotifyRequest(String mer_id, 
                                       String version,

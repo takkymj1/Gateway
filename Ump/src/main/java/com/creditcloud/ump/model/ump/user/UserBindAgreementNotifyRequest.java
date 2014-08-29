@@ -26,6 +26,10 @@ public class UserBindAgreementNotifyRequest extends NotifyRequest{
     @QueryParam("user_bind_agreement_list")
     private String user_bind_agreement_list;
 
+    public UserBindAgreementNotifyRequest() {
+        super(CmdIdType.MER_BIND_AGREEMENT_NOTIFY);
+    }
+    
     public UserBindAgreementNotifyRequest(String mer_id, 
                                           String user_id, 
                                           String ret_code, 

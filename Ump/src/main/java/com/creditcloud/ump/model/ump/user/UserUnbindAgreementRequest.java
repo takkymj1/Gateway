@@ -9,12 +9,14 @@ package com.creditcloud.ump.model.ump.user;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class UserUnbindAgreementRequest extends BaseRequest {
     
     private String ret_url;

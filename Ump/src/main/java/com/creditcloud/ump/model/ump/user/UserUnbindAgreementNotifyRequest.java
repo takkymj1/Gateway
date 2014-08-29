@@ -9,18 +9,24 @@ package com.creditcloud.ump.model.ump.user;
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class UserUnbindAgreementNotifyRequest extends NotifyRequest {
     
     private String user_id;
     
     private String user_unbind_agreement_list;
 
+    public UserUnbindAgreementNotifyRequest() {
+        super(CmdIdType.MER_UNBIND_AGREEMNT_NOTIFY);
+    }
+    
     public UserUnbindAgreementNotifyRequest(String mer_id, 
                                             String user_id, 
                                             String ret_code,

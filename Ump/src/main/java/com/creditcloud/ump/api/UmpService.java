@@ -12,7 +12,7 @@ import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpTender;
 import com.creditcloud.ump.model.UmpTenderRecord;
-import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
+import com.creditcloud.ump.model.UmpTenderTransferRecord;
 import com.creditcloud.ump.model.UmpTransaction;
 import com.creditcloud.ump.model.UmpTransferResult;
 import com.creditcloud.ump.model.UmpUser;
@@ -23,6 +23,10 @@ import com.creditcloud.ump.model.ump.enums.ParticAccountType;
 import com.creditcloud.ump.model.ump.enums.TransferAction;
 import com.creditcloud.ump.model.ump.enums.UmpBusiType;
 import com.creditcloud.ump.model.ump.enums.UmpIdentityType;
+import com.creditcloud.ump.model.ump.enums.UmpParticType;
+import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
+import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
+import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
@@ -81,5 +85,25 @@ public interface UmpService {
     public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
     
     public boolean openTender(String clientCode, String tenderId);
+    
+    public boolean createTenderTransferRecord(String orderId,
+                                              String userId,
+                                              String loanId,
+                                              String merDate,
+                                              String umpTenderId,
+                                              String umpTenderAccountId,
+                                              UmpTenderTransferType transferType,
+                                              UmpTenderAction tenderAction,
+                                              UmpParticType particType,
+                                              ParticAccountType particAccountType,
+                                              String umpAccountName,
+                                              String umpAccountId,
+                                              BigDecimal amount);
+    
+    public UmpTenderTransferRecord ackTenderTransferRecord(String orderId,
+                                                           String tradeNo,
+                                                           String merCheckDate,
+                                                           String retCode,
+                                                           String retMsg);
     
 }

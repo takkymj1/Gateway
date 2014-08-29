@@ -32,6 +32,10 @@ public class TenderTransferNotifyRequest extends NotifyRequest {
     @QueryParam("mer_check_date")
     private String mer_check_date;
 
+    public TenderTransferNotifyRequest() {
+        super(CmdIdType.PROJECT_TRANFER_NOTIFY);
+    }
+    
     public TenderTransferNotifyRequest(String mer_id,
                                        String ret_code,
                                        String ret_msg,

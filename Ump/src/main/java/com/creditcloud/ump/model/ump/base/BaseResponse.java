@@ -71,6 +71,8 @@ public abstract class BaseResponse extends BaseObject {
         this.sign = "";
         this.mer_id = mer_id;
         this.version = UmpConstant.CURRENT_VERSION;
+        this.ret_code = ret_code;
+        this.ret_msg = ret_msg;
     }
         
     public String chkString() {
