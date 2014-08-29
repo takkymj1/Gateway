@@ -5,8 +5,11 @@
 package com.creditcloud.model.util;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,6 +20,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Enums {
 
     private static final ConcurrentHashMap<Class, HashMap<String, Enum>> enumCache = new ConcurrentHashMap<>();
+
+    private static final ConcurrentHashMap<Class, List<?>> listAllCache = new ConcurrentHashMap<>();
 
     /**
      * get enum by key
@@ -42,7 +47,7 @@ public class Enums {
         }
 
         T result = null;
-        Map<String,Enum> cache = enumCache.get(enumType);
+        Map<String, Enum> cache = enumCache.get(enumType);
         if (cache == null) {
             EnumSet set = EnumSet.allOf(enumType);
             HashMap<String, Enum> newEnum = new HashMap<>();
@@ -78,8 +83,40 @@ public class Enums {
         T result = null;
         try {
             result = T.valueOf(enumType, name);
-        } catch (IllegalArgumentException e) {}
+        } catch (IllegalArgumentException e) {
+        }
         return result;
     }
 
+    /**
+     * list an immutable view for enum values
+     *
+     * @param <T>
+     * @param enumType
+     * @return
+     */
+    public static <T extends Enum<T>> List<T> unmodifiableList(Class<T> enumType) {
+        if (enumType == null) {
+            return Collections.EMPTY_LIST;
+        }
+
+        //must be subclass of Enum
+        if (!Enum.class.isAssignableFrom(enumType)) {
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be a subclass of Enum.");
+        }
+
+        List<T> result = (List<T>) listAllCache.get(enumType);
+        if (result == null) {
+            result = new ArrayList<>();
+            EnumSet set = EnumSet.allOf(enumType);
+            for (Object object : set) {
+                T t = (T) object;
+                result.add(t);
+            }
+            result = Collections.unmodifiableList(result);
+            listAllCache.putIfAbsent(enumType, result);
+        }
+
+        return result;
+    }
 }
