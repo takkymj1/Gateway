@@ -56,7 +56,7 @@ public class CreditAssignReconciliationResponse extends BaseResponse {
     @Min(1)
     private int TotalItems;
 
-    private List<CreditAssignReconciliation> CaReconciliationList;
+    private List<CreditAssignReconciliation> BidCaReconciliationList;
 
     @Size(max = 512)
     private String RespExt;
