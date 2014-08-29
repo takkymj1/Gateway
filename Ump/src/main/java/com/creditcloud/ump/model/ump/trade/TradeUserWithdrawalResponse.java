@@ -8,12 +8,14 @@ package com.creditcloud.ump.model.ump.trade;
 import com.creditcloud.ump.model.ump.base.BaseResponse;
 import com.creditcloud.ump.model.ump.enums.CmdIdRspType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class TradeUserWithdrawalResponse extends BaseResponse {
 
     private String order_id;

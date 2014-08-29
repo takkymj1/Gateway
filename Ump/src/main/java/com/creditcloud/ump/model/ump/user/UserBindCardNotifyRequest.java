@@ -10,12 +10,14 @@ import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import javax.ws.rs.QueryParam;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class UserBindCardNotifyRequest extends NotifyRequest {
     
     @QueryParam("user_id")

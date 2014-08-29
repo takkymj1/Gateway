@@ -10,12 +10,14 @@ import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import javax.ws.rs.QueryParam;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class TradeWithdrawNotifyRequest extends NotifyRequest {
     
     @QueryParam("order_id")
@@ -38,6 +40,10 @@ public class TradeWithdrawNotifyRequest extends NotifyRequest {
     
     @QueryParam("transfer_settle_date")
     private String transfer_settle_date;
+    
+    public TradeWithdrawNotifyRequest() {
+        super(CmdIdType.NOTIFY_WITHDRAW);
+    }
     
     public TradeWithdrawNotifyRequest(String mer_id,
                                       String order_id, 

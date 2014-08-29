@@ -10,12 +10,14 @@ import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString(callSuper=true)
 public class TradeUserWithdrawalRequest extends BaseRequest{
     
     private String ret_url;
