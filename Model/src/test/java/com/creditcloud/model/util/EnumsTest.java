@@ -4,8 +4,8 @@
  */
 package com.creditcloud.model.util;
 
+import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.user.info.CareerStatus;
 import com.creditcloud.model.enums.user.info.CompanyIndustry;
@@ -15,6 +15,8 @@ import com.creditcloud.model.enums.user.info.EducationLevel;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import com.creditcloud.model.enums.user.info.MonthlySalary;
 import com.creditcloud.model.enums.user.info.YearOfService;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -131,5 +133,30 @@ public class EnumsTest {
         expResult = RepaymentMethod.MonthlyInterest;
         result = Enums.getEnumByKey(RepaymentMethod.class, key);
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testAllOf() {
+        List<InvestStatus> result = Enums.unmodifiableList(InvestStatus.class);
+        List<InvestStatus> expected = Arrays.asList(InvestStatus.values());
+        assertEquals(result.size(), expected.size());
+
+        boolean getException = false;
+        try {
+            //this will fail
+            result.remove(0);
+        } catch (UnsupportedOperationException ex) {
+            getException = true;
+        }
+        assertTrue(getException);
+
+        getException = false;
+        try {
+            //this will fail
+            result.add(InvestStatus.FROZEN);
+        } catch (UnsupportedOperationException ex) {
+            getException = true;
+        }
+        assertTrue(getException);
     }
 }
