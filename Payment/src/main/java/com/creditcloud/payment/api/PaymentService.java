@@ -33,15 +33,6 @@ import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
-import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult2;
-import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationRequest;
-import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.FssPurchaseReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.FssRedeemReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.SaveReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.TenderReconciliationResult;
-import com.creditcloud.payment.model.chinapnr.reconciliation.TransferReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
@@ -450,101 +441,7 @@ public interface PaymentService {
                                    String inCustId,
                                    String inAcctId,
                                    String BgRetUrl);
-
-    /**
-     * p2p平台取现对账
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public CashReconciliationResult cashReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
-    /**
-     * p2p平台取现对账,对应2.0接口
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public CashReconciliationResult2 cashReconciliation2(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
-    /**
-     * p2p平台充值对账
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public SaveReconciliationResult saveReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
-    /**
-     * 商户转账接口产生的交易记录
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public TransferReconciliationResult transferReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
-    /**
-     * 投标对账
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @param type
-     * @return
-     */
-    public TenderReconciliationResult tenderReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize, QueryTransType type);
-
-    /**
-     * 债权转让查询
-     *
-     * @param clientCode
-     * @param request
-     * @return
-     */
-    public CreditAssignReconciliationResult creditAssignReconciliation(String clientCode, CreditAssignReconciliationRequest request);
-
-    /**
-     * 生利宝转入对账
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public FssPurchaseReconciliationResult fssPurchaseReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
-    /**
-     * 生利宝转出对账
-     *
-     * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
-     * @return
-     */
-    public FssRedeemReconciliationResult fssRedeemReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
+   
     /**
      * 查询交易状态
      *
@@ -767,5 +664,4 @@ public interface PaymentService {
      * @return not null
      */
     public Map<String, FssAccount> getAllFssAccounts(String clientCode);
-
 }
