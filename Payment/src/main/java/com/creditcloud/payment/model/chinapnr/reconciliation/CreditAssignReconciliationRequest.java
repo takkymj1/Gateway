@@ -5,7 +5,6 @@
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,6 @@ import org.apache.commons.lang3.StringUtils;
 @ToString(callSuper = true)
 public class CreditAssignReconciliationRequest extends ReconciliationRequest {
 
-    @NotNull
     @Size(max = 20)
     private String OrdId;
 
@@ -35,7 +33,6 @@ public class CreditAssignReconciliationRequest extends ReconciliationRequest {
     private String ReqExt;
 
     public CreditAssignReconciliationRequest(String MerCustId,
-                                             String OrdId,
                                              String SellCustId,
                                              String BuyCustId,
                                              String BeginDate,
@@ -44,7 +41,6 @@ public class CreditAssignReconciliationRequest extends ReconciliationRequest {
                                              int PageSize,
                                              String ReqExt) {
         super(CmdIdType.CreditAssignReconciliation, MerCustId, BeginDate, EndDate, PageNum, PageSize);
-        this.OrdId = OrdId;
         this.SellCustId = SellCustId;
         this.BuyCustId = BuyCustId;
         this.BeginDate = BeginDate;
@@ -55,13 +51,12 @@ public class CreditAssignReconciliationRequest extends ReconciliationRequest {
     }
 
     public CreditAssignReconciliationRequest(String MerCustId,
-                                             String OrdId,
                                              String BeginDate,
                                              String EndDate,
                                              int PageNum,
                                              int PageSize,
                                              String ReqExt) {
-        this(MerCustId, OrdId, "", "", BeginDate, EndDate, PageNum, PageSize, ReqExt);
+        this(MerCustId, "", "", BeginDate, EndDate, PageNum, PageSize, ReqExt);
     }
 
     @Override
