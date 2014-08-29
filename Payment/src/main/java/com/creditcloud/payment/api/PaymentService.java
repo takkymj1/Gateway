@@ -35,6 +35,7 @@ import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CashReconciliationResult2;
+import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationRequest;
 import com.creditcloud.payment.model.chinapnr.reconciliation.CreditAssignReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.FssPurchaseReconciliationResult;
 import com.creditcloud.payment.model.chinapnr.reconciliation.FssRedeemReconciliationResult;
@@ -92,13 +93,13 @@ public interface PaymentService {
      * @return
      */
     public UserBalanceResult queryBalance(String clientCode, String userId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param rollbackOnException
-     * @return 
+     * @return
      */
     public UserBalanceResult queryBalance(String clientCode, String userId, boolean rollbackOnException);
 
@@ -515,13 +516,10 @@ public interface PaymentService {
      * 债权转让查询
      *
      * @param clientCode
-     * @param beginDate
-     * @param endDate
-     * @param pageNum
-     * @param pageSize
+     * @param request
      * @return
      */
-    public CreditAssignReconciliationResult creditAssignReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
+    public CreditAssignReconciliationResult creditAssignReconciliation(String clientCode, CreditAssignReconciliationRequest request);
 
     /**
      * 生利宝转入对账
@@ -735,9 +733,9 @@ public interface PaymentService {
 
     /**
      * 查询生利宝账户信息.
-     * 
+     *
      * 如果日内有更新则直接返回缓存，否则去汇付查询最新净值等信息，并更新数据库
-     * 
+     *
      * @param clientCode
      * @param userId
      * @return
@@ -751,20 +749,20 @@ public interface PaymentService {
      * @return
      */
     public FssAccount queryFssAccount(String clientCode);
-    
+
     /**
      * 所有用户生利宝统计
-     * 
+     *
      * @param clientCode
      * @return 所有数据均为ZERO的FssStats对象
      */
     public FssStats fssStats(String clientCode);
-    
+
     /**
      * 获得所有生利宝账户信息.
-     * 
+     *
      * 从缓存中读取
-     * 
+     *
      * @param clientCode
      * @return not null
      */
