@@ -106,4 +106,21 @@ public interface UmpService {
                                                            String retCode,
                                                            String retMsg);
     
+    public boolean repay(String clientCode,
+                         String orderId,
+                         LocalDate orderDate,
+                         String retUrl,
+                         String umpTenderId,
+                         String umpTenderAccountId,
+                         String umpAccountName,
+                         String umpAccountId,
+                         BigDecimal amount);
+    
+    public boolean fee(String clientCode,
+                       String orderId,
+                       LocalDate orderDate,
+                       String retUrl,
+                       String umpTenderId,
+                       String umpTenderAccountId,
+                       BigDecimal amount);
 }
