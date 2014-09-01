@@ -22,7 +22,7 @@ public enum TenderChangeType {
     /**
      * 更新担保方
      */
-    UPDATE_GUARATEE("03"),
+    UPDATE_GUARANTEE("03"),
     /**
      * 更新资金使用方
      */

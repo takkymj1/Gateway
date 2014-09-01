@@ -14,7 +14,7 @@ public enum UmpParticType {
     INVESTOR("01"),
     FINANCER("02"),
     PLATFORM("03"),
-    GUARATEE("04"),
+    GUARANTEE("04"),
     RECEIVER("05");
     
     String code;
