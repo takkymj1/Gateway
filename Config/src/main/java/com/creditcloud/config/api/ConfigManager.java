@@ -15,6 +15,7 @@ import com.creditcloud.config.FormaxConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.PaymentConfig;
+import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.UmpConfig;
@@ -52,6 +53,15 @@ public interface ConfigManager {
      * @return 
      */
     public FormaxConfig getFormaxConfig();
+    
+    /**
+     * 
+     * 获取 redis 配置
+     * 
+     * @return 
+     */
+    public RedisConfig getRedisConfig();
+    
     /**
      * 获取安融惠众接口配置
      *
