@@ -30,4 +30,7 @@ class AbstractRepay extends BaseObject {
     private boolean calculatePrincipal = false;
 
     private boolean calculateInterest = false;
+
+    private boolean calculateOutstanding = false;
+
 }
