@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Map;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -65,6 +66,11 @@ public class InvestRepayment extends BaseObject {
     @Setter
     @Getter
     private int relativePeriod;
+    
+    @Getter
+    @Setter
+    //TODO replace with <FundRecordType, BigDecimal>
+    private Map<String, BigDecimal> feeDetail;
 
     public InvestRepayment(String id,
                            Invest invest,
