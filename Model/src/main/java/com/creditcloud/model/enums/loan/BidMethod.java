@@ -15,6 +15,12 @@ public enum BidMethod implements BaseEnum {
 
     AUTO("自动投标"),
     MANUAL("手动投标"),
+    /**
+     * TODO 暂时用上面AUTO和MANUAL以及其他field组合来展示下面两项</p>
+     * 实际代码中并未使用下面两项</p>
+     */
+    ASSIGN_AUTO("自动债权接管"),
+    ASSIGN_MANUAL("主动债权接管"),
     WEALTHPRODUCT("理财产品");
 
     private final String key;
