@@ -44,6 +44,8 @@ public class RepayInfo extends BaseObject {
      * 是否是一组还款中得首期还款
      */
     private boolean firstRepayment;
+    
+    private boolean includingFee;
 
     public RepayInfo(LoanRepayment loanRepayment) {
         this.loanRepayment = loanRepayment;
