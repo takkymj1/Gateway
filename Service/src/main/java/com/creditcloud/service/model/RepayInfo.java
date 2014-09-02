@@ -6,7 +6,6 @@
 package com.creditcloud.service.model;
 
 import com.creditcloud.config.FeeConfig;
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.LoanRepayment;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,13 +19,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class RepayInfo extends BaseObject {
+public class RepayInfo extends AbstractRepay {
 
     private static final long serialVersionUID = 20140804L;
-
-    private LoanRepayment loanRepayment;
-
-    private FeeConfig feeConfig;
 
     /**
      * 目前只有提前还款用到此参数,也将用于逾期违约等还款处理
@@ -43,41 +38,27 @@ public class RepayInfo extends BaseObject {
      */
     private boolean firstRepayment;
 
-    private boolean includingFee = true;
-
-    private boolean calculatePrincipal = false;
-
-    private boolean calculateInterest = false;
-
     public RepayInfo(LoanRepayment loanRepayment) {
-        this.loanRepayment = loanRepayment;
-    }
-
-    public RepayInfo(LoanRepayment loanRepayment,
-                     FeeConfig feeConfig,
-                     RepayType type) {
-        this.loanRepayment = loanRepayment;
-        this.feeConfig = feeConfig;
-        this.type = type;
+        setLoanRepayment(loanRepayment);
     }
 
     public RepayInfo(LoanRepayment loanRepayment,
                      FeeConfig feeConfig,
                      RepayType type,
-                     boolean firstRepayment) {
-        this.loanRepayment = loanRepayment;
-        this.feeConfig = feeConfig;
+                     boolean advanceRepayWhenUndue) {
+        setLoanRepayment(loanRepayment);
+        setFeeConfig(feeConfig);
         this.type = type;
-        this.firstRepayment = firstRepayment;
+        this.advanceRepayWhenUndue = advanceRepayWhenUndue;
     }
 
-    public RepayInfo(LoanRepayment loanRepayment, 
-                     FeeConfig feeConfig, 
-                     RepayType type, 
-                     boolean advanceRepayWhenUndue, 
+    public RepayInfo(LoanRepayment loanRepayment,
+                     FeeConfig feeConfig,
+                     RepayType type,
+                     boolean advanceRepayWhenUndue,
                      boolean firstRepayment) {
-        this.loanRepayment = loanRepayment;
-        this.feeConfig = feeConfig;
+        setLoanRepayment(loanRepayment);
+        setFeeConfig(feeConfig);
         this.type = type;
         this.advanceRepayWhenUndue = advanceRepayWhenUndue;
         this.firstRepayment = firstRepayment;
