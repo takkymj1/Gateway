@@ -9,7 +9,7 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.Map;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -65,7 +65,7 @@ public class LoanRepayment extends BaseObject {
     private RealmEntity repaySource;
 
     //TODO replace with <FundRecordType, BigDecimal>
-    private HashMap<String, BigDecimal> feeDetail;
+    private Map<String, BigDecimal> feeDetail;
 
     public LoanRepayment(String id,
                          String loanId,
