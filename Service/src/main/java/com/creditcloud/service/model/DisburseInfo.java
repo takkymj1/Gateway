@@ -10,7 +10,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.loan.LoanRepayment;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +19,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @XmlRootElement
 public class DisburseInfo extends BaseObject {
 
@@ -31,10 +29,14 @@ public class DisburseInfo extends BaseObject {
     private FeeConfig feeConfig;
 
     private DisburseType type;
-    
-    private boolean includingFee;
-    
-    public DisburseInfo(LoanRepayment loanRepayment,DisburseType type){
+
+    private boolean includingFee = true;
+
+    private boolean calculatePrincipal = false;
+
+    private boolean calculateInterest = false;
+
+    public DisburseInfo(LoanRepayment loanRepayment, DisburseType type) {
         this.loanRepayment = loanRepayment;
         this.type = type;
     }

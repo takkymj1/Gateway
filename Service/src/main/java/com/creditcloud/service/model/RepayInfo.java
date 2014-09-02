@@ -10,7 +10,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.LoanRepayment;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,7 +19,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @XmlRootElement
 public class RepayInfo extends BaseObject {
 
@@ -44,8 +42,12 @@ public class RepayInfo extends BaseObject {
      * 是否是一组还款中得首期还款
      */
     private boolean firstRepayment;
-    
-    private boolean includingFee;
+
+    private boolean includingFee = true;
+
+    private boolean calculatePrincipal = false;
+
+    private boolean calculateInterest = false;
 
     public RepayInfo(LoanRepayment loanRepayment) {
         this.loanRepayment = loanRepayment;
@@ -66,6 +68,18 @@ public class RepayInfo extends BaseObject {
         this.loanRepayment = loanRepayment;
         this.feeConfig = feeConfig;
         this.type = type;
+        this.firstRepayment = firstRepayment;
+    }
+
+    public RepayInfo(LoanRepayment loanRepayment, 
+                     FeeConfig feeConfig, 
+                     RepayType type, 
+                     boolean advanceRepayWhenUndue, 
+                     boolean firstRepayment) {
+        this.loanRepayment = loanRepayment;
+        this.feeConfig = feeConfig;
+        this.type = type;
+        this.advanceRepayWhenUndue = advanceRepayWhenUndue;
         this.firstRepayment = firstRepayment;
     }
 }
