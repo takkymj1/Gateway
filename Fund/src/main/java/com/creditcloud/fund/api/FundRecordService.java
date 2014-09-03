@@ -57,7 +57,7 @@ public interface FundRecordService {
      * @return
      */
     FundRecord getByTypeAndOrderId(String clientCode, FundRecordType type, String orderId);
-    
+
     /**
      * create new fund record
      *
@@ -230,13 +230,13 @@ public interface FundRecordService {
      * @return
      */
     FundTransfer getFundTransferByOrderId(String clientCode, String userId, String orderId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param orderId
-     * @return 
+     * @return
      */
     FundCreditAssign getFundCreditAssignByOrderId(String clientCode, String userId, String orderId);
 
@@ -255,6 +255,22 @@ public interface FundRecordService {
                                                  String investId,
                                                  FundRecordOperation operation,
                                                  FundRecordStatus status);
+
+    /**
+     * get FundCreditAssign by operation and status
+     *
+     * @param clientCode
+     * @param userId
+     * @param investId
+     * @param operation
+     * @param status
+     * @return
+     */
+    FundCreditAssign getFundCreditAssignByOperationAndStatus(String clientCode,
+                                                             String userId,
+                                                             String investId,
+                                                             FundRecordOperation operation,
+                                                             FundRecordStatus status);
 
     /**
      * 根据operation和status查找FundWithdraw
@@ -447,12 +463,12 @@ public interface FundRecordService {
      * 商户和用户之间转账
      *
      * @param clientCode
-     * @param account    商户子账户
+     * @param account     商户子账户
      * @param amount
-     * @param userId     用户
-     * @param transferIn true for transfer from client to user
+     * @param userId      用户
+     * @param transferIn  true for transfer from client to user
      * @param orderId
-     * @param description 
+     * @param description
      */
     void userTransfer(String clientCode,
                       String account,
