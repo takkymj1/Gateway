@@ -12,23 +12,23 @@ package com.creditcloud.ump.model.ump.enums;
  */
 public enum UmpTenderStatus {
     /**
-     * UMP的 开标 状态
+     * UMP的"开标"状态
      */
     READY("0"),
     /**
-     * UMP的 投标中 状态
+     * UMP的"投标中"状态
      */
-    OPEN("1"),
+    OPENED("1"),
     /**
-     * UMP的 还款中 状态
+     * UMP的"还款中"状态
      */
-    REPAY("2"),
+    SETTLED("2"),
     /**
-     * UMP的 已还款 状态
+     * UMP的"已还款"状态, 所有款项已经还清
      */
-    ALREADY_REAPY("3"),
+    CLEARED("3"),
     /**
-     * UMP的 结束 状态，要求余额为0
+     * UMP的"结束"状态，要求余额为0
      */
     DONE("4");
     

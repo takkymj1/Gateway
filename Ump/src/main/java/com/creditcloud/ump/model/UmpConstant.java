@@ -36,6 +36,8 @@ public interface UmpConstant {
     
     String SUCCESS_CODE = "0000";
     
+    String SUCCESS_MSG = "成功";
+    
     String ERROR_CODE = "9999";
     
     String UNKNOWN_CODE = "00240000";

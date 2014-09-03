@@ -10,6 +10,7 @@ import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpEntUser;
+import com.creditcloud.ump.model.UmpPaymentResult;
 import com.creditcloud.ump.model.UmpTender;
 import com.creditcloud.ump.model.UmpTenderRecord;
 import com.creditcloud.ump.model.UmpTenderTransferRecord;
@@ -106,4 +107,77 @@ public interface UmpService {
                                                            String retCode,
                                                            String retMsg);
     
+    /**
+     * 借款人以无密的方式(需事先在UMP账号中签订借记卡快捷协议和无密还款协议)，将还款还入标的账号 
+     */
+    public UmpPaymentResult repayNoPwd(String clientCode,
+                                       String orderId,
+                                       LocalDate orderDate,
+                                       String retUrl,
+                                       String umpTenderId,
+                                       String umpTenderAccountId,
+                                       String umpAccountName,
+                                       String umpAccountId,
+                                       BigDecimal amount);
+
+    /**
+     * 从标的账号还款至投资人账号
+     */
+    public UmpPaymentResult repayRefund(String clientCode,
+                                        String orderId,
+                                        LocalDate orderDate,
+                                        String retUrl,
+                                        String umpTenderId,
+                                        String umpTenderAccountId,
+                                        String umpAccountName,
+                                        String umpAccountId,
+                                        BigDecimal amount);
+
+    /**
+     * 平台对标的的收费，无需指定收费类型
+     */
+    public UmpPaymentResult fee(String clientCode,
+                                String orderId,
+                                LocalDate orderDate,
+                                String retUrl,
+                                String umpTenderId,
+                                String umpTenderAccountId,
+                                BigDecimal amount);
+
+    /**
+     * 平台对标的进行垫付(偿付)，从<b>平台账号</b>转账入标的账号
+     */
+    public UmpPaymentResult disburse(String clientCode,
+                                     String orderId,
+                                     LocalDate orderDate,
+                                     String retUrl,
+                                     String umpTenderId,
+                                     String umpTenderAccountId,
+                                     BigDecimal amount);
+    
+    /**
+     * 投资人撤资
+     */
+    public UmpPaymentResult divest(String clientCode,
+                                   String orderId,
+                                   LocalDate orderDate,
+                                   String retUrl,
+                                   String umpTenderId,
+                                   String umpTenderAccountId,
+                                   String umpAccountName,
+                                   String umpAccountId,
+                                   BigDecimal amount);
+    
+    /**
+     * 放款给借款人(融资人)
+     */
+    public UmpPaymentResult loan(String clientCode,
+                                 String orderId,
+                                 LocalDate orderDate,
+                                 String retUrl,
+                                 String umpTenderId,
+                                 String umpTenderAccountId,
+                                 String umpAccountName,
+                                 String umpAccountId,
+                                 BigDecimal amount);
 }

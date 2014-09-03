@@ -18,7 +18,7 @@ public enum UmpTenderTransferType {
     /**
      * 债权购买
      */
-    BUY_RIGHT("02"),
+    CREDIT_ASSIGN("02"),
     /**
      * 还款
      */
@@ -26,7 +26,7 @@ public enum UmpTenderTransferType {
     /**
      * 偿付
      */
-    REIMBURSE("04"),
+    DISBURSE("04"),
     /**
      * 贴现
      */
@@ -34,7 +34,7 @@ public enum UmpTenderTransferType {
     /**
      * 流标后返款
      */
-    FAILED_REPAY("51"),
+    FAILED_REFUND("51"),
     /**
      * 平台收费
      */
@@ -50,11 +50,11 @@ public enum UmpTenderTransferType {
     /**
      * 偿付后返款
      */
-    REIMBURSE_REFUND("55"),
+    DISBURSE_REFUND("55"),
     /**
      * 债权转让的返款
      */
-    RIGHT_REFUND("56"),
+    CREDIT_REFUND("56"),
     /**
      * 撤资后的返款
      */
