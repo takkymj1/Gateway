@@ -38,5 +38,6 @@
         <module>Corporation</module>
         <module>Fuiou</module>
         <module>Ump</module>
+        <module>Redis</module>
   </modules>
 </project>
