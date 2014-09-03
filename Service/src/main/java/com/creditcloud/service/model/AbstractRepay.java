@@ -5,7 +5,8 @@
  */
 package com.creditcloud.service.model;
 
-import com.creditcloud.model.enums.loan.DisburseType;
+import com.creditcloud.config.FeeConfig;
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.loan.LoanRepayment;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -18,14 +19,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class DisburseInfo extends AbstractRepay {
-    
-    private static final long serialVersionUID = 20140804L;
-    
-    private DisburseType type;
-    
-    public DisburseInfo(LoanRepayment loanRepayment, DisburseType type) {
-        setLoanRepayment(loanRepayment);
-        this.type = type;
-    }
+class AbstractRepay extends BaseObject {
+
+    private LoanRepayment loanRepayment;
+
+    private FeeConfig feeConfig;
+
+    private boolean calculateFee = true;
+
+    private boolean calculatePrincipal = false;
+
+    private boolean calculateInterest = false;
+
+    private boolean calculateOutstanding = false;
+
 }
