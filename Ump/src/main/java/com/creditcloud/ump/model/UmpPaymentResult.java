@@ -21,6 +21,7 @@ import lombok.ToString;
 public class UmpPaymentResult extends BaseObject {
     
     public static final UmpPaymentResult NETWORK_ERROR = new UmpPaymentResult("-1", "网络错误");
+    public static final UmpPaymentResult SUCCESS = new UmpPaymentResult(UmpConstant.SUCCESS_CODE, UmpConstant.SUCCESS_MSG);
     
     private String retCode;
 
