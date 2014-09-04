@@ -45,7 +45,7 @@ public interface UmpService {
     
     public UmpAccount getUmpAccount(String clientCode, String userId);
     
-    public String getUserIdByAccountId(String clientCode, String accountId);
+    public String getUserIdByAccountName(String clientCode, String accountName);
     
     public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement, String cardNo);
     
@@ -71,7 +71,7 @@ public interface UmpService {
     
     public UmpTransaction queryTrans(String clientCode, String orderId, String merDate, UmpBusiType busiType);
     
-    public UmpUser queryUser(String clientCode, String userId);
+    public UmpUser queryUser(String clientCode, String userId, boolean queryBalance, boolean queryAgreement);
     
     public UmpTenderRecord queryTender(String clientCode, String tenderId);
     
