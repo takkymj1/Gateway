@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 public class UmpEntUser extends BaseObject {
     
-    private String umpAccountId;
+    private String merId;
     
     private String balance;
     
