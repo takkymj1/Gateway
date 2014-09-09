@@ -177,4 +177,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean useUnionMobilePayment = false;
+
+    /**
+     * 债权转让功能
+     */
+    @XmlElement
+    @Getter
+    private boolean enableCreditAssign = false;
+
 }

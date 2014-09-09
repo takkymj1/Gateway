@@ -151,4 +151,10 @@ public class PaymentConfig extends BaseConfig {
     @XmlElement(name = "creditAssignConfig", required = false)
     private CreditAssignConfig creditAssignConfig;
 
+    /**
+     * 对账log超过一定数目就不再打印到log
+     */
+    @XmlElement(name = "reconciliationLogLimit", required = false)
+    private int maxReconciliationLogToPrint = Integer.MAX_VALUE;
+
 }

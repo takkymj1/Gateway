@@ -13,6 +13,7 @@ import com.creditcloud.model.loan.CreditAssign;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -56,14 +57,39 @@ public interface CreditAssignService {
                                           CreditAssignStatus... status);
 
     /**
+     * list by status
+     *
+     * @param clientCode
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<CreditAssign> list(String clientCode,
+                                          PageInfo info,
+                                          CreditAssignStatus... status);
+
+    /**
      * list by criteriaInfo info
      *
      * @param clientCode
      * @param criteriaInfo
      * @return
      */
+    @Deprecated
     public PagedResult<CreditAssign> list(String clientCode,
                                           CriteriaInfo criteriaInfo);
+
+    /**
+     * list all credit assign from an original loan invest
+     *
+     * @param clientCode
+     * @param investId
+     * @param status
+     * @return
+     */
+    public List<CreditAssign> listByOriginalInvest(String clientCode,
+                                                   String investId,
+                                                   CreditAssignStatus... status);
 
     /**
      * list invest on a credit assign
