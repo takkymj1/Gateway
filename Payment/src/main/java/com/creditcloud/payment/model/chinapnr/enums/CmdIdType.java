@@ -70,6 +70,7 @@ public enum CmdIdType {
     CorpRegister,
     UsrTransfer,
     CreditAssign,
+    AutoCreditAssign,
     CorpRegisterQuery,
     CreditAssignReconciliation(CmdIdGroup.Reconciliation),
     QueryCardInfo,
@@ -95,5 +96,9 @@ public enum CmdIdType {
 
     private CmdIdType(final CmdIdGroup group) {
         this.group = group;
+    }
+    
+    public CmdIdGroup getGroup(){
+        return group;
     }
 }

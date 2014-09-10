@@ -152,9 +152,9 @@ public class PaymentConfig extends BaseConfig {
     private CreditAssignConfig creditAssignConfig;
 
     /**
-     * 对账log超过一定数目就不再打印到log
+     * 对账内容太多，可以选择不输出到log
      */
-    @XmlElement(name = "reconciliationLogLimit", required = false)
-    private int maxReconciliationLogToPrint = Integer.MAX_VALUE;
+    @XmlElement(name = "printReconciliationLog", required = false)
+    private boolean printReconciliationLog = true;
 
 }
