@@ -59,7 +59,20 @@ public interface UmpService {
 
     public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, UmpIdentityType idType, String idCode);
     
-    public UmpTransferResult transfer(String clientCode, String ret_url, String notify_url, String orderId, LocalDate merDate, String merAccountId, ParticAccountType umpAccountType, String umpAccountId, String umpAccountName, TransferAction action, BigDecimal amount);
+    /**
+     * 无密转账: 支持P2P平台对个人用户(对私)和企业用户(对公)转账, 企业用户(对公)对P2P平台转账
+     */
+    public UmpTransferResult transfer(String clientCode,
+                                      String ret_url,
+                                      String notify_url,
+                                      String orderId,
+                                      LocalDate merDate,
+                                      String merAccountId,
+                                      ParticAccountType umpAccountType,
+                                      String umpAccountName,
+                                      String umpAccountId,
+                                      TransferAction action,
+                                      BigDecimal amount);
     
     public String getSignature(String clientCode, BaseRequest baseRequest);
     
