@@ -49,7 +49,7 @@ import javax.validation.ConstraintValidatorContext;
  * </p>
  *
  * <p>
- * 对于15位身份证,不需要判断最后一位验证码,最后一位代表性别，奇数表示男性，偶数表示女性 默认使用18位身份证号，15位暂不支持
+ * 对于15位身份证,不需要判断最后一位验证码,最后一位代表性别，奇数表示男性，偶数表示女性 默认使用18位身份证号，15位也支持
  * </p>
  *
  * @author rooseek
@@ -118,7 +118,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         if (idNumber == null) {
             return true;
         }
-
+        
         if (idNumber.length() == 15) {
             return isValid15(idNumber);
         } else if (idNumber.length() == 18) {
@@ -127,8 +127,8 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
         return false;
     }
-    
-      private boolean isValid15(String idNumber) {
+
+    private boolean isValid15(String idNumber) {
         if (idNumber == null || idNumber.length() != 15) {
             return false;
         }
@@ -294,8 +294,8 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
         return true;
     }
-    
-     @SuppressWarnings("unused")
+
+    @SuppressWarnings("unused")
     private String convert15To18(String idNumber) {
         if (idNumber.length() != 15) {
             return null;

@@ -7,6 +7,7 @@ package com.creditcloud.model.constraints;
 import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.IdNumberConstant;
 import static com.creditcloud.model.constraints.BaseTest.validator;
+import com.creditcloud.model.constraints.validator.ChineseIdNumber;
 import com.creditcloud.model.enums.Source;
 import javax.validation.Validation;
 import org.junit.After;
@@ -200,17 +201,28 @@ public class IdNumberTest extends BaseTest<User> {
         assertEquals(0, constraintViolations.size());
     }
 
+    @Test
     public void test15IdNumber() {
-        object.setId("510105880806201");
+        object.setIdNumber("510105880806201");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+        assertEquals(true, ChineseIdNumber.isMale("510105880806201"));
+        System.out.println(ChineseIdNumber.getDateOfBirth("510105880806201"));
+
+        object.setIdNumber("370285791121473");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+        assertEquals(true, ChineseIdNumber.isMale("370285791121473"));
+        System.out.println(ChineseIdNumber.getDateOfBirth("370285791121473"));
+
+        object.setIdNumber("340101880211123");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
 
-        object.setId("340101880211123");
+        object.setIdNumber("510105880806202");
         constraintViolations = validator.validateProperty(object, "idNumber");
         assertEquals(0, constraintViolations.size());
-
-        object.setId("510105880806202");
-        constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(1, constraintViolations.size());
+        assertEquals(false, ChineseIdNumber.isMale("510105880806202"));
+        System.out.println(ChineseIdNumber.getDateOfBirth("510105880806202"));
     }
 }

@@ -131,12 +131,16 @@ public class ChineseIdNumber extends BaseObject {
      * @param idNumber
      * @return
      */
-    @SuppressWarnings("checked")
     public static boolean isMale(String idNumber) {
         if (!isValid(idNumber)) {
             throw new IllegalArgumentException(String.format("invalid idNumber %s", idNumber));
         }
-        String male = StringUtils.substring(idNumber, 16, 17);
+        String male = null;
+        if (idNumber.length() == 18) {
+            male = StringUtils.substring(idNumber, 16, 17);
+        } else if (idNumber.length() == 15) {
+            male = StringUtils.substring(idNumber, 14, 15);
+        }
         int maleInt = Integer.valueOf(male);
         return maleInt % 2 != 0;
     }
@@ -152,10 +156,13 @@ public class ChineseIdNumber extends BaseObject {
             throw new IllegalArgumentException(String.format("invalid idNumber %s", idNumber));
         }
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Date day = null;
         try {
-            day = sdf.parse(StringUtils.substring(idNumber, 6, 14));
+            if (idNumber.length() == 18) {
+                day = new SimpleDateFormat("yyyyMMdd").parse(StringUtils.substring(idNumber, 6, 14));
+            } else if (idNumber.length() == 15) {
+                day = new SimpleDateFormat("yyMMdd").parse(StringUtils.substring(idNumber, 6, 12));
+            }
         } catch (ParseException ex) {
             Logger.getLogger(ChineseIdNumber.class.getName()).log(Level.SEVERE, null, ex);
         }
