@@ -9,7 +9,9 @@ import com.creditcloud.model.constant.IdNumberConstant;
 import com.creditcloud.model.util.Regions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -34,6 +36,8 @@ public class ChineseIdNumber extends BaseObject {
     private final static Map<String, String> code2City = new HashMap();
 
     private final static Map<String, String> code2County = new HashMap();
+
+    private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
     static {
         for (Entry<String, String> entry : Regions.getRegionMap().entrySet()) {
@@ -89,21 +93,34 @@ public class ChineseIdNumber extends BaseObject {
      */
     public static ChineseIdNumber create(String idNumber) {
         if (validator.isValid(idNumber)) {
-            String province = getProvince(idNumber.substring(0, 2));
-            String city = getCity(idNumber.substring(0, 4));
-            String county = getCounty(idNumber.substring(0, 6));
-            boolean male = Integer.parseInt(idNumber.substring(16, 17)) % 2 == 0 ? false : true;
-            int year = Integer.valueOf(idNumber.substring(6, 10));
-            int month = Integer.valueOf(idNumber.substring(10, 12));
-            int day = Integer.valueOf(idNumber.substring(12, 14));
-            return new ChineseIdNumber(idNumber,
-                                       province,
-                                       city,
-                                       county,
-                                       year,
-                                       month,
-                                       day,
-                                       male);
+            try {
+                String province = getProvince(idNumber.substring(0, 2));
+                String city = getCity(idNumber.substring(0, 4));
+                String county = getCounty(idNumber.substring(0, 6));
+                Date birthDate = null;
+                boolean male = false;
+                if (idNumber.length() == 18) {
+                    male = Integer.parseInt(idNumber.substring(16, 17)) % 2 != 0;
+                    birthDate = new SimpleDateFormat("yyyyMMdd").parse(idNumber.substring(6, 14));
+                } else if (idNumber.length() == 15) {
+                    male = Integer.parseInt(idNumber.substring(14, 15)) % 2 != 0;
+                    birthDate = new SimpleDateFormat("yyMMdd").parse(idNumber.substring(6, 12));
+                }
+                calendar.setTime(birthDate);
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH) + 1;
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                return new ChineseIdNumber(idNumber,
+                                           province,
+                                           city,
+                                           county,
+                                           year,
+                                           month,
+                                           day,
+                                           male);
+            } catch (ParseException ex) {
+                Logger.getLogger(ChineseIdNumber.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return null;
     }

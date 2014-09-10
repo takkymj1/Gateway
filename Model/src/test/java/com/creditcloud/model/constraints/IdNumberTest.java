@@ -189,4 +189,28 @@ public class IdNumberTest extends BaseTest<User> {
         assertEquals(1, constraintViolations.size());
 
     }
+
+    /**
+     * null idnumber is also valid
+     */
+    @Test
+    public void testNull() {
+        object.setIdNumber(null);
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+    }
+
+    public void test15IdNumber() {
+        object.setId("510105880806201");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+
+        object.setId("340101880211123");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(0, constraintViolations.size());
+
+        object.setId("510105880806202");
+        constraintViolations = validator.validateProperty(object, "idNumber");
+        assertEquals(1, constraintViolations.size());
+    }
 }

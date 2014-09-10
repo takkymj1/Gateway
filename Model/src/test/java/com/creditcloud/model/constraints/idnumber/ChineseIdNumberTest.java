@@ -5,6 +5,10 @@
 package com.creditcloud.model.constraints.idnumber;
 
 import com.creditcloud.model.constraints.validator.ChineseIdNumber;
+import com.creditcloud.model.constraints.validator.ChineseIdNumberValidator;
+import com.creditcloud.model.constraints.validator.IdNumberValidator;
+import com.creditcloud.model.user.User;
+import java.text.ParseException;
 import java.util.Date;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.After;
@@ -41,7 +45,7 @@ public class ChineseIdNumberTest {
     }
 
     @Test
-    public void testCreate() {
+    public void testCreate() throws ParseException {
         //18 numbers;
         String idNumber = "510105198808062022";
         ChineseIdNumber actual = ChineseIdNumber.create(idNumber);
@@ -87,16 +91,15 @@ public class ChineseIdNumberTest {
         assertEquals(21, actual.getDay());
         assertEquals(false, actual.isMale());
 
-
         //15 numbers;
-//        idNumber = "510105880806201";
-//        actual = ChineseIdNumber.create(idNumber);
-//        assertEquals(idNumber, actual.getIdNumber());
-//        assertEquals("四川", actual.getProvince());
-//        assertEquals(1988, actual.getYear());
-//        assertEquals(8, actual.getMonth());
-//        assertEquals(6, actual.getDay());
-//        assertEquals(true, actual.isMale());
+        idNumber = "510105880806201";
+        actual = ChineseIdNumber.create(idNumber);
+        assertEquals(idNumber, actual.getIdNumber());
+        assertEquals("四川省", actual.getProvince());
+        assertEquals(1988, actual.getYear());
+        assertEquals(8, actual.getMonth());
+        assertEquals(6, actual.getDay());
+        assertEquals(true, actual.isMale());
 
     }
 
