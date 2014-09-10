@@ -19,7 +19,7 @@ public class PrivacyDimmer {
             User user = (User) obj;
             user.setName(maskName(user.getName()));
             user.setMobile(mask(user.getMobile(), 3, 4));
-            user.setIdNumber(mask(user.getIdNumber(), 8, 9));
+            user.setIdNumber(maskIdNumber(user.getIdNumber()));
             user.setEmail(maskEmail(user.getEmail()));
             return (T) user;
         }
@@ -46,6 +46,14 @@ public class PrivacyDimmer {
             chars[i] = '*';
         }
         return new String(chars);
+    }
+
+    private static String maskIdNumber(String idNumber) {
+        if (StringUtils.isEmpty(idNumber)) {
+            return "";
+        }
+
+        return mask(idNumber, idNumber.length() == 15 ? 5 : 8, 9);
     }
 
     private static String maskEmail(String email) {
