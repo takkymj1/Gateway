@@ -4,11 +4,12 @@
  */
 package com.creditcloud.model.constraints.validator;
 
-import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constant.IdNumberConstant;
+import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.util.Regions;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -117,12 +118,87 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         if (idNumber == null) {
             return true;
         }
-        
-        if (idNumber.length() == 18) {
+
+        if (idNumber.length() == 15) {
+            return isValid15(idNumber);
+        } else if (idNumber.length() == 18) {
             return isValid18(idNumber);
         }
 
         return false;
+    }
+    
+      private boolean isValid15(String idNumber) {
+        if (idNumber == null || idNumber.length() != 15) {
+            return false;
+        }
+
+        if (!isDigital(idNumber)) {
+            return false;
+        }
+
+        //check province code
+        String province = idNumber.substring(0, 2);
+        if (!code2Province.containsKey(province)) {
+            return false;
+        }
+
+        //check birthday
+        String birthday = idNumber.substring(6, 12);
+        int month = Integer.parseInt(idNumber.substring(8, 10));
+        int day = Integer.parseInt(idNumber.substring(10, 12));
+
+        //check birthday format and whether this date is before current time
+        Date birthDate = null;
+        try {
+            birthDate = new SimpleDateFormat("yyMMdd").parse(birthday);
+        } catch (ParseException ex) {
+            Logger.getLogger(ChineseIdNumberValidator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (birthDate == null || System.currentTimeMillis() <= birthDate.getTime()) {
+            return false;
+        }
+
+        //check year, month, day
+        calendar.setTime(birthDate);
+        if (calendar.get(Calendar.YEAR) < IdNumberConstant.MIN_YEAR) {
+            return false;
+        }
+
+        if (month < 1 || month > 12) {
+            return false;
+        }
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (day < 1 || day > 31) {
+                    return false;
+                }
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (day < 1 || day > 30) {
+                    return false;
+                }
+            case 2:
+                if (calendar.isLeapYear(calendar.get(Calendar.YEAR))) {
+                    if (day < 1 || day > 29) {
+                        return false;
+                    }
+                } else {
+                    if (day < 1 || day > 28) {
+                        return false;
+                    }
+                }
+        }
+
+        return true;
     }
 
     private boolean isValid18(String idNumber) {
@@ -209,14 +285,44 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
         if (null != charArray) {
             if (!idNumber18Code.equals(
                     getCheckCode(
-                    getPowerSum(
-                    char2Int(charArray))))) {
+                            getPowerSum(
+                                    char2Int(charArray))))) {
                 return false;
             }
 
         }
 
         return true;
+    }
+    
+     @SuppressWarnings("unused")
+    private String convert15To18(String idNumber) {
+        if (idNumber.length() != 15) {
+            return null;
+        }
+
+        String idNumber17;
+        if (isDigital(idNumber)) {
+            String birthday = idNumber.substring(6, 12);
+            Date birthdate = null;
+            try {
+                birthdate = new SimpleDateFormat("yyMMdd").parse(birthday);
+            } catch (ParseException ex) {
+                Logger.getLogger(ChineseIdNumberValidator.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            calendar.setTime(birthdate);
+            String year = String.valueOf(calendar.get(Calendar.YEAR));
+            idNumber17 = idNumber.substring(0, 6) + year + idNumber.substring(8);
+            char charArray[] = idNumber17.toCharArray();
+            if (null != charArray) {
+                int sum17 = getPowerSum(char2Int(charArray));
+                idNumber17 += getCheckCode(sum17);
+            }
+        } else {
+            return null;
+        }
+        return idNumber17;
     }
 
     private boolean isDigital(String str) {
@@ -269,8 +375,8 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
     private boolean isValidProvince(String province) {
         return !(province.equals(IdNumberConstant.TAIWANG)
-                 || province.equals(IdNumberConstant.HONGKONG)
-                 || province.equals(IdNumberConstant.MACAU));
+                || province.equals(IdNumberConstant.HONGKONG)
+                || province.equals(IdNumberConstant.MACAU));
     }
 
     private boolean isLeapYear(int year) {
