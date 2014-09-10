@@ -58,11 +58,11 @@ public enum CmdIdType {
     QueryAccts,
     QueryTransStat,
     QueryTenderPlan,
-    Reconciliation,
-    TrfReconciliation,
-    CashReconciliation,
+    Reconciliation(CmdIdGroup.Reconciliation),
+    TrfReconciliation(CmdIdGroup.Reconciliation),
+    CashReconciliation(CmdIdGroup.Reconciliation),
     QueryAcctDetails,
-    SaveReconciliation,
+    SaveReconciliation(CmdIdGroup.Reconciliation),
     QueryReturnDzFee,
     /**
      * 2014.1.17新加汇付3.0接口
@@ -71,7 +71,7 @@ public enum CmdIdType {
     UsrTransfer,
     CreditAssign,
     CorpRegisterQuery,
-    CreditAssignReconciliation,
+    CreditAssignReconciliation(CmdIdGroup.Reconciliation),
     QueryCardInfo,
     /**
      * 2014.2.20新加
@@ -81,8 +81,19 @@ public enum CmdIdType {
      * 2014.3.10生利宝相关
      */
     FssTrans,
-    FssPurchaseReconciliation,
-    FssRedeemReconciliation,
-    QueryFss,   //生利宝产品信息查询
+    FssPurchaseReconciliation(CmdIdGroup.Reconciliation),
+    FssRedeemReconciliation(CmdIdGroup.Reconciliation),
+    QueryFss, //生利宝产品信息查询
     QueryFssAccts;  //生利宝账户信息查询
+
+    private final CmdIdGroup group;
+
+    private CmdIdType() {
+        //default group
+        this.group = CmdIdGroup.Trade;
+    }
+
+    private CmdIdType(final CmdIdGroup group) {
+        this.group = group;
+    }
 }

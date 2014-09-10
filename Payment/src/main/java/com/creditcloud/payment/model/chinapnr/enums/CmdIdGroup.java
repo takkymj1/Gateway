@@ -14,7 +14,8 @@ public enum CmdIdGroup implements BaseEnum {
 
     Reconciliation("对账"),
     Trade("交易"),
-    Query("查询");
+    Query("查询"),
+    OTHER("其他");
 
     private final String key;
 
