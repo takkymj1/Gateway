@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum LoanPurpose implements BaseEnum {
 
     SHORTTERM("短期周转"),
-    PERSONAL("个人消费"),
+    PERSONAL("个人信贷"),//原'个人消费'
     INVESTMENT("投资创业"),
     CAR("车辆融资"),
     HOUSE("房产融资"),

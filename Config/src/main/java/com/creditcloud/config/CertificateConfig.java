@@ -14,26 +14,29 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 
+ *
  * @author suetming
  */
 @XmlRootElement(name = "CertificateTypeWeightConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CertificateTypeWeightConfig extends BaseConfig {
+public class CertificateConfig extends BaseConfig {
 
     private static final long serialVersionUID = 20131105L;
 
+    /**
+     * TODO 为保持兼容先不更改配置文件名
+     */
     public static final String CONFIG_NAME = "CertificateTypeWeightConfig";
-   
+
     @XmlElement(name = "CertificateType", required = true)
     private String type;
-    
-    public HashMap<CertificateType, BigDecimal> getCertificateTypeWeight(){
+
+    public HashMap<CertificateType, BigDecimal> getCertificateTypeWeight() {
         HashMap<CertificateType, BigDecimal> weightMap = new HashMap<>();
         String[] weights = type.split(",");
-        
+
         CertificateType[] values = CertificateType.values();
-        for(int i = 0, n = values.length, m = weights.length; i < n; i++){
+        for (int i = 0, n = values.length, m = weights.length; i < n; i++) {
             if (i > m - 1) {
                 BigDecimal weight = new BigDecimal(1);
                 weightMap.put(values[i], weight);
