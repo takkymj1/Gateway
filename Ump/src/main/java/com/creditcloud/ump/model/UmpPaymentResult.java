@@ -26,6 +26,8 @@ public class UmpPaymentResult extends BaseObject {
     private String retCode;
 
     private String retDesc;
+    
+    private String transactionId;
 
     public UmpPaymentResult() {
     }
@@ -35,6 +37,12 @@ public class UmpPaymentResult extends BaseObject {
         this.retDesc = retDesc;
     }
 
+    public UmpPaymentResult(String retCode, String retDesc, String transactionId) {
+        this.retCode = retCode;
+        this.retDesc = retDesc;
+        this.transactionId = transactionId;
+    } 
+    
     public boolean success() {
         return UmpConstant.SUCCESS_CODE.equals(retCode);
     }

@@ -174,7 +174,7 @@ public interface UmpService {
     public UmpPaymentResult divest(String clientCode,
                                    String orderId,
                                    LocalDate orderDate,
-                                   String retUrl,
+                                   String notifyUrl,
                                    String umpTenderId,
                                    String umpTenderAccountId,
                                    String umpAccountName,
