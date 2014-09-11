@@ -44,7 +44,7 @@ public interface ConfigManager {
 
     public CreditManagerConfig getCreditManagerConfig();
 
-    public CertificateConfig getCertificateTypeWeightConfig();
+    public CertificateConfig getCertificateConfig();
 
     /**
      * 
