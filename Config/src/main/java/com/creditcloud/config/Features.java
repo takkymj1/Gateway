@@ -185,4 +185,11 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableCreditAssign = false;
 
+    /**
+     * 自动债权转让承接
+     */
+    @XmlElement
+    @Getter
+    private boolean enableAutoCreditAssign = false;
+
 }
