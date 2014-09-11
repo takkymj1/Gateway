@@ -11,8 +11,8 @@ package com.creditcloud.ump.model.ump.enums;
  * @author kdliu
  */
 public enum ParticAccountType {
-    CORPORATE("01"), 
-    PERSONAL("02");
+    PERSONAL("01"), 
+    CORPORATE("02");
     
     String code;
     

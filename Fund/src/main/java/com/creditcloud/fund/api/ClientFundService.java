@@ -74,6 +74,16 @@ public interface ClientFundService {
     ClientFundRecord getDepositRequestByOrderId(String clientCode, String orderId);
 
     /**
+     * 根据orderId和account获取充值请求记录
+     *
+     * @param clientCode
+     * @param account
+     * @param orderId
+     * @return
+     */
+    ClientFundRecord getDepositRequestByOrderIdAndAccount(String clientCode, String account, String orderId);
+    
+    /**
      * 列出商户所有未处理的取现请求
      *
      * @param clientCode
