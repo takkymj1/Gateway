@@ -67,7 +67,8 @@ public class CreditAssignRequest extends BaseRequest {
     @Size(max = 512)
     private String ReqExt;
 
-    public CreditAssignRequest(String MerCustId,
+    public CreditAssignRequest(CmdIdType cmdIdType,
+                               String MerCustId,
                                String SellCustId,
                                String CreditAmt,
                                String CreditDealAmt,
@@ -80,7 +81,7 @@ public class CreditAssignRequest extends BaseRequest {
                                String RetUrl,
                                String BgRetUrl,
                                String ReqExt) {
-        super(PnRConstant.Version, CmdIdType.CreditAssign, MerCustId);
+        super(PnRConstant.Version, cmdIdType, MerCustId);
         this.SellCustId = SellCustId;
         this.CreditAmt = CreditAmt;
         this.CreditDealAmt = CreditDealAmt;
