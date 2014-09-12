@@ -6,6 +6,7 @@
 
 package com.creditcloud.ump.model;
 
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement
-public class UmpAgreement {
+public class UmpAgreement extends BaseObject{
 
     private String accountName;
 
