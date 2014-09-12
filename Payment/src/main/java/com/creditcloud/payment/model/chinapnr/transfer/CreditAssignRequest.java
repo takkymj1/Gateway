@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class CreditAssignRequest extends BaseRequest {
 
     @NotNull
