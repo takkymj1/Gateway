@@ -34,6 +34,8 @@ import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
+import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
+import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
 import java.math.BigDecimal;
@@ -113,6 +115,16 @@ public interface PaymentService {
                                     List<BorrowerDetail> BorrowerDetails,
                                     String BgRetUrl,
                                     String merPriv);
+
+    /**
+     * 自动债权转让
+     *
+     * @param clientCode
+     * @param assignRequest
+     * @return
+     */
+    public CreditAssignResponse autoCreditAssign(String clientCode,
+                                                 CreditAssignRequest assignRequest);
 
     /**
      * 自动投标，TODO 2.0接口暂时没用上
@@ -441,7 +453,7 @@ public interface PaymentService {
                                    String inCustId,
                                    String inAcctId,
                                    String BgRetUrl);
-   
+
     /**
      * 查询交易状态
      *
