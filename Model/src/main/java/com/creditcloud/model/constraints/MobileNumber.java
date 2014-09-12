@@ -18,7 +18,7 @@ import javax.validation.constraints.Pattern;
  *
  * @author rooseek
  */
-@Pattern(regexp =  "[1][3|5|8][0-9]{9}", message = "{common.mobileNumber.Pattern}")
+@Pattern(regexp =  "[1][3|5|7|8][0-9]{9}", message = "{common.mobileNumber.Pattern}")
 @Constraint(validatedBy = {})
 @NotNull(message="{common.mobileNumber.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
