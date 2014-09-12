@@ -6,17 +6,24 @@
 
 package com.creditcloud.ump.model;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.ump.model.ump.enums.UmpAgreementType;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString
 @AllArgsConstructor
-public class UmpAgreementResult {
+@NoArgsConstructor
+@XmlRootElement
+public class UmpAgreementResult extends BaseObject{
     
     private UmpAgreementType type;
     

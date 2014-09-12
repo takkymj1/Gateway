@@ -112,10 +112,10 @@ public class MessageUtils {
             return Collections.EMPTY_LIST;
         }
 
-        String[] agreementStrList = agreementList.split("|");
+        String[] agreementStrList = StringUtils.split(agreementList, '|');
         List<UmpAgreementResult> results = new ArrayList<>(agreementStrList.length);
         for (String agreement : agreementStrList) {
-            String[] args = agreement.split(",");
+            String[] args = StringUtils.split(agreement, ',');
             if (args.length < 2 ) {
                 String errMsg = String.format("wrong format in ump agreement list:%s, ignore", agreement);
                 logger.log(Level.SEVERE, errMsg);

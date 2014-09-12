@@ -11,12 +11,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  *
  * @author kdliu
  */
 @Data
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @XmlRootElement
