@@ -166,7 +166,22 @@ public interface UmpService {
                                      String retUrl,
                                      String umpTenderId,
                                      String umpTenderAccountId,
+                                     String umpAccountName,
+                                     String umpAccountId,
                                      BigDecimal amount);
+
+    /**
+     * 平台对标的进行垫付(偿付)，从<b>标的账号</b>转账入投资者账号
+     */
+    public UmpPaymentResult disburseRefund(String clientCode,
+                                           String orderId,
+                                           LocalDate orderDate,
+                                           String retUrl,
+                                           String umpTenderId,
+                                           String umpTenderAccountId,
+                                           String umpAccountName,
+                                           String umpAccountId,
+                                           BigDecimal amount);
     
     /**
      * 投资人撤资

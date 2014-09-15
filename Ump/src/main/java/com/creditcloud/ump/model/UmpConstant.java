@@ -6,6 +6,9 @@
 
 package com.creditcloud.ump.model;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 /**
  *
  * @author kdliu
@@ -55,4 +58,6 @@ public interface UmpConstant {
     String IDENTITY_TYPE = "IDENTITY_CARD";
     
     int UMP_TENDER_ID_LENGTH = 32;
+    
+    BigDecimal FEE_BIND_CARD = new BigDecimal("0.01", new MathContext(2));
 }

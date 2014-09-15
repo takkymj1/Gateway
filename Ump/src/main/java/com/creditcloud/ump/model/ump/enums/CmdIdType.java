@@ -87,7 +87,7 @@ public enum CmdIdType {
     /**
      * 提现通知
      */
-    NOTIFY_WITHDRAW,
+    WITHDRAW_NOTIFY,
     /**
      * 普通免密转账
      */
