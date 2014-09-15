@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.user.corporation.CorporationUser;
+import javax.persistence.Column;
+import javax.ws.rs.FormParam;
 
 /**
  *
@@ -175,7 +177,11 @@ public class LoanRequest extends BaseObject {
      */
     @Valid
     private InvestRule investRule;
-
+    
+    @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
+    @XmlElement(name = "reviewComment")
+    private String reviewComment;
+    
     /**
      *
      * @param id          LoanRequest Id, nullable
