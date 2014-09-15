@@ -50,7 +50,16 @@ public class CertificateConfig extends BaseConfig {
     }
 
     /**
-     * 信用评级总分
+     * 信用评级基准分数</p>
+     * 基准分数*认证权重=认证得分
+     */
+    @Getter
+    @XmlElement(name = "benchmarkScore", required = false)
+    private int benchmarkScore = 100;
+
+    /**
+     * 信用评级总分</p>
+     * 可将实际信用评级分数转换成总分制下分数
      */
     @Getter
     @XmlElement(name = "totalScore", required = false)
