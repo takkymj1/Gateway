@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Getter;
 
 /**
  *
@@ -47,4 +48,26 @@ public class CertificateConfig extends BaseConfig {
         }
         return weightMap;
     }
+
+    /**
+     * 信用评级总分
+     */
+    @Getter
+    @XmlElement(name = "totalScore", required = false)
+    private int totalScore = 100;
+
+    /**
+     * 信用认证权重
+     */
+    @Getter
+    @XmlElement(name = "weightConfig", required = false)
+    private CertificateWeightConfig weightConfig;
+
+    /**
+     * 信用认证评分
+     */
+    @Getter
+    @XmlElement(name = "scoreConfig", required = false)
+    private CertificateScoreConfig scoreConfig;
+
 }
