@@ -8,6 +8,7 @@ package com.creditcloud.ump.model.ump.trade;
 
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
 import lombok.ToString;
 
@@ -19,12 +20,16 @@ import lombok.ToString;
 @ToString(callSuper=true)
 public class TradeTransferNotifyRequest extends NotifyRequest {
     
+    @QueryParam("order_id")
     private String order_id;
     
+    @QueryParam("mer_date")
     private String mer_date;
     
+    @QueryParam("trade_no")
     private String trade_no;
     
+    @QueryParam("mer_check_date")
     private String mer_check_date;
     
     public TradeTransferNotifyRequest() {

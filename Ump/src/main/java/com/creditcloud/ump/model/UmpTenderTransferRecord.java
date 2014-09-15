@@ -6,11 +6,13 @@
 
 package com.creditcloud.ump.model;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.ump.model.ump.enums.ParticAccountType;
 import com.creditcloud.ump.model.ump.enums.UmpParticType;
 import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
 import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
 import java.math.BigDecimal;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,7 +24,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UmpTenderTransferRecord {
+@XmlRootElement
+public class UmpTenderTransferRecord extends BaseObject {
     
     private String orderId;
     
