@@ -42,7 +42,7 @@ public class TradeWithdrawNotifyRequest extends NotifyRequest {
     private String transfer_settle_date;
     
     public TradeWithdrawNotifyRequest() {
-        super(CmdIdType.NOTIFY_WITHDRAW);
+        super(CmdIdType.WITHDRAW_NOTIFY);
     }
     
     public TradeWithdrawNotifyRequest(String mer_id,
@@ -55,7 +55,7 @@ public class TradeWithdrawNotifyRequest extends NotifyRequest {
                                       String transfer_settle_date,
                                       String ret_code,
                                       String ret_msg) {
-        super(CmdIdType.NOTIFY_WITHDRAW, mer_id, ret_code, ret_msg);
+        super(CmdIdType.WITHDRAW_NOTIFY, mer_id, ret_code, ret_msg);
         this.order_id = order_id;
         this.mer_date = mer_date;
         this.trade_no = trade_no;

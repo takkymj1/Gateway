@@ -23,6 +23,12 @@ public class UserBindCardNotifyRequest extends NotifyRequest {
     @QueryParam("user_id")
     private String user_id;
     
+    @QueryParam("order_id")
+    private String order_id;
+    
+    @QueryParam("mer_date")
+    private String mer_date;
+    
     @QueryParam("last_four_cardid")
     private String last_four_cardid;
     

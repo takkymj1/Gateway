@@ -47,6 +47,7 @@ public enum FundRecordType implements BaseEnum {
     FEE_ADVANCE_REPAY("提前还款违约金(给商户)"),//商户收取
     FEE_ADVANCE_REPAY_INVEST("提前还款违约金(给投资人)"),//投资人收取
     FEE_CREDIT_ASSIGN("债权转让手续费"),
+    FEE_BIND_CARD("用户绑卡手续费"), //联动在用户绑卡时需要从商户中扣除1分钱
 
     /**
      * 生利宝
