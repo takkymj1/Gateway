@@ -100,6 +100,16 @@ public interface ClientFundService {
      * @return
      */
     ClientFundRecord getWithdrawRequestByOrderId(String clientCode, String orderId);
+    
+    /**
+     * 根据orderId和account获取取现请求记录
+     *
+     * @param clientCode
+     * @param account
+     * @param orderId
+     * @return
+     */
+    ClientFundRecord getWithdrawRequestByOrderIdAndAccount(String clientCode, String account, String orderId);
 
     /**
      * 获取商户的取现记录
