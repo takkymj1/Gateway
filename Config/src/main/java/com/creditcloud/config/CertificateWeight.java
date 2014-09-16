@@ -7,6 +7,9 @@ package com.creditcloud.config;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.credit.CertificateType;
+import java.math.BigDecimal;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -35,8 +38,10 @@ public class CertificateWeight extends BaseObject {
     /**
      * 认证类别权重
      */
+    @Min(0)
+    @Max(1)
     @Getter
     @XmlElement(required = true)
-    private int weight;
+    private BigDecimal weight;
 
 }
