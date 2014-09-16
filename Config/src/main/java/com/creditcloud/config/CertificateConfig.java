@@ -6,8 +6,11 @@
 package com.creditcloud.config;
 
 import com.creditcloud.model.enums.user.credit.CertificateType;
+import com.creditcloud.model.user.credit.Certificate;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -29,10 +32,51 @@ public class CertificateConfig extends BaseConfig {
      */
     public static final String CONFIG_NAME = "CertificateTypeWeightConfig";
 
-    @XmlElement(name = "CertificateType", required = true)
+    @XmlElement(name = "CertificateType", required = false)
     private String type;
 
     public HashMap<CertificateType, BigDecimal> getCertificateTypeWeight() {
+        /**
+         * 如果有新权重配置,则使用新权重配置
+         */
+        if (weightConfig != null) {
+            return newWeightMap();
+        }
+        return legacyWeightMap();
+    }
+
+    /**
+     * 根据认证分项得分计算总认证得分
+     *
+     * @param certificates
+     * @return
+     */
+    public BigDecimal calculateScore(Certificate[] certificates) {
+        return calculateScore(Arrays.asList(certificates));
+    }
+
+    /**
+     * 根据认证分项得分计算总认证得分
+     *
+     * @param certificates
+     * @return
+     */
+    public BigDecimal calculateScore(List<Certificate> certificates) {
+        BigDecimal result = BigDecimal.ZERO;
+        HashMap<CertificateType, BigDecimal> weightMap = getCertificateTypeWeight();
+        for (Certificate certificate : certificates) {
+            BigDecimal temp = new BigDecimal(certificate.getAssessment().getScore()).multiply(weightMap.get(certificate.getType()));
+            result = result.add(temp);
+        }
+        return result;
+    }
+
+    /**
+     * 原有信用认证权重
+     *
+     * @return
+     */
+    private HashMap<CertificateType, BigDecimal> legacyWeightMap() {
         HashMap<CertificateType, BigDecimal> weightMap = new HashMap<>();
         String[] weights = type.split(",");
 
@@ -46,6 +90,26 @@ public class CertificateConfig extends BaseConfig {
                 weightMap.put(values[i], weight);
             }
         }
+        return weightMap;
+    }
+
+    /**
+     * 新信用认证权重
+     *
+     * @return
+     */
+    private HashMap<CertificateType, BigDecimal> newWeightMap() {
+        HashMap<CertificateType, BigDecimal> weightMap = new HashMap<>();
+        for (CertificateType type : CertificateType.values()) {
+            weightMap.put(type, BigDecimal.ZERO);
+        }
+
+        if (weightConfig != null && weightConfig.getWeights() != null) {
+            for (CertificateWeight weight : weightConfig.getWeights()) {
+                weightMap.put(weight.getType(), weight.getWeight());
+            }
+        }
+
         return weightMap;
     }
 
