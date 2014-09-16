@@ -7,6 +7,7 @@ package com.creditcloud.config;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.credit.CreditRank;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,6 +29,7 @@ public class CertificateScore extends BaseObject {
     /**
      * 最小得分
      */
+    @Min(0)
     @Getter
     @XmlElement(required = true)
     private int minScore;
@@ -35,6 +37,7 @@ public class CertificateScore extends BaseObject {
     /**
      * 最大得分
      */
+    @Min(0)
     @Getter
     @XmlElement(required = true)
     private int maxScore;

@@ -6,47 +6,47 @@
     <weightConfig>
         <weight>
             <type>ID</type>
-            <weight>1</weight>
+            <weight>0.01</weight>
         </weight>
         <weight>
             <type>CREDITREPORT</type>
-            <weight>25</weight>
+            <weight>0.25</weight>
         </weight>
         <weight>
             <type>FAMILY</type>
-            <weight>10</weight>
+            <weight>0.10</weight>
         </weight>
         <weight>
             <type>EDUCATION</type>
-            <weight>3</weight>
+            <weight>0.03</weight>
         </weight>
         <weight>
             <type>INCOME</type>
-            <weight>25</weight>
+            <weight>0.25</weight>
         </weight>
         <weight>
             <type>CAREER</type>
-            <weight>15</weight>
+            <weight>0.15</weight>
         </weight>
         <weight>
             <type>REALESTATE</type>
-            <weight>10</weight>
+            <weight>0.10</weight>
         </weight>
         <weight>
             <type>LOCATION</type>
-            <weight>1</weight>
+            <weight>0.01</weight>
         </weight>
          <weight>
             <type>VEHICLE</type>
-            <weight>5</weight>
+            <weight>0.05</weight>
         </weight>
          <weight>
             <type>LOANPURPOSE</type>
-            <weight>15</weight>
+            <weight>0.15</weight>
         </weight>
          <weight>
             <type>GUARANTEE</type>
-            <weight>10</weight>
+            <weight>0.10</weight>
         </weight>
     </weightConfig>
     <scoreConfig>
