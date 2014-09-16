@@ -26,6 +26,8 @@ import static com.creditcloud.model.enums.loan.LoanStatus.FAILED;
 import static com.creditcloud.model.enums.loan.LoanStatus.FINISHED;
 import static com.creditcloud.model.enums.loan.LoanStatus.OVERDUE;
 import static com.creditcloud.model.enums.loan.LoanStatus.SETTLED;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -178,6 +180,21 @@ public class DTOUtils {
         }
 
         return invest;
+    }
+
+    /**
+     * handle conversion from LoanStatus to InvestStatus
+     *
+     * @param status
+     * @return
+     */
+    public static List<InvestStatus> convertStatus(List<LoanStatus> status) {
+        List<InvestStatus> investStatus = new ArrayList<>();
+        for (LoanStatus s : status) {
+            investStatus.add(convertStatus(s));
+        }
+
+        return investStatus;
     }
 
     /**
