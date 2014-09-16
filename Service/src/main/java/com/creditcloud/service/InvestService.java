@@ -14,6 +14,7 @@ import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.ReferralUser;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
 
@@ -70,7 +71,7 @@ public interface InvestService extends InvestRepayService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    void notifyLoanStatus(String clientCode, String loanId, LoanStatus status, LoanStatus currentStatus);
+    void notifyLoanStatus(String clientCode, String loanId, LoanStatus status, List<LoanStatus> currentStatus);
 
     /**
      * settle a loan , generate related invest repayment
