@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanReward;
 import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -118,4 +119,12 @@ public interface LoanService extends LoanRequestService {
      * @return
      */
     List<LoanReward> listLoanReward(String clientCode, String loanId);
+    
+    /**
+     * 根据RealmEntity获取借款列表
+     * 
+     * @param entity
+     * @return 
+     */
+    List<Loan> listByCorporationUser(String clientCode, RealmEntity entity);
 }
