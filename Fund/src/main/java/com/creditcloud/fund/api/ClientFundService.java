@@ -112,6 +112,16 @@ public interface ClientFundService {
     ClientFundRecord getWithdrawRequestByOrderIdAndAccount(String clientCode, String account, String orderId);
 
     /**
+     * 根据orderId和account获取绑卡手续费记录
+     *
+     * @param clientCode
+     * @param account
+     * @param orderId
+     * @return
+     */
+    ClientFundRecord getBindCardFeeRequestByOrderIdAndAccount(String clientCode, String account, String orderId);    
+    
+    /**
      * 获取商户的取现记录
      *
      * @param clientCode
