@@ -13,20 +13,28 @@ import com.creditcloud.model.util.Enums;
  *
  * @author kdliu
  */
-public enum UmpBusiType implements BaseEnum {
-    RECHARGE("01", "充值"), 
-    WITHDRAWL("02", "提现"),
-    TENDER_TRANSFER("03", "标的转账"),
-    TRANSFER("04", "转账");
+public enum UmpSeqTransStatus implements BaseEnum{
+    /**
+     * 成功
+     */
+    SUCCESS("01", "成功"),
+    /**
+     * 冲正
+     */
+    PROCESSING("02", "冲正"),
+    /**
+     * 退货
+     */
+    FAIL("03", "退货");
     
     private String key;
     private String value;
     
-    UmpBusiType(String key, String value) {
+    UmpSeqTransStatus(String key, String value) {
         this.key = key;
         this.value = value;
     }
-    
+
     @Override
     public String getKey() {
         return key;
@@ -35,8 +43,8 @@ public enum UmpBusiType implements BaseEnum {
     public String getValue() {
         return value;
     }
-    
-    public static UmpBusiType getEnum(String key) {
-        return Enums.getEnumByKey(UmpBusiType.class, key);
+
+    public static UmpSeqTransStatus getEnum(String key) {
+        return Enums.getEnumByKey(UmpSeqTransStatus.class, key);
     }
 }
