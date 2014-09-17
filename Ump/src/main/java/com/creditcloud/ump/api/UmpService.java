@@ -7,10 +7,12 @@
 package com.creditcloud.ump.api;
 
 import com.creditcloud.model.enums.misc.Bank;
+import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpPaymentResult;
+import com.creditcloud.ump.model.UmpSeqTransaction;
 import com.creditcloud.ump.model.UmpTender;
 import com.creditcloud.ump.model.UmpTenderRecord;
 import com.creditcloud.ump.model.UmpTenderTransferRecord;
@@ -29,7 +31,6 @@ import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
 import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
 import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
 import java.math.BigDecimal;
-import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -88,7 +89,7 @@ public interface UmpService {
     
     public UmpTenderRecord queryTender(String clientCode, String tenderId);
     
-    public List<UmpTransaction> queryUserTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
+    public PagedResult<UmpSeqTransaction> queryTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
     
     public UmpEntUser queryEntUser(String clientCode, String accountId);
     

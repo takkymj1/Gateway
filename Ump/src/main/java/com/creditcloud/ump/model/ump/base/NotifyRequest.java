@@ -10,6 +10,7 @@ import com.creditcloud.ump.model.UmpConstant;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
 import javax.ws.rs.QueryParam;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -17,6 +18,7 @@ import lombok.ToString;
  * @author kdliu
  */
 @Data
+@NoArgsConstructor
 @ToString(callSuper=true)
 public abstract class NotifyRequest extends BaseRequest {
     
