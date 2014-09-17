@@ -13,7 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum ProofContentType implements BaseEnum {
 
     IMAGE("图像"),
-    DOCUMENT("文档");
+    DOCUMENT("文档"),
+    VIDEO("视频"),
+    AUDIO("音频");
     //  HYPERLINK("网页链接"),
     //  EXPLAINATION("说明")
 
