@@ -192,4 +192,10 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableAutoCreditAssign = false;
 
+    /**
+     * UMP支付对每日提现次数的限制, null=无限制, 0=不允许提现
+     */
+    @XmlElement
+    @Getter
+    private Integer withdrawTimesLimitEveryday = null;
 }
