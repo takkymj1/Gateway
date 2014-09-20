@@ -4,6 +4,7 @@
  */
 package com.creditcloud.config;
 
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,38 +17,30 @@ import lombok.NoArgsConstructor;
  * @author suetming
  */
 @NoArgsConstructor
-@XmlRootElement(name = "RedisConfig")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RedisConfig extends BaseConfig {
+public class RedisPoolConfig extends BaseObject {
     
-    private static final long serialVersionUID = 20140902L;
+    private static final long serialVersionUID = 20140920L;
+    
+    /**
+     * 资源池最大分配的对象数
+     */
+    @XmlElement
+    @Getter
+    private int maxActive=1024;
 
-    public static final String CONFIG_NAME = "RedisConfig";
-    
     /**
-     * redis server host
+     * 最大能够保持idel状态的对象数
      */
     @XmlElement
     @Getter
-    private String host = "127.0.0.1";
+    private int maxIdle=200;
     
     /**
-     * redis server port
+     * 当池内没有返回对象时，最大等待时间
      */
     @XmlElement
     @Getter
-    private int port = 6379;
-    
-    /**
-     * redis client resource pool
-     */
-    @XmlElement(required = false)
-    private RedisPoolConfig pool;
-    
-    public RedisPoolConfig getPoolConfig() {
-        if (pool == null) {
-            pool = new RedisPoolConfig();
-        }
-        return pool;
-    }
+    private long maxWaitMillis=1000;
 }

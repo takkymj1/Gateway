@@ -8,7 +8,8 @@ import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
 /**
- *
+ * redis client
+ * 
  * @author suetming
  */
 @Remote
@@ -69,12 +70,6 @@ public interface RedisService {
      */
     public void subscribe(String clientCode, JedisPubSub listener, String ...keys);
     
-    /******************************
-     * 
-     * 下述方法暂不 check clientCode
-     * 
-     ******************************/
-    
     /**
      * expire a value
      * @param clientCode
@@ -83,36 +78,66 @@ public interface RedisService {
      */
     public void expire(String clientCode, String key, int second);
     
+    /******************************
+     * 
+     * 下述方法暂不 check clientCode
+     * 
+     ******************************/
+    
     /**
-     * atomic increment (first default value is 0)
+     * increment (first default value is 0)
+     * 
+     * atomic operation
+     * 
+     * Time complexity: O(1)
+     * 
      * @param key
      * @return final increment result
      */
     public long increment(String key);
     
     /**
-     * atomic increment value (first default value is 0)
+     * increment value (first default value is 0)
+     * 
+     * atomic operation
+     * 
+     * Time complexity: O(1)
+     * 
      * @param key
      * @return final increment result
      */
     public long incrementBy(String key, long value);
     
     /**
-     * atomic decrement (first default value is 0)
+     * decrement (first default value is 0)
+     * 
+     * atomic operation
+     * 
+     * Time complexity: O(1)
+     * 
      * @param key
      * @return final decrement result
      */
     public long decrement(String key);
     
     /**
-     * atomic decrement value (first default value is 0)
+     * decrement value (first default value is 0)
+     * 
+     * atomic operation
+     * 
+     * Time complexity: O(1)
+     * 
      * @param key
      * @return final decrement result
      */
     public long decrementBy(String key, long value);
     
     /**
-     * atomic get a value and set a value
+     * get a value and set a value
+     * 
+     * atomic operation
+     * 
+     * Time complexity: O(1)
      * 
      * getSet can be used together with increment for counting 
      * with atomic reset. For example: a process may call increment
