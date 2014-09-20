@@ -71,7 +71,7 @@ public interface RedisService {
     
     /******************************
      * 
-     * 下述方法暂check clientCode
+     * 下述方法暂不 check clientCode
      * 
      ******************************/
     
