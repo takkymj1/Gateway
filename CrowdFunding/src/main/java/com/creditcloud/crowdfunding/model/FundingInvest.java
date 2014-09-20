@@ -5,6 +5,7 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.model.enums.loan.InvestStatus;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -20,6 +21,8 @@ public class FundingInvest {
      * 項目
      */
     private String projectId;
+    
+    private InvestStatus status;
 
     /**
      * 投资/支持金额
