@@ -39,5 +39,6 @@
         <module>Fuiou</module>
         <module>Ump</module>
         <module>Redis</module>
+	    <module>CrowdFunding</module>
   </modules>
 </project>
