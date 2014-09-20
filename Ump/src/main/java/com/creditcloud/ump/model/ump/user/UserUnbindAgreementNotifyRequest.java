@@ -8,6 +8,7 @@ package com.creditcloud.ump.model.ump.user;
 
 import com.creditcloud.ump.model.ump.base.NotifyRequest;
 import com.creditcloud.ump.model.ump.enums.CmdIdType;
+import javax.ws.rs.QueryParam;
 import lombok.Data;
 import lombok.ToString;
 
@@ -19,8 +20,10 @@ import lombok.ToString;
 @ToString(callSuper=true)
 public class UserUnbindAgreementNotifyRequest extends NotifyRequest {
     
+    @QueryParam("user_id")
     private String user_id;
     
+    @QueryParam("user_unbind_agreement_list")
     private String user_unbind_agreement_list;
 
     public UserUnbindAgreementNotifyRequest() {
