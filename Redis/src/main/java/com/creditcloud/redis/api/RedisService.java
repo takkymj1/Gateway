@@ -54,6 +54,21 @@ public interface RedisService {
 
     public boolean exist(String clientCode, String key);
     
+    /**
+     * subscribe to a channel in Redis
+     * 
+     * Note that subscribe is a blocking operation 
+     * because it will poll Redis for responses on 
+     * the thread that calls subscribe. A single 
+     * JedisPubSub instance can be used to subscribe 
+     * to multiple channels. You can call subscribe 
+     * or psubscribe on an existing JedisPubSub instance 
+     * to change your subscriptions.
+     * @param key
+     * @param listener 
+     */
+    public void subscribe(String clientCode, JedisPubSub listener, String ...keys);
+    
     /******************************
      * 
      * 下述方法暂check clientCode
@@ -111,18 +126,4 @@ public interface RedisService {
      */
     public String getSet(String key, String value);
     
-    /**
-     * subscribe to a channel in Redis
-     * 
-     * Note that subscribe is a blocking operation 
-     * because it will poll Redis for responses on 
-     * the thread that calls subscribe. A single 
-     * JedisPubSub instance can be used to subscribe 
-     * to multiple channels. You can call subscribe 
-     * or psubscribe on an existing JedisPubSub instance 
-     * to change your subscriptions.
-     * @param key
-     * @param listener 
-     */
-    public void subscribe(String clientCode, JedisPubSub listener, String ...keys);
 }
