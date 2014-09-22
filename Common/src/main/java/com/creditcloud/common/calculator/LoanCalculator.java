@@ -217,6 +217,12 @@ public final class LoanCalculator {
         return result;
     }
 
+    /**
+     *
+     * @param request
+     * @param asOfDate
+     * @return
+     */
     public static LoanDetail analyze(LoanRequest request, LocalDate asOfDate) {
         return analyze(request.getAmount(),
                        request.getDuration(),
@@ -234,18 +240,28 @@ public final class LoanCalculator {
      * @return
      */
     public static BigDecimal quickInterest(int amount, int rate, Duration duration) {
-        //principal
-        BigDecimal principal = new BigDecimal(amount);
+        return quickInterest(new BigDecimal(amount), rate, duration);
+    }
+
+    /**
+     * 快速计算利息
+     *
+     * @param amount   金额
+     * @param rate     利率，2400代表24%
+     * @param duration 期限
+     * @return
+     */
+    public static BigDecimal quickInterest(BigDecimal amount, int rate, Duration duration) {
         //rates
         BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
         BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
         BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
         //calc
-        BigDecimal interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
+        BigDecimal interest = amount.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
         //add monthly interest
-        interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
+        interest = interest.add(amount.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
         //add daily interest
-        interest = interest.add(principal.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
+        interest = interest.add(amount.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
         //return
         return interest.setScale(2, NumberConstant.ROUNDING_MODE);
     }
