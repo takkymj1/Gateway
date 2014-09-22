@@ -5,20 +5,31 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author rooseek
  */
-public class FundingReward {
+@XmlRootElement
+@Data
+@NoArgsConstructor
+public class FundingReward extends BaseObject {
 
-    private int id;
-    
-    private int projectId;
+    private static final long serialVersionUID = 20140922L;
+
+    private String id;
+
+    private String projectId;
 
     /**
      * 投资金额
      */
-    private int amount;
+    private BigDecimal amount;
 
     /**
      * 限定名额

@@ -5,11 +5,21 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.model.BaseObject;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  *
  * @author rooseek
  */
-public class ProjectLocation {
+@XmlRootElement
+@Data
+@NoArgsConstructor
+public class ProjectLocation extends BaseObject {
+
+    private static final long serialVersionUID = 20140922L;
 
     private String province;
 
