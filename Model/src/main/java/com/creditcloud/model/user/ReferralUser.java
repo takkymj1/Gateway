@@ -38,7 +38,16 @@ public class ReferralUser extends BaseObject {
      */
     @Min(0)
     private int rewardAmount;
+    
+    private String loanId;
 
+    public ReferralUser(User user, long investAmount, int rewardAmount) {
+        this.user = user;
+        this.investAmount = investAmount;
+        this.rewardAmount = rewardAmount;
+    }
+
+    
     /**
      * 是否已经奖励
      *
