@@ -40,6 +40,8 @@ public class ReferralUser extends BaseObject {
     private int rewardAmount;
     
     private String loanId;
+    
+    private String loanTitle;
 
     public ReferralUser(User user, long investAmount, int rewardAmount) {
         this.user = user;
