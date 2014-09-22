@@ -198,4 +198,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private Integer withdrawTimesLimitEveryday = null;
+
+    /**
+     * 众筹业务
+     */
+    @XmlElement
+    @Getter
+    private boolean enableCrowdFunding = false;
+
 }

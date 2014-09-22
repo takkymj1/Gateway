@@ -5,18 +5,32 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
-public class ProjectLoan {
+@XmlRootElement
+@Data
+@NoArgsConstructor
+public class ProjectLoan extends BaseObject {
+
+    private static final long serialVersionUID = 20140922L;
 
     private String id;
 
     private String projectId;
+
+    /**
+     * 放款序号
+     */
+    private int ordinal;
 
     /**
      * 放款金额
@@ -29,4 +43,5 @@ public class ProjectLoan {
     private BigDecimal leftAmount;
 
     private Date timeRceorded;
+
 }

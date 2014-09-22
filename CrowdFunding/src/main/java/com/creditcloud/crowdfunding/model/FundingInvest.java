@@ -5,15 +5,24 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
-public class FundingInvest {
+@XmlRootElement
+@Data
+@NoArgsConstructor
+public class FundingInvest extends BaseObject {
+
+    private static final long serialVersionUID = 20140922L;
 
     private String id;
 
@@ -21,7 +30,7 @@ public class FundingInvest {
      * 項目
      */
     private String projectId;
-    
+
     private InvestStatus status;
 
     /**

@@ -91,4 +91,21 @@ public interface CrowdFundingService {
      * @return
      */
     public boolean invest(String clientCode, String projectId, BigDecimal amount);
+
+    /**
+     * 
+     * @param clientCode
+     * @param investId
+     * @return 
+     */
+    public boolean investCancel(String clientCode, String investId);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param amount
+     * @return
+     */
+    public boolean loan(String clientCode, String projectId, BigDecimal amount);
 }
