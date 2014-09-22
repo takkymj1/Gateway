@@ -101,6 +101,11 @@ public class Article extends BaseObject {
      * 主要用于页面显示，如首页或上级目录
      */
     private String parent;
+    
+    /**
+     * background color
+     */
+    private String bgColor;
 
     public Article(String id,
                    String channelId,
