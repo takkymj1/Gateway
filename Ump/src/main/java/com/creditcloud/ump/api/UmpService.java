@@ -31,6 +31,7 @@ import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
 import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
 import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
 import java.math.BigDecimal;
+import java.util.Map;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -209,4 +210,10 @@ public interface UmpService {
                                  String umpAccountName,
                                  String umpAccountId,
                                  BigDecimal amount);
+    
+    public Map<String, String> getPostParams(String clientCode, BaseRequest request);
+    
+    public boolean verifyRequest2(String clientCode, BaseRequest baseRequest);
+    
+    public String getResponseString(String clientCode, BaseResponse baseResponse);
 }
