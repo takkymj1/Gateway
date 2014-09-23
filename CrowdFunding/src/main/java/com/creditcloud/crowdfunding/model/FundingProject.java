@@ -6,8 +6,10 @@
 package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.crowdfunding.enums.ProjectCategory;
+import com.creditcloud.crowdfunding.enums.ProjectSubCategory;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,48 +27,76 @@ public class FundingProject extends BaseObject {
 
     private String id;
 
+    @NotNull
     private String title;
 
-    private ProjectCategory category;
-
     /**
-     * 项目发起人
+     * project proposer
      */
+    @NotNull
     private String userId;
 
     /**
-     * 目标金额
+     * goal amount
      */
+    @NotNull
     private BigDecimal goalAmount;
 
     /**
-     * 实际募集金额
+     * actual amount raised
      */
+    @NotNull
     private BigDecimal raiseAmount;
 
     /**
-     * 募集笔数
+     * raised number
      */
+    @NotNull
     private int raiseNumber;
 
     /**
-     * 筹集天数
+     * time unit:hour
      */
+    @NotNull
     private int timeOut;
 
     /**
-     * 项目视频地址
+     * video url
      */
     private String videoUrl;
 
-    /**
-     * 简介
-     */
+    @NotNull
     private String introduction;
 
-    /**
-     * 详情
-     */
     private String detail;
 
+    private String location;
+
+    private ProjectCategory category;
+
+    private ProjectSubCategory subCategory;
+
+    public FundingProject(String id,
+                          String title,
+                          String userId,
+                          BigDecimal goalAmount,
+                          BigDecimal raiseAmount,
+                          int raiseNumber,
+                          int timeOut,
+                          String videoUrl,
+                          String introduction,
+                          String detail,
+                          String location) {
+        this.id = id;
+        this.title = title;
+        this.userId = userId;
+        this.goalAmount = goalAmount;
+        this.raiseAmount = raiseAmount;
+        this.raiseNumber = raiseNumber;
+        this.timeOut = timeOut;
+        this.videoUrl = videoUrl;
+        this.introduction = introduction;
+        this.detail = detail;
+        this.location = location;
+    }
 }

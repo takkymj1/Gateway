@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,26 +25,79 @@ public class FundingReward extends BaseObject {
 
     private String id;
 
+    @NotNull
     private String projectId;
 
     /**
-     * 投资金额
+     * donate/invest/pledge amount
      */
+    @NotNull
     private BigDecimal amount;
 
     /**
-     * 限定名额
+     * reward number limit
      */
-    private int limit;
+    @NotNull
+    private int limitNumber;
 
     /**
-     * 回报内容
+     * number raised
      */
+    @NotNull
+    private int raiseNumber;
+
+    /**
+     * return description
+     */
+    @NotNull
     private String description;
 
     /**
-     * 回报/交付时间:项目结束后**天
+     * return/delivery time :项目结束后**天
      */
+    @NotNull
     private String deliveryTime;
 
+    /**
+     * delivery cost, area ...
+     */
+    private String deliveryDetail;
+
+    /**
+     * hard limit
+     */
+    private boolean hardLimit;
+
+    /**
+     * amount actual raised
+     */
+    private BigDecimal raiseAmount;
+
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         int raiseNumber,
+                         String description,
+                         String deliveryTime,
+                         String deliveryDetail) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.raiseNumber = raiseNumber;
+        this.description = description;
+        this.deliveryTime = deliveryTime;
+        this.deliveryDetail = deliveryDetail;
+    }
+
+    /**
+     * left number
+     *
+     * @return
+     */
+    public int getLeftNumber() {
+        int result = limitNumber - raiseNumber;
+        return result < 0 ? 0 : result;
+    }
 }

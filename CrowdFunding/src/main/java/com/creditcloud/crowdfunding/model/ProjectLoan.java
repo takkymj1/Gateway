@@ -5,9 +5,12 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,23 +28,51 @@ public class ProjectLoan extends BaseObject {
 
     private String id;
 
+    @NotNull
     private String projectId;
 
     /**
-     * 放款序号
+     * loan ordinal
      */
+    @NotNull
     private int ordinal;
 
+    @NotNull
+    private ProjectLoanStatus status;
+
     /**
-     * 放款金额
+     * loan amount
      */
+    @NotNull
     private BigDecimal loanAmount;
 
+    private Date timeRecorded;
+
     /**
-     * 剩余未放款金额
+     * left amount not loaned
      */
+    @NotNull
     private BigDecimal leftAmount;
 
-    private Date timeRceorded;
+    /**
+     * total amount raised for project
+     */
+    @Transient
+    private BigDecimal totalAmount;
 
+    public ProjectLoan(String id,
+                       String projectId,
+                       int ordinal,
+                       ProjectLoanStatus status,
+                       BigDecimal loanAmount,
+                       BigDecimal leftAmount,
+                       Date timeRecorded) {
+        this.id = id;
+        this.projectId = projectId;
+        this.status = status;
+        this.ordinal = ordinal;
+        this.loanAmount = loanAmount;
+        this.leftAmount = leftAmount;
+        this.timeRecorded = timeRecorded;
+    }
 }
