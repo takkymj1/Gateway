@@ -9,7 +9,9 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class FundingInvest extends BaseObject {
 
     private static final long serialVersionUID = 20140922L;
@@ -27,27 +30,37 @@ public class FundingInvest extends BaseObject {
     private String id;
 
     /**
-     * 項目
+     * project
      */
+    @NotNull
     private String projectId;
 
+    @NotNull
     private InvestStatus status;
 
     /**
-     * 投资/支持金额
+     * amount pledged/donated/invested
      */
+    @NotNull
     private BigDecimal amount;
 
     /**
-     * 投资人
+     * corresponding reward
      */
+    @NotNull
+    private String rewardId;
+
+    @NotNull
     private String userId;
 
-    /**
-     * 留言
-     */
     private String message;
 
     private Date timeRecorded;
+
+    /**
+     * eg:西直门大街1号金茂中心1102室</p>
+     * or json string</p>
+     */
+    private String deliveryDetail;
 
 }

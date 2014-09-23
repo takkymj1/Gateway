@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class ProjectLocation extends BaseObject {
 
     private static final long serialVersionUID = 20140922L;
-
+    
     private String province;
 
     private String city;
