@@ -44,7 +44,7 @@ public interface UmpService {
     
     public Map<String, String> getPostParams(String clientCode, BaseRequest request);
     
-    public boolean verifyRequest2(String clientCode, BaseRequest baseRequest);
+    public boolean verifyRequest(String clientCode, BaseRequest baseRequest);
     
     public String getResponseString(String clientCode, BaseResponse baseResponse);
     
