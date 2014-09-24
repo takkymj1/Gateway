@@ -6,7 +6,6 @@
 
 package com.creditcloud.ump.api;
 
-import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
@@ -43,6 +42,12 @@ import org.joda.time.LocalDate;
 @Remote
 public interface UmpService {
     
+    public Map<String, String> getPostParams(String clientCode, BaseRequest request);
+    
+    public boolean verifyRequest(String clientCode, BaseRequest baseRequest);
+    
+    public String getResponseString(String clientCode, BaseResponse baseResponse);
+    
     public UmpAccount createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
     
     public UmpAccount getUmpAccount(String clientCode, String userId);
@@ -55,34 +60,22 @@ public interface UmpService {
     
     public UmpAgreement getUmpAgreement(String clientCode, String userId);
     
-    public boolean submitEntRecharge(String clientCode, String ret_url, String notify_url, String orderId, LocalDate merDate, String payType, String rechargeMerId, String accoutId, BigDecimal amount, Bank bank);
-    
     public boolean submitEntWithdrawal(String clientCode, String ret_url, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
-
-    public void bindCard(String clientCode, String umpUserId, String accountId, String accountName, UmpIdentityType idType, String idCode);
     
     /**
      * 无密转账: 支持P2P平台对个人用户(对私)和企业用户(对公)转账, 企业用户(对公)对P2P平台转账
      */
-    public UmpTransferResult transfer(String clientCode,
-                                      String ret_url,
-                                      String notify_url,
-                                      String orderId,
-                                      LocalDate merDate,
-                                      String merAccountId,
-                                      ParticAccountType umpAccountType,
-                                      String umpAccountName,
-                                      String umpAccountId,
-                                      TransferAction action,
-                                      BigDecimal amount);
-    
-    public String getSignature(String clientCode, BaseRequest baseRequest);
-    
-    public String getSignature(String clientCode, BaseResponse baseResponse);
-    
-    public boolean verifyRequest(String clientCode, BaseRequest baseRequest);
-    
-    public boolean verifyResponse(String clientCode, BaseResponse baseResponse);
+    public UmpTransferResult transferNoPwd(String clientCode,
+                                           String ret_url,
+                                           String notify_url,
+                                           String orderId,
+                                           LocalDate merDate,
+                                           String merAccountId,
+                                           ParticAccountType umpAccountType,
+                                           String umpAccountName,
+                                           String umpAccountId,
+                                           TransferAction action,
+                                           BigDecimal amount);
     
     public UmpTransaction queryTrans(String clientCode, String orderId, String merDate, UmpBusiType busiType);
     
@@ -160,7 +153,7 @@ public interface UmpService {
                                 BigDecimal amount);
 
     /**
-     * 平台对标的进行垫付(偿付)，从<b>平台账号</b>转账入标的账号
+     * 平台对标的进行垫付(偿付)，从<b>平台账号或保险金账号</b>转账入标的账号
      */
     public UmpPaymentResult disburse(String clientCode,
                                      String orderId,
@@ -173,7 +166,7 @@ public interface UmpService {
                                      BigDecimal amount);
 
     /**
-     * 平台对标的进行垫付(偿付)，从<b>标的账号</b>转账入投资者账号
+     * 平台对标的进行垫付(偿付)的返款，从<b>标的账号</b>转账入投资者账号
      */
     public UmpPaymentResult disburseRefund(String clientCode,
                                            String orderId,
@@ -210,10 +203,4 @@ public interface UmpService {
                                  String umpAccountName,
                                  String umpAccountId,
                                  BigDecimal amount);
-    
-    public Map<String, String> getPostParams(String clientCode, BaseRequest request);
-    
-    public boolean verifyRequest2(String clientCode, BaseRequest baseRequest);
-    
-    public String getResponseString(String clientCode, BaseResponse baseResponse);
 }
