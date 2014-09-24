@@ -42,14 +42,6 @@ import org.joda.time.LocalDate;
 @Remote
 public interface UmpService {
     
-    public String getSignature(String clientCode, BaseRequest baseRequest);
-    
-    public String getSignature(String clientCode, BaseResponse baseResponse);
-    
-    public boolean verifyRequest(String clientCode, BaseRequest baseRequest);
-    
-    public boolean verifyResponse(String clientCode, BaseResponse baseResponse);
-    
     public Map<String, String> getPostParams(String clientCode, BaseRequest request);
     
     public boolean verifyRequest2(String clientCode, BaseRequest baseRequest);
