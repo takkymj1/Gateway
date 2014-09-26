@@ -12,8 +12,8 @@ import com.creditcloud.model.enums.BaseEnum;
  * @author rooseek
  */
 public enum WealthProductStatus implements BaseEnum {
-
-    INITIATED("初始"),
+    
+    INITIALIZED("初始"),
     APPOINT_START("开放预约"),
     APPOINT_END("预约结束"),
     PURCHASE_START("开放认购"),

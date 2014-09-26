@@ -36,7 +36,7 @@ public class Purchase extends BaseObject {
     private String userId;
 
     @NotNull
-    private BigDecimal amount;
+    private int amount;
 
     @NotNull
     private PurchaseStatus status;
@@ -51,7 +51,7 @@ public class Purchase extends BaseObject {
     public Purchase(String id,
                     String productId,
                     String userId, 
-                    BigDecimal amount, 
+                    int amount, 
                     PurchaseStatus status, 
                     Date submitTime) {
         this.id = id;
