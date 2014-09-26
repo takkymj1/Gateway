@@ -5,8 +5,9 @@
 package com.creditcloud.model.util;
 
 import com.creditcloud.model.enums.loan.InvestStatus;
-import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.enums.user.info.CareerStatus;
 import com.creditcloud.model.enums.user.info.CompanyIndustry;
 import com.creditcloud.model.enums.user.info.CompanySize;
@@ -16,13 +17,16 @@ import com.creditcloud.model.enums.user.info.MaritalStatus;
 import com.creditcloud.model.enums.user.info.MonthlySalary;
 import com.creditcloud.model.enums.user.info.YearOfService;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -158,5 +162,20 @@ public class EnumsTest {
             getException = true;
         }
         assertTrue(getException);
+    }
+    
+    @Test
+    public void testBank() {
+        Collection<Bank> pnrBanks = Bank.getPnrBanks();
+        for(Bank bank : pnrBanks) {
+            assertNotNull(bank.getPnrCode());
+            assertTrue(bank.isPnrSupport());
+        }
+        
+        Collection<Bank> umpBanks = Bank.getUmpBanks();
+        for(Bank bank : umpBanks) {
+            assertNotNull(bank.getUmpCode());
+            assertTrue(bank.isUmpSupport());
+        }
     }
 }

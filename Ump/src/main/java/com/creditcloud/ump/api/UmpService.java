@@ -26,6 +26,7 @@ import com.creditcloud.ump.model.ump.enums.TransferAction;
 import com.creditcloud.ump.model.ump.enums.UmpBusiType;
 import com.creditcloud.ump.model.ump.enums.UmpIdentityType;
 import com.creditcloud.ump.model.ump.enums.UmpParticType;
+import com.creditcloud.ump.model.ump.enums.UmpSettleType;
 import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
 import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
 import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
@@ -203,4 +204,7 @@ public interface UmpService {
                                  String umpAccountName,
                                  String umpAccountId,
                                  BigDecimal amount);
+    
+    public void downloadReconciliationFile(String clientCode, LocalDate fileDate, UmpSettleType settleType);
+
 }
