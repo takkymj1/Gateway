@@ -30,6 +30,7 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     List<User> listAllUsers(String clientCode);
 
     /**
@@ -70,6 +71,7 @@ public interface UserService extends UserSecurityService, UserRewardService {
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     PagedResult<User> listUsers(String clientCode, CriteriaInfo criteriaInfo);
 
     /**

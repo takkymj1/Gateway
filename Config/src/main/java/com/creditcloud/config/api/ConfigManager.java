@@ -20,6 +20,7 @@ import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
+import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
 
@@ -47,21 +48,21 @@ public interface ConfigManager {
     public CertificateConfig getCertificateConfig();
 
     /**
-     * 
+     *
      * 获取formax接口配置
-     * 
-     * @return 
+     *
+     * @return
      */
     public FormaxConfig getFormaxConfig();
-    
+
     /**
-     * 
+     *
      * 获取 redis 配置
-     * 
-     * @return 
+     *
+     * @return
      */
     public RedisConfig getRedisConfig();
-    
+
     /**
      * 获取安融惠众接口配置
      *
@@ -92,18 +93,25 @@ public interface ConfigManager {
     public FeeConfig getFeeConfig(LoanRequestType type);
 
     public RewardConfig getRewardConfig();
-    
+
     /**
      * 获取Fuiou代收付配置
-     * 
+     *
      * @return
      */
     public FuiouConfig getFuiouConfig();
-    
+
     /**
      * 获取联动优势(UMP)的配置
-     * 
-     * @return 
+     *
+     * @return
      */
     public UmpConfig getUmpConfig();
+
+    /**
+     * wealth product config
+     *
+     * @return
+     */
+    public WealthProductConfig getWealthProductConfig();
 }
