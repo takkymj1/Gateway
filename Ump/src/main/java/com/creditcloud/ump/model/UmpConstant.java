@@ -37,6 +37,8 @@ public interface UmpConstant {
     
     String ENCRYPT_ENCODE = "GBK";
     
+    String SETTLE_FILE_ENCODE = "GB2312";
+    
     String SUCCESS_CODE = "0000";
     
     String SUCCESS_MSG = "成功";

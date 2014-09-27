@@ -19,5 +19,5 @@ public enum UmpEntPayType {
     /**
      * 个人借记卡网银
      */
-    B2CDEBITBAK;
+    B2CDEBITBANK;
 }

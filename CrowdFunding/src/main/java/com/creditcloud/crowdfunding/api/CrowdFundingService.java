@@ -8,8 +8,7 @@ package com.creditcloud.crowdfunding.api;
 import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
-import com.creditcloud.model.criteria.CriteriaInfo;
-import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.crowdfunding.model.ProjectLoan;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
@@ -35,15 +34,6 @@ public interface CrowdFundingService {
     /**
      *
      * @param clientCode
-     * @param pageInfo
-     * @param criteriaInfo
-     * @return
-     */
-    public PagedResult<FundingProject> listProject(String clientCode, PageInfo pageInfo, CriteriaInfo criteriaInfo);
-
-    /**
-     *
-     * @param clientCode
      * @param reward
      * @return
      */
@@ -61,27 +51,18 @@ public interface CrowdFundingService {
      *
      * @param clientCode
      * @param projectId
+     * @param amount
      * @return
      */
-    public List<FundingReward> listRewardByProject(String clientCode, String projectId);
+    public boolean invest(String clientCode, String projectId, BigDecimal amount);
 
     /**
-     *
+     * 
      * @param clientCode
-     * @param projectId
-     * @param statusList
-     * @return
+     * @param investId
+     * @return 
      */
-    public PagedResult<FundingInvest> listInvestByProject(String clientCode, String projectId, List<InvestStatus> statusList);
-
-    /**
-     *
-     * @param clientCode
-     * @param rewardId
-     * @param statusList
-     * @return
-     */
-    public PagedResult<FundingInvest> listInvestByReward(String clientCode, String rewardId, List<InvestStatus> statusList);
+    public boolean investCancel(String clientCode, String investId);
 
     /**
      *
@@ -90,5 +71,6 @@ public interface CrowdFundingService {
      * @param amount
      * @return
      */
-    public boolean invest(String clientCode, String projectId, BigDecimal amount);
+    public boolean loan(String clientCode, String projectId, BigDecimal amount);
+    
 }

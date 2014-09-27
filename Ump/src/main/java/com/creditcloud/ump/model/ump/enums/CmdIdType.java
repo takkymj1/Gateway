@@ -119,5 +119,9 @@ public enum CmdIdType {
     /**
      * 商户账户查询
      */
-    PTP_MER_QUERY;
+    PTP_MER_QUERY,
+    /**
+     * 对账文件下载
+     */
+    DOWNLOAD_SETTLE_FILE_P;
 }

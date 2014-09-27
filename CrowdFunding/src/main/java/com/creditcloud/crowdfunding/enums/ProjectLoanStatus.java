@@ -11,20 +11,15 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum ProjectStatus implements BaseEnum {
+public enum ProjectLoanStatus implements BaseEnum {
 
-    INITIATED("初始"),
-    SCHEDULED("已安排"),
-    OPENED("众筹中 "),
-    FINISHED("项目成功"),
-    FAILED("项目失败"),
-    LOAN("放款中"),
-    SETTLED("全部放款"),
-    CANCELED("取消");
+    PROCESSING("处理中"),
+    SUCCESSFUL("成功"),
+    FAILED("失败");
 
     private final String key;
 
-    private ProjectStatus(String key) {
+    private ProjectLoanStatus(String key) {
         this.key = key;
     }
 
@@ -32,5 +27,4 @@ public enum ProjectStatus implements BaseEnum {
     public String getKey() {
         return key;
     }
-
 }

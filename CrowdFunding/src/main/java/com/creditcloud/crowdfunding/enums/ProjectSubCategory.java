@@ -11,21 +11,17 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum ProjectStatus implements BaseEnum {
+public enum ProjectSubCategory implements BaseEnum {
 
-    INITIATED("初始"),
-    SCHEDULED("已安排"),
-    OPENED("众筹中 "),
-    FINISHED("项目成功"),
-    FAILED("项目失败"),
-    LOAN("放款中"),
-    SETTLED("全部放款"),
-    CANCELED("取消");
+    A_B("A_B", ProjectCategory.A);
 
     private final String key;
 
-    private ProjectStatus(String key) {
+    private final ProjectCategory category;
+
+    private ProjectSubCategory(String key, ProjectCategory category) {
         this.key = key;
+        this.category = category;
     }
 
     @Override
@@ -33,4 +29,7 @@ public enum ProjectStatus implements BaseEnum {
         return key;
     }
 
+    public ProjectCategory getCategory() {
+        return category;
+    }
 }
