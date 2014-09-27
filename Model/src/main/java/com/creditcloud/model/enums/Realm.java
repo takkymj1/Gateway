@@ -85,7 +85,8 @@ public enum Realm implements BaseEnum {
     CONTRACTTEMPLATE("合同模板"),
     IMAGE("图片"),
     FILE("文件"),
-    FSS("生利宝");
+    FSS("生利宝"),
+    TICKET("支持工单");
 
     private final String key;
 
