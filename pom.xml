@@ -40,5 +40,6 @@
         <module>Ump</module>
         <module>Redis</module>
 	    <module>CrowdFunding</module>
+    <module>WealthProduct</module>
   </modules>
 </project>
