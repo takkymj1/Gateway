@@ -61,7 +61,7 @@ public interface UmpService {
     
     public UmpAgreement getUmpAgreement(String clientCode, String userId);
     
-    public boolean submitEntWithdrawal(String clientCode, String ret_url, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
+    public UmpPaymentResult submitEntWithdrawal(String clientCode, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
     
     /**
      * 无密转账: 支持P2P平台对个人用户(对私)和企业用户(对公)转账, 企业用户(对公)对P2P平台转账
