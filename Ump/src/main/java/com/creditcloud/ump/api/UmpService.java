@@ -128,6 +128,19 @@ public interface UmpService {
                                        String umpAccountName,
                                        String umpAccountId,
                                        BigDecimal amount);
+    
+    /**
+     * 投资人自动投标(需事先在UMP账号中签订借记卡快捷协议和无密投资协议)，将投资转入标的账号 
+     */
+    public UmpPaymentResult autoTender(String clientCode,
+                                       String orderId,
+                                       LocalDate orderDate,
+                                       String retUrl,
+                                       String umpTenderId,
+                                       String umpTenderAccountId,
+                                       String umpAccountName,
+                                       String umpAccountId,
+                                       BigDecimal amount);
 
     /**
      * 从标的账号还款至投资人账号
@@ -205,6 +218,20 @@ public interface UmpService {
                                  String umpAccountId,
                                  BigDecimal amount);
     
-    public void downloadReconciliationFile(String clientCode, LocalDate fileDate, UmpSettleType settleType);
-
+    /**
+     * 从联动服务器下载对账文件到系统中
+     * 
+     * @param clientCode
+     * @param fileDate 对账日期
+     * @param settleType 对账类型
+     * @param force 若下载过，是否重新下载
+     * @param asyn 异步调用
+     * @return 
+     */
+    public boolean downloadReconciliationFile(String clientCode, 
+                                              LocalDate fileDate, 
+                                              UmpSettleType settleType, 
+                                              boolean force, 
+                                              boolean asyn);
+    
 }
