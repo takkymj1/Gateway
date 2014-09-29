@@ -61,7 +61,11 @@ public enum ActivityType implements BaseEnum {
     /**
      * 投标类活动
      */
-    INVEST_CANCEL(InvestStatus.CANCELED.getKey(), Realm.INVEST);
+    INVEST_CANCEL(InvestStatus.CANCELED.getKey(), Realm.INVEST),
+    /**
+     * 工单类活动
+     */
+    TICKET_REVIEW("审核工单", Realm.TICKET);
 
     private final String key;
 

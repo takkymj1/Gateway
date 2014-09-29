@@ -6,6 +6,7 @@ package com.creditcloud.common.rest;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
 import java.io.Serializable;
+import java.net.URI;
 import javax.annotation.Resource;
 import javax.validation.Validator;
 import javax.ws.rs.core.Context;
@@ -37,6 +38,20 @@ public abstract class BaseResource implements Serializable {
 
     protected Response redirect(String path) {
         return Response.seeOther(uriInfo.getBaseUriBuilder().path(path).build()).build();
+    }
+    
+    /**
+     * customized redirect, avoid automatic uri encoding
+     * @param path
+     * @return 
+     */
+    protected Response redirectRaw(String path) {
+        StringBuilder sbuilder = new StringBuilder();
+        if (uriInfo.getBaseUri().toString().endsWith("/")) {
+            sbuilder.append(uriInfo.getBaseUri().toString().substring(0, uriInfo.getBaseUri().toString().length() - 1));
+        }
+        sbuilder.append(path);
+        return Response.seeOther(URI.create(sbuilder.toString())).build();
     }
 
     protected ValidatorWrapper getValidatorWrapper() {

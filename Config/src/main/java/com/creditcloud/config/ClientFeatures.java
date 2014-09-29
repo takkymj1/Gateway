@@ -38,4 +38,12 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enablePDFSignature = false;
+    
+    /**
+     * 话务系统
+     * 自动登录管理后台 (for ifeng)
+     */
+    @XmlElement
+    @Getter
+    private boolean enableServiceHotline = false;
 }
