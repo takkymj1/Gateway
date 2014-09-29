@@ -146,7 +146,19 @@ public enum Privilege implements BaseEnum {
     APPOINT_LIST("列出认购产品", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_DETAIL("认购产品详情", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_ALTER("添加更改认购产品", Realm.APPOINTMENT, "认购相关权限"),
-    APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限");
+    APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限"),
+    
+    /**
+     * 支持工单相关权限
+     */
+    TICKET_LIST("列出工单", Realm.TICKET, "支持工单相关权限"),
+    TICKET_DETAIL("查看工单详情", Realm.TICKET, "支持工单相关权限"),
+    TICKET_ADD("添加工单记录", Realm.TICKET, "支持工单相关权限"),
+    TICKET_ASSIGN("分配工单任务", Realm.TICKET, "支持工单相关权限"),
+    TICKET_REPLY("处理工单", Realm.TICKET, "支持工单相关权限"),
+    TICKET_REVIEW("评审工单", Realm.TICKET, "支持工单相关权限"),
+    TICKET_DOWNLOAD("下载工单", Realm.TICKET, "支持工单相关权限")
+    ;
     
     
     private final String key;
