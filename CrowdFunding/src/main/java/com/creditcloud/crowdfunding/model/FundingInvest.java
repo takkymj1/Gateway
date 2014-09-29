@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,7 +21,6 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class FundingInvest extends BaseObject {
 
     private static final long serialVersionUID = 20140922L;
@@ -55,12 +53,32 @@ public class FundingInvest extends BaseObject {
 
     private String message;
 
-    private Date timeRecorded;
+    private Date submitTime;
 
     /**
      * eg:西直门大街1号金茂中心1102室</p>
      * or json string</p>
      */
     private String deliveryDetail;
+
+    public FundingInvest(String id, 
+                         String projectId,
+                         InvestStatus status,
+                         BigDecimal amount, 
+                         String rewardId, 
+                         String userId, 
+                         String message, 
+                         Date submitTime,
+                         String deliveryDetail) {
+        this.id = id;
+        this.projectId = projectId;
+        this.status = status;
+        this.amount = amount;
+        this.rewardId = rewardId;
+        this.userId = userId;
+        this.message = message;
+        this.submitTime = submitTime;
+        this.deliveryDetail = deliveryDetail;
+    }
 
 }
