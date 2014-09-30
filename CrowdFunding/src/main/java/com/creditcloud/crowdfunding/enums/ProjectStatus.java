@@ -20,6 +20,7 @@ public enum ProjectStatus implements BaseEnum {
     FAILED("项目失败"),
     LOAN("放款中"),
     SETTLED("全部放款"),
+    DELIVERED("奖励回报已发送"),
     CANCELED("取消");
 
     private final String key;

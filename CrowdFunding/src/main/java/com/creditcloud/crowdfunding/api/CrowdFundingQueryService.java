@@ -65,15 +65,39 @@ public interface CrowdFundingQueryService {
                                                          PageInfo pageInfo);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param rewardId
      * @param statusList
-     * @return 
+     * @return
      */
     public int countInvestByReward(String clientCode,
                                    String rewardId,
                                    List<InvestStatus> statusList);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingInvest> listInvestByUser(String clientCode,
+                                                       String userId,
+                                                       List<InvestStatus> statusList,
+                                                       PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @return
+     */
+    public int countInvestByUser(String clientCode,
+                                                        String userId,
+                                                        List<InvestStatus> statusList);
 
     /**
      *

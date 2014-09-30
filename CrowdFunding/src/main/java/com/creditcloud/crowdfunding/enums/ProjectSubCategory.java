@@ -8,6 +8,7 @@ package com.creditcloud.crowdfunding.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * TODO 暂时不用
  *
  * @author rooseek
  */
