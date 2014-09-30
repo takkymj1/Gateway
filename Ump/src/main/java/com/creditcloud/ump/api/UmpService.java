@@ -9,6 +9,7 @@ package com.creditcloud.ump.api;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
+import com.creditcloud.ump.model.UmpCreateAccountResult;
 import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpPaymentResult;
 import com.creditcloud.ump.model.UmpSeqTransaction;
@@ -49,7 +50,7 @@ public interface UmpService {
     
     public String getResponseString(String clientCode, BaseResponse baseResponse);
     
-    public UmpAccount createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
+    public UmpCreateAccountResult createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
     
     public UmpAccount getUmpAccount(String clientCode, String userId);
     
