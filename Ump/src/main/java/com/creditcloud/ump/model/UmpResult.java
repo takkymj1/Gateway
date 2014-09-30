@@ -7,29 +7,25 @@
 package com.creditcloud.ump.model;
 
 import com.creditcloud.model.BaseObject;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
- *
+ * 
  * @author kdliu
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @XmlRootElement
 public class UmpResult extends BaseObject {
 
-    @NotNull
-    private String retCode;
-
-    @NotNull
-    private String retMsg;
-
+    private final UmpResultType resultType;
+    
+    public UmpResult(UmpResultType resultType) {
+        this.resultType = resultType;
+    }
+    
     public boolean success() {
-        return UmpConstant.SUCCESS_CODE.equals(retCode);
-    }    
+        return UmpConstant.SUCCESS_CODE.equals(resultType.getRetCode());
+    }
+    
 }

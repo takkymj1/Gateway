@@ -6,6 +6,7 @@
 
 package com.creditcloud.ump.model;
 
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class UmpTransferResult extends UmpResult {
+public class UmpTransferResult extends BaseObject {
     
     private String orderId;
     
@@ -27,16 +28,25 @@ public class UmpTransferResult extends UmpResult {
     
     private String merCheckDate;
 
+    private String retCode;
+
+    private String retMsg;
+    
     public UmpTransferResult(String orderId, 
                              String merDate, 
                              String tradeNo, 
                              String merCheckDate, 
                              String retCode, 
                              String retMsg) {
-        super(retCode, retMsg);
         this.orderId = orderId;
         this.merDate = merDate;
         this.tradeNo = tradeNo;
         this.merCheckDate = merCheckDate;
+        this.retCode = retCode;
+        this.retMsg = retMsg;
+    }
+    
+    public boolean success() {
+        return UmpConstant.SUCCESS_CODE.equals(retCode);
     }
 }
