@@ -53,13 +53,8 @@ public class FundingReward extends BaseObject {
     private String description;
 
     /**
-     * return/delivery time :项目结束后**天
-     */
-    @NotNull
-    private String deliveryTime;
-
-    /**
-     * delivery cost, area ...
+     * delivery cost, area, time ...</p>
+     * can be json
      */
     private String deliveryDetail;
 
@@ -77,17 +72,13 @@ public class FundingReward extends BaseObject {
                          String projectId,
                          BigDecimal amount,
                          int limitNumber,
-                         int raiseNumber,
                          String description,
-                         String deliveryTime,
                          String deliveryDetail) {
         this.id = id;
         this.projectId = projectId;
         this.amount = amount;
         this.limitNumber = limitNumber;
-        this.raiseNumber = raiseNumber;
         this.description = description;
-        this.deliveryTime = deliveryTime;
         this.deliveryDetail = deliveryDetail;
     }
 

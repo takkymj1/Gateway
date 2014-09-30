@@ -8,16 +8,15 @@ package com.creditcloud.crowdfunding.api;
 import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.ProjectLoan;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
-import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
-@Remote
 public interface CrowdFundingQueryService {
 
     /**
@@ -33,18 +32,48 @@ public interface CrowdFundingQueryService {
      * @param clientCode
      * @param projectId
      * @param statusList
+     * @param pageInfo
      * @return
      */
-    public PagedResult<FundingInvest> listInvestByProject(String clientCode, String projectId, List<InvestStatus> statusList);
+    public PagedResult<FundingInvest> listInvestByProject(String clientCode,
+                                                          String projectId,
+                                                          List<InvestStatus> statusList,
+                                                          PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param statusList
+     * @return
+     */
+    public int countInvestByProject(String clientCode,
+                                    String projectId,
+                                    List<InvestStatus> statusList);
 
     /**
      *
      * @param clientCode
      * @param rewardId
      * @param statusList
+     * @param pageInfo
      * @return
      */
-    public PagedResult<FundingInvest> listInvestByReward(String clientCode, String rewardId, List<InvestStatus> statusList);
+    public PagedResult<FundingInvest> listInvestByReward(String clientCode,
+                                                         String rewardId,
+                                                         List<InvestStatus> statusList,
+                                                         PageInfo pageInfo);
+
+    /**
+     * 
+     * @param clientCode
+     * @param rewardId
+     * @param statusList
+     * @return 
+     */
+    public int countInvestByReward(String clientCode,
+                                   String rewardId,
+                                   List<InvestStatus> statusList);
 
     /**
      *

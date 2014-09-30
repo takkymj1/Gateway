@@ -6,6 +6,7 @@
 package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.crowdfunding.enums.ProjectCategory;
+import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.enums.ProjectSubCategory;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -29,6 +30,8 @@ public class FundingProject extends BaseObject {
 
     @NotNull
     private String title;
+    
+    private ProjectStatus status;
 
     /**
      * project proposer
@@ -78,10 +81,9 @@ public class FundingProject extends BaseObject {
 
     public FundingProject(String id,
                           String title,
+                          ProjectStatus status,
                           String userId,
                           BigDecimal goalAmount,
-                          BigDecimal raiseAmount,
-                          int raiseNumber,
                           int timeOut,
                           String videoUrl,
                           String introduction,
@@ -89,10 +91,9 @@ public class FundingProject extends BaseObject {
                           String location) {
         this.id = id;
         this.title = title;
+        this.status = status;
         this.userId = userId;
         this.goalAmount = goalAmount;
-        this.raiseAmount = raiseAmount;
-        this.raiseNumber = raiseNumber;
         this.timeOut = timeOut;
         this.videoUrl = videoUrl;
         this.introduction = introduction;
