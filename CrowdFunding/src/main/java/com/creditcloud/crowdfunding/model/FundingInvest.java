@@ -61,18 +61,20 @@ public class FundingInvest extends BaseObject {
      */
     private String deliveryDetail;
 
-    public FundingInvest(String id, 
+    public FundingInvest(String id,
                          String projectId,
                          InvestStatus status,
-                         BigDecimal amount, 
-                         String userId, 
-                         String message, 
+                         BigDecimal amount,
+                         String rewardId,
+                         String userId,
+                         String message,
                          Date submitTime,
                          String deliveryDetail) {
         this.id = id;
         this.projectId = projectId;
         this.status = status;
         this.amount = amount;
+        this.rewardId = rewardId;
         this.userId = userId;
         this.message = message;
         this.submitTime = submitTime;
