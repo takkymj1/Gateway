@@ -27,7 +27,7 @@ public enum Category implements BaseEnum {
     DECLARATION("服务声明", true),
     PUBLICATION("最新公告", false),
     HELP("帮助中心", false),
-    SAFTY("安全保障", true),
+    SAFETY("安全保障", true),
     OTHER("其他", false);
 
     private final String key;
