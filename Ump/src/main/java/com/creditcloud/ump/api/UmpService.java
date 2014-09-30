@@ -6,6 +6,7 @@
 
 package com.creditcloud.ump.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
@@ -234,5 +235,12 @@ public interface UmpService {
                                               UmpSettleType settleType, 
                                               boolean force, 
                                               boolean asyn);
+    
+    /**
+     * 列出对账文件的下载记录
+     */
+    public PagedResult<com.creditcloud.ump.model.UmpSettleRecord> listSetteRecord(String clientCode, 
+                                                                                  PageInfo pageInfo, 
+                                                                                  UmpSettleType... type);
     
 }
