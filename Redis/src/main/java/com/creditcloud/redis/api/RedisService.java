@@ -15,7 +15,7 @@ import redis.clients.jedis.JedisPubSub;
 @Remote
 public interface RedisService {
 
-    public void put(String clientCode, String key, String value);
+    public void put(String key, String value);
 
     /**
      *
@@ -24,13 +24,13 @@ public interface RedisService {
      * @param value
      * @param clazz 当前所在类（避免相同键值对导致混淆）
      */
-    public void put(String clientCode, String key, String value, Class clazz);
+    public void put(String key, String value, Class clazz);
 
-    public void put(String clientCode, String key, Object object);
+    public void put(String key, Object object);
 
-    public void put(String clientCode, String key, Integer value);
+    public void put(String key, Integer value);
 
-    public String getString(String clientCode, String key);
+    public String getString(String key);
 
     /**
      *
@@ -39,7 +39,7 @@ public interface RedisService {
      * @param clazz 当前所在类（避免相同键值对导致混淆）
      * @return
      */
-    public String getString(String clientCode, String key, Class clazz);
+    public String getString(String key, Class clazz);
 
     /**
      *
@@ -49,11 +49,11 @@ public interface RedisService {
      * @param classOfT
      * @return
      */
-    public <T> T get(String clientCode, String key, Class<T> classOfT);
+    public <T> T get(String key, Class<T> classOfT);
 
-    public Integer getInteger(String clientCode, String key);
+    public Integer getInteger(String key);
 
-    public boolean exist(String clientCode, String key);
+    public boolean exist(String key);
     
     /**
      * subscribe to a channel in Redis
@@ -76,13 +76,7 @@ public interface RedisService {
      * @param key
      * @param expire 
      */
-    public void expire(String clientCode, String key, int second);
-    
-    /******************************
-     * 
-     * 下述方法暂不 check clientCode
-     * 
-     ******************************/
+    public void expire(String key, int second);
     
     /**
      * increment (first default value is 0)
