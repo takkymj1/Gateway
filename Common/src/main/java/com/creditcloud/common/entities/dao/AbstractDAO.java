@@ -107,6 +107,17 @@ public abstract class AbstractDAO<T> {
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
+    
+    public <K> T findBy(String fieldName, Object value, Class<K> valueClass) {
+        EntityManager em = getEntityManager();
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<T> cq = cb.createQuery(entityClass);
+        Root<T> root = cq.from(entityClass);
+        cq.select(root)
+                .where(cb.equal(root.get(fieldName).as(valueClass), value));
+        List<T> list = em.createQuery(cq).getResultList();
+        return list.isEmpty() ? null : list.get(0);
+    }
 
     /**
      * list all entity
