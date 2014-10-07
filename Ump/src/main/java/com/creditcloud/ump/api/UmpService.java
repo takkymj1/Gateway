@@ -57,6 +57,8 @@ public interface UmpService {
     
     public String getUserIdByAccountName(String clientCode, String accountName);
     
+    public String getUserIdByAccountId(String clientCode, String accountId);
+    
     public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement, String cardNo);
     
     public boolean updateUmpAgreement(String clientCode, UmpAgreement agreement);
@@ -93,6 +95,8 @@ public interface UmpService {
     public UmpTender createUmpTender(String clientCode, String loanId, String loanName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
 
     public UmpTender getUmpTender(String clientCode, String loanId);
+    
+    public String getLoanIdByTenderId(String clientCode, String tenderId);
     
     public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
     
@@ -240,7 +244,41 @@ public interface UmpService {
      * 列出对账文件的下载记录
      */
     public PagedResult<com.creditcloud.ump.model.UmpSettleRecord> listSetteRecord(String clientCode, 
+                                                                                  LocalDate beginDate, 
+                                                                                  LocalDate endDate,
                                                                                   PageInfo pageInfo, 
                                                                                   UmpSettleType... type);
     
+    /**
+     * 充值对账
+     */
+    public PagedResult<com.creditcloud.ump.model.UmpRechargeSettleRecord> saveReconciliation(String clientCode, 
+                                                                                             LocalDate beginDate, 
+                                                                                             LocalDate endDate, 
+                                                                                             PageInfo pageInfo);
+    
+    /**
+     * 提现对账
+     */
+    public PagedResult<com.creditcloud.ump.model.UmpWithdrawSettleRecord> cashReconciliation(String clientCode, 
+                                                                                             LocalDate beginDate, 
+                                                                                             LocalDate endDate, 
+                                                                                             PageInfo pageInfo);
+
+    /**
+     * 转账对账
+     */
+    public PagedResult<com.creditcloud.ump.model.UmpTransferSettleRecord> transferReconciliation(String clientCode, 
+                                                                                                 LocalDate beginDate, 
+                                                                                                 LocalDate endDate, 
+                                                                                                 PageInfo pageInfo);
+
+    /**
+     * 标的对账
+     */
+    public PagedResult<com.creditcloud.ump.model.UmpTenderSettleRecord> loanReconciliation(String clientCode, 
+                                                                                           LocalDate beginDate, 
+                                                                                           LocalDate endDate, 
+                                                                                           PageInfo pageInfo);
+
 }
