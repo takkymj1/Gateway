@@ -139,6 +139,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.crowdfunding</groupId>
+            <artifactId>CrowdFundingService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -251,6 +257,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.redis</groupId>
                             <artifactId>RedisService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.crowdfunding</groupId>
+                            <artifactId>CrowdFundingService</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>

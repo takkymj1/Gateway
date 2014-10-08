@@ -26,6 +26,8 @@ public enum BidResult implements BaseEnum {
     USER_BALANCE_INSUFFICIENT("账户可用余额不足"),
     FROZEN_FAILED("冻结用户账户余额失败"),
     INVALID_AMOUNT("投资金额不合规，请查看产品说明"),
+    SELF_BID_FORBIDDEN("不能投给自己"),
+    BID_FORBIDDEN("不满足投标条件"),
     FAILED("其他原因失败");
 
     private final String key;

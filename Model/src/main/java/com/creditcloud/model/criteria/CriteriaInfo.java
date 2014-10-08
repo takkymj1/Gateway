@@ -39,4 +39,35 @@ public class CriteriaInfo extends BaseObject {
     public SortInfo getSortInfo() {
         return sortInfo;
     }
+
+    /**
+     * validate incoming CriteriaInfo for sql query
+     *
+     * @param info
+     * @return
+     */
+    public static boolean validate(CriteriaInfo info) {
+        if (!validate(info.getParamInfo())) {
+            return false;
+        }
+        if (!validate(info.getSortInfo())) {
+            return false;
+        }
+        return validate(info.getPageInfo());
+    }
+
+    public static boolean validate(ParamInfo paramInfo) {
+        //TODO
+        return true;
+    }
+
+    public static boolean validate(SortInfo sortInfo) {
+        //TODO
+        return true;
+    }
+
+    public static boolean validate(PageInfo pageInfo) {
+        //TODO 
+        return true;
+    }
 }

@@ -10,6 +10,7 @@ import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.enums.ProjectSubCategory;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -30,7 +31,7 @@ public class FundingProject extends BaseObject {
 
     @NotNull
     private String title;
-    
+
     private ProjectStatus status;
 
     /**
@@ -56,6 +57,10 @@ public class FundingProject extends BaseObject {
      */
     @NotNull
     private int raiseNumber;
+
+    private Date openTime;
+
+    private Date finishTime;
 
     /**
      * time unit:hour
@@ -85,6 +90,8 @@ public class FundingProject extends BaseObject {
                           String userId,
                           BigDecimal goalAmount,
                           int timeOut,
+                          Date openTime,
+                          Date finishTime,
                           String videoUrl,
                           String introduction,
                           String detail,
@@ -95,6 +102,8 @@ public class FundingProject extends BaseObject {
         this.userId = userId;
         this.goalAmount = goalAmount;
         this.timeOut = timeOut;
+        this.openTime = openTime;
+        this.finishTime = finishTime;
         this.videoUrl = videoUrl;
         this.introduction = introduction;
         this.detail = detail;
