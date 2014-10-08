@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model;
+package com.creditcloud.ump.model.settle;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
+import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -19,15 +21,23 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class UmpRechargeSettleRecord extends BaseObject{
+public class UmpTenderSettleRecord extends BaseObject{
     
     private String orderId;
     
     private String merDate;
     
-    private String accountId;
+    private String tenderId;
     
-    private String accountName;
+    private String tenderAccountId;
+    
+    private String inAccountId;
+    
+    private String outAccountId;
+    
+    private UmpTenderAction action;
+    
+    private UmpTenderTransferType transferType;
     
     private BigDecimal amount;
     
