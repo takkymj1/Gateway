@@ -5,7 +5,9 @@
  */
 package com.creditcloud.crowdfunding.api;
 
+import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.model.FundingInvest;
+import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.ProjectLoan;
 import com.creditcloud.model.criteria.PageInfo;
@@ -18,6 +20,30 @@ import java.util.List;
  * @author rooseek
  */
 public interface CrowdFundingQueryService {
+
+    /**
+     *
+     * @param clientCode
+     * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingProject> listProject(String clientCode,
+                                                   List<ProjectStatus> statusList,
+                                                   PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingProject> listProject(String clientCode,
+                                                   String userId,
+                                                   List<ProjectStatus> statusList,
+                                                   PageInfo pageInfo);
 
     /**
      *
@@ -96,8 +122,8 @@ public interface CrowdFundingQueryService {
      * @return
      */
     public int countInvestByUser(String clientCode,
-                                                        String userId,
-                                                        List<InvestStatus> statusList);
+                                 String userId,
+                                 List<InvestStatus> statusList);
 
     /**
      *
