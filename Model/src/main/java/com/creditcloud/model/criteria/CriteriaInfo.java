@@ -41,7 +41,7 @@ public class CriteriaInfo extends BaseObject {
     }
 
     /**
-     * validate incoming ParamInfo for sql query
+     * validate incoming CriteriaInfo for sql query
      *
      * @param info
      * @return
