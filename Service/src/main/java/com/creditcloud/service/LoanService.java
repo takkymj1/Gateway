@@ -5,7 +5,9 @@
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanReward;
 import com.creditcloud.model.loan.LoanStatistics;
@@ -94,6 +96,32 @@ public interface LoanService extends LoanRequestService {
     PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
 
     /**
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param statusList
+     * @param methodList
+     * @return
+     */
+    PagedResult<Loan> listLoanByStatusAndMethod(String clientCode,
+                                                PageInfo pageInfo,
+                                                List<LoanStatus> statusList,
+                                                List<RepaymentMethod> methodList);
+
+    /**
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param statusList
+     * @param purposeList
+     * @return
+     */
+    PagedResult<Loan> listLoanByStatusAndPurpose(String clientCode,
+                                                 PageInfo pageInfo,
+                                                 List<LoanStatus> statusList,
+                                                 List<LoanPurpose> purposeList);
+
+    /**
      * 列出所有非公开特定用户群体才能投的loan
      *
      * @param clientCode
@@ -119,12 +147,13 @@ public interface LoanService extends LoanRequestService {
      * @return
      */
     List<LoanReward> listLoanReward(String clientCode, String loanId);
-    
+
     /**
      * 根据RealmEntity获取借款列表
-     * 
+     *
+     * @param clientCode
      * @param entity
-     * @return 
+     * @return
      */
     List<Loan> listByCorporationUser(String clientCode, RealmEntity entity);
 }
