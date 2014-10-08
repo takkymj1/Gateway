@@ -5,6 +5,7 @@
  */
 package com.creditcloud.crowdfunding.api;
 
+import com.creditcloud.crowdfunding.enums.ProjectCategory;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingProject;
@@ -28,6 +29,7 @@ public interface CrowdFundingQueryService {
      * @param info
      * @return
      */
+    @Deprecated
     public PagedResult<FundingProject> listProject(String clientCode,
                                                    CriteriaInfo info);
 
@@ -40,6 +42,19 @@ public interface CrowdFundingQueryService {
      */
     public PagedResult<FundingProject> listProject(String clientCode,
                                                    List<ProjectStatus> statusList,
+                                                   PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param statusList
+     * @param categoryList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingProject> listProject(String clientCode,
+                                                   List<ProjectStatus> statusList,
+                                                   List<ProjectCategory> categoryList,
                                                    PageInfo pageInfo);
 
     /**

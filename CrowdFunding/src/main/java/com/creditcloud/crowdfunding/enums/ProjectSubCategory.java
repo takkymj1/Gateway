@@ -14,7 +14,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ProjectSubCategory implements BaseEnum {
 
-    A_B("A_B", ProjectCategory.A);
+    A_B("A_B", ProjectCategory.OTHER);
 
     private final String key;
 
