@@ -23,7 +23,7 @@ public enum BidResult implements BaseEnum {
      * 收到重复的bid请求
      */
     BID_REDUNDANT("重复投标"),
-    USER_BALANCE_INSUFFICIENT("账户可用余额tou不足"),
+    USER_BALANCE_INSUFFICIENT("账户可用余额不足"),
     FROZEN_FAILED("冻结用户账户余额失败"),
     INVALID_AMOUNT("投资金额不合规，请查看产品说明"),
     SELF_BID_FORBIDDEN("不能投给自己"),
