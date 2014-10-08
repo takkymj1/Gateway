@@ -8,21 +8,36 @@ package com.creditcloud.crowdfunding.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * TODO 暂时不用
+ *
  * @author rooseek
  */
 public enum ProjectCategory implements BaseEnum {
 
-    A("A");
+    OTHER("其他", true),
+    /**
+     * FENG
+     */
+    FENG_SF("梦想首发", false),
+    FENG_CZ("梦想创造", false);
 
     private final String key;
 
-    private ProjectCategory(String key) {
+    /**
+     * 是否通用
+     */
+    private final boolean general;
+
+    private ProjectCategory(String key, boolean general) {
         this.key = key;
+        this.general = general;
     }
 
     @Override
     public String getKey() {
         return key;
+    }
+
+    public boolean isGeneral() {
+        return general;
     }
 }
