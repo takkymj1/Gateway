@@ -5,10 +5,12 @@
  */
 package com.creditcloud.crowdfunding.api;
 
+import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.model.enums.loan.InvestStatus;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -83,6 +85,17 @@ public interface CrowdFundingService extends CrowdFundingQueryService {
      */
     public FundingInvest addInvest(String clientCode, FundingInvest invest);
 
+    /**
+     * 
+     * @param clientCode
+     * @param projectId
+     * @param status
+     * @param bidNumber
+     * @param bidAmount
+     * @return 
+     */
+    public boolean markProjectStatus(String clientCode, String projectId, ProjectStatus status, int raiseNumber, BigDecimal raiseAmount);
+            
     /**
      *
      * @param clientCode
