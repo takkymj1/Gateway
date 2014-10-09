@@ -80,10 +80,10 @@ public enum Realm implements BaseEnum {
     /**
      * Crowd funding
      */
-    FUNDING_PROJECT("众筹项目"),
-    FUNDING_INVEST("众筹投资"),
-    FUNDING_LOAN("众筹放款"),
-    FUNDING_REWARD("众筹奖励"),
+    FUNDINGPROJECT("众筹项目"),
+    FUNDINGINVEST("众筹投资"),
+    PROJECTLOAN("众筹放款"),
+    FUNDINGREWARD("众筹奖励"),
     /**
      * 其他
      */
