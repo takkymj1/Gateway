@@ -4,11 +4,10 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model;
+package com.creditcloud.ump.model.settle;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.ump.model.ump.enums.SettleRecordState;
-import com.creditcloud.ump.model.ump.enums.UmpSettleType;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,17 +19,21 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class UmpSettleRecord extends BaseObject {
+public class UmpRechargeSettleRecord extends BaseObject{
     
-    private String id;
+    private String orderId;
+    
+    private String merDate;
+    
+    private String accountId;
+    
+    private String accountName;
+    
+    private BigDecimal amount;
     
     private String settleDate;
     
-    private UmpSettleType settleType;
+    private String settleTime;
     
-    private SettleRecordState state;
-    
-    private String startTime;
-    
-    private String endTime;
+    private String transactionId;
 }

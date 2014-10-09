@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.ump.model;
+package com.creditcloud.ump.model.settle;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
