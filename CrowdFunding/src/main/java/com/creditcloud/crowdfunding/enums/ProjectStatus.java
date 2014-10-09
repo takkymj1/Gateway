@@ -15,7 +15,7 @@ public enum ProjectStatus implements BaseEnum {
 
     INITIATED("初始"),
     SCHEDULED("已安排"),
-    OPENED("众筹中 "),
+    OPENED("众筹中"),
     FINISHED("项目成功"),
     FAILED("项目失败"),
     LOAN("放款中"),

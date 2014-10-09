@@ -12,6 +12,7 @@ import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,12 +39,14 @@ public class FundingProject extends BaseObject {
      * project proposer
      */
     @NotNull
+    @FormParam("userId")
     private String userId;
 
     /**
      * goal amount
      */
     @NotNull
+    @FormParam("goalAmount")
     private BigDecimal goalAmount;
 
     /**
@@ -66,18 +69,23 @@ public class FundingProject extends BaseObject {
      * time unit:hour
      */
     @NotNull
+    @FormParam("timeOut")
     private int timeOut;
 
     /**
      * video url
      */
+    @FormParam("videoUrl")
     private String videoUrl;
 
     @NotNull
+    @FormParam("introduction")
     private String introduction;
 
+    @FormParam("detail")
     private String detail;
 
+    @FormParam("location")
     private String location;
 
     private ProjectCategory category;
