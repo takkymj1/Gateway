@@ -90,11 +90,9 @@ public interface CrowdFundingService extends CrowdFundingQueryService {
      * @param clientCode
      * @param projectId
      * @param status
-     * @param bidNumber
-     * @param bidAmount
      * @return 
      */
-    public boolean markProjectStatus(String clientCode, String projectId, ProjectStatus status, int raiseNumber, BigDecimal raiseAmount);
+    public boolean markProjectStatus(String clientCode, String projectId, ProjectStatus status);
             
     /**
      *

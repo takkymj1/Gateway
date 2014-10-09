@@ -15,6 +15,7 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -123,6 +124,16 @@ public interface CrowdFundingQueryService {
                                     List<InvestStatus> statusList);
 
     /**
+     * sum invest by project
+     *
+     * @param clientCode
+     * @param projectId
+     * @param statusList
+     * @return
+     */
+    public BigDecimal sumInvestByProject(String clientCode, String projectId, List<InvestStatus> statusList);
+
+    /**
      *
      * @param clientCode
      * @param rewardId
@@ -177,4 +188,5 @@ public interface CrowdFundingQueryService {
      * @return
      */
     public List<ProjectLoan> listLoanByProject(String clientCode, String projectId);
+
 }
