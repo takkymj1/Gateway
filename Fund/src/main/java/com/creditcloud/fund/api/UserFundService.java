@@ -9,7 +9,6 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
-import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -105,6 +104,34 @@ public interface UserFundService {
                                BigDecimal inAmount,
                                String loanUserId,
                                BigDecimal outAmount);
+    
+    /**
+     * 用于联动支付中，借款人还款至标的账户，但尚未返款给投资人
+     * 
+     * @param clientCode
+     * @param loanUserId
+     * @param repayAmount 从借款人可用金额中扣除
+     * @return 
+     */
+    public boolean repayOnly(String clientCode,
+                             String loanUserId,
+                             BigDecimal repayAmount);
+    
+    /**
+     * 用于联动支付中，从标的账户返款给投资人
+     * 
+     * @param clientCode
+     * @param investUserId 投资人
+     * @param repayAmount  还款金额，一般是约定待还金额，必须大于0
+     * @param inAmount     投资人实际到账金额=还款金额扣除投资人费用，必须大于0
+     * @param loanUserId   借款人
+     * @return 
+     */
+    public boolean repayInvestOnly(String clientCode,
+                                   String investUserId,
+                                   BigDecimal repayAmount,
+                                   BigDecimal inAmount,
+                                   String loanUserId);
 
     /**
      * 垫付还款

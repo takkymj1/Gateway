@@ -400,6 +400,30 @@ public interface FundRecordService {
                             Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                             String orderId,
                             int period);
+    
+    /**
+     * 联动支付, 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * 不同点在于, 不记录还款者的记录
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     * @param period
+     */
+    void repayInvestRecord2Ump(String clientCode,
+                               String investUserId,
+                               String investId,
+                               BigDecimal repayAmount,
+                               String loanUserId,
+                               String loanId,
+                               Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                               String orderId,
+                               int period);
 
     /**
      * 垫付成功生成对应的record
