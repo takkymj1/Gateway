@@ -6,11 +6,10 @@
 package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
-import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.model.enums.loan.InvestStatus;
-import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -18,7 +17,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface CrowdFundingService extends CrowdFundingQueryService {
+public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFundingTradeService {
 
     /**
      *
@@ -35,7 +34,7 @@ public interface CrowdFundingService extends CrowdFundingQueryService {
      * @return
      */
     public FundingProject updateProject(String clientCode, FundingProject project);
-    
+
     /**
      *
      * @param clientCode
@@ -80,30 +79,22 @@ public interface CrowdFundingService extends CrowdFundingQueryService {
     /**
      *
      * @param clientCode
-     * @param invest
-     * @return
-     */
-    public FundingInvest addInvest(String clientCode, FundingInvest invest);
-
-    /**
-     * 
-     * @param clientCode
      * @param projectId
      * @param status
-     * @return 
+     * @return
      */
     public boolean markProjectStatus(String clientCode, String projectId, ProjectStatus status);
-            
+
     /**
      *
      * @param clientCode
      * @param currentStatus current status
-     * @param newStatus        status after update
+     * @param newStatus     status after update
      * @param investIds
      * @return
      */
     public boolean markInvestStatus(String clientCode,
                                     InvestStatus currentStatus,
                                     InvestStatus newStatus,
-                                    String... investIds);
+                                    List<String> investIds);
 }
