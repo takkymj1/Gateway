@@ -7,6 +7,7 @@
 package com.creditcloud.ump.model;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,6 @@ public class UmpTenderRecord extends BaseObject {
     
     private String tenderState;
     
-    private String balance;
+    private BigDecimal balance;
 
 }
