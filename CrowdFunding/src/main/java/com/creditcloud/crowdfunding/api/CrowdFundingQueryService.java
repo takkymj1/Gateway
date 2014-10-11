@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectCategory;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.model.FavoriteProject;
 import com.creditcloud.crowdfunding.model.FundingInvest;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
@@ -188,5 +189,23 @@ public interface CrowdFundingQueryService {
      * @return
      */
     public List<ProjectLoan> listLoanByProject(String clientCode, String projectId);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FavoriteProject> listFavoriteByUser(String clientCode, String userId, PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FavoriteProject> listFavoriteByProject(String clientCode, String projectId, PageInfo pageInfo);
 
 }

@@ -83,6 +83,8 @@ public class FundingProject extends BaseObject {
     private ProjectCategory category;
 
     private ProjectSubCategory subCategory;
+    
+    private int favorite;
 
     public FundingProject(String id,
                           String title,
