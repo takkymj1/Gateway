@@ -22,10 +22,19 @@ public interface CrowdFundingTradeService {
     public FundingInvest prepareInvest(String clientCode, FundingInvest invest);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param investId
-     * @return 
+     * @return
      */
     public boolean finishInvest(String clientCode, String investId);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param userId
+     * @return
+     */
+    public boolean markFavorite(String clientCode, String projectId, String userId);
 }
