@@ -5,6 +5,7 @@
  */
 package com.creditcloud.crowdfunding.api;
 
+import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
@@ -97,4 +98,24 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
                                     InvestStatus currentStatus,
                                     InvestStatus newStatus,
                                     List<String> investIds);
+
+    /**
+     *
+     * @param clientCode
+     * @param loanId
+     * @param status
+     * @return
+     */
+    public boolean markLoanStatus(String clientCode,
+                                  String loanId,
+                                  ProjectLoanStatus status);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param userId
+     * @return
+     */
+    public boolean markFavorite(String clientCode, String projectId, String userId);
 }
