@@ -67,18 +67,14 @@ public class FundingInvest extends BaseObject {
                          BigDecimal amount,
                          String rewardId,
                          String userId,
-                         String message,
-                         Date submitTime,
-                         String deliveryDetail) {
+                         Date submitTime) {
         this.id = id;
         this.projectId = projectId;
         this.status = status;
         this.amount = amount;
         this.rewardId = rewardId;
         this.userId = userId;
-        this.message = message;
         this.submitTime = submitTime;
-        this.deliveryDetail = deliveryDetail;
     }
 
 }
