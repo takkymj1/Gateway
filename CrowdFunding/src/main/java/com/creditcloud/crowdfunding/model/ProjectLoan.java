@@ -65,14 +65,12 @@ public class ProjectLoan extends BaseObject {
                        int ordinal,
                        ProjectLoanStatus status,
                        BigDecimal loanAmount,
-                       BigDecimal leftAmount,
                        Date timeRecorded) {
         this.id = id;
         this.projectId = projectId;
         this.status = status;
         this.ordinal = ordinal;
         this.loanAmount = loanAmount;
-        this.leftAmount = leftAmount;
         this.timeRecorded = timeRecorded;
     }
 }
