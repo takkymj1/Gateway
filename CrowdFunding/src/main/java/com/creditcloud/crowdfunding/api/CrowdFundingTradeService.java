@@ -36,5 +36,5 @@ public interface CrowdFundingTradeService {
      * @param userId
      * @return
      */
-    public boolean favorite(String clientCode, String projectId, String userId);
+    public boolean markFavorite(String clientCode, String projectId, String userId);
 }
