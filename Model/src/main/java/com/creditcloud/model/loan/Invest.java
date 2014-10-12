@@ -9,6 +9,7 @@ import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -70,6 +71,8 @@ public class Invest extends BaseObject {
      * 原始投标金额
      */
     private BigDecimal originalAmount;
+    
+    private LoanPurpose purpose;
 
     public Invest(String id,
                   User user,
