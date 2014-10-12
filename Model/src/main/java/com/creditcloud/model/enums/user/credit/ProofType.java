@@ -105,7 +105,14 @@ public enum ProofType implements BaseEnum {
      */
     OTHER_SINA_WEIBO("新浪微博", CertificateType.OTHERS),
     OTHER_TECENT_WEIBO("腾讯微博", CertificateType.OTHERS),
-    OTHER_QQ("腾讯QQ", CertificateType.OTHERS);
+    OTHER_QQ("腾讯QQ", CertificateType.OTHERS),
+    /**
+     * 众筹
+     */
+    FUNDINGPROJECT_BANNER("首屏图片", CertificateType.CROWDFUNDING),
+    FUNDINGPROJECT_PRE("预热图片", CertificateType.CROWDFUNDING),
+    FUNDINGPROJECT_PROJECT("项目图片", CertificateType.CROWDFUNDING),
+    FUNDINGPROJECT_MOBILE("移动端图片", CertificateType.CROWDFUNDING);
 
     private final String key;
 
@@ -160,6 +167,27 @@ public enum ProofType implements BaseEnum {
             return false;
         }
         for (CertificateType ct : CertificateType.getLoanRequestCertificate()) {
+            if (ct.equals(type.getCertificateType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 查看是否是跟借款申请相关的认证
+     *
+     * @param type
+     * @return
+     */
+    public static boolean isCrowdfundingProof(ProofType type) {
+        if (type == null) {
+            return false;
+        }
+        if (isSpecialGeneralProof(type)) {
+            return false;
+        }
+        for (CertificateType ct : CertificateType.getCrowdfundingCertificate()) {
             if (ct.equals(type.getCertificateType())) {
                 return true;
             }

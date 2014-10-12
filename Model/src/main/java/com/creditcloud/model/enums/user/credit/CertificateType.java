@@ -27,6 +27,7 @@ public enum CertificateType implements BaseEnum {
     LOANPURPOSE("借款用途认证"),//跟借款挂钩
     GUARANTEE("担保认证"),//跟借款挂钩
     FACTORING("保理认证"),//跟借款挂钩
+    CROWDFUNDING("众筹相关"),//跟众筹挂钩
     OTHERS("其他认证");
 
     private final String key;
@@ -38,6 +39,8 @@ public enum CertificateType implements BaseEnum {
                                                                                                           CAREER, REALESTATE, LOCATION, VEHICLE, OTHERS));
 
     private static final List<CertificateType> LOANREQUEST_TYPES = Collections.unmodifiableList(Arrays.asList(LOANPURPOSE, GUARANTEE, FACTORING));
+
+    private static final List<CertificateType> CROWDFUNDING_TYPES = Collections.unmodifiableList(Arrays.asList(CROWDFUNDING));
 
     private CertificateType(String key) {
         this.key = key;
@@ -68,5 +71,14 @@ public enum CertificateType implements BaseEnum {
      */
     public static List<CertificateType> getLoanRequestCertificate() {
         return LOANREQUEST_TYPES;
+    }
+
+    /**
+     * 获取跟众筹相关的认证类型
+     *
+     * @return
+     */
+    public static List<CertificateType> getCrowdfundingCertificate() {
+        return CROWDFUNDING_TYPES;
     }
 }
