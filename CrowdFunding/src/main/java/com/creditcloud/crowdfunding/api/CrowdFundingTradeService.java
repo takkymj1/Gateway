@@ -37,9 +37,10 @@ public interface CrowdFundingTradeService {
      * @param clientCode
      * @param projectId
      * @param amount
+     * @param orderId
      * @return
      */
-    public PrepareLoanResult prepareLoan(String clientCode, String projectId, BigDecimal amount);
+    public PrepareLoanResult prepareLoan(String clientCode, String projectId, BigDecimal amount, String orderId);
 
     /**
      *
