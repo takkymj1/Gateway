@@ -61,6 +61,12 @@ public class FundingInvest extends BaseObject {
      */
     private String deliveryDetail;
 
+    /**
+     * record orderId related to this invest</p>
+     * TODO not persistent now
+     */
+    private String orderId;
+
     public FundingInvest(String id,
                          String projectId,
                          InvestStatus status,
