@@ -106,6 +106,7 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @param status
      * @return
      */
+    @Deprecated
     public boolean markLoanStatus(String clientCode,
                                   String loanId,
                                   ProjectLoanStatus status);

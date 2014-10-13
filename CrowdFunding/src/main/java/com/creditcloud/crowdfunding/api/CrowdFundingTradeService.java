@@ -5,8 +5,8 @@
  */
 package com.creditcloud.crowdfunding.api;
 
-import com.creditcloud.crowdfunding.enums.PrepareLoanResult;
 import com.creditcloud.crowdfunding.model.FundingInvest;
+import com.creditcloud.crowdfunding.model.PrepareLoanResult;
 import java.math.BigDecimal;
 
 /**
