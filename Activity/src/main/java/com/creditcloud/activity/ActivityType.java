@@ -65,7 +65,13 @@ public enum ActivityType implements BaseEnum {
     /**
      * 工单类活动
      */
-    TICKET_REVIEW("审核工单", Realm.TICKET);
+    TICKET_REVIEW("审核工单", Realm.TICKET),
+    
+    /**
+     * 众筹类
+     */
+    FUNDING_PROJECT_OPEN("众筹开放",Realm.FUNDINGPROJECT),
+    FUNDING_PROJECT_LOAN("众筹放款",Realm.PROJECTLOAN);
 
     private final String key;
 
