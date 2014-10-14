@@ -17,6 +17,7 @@ public enum ProjectLoanResult implements BaseEnum {
     INSUFFICIENT_BALANCE("可放款余额不足"),
     INVALID_STATUS("不可放款状态"),
     SUCCESSFUL("成功"),
+    REDUNDANT_LOAN("重复放款"),
     FAILED("失败");
 
     private final String key;
