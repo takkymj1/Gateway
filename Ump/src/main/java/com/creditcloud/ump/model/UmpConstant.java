@@ -8,6 +8,8 @@ package com.creditcloud.ump.model;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
 
 /**
  *
@@ -62,4 +64,10 @@ public interface UmpConstant {
     int UMP_TENDER_ID_LENGTH = 32;
     
     BigDecimal FEE_BIND_CARD = new BigDecimal("0.01", new MathContext(2));
+    
+    String TENDER_NAME = "UMP_TENDER";
+    
+    BigDecimal TENDER_MAX_AMOUNT = new BigDecimal("99999999");
+    
+    LocalDate TENDER_MAX_EXPIRE = DateTimeFormat.forPattern(MER_DATE_FORMAT).parseLocalDate("20991231");
 }
