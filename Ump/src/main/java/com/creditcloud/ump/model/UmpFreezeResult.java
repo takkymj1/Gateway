@@ -17,7 +17,7 @@ import lombok.ToString;
 @Data
 @ToString(callSuper=true)
 @XmlRootElement
-public class UmpTransferResult extends UmpResult {
+public class UmpFreezeResult extends UmpResult {
         
     private String orderId;
     
@@ -27,11 +27,11 @@ public class UmpTransferResult extends UmpResult {
     
     private String merCheckDate;
 
-    public UmpTransferResult(UmpResultType umpResultType,
-                             String orderId,
-                             String merDate,
-                             String tradeNo,
-                             String merCheckDate) {
+    public UmpFreezeResult(UmpResultType umpResultType,
+                           String orderId,
+                           String merDate,
+                           String tradeNo,
+                           String merCheckDate) {
         super(umpResultType);
         this.orderId = orderId;
         this.merDate = merDate;
@@ -39,14 +39,14 @@ public class UmpTransferResult extends UmpResult {
         this.merCheckDate = merCheckDate;
     }
     
-    public UmpTransferResult(String orderId,
-                             String merDate,
-                             String tradeNo,
-                             String merCheckDate) {
+    public UmpFreezeResult(String orderId,
+                           String merDate,
+                           String tradeNo,
+                           String merCheckDate) {
         this(UmpResultType.SUCCESS, orderId, merDate, tradeNo, merCheckDate);
     }
     
-    public UmpTransferResult(UmpResultType umpResultType) {
+    public UmpFreezeResult(UmpResultType umpResultType) {
         super(umpResultType);
     }
 }
