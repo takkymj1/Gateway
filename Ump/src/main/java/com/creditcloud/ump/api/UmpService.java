@@ -53,6 +53,8 @@ public interface UmpService {
     
     public UmpCreateAccountResult createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
     
+    public UmpCreateAccountResult updateUmpMobileId(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
+    
     public UmpAccount getUmpAccount(String clientCode, String userId);
     
     public String getUserIdByAccountName(String clientCode, String accountName);
