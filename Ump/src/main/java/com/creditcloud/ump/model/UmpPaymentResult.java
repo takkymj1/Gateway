@@ -6,7 +6,6 @@
 
 package com.creditcloud.ump.model;
 
-import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.ToString;
@@ -18,32 +17,38 @@ import lombok.ToString;
 @Data
 @ToString
 @XmlRootElement
-public class UmpPaymentResult extends BaseObject {
+public class UmpPaymentResult extends UmpResult {
     
-    public static final UmpPaymentResult NETWORK_ERROR = new UmpPaymentResult("-1", "网络错误");
-    public static final UmpPaymentResult SUCCESS = new UmpPaymentResult(UmpConstant.SUCCESS_CODE, UmpConstant.SUCCESS_MSG);
+    public static final UmpPaymentResult SUCCESS = new UmpPaymentResult(UmpResultType.SUCCESS);
     
-    private String retCode;
+    private String orderId;
+    
+    private String merDate;
+    
+    private String tradeNo;
+    
+    private String merCheckDate;
 
-    private String retDesc;
-    
-    private String transactionId;
-
-    public UmpPaymentResult() {
+    public UmpPaymentResult(UmpResultType umpResultType,
+                            String orderId,
+                            String merDate,
+                            String tradeNo,
+                            String merCheckDate) {
+        super(umpResultType);
+        this.orderId = orderId;
+        this.merDate = merDate;
+        this.tradeNo = tradeNo;
+        this.merCheckDate = merCheckDate;
     }
-
-    public UmpPaymentResult(String retCode, String retDesc) {
-        this.retCode = retCode;
-        this.retDesc = retDesc;
-    }
-
-    public UmpPaymentResult(String retCode, String retDesc, String transactionId) {
-        this.retCode = retCode;
-        this.retDesc = retDesc;
-        this.transactionId = transactionId;
-    } 
     
-    public boolean success() {
-        return UmpConstant.SUCCESS_CODE.equals(retCode);
+    public UmpPaymentResult(String orderId,
+                           String merDate,
+                           String tradeNo,
+                           String merCheckDate) {
+        this(UmpResultType.SUCCESS, orderId, merDate, tradeNo, merCheckDate);
+    }
+    
+    public UmpPaymentResult(UmpResultType umpResultType) {
+        super(umpResultType);
     }
 }
