@@ -39,7 +39,8 @@
         <module>Fuiou</module>
         <module>Ump</module>
         <module>Redis</module>
-	    <module>CrowdFunding</module>
-    <module>WealthProduct</module>
-  </modules>
+        <module>CrowdFunding</module>
+        <module>WealthProduct</module>
+        <module>VirtualAccount</module>
+    </modules>
 </project>
