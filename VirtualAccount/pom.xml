@@ -9,7 +9,7 @@
         <relativePath></relativePath>
     </parent>
     
-    <groupId>com.creditcloud.accountmanager</groupId>
+    <groupId>com.creditcloud.va</groupId>
     <artifactId>VirtualAccount</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
