@@ -32,7 +32,8 @@ public enum BidResult implements BaseEnum {
     /**
      * 投标金额对应的奖励找不到
      */
-    REWARD_NOT_FOUND("没有投标金额对应的奖励");
+    REWARD_NOT_FOUND("没有投标金额对应的奖励"),
+    EXCEED_REWARD_LIMIT("超过奖励限额");
 
     private final String key;
 
