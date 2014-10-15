@@ -400,7 +400,7 @@ public interface FundRecordService {
                             Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                             String orderId,
                             int period);
-    
+
     /**
      * 联动支付, 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
      * 不同点在于, 不记录还款者的记录
@@ -546,4 +546,23 @@ public interface FundRecordService {
     boolean checkFss(String clientCode,
                      String userId,
                      String orderId);
+
+    /**
+     * 众筹项目投资结算放款</p>
+     * TODO for ump only now
+     *
+     * @param clientCode
+     * @param investList
+     * @param loanId
+     * @param loanUserId
+     * @param loanAmount
+     * @param orderId
+     * @return
+     */
+    boolean finishProjectLoan(String clientCode,
+                              List<Pair<String, String>> investList,
+                              String loanId,
+                              String loanUserId,
+                              BigDecimal loanAmount,
+                              String orderId);
 }

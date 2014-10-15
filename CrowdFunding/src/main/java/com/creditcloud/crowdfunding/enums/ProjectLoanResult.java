@@ -11,16 +11,18 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum PrepareLoanResult implements BaseEnum {
+public enum ProjectLoanResult implements BaseEnum {
 
     INVALID_AMOUNT("放款金额有误"),//如-1,0 
-    BALANCE_INSUFFICIENT("可放款余额不足"),
+    INSUFFICIENT_BALANCE("可放款余额不足"),
+    INVALID_STATUS("不可放款状态"),
     SUCCESSFUL("成功"),
+    REDUNDANT_LOAN("重复放款"),
     FAILED("失败");
 
     private final String key;
 
-    private PrepareLoanResult(String key) {
+    private ProjectLoanResult(String key) {
         this.key = key;
     }
 

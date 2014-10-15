@@ -1,5 +1,6 @@
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
 
 /*
@@ -82,5 +83,15 @@ public class NumberUtils {
         }
 
         return amount >= from && amount <= to;
+    }
+
+    /**
+     * standard usage for convert BidDecimal to String in creditcloud
+     *
+     * @param amount
+     * @return
+     */
+    public String decimalToString(BigDecimal amount) {
+        return amount.setScale(NumberConstant.DEFAULT_SCALE).toPlainString();
     }
 }

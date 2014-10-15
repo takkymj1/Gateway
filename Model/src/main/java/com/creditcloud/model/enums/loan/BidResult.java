@@ -28,7 +28,12 @@ public enum BidResult implements BaseEnum {
     INVALID_AMOUNT("投资金额不合规，请查看产品说明"),
     SELF_BID_FORBIDDEN("不能投给自己"),
     BID_FORBIDDEN("不满足投标条件"),
-    FAILED("其他原因失败");
+    FAILED("其他原因失败"),
+    /**
+     * 投标金额对应的奖励找不到
+     */
+    REWARD_NOT_FOUND("没有投标金额对应的奖励"),
+    EXCEED_REWARD_LIMIT("超过奖励限额");
 
     private final String key;
 

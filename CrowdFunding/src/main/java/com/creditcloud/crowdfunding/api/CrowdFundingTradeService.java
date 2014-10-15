@@ -5,8 +5,8 @@
  */
 package com.creditcloud.crowdfunding.api;
 
-import com.creditcloud.crowdfunding.enums.PrepareLoanResult;
 import com.creditcloud.crowdfunding.model.FundingInvest;
+import com.creditcloud.crowdfunding.model.PrepareLoanResult;
 import java.math.BigDecimal;
 
 /**
@@ -37,9 +37,10 @@ public interface CrowdFundingTradeService {
      * @param clientCode
      * @param projectId
      * @param amount
+     * @param orderId
      * @return
      */
-    public PrepareLoanResult prepareLoan(String clientCode, String projectId, BigDecimal amount);
+    public PrepareLoanResult prepareLoan(String clientCode, String projectId, BigDecimal amount, String orderId);
 
     /**
      *

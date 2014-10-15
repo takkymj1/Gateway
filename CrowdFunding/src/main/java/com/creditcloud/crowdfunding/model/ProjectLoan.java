@@ -51,7 +51,7 @@ public class ProjectLoan extends BaseObject {
     /**
      * left amount not loaned
      */
-    @NotNull
+    @Transient
     private BigDecimal leftAmount;
 
     /**
@@ -59,7 +59,14 @@ public class ProjectLoan extends BaseObject {
      */
     @Transient
     private BigDecimal totalAmount;
-
+    
+    /**
+     * order
+     */
+    private String orderId;
+    
+    private String description;
+    
     public ProjectLoan(String id,
                        String projectId,
                        int ordinal,
