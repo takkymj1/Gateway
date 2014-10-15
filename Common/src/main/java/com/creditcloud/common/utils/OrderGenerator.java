@@ -8,7 +8,7 @@ package com.creditcloud.common.utils;
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
- * TODO this generator should be replaced with an unified service
+ * TODO this generator should be replaced with a service
  *
  * @author rooseek
  */
@@ -18,7 +18,7 @@ public class OrderGenerator {
     private static final int DEFAULT_ORDER_LENGHT = 20;
 
     /**
-     * generate random numeric order, default length 20
+     * generate random numeric order, with default length 
      *
      * @return
      */
@@ -26,7 +26,8 @@ public class OrderGenerator {
         return order(DEFAULT_ORDER_LENGHT);
     }
 
-    public static String order(int length) {
+    
+    private static String order(int length) {
         return RandomStringUtils.randomNumeric(length);
     }
 }
