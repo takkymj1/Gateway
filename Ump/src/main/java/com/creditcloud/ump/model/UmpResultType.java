@@ -31,6 +31,7 @@ public class UmpResultType extends BaseObject {
     public static final UmpResultType NETWORK_ERROR = new UmpResultType("001", "网络错误");
     public static final UmpResultType ACCOUNT_EXIST = new UmpResultType("002", "三方账户已存在");
     public static final UmpResultType ACCOUNT_NOT_EXIST = new UmpResultType("003", "三方账户不存在");
+    public static final UmpResultType NOT_SUPPORT_YET = new UmpResultType("004", "功能尚未开放");
     
     @NotNull
     private String retCode;
