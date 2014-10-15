@@ -15,7 +15,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class OrderGenerator {
 
     //for pnr order length
-    private static final int DEFAULT_ORDER_LENGHT = 20;
+    private static final int DEFAULT_ORDER_LENGTH = 20;
 
     /**
      * generate random numeric order, with default length 
@@ -23,7 +23,7 @@ public class OrderGenerator {
      * @return
      */
     public static String order() {
-        return order(DEFAULT_ORDER_LENGHT);
+        return order(DEFAULT_ORDER_LENGTH);
     }
 
     
