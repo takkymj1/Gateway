@@ -9,7 +9,9 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import lombok.Data;
 
 /**
@@ -29,11 +31,23 @@ public class VirtualAccount extends BaseObject {
      */
     @NotNull
     private RealmEntity owner;
+    
+    /**
+     * 是否该所有者名下的主虚拟账户
+     */
+    private boolean primary;
 
     /**
      * 当前余额
      */
     @NotNull
     private BigDecimal balance;
+    
+    /**
+     * 余额最后变动时间
+     */
+    @NotNull
+    @Past
+    private Date lastModified;
 
 }
