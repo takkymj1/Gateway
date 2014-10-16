@@ -12,6 +12,10 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum BidResult implements BaseEnum {
 
+    /**
+     * 只表示投标的前置条件都满足,可以投标，并不代表最终投标能否成功
+     */
+    PRECONDITION_MEET("满足投标前置条件"),
     SUCCESSFUL("投标成功，资金被冻结"),
     PARTLY_SUCCESSFUL("投资成功,资金被冻结"),//但可贷款余额不足,只能满足部分投资
     BID_NOT_OPEN("贷款标没有开始,或者已经结束"),
@@ -33,7 +37,7 @@ public enum BidResult implements BaseEnum {
      * 投标金额对应的奖励找不到
      */
     REWARD_NOT_FOUND("没有投标金额对应的奖励"),
-    EXCEED_REWARD_LIMIT("超过奖励限额");
+    REWARD_EXCEED_LIMIT("超过奖励限额");
 
     private final String key;
 
