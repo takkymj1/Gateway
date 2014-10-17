@@ -10,6 +10,7 @@ import com.creditcloud.va.model.VirtualAccount;
 import com.creditcloud.va.model.VirtualBookingRecord;
 import com.creditcloud.va.model.VirtualCashRecord;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -28,6 +29,7 @@ public interface VirtualAccountService {
     VirtualAccount getMainAccount();
     
     /**
+
      * 结算操作
      * 
      * @param cashRecord 需结算的账目
@@ -75,5 +77,20 @@ public interface VirtualAccountService {
      */
     VirtualAccount saveVirtualAccount(VirtualAccount virtualAccount);
     
-     
+     /*
+     * 获取某个Owner的虚拟账户列表.
+     * 
+     * @param owner 虚拟账户所有者
+     * @return 
+     */
+    List<VirtualAccount> listVirtualAccountsByOwner(RealmEntity owner);
+    
+    /**
+     * 获取某个Owner的主要虚拟账户
+     * 
+     * @param owner
+     * @return 
+     */
+    VirtualAccount getPrimaryVirtualAccountByOwner(RealmEntity owner);
+
 }

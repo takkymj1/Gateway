@@ -52,12 +52,7 @@ public enum FundRecordType implements BaseEnum {
     /**
      * 生利宝
      */
-    FSS("生利宝"),
-    /**
-     * Crowd funding
-     */
-    CROWD_FUNDING_INVEST("众筹投资"),
-    CROWD_FUNDING_LOAN("众筹放款"),;
+    FSS("生利宝");
 
     private final String key;
 
