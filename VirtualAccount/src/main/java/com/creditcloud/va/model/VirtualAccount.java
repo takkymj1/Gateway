@@ -44,15 +44,17 @@ public class VirtualAccount extends BaseObject {
     private BigDecimal balance;
     
     /**
+     * 是否主账户
+     */
+    @NotNull
+    private Boolean isMain;
+    
+    /**
      * 余额最后变动时间
      */
     @NotNull
     @Past
     private Date lastModified;
-    
-
-    @NotNull
-    private Boolean isMain;
     
     public VirtualAccount(){}
     
