@@ -11,6 +11,7 @@ import com.creditcloud.va.model.VirtualBookingRecord;
 import com.creditcloud.va.model.VirtualCashRecord;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.misc.ResultMessage;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -34,7 +35,7 @@ public interface VirtualAccountService {
      * 
      * @param cashRecord 需结算的账目
      */
-    void AccountSettle(VirtualCashRecord cashRecord);
+    ResultMessage AccountSettle(VirtualCashRecord cashRecord);
     
     /**
      * 
