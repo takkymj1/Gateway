@@ -33,7 +33,6 @@ public abstract class AbstractEncryptConverter implements Converter {
                 return cipher.encrypt((String) objectValue);
             } catch (GeneralSecurityException ex) {
                 logger.error("Can't encrypt objectValue.[objectValue={}]", (String) objectValue, ex);
-                System.out.println("Can't encrypt objectValue.[objectValue={" + (String) objectValue + "}]");
             }
         }
         return objectValue;
@@ -46,7 +45,6 @@ public abstract class AbstractEncryptConverter implements Converter {
                 return cipher.decrypt((String) dataValue);
             } catch (GeneralSecurityException ex) {
                 logger.error("Can't decrypt dataValue.[dataValue={}]", (String) dataValue, ex);
-                System.out.println("Can't decrypt dataValue.[dataValue={" + (String) dataValue + "}]");
             }
         }
         return dataValue;

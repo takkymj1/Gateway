@@ -63,8 +63,4 @@ public class BankCardType {
 
         return null;
     }
-
-    public static void main(String[] args) {
-        System.out.println(getBankCardTypeByNumber(""));
-    }
 }
