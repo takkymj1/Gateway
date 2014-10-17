@@ -534,6 +534,5 @@ public enum City implements BaseEnum {
     public static void main(String[] args) {
         String encoding = System.getProperty("file.encoding");
         String rate = (float)1440 / (float)100 + "%";
-        System.out.println(rate);
     }
 }
