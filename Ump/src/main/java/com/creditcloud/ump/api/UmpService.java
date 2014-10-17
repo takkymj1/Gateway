@@ -70,6 +70,17 @@ public interface UmpService {
     public UmpPaymentResult submitEntWithdrawal(String clientCode, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
     
     /**
+     * 无密充值: 个人用户的无密充值，需签订无密借记卡快捷充值
+     */
+    public UmpTransferResult rechargeNoPwd(String clientCode,
+                                           String notify_url,
+                                           String orderId,
+                                           LocalDate merDate,
+                                           String umpAccountName,
+                                           String umpAccountId,
+                                           BigDecimal amount);
+    
+    /**
      * 无密转账: 支持P2P平台对个人用户(对私)和企业用户(对公)转账, 企业用户(对公)对P2P平台转账
      */
     public UmpTransferResult transferNoPwd(String clientCode,
