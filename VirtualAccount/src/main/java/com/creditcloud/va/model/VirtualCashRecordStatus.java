@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.va.model;
 
 import com.creditcloud.model.enums.BaseEnum;
 
-
 /**
- * 虚拟账户交易类型
+ * 现金账目状态
  * 
- * @author sobranie
+ * @author hfp
  */
-public enum VirtualBookingRecordType implements BaseEnum {
+public enum VirtualCashRecordStatus implements BaseEnum{
 
-    COMPENSATORY("代偿");
+    SETTLEED("已结算"),
+    
+    UNSETTLRD("未结算");
         
     private String key;
-
-    private VirtualBookingRecordType(String key) {
+        
+    private VirtualCashRecordStatus(String key){
         this.key = key;
     }
 
@@ -27,4 +29,5 @@ public enum VirtualBookingRecordType implements BaseEnum {
     public String getKey() {
         return key;
     }
+    
 }

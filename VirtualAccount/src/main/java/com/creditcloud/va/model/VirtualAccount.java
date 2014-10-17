@@ -35,5 +35,17 @@ public class VirtualAccount extends BaseObject {
      */
     @NotNull
     private BigDecimal balance;
+    
+    @NotNull
+    private Boolean isMain;
+    
+    public VirtualAccount(){}
+    
+    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isMain){
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+        this.isMain = isMain;
+    }
 
 }
