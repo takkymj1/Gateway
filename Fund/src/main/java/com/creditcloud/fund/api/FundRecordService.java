@@ -353,7 +353,27 @@ public interface FundRecordService {
                              String loanId,
                              Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                              String orderId);
-
+    /**
+     * 联动支付，与上面的不同为不记录借款人的记录
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param investAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     */
+    void settleInvestRecord2Ump(String clientCode,
+                                String investUserId,
+                                String investId,
+                                BigDecimal investAmount,
+                                String loanUserId,
+                                String loanId,
+                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                                String orderId);
+    
     /**
      * 还款成功生成对应的record
      *
