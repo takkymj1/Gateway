@@ -14,10 +14,10 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum ProjectStatus implements BaseEnum {
 
     INITIATED("初始"),
-    SCHEDULED("已安排"),
+    SCHEDULED("待发布"),
     OPENED("众筹中"),
-    FINISHED("项目成功"),
-    FAILED("项目失败"),
+    FINISHED("筹款成功"),
+    FAILED("筹款失败"),
     LOAN("放款中"),
     SETTLED("全部放款"),
     DELIVERED("奖励回报已发送"),
