@@ -10,7 +10,9 @@ import com.creditcloud.model.user.info.FinanceInfo;
 import com.creditcloud.model.PersonalInfo;
 import com.creditcloud.model.SocialInfo;
 import com.creditcloud.model.user.info.UserInfo;
+import com.creditcloud.user.model.ShippingAddress;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -146,4 +148,53 @@ public interface UserInfoService {
      * @return
      */
     boolean validateLoanRequest(String clientCode, String userId);
+
+    /**
+     *
+     * @param clientCode
+     * @param address
+     * @return
+     */
+    ShippingAddress addAddress(String clientCode, ShippingAddress address);
+
+    /**
+     *
+     * @param clientCode
+     * @param address
+     * @return
+     */
+    ShippingAddress updateAddress(String clientCode, ShippingAddress address);
+
+    /**
+     *
+     * @param clientCode
+     * @param addressId
+     * @return
+     */
+    ShippingAddress getAddressById(String clientCode, String addressId);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    ShippingAddress getDefaultAddress(String clientCode, String userId);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
+    List<ShippingAddress> listAddressByUser(String clientCode, String userId);
+
+    /**
+     *
+     * @param clientCode
+     * @param userId
+     * @param addressId
+     * @return
+     */
+    boolean markDefaultAddress(String clientCode, String userId, String addressId);
 }
