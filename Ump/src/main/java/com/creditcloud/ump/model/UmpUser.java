@@ -7,6 +7,7 @@
 package com.creditcloud.ump.model;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,7 +39,7 @@ public class UmpUser extends BaseObject{
     
     private String accountState;
     
-    private String balance;
+    private BigDecimal balance;
     
     private String cardId;
     

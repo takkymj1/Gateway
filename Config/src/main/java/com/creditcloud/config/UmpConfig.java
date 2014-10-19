@@ -77,6 +77,13 @@ public class UmpConfig extends BaseConfig {
     private String adminRetUrl;
     
     /**
+     * 创建用于实现冻结操作的标的借款人
+     */
+    @XmlElement(required = false)
+    @Getter
+    private String freezeUserId;
+    
+    /**
      * 商户在UMP的账户
      */
     @XmlElement(name = "baseAccount", required = true) 

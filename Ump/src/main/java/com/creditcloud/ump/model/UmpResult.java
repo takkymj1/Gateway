@@ -28,4 +28,11 @@ public class UmpResult extends BaseObject {
         return UmpConstant.SUCCESS_CODE.equals(resultType.getRetCode());
     }
     
+    public String getRetCode() {
+        return resultType.getRetCode();
+    }
+    
+    public String getRetMsg() {
+        return resultType.getRetMsg();
+    }
 }

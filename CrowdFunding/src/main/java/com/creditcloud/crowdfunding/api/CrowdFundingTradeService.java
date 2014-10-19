@@ -50,4 +50,13 @@ public interface CrowdFundingTradeService {
      */
     public boolean finishLoan(String clientCode, String loanId);
 
+    /**
+     * cancel a project
+     *
+     * @param clientCode
+     * @param projectId
+     * @return
+     */
+    public boolean cancelProject(String clientCode, String projectId);
+
 }

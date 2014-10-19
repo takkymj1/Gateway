@@ -353,7 +353,27 @@ public interface FundRecordService {
                              String loanId,
                              Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                              String orderId);
-
+    /**
+     * 联动支付，与上面的不同为不记录借款人的记录
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param investAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     */
+    void settleInvestRecord2Ump(String clientCode,
+                                String investUserId,
+                                String investId,
+                                BigDecimal investAmount,
+                                String loanUserId,
+                                String loanId,
+                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                                String orderId);
+    
     /**
      * 还款成功生成对应的record
      *
@@ -467,6 +487,28 @@ public interface FundRecordService {
                                ImmutablePair<String, BigDecimal> investAmount,
                                String orderId,
                                int period);
+    
+    /**
+     * 联动支付, 垫付成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * 不同之处在于不记录商户的垫付记录
+     *
+     * @param clientCode
+     * @param investUserId
+     * @param investId
+     * @param repayAmount
+     * @param loanId
+     * @param investAmount
+     * @param orderId
+     * @param period
+     */
+    void disburseInvestRecord2Ump(String clientCode,
+                                  String investUserId,
+                                  String investId,
+                                  ImmutablePair<String, BigDecimal> repayAmount,
+                                  String loanId,
+                                  ImmutablePair<String, BigDecimal> investAmount,
+                                  String orderId,
+                                  int period);
 
     /**
      * 商户子账户之间转账
@@ -565,4 +607,23 @@ public interface FundRecordService {
                               String loanUserId,
                               BigDecimal loanAmount,
                               String orderId);
+
+    /**
+     * 取消众筹项目</p>
+     * TODO for ump only now
+     *
+     * @param clientCode
+     * @param investList
+     * @param projectId
+     * @param projectUserId
+     * @param projectAmount
+     * @param orderId
+     * @return
+     */
+    boolean cancelProject(String clientCode,
+                          List<Pair<String, String>> investList,
+                          String projectId,
+                          String projectUserId,
+                          BigDecimal projectAmount,
+                          String orderId);
 }

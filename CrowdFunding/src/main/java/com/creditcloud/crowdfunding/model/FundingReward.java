@@ -74,6 +74,11 @@ public class FundingReward extends BaseObject {
      * amount actual raised
      */
     private BigDecimal raiseAmount;
+    
+    /**
+     * 预计回报发送时间
+     */
+    private String deliveryTime;
 
     public FundingReward(String id,
                          String projectId,

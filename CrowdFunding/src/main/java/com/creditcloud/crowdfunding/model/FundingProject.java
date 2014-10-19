@@ -95,6 +95,11 @@ public class FundingProject extends BaseObject {
      * amount already loaned
      */
     private BigDecimal loanAmount;
+    
+    /**
+     * project without reward, reward is mandatory most of the time
+     */
+    private boolean noReward;
 
     public FundingProject(String id,
                           String title,
