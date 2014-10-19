@@ -34,8 +34,10 @@ public class ShippingAddress extends BaseObject {
     @RealName
     private String realName;
 
-    @MobileNumber
-    private String mobile;
+    /**
+     * 13810002000 or 010-61006200
+     */
+    private String contact;
 
     @EmailAddress
     private String email;
@@ -56,7 +58,7 @@ public class ShippingAddress extends BaseObject {
     public ShippingAddress(String id,
                            String userId,
                            String realName,
-                           String mobile,
+                           String contact,
                            String email,
                            String detail,
                            boolean defaultAddress,
@@ -64,7 +66,7 @@ public class ShippingAddress extends BaseObject {
         this.id = id;
         this.userId = userId;
         this.realName = realName;
-        this.mobile = mobile;
+        this.contact = contact;
         this.email = email;
         this.detail = detail;
         this.defaultAddress = defaultAddress;
