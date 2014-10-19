@@ -21,6 +21,7 @@ public enum ProjectStatus implements BaseEnum {
     LOAN("放款中"),
     SETTLED("全部放款"),
     DELIVERED("奖励回报已发送"),
+    ARCHIVED("已存档"),
     CANCELED("取消");
 
     private final String key;
