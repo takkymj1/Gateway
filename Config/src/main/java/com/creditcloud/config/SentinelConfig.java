@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
@@ -16,7 +15,6 @@ import lombok.NoArgsConstructor;
  * @author suetming
  */
 @NoArgsConstructor
-@Data
 @XmlRootElement(name = "SentinelConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SentinelConfig extends BaseConfig {
@@ -37,4 +35,11 @@ public class SentinelConfig extends BaseConfig {
     @XmlElement(required = false)
     public SentinelServerPool loan;
     
+    public SentinelServerPool getCommon() {
+        return common;
+    }
+    
+    public SentinelServerPool getLoan() {
+        return loan;
+    }
 }
