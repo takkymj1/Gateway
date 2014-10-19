@@ -10,6 +10,7 @@ import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.model.FavoriteProject;
 import com.creditcloud.crowdfunding.model.FundingInvest;
+import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.ProjectLoan;
@@ -119,6 +120,19 @@ public interface CrowdFundingQueryService {
      * @param clientCode
      * @param projectId
      * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingInvestInfo> listInvestInfoByProject(String clientCode,
+                                                                  String projectId,
+                                                                  List<InvestStatus> statusList,
+                                                                  PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param projectId
+     * @param statusList
      * @return
      */
     public int countInvestByProject(String clientCode,
@@ -153,6 +167,19 @@ public interface CrowdFundingQueryService {
      * @param clientCode
      * @param rewardId
      * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<FundingInvestInfo> listInvestInfoByReward(String clientCode,
+                                                                 String rewardId,
+                                                                 List<InvestStatus> statusList,
+                                                                 PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param rewardId
+     * @param statusList
      * @return
      */
     public int countInvestByReward(String clientCode,
@@ -171,6 +198,19 @@ public interface CrowdFundingQueryService {
                                                        String userId,
                                                        List<InvestStatus> statusList,
                                                        PageInfo pageInfo);
+
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param pageInfo
+     * @return 
+     */
+    public PagedResult<FundingInvest> listInvestInfoByUser(String clientCode,
+                                                           String userId,
+                                                           List<InvestStatus> statusList,
+                                                           PageInfo pageInfo);
 
     /**
      *
