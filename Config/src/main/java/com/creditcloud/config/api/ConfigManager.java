@@ -18,6 +18,7 @@ import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
+import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
@@ -63,6 +64,12 @@ public interface ConfigManager {
      */
     public RedisConfig getRedisConfig();
 
+    /**
+     * 获取 sentinel 配置
+     * @return 
+     */
+    public SentinelConfig getSentinelConfig();
+    
     /**
      * 获取安融惠众接口配置
      *
