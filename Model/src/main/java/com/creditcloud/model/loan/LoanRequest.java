@@ -153,6 +153,11 @@ public class LoanRequest extends BaseObject {
      * 担保实体，可以为用户个人、商户、企业
      */
     private RealmEntity guaranteeEntity;
+    
+     /**
+     * 原始债权
+     */
+    private RealmEntity claimEntity;
 
     /**
      * 担保情况说明

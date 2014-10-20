@@ -209,5 +209,12 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWealthProduct = false;
+    
+    /**
+     * 是否支持原始债权
+     */
+    @XmlElement
+    @Getter
+    private boolean enableClaim = false;
 
 }

@@ -58,6 +58,8 @@ public class CorporationUser extends BaseObject {
     //营业执照上的公司类型
     @Size(max = CorporationConstant.MAX_CORP_CTG_LEN)
     private String category;
+    //是否第三方机构
+    private Boolean rtpo = false;
 
     public CorporationUser(User user,
                            String name,
@@ -67,7 +69,8 @@ public class CorporationUser extends BaseObject {
                            String taxCode,
                            CorporationType type,
                            String category,
-                           String legalPersonId) {
+                           String legalPersonId,
+                           Boolean rtpo) {
         this.user = user;
         this.name = name;
         this.shortName = shortName;
@@ -77,6 +80,7 @@ public class CorporationUser extends BaseObject {
         this.type = type;
         this.category = category;
         this.legalPersonId = legalPersonId;
+        this.rtpo = rtpo;
     }
 
     public String getUserId() {
