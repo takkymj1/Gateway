@@ -118,6 +118,15 @@ public interface CrowdFundingQueryService {
     /**
      *
      * @param clientCode
+     * @param investId
+     * @return
+     */
+    public FundingInvestInfo getFundingInvestInfoById(String clientCode,
+                                                      String investId);
+
+    /**
+     *
+     * @param clientCode
      * @param projectId
      * @param statusList
      * @param pageInfo
@@ -200,17 +209,17 @@ public interface CrowdFundingQueryService {
                                                        PageInfo pageInfo);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param statusList
      * @param pageInfo
-     * @return 
+     * @return
      */
-    public PagedResult<FundingInvest> listInvestInfoByUser(String clientCode,
-                                                           String userId,
-                                                           List<InvestStatus> statusList,
-                                                           PageInfo pageInfo);
+    public PagedResult<FundingInvestInfo> listInvestInfoByUser(String clientCode,
+                                                               String userId,
+                                                               List<InvestStatus> statusList,
+                                                               PageInfo pageInfo);
 
     /**
      *
