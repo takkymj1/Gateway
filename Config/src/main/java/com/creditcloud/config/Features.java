@@ -209,9 +209,4 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWealthProduct = false;
-    
-    @XmlElement
-    @Getter
-    private boolean onlyFlushOnCommit = false;
-
 }
