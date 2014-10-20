@@ -136,6 +136,15 @@ public interface UmpService {
                                                            String retMsg);
     
     /**
+     * 是否该标的转账记录已经得到回调
+     * 
+     * @param clientCode
+     * @param orderId
+     * @return 
+     */
+    public boolean isTenderTransferAcked(String clientCode, String orderId);
+    
+    /**
      * 借款人以无密的方式(需事先在UMP账号中签订借记卡快捷协议和无密还款协议)，将还款还入标的账号 
      */
     public UmpPaymentResult repayNoPwd(String clientCode,
