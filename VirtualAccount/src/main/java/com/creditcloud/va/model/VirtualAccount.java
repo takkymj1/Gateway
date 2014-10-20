@@ -44,10 +44,26 @@ public class VirtualAccount extends BaseObject {
     private BigDecimal balance;
     
     /**
+     * 是否主账户
+     */
+    @NotNull
+    private Boolean isMain;
+    
+    /**
      * 余额最后变动时间
      */
     @NotNull
     @Past
     private Date lastModified;
+    
+    public VirtualAccount(){}
+    
+    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isMain){
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+        this.isMain = isMain;
+    }
+
 
 }

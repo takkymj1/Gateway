@@ -42,28 +42,20 @@ public class FundingInvest extends BaseObject {
     @NotNull
     private BigDecimal amount;
 
+    private BigDecimal deliveryFee;
+
     /**
      * corresponding reward
      */
-    @NotNull
     private String rewardId;
 
     @NotNull
     private String userId;
 
-    private String message;
-
     private Date submitTime;
 
     /**
-     * eg:西直门大街1号金茂中心1102室</p>
-     * or json string</p>
-     */
-    private String deliveryDetail;
-
-    /**
      * record orderId related to this invest</p>
-     * TODO not persistent now
      */
     private String orderId;
 
@@ -71,16 +63,27 @@ public class FundingInvest extends BaseObject {
                          String projectId,
                          InvestStatus status,
                          BigDecimal amount,
+                         BigDecimal deliveryFee,
                          String rewardId,
                          String userId,
-                         Date submitTime) {
+                         Date submitTime,
+                         String orderId) {
         this.id = id;
         this.projectId = projectId;
         this.status = status;
         this.amount = amount;
+        this.deliveryFee = deliveryFee;
         this.rewardId = rewardId;
         this.userId = userId;
         this.submitTime = submitTime;
+        this.orderId = orderId;
     }
 
+    public BigDecimal getDeliveryFee() {
+        return deliveryFee == null ? BigDecimal.ZERO : deliveryFee;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return amount.add(getDeliveryFee());
+    }
 }

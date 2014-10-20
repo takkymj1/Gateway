@@ -50,4 +50,5 @@ public class RedisConfig extends BaseConfig {
         }
         return pool;
     }
+    
 }

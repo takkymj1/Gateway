@@ -26,12 +26,39 @@ public class VirtualCashRecord {
     /**
      * 外部交易流水号，用于追踪实际收付款
      */
-    @NotNull
     String transactionId;
     
+    /**
+     * 金额
+     */
     @NotNull
     BigDecimal amount;
     
-    @NotNull
+    /**
+     * 结算时间
+     */
     Date timeHappened;
+    
+    /**
+     * 网银卡号
+     */
+    String transactionNo;
+    
+    VirtualCashRecordStatus virtualCashRecordStatus;
+    
+    public VirtualCashRecord(){}
+    
+    public VirtualCashRecord(String id,
+            String transactionId,
+            BigDecimal amount,
+            Date timeHappened,
+            String transactionNo,
+            VirtualCashRecordStatus virtualCashRecordStatus){
+        this.id = id;
+        this.transactionId = transactionId;
+        this.amount = amount;
+        this.timeHappened = timeHappened;
+        this.transactionNo = transactionNo;
+        this.virtualCashRecordStatus = virtualCashRecordStatus;
+    }
 }

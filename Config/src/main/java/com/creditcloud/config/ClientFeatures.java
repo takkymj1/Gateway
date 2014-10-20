@@ -46,4 +46,18 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableServiceHotline = false;
+    
+    /**
+     * Sentinel Config
+     */
+    @XmlElement
+    @Getter
+    private boolean enableServiceSentinel = false;
+    
+    /**
+     * Redis Config
+     */
+    @XmlElement
+    @Getter
+    private boolean enableServiceRedis = false;
 }

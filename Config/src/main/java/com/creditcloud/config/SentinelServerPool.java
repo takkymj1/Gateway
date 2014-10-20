@@ -19,28 +19,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RedisPoolConfig extends BaseObject {
+public class SentinelServerPool extends BaseObject {
     
-    private static final long serialVersionUID = 20140920L;
-    
-    /**
-     * 资源池最大分配的对象数
-     */
-    @XmlElement
-    @Getter
-    private int maxActive=2048;
-
-    /**
-     * 最大能够保持idel状态的对象数
-     */
-    @XmlElement
-    @Getter
-    private int maxIdle=200;
+    private static final long serialVersionUID = 20141018L;
     
     /**
-     * 当池内没有返回对象时，最大等待时间
+     * sentinel server host
      */
+    @Getter
+    @XmlElement(name = "server", required = false)
+    private SentinelServer[] server;
+    
     @XmlElement
     @Getter
-    private long maxWaitMillis=1000;
+    private String masterName;
+    
+    /**
+     * redis client resource pool
+     */
+    @XmlElement(required = false)
+    private RedisPoolConfig pool;
+    
+    public RedisPoolConfig getPoolConfig() {
+        if (pool == null) {
+            pool = new RedisPoolConfig();
+        }
+        return pool;
+    }
 }

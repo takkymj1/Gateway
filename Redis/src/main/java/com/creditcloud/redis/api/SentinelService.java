@@ -4,22 +4,23 @@
  */
 package com.creditcloud.redis.api;
 
+import com.creditcloud.model.enums.misc.CacheType;
 import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
 /**
- * redis client
+ * sentinel client
  * 
  * @author suetming
  */
 @Remote
-public interface RedisService {
+public interface SentinelService {
 
-    public void put(String key, String value);
+    public void put(CacheType type, String key, String value);
 
-    public void put(String key, Object object);
+    public void put(CacheType type, String key, Object object);
 
-    public String getString(String key);
+    public String getString(CacheType type, String key);
 
     /**
      *
@@ -29,9 +30,9 @@ public interface RedisService {
      * @param classOfT
      * @return
      */
-    public <T> T get(String key, Class<T> classOfT);
+    public <T> T get(CacheType type, String key, Class<T> classOfT);
 
-    public boolean exist(String key);
+    public boolean exist(CacheType type, String key);
     
     /**
      * subscribe to a channel in Redis
@@ -46,7 +47,7 @@ public interface RedisService {
      * @param key
      * @param listener 
      */
-    public void subscribe(JedisPubSub listener, String ...keys);
+    public void subscribe(CacheType type, JedisPubSub listener, String ...keys);
     
     /**
      * expire a value
@@ -54,7 +55,7 @@ public interface RedisService {
      * @param key
      * @param expire 
      */
-    public void expire(String key, int second);
+    public void expire(CacheType type, String key, int second);
     
     /**
      * increment (first default value is 0)
@@ -66,7 +67,7 @@ public interface RedisService {
      * @param key
      * @return final increment result
      */
-    public long increment(String key);
+    public long increment(CacheType type, String key);
     
     /**
      * increment value (first default value is 0)
@@ -78,7 +79,7 @@ public interface RedisService {
      * @param key
      * @return final increment result
      */
-    public long incrementBy(String key, long value);
+    public long incrementBy(CacheType type, String key, long value);
     
     /**
      * decrement (first default value is 0)
@@ -90,7 +91,7 @@ public interface RedisService {
      * @param key
      * @return final decrement result
      */
-    public long decrement(String key);
+    public long decrement(CacheType type, String key);
     
     /**
      * decrement value (first default value is 0)
@@ -102,7 +103,7 @@ public interface RedisService {
      * @param key
      * @return final decrement result
      */
-    public long decrementBy(String key, long value);
+    public long decrementBy(CacheType type, String key, long value);
     
     /**
      * get a value and set a value
@@ -121,6 +122,6 @@ public interface RedisService {
      * @param value
      * @return 
      */
-    public String getSet(String key, String value);
+    public String getSet(CacheType type, String key, String value);
     
 }

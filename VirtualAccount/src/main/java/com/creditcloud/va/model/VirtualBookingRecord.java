@@ -42,6 +42,45 @@ public class VirtualBookingRecord extends BaseObject{
      */
     BigDecimal amountCleared;
     
+    /**
+     * 结算时间
+     */
     @NotNull
     Date timeHappened;
+    
+    /**
+     * 业务发生的时间
+     */
+    @NotNull
+    Date timeRecord;
+    
+    /**
+     * 账目类型
+     */
+    @NotNull
+    VirtualBookingRecordType virtualBookingRecordType;
+    
+    /**
+     * 账目状态
+     */
+    @NotNull
+    VirtualBookingRecordStatus virtualBookingRecordStatus;
+    
+    public VirtualBookingRecord(){}
+    
+    public VirtualBookingRecord(String id,String accountId,
+                                    BigDecimal amount,
+                                    BigDecimal amountCleared,
+                                    Date timeHappened,
+                                    Date timeRecord,
+                                    VirtualBookingRecordType virtualBookingRecordType,
+                                    VirtualBookingRecordStatus virtualBookingRecordStatus){
+        this.id = id;
+        this.amount = amount;
+        this.amountCleared = amountCleared;
+        this.timeHappened = timeHappened;
+        this.timeRecord = timeRecord;
+        this.virtualBookingRecordType = virtualBookingRecordType;
+        this.virtualBookingRecordStatus = virtualBookingRecordStatus;
+    }
 }

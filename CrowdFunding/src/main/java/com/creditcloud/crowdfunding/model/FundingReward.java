@@ -8,6 +8,8 @@ package com.creditcloud.crowdfunding.model;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.PathParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,18 +28,21 @@ public class FundingReward extends BaseObject {
     private String id;
 
     @NotNull
+    @PathParam("projectId")
     private String projectId;
 
     /**
      * donate/invest/pledge amount
      */
     @NotNull
+    @FormParam("amount")
     private BigDecimal amount;
 
     /**
      * reward number limit
      */
     @NotNull
+    @FormParam("limitNumber")
     private int limitNumber;
 
     /**
@@ -50,12 +55,14 @@ public class FundingReward extends BaseObject {
      * return description
      */
     @NotNull
+    @FormParam("description")
     private String description;
 
     /**
      * delivery cost, area, time ...</p>
      * can be json
      */
+    @FormParam("deliveryDetail")
     private String deliveryDetail;
 
     /**
@@ -67,6 +74,11 @@ public class FundingReward extends BaseObject {
      * amount actual raised
      */
     private BigDecimal raiseAmount;
+    
+    /**
+     * 预计回报发送时间
+     */
+    private String deliveryTime;
 
     public FundingReward(String id,
                          String projectId,
