@@ -37,13 +37,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     public FundingProject updateProject(String clientCode, FundingProject project);
 
-    /**
-     *
-     * @param clientCode
-     * @param projectId
-     * @return
-     */
-    public FundingProject getProjectById(String clientCode, String projectId);
 
     /**
      *
@@ -69,14 +62,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     @Deprecated
     public boolean deleteReward(String clientCode, String rewardId);
-
-    /**
-     *
-     * @param clientCode
-     * @param rewardId
-     * @return
-     */
-    public FundingReward getRewardById(String clientCode, String rewardId);
 
     /**
      *
