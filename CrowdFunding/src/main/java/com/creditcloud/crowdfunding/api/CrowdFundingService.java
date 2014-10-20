@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.model.enums.loan.InvestStatus;
@@ -36,13 +37,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     public FundingProject updateProject(String clientCode, FundingProject project);
 
-    /**
-     *
-     * @param clientCode
-     * @param projectId
-     * @return
-     */
-    public FundingProject getProjectById(String clientCode, String projectId);
 
     /**
      *
@@ -72,14 +66,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
     /**
      *
      * @param clientCode
-     * @param rewardId
-     * @return
-     */
-    public FundingReward getRewardById(String clientCode, String rewardId);
-
-    /**
-     *
-     * @param clientCode
      * @param projectId
      * @param status
      * @return
@@ -98,6 +84,16 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
                                     InvestStatus currentStatus,
                                     InvestStatus newStatus,
                                     List<String> investIds);
+
+    /**
+     * update field in FundingInvestInfo except FundingInvest
+     *
+     * @param clientCode
+     * @param investInfo
+     * @return
+     */
+    public boolean updateInvestInfo(String clientCode,
+                                    FundingInvestInfo investInfo);
 
     /**
      *
