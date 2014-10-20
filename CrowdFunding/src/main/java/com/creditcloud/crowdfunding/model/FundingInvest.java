@@ -63,6 +63,7 @@ public class FundingInvest extends BaseObject {
                          String projectId,
                          InvestStatus status,
                          BigDecimal amount,
+                         BigDecimal deliveryFee,
                          String rewardId,
                          String userId,
                          Date submitTime,
@@ -71,6 +72,7 @@ public class FundingInvest extends BaseObject {
         this.projectId = projectId;
         this.status = status;
         this.amount = amount;
+        this.deliveryFee = deliveryFee;
         this.rewardId = rewardId;
         this.userId = userId;
         this.submitTime = submitTime;
