@@ -30,6 +30,74 @@ public interface CrowdFundingQueryService {
     /**
      *
      * @param clientCode
+     * @param projectId
+     * @return
+     */
+    public FundingProject getProjectById(String clientCode, String projectId);
+
+    /**
+     *
+     * @param clientCode
+     * @param investId
+     * @return
+     */
+    public FundingInvestInfo getInvestInfoById(String clientCode,
+                                               String investId);
+
+    /**
+     *
+     * @param clientCode
+     * @param investId
+     * @return
+     */
+    public FundingInvest getInvestById(String clientCode,
+                                       String investId);
+
+    /**
+     *
+     * @param clientCode
+     * @param orderId
+     * @return
+     */
+    public FundingInvest getInvestByOrderId(String clientCode,
+                                            String orderId);
+
+    /**
+     *
+     * @param clientCode
+     * @param orderId
+     * @return
+     */
+    public FundingInvestInfo getInvestInfoByOrderId(String clientCode,
+                                                    String orderId);
+
+    /**
+     *
+     * @param clientCode
+     * @param rewardId
+     * @return
+     */
+    public FundingReward getRewardById(String clientCode, String rewardId);
+
+    /**
+     *
+     * @param clientCode
+     * @param loanId
+     * @return
+     */
+    public ProjectLoan getLoanById(String clientCode, String loanId);
+
+    /**
+     *
+     * @param clientCode
+     * @param loanId
+     * @return
+     */
+    public ProjectLoan getLoanByOrderId(String clientCode, String loanId);
+
+    /**
+     *
+     * @param clientCode
      * @param info
      * @return
      */
@@ -200,17 +268,17 @@ public interface CrowdFundingQueryService {
                                                        PageInfo pageInfo);
 
     /**
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param statusList
      * @param pageInfo
-     * @return 
+     * @return
      */
-    public PagedResult<FundingInvest> listInvestInfoByUser(String clientCode,
-                                                           String userId,
-                                                           List<InvestStatus> statusList,
-                                                           PageInfo pageInfo);
+    public PagedResult<FundingInvestInfo> listInvestInfoByUser(String clientCode,
+                                                               String userId,
+                                                               List<InvestStatus> statusList,
+                                                               PageInfo pageInfo);
 
     /**
      *
