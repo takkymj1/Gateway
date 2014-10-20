@@ -209,4 +209,11 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWealthProduct = false;
+    
+    /**
+     * 工单功能
+     */
+    @XmlElement
+    @Getter
+    private boolean enableTicketService = false;
 }
