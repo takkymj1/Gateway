@@ -37,7 +37,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     public FundingProject updateProject(String clientCode, FundingProject project);
 
-
     /**
      *
      * @param clientCode
@@ -84,6 +83,19 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
                                     InvestStatus currentStatus,
                                     InvestStatus newStatus,
                                     List<String> investIds);
+
+    /**
+     *
+     * @param clientCode
+     * @param currentStatus
+     * @param newStatus
+     * @param investId
+     * @return
+     */
+    public boolean markInvestStatus(String clientCode,
+                                    InvestStatus currentStatus,
+                                    InvestStatus newStatus,
+                                    String investId);
 
     /**
      * update field in FundingInvestInfo except FundingInvest
