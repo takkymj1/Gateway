@@ -93,5 +93,29 @@ public interface VirtualAccountService {
      * @return 
      */
     VirtualAccount getPrimaryVirtualAccountByOwner(RealmEntity owner);
+    
+    /**
+     * 获取虚拟账号列表
+     * 
+     * @param criteriaInfo
+     * @return 
+     */
+    PagedResult<VirtualAccount> listVirtualAccount(CriteriaInfo criteriaInfo); 
+    
+    /**
+     * 根据账户名获取账号
+     * 
+     * @param accountName
+     * @return 
+     */
+    VirtualAccount findByAccountName(String accountName);
+    
+    /**
+     * 根据ID获取账号信息
+     * 
+     * @param id
+     * @return 
+     */
+    VirtualAccount findAccountById(String id);
 
 }
