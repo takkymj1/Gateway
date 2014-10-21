@@ -40,14 +40,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
     /**
      *
      * @param clientCode
-     * @param projectId
-     * @return
-     */
-    public FundingProject getProjectById(String clientCode, String projectId);
-
-    /**
-     *
-     * @param clientCode
      * @param reward
      * @return
      */
@@ -73,14 +65,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
     /**
      *
      * @param clientCode
-     * @param rewardId
-     * @return
-     */
-    public FundingReward getRewardById(String clientCode, String rewardId);
-
-    /**
-     *
-     * @param clientCode
      * @param projectId
      * @param status
      * @return
@@ -99,6 +83,19 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
                                     InvestStatus currentStatus,
                                     InvestStatus newStatus,
                                     List<String> investIds);
+
+    /**
+     *
+     * @param clientCode
+     * @param currentStatus
+     * @param newStatus
+     * @param investId
+     * @return
+     */
+    public boolean markInvestStatus(String clientCode,
+                                    InvestStatus currentStatus,
+                                    InvestStatus newStatus,
+                                    String investId);
 
     /**
      * update field in FundingInvestInfo except FundingInvest

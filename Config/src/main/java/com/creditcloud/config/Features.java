@@ -210,8 +210,10 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableWealthProduct = false;
     
+    /**
+     * 工单功能
+     */
     @XmlElement
     @Getter
-    private boolean onlyFlushOnCommit = false;
-
+    private boolean enableTicketService = false;
 }
