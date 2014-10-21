@@ -217,4 +217,10 @@ public class Features extends BaseObject {
     @Getter
     private boolean enableClaim = false;
 
+    /**
+     * 工单功能
+     */
+    @XmlElement
+    @Getter
+    private boolean enableTicketService = false;
 }
