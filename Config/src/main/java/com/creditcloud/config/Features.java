@@ -216,6 +216,13 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableClaim = false;
+    
+    /**
+     * 远程认证地址
+     */
+    @XmlElement
+    @Getter
+    private String  remoteAttestationUrl;
 
     /**
      * 工单功能
