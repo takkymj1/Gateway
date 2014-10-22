@@ -218,7 +218,7 @@ public class Features extends BaseObject {
     private boolean enableTicketService = false;
     
     /**
-     * jpa auto managed flush on to db
+     * jpa auto managed flush to db
      */
     @Getter
     @XmlElement 
