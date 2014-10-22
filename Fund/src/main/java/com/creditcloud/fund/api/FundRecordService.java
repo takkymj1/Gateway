@@ -623,23 +623,4 @@ public interface FundRecordService {
                               String loanUserId,
                               BigDecimal loanAmount,
                               String orderId);
-
-    /**
-     * 取消众筹项目</p>
-     * TODO for ump only now
-     *
-     * @param clientCode
-     * @param investList
-     * @param projectId
-     * @param projectUserId
-     * @param projectAmount
-     * @param orderId
-     * @return
-     */
-    boolean cancelProject(String clientCode,
-                          List<Pair<String, String>> investList,
-                          String projectId,
-                          String projectUserId,
-                          BigDecimal projectAmount,
-                          String orderId);
 }
