@@ -96,4 +96,13 @@ interface LoanRequestService {
      * @return
      */
     LoanFee getLoanFeeByLoanId(String clientCode, String loanId);
+    
+    /**
+     * 贷款请求与原始债权相关数据
+     *
+     * @param clientCode
+     * @param requestId
+     * @return
+     */
+    String getClaimId(String clientCode, String requestId);
 }
