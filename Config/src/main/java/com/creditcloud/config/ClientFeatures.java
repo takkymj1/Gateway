@@ -38,26 +38,40 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enablePDFSignature = false;
-    
+
     /**
-     * 话务系统
-     * 自动登录管理后台 (for ifeng)
+     * 话务系统 自动登录管理后台 (for ifeng)
      */
     @XmlElement
     @Getter
     private boolean enableServiceHotline = false;
-    
+
     /**
      * Sentinel Config
      */
     @XmlElement
     @Getter
     private boolean enableServiceSentinel = false;
-    
+
     /**
      * Redis Config
      */
     @XmlElement
     @Getter
     private boolean enableServiceRedis = false;
+
+    /**
+     * 是否支持原始债权
+     */
+    @XmlElement
+    @Getter
+    private boolean enableClaim = false;
+
+    /**
+     * 远程认证地址
+     */
+    @XmlElement
+    @Getter
+    private String remoteAttestationUrl;
+
 }
