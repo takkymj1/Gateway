@@ -160,3 +160,4 @@ public interface CorporationUserService {
      */
     List<CorporationUser> listByRtpo(String clientCode, Boolean rtpo);
 }
+ 

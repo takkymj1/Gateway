@@ -98,7 +98,7 @@ public enum Realm implements BaseEnum {
     /**
      * 原始债权
      */
-    CLAIM("CLAIM");
+    CLAIM("CLAIM"); 
 
     private final String key;
 

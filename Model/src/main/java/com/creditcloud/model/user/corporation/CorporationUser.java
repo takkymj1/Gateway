@@ -60,7 +60,7 @@ public class CorporationUser extends BaseObject {
     private String category;
     //是否第三方机构
     private Boolean rtpo = false;
-
+ 
     public CorporationUser(User user,
                            String name,
                            String shortName,

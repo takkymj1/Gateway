@@ -220,7 +220,7 @@ public class Features extends BaseObject {
     /**
      * 远程认证地址
      */
-    @XmlElement
+    @XmlElement 
     @Getter
     private String  remoteAttestationUrl;
 

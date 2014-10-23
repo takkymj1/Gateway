@@ -157,8 +157,8 @@ public class LoanRequest extends BaseObject {
      /**
      * 原始债权
      */
-    private String claimId;
-
+    private String claimId; 
+ 
     /**
      * 担保情况说明
      */
