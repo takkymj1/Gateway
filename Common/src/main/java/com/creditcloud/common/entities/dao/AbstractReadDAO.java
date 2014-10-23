@@ -1,5 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.creditcloud.common.entities.dao;
@@ -9,8 +10,6 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.criteria.ParamInfo;
 import com.creditcloud.model.criteria.ParamItem;
-import static com.creditcloud.model.criteria.ParamOperator.AND;
-import static com.creditcloud.model.criteria.ParamOperator.OR;
 import com.creditcloud.model.criteria.SortInfo;
 import com.creditcloud.model.criteria.SortItem;
 import com.creditcloud.model.misc.PagedResult;
@@ -19,7 +18,6 @@ import java.util.List;
 import java.util.Set;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
-import javax.persistence.LockModeType;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,18 +29,18 @@ import javax.persistence.criteria.Root;
 import javax.validation.Validator;
 
 /**
- * 抽象的DAO类
+ * wrap read-only dao access methods
  *
- * @author sobranie
+ * @author rooseek
  */
-public abstract class AbstractDAO<T> {
+public abstract class AbstractReadDAO<T> {
 
     @Resource
     protected Validator validator;
 
-    private Class<T> entityClass;
+    protected Class<T> entityClass;
 
-    public AbstractDAO(Class<T> entityClass) {
+    public AbstractReadDAO(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
@@ -50,52 +48,6 @@ public abstract class AbstractDAO<T> {
 
     protected ValidatorWrapper getValidatorWrapper() {
         return new ValidatorWrapper(validator);
-    }
-
-    /**
-     * create new entity
-     *
-     * @param entity
-     * @return
-     */
-    public T create(T entity) {
-        EntityManager em = getEntityManager();
-        em.persist(entity);
-        em.flush();
-        em.refresh(entity, LockModeType.PESSIMISTIC_READ);
-        return entity;
-    }
-
-    /**
-     * update entity, create new if not exist
-     *
-     * @param entity
-     */
-    public void edit(T entity) {
-        getEntityManager().merge(entity);
-    }
-
-    /**
-     * remote entity
-     *
-     * @param entity
-     */
-    public void remove(T entity) {
-        EntityManager em = getEntityManager();
-        em.remove(em.merge(entity));
-    }
-
-    /**
-     * remove entity by unique id
-     *
-     * @param id
-     */
-    public void removeById(Object id) {
-        EntityManager em = getEntityManager();
-        T t = em.find(entityClass, id);
-        if (t != null) {
-            em.remove(em.merge(t));
-        }
     }
 
     /**
@@ -107,7 +59,7 @@ public abstract class AbstractDAO<T> {
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
     }
-    
+
     public <K> T findBy(String fieldName, Object value, Class<K> valueClass) {
         EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
