@@ -40,10 +40,18 @@ public class VirtualCashRecord {
     Date timeHappened;
     
     /**
+     * 记录产生时间
+     */
+    Date timeRecord;
+    
+    /**
      * 网银卡号
      */
     String transactionNo;
     
+    /**
+     * 状态
+     */
     VirtualCashRecordStatus virtualCashRecordStatus;
     
     public VirtualCashRecord(){}
@@ -53,12 +61,14 @@ public class VirtualCashRecord {
             BigDecimal amount,
             Date timeHappened,
             String transactionNo,
-            VirtualCashRecordStatus virtualCashRecordStatus){
+            VirtualCashRecordStatus virtualCashRecordStatus,
+            Date timeRecord){
         this.id = id;
         this.transactionId = transactionId;
         this.amount = amount;
         this.timeHappened = timeHappened;
         this.transactionNo = transactionNo;
         this.virtualCashRecordStatus = virtualCashRecordStatus;
+        this.timeRecord = timeRecord;
     }
 }

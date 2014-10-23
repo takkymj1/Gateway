@@ -32,6 +32,8 @@ public class VirtualAccount extends BaseObject {
     @NotNull
     private RealmEntity owner;
     
+    private String ownerName;
+    
     /**
      * 是否该所有者名下的主虚拟账户
      */
@@ -62,7 +64,7 @@ public class VirtualAccount extends BaseObject {
     
     public VirtualAccount(){}
     
-    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isValid,String accountName,Boolean isPrimary,Date lastModified){
+    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isValid,String accountName,Boolean isPrimary,Date lastModified,String ownerName){
         this.id = id;
         this.owner = owner;
         this.balance = balance;
@@ -70,6 +72,7 @@ public class VirtualAccount extends BaseObject {
         this.accountName = accountName;
         this.isPrimary = isPrimary;
         this.lastModified = lastModified;
+        this.ownerName = ownerName;
     }
 
 
