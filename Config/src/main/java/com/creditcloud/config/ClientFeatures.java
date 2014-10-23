@@ -60,4 +60,11 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableServiceRedis = false;
+    
+    /**
+     * WechatInfo Config
+     */
+    @XmlElement
+    @Getter
+    private boolean enableWechatInfo = false;
 }
