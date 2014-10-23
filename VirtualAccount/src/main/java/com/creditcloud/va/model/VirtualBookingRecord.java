@@ -7,6 +7,7 @@ package com.creditcloud.va.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
@@ -26,9 +27,32 @@ public class VirtualBookingRecord extends BaseObject{
     @NotNull
     String id;
     
+    /**
+     * 账目所属账户
+     */
     @UUID
     @NotNull
-    String accountId;
+    String accountId;    
+    
+    /**
+     * 帐套名称
+     */
+    String accountName;
+    
+    /**
+     * 账目所属第三方信息 
+    */
+    @NotNull
+    RealmEntity owner;
+    
+    String ownerName;
+    
+    /**
+     * 账目关联标的ID
+     */
+    @UUID
+    @NotNull
+    private String loanId;
     
     /**
      * 金额.
@@ -45,7 +69,6 @@ public class VirtualBookingRecord extends BaseObject{
     /**
      * 结算时间
      */
-    @NotNull
     Date timeHappened;
     
     /**
@@ -69,18 +92,24 @@ public class VirtualBookingRecord extends BaseObject{
     public VirtualBookingRecord(){}
     
     public VirtualBookingRecord(String id,String accountId,
+                                    String accountName,
                                     BigDecimal amount,
                                     BigDecimal amountCleared,
                                     Date timeHappened,
                                     Date timeRecord,
                                     VirtualBookingRecordType virtualBookingRecordType,
-                                    VirtualBookingRecordStatus virtualBookingRecordStatus){
+                                    VirtualBookingRecordStatus virtualBookingRecordStatus,RealmEntity owner,String loanId,String ownerName){
         this.id = id;
+        this.accountId = accountId;
+        this.accountName = accountName;
         this.amount = amount;
         this.amountCleared = amountCleared;
         this.timeHappened = timeHappened;
         this.timeRecord = timeRecord;
         this.virtualBookingRecordType = virtualBookingRecordType;
         this.virtualBookingRecordStatus = virtualBookingRecordStatus;
+        this.owner = owner;
+        this.loanId = loanId;
+        this.ownerName = ownerName;
     }
 }

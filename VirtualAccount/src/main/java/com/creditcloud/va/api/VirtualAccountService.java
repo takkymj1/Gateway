@@ -6,12 +6,15 @@
 package com.creditcloud.va.api;
 
 import com.creditcloud.model.criteria.CriteriaInfo;
-import com.creditcloud.va.model.VirtualAccount;
-import com.creditcloud.va.model.VirtualBookingRecord;
-import com.creditcloud.va.model.VirtualCashRecord;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.misc.ResultMessage;
+import com.creditcloud.va.model.VirtualAccount;
+import com.creditcloud.va.model.VirtualBookingRecord;
+import com.creditcloud.va.model.VirtualBookingRecordType;
+import com.creditcloud.va.model.VirtualCashRecord;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -47,6 +50,13 @@ public interface VirtualAccountService {
     VirtualCashRecord markSettlingRecords(List<VirtualBookingRecord> bookingRecords);
     
     /**
+     * 产生结算清单
+     * @param bookingRecordIds
+     * @return 
+     */
+    VirtualCashRecord markSettlingRecords(String[] bookingRecordIds);
+    
+    /**
      * 查询账目
      * 
      * @param criteriaInfo
@@ -71,6 +81,21 @@ public interface VirtualAccountService {
     VirtualBookingRecord saveVirtualBookingRecord(VirtualBookingRecord bookingRecord);
     
     /**
+     * 
+     * 获取账目信息
+     * 
+     * @return 
+     */
+    VirtualBookingRecord findBookingRecordById(String id);
+    
+    /**
+     * 获取现金账目信息
+     * 
+     * @return 
+     */
+    VirtualCashRecord findCashRecordById(String id);
+    
+    /**
      * 添加虚拟账户
      * 
      * @param virtualAccount
@@ -93,5 +118,51 @@ public interface VirtualAccountService {
      * @return 
      */
     VirtualAccount getPrimaryVirtualAccountByOwner(RealmEntity owner);
+    
+    /**
+     * 获取虚拟账号列表
+     * 
+     * @param criteriaInfo
+     * @return 
+     */
+    PagedResult<VirtualAccount> listVirtualAccount(CriteriaInfo criteriaInfo); 
+    
+    /**
+     * 根据账户名获取账号
+     * 
+     * @param accountName
+     * @return 
+     */
+    VirtualAccount findByAccountName(String accountName);
+    
+    /**
+     * 根据ID获取账号信息
+     * 
+     * @param id
+     * @return 
+     */
+    VirtualAccount findAccountById(String id);
+    
+    /**
+     *
+     * 添加账目信息
+     * 
+     * @param accountId 账号ID
+     * @param owner 账目关联的第三方信息
+     * @param loanId 账目关联的标的
+     * @param amount 金额
+     * @param timeRecord 产生账目时间
+     * @param recordType 账目类型
+     * @return
+     */
+    VirtualBookingRecord createBookingRecord(String accountId,RealmEntity owner,String loanId,BigDecimal amount,Date timeRecord,VirtualBookingRecordType recordType);
+    
+    /**
+     * 获取实收账目相关的账目记录
+     * 
+     * @param cashRecordId
+     * @return 
+     */
+    List<VirtualBookingRecord> listBookingRecordByCashRecord(String cashRecordId);
 
 }

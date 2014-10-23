@@ -28,7 +28,12 @@ public enum VirtualBookingRecordStatus implements BaseEnum{
     /**
      * 已经结算
      */
-    SETTLED("已结算");
+    SETTLED("已结算"),
+    
+    /**
+     * 已经标记
+     */
+    MARKED("已标记");
 
     private String key;
         
