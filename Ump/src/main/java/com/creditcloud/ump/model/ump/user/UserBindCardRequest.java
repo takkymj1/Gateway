@@ -45,40 +45,7 @@ public class UserBindCardRequest extends BaseRequest{
     
     private String card_branch_name;
     
-    public UserBindCardRequest(String sign_type, 
-                               String charset, 
-                               String res_format, 
-                               String sign, 
-                               String mer_id, 
-                               String version,
-                               String ret_url,
-                               String notify_url, 
-                               String sourceV, 
-                               String order_id, 
-                               String mer_date, 
-                               String user_id, 
-                               String card_id, 
-                               String account_name, 
-                               String identity_type, 
-                               String identity_code, 
-                               String cnaps_code, 
-                               String account_area, 
-                               String card_branch_name) {
-        super(CmdIdType.MER_BIND_CARD, sign_type, charset, res_format, sign, mer_id, version);
-        this.ret_url = ret_url;
-        this.notify_url = notify_url;
-        this.sourceV = sourceV;
-        this.order_id = order_id;
-        this.mer_date = mer_date;
-        this.user_id = user_id;
-        this.card_id = card_id;
-        this.account_name = account_name;
-        this.identity_type = identity_type;
-        this.identity_code = identity_code;
-        this.cnaps_code = cnaps_code;
-        this.account_area = account_area;
-        this.card_branch_name = card_branch_name;
-    }
+    private String is_open_fastPayment;
     
     public UserBindCardRequest(String mer_id,
                                String ret_url,
@@ -108,4 +75,34 @@ public class UserBindCardRequest extends BaseRequest{
         this.card_branch_name = card_branch_name;
     }
     
+    public UserBindCardRequest(String mer_id,
+                               String ret_url,
+                               String notify_url, 
+                               String order_id, 
+                               String mer_date, 
+                               String user_id, 
+                               String card_id, 
+                               String account_name, 
+                               String identity_type, 
+                               String identity_code, 
+                               String cnaps_code, 
+                               String account_area, 
+                               String card_branch_name,
+                               String is_open_fastPayment) {
+        super(CmdIdType.MER_BIND_CARD, mer_id);
+        this.ret_url = ret_url;
+        this.notify_url = notify_url;
+        this.order_id = order_id;
+        this.mer_date = mer_date;
+        this.user_id = user_id;
+        this.card_id = card_id;
+        this.account_name = account_name;
+        this.identity_type = identity_type;
+        this.identity_code = identity_code;
+        this.cnaps_code = cnaps_code;
+        this.account_area = account_area;
+        this.card_branch_name = card_branch_name;
+        this.is_open_fastPayment = is_open_fastPayment;
+    }
+
 }

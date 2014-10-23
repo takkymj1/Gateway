@@ -4,6 +4,7 @@
  */
 package com.creditcloud.redis.api;
 
+import java.lang.reflect.Type;
 import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
@@ -31,6 +32,17 @@ public interface RedisService {
      */
     public <T> T get(String key, Class<T> classOfT);
 
+    /**
+     * Type typeOfSrc = new TypeToken&lt;Collection&lt;Foo&gt;&gt;(){}.getType();
+     * 
+     * @param <T>
+     * @param type
+     * @param key
+     * @param typeOfT
+     * @return 
+     */
+    public <T> T get(String key, Type typeOfT);
+    
     public boolean exist(String key);
     
     /**

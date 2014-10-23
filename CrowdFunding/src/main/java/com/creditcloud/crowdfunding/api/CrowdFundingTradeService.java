@@ -32,6 +32,14 @@ public interface CrowdFundingTradeService {
     public boolean finishInvest(String clientCode, String investId);
 
     /**
+     *
+     * @param clientCode
+     * @param investId
+     * @return
+     */
+    public boolean cancelInvest(String clientCode, String investId);
+
+    /**
      * 放款
      *
      * @param clientCode
