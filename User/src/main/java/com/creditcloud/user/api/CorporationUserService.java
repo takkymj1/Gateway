@@ -151,13 +151,4 @@ public interface CorporationUserService {
      * @return
      */
     boolean checkLegalPerson(String clientCode, String legalPersonId);
-    /**
-     * 列出是否属于合作企业信息列表
-     *
-     * @param clientCode
-     * @param rtpo
-     * @return
-     */
-    List<CorporationUser> listByRtpo(String clientCode, Boolean rtpo);
 }
- 
