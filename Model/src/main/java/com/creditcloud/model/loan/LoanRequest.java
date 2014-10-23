@@ -25,8 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.user.corporation.CorporationUser;
-import javax.persistence.Column;
-import javax.ws.rs.FormParam;
 
 /**
  *
@@ -153,11 +151,6 @@ public class LoanRequest extends BaseObject {
      * 担保实体，可以为用户个人、商户、企业
      */
     private RealmEntity guaranteeEntity;
-    
-     /**
-     * 原始债权
-     */
-    private String claimId; 
  
     /**
      * 担保情况说明

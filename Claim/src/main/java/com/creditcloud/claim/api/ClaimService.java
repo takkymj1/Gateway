@@ -49,6 +49,20 @@ public interface ClaimService {
      * @return
      */
     List<Claim> listAll(String clientCode);
-
     
+    /**
+     * 保存LoanRequest与Claim的映射关系
+     * @param clientCode
+     * @param claimId
+     * @param requestId
+     */
+    void saveLoanRequestClaim(String clientCode , String claimId, String requestId);   
+    
+    /**
+     * 通过放款请求ID查询原始债权信息
+     * @param clientCode
+     * @param requestId
+     * @return 
+     */
+    Claim getByLoanRequestId(String clientCode,String requestId);
 }
