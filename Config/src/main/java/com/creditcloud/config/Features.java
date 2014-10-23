@@ -211,9 +211,30 @@ public class Features extends BaseObject {
     private boolean enableWealthProduct = false;
     
     /**
+     * 是否支持原始债权
+     */
+    @XmlElement
+    @Getter
+    private boolean enableClaim = false;
+    
+    /**
+     * 远程认证地址
+     */
+    @XmlElement 
+    @Getter
+    private String  remoteAttestationUrl;
+
+    /**
      * 工单功能
      */
     @XmlElement
     @Getter
     private boolean enableTicketService = false;
+    
+    /**
+     * jpa auto managed flush to db
+     */
+    @Getter
+    @XmlElement 
+    private boolean enableManualFlush = true;
 }

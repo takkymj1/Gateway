@@ -5,6 +5,7 @@
 package com.creditcloud.redis.api;
 
 import com.creditcloud.model.enums.misc.CacheType;
+import java.lang.reflect.Type;
 import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
@@ -32,6 +33,8 @@ public interface SentinelService {
      */
     public <T> T get(CacheType type, String key, Class<T> classOfT);
 
+    public <T> T get(CacheType type, String key, Type typeOfT);
+    
     public boolean exist(CacheType type, String key);
     
     /**
