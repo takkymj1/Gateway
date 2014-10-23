@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service;
+package com.creditcloud.claim.api;
 
 import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
-import com.creditcloud.service.model.Claim;
+import com.creditcloud.claim.model.Claim;
 import java.util.List;
 /**
  *

@@ -157,7 +157,7 @@ public class LoanRequest extends BaseObject {
      /**
      * 原始债权
      */
-    private RealmEntity claimEntity;
+    private String claimId;
 
     /**
      * 担保情况说明

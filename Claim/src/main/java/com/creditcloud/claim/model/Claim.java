@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service.model;
+package com.creditcloud.claim.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.user.User;
