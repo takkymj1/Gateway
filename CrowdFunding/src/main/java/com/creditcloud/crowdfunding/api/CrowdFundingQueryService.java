@@ -20,6 +20,7 @@ import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -115,6 +116,15 @@ public interface CrowdFundingQueryService {
     public PagedResult<FundingProject> listProject(String clientCode,
                                                    List<ProjectStatus> statusList,
                                                    PageInfo pageInfo);
+
+    /**
+     *
+     * @param clientCode
+     * @param statusList
+     * @return
+     */
+    public Map<ProjectStatus, List<FundingProject>> listProject(String clientCode,
+                                                                List<ProjectStatus> statusList);
 
     /**
      *
