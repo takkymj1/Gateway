@@ -13,6 +13,6 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LendingService {
+public interface RepayOrderService {
     
 }
