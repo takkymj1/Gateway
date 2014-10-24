@@ -18,10 +18,22 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.creditcloud.model</groupId>
-            <artifactId>Model</artifactId>
+            <groupId>com.creditcloud.common</groupId>
+            <artifactId>Common</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.config</groupId>
+            <artifactId>Config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+
     </dependencies>
 </project>

@@ -35,6 +35,9 @@ public class Invest extends BaseObject {
      * 个人用户
      */
     private User user;
+    
+    @NotNull
+    private String userId;
 
     @NotNull
     private String loanId;
