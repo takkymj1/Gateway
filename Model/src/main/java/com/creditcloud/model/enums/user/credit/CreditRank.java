@@ -12,13 +12,14 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum CreditRank implements BaseEnum {
 
-    HR("0-49"),
-    E("50-59"),
-    D("60-69"),
-    C("70-79"),
-    B("80-89"),
-    A("90-99"),
-    AA("100-120");
+    HR("0-39"),
+    E("40-49"),
+    D("50-59"),
+    C("60-69"),
+    B("70-79"),
+    A("80-89"),
+    AA("90-109"),
+    AAA("110-120");
 
     private final String key;
 
