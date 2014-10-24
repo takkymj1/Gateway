@@ -150,12 +150,13 @@ public interface VirtualAccountService {
      * @param accountId 账号ID
      * @param owner 账目关联的第三方信息
      * @param loanId 账目关联的标的
+     * @param loanTitle
      * @param amount 金额
      * @param timeRecord 产生账目时间
      * @param recordType 账目类型
      * @return
      */
-    VirtualBookingRecord createBookingRecord(String accountId,RealmEntity owner,String loanId,BigDecimal amount,Date timeRecord,VirtualBookingRecordType recordType);
+    VirtualBookingRecord createBookingRecord(String accountId,RealmEntity owner,String loanId,String loanTitle,BigDecimal amount,Date timeRecord,VirtualBookingRecordType recordType);
     
     /**
      * 获取实收账目相关的账目记录

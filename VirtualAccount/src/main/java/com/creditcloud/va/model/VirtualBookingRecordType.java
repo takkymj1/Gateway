@@ -15,7 +15,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum VirtualBookingRecordType implements BaseEnum {
 
-    COMPENSATORY("代偿");
+    COMPENSATORY("代偿"),
+    
+    LOAN("借款");
         
     private String key;
 
