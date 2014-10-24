@@ -86,7 +86,7 @@ public class FundingProject extends BaseObject {
 
     @FormParam("location")
     private String location;
-
+    
     private ProjectCategory category;
 
     private int favorite;
@@ -95,11 +95,30 @@ public class FundingProject extends BaseObject {
      * amount already loaned
      */
     private BigDecimal loanAmount;
-    
+
     /**
      * project without reward, reward is mandatory most of the time
      */
     private boolean noReward;
+
+    /**
+     * 发起人信息
+     */
+    private String qualification;//资质
+
+    private String blog;//博客
+
+    private String website;//网址
+
+    private String email;//联系邮箱
+
+    private String mobile;//联系电话
+
+    private String selfDescription;//自我介绍
+
+    private String detailDescription;//详细介绍
+
+    private String acknowledgement;//感谢信
 
     public FundingProject(String id,
                           String title,
