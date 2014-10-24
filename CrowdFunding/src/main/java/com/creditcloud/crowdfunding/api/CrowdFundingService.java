@@ -127,4 +127,14 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public boolean markFavorite(String clientCode, String projectId, String userId);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param projectId
+     * @param userId
+     * @return 
+     */
+    public boolean unmarkFavorite(String clientCode, String projectId, String userId);
+    
 }
