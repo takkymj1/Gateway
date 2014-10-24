@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.service.impl;
 
 import com.creditcloud.model.criteria.PageInfo;
@@ -17,19 +16,20 @@ import java.util.List;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketCustomizeService implements MarketCustomizeService{
-    
+public abstract class AbstractMarketCustomizeService implements MarketCustomizeService {
+
     @Override
-    public int addNews(List<WechatInfo> wis){
+    public int addNews(List<WechatInfo> wis) {
         throw new UnsupportedOperationException();
     }
-    
+
     @Override
-    public PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo){
+    public PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo) {
         throw new UnsupportedOperationException();
     }
+
     @Override
-    public WechatInfo addWechatInfo(WechatInfo wxi){
+    public WechatInfo addWechatInfo(WechatInfo wxi) {
         throw new UnsupportedOperationException();
     }
 }
