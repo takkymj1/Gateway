@@ -4,7 +4,9 @@
  */
 package com.creditcloud.redis.api;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.List;
 import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
@@ -20,12 +22,30 @@ public interface RedisService {
 
     public void put(String key, Object object);
 
+    /**
+     * binary content
+     * @param key
+     * @param value 
+     */
+    public void put(String key, byte[] value);
+    
+    /**
+     * serializable value
+     * @param key
+     * @param value 
+     */
+    public void put(String key, Serializable value);
+    
+    /**
+     * 
+     * @param key
+     * @return 
+     */
     public String getString(String key);
 
     /**
-     *
+     * put common class (Gson implements)
      * @param <T>
-     * @param clientCode
      * @param key
      * @param classOfT
      * @return
@@ -36,12 +56,25 @@ public interface RedisService {
      * Type typeOfSrc = new TypeToken&lt;Collection&lt;Foo&gt;&gt;(){}.getType();
      * 
      * @param <T>
-     * @param type
      * @param key
      * @param typeOfT
      * @return 
      */
     public <T> T get(String key, Type typeOfT);
+    
+    /**
+     * binary content
+     * @param key
+     * @return 
+     */
+    public byte[] getBytes(String key);
+    
+    /**
+     * 
+     * @param key
+     * @return 
+     */
+    public Object getSerializable(String key);
     
     public boolean exist(String key);
     
@@ -55,16 +88,15 @@ public interface RedisService {
      * to multiple channels. You can call subscribe 
      * or psubscribe on an existing JedisPubSub instance 
      * to change your subscriptions.
-     * @param key
      * @param listener 
+     * @param keys 
      */
     public void subscribe(JedisPubSub listener, String ...keys);
     
     /**
      * expire a value
-     * @param clientCode
-     * @param key
-     * @param expire 
+     * @param key 
+     * @param second 
      */
     public void expire(String key, int second);
     
@@ -88,6 +120,7 @@ public interface RedisService {
      * Time complexity: O(1)
      * 
      * @param key
+     * @param value
      * @return final increment result
      */
     public long incrementBy(String key, long value);
@@ -112,6 +145,7 @@ public interface RedisService {
      * Time complexity: O(1)
      * 
      * @param key
+     * @param value
      * @return final decrement result
      */
     public long decrementBy(String key, long value);
@@ -134,5 +168,45 @@ public interface RedisService {
      * @return 
      */
     public String getSet(String key, String value);
+ 
     
+    /**
+     * 
+     * Time complexity: O(1)
+     * 
+     * Insert all the specified values at the tail of the list stored at key. 
+     * If key does not exist, it is created as empty list before performing 
+     * the push operation. When key holds a value that is not a list, an error 
+     * is returned. is possible to push multiple elements using a single command
+     * call just specifying multiple arguments at the end of the command. 
+     * Elements are inserted one after the other to the tail of the list, 
+     * from the leftmost element to the rightmost element. So for instance 
+     * the command RPUSH mylist a b c will result into a list containing a as 
+     * first element, b as second element and c as third element.
+     * @param key
+     * @param values
+     * @return 
+     */
+    public long push(String key, String...values);
+    
+    /**
+     * 
+     * Time complexity: O(S+N) where S is the distance of start 
+     * offset from HEAD for small lists, from nearest end (HEAD or TAIL) 
+     * for large lists; and N is the number of elements in the specified range.
+     * 
+     * 
+     * Returns the specified elements of the list stored at key. 
+     * The offsets start and stop are zero-based indexes, with 0 
+     * being the first element of the list (the head of the list), 
+     * 1 being the next element and so on.
+     * These offsets can also be negative numbers indicating offsets 
+     * starting at the end of the list. For example, -1 is the last 
+     * element of the list, -2 the penultimate, and so on.
+     * @param key
+     * @param start
+     * @param end
+     * @return 
+     */
+    public List<String> range(String key, long start, long end);
 }
