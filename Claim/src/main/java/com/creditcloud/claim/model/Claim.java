@@ -6,7 +6,7 @@
 package com.creditcloud.claim.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.user.User;
+import com.creditcloud.model.user.corporation.CorporationUser;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -40,7 +40,7 @@ public class Claim extends BaseObject {
     /**
      * 原债权人
      */
-    private  User user;
+    private  CorporationUser corporationUser;
     /**
      * 原始债权人ID
      */
