@@ -5,6 +5,7 @@
  */
 package com.creditcloud.payment.api;
 
+import com.creditcloud.model.enums.TransStat;
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.enums.misc.City;
 import com.creditcloud.model.enums.misc.Province;
@@ -31,7 +32,6 @@ import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
-import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
