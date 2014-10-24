@@ -42,5 +42,7 @@
         <module>CrowdFunding</module>
         <module>WealthProduct</module>
         <module>VirtualAccount</module>
-    </modules>
+        <module>Claim</module>
+    <module>Lending</module>
+  </modules>
 </project>

@@ -32,10 +32,13 @@ public class VirtualAccount extends BaseObject {
     @NotNull
     private RealmEntity owner;
     
+    private String ownerName;
+    
     /**
      * 是否该所有者名下的主虚拟账户
      */
-    private boolean primary;
+    @NotNull
+    private Boolean isPrimary;
 
     /**
      * 当前余额
@@ -43,11 +46,14 @@ public class VirtualAccount extends BaseObject {
     @NotNull
     private BigDecimal balance;
     
+    @NotNull
+    private String accountName;
+    
     /**
-     * 是否主账户
+     * 是否有效
      */
     @NotNull
-    private Boolean isMain;
+    private Boolean isValid;
     
     /**
      * 余额最后变动时间
@@ -58,11 +64,15 @@ public class VirtualAccount extends BaseObject {
     
     public VirtualAccount(){}
     
-    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isMain){
+    public VirtualAccount(String id,RealmEntity owner,BigDecimal balance,Boolean isValid,String accountName,Boolean isPrimary,Date lastModified,String ownerName){
         this.id = id;
         this.owner = owner;
         this.balance = balance;
-        this.isMain = isMain;
+        this.isValid = isValid;
+        this.accountName = accountName;
+        this.isPrimary = isPrimary;
+        this.lastModified = lastModified;
+        this.ownerName = ownerName;
     }
 
 
