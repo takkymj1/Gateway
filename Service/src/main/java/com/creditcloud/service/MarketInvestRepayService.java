@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-interface InvestRepayService {
+interface MarketInvestRepayService {
 
     /**
      * list InvestRepayment by invest id
