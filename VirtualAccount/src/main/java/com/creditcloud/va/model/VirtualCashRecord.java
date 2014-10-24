@@ -5,6 +5,7 @@
  */
 package com.creditcloud.va.model;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,7 +18,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
-public class VirtualCashRecord {
+public class VirtualCashRecord extends BaseObject{
    
     @UUID
     @NotNull
