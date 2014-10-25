@@ -43,5 +43,5 @@
         <module>WealthProduct</module>
         <module>VirtualAccount</module>
         <module>Claim</module>
-    </modules>
+  </modules>
 </project>
