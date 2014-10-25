@@ -11,7 +11,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Map;
 import javax.validation.constraints.NotNull;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -19,6 +20,8 @@ import lombok.Setter;
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 public class InvestRepayment extends BaseObject {
 
     private static final long serialVersionUID = 20130918L;
