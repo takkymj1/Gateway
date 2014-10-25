@@ -12,6 +12,8 @@ import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.user.constant.UserConstants;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.PathParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,19 +28,24 @@ public class ShippingAddress extends BaseObject {
 
     private static final long serialVersionUID = 20141018L;
 
+    @PathParam("shippingAddressId")
     private String id;
 
+    @PathParam("userId")
     @NotNull
     private String userId;
 
+    @FormParam("realName")
     @RealName
     private String realName;
 
     /**
      * 13810002000 or 010-61006200
      */
+    @FormParam("contact")
     private String contact;
 
+    @FormParam("email")
     @EmailAddress
     private String email;
 
@@ -47,12 +54,14 @@ public class ShippingAddress extends BaseObject {
      * 全称或json结构化
      *
      */
+    @FormParam("detail")
     @Size(max = UserConstants.MAX_SHIPPING_ADDRESS_LENGTH)
     private String detail;
 
     private boolean defaultAddress;
 
     //公司地址，老家地址
+    @FormParam("alias")
     private String alias;
 
     public ShippingAddress(String id,
