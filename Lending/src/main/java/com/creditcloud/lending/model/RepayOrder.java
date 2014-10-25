@@ -22,6 +22,8 @@ public class RepayOrder extends BaseObject {
 
     private static final long serialVersionUID = 20141024L;
 
+    private String id;
+
     private String loanRepayId;
 
     private String investRepayId;
@@ -32,11 +34,13 @@ public class RepayOrder extends BaseObject {
 
     private TransStat stat;
 
-    public RepayOrder(String loanRepayId,
+    public RepayOrder(String id,
+                      String loanRepayId,
                       String investRepayId,
                       String orderId,
                       LocalDate orderDate,
                       TransStat stat) {
+        this.id = id;
         this.loanRepayId = loanRepayId;
         this.investRepayId = investRepayId;
         this.orderId = orderId;

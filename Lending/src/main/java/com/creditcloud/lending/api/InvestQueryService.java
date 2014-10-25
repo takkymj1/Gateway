@@ -5,13 +5,10 @@
  */
 package com.creditcloud.lending.api;
 
-import javax.ejb.Remote;
-
 /**
  *
  * @author rooseek
  */
-@Remote
 public interface InvestQueryService {
 
 }

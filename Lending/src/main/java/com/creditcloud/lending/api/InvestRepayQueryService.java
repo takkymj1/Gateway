@@ -6,13 +6,10 @@
 
 package com.creditcloud.lending.api;
 
-import com.creditcloud.model.loan.LoanInvestStatistics;
-import javax.ejb.Remote;
-
 /**
  *
  * @author rooseek
  */
-@Remote
-public interface InvestStatService {
+public interface InvestRepayQueryService {
+    
 }

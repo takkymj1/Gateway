@@ -35,8 +35,7 @@ public class Invest extends BaseObject {
      * 个人用户
      */
     private User user;
-    
-    @NotNull
+
     private String userId;
 
     @NotNull
@@ -74,7 +73,7 @@ public class Invest extends BaseObject {
      * 原始投标金额
      */
     private BigDecimal originalAmount;
-    
+
     private LoanPurpose purpose;
 
     public Invest(String id,
@@ -101,5 +100,13 @@ public class Invest extends BaseObject {
 
     public BigDecimal getOriginalAmount() {
         return originalAmount == null ? amount : originalAmount;
+    }
+
+    public String getUserId() {
+        if (userId != null) {
+            return userId;
+        }
+
+        return user == null ? null : user.getId();
     }
 }

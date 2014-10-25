@@ -8,7 +8,6 @@ package com.creditcloud.lending.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.TransStat;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.joda.time.LocalDate;
 
@@ -23,6 +22,8 @@ public class LoanOrder extends BaseObject {
 
     private static final long serialVersionUID = 20141024L;
 
+    private String id;
+
     private String loanId;
 
     private String investId;
@@ -33,11 +34,13 @@ public class LoanOrder extends BaseObject {
 
     private TransStat stat;
 
-    public LoanOrder(String loanId,
+    public LoanOrder(String id,
+                     String loanId,
                      String investId,
                      String orderId,
                      LocalDate orderDate,
                      TransStat stat) {
+        this.id = id;
         this.loanId = loanId;
         this.investId = investId;
         this.orderId = orderId;

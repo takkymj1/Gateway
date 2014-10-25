@@ -15,7 +15,6 @@ import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.validation.group.BackSourceCheck;
-import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
