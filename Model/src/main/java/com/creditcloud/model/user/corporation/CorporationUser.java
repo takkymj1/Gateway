@@ -158,4 +158,27 @@ public class CorporationUser extends BaseObject {
         return user == null ? null : user.getRegisterDate();
     }
 
+    /**
+     * 
+     * @return 
+     */
+    public String getUserIdNumber() {
+        return user == null ? null : user.getIdNumber();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getUserMobile() {
+        return user == null ? null : user.getMobile();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getUserEmail() {
+        return user == null ? null : user.getEmail();
+    }
 }
