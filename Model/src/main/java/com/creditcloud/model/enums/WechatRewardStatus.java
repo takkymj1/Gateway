@@ -15,19 +15,19 @@ public enum WechatRewardStatus implements BaseEnum {
     /**
      * 未中奖
      */
-    NOT_LUCKY_NOT_CONVERSION("0"),
+    UNLUCKY_UNCONVERSION("未中奖"),
     /**
      * 已中奖未兑换
      */
-    IS_LUCKY_NOT_CONVERSION("1"),
+    LUCKY_UNCONVERSION("已中奖未兑换"),
     /**
      * 已中奖已兑换
      */
-    IS_LUCKY_IS_CONVERSION("2"),
+    LUCKY_CONVERSION("已中奖已兑换"),
     /**
      * 已中奖已派发
      */
-    IS_LUCKY_HAD_CONVERSION("3");
+    REWARD("已中奖已派发");
 
     private final String key;
 

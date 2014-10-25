@@ -13,7 +13,6 @@ import com.creditcloud.model.enums.WechatRewardStatus;
  *
  * @author panda
  */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -47,7 +46,8 @@ public class WechatInfo extends BaseObject {
     private Date luckyTime;
 
     /**
-     * 是否中奖,0:未中奖，1:已中奖未兑换，2:已中奖已兑换，3:已中奖已派发
+     * 是否中奖 UNLUCKY_UNCONVERSION:未中奖， LUCKY_UNCONVERSION:已中奖未兑换，
+     * LUCKY_CONVERSION:已中奖已兑换， REWARD:已中奖已派发
      */
-    private WechatRewardStatus operation;
+    private WechatRewardStatus status;
 }
