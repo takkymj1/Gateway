@@ -31,7 +31,7 @@ public class ShippingAddress extends BaseObject {
     @PathParam("shippingAddressId")
     private String id;
 
-    @FormParam("userId")
+    @PathParam("userId")
     @NotNull
     private String userId;
 
