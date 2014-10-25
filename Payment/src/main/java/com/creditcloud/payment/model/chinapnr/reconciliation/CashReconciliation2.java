@@ -5,7 +5,7 @@
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.payment.model.chinapnr.enums.TransStat;
+import com.creditcloud.model.enums.TransStat;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

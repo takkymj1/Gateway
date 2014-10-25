@@ -23,7 +23,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface InvestService extends InvestRepayService {
+public interface MarketInvestService extends MarketInvestRepayService {
 
     /**
      * list Invest by user Id

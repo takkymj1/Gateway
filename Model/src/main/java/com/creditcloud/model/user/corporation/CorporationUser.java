@@ -58,7 +58,15 @@ public class CorporationUser extends BaseObject {
     //营业执照上的公司类型
     @Size(max = CorporationConstant.MAX_CORP_CTG_LEN)
     private String category;
-
+    
+    /**
+     * 是否第三方机构
+     * 
+     * @deprecated 临时解决方案，将移除
+     */
+    @Deprecated
+    private boolean rtpo;
+    
     public CorporationUser(User user,
                            String name,
                            String shortName,
@@ -77,6 +85,28 @@ public class CorporationUser extends BaseObject {
         this.type = type;
         this.category = category;
         this.legalPersonId = legalPersonId;
+    }
+ 
+    public CorporationUser(User user,
+                           String name,
+                           String shortName,
+                           String orgCode,
+                           String busiCode,
+                           String taxCode,
+                           CorporationType type,
+                           String category,
+                           String legalPersonId,
+                           Boolean rtpo) {
+        this.user = user;
+        this.name = name;
+        this.shortName = shortName;
+        this.orgCode = orgCode;
+        this.busiCode = busiCode;
+        this.taxCode = taxCode;
+        this.type = type;
+        this.category = category;
+        this.legalPersonId = legalPersonId;
+        this.rtpo = rtpo;
     }
 
     public String getUserId() {
@@ -128,4 +158,27 @@ public class CorporationUser extends BaseObject {
         return user == null ? null : user.getRegisterDate();
     }
 
+    /**
+     * 
+     * @return 
+     */
+    public String getUserIdNumber() {
+        return user == null ? null : user.getIdNumber();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getUserMobile() {
+        return user == null ? null : user.getMobile();
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getUserEmail() {
+        return user == null ? null : user.getEmail();
+    }
 }

@@ -96,4 +96,5 @@ interface LoanRequestService {
      * @return
      */
     LoanFee getLoanFeeByLoanId(String clientCode, String loanId);
+    
 }
