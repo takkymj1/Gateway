@@ -5,7 +5,9 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.loan.RepayType;
 import java.math.BigDecimal;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -91,5 +93,42 @@ public class Repayment extends BaseObject {
      */
     public BigDecimal getAmount() {
         return amountInterest.add(amountPrincipal);
+    }
+
+    public BigDecimal getAmount(RepayType type) {
+        switch (type) {
+            case Principal:
+                return amountPrincipal;
+            case PrincipalAndInterest:
+                return getAmount();
+            case Interest:
+                return amountInterest;
+            default:
+                return BigDecimal.ZERO;
+        }
+    }
+
+    public BigDecimal getPrincipal(RepayType type) {
+        switch (type) {
+            case Principal:
+            case PrincipalAndInterest:
+                return amountPrincipal;
+            case Interest:
+                return BigDecimal.ZERO;
+            default:
+                return BigDecimal.ZERO;
+        }
+    }
+
+    public BigDecimal getInterest(RepayType type) {
+        switch (type) {
+            case Interest:
+            case PrincipalAndInterest:
+                return amountInterest;
+            case Principal:
+                return BigDecimal.ZERO;
+            default:
+                return BigDecimal.ZERO;
+        }
     }
 }
