@@ -29,6 +29,10 @@ public interface InvestService extends InvestQueryService {
 
     public Invest addNew(Invest invest);
 
+    public Invest getById(String investId);
+
+    public void update(Invest invest);
+
     /**
      * count invest by user
      *
