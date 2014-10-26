@@ -139,7 +139,7 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
-	<dependency>
+	   <dependency>
             <groupId>com.creditcloud.claim</groupId>
             <artifactId>ClaimService</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -151,12 +151,14 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
-     <!--   <dependency>
+        <!--
+        <dependency>
             <groupId>com.creditcloud.lending</groupId>
             <artifactId>LendingService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
-        </dependency> -->
+        </dependency>
+        -->
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -270,10 +272,16 @@
                             <groupId>com.creditcloud.crowdfunding</groupId>
                             <artifactId>CrowdFundingService</artifactId>
                         </ejbModule>
-                       <!--   <ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.va</groupId>
+                            <artifactId>VirtualAccountService</artifactId>
+                        </ejbModule>
+                        <!--
+                       <ejbModule>
                             <groupId>com.creditcloud.lending</groupId>
                             <artifactId>LendingService</artifactId>
-                        </ejbModule> -->
+                        </ejbModule>
+                    -->
                     </modules>
                 </configuration>
             </plugin>
