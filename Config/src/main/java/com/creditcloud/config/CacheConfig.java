@@ -31,5 +31,10 @@ public class CacheConfig extends BaseConfig {
     @Getter
     private boolean enableCreditManagerDashBoard = false;
     
-    
+    /**
+     * stat
+     */
+    @XmlElement
+    @Getter
+    private boolean enableCreditManagerStat = false;
 }
