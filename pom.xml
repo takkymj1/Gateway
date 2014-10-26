@@ -43,6 +43,6 @@
         <module>WealthProduct</module>
         <module>VirtualAccount</module>
         <module>Claim</module>
-    <module>Lending</module>
+        <module>Lending</module>
   </modules>
 </project>
