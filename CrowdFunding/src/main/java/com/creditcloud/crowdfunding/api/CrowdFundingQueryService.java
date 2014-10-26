@@ -327,5 +327,15 @@ public interface CrowdFundingQueryService {
      * @return
      */
     public PagedResult<FavoriteProject> listFavoriteByProject(String clientCode, String projectId, PageInfo pageInfo);
+    
+    /**
+     * 返回某用户喜欢的众筹项目Id列表
+     * 
+     * @param clientCode
+     * @param userId
+     * @param pageInfo
+     * @return list of ProjectId
+     */
+    public PagedResult<String> listLikeByUser(String clientCode, String userId, PageInfo pageInfo);
 
 }

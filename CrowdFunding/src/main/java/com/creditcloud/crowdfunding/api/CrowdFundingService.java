@@ -144,4 +144,35 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return 
      */
     public int favoriteCountByProject(String clientCode, String projectId);
+    
+    // like 接口，用TagService实现
+    
+    /**
+     * 标记某用户喜欢该项目
+     * 
+     * @param clientCode
+     * @param projectId
+     * @param userId
+     * @return 该项目的like数
+     */
+    public int markLike(String clientCode, String projectId, String userId);
+    
+    /**
+     * 标记某用户不喜欢该项目
+     * 
+     * @param clientCode
+     * @param projectId
+     * @param userId
+     * @return 该项目的like数
+     */
+    public int unmarkLike(String clientCode, String projectId, String userId);
+    
+    /**
+     * 某项目的Like计数
+     * 
+     * @param clientCode
+     * @param projectId
+     * @return 
+     */
+    public int likeCountByProject(String clientCode, String projectId);
 }
