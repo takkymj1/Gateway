@@ -33,7 +33,7 @@ public class ClientFeatures extends BaseObject {
     private boolean enableFactoring = false;
 
     /**
-     * PDF电子签章与签名 (for fmax)
+     * PDF电子签章与签名 (for fmax & feng)
      */
     @XmlElement
     @Getter
