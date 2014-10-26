@@ -17,7 +17,7 @@ public enum LoginResult implements BaseEnum {
     /**
      * 需要返回具体的User/Employee，用于前端控制
      */
-    TOO_MANY_ATTEMPT("登陆失败次数过多，暂停使用"),
+    TOO_MANY_ATTEMPT("登录失败次数过多，暂停使用"),
     /**
      * 用户因被禁用而不能登录
      */
