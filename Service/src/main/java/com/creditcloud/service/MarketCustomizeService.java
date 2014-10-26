@@ -6,6 +6,11 @@
 
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.service.model.WechatInfo;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,5 +22,7 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface MarketCustomizeService {
-    
+    int addNews(List<WechatInfo> wis);
+    PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo);
+    WechatInfo addWechatInfo(WechatInfo wxi);
 }
