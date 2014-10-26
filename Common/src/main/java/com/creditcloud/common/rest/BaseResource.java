@@ -14,13 +14,14 @@ import javax.validation.Validator;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import org.apache.commons.codec.digest.Md5Crypt;
+import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.mvc.Viewable;
 
 /**
  *
  * @author sobranie
  */
+@Slf4j
 public abstract class BaseResource implements Serializable {
 
     @Context
@@ -74,6 +75,8 @@ public abstract class BaseResource implements Serializable {
     }
     
     protected String getCacheKey(String key, Class<?> clazz) {
-        return Hashing.md5().hashString(String.format(CacheConstant.KEY_PREFIX_INNER_CREDITMANAGER, clazz.getName(), key)).toString();
+        String plain = String.format(CacheConstant.KEY_PREFIX_INNER_RESOURCE, clazz.getName(), key);
+        log.info("cache key plain: {}", plain);
+        return Hashing.md5().hashString(plain).toString();
     }
 }

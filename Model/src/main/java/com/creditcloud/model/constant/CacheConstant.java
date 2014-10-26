@@ -14,7 +14,7 @@ public interface CacheConstant {
     /**
      * define cache key for inner cache
      */
-    String KEY_PREFIX_INNER_CREDITMANAGER = "CreditManager_%1$s_%2%s";
+    String KEY_PREFIX_INNER_RESOURCE = "%1$s_%2$s";
     
     
 }
