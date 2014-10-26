@@ -16,6 +16,8 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface RepayOrderService {
+    
+    RepayOrder addNew(RepayOrder order);
 
     int countByLoanRepay(String loanRepayId);
 
