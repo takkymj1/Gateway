@@ -2,12 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.payment.model.chinapnr.enums;
-
-import com.creditcloud.model.enums.BaseEnum;
+package com.creditcloud.model.enums;
 
 /**
- * 交易状态
+ * 交易状态，记录交易在三方支付的状态
  *
  * @author rooseek
  */

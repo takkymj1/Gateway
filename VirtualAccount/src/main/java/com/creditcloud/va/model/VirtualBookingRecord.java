@@ -54,6 +54,8 @@ public class VirtualBookingRecord extends BaseObject{
     @NotNull
     private String loanId;
     
+    private String loanTitle;
+    
     /**
      * 金额.
      * 
@@ -98,7 +100,7 @@ public class VirtualBookingRecord extends BaseObject{
                                     Date timeHappened,
                                     Date timeRecord,
                                     VirtualBookingRecordType virtualBookingRecordType,
-                                    VirtualBookingRecordStatus virtualBookingRecordStatus,RealmEntity owner,String loanId,String ownerName){
+                                    VirtualBookingRecordStatus virtualBookingRecordStatus,RealmEntity owner,String loanId,String ownerName,String loanTitle){
         this.id = id;
         this.accountId = accountId;
         this.accountName = accountName;
@@ -111,5 +113,6 @@ public class VirtualBookingRecord extends BaseObject{
         this.owner = owner;
         this.loanId = loanId;
         this.ownerName = ownerName;
+        this.loanTitle = loanTitle;
     }
 }

@@ -5,9 +5,9 @@
 package com.creditcloud.payment.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
-import com.creditcloud.payment.model.chinapnr.enums.TransStat;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
