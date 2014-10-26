@@ -16,39 +16,20 @@ import lombok.NoArgsConstructor;
  * @author suetming
  */
 @NoArgsConstructor
-@XmlRootElement(name = "RedisConfig")
+@XmlRootElement(name = "CacheConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RedisConfig extends BaseConfig {
+public class CacheConfig extends BaseConfig {
     
     private static final long serialVersionUID = 20140902L;
 
-    public static final String CONFIG_NAME = "RedisConfig";
+    public static final String CONFIG_NAME = "CacheConfig";
     
     /**
-     * redis server host
+     * dashboard
      */
     @XmlElement
     @Getter
-    private String host = "127.0.0.1";
+    private boolean enableCreditManagerDashBoard = false;
     
-    /**
-     * redis server port
-     */
-    @XmlElement
-    @Getter
-    private int port = 6379;
-    
-    /**
-     * redis client resource pool
-     */
-    @XmlElement(required = false)
-    private RedisPoolConfig pool;
-    
-    public RedisPoolConfig getPoolConfig() {
-        if (pool == null) {
-            pool = new RedisPoolConfig();
-        }
-        return pool;
-    }
     
 }

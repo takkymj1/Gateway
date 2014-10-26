@@ -5,6 +5,8 @@
 package com.creditcloud.common.rest;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
+import com.creditcloud.model.constant.CacheConstant;
+import com.google.common.hash.Hashing;
 import java.io.Serializable;
 import java.net.URI;
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import javax.validation.Validator;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import org.apache.commons.codec.digest.Md5Crypt;
 import org.glassfish.jersey.server.mvc.Viewable;
 
 /**
@@ -68,5 +71,9 @@ public abstract class BaseResource implements Serializable {
      */
     protected String getAbsolutePath() {
         return uriInfo.getAbsolutePath().getPath();
+    }
+    
+    protected String getCacheKey(String key, Class<?> clazz) {
+        return Hashing.md5().hashString(String.format(CacheConstant.KEY_PREFIX_INNER_CREDITMANAGER, clazz.getName(), key)).toString();
     }
 }
