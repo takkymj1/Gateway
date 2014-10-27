@@ -24,17 +24,4 @@ public class CacheConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "CacheConfig";
     
-    /**
-     * dashboard
-     */
-    @XmlElement
-    @Getter
-    private boolean enableCreditManagerDashBoard = false;
-    
-    /**
-     * stat
-     */
-    @XmlElement
-    @Getter
-    private boolean enableCreditManagerStat = false;
 }
