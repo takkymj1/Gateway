@@ -22,7 +22,8 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface MarketCustomizeService {
-    int addNews(List<WechatInfo> wis);
+    int addWechatInfos(List<WechatInfo> wis);
     PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo);
     WechatInfo addWechatInfo(WechatInfo wxi);
+    boolean rewardWechatInfo(String id);
 }

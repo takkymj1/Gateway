@@ -19,7 +19,7 @@ import java.util.List;
 public abstract class AbstractMarketCustomizeService implements MarketCustomizeService {
 
     @Override
-    public int addNews(List<WechatInfo> wis) {
+    public int addWechatInfos(List<WechatInfo> wis) {
         throw new UnsupportedOperationException();
     }
 
@@ -30,6 +30,11 @@ public abstract class AbstractMarketCustomizeService implements MarketCustomizeS
 
     @Override
     public WechatInfo addWechatInfo(WechatInfo wxi) {
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public boolean rewardWechatInfo(String id) {
         throw new UnsupportedOperationException();
     }
 }
