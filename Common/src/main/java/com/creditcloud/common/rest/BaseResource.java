@@ -79,4 +79,10 @@ public abstract class BaseResource implements Serializable {
         log.info("cache key plain: {}", plain);
         return Hashing.md5().hashString(plain).toString();
     }
+    
+    protected String getCacheKey(String id, String key, Class<?> clazz) {
+        String plain = String.format(CacheConstant.KEY_PREFIX_INNER_RESOURCE_WITH_ID, id, clazz.getName(), key);
+        log.info("cache key plain: {}", plain);
+        return Hashing.md5().hashString(plain).toString();
+    }
 }

@@ -16,5 +16,8 @@ public interface CacheConstant {
      */
     String KEY_PREFIX_INNER_RESOURCE = "%1$s_%2$s";
     
-    
+    /**
+     * define cache key for inner cache
+     */
+    String KEY_PREFIX_INNER_RESOURCE_WITH_ID = "%1$s_%2$s_%3$s";
 }
