@@ -97,6 +97,31 @@ public class Invest extends BaseObject {
         this.status = status;
         this.submitTime = submitTime;
     }
+    
+    //for api
+    public Invest(String id,
+                  String userId,
+                  String loanId,
+                  BidMethod bidMethod,
+                  BigDecimal amount,
+                  int rate,
+                  Duration duration,
+                  RepaymentMethod repayMethod,
+                  InvestStatus status,
+                  Date submitTime,
+                  LoanPurpose purpose) {
+        this.id = id;
+        this.userId = userId;
+        this.loanId = loanId;
+        this.bidMethod = bidMethod;
+        this.amount = amount;
+        this.rate = rate;
+        this.duration = duration;
+        this.repayMethod = repayMethod;
+        this.status = status;
+        this.submitTime = submitTime;
+        this.purpose = purpose;
+    }
 
     public BigDecimal getOriginalAmount() {
         return originalAmount == null ? amount : originalAmount;

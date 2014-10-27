@@ -165,6 +165,16 @@ public interface TagService {
      * @return
      */
     int countByTag(String clientCode, Tag tag);
+    
+    /**
+     * 统计tag标记的某Realm的entity数量
+     *
+     * @param clientCode
+     * @param tag
+     * @param realm
+     * @return
+     */
+    int countByTagInRealm(String clientCode, Tag tag, Realm realm);
 
     /**
      * 列出tag标记的所有实体
