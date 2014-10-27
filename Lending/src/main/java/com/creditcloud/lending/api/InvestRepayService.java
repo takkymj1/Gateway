@@ -61,24 +61,6 @@ public interface InvestRepayService {
     public int countByStatus(String userId, List<RepaymentStatus> statusList);
 
     /**
-     * 用戶待收的贷款金额总和.
-     *
-     * 包括未到期、逾期以及违约总和
-     *
-     * @param userId
-     * @return
-     */
-    public RepayAmount sumDueLoanRepayByUser(String userId);
-
-    /**
-     * 用戶逾期和违约的待收金额总和
-     *
-     * @param userId
-     * @return
-     */
-    public RepayAmount sumOverdueLoanRepayByUser(String userId);
-
-    /**
      * 根据状态加总统计用户的投资回款信息
      *
      * @param userId

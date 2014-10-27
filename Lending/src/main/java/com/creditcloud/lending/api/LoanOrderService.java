@@ -17,6 +17,8 @@ import javax.ejb.Remote;
 @Remote
 public interface LoanOrderService {
 
+    LoanOrder addNew(LoanOrder order);
+
     int countByLoan(String loanId);
 
     List<LoanOrder> listByLoan(String loanId);
