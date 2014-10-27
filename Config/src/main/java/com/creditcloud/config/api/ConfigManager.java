@@ -5,6 +5,7 @@
 package com.creditcloud.config.api;
 
 import com.creditcloud.config.AllWinConfig;
+import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.CreditManagerConfig;
@@ -121,4 +122,10 @@ public interface ConfigManager {
      * @return
      */
     public WealthProductConfig getWealthProductConfig();
+    
+    /**
+     * 缓存配置文件
+     * @return 
+     */
+    public CacheConfig getCacheConfig();
 }

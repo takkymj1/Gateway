@@ -5,6 +5,8 @@
 package com.creditcloud.common.rest;
 
 import com.creditcloud.common.validation.ValidatorWrapper;
+import com.creditcloud.model.constant.CacheConstant;
+import com.google.common.hash.Hashing;
 import java.io.Serializable;
 import java.net.URI;
 import javax.annotation.Resource;
@@ -12,12 +14,14 @@ import javax.validation.Validator;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.glassfish.jersey.server.mvc.Viewable;
 
 /**
  *
  * @author sobranie
  */
+@Slf4j
 public abstract class BaseResource implements Serializable {
 
     @Context
@@ -68,5 +72,17 @@ public abstract class BaseResource implements Serializable {
      */
     protected String getAbsolutePath() {
         return uriInfo.getAbsolutePath().getPath();
+    }
+    
+    protected String getCacheKey(String key, Class<?> clazz) {
+        String plain = String.format(CacheConstant.KEY_PREFIX_INNER_RESOURCE, clazz.getName(), key);
+        log.info("cache key plain: {}", plain);
+        return Hashing.md5().hashString(plain).toString();
+    }
+    
+    protected String getCacheKey(String id, String key, Class<?> clazz) {
+        String plain = String.format(CacheConstant.KEY_PREFIX_INNER_RESOURCE_WITH_ID, id, clazz.getName(), key);
+        log.info("cache key plain: {}", plain);
+        return Hashing.md5().hashString(plain).toString();
     }
 }
