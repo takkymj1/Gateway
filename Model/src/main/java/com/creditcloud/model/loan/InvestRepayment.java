@@ -60,7 +60,6 @@ public class InvestRepayment extends BaseObject {
     /**
      * 相对期数,例如对于债券转让的还款,原始期数为12期，从第5期承接转让，那么currentPeriod为5-12，relativePeiod为1-8
      */
-    @Setter
     private int relativePeriod;
 
     //TODO replace with <FundRecordType, BigDecimal>
