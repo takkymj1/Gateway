@@ -32,7 +32,7 @@ public abstract class AbstractMarketCustomizeService implements MarketCustomizeS
     public WechatInfo addWechatInfo(WechatInfo wxi) {
         throw new UnsupportedOperationException();
     }
-    
+
     @Override
     public boolean rewardWechatInfo(String id) {
         throw new UnsupportedOperationException();
