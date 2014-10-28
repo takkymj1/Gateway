@@ -74,7 +74,7 @@ public class FundingReward extends BaseObject {
      * amount actual raised
      */
     private BigDecimal raiseAmount;
-    
+
     /**
      * 预计回报发送时间
      */
@@ -92,6 +92,22 @@ public class FundingReward extends BaseObject {
         this.limitNumber = limitNumber;
         this.description = description;
         this.deliveryDetail = deliveryDetail;
+    }
+
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         String description,
+                         String deliveryDetail,
+                         String deliveryTime) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.description = description;
+        this.deliveryDetail = deliveryDetail;
+        this.deliveryTime = deliveryTime;
     }
 
     /**
