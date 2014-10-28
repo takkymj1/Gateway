@@ -66,12 +66,12 @@ public class FundingReward extends BaseObject {
     private String deliveryDetail;
 
     /**
-     * hard limit
+     * hard limit, TODO not used now
      */
     private boolean hardLimit;
 
     /**
-     * amount actual raised
+     * amount actual raised, hard limit, TODO not used now
      */
     private BigDecimal raiseAmount;
 
