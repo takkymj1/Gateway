@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
@@ -17,12 +16,17 @@ import javax.ejb.Remote;
  *
  * here we wrap all client customized requirements in CreditMarket</p>
  * leave CreditManager, Gateway alone
- *  
+ *
  * @author rooseek
  */
 @Remote
 public interface MarketCustomizeService {
-    int addNews(List<WechatInfo> wis);
+
+    int addWechatInfos(List<WechatInfo> wis);
+
     PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo);
+
     WechatInfo addWechatInfo(WechatInfo wxi);
+
+    boolean rewardWechatInfo(String id);
 }

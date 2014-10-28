@@ -17,6 +17,7 @@ import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.ejb.Remote;
 
@@ -31,7 +32,13 @@ public interface InvestService extends InvestQueryService {
 
     public Invest getById(String investId);
 
-    public void update(Invest invest);
+    /**
+     * just update certain field
+     *
+     * @param investId
+     * @param valueMap
+     */
+    public Invest update(String investId, Map<String, Object> valueMap);
 
     /**
      * count invest by user
@@ -99,16 +106,6 @@ public interface InvestService extends InvestQueryService {
      * @return
      */
     public int countByLoanAndUser(String userId, String loanId, List<InvestStatus> statusList, List<BidMethod> bidMethods);
-
-    /**
-     * count valid invest by loan and user and bidMehod
-     *
-     * @param userId
-     * @param loanId
-     * @param bidMethods
-     * @return
-     */
-    public int countValidInvestByLoanAndUser(String userId, String loanId, List<BidMethod> bidMethods);
 
     /**
      * list invest between fromdate and todate
