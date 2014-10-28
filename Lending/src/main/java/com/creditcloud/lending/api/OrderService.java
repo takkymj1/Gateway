@@ -8,8 +8,6 @@ package com.creditcloud.lending.api;
 import com.creditcloud.lending.model.LoanOrder;
 import com.creditcloud.lending.model.RepayOrder;
 import com.creditcloud.model.enums.TransStat;
-import com.creditcloud.model.loan.Invest;
-import com.creditcloud.model.loan.InvestRepayment;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -25,7 +23,7 @@ public interface OrderService {
 
     boolean markRepayOrderStat(TransStat stat, String orderId);
 
-    Map<String, LoanOrder> listOrderByLoan(String loanId, List<Invest> investList);
+    Map<String, LoanOrder> listOrderByLoan(String loanId, List<String> investIdList);
 
-    Map<String, RepayOrder> listOrderByRepay(String loanRepayId, List<InvestRepayment> repayments);
+    Map<String, RepayOrder> listOrderByRepay(String loanRepayId, List<String> investRepayIdList);
 }
