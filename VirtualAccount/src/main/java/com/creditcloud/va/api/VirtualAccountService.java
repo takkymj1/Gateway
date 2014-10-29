@@ -165,5 +165,13 @@ public interface VirtualAccountService {
      * @return 
      */
     List<VirtualBookingRecord> listBookingRecordByCashRecord(String cashRecordId);
+    
+    /**
+     * 校验账目是否都属于同一个客户
+     * 
+     * @param recordIds
+     * @return 
+     */
+    boolean checkRecordIfOwnerTheSame(String[] recordIds);
 
 }
