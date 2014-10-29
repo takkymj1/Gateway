@@ -90,8 +90,9 @@ public class Proof extends BaseObject {
      * 一组proof中的标志性或封面proof
      */
     private boolean cover;
-    
+
     public Proof(String id,
+                 String userId,
                  RealmEntity owner,
                  ProofType proofType,
                  ProofContentType contentType,
@@ -104,6 +105,7 @@ public class Proof extends BaseObject {
                  BigDecimal longitude,
                  BigDecimal latitude) {
         this.id = id;
+        this.userId = userId;
         this.proofType = proofType;
         this.owner = owner;
         this.content = content;
