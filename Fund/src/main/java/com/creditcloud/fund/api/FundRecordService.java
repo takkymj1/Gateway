@@ -389,6 +389,29 @@ public interface FundRecordService {
                                 String loanId,
                                 Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                 String orderId);
+    
+    /**
+     * 联动支付: 用于结算时记录统一放款给借款人和记录收费，不记录投资人的记录
+     * 
+     * @param clientCode
+     * @param loanUserId
+     * @param loanId
+     * @param refundAmount
+     * @param refundOrderId
+     * @param account 商户账号
+     * @param feeToMerchantDetails 进入商户账号的手续费
+     * @param userId 担保用户id
+     * @param feeToGuaranteeDetails 进入担保账户的手续费
+     */
+    void settleInvestRecord2UmpRefund(String clientCode,
+                                      String loanUserId,
+                                      String loanId,
+                                      BigDecimal refundAmount,
+                                      String refundOrderId,
+                                      String account,
+                                      Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeToMerchantDetails,
+                                      String userId,
+                                      Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeToGuaranteeDetails);
 
     /**
      * 还款成功生成对应的record
