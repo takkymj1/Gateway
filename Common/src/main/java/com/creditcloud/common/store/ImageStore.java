@@ -34,7 +34,7 @@ public interface ImageStore {
      * @param clientCode
      * @param realm
      * @param imageName
-     * @param inputStream
+     * @param imageStream
      * @return
      */
     boolean store(String clientCode, Realm realm, String imageName, InputStream imageStream);
