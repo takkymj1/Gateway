@@ -147,7 +147,12 @@ public enum Privilege implements BaseEnum {
     APPOINT_DETAIL("认购产品详情", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_ALTER("添加更改认购产品", Realm.APPOINTMENT, "认购相关权限"),
     APPOINT_DELETE("删除认购产品", Realm.APPOINTMENT, "认购相关权限"),
-    
+    /**
+     * 批量任务相关权限
+     */
+    BATCHJOB_LIST("列出批量任务", Realm.BATCHJOB, "批量任务相关权限"),
+    BATCHJOB_SUBMIT("提交批量任务", Realm.BATCHJOB, "批量任务相关权限"),
+    BATCHJOB_EXECUTE("执行批量任务", Realm.BATCHJOB, "批量任务相关权限"),   //注意一般需要复合权限才可以真正执行，比如批量建标需要 BATCHJOB_EXECUTE以及LOANREQUEST_ALTER
     /**
      * 支持工单相关权限
      */

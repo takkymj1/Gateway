@@ -44,5 +44,6 @@
         <module>VirtualAccount</module>
         <module>Claim</module>
         <module>Lending</module>
-  </modules>
+        <module>Batch</module>
+    </modules>
 </project>
