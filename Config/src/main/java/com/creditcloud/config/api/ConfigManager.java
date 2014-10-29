@@ -8,6 +8,7 @@ import com.creditcloud.config.AllWinConfig;
 import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
 import com.creditcloud.config.ClientConfig;
+import com.creditcloud.config.ContractSealConfig;
 import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
@@ -128,4 +129,10 @@ public interface ConfigManager {
      * @return 
      */
     public CacheConfig getCacheConfig();
+    
+    /**
+     * 合同章配置
+     * @return 
+     */
+    public ContractSealConfig getContractSealConfig();
 }
