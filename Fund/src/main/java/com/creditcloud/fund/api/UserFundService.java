@@ -82,7 +82,43 @@ public interface UserFundService {
                                 BigDecimal outAmount,
                                 String loanUserId,
                                 BigDecimal inAmount);
+    
+    /**
+     * 联动支付: 结标操作.<p>
+     * 不更改借款人的可用金额, 这个金额会在放款最后统一计算费用后再计算.<p>
+     * 借款人待还金额+=repayAmount<p>
+     * 投资人可用金额-=outAmount<p>
+     * 投资人待收金额+=repayAmount
+     *
+     * @param clientCode
+     * @param repayAmount  待还款金额，包含本金和利息，必须大于0
+     * @param investUserId 投资人
+     * @param outAmount    投资人投标金额，必须大于0
+     * @param loanUserId   借款人
+     * @return
+     * @see settleInvestUmpRefund
+     */
+    public boolean settleInvestUmp(String clientCode,
+                                   BigDecimal repayAmount,
+                                   String investUserId,
+                                   BigDecimal outAmount,
+                                   String loanUserId);
 
+    /**
+     * 联动支付: 结标返款操作.<p>
+     * 在统一计算总的放款费用后, 更新借款人的可用金额.<p>
+     * 借款人可用金额+＝inAmount
+     *
+     * @param clientCode
+     * @param loanUserId   借款人
+     * @param inAmount     借款人实际到账金额(可能=总投标金额-总借款费用)，必须大于0
+     * @return
+     * @see settleInvestUmp
+     */
+    public boolean settleInvestUmpRefund(String clientCode,
+                                         String loanUserId,
+                                         BigDecimal inAmount);
+    
     /**
      * 还款操作<p>
      * 借款人可用金额-=outAmount<p>
