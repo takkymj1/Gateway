@@ -255,6 +255,19 @@ public interface UserFundService {
     public boolean charge(String clientCode,
                           String userId,
                           BigDecimal amount);
+    
+    /**
+     * 用户获得费用收入，直接增加可用余额<p>
+     * 如担保用户获得的担保金收入
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount     必须大于0
+     * @return
+     */
+    public boolean incomeFee(String clientCode,
+                             String userId,
+                             BigDecimal amount);
 
     /**
      * 矫正账户金额.
