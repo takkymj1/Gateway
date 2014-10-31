@@ -15,9 +15,13 @@ import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.validation.group.BackSourceCheck;
+import com.creditcloud.model.validation.group.IndividualUserCheck;
+import com.creditcloud.model.validation.group.MobileSourceCheck;
 import com.creditcloud.model.validation.group.WebSourceCheck;
 import java.util.Date;
+import javax.validation.Validator;
 import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -65,7 +69,8 @@ public class User extends BaseObject {
      * 手机号
      */
     @FormParam("mobile")
-    @MobileNumber
+    @MobileNumber(groups = {Default.class})
+    @NotNull(groups = {IndividualUserCheck.class})
     protected String mobile;
 
     /**
@@ -150,5 +155,31 @@ public class User extends BaseObject {
         this.lastLoginDate = lastLoginDate;
         this.registerDate = registerDate;
         this.referralEntity = referralEntity;
+    }
+
+    /**
+     * validate user
+     *
+     * @param user
+     * @param validator
+     */
+    public static void validate(Validator validator, User user) {
+        Class sourceClazz = Default.class;
+        switch (user.getSource()) {
+            case WEB:
+                sourceClazz = WebSourceCheck.class;
+                break;
+            case BACK:
+                sourceClazz = BackSourceCheck.class;
+                break;
+            case MOBILE:
+                sourceClazz = MobileSourceCheck.class;
+                break;
+        }
+        Class userClazz = Default.class;
+        if (user.isEnterprise()) {
+            userClazz = IndividualUserCheck.class;
+        }
+        validator.validate(user, sourceClazz, userClazz);
     }
 }
