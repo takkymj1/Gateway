@@ -181,6 +181,12 @@ public class LoanRequest extends BaseObject {
     private String reviewComment;
     
     /**
+     * 商户平台自定义如json string
+     */
+    @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
+    private String clientPriv;
+    
+    /**
      *
      * @param id          LoanRequest Id, nullable
      * @param user        用户
