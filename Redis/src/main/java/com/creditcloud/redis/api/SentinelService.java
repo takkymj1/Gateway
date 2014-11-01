@@ -216,4 +216,32 @@ public interface SentinelService {
      */
     public List<String> range(CacheType type, String key, long start, long end);
     
+    /**
+     * 
+     * Time complexity: O(N) where N is the number of keys that will be removed. 
+     * When a key to remove holds a value other than a string, the individual 
+     * complexity for this key is O(M) where M is the number of elements in the list, 
+     * set, sorted set or hash. Removing a single key that holds a string value is O(1).
+     * 
+     * Removes the specified keys. A key is ignored if it does not exist.
+     * @param type
+     * @param key
+     * @return 
+     */
+    public long delete(CacheType type, String key);
+    
+    /**
+     * 
+     * Time complexity: O(1)
+     * 
+     * Returns the remaining time to live of a key that has a timeout. 
+     * This introspection capability allows a Redis client to check 
+     * how many seconds a given key will continue to be part of the dataset.
+     * 
+     * @param type
+     * @param key
+     * @return 
+     */
+    public long ttl(CacheType type, String key);
+    
 }

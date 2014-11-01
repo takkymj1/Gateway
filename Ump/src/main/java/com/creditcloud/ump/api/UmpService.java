@@ -51,19 +51,55 @@ public interface UmpService {
     public String getResponseString(String clientCode, BaseResponse baseResponse);
 
     /**
-     * 建立UMP账户
-     * 
+     * 用户在联动开设第三方支付账户，并把相关信息记录在系统中.
+     *
      * @param clientCode
-     * @param userId    User.id
-     * @param userName  用户真实姓名
-     * @param idType    
-     * @param idCode    身份证号码
-     * @param mobileId  手机号码
-     * @return 
+     * @param userId 用户在系统中的唯一id
+     * @param userName 用户的真实姓名
+     * @param idType 证件类型
+     * @param idCode 身份证号
+     * @param mobileId 手机号码
+     * @return
      */
-    public UmpCreateAccountResult createUmpAccount(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
+    public UmpCreateAccountResult createUmpAccount(String clientCode,
+                                                   String userId,
+                                                   String userName,
+                                                   UmpIdentityType idType,
+                                                   String idCode,
+                                                   String mobileId);
 
-    public UmpCreateAccountResult updateUmpMobileId(String clientCode, String userId, String userName, UmpIdentityType idType, String idCode, String mobileId);
+    /**
+     * 在联动服务器更新用户的手机号码.
+     *
+     * @param clientCode
+     * @param userId 需和开户时传入的一样
+     * @param userName 需和开户时传入的一样
+     * @param idType 需和开户时传入的一样
+     * @param idCode 需和开户时传入的一样
+     * @param mobileId 新的手机号码
+     * @return
+     */
+    public UmpCreateAccountResult updateUmpMobileId(String clientCode,
+                                                    String userId,
+                                                    String userName,
+                                                    UmpIdentityType idType,
+                                                    String idCode,
+                                                    String mobileId);
+
+    /**
+     * 供Manager端手工创建/修改用户的联动三方账户信息.<p>
+     * 在联动端线下开户的用户可使用该方法将联动的用户编号添加到系统中.
+     *
+     * @param clientCode
+     * @param userId 用户在系统中的唯一id
+     * @param umpAccountName 联动线下开户的用户名
+     * @param umpAccountId 联动线下开户的账户号
+     * @return
+     */
+    public UmpCreateAccountResult updateUmpAccount(String clientCode,
+                                                   String userId,
+                                                   String umpAccountName,
+                                                   String umpAccountId);
 
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
@@ -203,6 +239,19 @@ public interface UmpService {
                                 String umpTenderId,
                                 String umpTenderAccountId,
                                 BigDecimal amount);
+
+    /**
+     * 担保方对标的收取担保费
+     */
+    public UmpPaymentResult feeGuarantee(String clientCode,
+                                         String orderId,
+                                         LocalDate orderDate,
+                                         String retUrl,
+                                         String umpTenderId,
+                                         String umpTenderAccountId,
+                                         String umpAccountName,
+                                         String umpAccountId,
+                                         BigDecimal amount);
 
     /**
      * 平台对标的进行垫付(偿付)，从<b>平台账号或保险金账号</b>转账入标的账号
