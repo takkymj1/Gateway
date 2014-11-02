@@ -218,10 +218,10 @@ public interface RedisService {
      * set, sorted set or hash. Removing a single key that holds a string value is O(1).
      * 
      * Removes the specified keys. A key is ignored if it does not exist.
-     * @param key
+     * @param keys
      * @return 
      */
-    public long delete(String ...key);
+    public long delete(String ...keys);
     
     /**
      * 
@@ -231,8 +231,8 @@ public interface RedisService {
      * This introspection capability allows a Redis client to check 
      * how many seconds a given key will continue to be part of the dataset.
      * 
-     * @param key
+     * @param keys
      * @return 
      */
-    public long ttl(String key);
+    public long ttl(String keys);
 }
