@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.List;
 import javax.ejb.Remote;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
 /**
@@ -225,7 +224,7 @@ public interface SentinelService {
      * 
      * Removes the specified keys. A key is ignored if it does not exist.
      * @param type
-     * @param key
+     * @param keys
      * @return 
      */
     public long delete(CacheType type, String ...keys);
