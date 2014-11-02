@@ -228,7 +228,7 @@ public interface SentinelService {
      * @param key
      * @return 
      */
-    public long delete(CacheType type, String key);
+    public long delete(CacheType type, String ...keys);
     
     /**
      * 

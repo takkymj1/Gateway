@@ -221,7 +221,7 @@ public interface RedisService {
      * @param key
      * @return 
      */
-    public long delete(String key);
+    public long delete(String ...key);
     
     /**
      * 
