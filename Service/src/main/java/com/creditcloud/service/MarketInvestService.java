@@ -174,4 +174,17 @@ public interface MarketInvestService extends MarketInvestRepayService {
      * @return
      */
     PagedResult<ReferralUser> listByReferral(String clientCode, String userId, Date from, Date to, PageInfo pageInfo);
+    
+    /**
+     * list Invest by loan Id
+     *
+     * @param clientCode
+     * @param loanId
+     * @param userId
+     * @param status
+     * @return empty list if nothing found or status is null or empty
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    Invest getInvestByLoanAndUserId(String clientCode, String loanId, String userId,InvestStatus... status);
 }
