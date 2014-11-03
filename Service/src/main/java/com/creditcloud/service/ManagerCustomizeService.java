@@ -5,15 +5,14 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.service.misc.WechatInfoService;
 import javax.ejb.Remote;
 
 /**
- *
- * wrap client customized requirements from CreditMarket
+ * wrap client customized requirements from CreditManager
  *
  * @author rooseek
  */
 @Remote
-public interface MarketCustomizeService extends WechatInfoService{
+public interface ManagerCustomizeService {
+
 }

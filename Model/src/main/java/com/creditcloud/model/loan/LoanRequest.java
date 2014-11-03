@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.user.corporation.CorporationUser;
+import com.creditcloud.model.enums.loan.GuarantyStyle;
 
 /**
  *
@@ -157,6 +158,11 @@ public class LoanRequest extends BaseObject {
      */
     @Size(max = LoanConstant.MAX_GUARANTEE_INFO)
     private String guaranteeInfo;
+        
+    /**
+     * 担保方式
+     */
+    private GuarantyStyle guarantyStyle;
 
     /**
      * 风险信息及措施
@@ -179,6 +185,22 @@ public class LoanRequest extends BaseObject {
     @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
     @XmlElement(name = "reviewComment")
     private String reviewComment;
+    
+    /**
+     * 商户平台自定义如json string
+     */
+    @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
+    private String clientPriv;
+    
+    /**
+     * 项目提供方
+     */
+    private RealmEntity requestProvider;
+    
+    /**
+     * 归属产品
+     */
+    private String productId;
     
     /**
      *

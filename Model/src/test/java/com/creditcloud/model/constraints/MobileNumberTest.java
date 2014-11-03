@@ -7,6 +7,7 @@ package com.creditcloud.model.constraints;
 import com.creditcloud.model.user.User;
 import static com.creditcloud.model.constraints.BaseTest.validator;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.validation.group.IndividualUserCheck;
 import javax.validation.Validation;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -44,7 +45,7 @@ public class MobileNumberTest extends BaseTest<User> {
     public void notNull() {
         object.setMobile(null);
         constraintViolations = validator.validateProperty(object, "mobile");
-        assertEquals(1, constraintViolations.size());
+        assertEquals(0, constraintViolations.size());
     }
 
     @Test
@@ -71,6 +72,19 @@ public class MobileNumberTest extends BaseTest<User> {
         object.setMobile("23112345678");
         constraintViolations = validator.validateProperty(object, "mobile");
         assertEquals(1, constraintViolations.size());
-
+    }
+    
+    @Test
+    public void group(){
+        constraintViolations = validator.validateProperty(object, "mobile");
+        assertEquals(1, constraintViolations.size());
+        
+        object.setMobile(null);
+        constraintViolations = validator.validateProperty(object, "mobile");
+        assertEquals(0, constraintViolations.size());
+        
+        object.setMobile(null);
+        constraintViolations = validator.validateProperty(object, "mobile", IndividualUserCheck.class);
+        assertEquals(1, constraintViolations.size());
     }
 }
