@@ -1,4 +1,4 @@
-package com.creditcloud.service.model;
+package com.creditcloud.service.model.misc;
 
 import com.creditcloud.model.BaseObject;
 import java.util.Date;
