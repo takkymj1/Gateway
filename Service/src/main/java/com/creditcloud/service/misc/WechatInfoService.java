@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service;
+package com.creditcloud.service.misc;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.service.model.WechatInfo;
+import com.creditcloud.service.model.misc.WechatInfo;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public interface WechatInfoService {
 
     int addWechatInfos(List<WechatInfo> wis);
 
-    PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo);
+    PagedResult<com.creditcloud.service.model.misc.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo);
 
     WechatInfo addWechatInfo(WechatInfo wxi);
 
