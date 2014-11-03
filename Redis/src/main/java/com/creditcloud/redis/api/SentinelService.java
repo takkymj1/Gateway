@@ -88,6 +88,9 @@ public interface SentinelService {
      */
     public void subscribe(CacheType type, JedisPubSub listener, String ...keys);
     
+    
+    public void publish(CacheType type, String channel, String message);
+    
     /**
      * expire a value
      * @param type
