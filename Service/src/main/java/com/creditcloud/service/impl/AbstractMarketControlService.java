@@ -8,8 +8,7 @@ package com.creditcloud.service.impl;
 import com.creditcloud.service.MarketControlService;
 
 /**
- * general portal for all impl in Market</p>
- * no need to update every branch any more.
+ * general portal for control impl in Market</p>
  *
  * @author rooseek
  */
