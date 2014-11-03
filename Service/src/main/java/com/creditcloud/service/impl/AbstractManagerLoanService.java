@@ -6,138 +6,120 @@
 package com.creditcloud.service.impl;
 
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
-import com.creditcloud.model.loan.AdvanceRepayDetail;
-import com.creditcloud.model.loan.Invest;
-import com.creditcloud.model.loan.InvestRepayment;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Loan;
-import com.creditcloud.model.loan.LoanInvestStatistics;
-import com.creditcloud.model.loan.OverdueRepayDetail;
-import com.creditcloud.model.loan.RepayDetail;
-import com.creditcloud.model.loan.SettleLoanResult;
+import com.creditcloud.model.loan.LoanFee;
+import com.creditcloud.model.loan.LoanRequest;
+import com.creditcloud.model.loan.LoanReward;
+import com.creditcloud.model.loan.LoanStatistics;
+import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.ReferralUser;
-import com.creditcloud.service.MarketInvestService;
-import com.creditcloud.service.model.DisburseInfo;
-import com.creditcloud.service.model.RepayInfo;
+import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.service.LoanService;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
  * @author rooseek
  */
-public abstract class AbstractMarketInvestService implements MarketInvestService {
+public abstract class AbstractManagerLoanService implements LoanService {
 
     @Override
-    public PagedResult<Invest> listInvestbyUser(String clientCode, String userId, PageInfo info, InvestStatus... status) {
+    public boolean markLoanStatus(String clientCode, String loanId, LoanStatus status, int bidNumber, int bidAmount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PagedResult<Invest> listInvestByLoan(String clientCode, String loanId, PageInfo info, InvestStatus... status) {
+    public Loan getLoanById(String clientCode, String loanId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int countInvestByLoan(String clientCode, String loanId, InvestStatus... status) {
+    public PagedResult<Loan> listLoanByUser(String clientCode, String userId, PageInfo pageInfo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void notifyLoanStatus(String clientCode, String loanId, LoanStatus status, List<LoanStatus> currentStatus) {
+    public PagedResult<Loan> listLoanByUser(String clientCode, String userId, Date from, Date to, PageInfo pageInfo, LoanStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public SettleLoanResult settleLoan(String clientCode, Loan loan) {
+    public List<Loan> listLoanByRequest(String clientCode, String requestId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void postSettle(String clientCode, Loan loan) {
+    public PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean cancelFailedLoan(String clientCode, Loan loan) {
+    public PagedResult<Loan> listLoanByStatusAndMethod(String clientCode, PageInfo pageInfo, List<LoanStatus> statusList, List<RepaymentMethod> methodList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean cancelScheduledLoan(String clientCode, String loanId) {
+    public PagedResult<Loan> listLoanByStatusAndPurpose(String clientCode, PageInfo pageInfo, List<LoanStatus> statusList, List<LoanPurpose> purposeList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LoanInvestStatistics getLoanInvestStatistics(String clientCode, String userId) {
+    public List<Loan> listPersonalLoanByStatus(String clientCode, LoanStatus... statusList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Map<String, Integer> getOpenLoanBidNumber(String clientCode) {
+    public LoanStatistics getLoanStatistics(String clientCode, String userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Map<String, Integer> getOpenLoanBalance(String clientCode) {
+    public List<LoanReward> listLoanReward(String clientCode, String loanId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Loan getOpenLoanById(String clientCode, String loanId) {
+    public List<Loan> listByCorporationUser(String clientCode, RealmEntity entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean cancelInvest(String clientCode, String investId) {
+    public SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Invest getInvestById(String clientCode, String investId) {
+    public LoanRequest getRequestById(String clientCode, String requestId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PagedResult<ReferralUser> listByReferral(String clientCode, String userId, Date from, Date to, PageInfo pageInfo) {
+    public PagedResult<LoanRequest> listRequestByUserAndStatus(String clientCode, String userId, PageInfo pageInfo, LoanRequestStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<InvestRepayment> listRepayByInvest(String clientCode, String investId) {
+    public PagedResult<LoanRequest> listRequestByEmployeeAndStatus(String clientCode, String employeeId, PageInfo pageInfo, LoanRequestStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean repayLoan(String clientCode, RepayInfo repayInfo) {
+    public boolean updateLoanRequest(String clientCode, LoanRequest request) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean disburseLoan(String clientCode, DisburseInfo disburseInfo) {
+    public LoanFee getLoanFee(String clientCode, String requestId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public RepayDetail getRepayDetail(String clientCode, RepayInfo repayInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public OverdueRepayDetail getOverdueRepayDetail(String clientCode, RepayInfo repayInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public AdvanceRepayDetail getAdvanceRepayDetail(String clientCode, RepayInfo repayInfo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public RepayDetail getDisburseDetail(String clientCode, DisburseInfo disburseInfo) {
+    public LoanFee getLoanFeeByLoanId(String clientCode, String loanId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -145,7 +127,7 @@ public abstract class AbstractMarketInvestService implements MarketInvestService
      * ****************client scoped methods*****************
      */
     @Override
-    public Invest getInvestByLoanAndUserId(String clientCode, String loanId, String userId, InvestStatus... status) {
+    public PagedResult<Loan> listLoanByComplexCondition(String clientCode, String method, int minRate, int maxRate, int minDuration, int maxDuration, PageInfo pageInfo, LoanStatus... statusList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
