@@ -93,6 +93,8 @@ public interface RedisService {
      */
     public void subscribe(JedisPubSub listener, String ...keys);
     
+    public void publish(String channel, String message);
+    
     /**
      * expire a value
      * @param key 
