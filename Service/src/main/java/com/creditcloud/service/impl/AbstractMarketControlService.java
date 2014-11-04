@@ -28,5 +28,4 @@ public class AbstractMarketControlService implements MarketControlService {
     public boolean cancelFundingProject(String clientCode, String projectId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
