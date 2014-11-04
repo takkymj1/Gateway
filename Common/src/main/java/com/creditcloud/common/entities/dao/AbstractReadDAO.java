@@ -13,8 +13,11 @@ import com.creditcloud.model.criteria.ParamItem;
 import com.creditcloud.model.criteria.SortInfo;
 import com.creditcloud.model.criteria.SortItem;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -27,6 +30,7 @@ import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.validation.Validator;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * wrap read-only dao access methods
@@ -248,5 +252,144 @@ public abstract class AbstractReadDAO<T> {
         TypedQuery<Long> query = em.createQuery(cq);
         Long result = query.getSingleResult();
         return result == null ? 0 : result.intValue();
+    }
+    
+    /**
+     * 
+     * 组装查询条件
+     * 
+     * @param paramInfo
+     * @param paramMap
+     * @param where
+     * @return 
+     */
+    public StringBuilder prepareWhereCondition(ParamInfo paramInfo,Map<String,Object> paramMap,StringBuilder where){
+        if (paramInfo != null) {
+            for (ParamItem item : paramInfo.getParamItems()) {
+                String alias = "t."+item.getFieldName();
+                String tmp = "t"+paramMap.size();
+                String predicate = null;
+                switch (item.getQueryOperator()){
+                    case LIKE:
+                        predicate = String.format(" %s like :%s ", alias,tmp);
+                        paramMap.put(tmp, "%" + item.getValue() + "%");
+                        break;
+                    case EQ:
+                        predicate = String.format(" %s = :%s ", alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                    case GE:
+                        predicate = String.format(" %s >= :%s ",alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                    case LE:
+                        predicate = String.format(" %s <= :%s ",alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                    case GT:
+                        predicate = String.format(" %s > :%s ",alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                    case LT:
+                        predicate = String.format(" %s < :%s ",alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                    case IN:
+                        predicate = String.format(" %s in :%s ",alias,tmp);
+                        paramMap.put(tmp, item.getValue());
+                        break;
+                }
+                if(StringUtils.isBlank(where.toString())){
+                    where.append(predicate);
+                }else{
+                    where.append(" ").append(item.getOperator().toString()).append(predicate);
+                }
+            } 
+        }
+        
+        return where;
+    }
+    
+    /**
+     * 
+     * 拼接sql语句
+     * 
+     * @param where
+     * @param from
+     * @param orderBy
+     * @param isCount
+     * @return 
+     */
+    public String toSql(StringBuilder where,StringBuilder from,StringBuilder orderBy,boolean isCount){
+        String select = "t";
+        StringBuilder query = new StringBuilder();
+        
+        if(!isCount){
+            query.append(String.format("select %s from %s ", select,from.toString()));
+        }else{
+            query.append(String.format("select count(%s) from %s ", select, from.toString()));
+        }
+                
+        if(StringUtils.isNotBlank(where.toString())){
+            query.append(" where ").append(where);
+        }
+        if(StringUtils.isNotBlank(orderBy.toString())){
+            query.append(" order by ").append(orderBy);
+        }
+        return query.toString();
+    }
+    
+    /**
+     * 
+     * list entity by criteriaInfo
+     * 
+     * @param criteriaInfo
+     * @return 
+     */
+    public PagedResult<T> findAll(CriteriaInfo criteriaInfo) {
+        EntityManager em = getEntityManager();
+        
+        ParamInfo paramInfo = criteriaInfo.getParamInfo();
+        PageInfo pageInfo = criteriaInfo.getPageInfo();
+        SortInfo sortInfo = criteriaInfo.getSortInfo();
+         
+        StringBuilder from = new StringBuilder();
+        from.append(String.format("%s t ", entityClass.getSimpleName()));
+        
+        StringBuilder where = new StringBuilder();
+        Map<String,Object> paramMap = new HashMap<>();
+        
+        where = prepareWhereCondition(paramInfo,paramMap,where);
+        
+        StringBuilder orderBy = new StringBuilder(" ");
+        if (sortInfo != null) {
+            Iterator<SortItem> iterator = sortInfo.getSortItems().iterator();
+            while(iterator.hasNext()){
+                SortItem item = iterator.next();
+                orderBy.append("t.").append(item.getFieldName()).append(" ").append(item.isDescending()?"desc":"asc");   
+            }
+        }
+        
+        String query = toSql(where,from,orderBy,false);
+        String countquery = toSql(where,from,orderBy,true);
+        
+        TypedQuery<T> cq = em.createQuery(query, entityClass);
+        //计算数据数量
+        TypedQuery<Long> countq = em.createQuery(countquery, Long.class);
+        
+        for (String key : paramMap.keySet()) {
+            Object value = paramMap.get(key);
+            cq.setParameter(key, value);
+            countq.setParameter(key, value);
+        }
+        
+        Long countResult = countq.getSingleResult();
+        
+        if(pageInfo != null){
+            cq.setFirstResult(pageInfo.getOffset());
+            cq.setMaxResults(pageInfo.getSize());
+        }
+        
+        return new PagedResult(cq.getResultList(), countResult==null?0:countResult.intValue());
     }
 }
