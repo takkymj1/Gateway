@@ -123,9 +123,11 @@ public class AbstractManagerLoanService implements LoanService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * ****************client scoped methods*****************
+     */
     @Override
     public PagedResult<Loan> listLoanByComplexCondition(String clientCode, List<RepaymentMethod> methodList, int minRate, int maxRate, int minDuration, int maxDuration, PageInfo pageInfo, List<LoanStatus> statusList) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

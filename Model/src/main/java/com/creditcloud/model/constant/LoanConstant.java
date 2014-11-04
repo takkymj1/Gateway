@@ -115,4 +115,9 @@ public interface LoanConstant {
      */
     int MAX_LOAN_REQUEST_SERIAL = 20;
 
+    /**
+     * 投标最大超时，单位秒
+     */
+    int MAX_BID_TIME_OUT = 300;
+
 }
