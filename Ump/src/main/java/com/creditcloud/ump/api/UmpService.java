@@ -11,6 +11,8 @@ import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpCreateAccountResult;
 import com.creditcloud.ump.model.UmpEntUser;
+import com.creditcloud.ump.model.UmpFeeResult;
+import com.creditcloud.ump.model.UmpFreezeResult;
 import com.creditcloud.ump.model.UmpPaymentResult;
 import com.creditcloud.ump.model.UmpSeqTransaction;
 import com.creditcloud.ump.model.UmpTender;
@@ -362,4 +364,63 @@ public interface UmpService {
                                                                                                   LocalDate endDate,
                                                                                                   PageInfo pageInfo);
 
+    /**
+     * 对UMP功能进行封装的冻结功能. 通过无密投资协议+投资实现.
+     * 
+     * @param clientCode
+     * @param userId 用户id
+     * @param orderId 订单id
+     * @param notifyUrl 后台通知路径
+     * @param amount 金额>0
+     * @return 
+     */
+    public UmpFreezeResult freeze(String clientCode,
+                                  String userId,
+                                  String orderId,
+                                  String notifyUrl,
+                                  BigDecimal amount);
+    
+    /**
+     * 对UMP功能进行封装的解冻功能. 通过无密投资协议+撤资实现.
+     * 
+     * @param clientCode
+     * @param userId 用户id
+     * @param orderId 订单id
+     * @param notifyUrl 后台通知路径
+     * @param amount 金额>0
+     * @return 
+     */
+    public UmpFreezeResult unfreeze(String clientCode,
+                                    String userId,
+                                    String orderId,
+                                    String notifyUrl,
+                                    BigDecimal amount);
+    
+    /**
+     * 查询该用户的冻结账户余额.
+     * 
+     * @param clientCode
+     * @param userId 用户id
+     * @return 
+     */
+    public BigDecimal getFreezeAmount(String clientCode,
+                                      String userId);
+    
+    /**
+     * 对UMP功能进行封装的收费功能(用户->平台). 通过无密投资协议+用户投资+平台收费实现.
+     * 
+     * @param clientCode
+     * @param userId 用户id
+     * @param outOrderId 转入标的账户的订单号
+     * @param inOrderId 转出标的账户的订单号
+     * @param notifyUrl 后台通知路径
+     * @param amount 金额>0
+     * @return 
+     */
+    public UmpFeeResult fee(String clientCode,
+                            String userId,
+                            String outOrderId,
+                            String inOrderId,
+                            String notifyUrl,
+                            BigDecimal amount);
 }
