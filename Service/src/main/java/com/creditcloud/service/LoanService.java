@@ -161,13 +161,14 @@ public interface LoanService extends LoanRequestService {
      * list loans by ComplexCondition 
      *
      * @param clientCode
-     * @param method
+     * @param methodList
      * @param minRate
      * @param maxRate
      * @param minDuration
+     * @param maxDuration
      * @param statusList
      * @param pageInfo
      * @return
      */
-    PagedResult<Loan> listLoanByComplexCondition(String clientCode, String method,int minRate,int maxRate,int minDuration,int maxDuration,PageInfo pageInfo, LoanStatus... statusList);
+    PagedResult<Loan> listLoanByComplexCondition(String clientCode,List<RepaymentMethod> methodList,int minRate,int maxRate,int minDuration,int maxDuration,PageInfo pageInfo, List<LoanStatus> statusList);
 }
