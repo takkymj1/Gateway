@@ -12,7 +12,7 @@ import com.creditcloud.service.MarketControlService;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketControlService implements MarketControlService {
+public class AbstractMarketControlService implements MarketControlService {
 
     @Override
     public boolean cancelLoan(String clientCode, String loanId) {

@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketCreditAssignService implements CreditAssignService {
+public class AbstractMarketCreditAssignService implements CreditAssignService {
 
     @Override
     public void markStatus(String clientCode, CreditAssignStatus status, String... creditAssignIds) {

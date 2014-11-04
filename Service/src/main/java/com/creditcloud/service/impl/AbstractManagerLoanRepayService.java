@@ -20,7 +20,7 @@ import org.joda.time.LocalDate;
  *
  * @author rooseek
  */
-public abstract class AbstractManagerLoanRepayService implements LoanRepayService {
+public class AbstractManagerLoanRepayService implements LoanRepayService {
 
     @Override
     public PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, PageInfo pageInfo, RepaymentStatus... status) {

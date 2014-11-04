@@ -29,7 +29,7 @@ import java.util.Map;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketInvestService implements MarketInvestService {
+public class AbstractMarketInvestService implements MarketInvestService {
 
     @Override
     public PagedResult<Invest> listInvestbyUser(String clientCode, String userId, PageInfo info, InvestStatus... status) {
