@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketCreditAssignService implements CreditAssignService {
+public class AbstractMarketCreditAssignService implements CreditAssignService {
 
     @Override
     public void markStatus(String clientCode, CreditAssignStatus status, String... creditAssignIds) {
@@ -56,5 +56,4 @@ public abstract class AbstractMarketCreditAssignService implements CreditAssignS
     public PagedResult<Invest> listInvest(String clientCode, String creditAssignId, InvestStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

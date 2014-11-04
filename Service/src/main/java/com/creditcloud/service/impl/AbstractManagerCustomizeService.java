@@ -11,7 +11,7 @@ import com.creditcloud.service.ManagerCustomizeService;
  *
  * @author rooseek
  */
-public abstract class AbstractManagerCustomizeService implements ManagerCustomizeService {
+public class AbstractManagerCustomizeService implements ManagerCustomizeService {
 
     @Override
     public void test() {

@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketCustomizeService implements MarketCustomizeService {
+public class AbstractMarketCustomizeService implements MarketCustomizeService {
 
     @Override
     public int addWechatInfos(List<WechatInfo> wis) {
