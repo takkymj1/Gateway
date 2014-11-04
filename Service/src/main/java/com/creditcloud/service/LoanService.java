@@ -156,4 +156,19 @@ public interface LoanService extends LoanRequestService {
      * @return
      */
     List<Loan> listByCorporationUser(String clientCode, RealmEntity entity);
+    
+    /**
+     * list loans by ComplexCondition 
+     *
+     * @param clientCode
+     * @param methodList
+     * @param minRate
+     * @param maxRate
+     * @param minDuration
+     * @param maxDuration
+     * @param statusList
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<Loan> listLoanByComplexCondition(String clientCode,List<RepaymentMethod> methodList,int minRate,int maxRate,int minDuration,int maxDuration,PageInfo pageInfo, List<LoanStatus> statusList);
 }

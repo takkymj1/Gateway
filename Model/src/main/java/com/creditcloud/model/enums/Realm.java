@@ -84,6 +84,7 @@ public enum Realm implements BaseEnum {
     FUNDINGINVEST("众筹投资"),
     PROJECTLOAN("众筹放款"),
     FUNDINGREWARD("众筹奖励"),
+    FUNDINGLIKE("众筹点赞"),
     /**
      * 其他
      */

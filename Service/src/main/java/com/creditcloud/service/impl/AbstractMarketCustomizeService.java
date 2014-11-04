@@ -8,7 +8,7 @@ package com.creditcloud.service.impl;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.service.MarketCustomizeService;
-import com.creditcloud.service.model.WechatInfo;
+import com.creditcloud.service.model.misc.WechatInfo;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-public abstract class AbstractMarketCustomizeService implements MarketCustomizeService {
+public class AbstractMarketCustomizeService implements MarketCustomizeService {
 
     @Override
     public int addWechatInfos(List<WechatInfo> wis) {
@@ -24,7 +24,7 @@ public abstract class AbstractMarketCustomizeService implements MarketCustomizeS
     }
 
     @Override
-    public PagedResult<com.creditcloud.service.model.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo) {
+    public PagedResult<com.creditcloud.service.model.misc.WechatInfo> listWechatInfoByDate(Date from, Date to, PageInfo pageInfo) {
         throw new UnsupportedOperationException();
     }
 

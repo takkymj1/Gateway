@@ -20,7 +20,7 @@ public enum CertificateType implements BaseEnum {
     FAMILY("家庭情况认证"),//家庭情况  可以上传家庭人员身份证明信息
     EDUCATION("学历认证"),//最高学历证明
     INCOME("收入认证"),
-    CAREER("工作认证"),
+    CAREER("工作认证"),//对于个人是工作认证，对于企业是企业认证
     REALESTATE("房产认证"),
     LOCATION("居住地认证"),
     VEHICLE("购车认证"),

@@ -11,7 +11,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
@@ -20,7 +19,7 @@ import javax.validation.constraints.Pattern;
  */
 @Pattern(regexp =  "[1][0-9]{10}", message = "{common.mobileNumber.Pattern}")
 @Constraint(validatedBy = {})
-@NotNull(message="{common.mobileNumber.NotNull}")
+//@NotNull(message="{common.mobileNumber.NotNull}")
 @Target({ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
