@@ -100,7 +100,12 @@ public enum Realm implements BaseEnum {
     /**
      * 原始债权
      */
-    CLAIM("CLAIM"); 
+    CLAIM("CLAIM"),
+    
+    /**
+     * 担保审计
+     */
+    GUARANTEE_AUDIT("GUARANTEE_AUDIT"); 
 
     private final String key;
 
