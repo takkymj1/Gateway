@@ -19,7 +19,7 @@ public enum CmdIdRspType {
     /**
      * 绑定银行卡
      */
-    MER_BIND_CARD_RSP,
+    MER_BIND_CARD_NOPWD_RSP,
     /**
      * 绑定银行卡结果通知
      */
@@ -79,7 +79,7 @@ public enum CmdIdRspType {
     /**
      * 个人账户提现
      */
-    CUST_WITHDRAWALS_RSP,
+    CUST_WITHDRAWALS_NOPWD_RSP,
     /**
      * 企业客户提现
      */

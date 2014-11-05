@@ -40,7 +40,7 @@ public class QueryMerAccountRequest extends BaseRequest {
     public QueryMerAccountRequest(String mer_id,
                                   String query_mer_id,
                                   String account_type) {
-        super(CmdIdType.PTP_MER_QUERY, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);;
+        super(CmdIdType.PTP_MER_QUERY, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.VERSION_1);;
         this.query_mer_id = query_mer_id;
         this.account_type = account_type;
     }

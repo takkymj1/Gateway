@@ -117,6 +117,24 @@ public interface UmpService {
 
     public UmpPaymentResult submitEntWithdrawal(String clientCode, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
 
+    public UmpPaymentResult bindCardNoPwd(String clientCode,
+                                          String notifyUrl,
+                                          String orderId,
+                                          LocalDate date,
+                                          String umpAccountName,
+                                          String cardId,
+                                          String accountName,
+                                          UmpIdentityType idType,
+                                          String idCode);
+
+    public UmpPaymentResult submitUserWithdrawalNoPwd(String clientCode,
+                                                      String notifyUrl,
+                                                      String orderId,
+                                                      LocalDate date,
+                                                      String umpAccountName,
+                                                      String umpAccountId,
+                                                      BigDecimal amount);
+
     /**
      * 无密充值: 个人用户的无密充值，需签订无密借记卡快捷充值
      */

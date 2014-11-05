@@ -85,7 +85,7 @@ public class TradeTransferRequest extends BaseRequest{
                                 String partic_account_id, 
                                 String amount,
                                 String pay_passwd) {
-        super(CmdIdType.TRANSFER, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);
+        super(CmdIdType.TRANSFER, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.VERSION_1);
         this.ret_url = ret_url;
         this.notify_url = notify_url;
         this.order_id = order_id;

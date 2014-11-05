@@ -44,7 +44,7 @@ public class QueryTradeRequest extends BaseRequest {
                                 String order_id,
                                 String mer_date,
                                 String busi_type) {
-        super(CmdIdType.TRANSFER_SEARCH, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);;
+        super(CmdIdType.TRANSFER_SEARCH, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.VERSION_1);;
         this.order_id = order_id;
         this.mer_date = mer_date;
         this.busi_type = busi_type;
