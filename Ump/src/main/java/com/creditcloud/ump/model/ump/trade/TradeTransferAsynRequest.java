@@ -48,7 +48,7 @@ public class TradeTransferAsynRequest extends BaseRequest{
                                     String partic_account_id, 
                                     String partic_acc_type, 
                                     String amount) {
-        super(CmdIdType.TRANSFER_ASYN, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.CURRENT_VERSION);
+        super(CmdIdType.TRANSFER_ASYN, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.VERSION_1);
         this.ret_url = ret_url;
         this.notify_url = notify_url;
         this.order_id = order_id;

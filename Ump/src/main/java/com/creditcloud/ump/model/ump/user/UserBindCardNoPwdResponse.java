@@ -17,16 +17,15 @@ import lombok.ToString;
  */
 @Data
 @ToString(callSuper=true)
-public class UserBindAgreementResponse extends BaseResponse{
+public class UserBindCardNoPwdResponse extends BaseResponse {
     
     private String user_id;
+    
+    private String order_id;
+    
+    private String mer_date;
 
-    public UserBindAgreementResponse() {
-        super(CmdIdRspType.MER_BIND_AGREEMENT_RSP);
-    }
-
-    public UserBindAgreementResponse(String sign_type, String sign, String mer_id, String version, String ret_code, String ret_msg, String user_id) {
-        super(CmdIdRspType.MER_BIND_AGREEMENT_RSP, sign_type, sign, mer_id, version, ret_code, ret_msg);
-        this.user_id = user_id;
+    public UserBindCardNoPwdResponse() {
+        super(CmdIdRspType.MER_BIND_CARD_NOPWD_RSP);
     }
 }

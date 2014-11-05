@@ -19,7 +19,7 @@ public interface UmpConstant {
     
     String VERSION_1 = "1.0";
     
-    String CURRENT_VERSION = VERSION_1;
+    String VERSION_4 = "4.0";
     
     /**
      * 签名方式，目前仅有"RSA"

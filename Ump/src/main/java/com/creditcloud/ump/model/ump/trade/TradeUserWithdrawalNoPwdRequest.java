@@ -18,7 +18,7 @@ import lombok.ToString;
  */
 @Data
 @ToString(callSuper=true)
-public class TradeUserRechargeNoPwdRequest extends BaseRequest{
+public class TradeUserWithdrawalNoPwdRequest extends BaseRequest{
     
     private String notify_url;
     
@@ -26,27 +26,29 @@ public class TradeUserRechargeNoPwdRequest extends BaseRequest{
     
     private String mer_date;
     
-    private String pay_type;
-    
     private String user_id;
     
     private String account_id;
     
     private String amount;
     
-    public TradeUserRechargeNoPwdRequest(String mer_id,
-                                         String notify_url, 
-                                         String order_id, 
-                                         String mer_date, 
-                                         String pay_type, 
-                                         String user_id, 
-                                         String account_id, 
-                                         String amount) {
-        super(CmdIdType.MER_RECHARGE_PERSON_NOPWD, UmpConstant.SIGN_TYPE, UmpConstant.ENCODE_TYPE, UmpConstant.RESPONSE_FORMAT, "", mer_id, UmpConstant.VERSION_1);
+    public TradeUserWithdrawalNoPwdRequest(String mer_id,
+                                           String notify_url,
+                                           String order_id,
+                                           String mer_date,
+                                           String user_id,
+                                           String account_id,
+                                           String amount) {
+        super(CmdIdType.CUST_WITHDRAWALS_NOPWD,
+              UmpConstant.SIGN_TYPE,
+              UmpConstant.ENCODE_TYPE,
+              UmpConstant.RESPONSE_FORMAT,
+              "",
+              mer_id,
+              UmpConstant.VERSION_4);
         this.notify_url = notify_url;
         this.order_id = order_id;
         this.mer_date = mer_date;
-        this.pay_type = pay_type;
         this.user_id = user_id;
         this.account_id = account_id;
         this.amount = amount;
