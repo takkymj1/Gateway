@@ -21,6 +21,10 @@ public enum CmdIdType {
      */
     MER_BIND_CARD,
     /**
+     * 无密绑定银行卡
+     */
+    MER_BIND_CARD_NOPWD,
+    /**
      * 绑定银行卡结果通知
      */
     MER_BIND_CARD_NOTIFY,
@@ -80,6 +84,10 @@ public enum CmdIdType {
      * 个人账户提现
      */
     CUST_WITHDRAWALS,
+    /**
+     * 个人账户无密提现
+     */
+    CUST_WITHDRAWALS_NOPWD,
     /**
      * 企业客户提现
      */

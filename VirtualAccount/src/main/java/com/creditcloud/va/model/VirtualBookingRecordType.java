@@ -17,7 +17,11 @@ public enum VirtualBookingRecordType implements BaseEnum {
 
     COMPENSATORY("代偿"),
     
-    LOAN("借款");
+    LOAN("借款"),
+    
+    GUARANTEE_FEE("担保费"),
+    
+    LOAN_RECOMMEND_FEE("借款推荐费");
         
     private String key;
 
