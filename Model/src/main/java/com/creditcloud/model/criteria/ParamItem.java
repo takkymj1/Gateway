@@ -19,6 +19,8 @@ public class ParamItem extends BaseObject {
     private final String fieldName;
 
     private final Object value;
+    
+    private final QueryOperator queryOperator;
 
     public ParamItem(final String fieldName,
                       final Object value) {
@@ -28,9 +30,21 @@ public class ParamItem extends BaseObject {
     public ParamItem(final String fieldName,
                       final Object value,
                       final ParamOperator operator) {
+        this(fieldName,value,operator,null);
+    }
+    
+    public ParamItem(final String fieldName,
+                      final Object value,
+                      final ParamOperator operator,
+                      final QueryOperator queryOperator) {
         this.fieldName = fieldName;
         this.value = value;
         this.operator = operator;
+        this.queryOperator = queryOperator;
+    }
+    
+    public QueryOperator getQueryOperator(){
+        return queryOperator;
     }
 
     public String getFieldName() {

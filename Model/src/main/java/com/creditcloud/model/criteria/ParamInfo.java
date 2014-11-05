@@ -39,6 +39,14 @@ public final class ParamInfo extends BaseObject {
         paramItems.add(new ParamItem(fieldName, value, operator));
         return this;
     }
+    
+    public ParamInfo add(final String fieldName,
+                      final Object value,
+                      final ParamOperator operator,
+                      final QueryOperator queryOperator){
+        paramItems.add(new ParamItem(fieldName, value, operator,queryOperator));
+        return this;
+    }
 
     public Set<ParamItem> getParamItems() {
         return paramItems;
