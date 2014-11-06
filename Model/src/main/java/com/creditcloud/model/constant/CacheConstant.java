@@ -42,7 +42,12 @@ public interface CacheConstant {
     String KEY_PREFIX_USER_INVEST = "%1$s_INVEST";
     
     /**
-     * define cache key for loan amount
+     * define cache key for loan
+     */
+    String KEY_PREFIX_LOAN = "%1$s_LOAN";
+    
+    /**
+     * define cache key for loan balance
      */
     String KEY_PREFIX_LOAN_BALANCE = "%1$s_LOAN_BALANCE";
     
