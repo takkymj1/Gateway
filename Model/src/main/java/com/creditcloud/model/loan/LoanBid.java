@@ -72,8 +72,7 @@ public class LoanBid extends BaseObject {
                    int bidAmount,
                    int bidNumber,
                    int reserveAmount,
-                   int reserveNumber,
-                   int timeOut) {
+                   int reserveNumber) {
         this.loanId = loanId;
         this.loanAmount = loanAmount;
         this.availableAmount = availableAmount;
@@ -81,10 +80,10 @@ public class LoanBid extends BaseObject {
         this.bidNumber = bidNumber;
         this.reserveAmount = reserveAmount;
         this.reserveNumber = reserveNumber;
-        this.timeOut = timeOut;
+        this.timeOut = LoanConstant.MAX_BID_TIME_OUT;
     }
 
     public LoanBid(String loanId, int loanAmount) {
-        this(loanId, loanAmount, loanAmount, 0, 0, 0, 0, LoanConstant.MAX_BID_TIME_OUT);
+        this(loanId, loanAmount, loanAmount, 0, 0, 0, 0);
     }
 }

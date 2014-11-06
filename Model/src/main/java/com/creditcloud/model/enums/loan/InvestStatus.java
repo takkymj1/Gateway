@@ -17,6 +17,10 @@ public enum InvestStatus implements BaseEnum {
      */
     PROPOSED("申请投标"),
     /**
+     * 投标一定时间内没有成功支付
+     */
+    TIMEOUT("投标超时"),
+    /**
      * 抢标成功,资金被冻结等待募集期结束时结算
      */
     FROZEN("账户资金冻结"),
