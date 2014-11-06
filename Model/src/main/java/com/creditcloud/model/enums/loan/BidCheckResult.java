@@ -11,17 +11,18 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum BidReserveResult implements BaseEnum {
+public enum BidCheckResult implements BaseEnum {
 
-    INSUFFICIENT("已预约满"),
-    ILLEGAL_AMOUNT("预约金额超过可预约额"),
-    NOT_OPEN("标的不可预约,已满标或未开标"),
-    SUCCEED("预约成功"),
-    FAIL("预约失败");
+    INSUFFICIENT("已投满"),
+    ILLEGAL_AMOUNT("投标金额超过可投标额"),
+    NOT_OPEN("标的不可投标,已满标或未开标"),
+    SUCCEED("投标成功"),
+    TIMEOUT("投标超时"),
+    FAIL("投标失败");
 
     private final String key;
 
-    private BidReserveResult(String key) {
+    private BidCheckResult(String key) {
         this.key = key;
     }
 
