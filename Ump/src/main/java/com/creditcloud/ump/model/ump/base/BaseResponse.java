@@ -70,7 +70,7 @@ public abstract class BaseResponse extends BaseObject {
         this.sign_type = UmpConstant.SIGN_TYPE;
         this.sign = "";
         this.mer_id = mer_id;
-        this.version = UmpConstant.CURRENT_VERSION;
+        this.version = UmpConstant.VERSION_1;
         this.ret_code = ret_code;
         this.ret_msg = ret_msg;
     }

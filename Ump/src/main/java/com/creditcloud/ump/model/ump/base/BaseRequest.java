@@ -74,7 +74,7 @@ public abstract class BaseRequest extends BaseObject {
         this.res_format = UmpConstant.RESPONSE_FORMAT;
         this.sign = "";
         this.mer_id = mer_id;
-        this.version = UmpConstant.CURRENT_VERSION;
+        this.version = UmpConstant.VERSION_1;
     }
     
     public String chkString() {
