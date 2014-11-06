@@ -62,7 +62,12 @@ public interface CacheConstant {
     String KEY_PREFIX_PROJECT = "%1$s_PROJECT";
     
     /**
-     * define cache key for crowd funding reward
+     * define cache key for crowd funding reward number
      */
-    String KEY_PREFIX_PROJECT_REWARD_RAISED_NUMBER = "%1$s_PROJECT_REWARD_RAISED_NUMBER";
+    String KEY_PREFIX_PROJECT_REWARD_RAISE_NUMBER = "%1$s_PROJECT_REWARD_RAISE_NUMBER";
+    
+    /**
+     * define cache key for crowd funding reward amount
+     */
+    String KEY_PREFIX_PROJECT_REWARD_RAISE_AMOUNT = "%1$s_PROJECT_REWARD_RAISE_AMOUNT";
 }
