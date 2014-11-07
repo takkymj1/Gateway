@@ -45,5 +45,6 @@
         <module>Claim</module>
         <module>Lending</module>
         <module>Batch</module>
+        <module>Feedback</module>
     </modules>
 </project>

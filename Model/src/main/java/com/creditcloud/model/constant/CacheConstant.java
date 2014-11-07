@@ -32,6 +32,11 @@ public interface CacheConstant {
     String KEY_PREFIX_USER_INFO = "%1$s_INFO";
     
     /**
+     * define cache key for inner user feedback cache
+     */
+    String KEY_PREFIX_FEEDBACK = "FEEDBACK";
+    
+    /**
      * define cache key for user fund relate
      */
     String KEY_PREFIX_USER_FUND = "%1$s_FUND";

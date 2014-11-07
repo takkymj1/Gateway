@@ -192,8 +192,29 @@ public interface SentinelService {
      * @param values
      * @return 
      */
-    public long push(CacheType type, String key, String...values);
+    public long rpush(CacheType type, String key, String...values);
     
+    /**
+     * 
+     * Time complexity: O(1)
+     * 
+     * Insert all the specified values at the head of the list stored at key.
+     * If key does not exist, it is created as empty list before performing 
+     * the push operations. When key holds a value that is not a list, 
+     * an error is returned.
+     * It is possible to push multiple elements using a single command call 
+     * just specifying multiple arguments at the end of the command. Elements 
+     * are inserted one after the other to the head of the list, from the 
+     * leftmost element to the rightmost element. So for instance the command 
+     * LPUSH mylist a b c will result into a list containing c as first element, 
+     * b as second element and a as third element
+     * 
+     * @param type
+     * @param key
+     * @param values
+     * @return 
+     */
+    public long lpush(CacheType type, String key, String...values);
     
     /**
      * 
@@ -217,6 +238,41 @@ public interface SentinelService {
      * @return 
      */
     public List<String> range(CacheType type, String key, long start, long end);
+    
+    /**
+     * 
+     * Time complexity: O(1)
+     * 
+     * Returns the length of the list stored at key. 
+     * If key does not exist, it is interpreted as an 
+     * empty list and 0 is returned. An error is returned 
+     * when the value stored at key is not a list.
+     * 
+     * @param type
+     * @param key
+     * @return 
+     */
+    public long count(CacheType type, String key);
+    
+    /**
+     * 
+     * Removes the first count occurrences of elements equal to value from the list stored at key. 
+     * The count argument influences the operation in the following ways:
+     *      count > 0: Remove elements equal to value moving from head to tail.
+     *      count < 0: Remove elements equal to value moving from tail to head.
+     *      count = 0: Remove all elements equal to value.
+     * For example, LREM list -2 "hello" will remove the last two occurrences of "hello" in the list
+     * stored at list.
+     * Note that non-existing keys are treated like empty lists, so when key does not exist, 
+     * the command will always return 0.
+     * 
+     * @param type
+     * @param key
+     * @param count
+     * @param value
+     * @return 
+     */
+    public long remove(CacheType type, String key, long count, String value);
     
     /**
      * 
