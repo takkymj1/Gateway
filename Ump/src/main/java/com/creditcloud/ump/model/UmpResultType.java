@@ -37,6 +37,7 @@ public class UmpResultType extends BaseObject {
     public static final UmpResultType FREEZE_USER_NO_PAYMENT = new UmpResultType("007", "冻结用户未开户");
     public static final UmpResultType ID_CODE_EXIST = new UmpResultType("008", "身份证号已注册");
     public static final UmpResultType AMOUNT_ERROR = new UmpResultType("009", "交易金额错误");
+    public static final UmpResultType NOT_SIGN_INVEST_NO_PWD = new UmpResultType("010", "未签订无密投资协议");
     
     @NotNull
     private String retCode;
