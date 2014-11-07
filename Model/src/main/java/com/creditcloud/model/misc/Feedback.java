@@ -15,7 +15,6 @@ import lombok.EqualsAndHashCode;
  * @author suetming
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 public class Feedback extends BaseObject {
  

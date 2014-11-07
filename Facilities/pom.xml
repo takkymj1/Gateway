@@ -134,6 +134,12 @@
             <type>ejb</type>
         </dependency>
         <dependency>
+            <groupId>com.creditcloud.feedback</groupId>
+            <artifactId>FeedbackService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
             <groupId>com.creditcloud.crowdfunding</groupId>
             <artifactId>CrowdFundingService</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -267,6 +273,10 @@
                         <ejbModule>
                             <groupId>com.creditcloud.redis</groupId>
                             <artifactId>RedisService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.feedback</groupId>
+                            <artifactId>FeedbackService</artifactId>
                         </ejbModule>
                         <ejbModule>
                             <groupId>com.creditcloud.crowdfunding</groupId>
