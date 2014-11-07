@@ -18,7 +18,7 @@ import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
-import com.creditcloud.service.LoanService;
+import com.creditcloud.service.ManagerLoanService;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +26,7 @@ import java.util.List;
  *
  * @author rooseek
  */
-public class AbstractManagerLoanService implements LoanService {
+public class AbstractManagerLoanService implements ManagerLoanService {
 
     @Override
     public boolean markLoanStatus(String clientCode, String loanId, LoanStatus status, int bidNumber, int bidAmount) {

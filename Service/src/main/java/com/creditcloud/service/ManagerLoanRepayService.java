@@ -20,7 +20,7 @@ import org.joda.time.LocalDate;
  * @author rooseek
  */
 @Remote
-public interface LoanRepayService {
+public interface ManagerLoanRepayService {
 
     /**
      * list all repayment for a user by repayment status
