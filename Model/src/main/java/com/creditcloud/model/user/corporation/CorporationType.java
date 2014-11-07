@@ -13,7 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum CorporationType implements BaseEnum {
 
     GENERAL("一般公司"),
-    GUARANTEE("担保公司");
+    GUARANTEE("担保公司"),
+    LOANCOMPANY("小贷公司"),
+    SPV("SPV");
 
     private final String key;
 
