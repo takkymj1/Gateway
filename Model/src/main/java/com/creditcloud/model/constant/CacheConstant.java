@@ -32,6 +32,11 @@ public interface CacheConstant {
     String KEY_PREFIX_USER_INFO = "%1$s_INFO";
     
     /**
+     * define cache key for inner user feedback cache
+     */
+    String KEY_PREFIX_FEEDBACK = "FEEDBACK";
+    
+    /**
      * define cache key for user fund relate
      */
     String KEY_PREFIX_USER_FUND = "%1$s_FUND";
@@ -40,4 +45,30 @@ public interface CacheConstant {
      * define cache key for user invest relate
      */
     String KEY_PREFIX_USER_INVEST = "%1$s_INVEST";
+    
+    /**
+     * define cache key for loan
+     */
+    String KEY_PREFIX_LOAN = "%1$s_LOAN";
+    
+    /**
+     * define cache key for loan balance
+     */
+    String KEY_PREFIX_LOAN_BALANCE = "%1$s_LOAN_BALANCE";
+    
+    /**
+     * define cache key for loan bid number
+     */
+    String KEY_PREFIX_LOAN_BID_NUMBER = "%1$s_LOAN_BID_NUMBER";
+    
+    /**
+     * define cache key for loan amount
+     */
+    String KEY_PREFIX_PROJECT = "%1$s_PROJECT";
+    
+    /**
+     * define cache key for crowd funding reward available number
+     */
+    String KEY_PREFIX_PROJECT_REWARD_AVAILABLE_NUMBER = "%1$s_PROJECT_REWARD_AVAILABLE_NUMBER";
+    
 }

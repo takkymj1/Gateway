@@ -177,6 +177,13 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean useUnionMobilePayment = false;
+    
+    /**
+     * 使用联动优势资金托管平台担保商户功能，该商户为线下开户的企业账户
+     */
+    @XmlElement
+    @Getter
+    private boolean enableUmpGuaranteeUser = false;
 
     /**
      * 债权转让功能

@@ -13,4 +13,8 @@ import com.creditcloud.service.ManagerCustomizeService;
  */
 public class AbstractManagerCustomizeService implements ManagerCustomizeService {
 
+    @Override
+    public void test() {
+        throw new UnsupportedOperationException();
+    }
 }
