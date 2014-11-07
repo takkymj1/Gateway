@@ -241,6 +241,41 @@ public interface SentinelService {
     
     /**
      * 
+     * Time complexity: O(1)
+     * 
+     * Returns the length of the list stored at key. 
+     * If key does not exist, it is interpreted as an 
+     * empty list and 0 is returned. An error is returned 
+     * when the value stored at key is not a list.
+     * 
+     * @param type
+     * @param key
+     * @return 
+     */
+    public long count(CacheType type, String key);
+    
+    /**
+     * 
+     * Removes the first count occurrences of elements equal to value from the list stored at key. 
+     * The count argument influences the operation in the following ways:
+     *      count > 0: Remove elements equal to value moving from head to tail.
+     *      count < 0: Remove elements equal to value moving from tail to head.
+     *      count = 0: Remove all elements equal to value.
+     * For example, LREM list -2 "hello" will remove the last two occurrences of "hello" in the list
+     * stored at list.
+     * Note that non-existing keys are treated like empty lists, so when key does not exist, 
+     * the command will always return 0.
+     * 
+     * @param type
+     * @param key
+     * @param count
+     * @param value
+     * @return 
+     */
+    public long remove(CacheType type, String key, long count, String value);
+    
+    /**
+     * 
      * Time complexity: O(N) where N is the number of keys that will be removed. 
      * When a key to remove holds a value other than a string, the individual 
      * complexity for this key is O(M) where M is the number of elements in the list, 

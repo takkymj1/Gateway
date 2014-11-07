@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.List;
 import javax.ejb.Remote;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
 /**
@@ -234,6 +235,38 @@ public interface RedisService {
      */
     public List<String> range(String key, long start, long end);
     
+    /**
+     * 
+     * Time complexity: O(1)
+     * 
+     * Returns the length of the list stored at key. 
+     * If key does not exist, it is interpreted as an 
+     * empty list and 0 is returned. An error is returned 
+     * when the value stored at key is not a list.
+     * 
+     * @param key
+     * @return 
+     */
+    public long count(String key);
+    
+    /**
+     * 
+     * Removes the first count occurrences of elements equal to value from the list stored at key. 
+     * The count argument influences the operation in the following ways:
+     *      count > 0: Remove elements equal to value moving from head to tail.
+     *      count < 0: Remove elements equal to value moving from tail to head.
+     *      count = 0: Remove all elements equal to value.
+     * For example, LREM list -2 "hello" will remove the last two occurrences of "hello" in the list
+     * stored at list.
+     * Note that non-existing keys are treated like empty lists, so when key does not exist, 
+     * the command will always return 0.
+     * 
+     * @param key
+     * @param count
+     * @param value
+     * @return 
+     */
+    public long remove(String key, long count, String value);
     /**
      * 
      * Time complexity: O(N) where N is the number of keys that will be removed. 
