@@ -223,4 +223,11 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement 
     private boolean enableManualFlush = true;
+    
+    /**
+     * open/close auto overdue check
+     */
+    @Getter
+    @XmlElement
+    private boolean enableAutoOverdueCheck = true;
 }
