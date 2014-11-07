@@ -93,6 +93,15 @@ public class CorporationInfo extends BaseObject {
     @FormParam("description")
     @Size(max = CorporationConstant.MAX_CORP_DESC)
     private String description;
+    
+    /**
+     * 股东背景
+     */
+    private String background;
+    /**
+     * 资本市场评级‍ 
+     */
+    private String creditRank;
 
     public CorporationInfo(String userId,
                            String url,
