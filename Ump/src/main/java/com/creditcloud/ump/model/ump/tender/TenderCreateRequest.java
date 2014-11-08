@@ -31,8 +31,14 @@ public class TenderCreateRequest extends BaseRequest {
     
     private String loan_account_id;
     
+    /**
+     * nillable
+     */
     private String warranty_user_id;
     
+    /**
+     * nillable
+     */
     private String warranty_account_id;
     
     public TenderCreateRequest(String mer_id,

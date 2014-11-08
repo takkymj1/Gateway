@@ -39,10 +39,19 @@ public class UserBindCardRequest extends BaseRequest{
     
     private String identity_code;
     
+    /**
+     * nillable
+     */
     private String cnaps_code;
     
+    /**
+     * nillable
+     */
     private String account_area;
     
+    /**
+     * nillable
+     */
     private String card_branch_name;
     
     private String is_open_fastPayment;
