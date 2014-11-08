@@ -15,7 +15,7 @@ import com.creditcloud.model.misc.PagedResult;
  *
  * @author rooseek
  */
-interface LoanRequestService {
+interface ManagerLoanRequestService {
 
     /**
      *

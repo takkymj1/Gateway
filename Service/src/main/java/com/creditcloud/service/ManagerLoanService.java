@@ -22,7 +22,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface LoanService extends LoanRequestService {
+public interface ManagerLoanService extends ManagerLoanRequestService {
 
     /**
      * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新

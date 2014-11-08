@@ -11,7 +11,7 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.service.LoanRepayService;
+import com.creditcloud.service.ManagerLoanRepayService;
 import com.creditcloud.service.model.LoanRepaymentCorrection;
 import java.util.List;
 import org.joda.time.LocalDate;
@@ -20,7 +20,7 @@ import org.joda.time.LocalDate;
  *
  * @author rooseek
  */
-public class AbstractManagerLoanRepayService implements LoanRepayService {
+public class AbstractManagerLoanRepayService implements ManagerLoanRepayService {
 
     @Override
     public PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, PageInfo pageInfo, RepaymentStatus... status) {
