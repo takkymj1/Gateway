@@ -47,7 +47,7 @@ public interface CacheConstant {
     String KEY_PREFIX_USER_INVEST = "%1$s_INVEST";
     
     /**
-     * define cache key for loan
+     * define cache key for loan (for invalidate cache)
      */
     String KEY_PREFIX_LOAN = "%1$s_LOAN";
     
@@ -62,13 +62,28 @@ public interface CacheConstant {
     String KEY_PREFIX_LOAN_BID_NUMBER = "%1$s_LOAN_BID_NUMBER";
     
     /**
-     * define cache key for loan amount
+     * define cache key for loan amount (for invalidate cache)
      */
     String KEY_PREFIX_PROJECT = "%1$s_PROJECT";
+    
+    /**
+     * define cache key for crowd funding raise number
+     */
+    String KEY_PREFIX_PROJECT_RAISE_NUMBER = "%1$s_PROJECT_RAISE_NUMBER";
+         
+    /**
+     * define cache key for crowd funding raise amount
+     */
+    String KEY_PREFIX_PROJECT_RAISE_AMOUNT = "%1$s_PROJECT_RAISE_AMOUNT";
     
     /**
      * define cache key for crowd funding reward available number
      */
     String KEY_PREFIX_PROJECT_REWARD_AVAILABLE_NUMBER = "%1$s_PROJECT_REWARD_AVAILABLE_NUMBER";
+    
+    /**
+     * define cache key for crowd funding reward raise number
+     */
+    String KEY_PREFIX_PROJECT_REWARD_RAISE_NUMBER = "%1$s_PROJECT_REWARD_RAISE_NUMBER";
     
 }
