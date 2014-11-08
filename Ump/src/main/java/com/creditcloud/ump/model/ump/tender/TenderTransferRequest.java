@@ -47,6 +47,9 @@ public class TenderTransferRequest extends BaseRequest{
     
     private String amount;
     
+    /**
+     * TO BE REMOVED
+     */
     private String pay_passwd;
 
     public TenderTransferRequest(String sign_type, 

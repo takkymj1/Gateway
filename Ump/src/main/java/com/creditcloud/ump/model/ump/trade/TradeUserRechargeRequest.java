@@ -32,12 +32,18 @@ public class TradeUserRechargeRequest extends BaseRequest {
 
     private String account_id;
 
+    /**
+     * TO BE REMOVED
+     */
     private String account_type;
 
     private String amount;
 
     private String gate_id;
 
+    /**
+     * nillable
+     */
     private String user_ip;
 
     public TradeUserRechargeRequest(String sign_type,
