@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service.model.misc;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.misc.RealmEntity;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
@@ -18,23 +19,33 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement
-public class LoanRequestDetail {
+public class LoanRequestDetail  extends BaseObject {
     
     private static final long serialVersionUID = 20141103L;
-    /**
-     * ID: 同LoanRequestId
-     */
+    
     private String requestId;
-    /**
-     * 项目录入人
-     */
+
+    
     private RealmEntity requestCreator;
+    
+     /**
+     * 最小资金比例
+     */
+    private int minCapitalRatio;
+
     /**
      * 区域位置
      */
     private String location;
+    
+    /**
+     * 风险等级
+     */
+    private String riskGrade;
+
     /**
      * 共同借款人
      */
-    private RealmEntity coborrower;
+
+    private String coborrower;
 }
