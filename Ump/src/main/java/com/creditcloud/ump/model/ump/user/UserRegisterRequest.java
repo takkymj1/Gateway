@@ -28,6 +28,9 @@ public class UserRegisterRequest extends BaseRequest {
 
     private String mobile_id;
 
+    /**
+     * nillable
+     */
     private String email;
     
     public UserRegisterRequest(String mer_id,
