@@ -4,12 +4,10 @@
  */
 package com.creditcloud.redis.api;
 
-import com.creditcloud.model.enums.misc.CacheType;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.List;
 import javax.ejb.Remote;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
 /**
