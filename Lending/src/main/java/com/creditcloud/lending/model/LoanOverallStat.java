@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @XmlRootElement
 public class LoanOverallStat extends BaseObject {
 
