@@ -24,4 +24,11 @@ public class CacheConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "CacheConfig";
     
+    /**
+     * 是否水平扩展
+     */
+    @XmlElement
+    @Getter
+    private boolean enableMutiPoint = false;
+    
 }

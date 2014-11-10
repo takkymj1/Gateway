@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service;
+package com.creditcloud.lending.api;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanPurpose;
@@ -19,7 +19,7 @@ import javax.ejb.Remote;
 
 /**
  *
- * @author sobranie
+ * @author rooseek
  */
 @Remote
 public interface LoanService extends LoanRequestService {
