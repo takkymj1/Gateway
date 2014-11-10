@@ -9,6 +9,4 @@ package com.creditcloud.service.misc;
  * @author keven
  */
 public interface LoanRequestDetailService {
-    
-    void test();
 }

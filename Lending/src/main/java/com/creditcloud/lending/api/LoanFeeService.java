@@ -16,7 +16,9 @@ import javax.ejb.Remote;
 @Remote
 public interface LoanFeeService {
     
+    LoanFee find(String loanFeeId);
+    
     LoanFee create(LoanFee loanFee);
 
-    void edit(LoanFee loanFee);
+    void update(LoanFee loanFee);
 }

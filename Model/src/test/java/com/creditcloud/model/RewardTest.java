@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.entities.embedded;
+package com.creditcloud.model;
 
 import com.creditcloud.model.enums.loan.RewardType;
+import com.creditcloud.model.misc.Reward;
 import java.math.BigDecimal;
 import org.junit.After;
 import org.junit.AfterClass;
