@@ -9,6 +9,7 @@ import com.creditcloud.lending.enums.DisburseStatus;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.DisburseType;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -42,6 +43,8 @@ public class DisburseRecord extends BaseObject {
     private DisburseType type;
 
     private String description;
+    
+    private Date timeRecorded;
 
     /**
      * 平台垫付后跟借款人收取的逾期费总和
