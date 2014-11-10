@@ -9,6 +9,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.LoanRewardMethod;
 import com.creditcloud.model.misc.Reward;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,8 +28,12 @@ public class LoanReward extends BaseObject {
 
     private static final long serialVersionUID = 20140310L;
 
+    private String id;
+
+    @NotNull
     private String loanId;
 
+    @NotNull
     private LoanRewardMethod method;
 
     private Reward reward;

@@ -4,13 +4,16 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.lending.model.LoanAvg;
+import com.creditcloud.lending.model.LoanStat;
+import com.creditcloud.model.ElementCount;
+import com.creditcloud.model.ElementSum;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Loan;
-import com.creditcloud.model.loan.LoanReward;
-import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
@@ -22,153 +25,273 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LoanService extends LoanRequestService {
+public interface LoanService {
 
     /**
-     * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新
+     * count by user id
      *
-     * @param clientCode
-     * @param loanId
-     * @param status
-     * @param bidNumber
-     * @param bidAmount
-     * @return true if successful
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    boolean markLoanStatus(String clientCode, String loanId, LoanStatus status, int bidNumber, int bidAmount);
-
-    /**
-     * get Loan by id
-     *
-     * @param clientCode
-     * @param loanId
-     * @return Loan
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    Loan getLoanById(String clientCode, String loanId);
-
-    /**
-     * list loan by user id
-     *
-     * @param clientCode
      * @param userId
-     * @param pageInfo
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    PagedResult<Loan> listLoanByUser(String clientCode, String userId, PageInfo pageInfo);
-
-    /**
-     * list loan by user and status during certain period
-     *
-     * @param clientCode
-     * @param userId
-     * @param from
-     * @param to
-     * @param pageInfo
-     * @param status
      * @return
      */
-    PagedResult<Loan> listLoanByUser(String clientCode, String userId, Date from, Date to, PageInfo pageInfo, LoanStatus... status);
+    public int countByUser(String userId);
 
     /**
-     * list loan by loan request id
+     * list by user id
      *
-     * @param clientCode
+     * @param userId
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<Loan> listByUser(String userId, PageInfo pageInfo);
+
+    public int countByUserAndStatusAndDate(String userId, Date from, Date to, LoanStatus... statusList);
+
+    public PagedResult<Loan> listByUserAndStatusAndDate(String userId, Date from, Date to, PageInfo pageInfo, LoanStatus... statusList);
+
+    /**
+     * list by loan request id
+     *
      * @param requestId
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<Loan> listLoanByRequest(String clientCode, String requestId);
-
-    /**
-     * list loans by their status 默认不列出hidden的loan
-     *
-     * @param clientCode
-     * @param statusList
-     * @param pageInfo
      * @return
      */
-    PagedResult<Loan> listLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
+    public List<Loan> listByRequest(String requestId);
 
     /**
+     * list by corporation user
      *
-     * @param clientCode
-     * @param pageInfo
-     * @param statusList
-     * @param methodList
-     * @return
-     */
-    PagedResult<Loan> listLoanByStatusAndMethod(String clientCode,
-                                                PageInfo pageInfo,
-                                                List<LoanStatus> statusList,
-                                                List<RepaymentMethod> methodList);
-
-    /**
-     *
-     * @param clientCode
-     * @param pageInfo
-     * @param statusList
-     * @param purposeList
-     * @return
-     */
-    PagedResult<Loan> listLoanByStatusAndPurpose(String clientCode,
-                                                 PageInfo pageInfo,
-                                                 List<LoanStatus> statusList,
-                                                 List<LoanPurpose> purposeList);
-
-    /**
-     * 列出所有非公开特定用户群体才能投的loan
-     *
-     * @param clientCode
-     * @param statusList
-     * @return
-     */
-    List<Loan> listPersonalLoanByStatus(String clientCode, LoanStatus... statusList);
-
-    /**
-     * 获得借款人的借款统计信息
-     *
-     * @param clientCode
-     * @param userId
-     * @return
-     */
-    LoanStatistics getLoanStatistics(String clientCode, String userId);
-
-    /**
-     * 借款标对应的投标奖励规则
-     *
-     * @param clientCode
-     * @param loanId
-     * @return
-     */
-    List<LoanReward> listLoanReward(String clientCode, String loanId);
-
-    /**
-     * 根据RealmEntity获取借款列表
-     *
-     * @param clientCode
      * @param entity
      * @return
      */
-    List<Loan> listByCorporationUser(String clientCode, RealmEntity entity);
-    
+    public List<Loan> listByCorporationUser(RealmEntity entity);
+
     /**
-     * list loans by ComplexCondition 
+     * count by loan status
      *
-     * @param clientCode
-     * @param methodList
-     * @param minRate
-     * @param maxRate
-     * @param minDuration
-     * @param maxDuration
      * @param statusList
+     * @param hiddenList
+     *
+     * @return
+     */
+    public int countByStatus(List<Boolean> hiddenList, LoanStatus... statusList);
+
+    /**
+     * list by loan status
+     *
+     * @param statusList
+     * @param pageInfo
+     * @param hiddenList
+     * @return
+     */
+    public PagedResult<Loan> listByStatus(PageInfo pageInfo, List<Boolean> hiddenList, LoanStatus... statusList);
+
+    /**
+     * manager默认都可见
+     *
+     * @param pageInfo
+     * @param statusList
+     * @return
+     */
+    public PagedResult<Loan> listByStatus(PageInfo pageInfo, LoanStatus... statusList);
+
+    /**
+     * count by repayment method
+     *
+     * @param methodList
+     * @return
+     */
+    public int countByMethod(RepaymentMethod... methodList);
+
+    /**
+     * list by repayment method
+     *
+     * @param methodList
      * @param pageInfo
      * @return
      */
-    PagedResult<Loan> listLoanByComplexCondition(String clientCode,List<RepaymentMethod> methodList,int minRate,int maxRate,int minDuration,int maxDuration,PageInfo pageInfo, List<LoanStatus> statusList);
+    public PagedResult<Loan> listByMethod(PageInfo pageInfo, RepaymentMethod... methodList);
+
+    /**
+     * 统计用户的每种状态贷款数目
+     *
+     * @param userId
+     * @param status
+     * @return
+     */
+    public List<ElementCount<LoanStatus>> countByUserAndStatus(String userId, LoanStatus... status);
+
+    /**
+     * 按贷款状态统计客户的贷款总额
+     *
+     * @param userId
+     * @param status
+     * @return
+     */
+    public long sumLoanAmountByUserAndStatus(String userId, LoanStatus... status);
+
+    public long sumBidAmountByUserAndStatus(String userId, LoanStatus... status);
+
+    /**
+     * 按贷款状态统计贷款数
+     *
+     * @param status
+     * @return
+     */
+    public List<ElementCount<LoanStatus>> countEachByStatus(LoanStatus... status);
+
+    /**
+     * 按贷款状态统计贷款金额
+     *
+     * @param status
+     * @return
+     */
+    public List<ElementSum<LoanStatus>> sumEachByStatus(LoanStatus... status);
+
+    /**
+     * 按贷款状态和来源统计总数
+     *
+     * @param statusList
+     * @param source
+     * @return
+     */
+    public List<ElementCount<Source>> countEachBySource(List<LoanStatus> statusList, Source... source);
+
+    /**
+     * 按贷款状态和来源统计总金额
+     *
+     * @param statusList
+     * @param source
+     * @return
+     */
+    public List<ElementSum<Source>> sumEachBySource(List<LoanStatus> statusList, Source... source);
+
+    /**
+     * 按贷款状态和还款方式统计总数
+     *
+     * @param statusList
+     * @param method
+     * @return
+     */
+    public List<ElementCount<RepaymentMethod>> countEachByMethod(List<LoanStatus> statusList, RepaymentMethod... method);
+
+    /**
+     * 按贷款状态和还款方式统计总金额
+     *
+     * @param statusList
+     * @param method
+     * @return
+     */
+    public List<ElementSum<RepaymentMethod>> sumEachByMethod(List<LoanStatus> statusList, RepaymentMethod... method);
+
+    /**
+     * 按贷款状态和有无抵押统计总数
+     *
+     * @param statusList
+     * @return
+     */
+    public List<ElementCount<Boolean>> countEachByMortgaged(List<LoanStatus> statusList);
+
+    /**
+     * 按贷款状态和有无抵押统计总金额
+     *
+     * @param statusList
+     * @return
+     */
+    public List<ElementSum<Boolean>> sumEachByMortgaged(List<LoanStatus> statusList);
+
+    /**
+     * 按贷款状态综合统计
+     *
+     * @param status
+     * @return
+     */
+    public List<LoanStat<LoanStatus>> countAndSumEachByStatus(LoanStatus... status);
+
+    /**
+     * 按贷款来源综合统计
+     *
+     * @param statusList
+     * @param source
+     * @return
+     */
+    public List<LoanStat<Source>> countAndSumEachBySource(List<LoanStatus> statusList, Source... source);
+
+    /**
+     * 按还款方式综合统计
+     *
+     * @param statusList
+     * @param method
+     * @return
+     */
+    public List<LoanStat<RepaymentMethod>> countAndSumEachByMethod(List<LoanStatus> statusList, RepaymentMethod... method);
+
+    /**
+     * 按有无抵押综合统计
+     *
+     * @param statusList
+     * @return
+     */
+    public List<LoanStat<Boolean>> countAndSumEachByMortgaged(List<LoanStatus> statusList);
+
+    /**
+     * 按贷款用途综合统计
+     *
+     * @param statusList
+     * @param purpose
+     * @return
+     */
+    public List<LoanStat<LoanPurpose>> countAndSumEachByPurpose(List<LoanStatus> statusList, LoanPurpose... purpose);
+
+    /**
+     * 按经办人
+     *
+     * @param statusList
+     * @return
+     */
+    public List<LoanStat<String>> countAndSumEachByEmployee(List<LoanStatus> statusList);
+
+    /**
+     * 统计所有贷款平均值
+     *
+     * @param status
+     * @return
+     */
+    public LoanAvg avgByStatus(LoanStatus... status);
+
+    /**
+     * mark loan as cleared
+     *
+     * @param ids
+     * @return
+     */
+    public boolean markCleared(String... ids);
+
+    /**
+     * update loan status
+     *
+     * @param status
+     * @param ids
+     * @return
+     */
+    public boolean markStatus(LoanStatus status, String... ids);
+
+    /**
+     * update loan rewarded
+     *
+     * @param rewarded
+     * @param ids
+     * @return
+     */
+    public boolean markRewarded(boolean rewarded, String... ids);
+
+    /**
+     * 获取loanRequest对应loan最大序号
+     *
+     * @param loanRequestId
+     * @return
+     */
+    public int getMaxOrdinal(String loanRequestId);
+
+    public int countByStatusAndPurpose(List<LoanStatus> statusList, List<LoanPurpose> purposeList);
+
+    public PagedResult<Loan> listByStatusAndPurpose(List<LoanStatus> statusList, List<LoanPurpose> purposeList, PageInfo pageInfo);
 }

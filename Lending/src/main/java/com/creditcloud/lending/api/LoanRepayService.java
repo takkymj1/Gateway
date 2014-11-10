@@ -4,13 +4,13 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.loan.RepayLoanResult;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.service.model.LoanRepaymentCorrection;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -22,156 +22,185 @@ import org.joda.time.LocalDate;
 @Remote
 public interface LoanRepayService {
 
+    public void addNew(LoanRepayment repay);
+
+    public List<LoanRepayment> listByLoan(String loanId);
+
+    public int countByUserAndStatus(String userId, RepaymentStatus... statusList);
+
+    public PagedResult<LoanRepayment> listByUserAndStatus(String userId, PageInfo pageInfo, RepaymentStatus... statusList);
+
+    public LoanRepayment getByLoanAndPeriod(String loanId, int period);
+
     /**
-     * list all repayment for a user by repayment status
+     * 列出即将还款的Repayment.
      *
-     * @param clientCode
+     * 默认列出还款日从今天到30天后的所有Repayment
+     *
+     * @param days
+     * @return
+     */
+    public List<LoanRepayment> listComingRepayments(int days);
+
+    /**
+     * 列出特定借款人即将还款的Repayment.
+     *
+     * 默认列出还款日从今天到30天后的所有Repayment
+     *
      * @param userId
-     * @param status
-     * @param pageInfo
+     * @param days
      * @return
      */
-    PagedResult<LoanRepayment> listRepayByStatus(String clientCode, String userId, PageInfo pageInfo, RepaymentStatus... status);
+    public List<LoanRepayment> listComingRepaymentsByUser(String userId, int days);
 
     /**
-     * 列出所有到today为止逾期或违约的LoanRepayment
+     * 列出处于违约或逾期状态的Repayment.
      *
-     * @param clientCode
-     * @param today
-     * @param pageInfo
-     * @param status
+     * 默认列出还款日从今天到30天后的所有Repayment
+     *
      * @return
      */
-    PagedResult<LoanRepayment> listOverdueRepay(String clientCode, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
+    public List<LoanRepayment> listDefaultRepayments();
 
     /**
-     * 列出特定借款人所有到today为止逾期或违约的LoanRepayment
+     * 列出特定借款人处于违约或逾期状态的Repayment.
      *
-     * @param clientCode
+     * 默认列出还款日从今天到30天后的所有Repayment
+     *
      * @param userId
-     * @param today
-     * @param pageInfo
-     * @param status
      * @return
      */
-    PagedResult<LoanRepayment> listOverdueRepayByUser(String clientCode, String userId, LocalDate today, PageInfo pageInfo, RepaymentStatus... status);
+    public List<LoanRepayment> listDefaultRepaymentsByUser(String userId);
 
     /**
-     * 列出一段时间内到期的LoanRepayment
+     * 获得用户总的待还金额包括UNDUE/OVERDUE/BREACH
      *
-     * @param clientCode
+     * @param userId
+     * @return
+     */
+    public RepayAmount sumDueRepayByUser(String userId);
+
+    /**
+     * 用户逾期和违约的总金额
+     *
+     * @param userId
+     * @return
+     */
+    public RepayAmount sumOverdueRepayByUser(String userId);
+
+    public RepayAmount sumRepayByUserAndStatus(String userId, RepaymentStatus... status);
+
+    /**
+     * 按时间区间和还款状态统计一段时间内所有到期的LoanRepayment
+     *
      * @param from
      * @param to
-     * @param pageInfo
      * @param status
      * @return
      */
-    PagedResult<LoanRepayment> listDueRepay(String clientCode,
-                                            LocalDate from,
-                                            LocalDate to,
-                                            PageInfo pageInfo,
-                                            RepaymentStatus... status);
+    int countDueRepay(LocalDate from, LocalDate to, RepaymentStatus... status);
 
     /**
-     * 列出特定借款人在一段时间内到期的LoanRepayment
+     * 按时间区间和还款状态列出一段时间内所有到期的LoanRepayment
      *
-     * @param clientCode
+     * @param from
+     * @param to
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRepayment> listDueRepay(LocalDate from, LocalDate to, PageInfo info, RepaymentStatus... status);
+
+    /**
+     * 按特定借款人在时间区间和还款状态统计一段时间内所有到期的LoanRepayment
+     *
      * @param userId
      * @param from
      * @param to
-     * @param pageInfo
      * @param status
      * @return
      */
-    PagedResult<LoanRepayment> listDueRepayByUser(String clientCode,
-                                                  String userId,
-                                                  LocalDate from,
-                                                  LocalDate to,
-                                                  PageInfo pageInfo,
-                                                  RepaymentStatus... status);
+    int countDueRepayByUser(String userId, LocalDate from, LocalDate to, RepaymentStatus... status);
 
     /**
-     * 统计一定时间段内到期的loan repayment总和
+     * 按特定借款人在时间区间和还款状态列出一段时间内所有到期的LoanRepayment
      *
-     * @param clientCode
+     * @param userId
      * @param from
      * @param to
+     * @param info
      * @param status
      * @return
      */
-    RepayAmount sumDueRepay(String clientCode,
-                            LocalDate from,
-                            LocalDate to,
-                            RepaymentStatus... status);
+    public PagedResult<LoanRepayment> listDueRepayByUser(String userId, LocalDate from, LocalDate to, PageInfo info, RepaymentStatus... status);
 
     /**
-     * 统计到某时间为止逾期或违约的loan repayment总和
+     * 统计到today为止处于逾期或违约状态的LoanRepayment
      *
-     * @param clientCode
      * @param today
      * @param status
      * @return
      */
-    RepayAmount sumOverdueRepay(String clientCode,
-                                LocalDate today,
-                                RepaymentStatus... status);
+    public int countOverdueRepay(LocalDate today, RepaymentStatus... status);
 
     /**
-     * list loan repayment by loanId
+     * 列出today为止处于逾期或违约状态的LoanRepayment
      *
-     * @param clientCode
+     * @param today
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRepayment> listOverdueRepay(LocalDate today, PageInfo info, RepaymentStatus... status);
+
+    /**
+     * 列出特定借款人today为止处于逾期或违约状态的LoanRepayment
+     *
+     * @param userId
+     * @param today
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRepayment> listOverdueRepayByUser(String userId, LocalDate today, PageInfo info, RepaymentStatus... status);
+
+    /**
+     * 统计到today日期为止逾期和违约的金额
+     *
+     * @param today
+     * @param status
+     * @return
+     */
+    public RepayAmount sumOverdueRepay(LocalDate today, RepaymentStatus... status);
+
+    /**
+     * 统计一段时间内到期的还款总和
+     *
+     * @param from
+     * @param to
+     * @param status
+     * @return
+     */
+    public RepayAmount sumDueRepay(LocalDate from, LocalDate to, RepaymentStatus... status);
+
+    /**
+     * 贷款的还款期数
+     *
      * @param loanId
-     * @return emptyList if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    List<LoanRepayment> listRepayByLoan(String clientCode, String loanId);
-
-    /**
-     * get repayment by its id
-     *
-     * @param clientCode
-     * @param repaymentId
-     * @return
-     */
-    LoanRepayment getRepayById(String clientCode, String repaymentId);
-
-    /**
-     * 更新LoanRepayment状态
-     *
-     * @param clientCode
      * @param status
-     * @param repayIds
      * @return
      */
-    boolean markStatus(String clientCode, RepaymentStatus status, String... repayIds);
-
-    /**
-     * 债权转让时需要实时矫正LoanRepayment中的Repayment
-     *
-     * @param clientCode
-     * @param corrections
-     * @return
-     */
-    boolean correctOnCreditAssign(String clientCode, List<LoanRepaymentCorrection> corrections);
+    public int countPeriodByLoanAndStatus(String loanId, RepaymentStatus... status);
 
     /**
      * 还款
      *
-     * @param clientCode
-     * @param userId
      * @param repayId
+     * @param repayAmount
+     * @param repaySource
      * @return
      */
-    RepayLoanResult repayLoan(String clientCode, String userId, String repayId);
+    public boolean repay(String repayId, BigDecimal repayAmount, RealmEntity repaySource);
 
-    /**
-     * 按状态统计用户的还款
-     *
-     * @param clientCode
-     * @param userId
-     * @param statusList
-     * @return
-     */
-    int countByUserAndStatus(String clientCode, String userId, RepaymentStatus... statusList);
+    public boolean markStatus(RepaymentStatus status, String... ids);
 }
