@@ -33,4 +33,25 @@ public class ContractSealConfig extends BaseConfig {
     private ContractSeal[] contractSeal;
     
     
+    /**
+     * 电子公章
+     */
+    @XmlElement
+    @Getter
+    private String apiPDFAddSeal = "http://121.199.18.174:8181/APWebPF/PFXSealServlet";
+    
+    /**
+     * 个人私章
+     */
+    @XmlElement
+    @Getter
+    private String apiPDFAddPersonalSeal = "http://121.199.18.174:8181/APWebPF/CertQueryServlet";
+    
+    /**
+     * 签章证书申请
+     */
+    @XmlElement
+    @Getter
+    private String apiPDFApplyCert = "http://121.199.18.174:8181/APWebPF/CfcaCertServlet";
+    
 }
