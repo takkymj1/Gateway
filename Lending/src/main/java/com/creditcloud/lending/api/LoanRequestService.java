@@ -15,6 +15,8 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanRequestService extends LoanRequestQueryService {
+    
+    public LoanRequest find(String id);
 
     public SubmitRequestResult addNew(LoanRequest loanRequest);
 

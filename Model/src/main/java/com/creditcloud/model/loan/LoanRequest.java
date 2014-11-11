@@ -44,15 +44,17 @@ public class LoanRequest extends BaseObject {
     @XmlElement(name = "id")
     private String id;
 
+    @XmlElement(name = "userId")
+    private String userId;
+
     /**
      * 个人用户
      */
     @XmlElement(name = "user")
     private User user;
-    
+
     /**
-     * 企业负责人: 用于借款申请（默认为null）
-     * corporation.id = user.id
+     * 企业负责人: 用于借款申请（默认为null） corporation.id = user.id
      */
     @XmlElement(name = "corporation")
     private CorporationUser corporation;
@@ -152,13 +154,13 @@ public class LoanRequest extends BaseObject {
      * 担保实体，可以为用户个人、商户、企业
      */
     private RealmEntity guaranteeEntity;
- 
+
     /**
      * 担保情况说明
      */
     @Size(max = LoanConstant.MAX_GUARANTEE_INFO)
     private String guaranteeInfo;
-        
+
     /**
      * 担保方式
      */
@@ -181,27 +183,29 @@ public class LoanRequest extends BaseObject {
      */
     @Valid
     private InvestRule investRule;
-    
+
     @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
     @XmlElement(name = "reviewComment")
     private String reviewComment;
-    
+
     /**
      * 商户平台自定义如json string
      */
     @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
     private String clientPriv;
-    
+
     /**
      * 项目提供方
      */
     private RealmEntity requestProvider;
-    
+
     /**
      * 归属产品
      */
     private String productId;
-    
+
+    private boolean hidden;
+
     /**
      *
      * @param id          LoanRequest Id, nullable

@@ -5,6 +5,7 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.loan.Loan;
 import javax.ejb.Remote;
 
 /**
@@ -13,6 +14,12 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanService extends LoanQueryService{
+    
+    public Loan find(String id);
+    
+    public Loan addNew(Loan loan);
+    
+    public void update(Loan loan);
 
     /**
      * mark loan as cleared
