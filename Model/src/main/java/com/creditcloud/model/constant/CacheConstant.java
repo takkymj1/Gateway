@@ -121,4 +121,8 @@ public interface CacheConstant {
      */
     String KEY_PREFIX_CAPTCHA = "%1$s_%2$s_CAPTCHA";
     
+    /**
+     * define cache key for proof list (not use for now)
+     */
+    String KEY_PREFIX_PROOF_LIST = "PROOF_LIST";
 }
