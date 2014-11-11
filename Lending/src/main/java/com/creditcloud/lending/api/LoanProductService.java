@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service.impl;
 
-import com.creditcloud.service.ManagerCustomizeService;
+package com.creditcloud.lending.api;
+
+import javax.ejb.Remote;
 
 /**
  *
  * @author rooseek
  */
-public class AbstractManagerCustomizeService implements ManagerCustomizeService {
+@Remote
+public interface LoanProductService {
+    
 }
