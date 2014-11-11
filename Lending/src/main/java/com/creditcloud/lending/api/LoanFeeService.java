@@ -6,6 +6,7 @@
 
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.loan.LoanFee;
 import javax.ejb.Remote;
 
 /**
@@ -15,4 +16,9 @@ import javax.ejb.Remote;
 @Remote
 public interface LoanFeeService {
     
+    LoanFee find(String loanFeeId);
+    
+    LoanFee create(LoanFee loanFee);
+
+    void update(LoanFee loanFee);
 }

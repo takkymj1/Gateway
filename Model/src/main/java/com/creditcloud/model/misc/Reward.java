@@ -38,4 +38,35 @@ public class Reward extends BaseObject {
     @Min(0)
     private BigDecimal rate;
 
+    /**
+     * 计算投标金额
+     *
+     * @param reward
+     * @param amount
+     * @return
+     */
+    public static BigDecimal calculateReward(Reward reward, BigDecimal amount) {
+        if (reward == null || amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            return BigDecimal.ZERO;
+        }
+        switch (reward.getType()) {
+            case FIXED:
+                return reward.getFixed() == null ? BigDecimal.ZERO : reward.getFixed();
+            case FLOATING:
+                if (reward.getRate() == null || reward.getRate().compareTo(BigDecimal.ZERO) == 0) {
+                    return BigDecimal.ZERO;
+                }
+                return amount.multiply(reward.getRate());
+            case BOTH:
+                BigDecimal fixed = reward.getFixed() == null ? BigDecimal.ZERO : reward.getFixed();
+                BigDecimal floating = BigDecimal.ZERO;
+                if (reward.getRate() != null) {
+                    floating = amount.multiply(reward.getRate());
+                }
+                return fixed.add(floating);
+            case NONE:
+                return BigDecimal.ZERO;
+        }
+        return BigDecimal.ZERO;
+    }
 }
