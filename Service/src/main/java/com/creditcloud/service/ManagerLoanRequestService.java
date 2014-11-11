@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.LoanFee;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.model.misc.LoanRequestDetail;
 import javax.ejb.Remote;
 
@@ -28,6 +29,15 @@ interface ManagerLoanRequestService {
      * the local client
      */
     SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest);
+    
+    /**
+     * 
+     * @param clientCode
+     * @param loanRequest
+     * @param userRealm
+     * @return 
+     */
+    SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest,RealmEntity userRealm);
 
     /**
      * get LoanRequest by id

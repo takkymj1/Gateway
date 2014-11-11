@@ -136,4 +136,9 @@ public class AbstractManagerLoanService implements ManagerLoanService {
     public LoanRequestDetail getLoanRequestDetailByRequestId(String clientCode, String requestId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    @Override
+    public SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest,RealmEntity userRealm){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

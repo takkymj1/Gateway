@@ -110,6 +110,11 @@ public enum Realm implements BaseEnum {
     CONTRACTTEMPLATE_O2M("合同模板一对多"),
     
     /**
+     * 序列号
+     */
+    SERIALNUMBER("序列号"),
+    
+    /**
      * 担保审计
      */
     GUARANTEE_AUDIT("GUARANTEE_AUDIT"); 
