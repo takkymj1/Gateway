@@ -13,12 +13,12 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LoanService extends LoanQueryService{
-    
+public interface LoanService extends LoanQueryService, LoanStatService {
+
     public Loan find(String id);
-    
+
     public Loan addNew(Loan loan);
-    
+
     public void update(Loan loan);
 
     /**

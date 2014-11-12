@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.loan.LoanFee;
@@ -15,9 +14,11 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanFeeService {
-    
+
     LoanFee find(String loanFeeId);
-    
+
+    LoanFee findByLoanId(String loanId);
+
     LoanFee create(LoanFee loanFee);
 
     void update(LoanFee loanFee);
