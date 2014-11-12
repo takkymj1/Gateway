@@ -9,7 +9,6 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
-import java.math.BigDecimal;
 import junit.framework.Assert;
 import org.joda.time.LocalDate;
 import org.junit.After;
@@ -48,7 +47,7 @@ public class LoanCalculatorTest {
      */
     @Test
     public void testAnalyze() {
-/*        LoanDetail loanDetail = LoanCalculator.analyze(10000,
+        LoanDetail loanDetail = LoanCalculator.analyze(10000,
                                                        new Duration(0, 3, 0),
                                                        2400,
                                                        RepaymentMethod.EqualInterest,
@@ -79,12 +78,6 @@ public class LoanCalculatorTest {
         for (Repayment repayment : loanDetail.getRepayments()) {
             Assert.assertTrue(expected.equals(repayment.getDueDate()));
             expected = expected.plusMonths(1);
-        }*/
-        LocalDate local=LoanCalculator.countDueDate(new LocalDate(2014,12,31));
-        System.out.println(local.getYear()+","+local.getMonthOfYear()+","+local.getDayOfMonth());
-        local=LoanCalculator.countDueDate(new LocalDate(2000,12,31));
-        System.out.println(local.getYear()+","+local.getMonthOfYear()+","+local.getDayOfMonth());
-        local=LoanCalculator.countDueDate(new LocalDate(2000,7,31));
-        System.out.println(local.getYear()+","+local.getMonthOfYear()+","+local.getDayOfMonth());
+        }
     }
 }
