@@ -104,6 +104,17 @@ public enum Realm implements BaseEnum {
     CLAIM("CLAIM"),
     
     /**
+     * 合同模板
+     */
+    CONTRACTTEMPLATE_O2O("合同模板一对一"),
+    CONTRACTTEMPLATE_O2M("合同模板一对多"),
+    
+    /**
+     * 序列号
+     */
+    SERIALNUMBER("序列号"),
+    
+    /**
      * 担保审计
      */
     GUARANTEE_AUDIT("GUARANTEE_AUDIT"); 
