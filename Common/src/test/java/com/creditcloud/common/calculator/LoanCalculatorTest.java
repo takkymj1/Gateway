@@ -79,5 +79,17 @@ public class LoanCalculatorTest {
             Assert.assertTrue(expected.equals(repayment.getDueDate()));
             expected = expected.plusMonths(1);
         }
+        expected=LoanCalculator.countDueDate(new LocalDate(2014,1,31));
+        Assert.assertTrue(expected.equals(new LocalDate(2014,2,28)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2000,1,31));
+        Assert.assertTrue(expected.equals(new LocalDate(2000,2,29)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2014,7,31));
+        Assert.assertTrue(expected.equals(new LocalDate(2014,8,31)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2014,2,28));
+        Assert.assertTrue(expected.equals(new LocalDate(2014,3,31)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2014,12,30));
+        Assert.assertTrue(expected.equals(new LocalDate(2015,1,30)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2014,12,31));
+        Assert.assertTrue(expected.equals(new LocalDate(2015,1,31)));
     }
 }
