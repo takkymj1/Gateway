@@ -8,13 +8,10 @@ package com.creditcloud.lending.api;
 import com.creditcloud.lending.model.LoanStat;
 import com.creditcloud.lending.model.RequestAvg;
 import com.creditcloud.model.ElementCount;
-import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.loan.LoanRequest;
-import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
 import java.util.List;
 
@@ -22,52 +19,33 @@ import java.util.List;
  *
  * @author rooseek
  */
-public interface LoanRequestQueryService {
+public interface LoanRequestStatService {
 
     /**
+     * count loans by LoanStatus
      *
-     * @param userId
      * @return
      */
-    public int checkTodayLoanRequestCount(String userId);
+    public List getLoanCountByStatus();
 
     /**
-     * count loan request by user and status
+     * count loans by LoanPurpose
      *
-     * @param userId
+     * @return
+     */
+    public List getLoanCountByPurpose();
+
+    /**
+     * 按LoanRequestStatus统计一定时间内提交的LoanRequest
+     *
+     * @param from
+     * @param to
      * @param status
      * @return
      */
-    public int countByUserAndStatus(final String userId, final LoanRequestStatus... status);
+    public int countByStatus(Date from, Date to, LoanRequestStatus... status);
 
-    /**
-     * list by user and loan request status
-     *
-     * @param userId
-     * @param pageInfo
-     * @param status
-     * @return
-     */
-    public PagedResult<LoanRequest> listByUserAndStatus(final String userId, final PageInfo pageInfo, final LoanRequestStatus... status);
-
-    /**
-     * count loan request by employee and status
-     *
-     * @param employeeId
-     * @param status
-     * @return
-     */
-    public int countByEmployeeAndStatus(final String employeeId, final LoanRequestStatus... status);
-
-    /**
-     * list by employee and loan request status
-     *
-     * @param employeeId
-     * @param pageInfo
-     * @param status
-     * @return
-     */
-    public PagedResult<LoanRequest> listByEmployeeAndStatus(final String employeeId, final PageInfo pageInfo, final LoanRequestStatus... status);
+    public int countByStatus(LoanRequestStatus... status);
 
     /**
      * 获取一段时间内每天新提交的Loan数目
@@ -104,45 +82,6 @@ public interface LoanRequestQueryService {
      * @return
      */
     public int getLoanSum(Date from, Date to);
-
-    /**
-     * count loans by LoanStatus
-     *
-     * @return
-     */
-    public List getLoanCountByStatus();
-
-    /**
-     * count loans by LoanPurpose
-     *
-     * @return
-     */
-    public List getLoanCountByPurpose();
-
-    /**
-     * 按LoanRequestStatus统计一定时间内提交的LoanRequest
-     *
-     * @param from
-     * @param to
-     * @param status
-     * @return
-     */
-    public int countByStatus(Date from, Date to, LoanRequestStatus... status);
-
-    public int countByStatus(LoanRequestStatus... status);
-
-    /**
-     * 按LoanRequestStatus列出一定时间内提交的LoanRequest
-     *
-     * @param from
-     * @param to
-     * @param info
-     * @param status
-     * @return
-     */
-    public PagedResult<LoanRequest> listByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
-
-    public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
 
     /**
      * 按请求状态统计

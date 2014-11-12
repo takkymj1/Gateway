@@ -16,7 +16,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface InvestService extends InvestQueryService {
+public interface InvestService extends InvestQueryService, InvestStatService {
 
     public Invest addNew(Invest invest);
 
@@ -27,7 +27,7 @@ public interface InvestService extends InvestQueryService {
      *
      * @param investId
      * @param valueMap
-     * @return 
+     * @return
      */
     public Invest update(String investId, Map<String, Object> valueMap);
 

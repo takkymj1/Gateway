@@ -15,7 +15,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LoanRepayService extends LoanRepayQueryService {
+public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatService {
 
     public LoanRepayment find(String id);
 
