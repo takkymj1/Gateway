@@ -14,7 +14,11 @@
     
     <name>Gateway</name>
     <modules>
+        <module>Common</module>
+        <module>Service</module>
+        <module>Model</module>
         <module>Client</module>
+        <module>Config</module>
         <module>Email</module>
         <module>Image</module>
         <module>Message</module>
