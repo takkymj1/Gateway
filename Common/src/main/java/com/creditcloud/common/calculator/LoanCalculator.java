@@ -57,7 +57,34 @@ public final class LoanCalculator {
                                      final LocalDate asOfDate) {
         return analyze(BigDecimal.valueOf(amount), duration, rate, method, asOfDate);
     }
-
+    /**
+     * 
+     * @param asOfDate date of current payment
+     * @return day of next month payment
+     */
+    public static LocalDate countDueDate(final LocalDate asOfDate){
+        final int [][] leap={{31,29,31,30,31,30,31,31,30,31,30,31},{31,28,31,30,31,30,31,31,30,31,30,31}};
+        int year=asOfDate.getYear();
+        int month=asOfDate.getMonthOfYear();
+        int day=asOfDate.getDayOfMonth();
+        //System.out.println(year+":"+month+":"+day);
+        //
+        int i=((year % 4==0 && year % 100 !=0)|| (year % 400==0))?0:1;
+        LocalDate local=null;
+        //不是月底且当月的天数不多于下月天数，增加当月天数即为下月天数，不管是闰年还是平年，一月都是31天
+        if(day!=leap[i][month-1] && day<=leap[i][(month)%12]){
+            local=DateUtils.offset(asOfDate, new Duration(0,0,leap[i][month-1]));
+        //月底，下月的付款日也是月底
+        }else if(day==leap[i][month-1]){
+            local=DateUtils.offset(asOfDate,new Duration(0,0,leap[i][(month)%12]));
+        //一月三十日、平年一月29日的情况。
+        }else{
+            local=DateUtils.offset(asOfDate,new Duration(0,0,0));
+            local=local.plusDays(leap[i][(month)%12]+leap[i][month-1]-day);
+        }
+        //System.out.println(local.getYear()+":"+local.getMonthOfYear()+":"+local.getDayOfMonth());
+        return local;
+    }
     /**
      *
      * @param amount
