@@ -4,6 +4,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanStatus;
@@ -180,4 +181,11 @@ public interface ManagerLoanService extends ManagerLoanRequestService {
      * @return 
      */
     LoanRequestDetail  getLoanRequestDetailByRequestId(String clientCode, String requestId);
+    
+    /**
+     * 
+     * @param criteriaInfo
+     * @return 
+     */
+    PagedResult<Loan> findAll(CriteriaInfo criteriaInfo);
 }
