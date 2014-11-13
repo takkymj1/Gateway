@@ -101,6 +101,15 @@ public interface MarketInvestService extends MarketInvestRepayService {
      * @return
      */
     boolean cancelFailedLoan(String clientCode, Loan loan);
+    
+    /**
+     * cancel loan , release related invest
+     *
+     * @param clientCode
+     * @param loan
+     * @return
+     */
+    boolean cancelLoan(String clientCode, Loan loan);
 
     /**
      * cancel scheduled loan, remove scheduled loan from market cache
