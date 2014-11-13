@@ -6,6 +6,7 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import java.util.List;
 import java.util.Map;
@@ -38,4 +39,6 @@ public interface InvestService extends InvestQueryService, InvestStatService {
     public boolean markStatusByLoan(InvestStatus status, List<InvestStatus> currentStatus, String loanId);
 
     public boolean invest(String investId, int amount);
+    
+    public void notifyLoanStatus(String loanId, LoanStatus status, List<LoanStatus> currentStatus);
 }
