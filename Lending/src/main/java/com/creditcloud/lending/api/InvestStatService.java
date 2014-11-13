@@ -5,7 +5,11 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.loan.LoanInvestStatistics;
+import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.user.ReferralUser;
+import java.util.Date;
 
 /**
  *
@@ -14,4 +18,10 @@ import com.creditcloud.model.loan.LoanInvestStatistics;
 public interface InvestStatService {
 
     LoanInvestStatistics getLoanInvestStatistics(String userId);
+
+    PagedResult<ReferralUser> listByReferral(String userId,
+                                             Date from,
+                                             Date to,
+                                             PageInfo pageInfo);
+
 }
