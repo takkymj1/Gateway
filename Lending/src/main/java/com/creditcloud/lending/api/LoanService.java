@@ -39,6 +39,17 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public boolean markStatus(LoanStatus status, String... ids);
 
     /**
+     * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新
+     *
+     * @param loanId
+     * @param status
+     * @param bidNumber
+     * @param bidAmount
+     * @return
+     */
+    public boolean markStatus(String loanId, LoanStatus status, int bidNumber, int bidAmount);
+
+    /**
      * update loan rewarded
      *
      * @param rewarded

@@ -13,6 +13,7 @@ import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.loan.LoanStatistics;
 import java.util.List;
 
 /**
@@ -157,4 +158,6 @@ public interface LoanStatService {
      * @return
      */
     public LoanAvg avgByStatus(LoanStatus... status);
+    
+    LoanStatistics getLoanStatistics(String userId);
 }
