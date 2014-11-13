@@ -69,6 +69,9 @@ public class LoanRepayment extends BaseObject {
 
     //TODO replace with <FundRecordType, BigDecimal>
     private Map<String, BigDecimal> feeDetail;
+    
+    //for ui
+    private String loanTitle;
 
     public LoanRepayment(String id,
                          String loanId,
