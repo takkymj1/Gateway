@@ -260,6 +260,33 @@ public interface ContractService {
      * @param repayments 借款人还款列表
      * @param feeConfig  费用配置
      * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     * @param seals
+     */
+    void generateLoanContract(Client client,
+                              Invest currentInvest,
+                              List<Invest> investList,
+                              Loan loan,
+                              List<LoanRepayment> repayments,
+                              FeeConfig feeConfig,
+                              String templateId,
+                              List<ContractSeal> seals);
+    
+    /**
+     * 生成一份普通的平台借款合同(里面会有一份多投资人列表).
+     *
+     * 只是触发远程的生成过程，为异步调用
+     *
+     * 重复调用将生成新的合同，原有合同不删除
+     *
+     * 借款合同命名为 loan title + obligator + date，合同名称不是唯一的！
+     *
+     * @param client     平台
+     * @param currentInvest     当前投资人投标
+     * @param investList 所有投资人投资列表
+     * @param loan       借款对象
+     * @param repayments 借款人还款列表
+     * @param feeConfig  费用配置
+     * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
      * @param claim
      */
     void generateLoanContract(Client client,
@@ -293,6 +320,31 @@ public interface ContractService {
                               List<LoanRepayment> repayments,
                               FeeConfig feeConfig,
                               String templateId);
+    
+    /**
+     * 生成一份普通的平台借款合同(生成一份多个投资人对借款人).
+     *
+     * 只是触发远程的生成过程，为异步调用
+     *
+     * 重复调用将生成新的合同，原有合同不删除
+     *
+     * 借款合同命名为 loan title + obligator + date，合同名称不是唯一的！
+     *
+     * @param client     平台
+     * @param investList 投资列表
+     * @param loan       借款对象
+     * @param repayments 借款人还款列表
+     * @param feeConfig  费用配置
+     * @param templateId 合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
+     * @param seals      合同章
+     */
+    void generateLoanContract(Client client,
+                              List<Invest> investList,
+                              Loan loan,
+                              List<LoanRepayment> repayments,
+                              FeeConfig feeConfig,
+                              String templateId,
+                              List<ContractSeal> seals);
     
     /**
      * 生成一份普通的平台借款合同(生成一份多个投资人对借款人).

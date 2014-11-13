@@ -6,100 +6,25 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.common.entities.embedded.RealmEntity;
+import com.creditcloud.lending.model.DisburseInfo;
+import com.creditcloud.lending.model.RepayInfo;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
+import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
-import com.creditcloud.model.loan.RepayAmount;
+import com.creditcloud.model.loan.OverdueRepayDetail;
+import com.creditcloud.model.loan.RepayDetail;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 import javax.ejb.Remote;
-import org.joda.time.LocalDate;
 
 /**
  *
  * @author rooseek
  */
 @Remote
-public interface InvestRepayService {
+public interface InvestRepayService extends InvestRepayQueryService{
 
     boolean addNew(InvestRepayment repay);
-
-    InvestRepayment getByInvestAndPeriod(String investId, int period);
-
-    public List<InvestRepayment> listByInvest(String investId, List<RepaymentStatus> statusList);
-
-    /**
-     * 根据贷款Id和第几期还款列出所有的InvestRepayment.
-     *
-     * @param loanId
-     * @param period
-     * @param statusList
-     * @return
-     */
-    public List<InvestRepayment> listByLoanAndPeriodAndStatus(String loanId, int period, List<RepaymentStatus> statusList);
-
-    /**
-     * TODO 因为回款可能会逾期，所以应该按照dueDate和实际repayDate来list，目前只按照dueDate来list
-     *
-     * @param userId
-     * @param from
-     * @param to
-     * @return
-     */
-    public List<InvestRepayment> listByDate(String userId, Date from, Date to);
-
-    /**
-     * 列出特定状态的回款
-     *
-     * @param userId
-     * @param statusList
-     * @return
-     */
-    public List<InvestRepayment> listByStatus(String userId, List<RepaymentStatus> statusList);
-
-    public int countByStatus(String userId, List<RepaymentStatus> statusList);
-
-    /**
-     * 根据状态加总统计用户的投资回款信息
-     *
-     * @param userId
-     * @param statusList
-     * @return
-     */
-    public RepayAmount sumRepayByUserAndStatus(String userId, List<RepaymentStatus> statusList);
-
-    /**
-     * 统计贷款的分期还款总和
-     *
-     * @param loanId
-     * @return
-     */
-    public Map<Integer, com.creditcloud.model.loan.Repayment> sumRepaymentByLoan(String loanId);
-
-    /**
-     * 统计到today日期为止逾期和违约的金额<p>
-     * 此方法功能LoanRepayService中已提供，且更高效<p>
-     * 主要用來跟LoanRepayment做比对测试用
-     *
-     * @param today
-     * @param statusList
-     * @return
-     */
-    public RepayAmount sumOverdueRepay(LocalDate today, List<RepaymentStatus> statusList);
-
-    /**
-     * 统计一段时间内到期的还款总和
-     * <p>
-     * 此方法功能LoanRepayService中已提供，且更高效<p>
-     * 主要用來跟LoanRepayment做比对测试用
-     *
-     * @param from
-     * @param to
-     * @param statusList
-     * @return
-     */
-    public RepayAmount sumDueRepay(LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 
     public boolean markStatus(RepaymentStatus status, List<String> ids);
 
@@ -128,4 +53,40 @@ public interface InvestRepayService {
      */
     public InvestRepayment getLastByInvestAndStatus(String investId, List<RepaymentStatus> statusList);
 
+    InvestRepayment getByInvestAndPeriod(String investId, int period);
+    
+     /**
+     * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
+     * 只计算未还款状态的
+     *
+     * @param repayInfo
+     * @return
+     */
+    RepayDetail getRepayDetail(RepayInfo repayInfo);
+
+    /**
+     * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
+     * 只计算逾期和违约状态的
+     *
+     *
+     * @param repayInfo
+     * @return
+     */
+    OverdueRepayDetail getOverdueRepayDetail(RepayInfo repayInfo);
+
+    /**
+     * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同
+     *
+     * @param repayInfo
+     * @return
+     */
+    AdvanceRepayDetail getAdvanceRepayDetail(RepayInfo repayInfo);
+
+    /**
+     * 垫付明细
+     *
+     * @param disburseInfo
+     * @return
+     */
+    RepayDetail getDisburseDetail(DisburseInfo disburseInfo);
 }
