@@ -5,11 +5,13 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -74,4 +76,6 @@ public interface LoanRequestQueryService {
     public PagedResult<LoanRequest> listByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
 
     public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
+    
+    public List<LoanRequest> listByRequestProviderAndStatus(RealmEntity provider, LoanRequestStatus... status);
 }
