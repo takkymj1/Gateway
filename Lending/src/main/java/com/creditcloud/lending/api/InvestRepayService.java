@@ -5,12 +5,12 @@
  */
 package com.creditcloud.lending.api;
 
-import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
+import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
 import java.math.BigDecimal;
