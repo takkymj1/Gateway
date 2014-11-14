@@ -6,6 +6,8 @@
 
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.loan.LoanProduct;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -14,5 +16,13 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LoanProductService {
+    
+    public LoanProduct find(String id);
+    
+    public List<LoanProduct> findAll();
+    
+    public LoanProduct create(LoanProduct product);
+
+    public void update(LoanProduct product);
     
 }

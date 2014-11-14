@@ -48,6 +48,11 @@ public class LoanProduct extends BaseObject {
 
     private Date timeLastUpdated;
 
+    /**
+     * 产品英文名称，类似于Enums的name
+     */
+    private String productKey;
+
     //TODO more filed
     public LoanProduct(String id,
                        String name,
@@ -71,5 +76,31 @@ public class LoanProduct extends BaseObject {
         this.minDuration = minDuration;
         this.investRule = investRule;
         this.description = description;
+    }
+
+    public LoanProduct(String id,
+                       String name,
+                       String key,
+                       RepaymentMethod repayMethod,
+                       int minAmount,
+                       int maxAmount,
+                       Duration minDuration,
+                       Duration maxDuration,
+                       int minRate,
+                       int maxRate,
+                       InvestRule investRule,
+                       String description) {
+        this.id = id;
+        this.name = name;
+        this.repayMethod = repayMethod;
+        this.minAmount = minAmount;
+        this.maxAmount = maxAmount;
+        this.maxRate = maxRate;
+        this.minRate = minRate;
+        this.maxDuration = maxDuration;
+        this.minDuration = minDuration;
+        this.investRule = investRule;
+        this.description = description;
+        this.productKey = key;
     }
 }
