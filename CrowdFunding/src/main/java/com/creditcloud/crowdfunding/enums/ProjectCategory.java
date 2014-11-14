@@ -18,7 +18,8 @@ public enum ProjectCategory implements BaseEnum {
      * FENG
      */
     FENG_SF("梦想首发", false),
-    FENG_CZ("梦想创造", false);
+    FENG_CZ("梦想创造", false),
+    FENG_DJ("梦想独家", false);;
 
     private final String key;
 
