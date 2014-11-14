@@ -9,6 +9,7 @@ import com.creditcloud.claim.model.Claim;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.contract.Contract;
 import com.creditcloud.contract.ContractSeal;
+import com.creditcloud.contract.ContractType;
 import com.creditcloud.model.client.Client;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
@@ -391,4 +392,33 @@ public interface ContractService {
      * @return contract不存在返回null
      */
     byte[] getContractContent(String clientCode, String contractId);
+    
+    
+    /**
+     * 生成居间合同 （不含签章）
+     * @author zaishu.ye@fengjr.com
+     * @param client
+     * @param loan
+     * @param loanRepayments
+     * @param feeConfig
+     * @param templateId:居间合同模板id，若为null，则根据
+     */
+    public void generateBrokerageContract(Client client,
+                                        Loan loan,
+                                        List<LoanRepayment> loanRepayments,
+                                        FeeConfig feeConfig,
+                                        String templateId);
+            
+    public Contract getBrokerageContract(String clientCode, 
+            RealmEntity contractEntity, boolean withContent);
+    
+    public Contract getLoanClientContract(String clientCode, 
+            RealmEntity contractEntity, boolean withContent);
+    
+    public Contract getAdvanceRepayContract(String clientCode, 
+            RealmEntity contractEntity, boolean withContent);
+    
+    public Contract getContractByEntityAndType(String clientCode, 
+            RealmEntity contractEntity, boolean withContent, ContractType contractType);
+    
 }
