@@ -82,7 +82,7 @@ public class ClientFeatures extends BaseObject {
     private boolean enableWechatInfo = false;
     
     /**
-     * 微信抽奖功能（TJHJ）
+     * 居间服务协议
      */
     @XmlElement
     @Getter
