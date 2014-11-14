@@ -48,4 +48,6 @@ public class LoanRequestDetail  extends BaseObject {
      */
 
     private String coborrower;
+    
+    private int highestCreditAmount;
 }
