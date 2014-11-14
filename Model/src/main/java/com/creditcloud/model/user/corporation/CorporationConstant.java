@@ -25,6 +25,9 @@ public interface CorporationConstant {
     //税务登记号
     int TAX_CODE_LEN = 20;
 
+    //合同章特征码
+    int CONTRACT_SEAL_CODE_LEN = 20;
+    
     //企业介绍最大长度 
     int MAX_CORP_DESC = 1024;
 
