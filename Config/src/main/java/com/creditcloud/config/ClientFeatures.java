@@ -80,4 +80,11 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWechatInfo = false;
+    
+    /**
+     * 微信抽奖功能（TJHJ）
+     */
+    @XmlElement
+    @Getter
+    private boolean enableBrokerage = false;
 }
