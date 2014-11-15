@@ -9,6 +9,7 @@ import com.creditcloud.batch.model.BatchJob;
 import com.creditcloud.batch.model.BatchJobStatus;
 import com.creditcloud.batch.model.BatchJobType;
 import com.creditcloud.batch.model.Task;
+import com.creditcloud.batch.model.TaskStatus;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
@@ -51,6 +52,19 @@ public interface BatchQueryService {
      * @return 
      */
     PagedResult<Task> getBatchJobTasks(String clientCode, String id, PageInfo pageInfo);
+    
+    /**
+     * 获取某批量任务特定状态的子任务列表.
+     * 
+     * 默认按照 Task.ordinal 正排序
+     * 
+     * @param clientCode
+     * @param id
+     * @param pageInfo
+     * @param status
+     * @return 
+     */
+    PagedResult<Task> getBatchJobTasksByStatus(String clientCode, String id, PageInfo pageInfo, TaskStatus... status);
     
     /**
      * 分页列出特定种类的批量任务
