@@ -203,6 +203,8 @@ public class LoanRequest extends BaseObject {
      * 归属产品
      */
     private String productId;
+    
+    private String productKey;
 
     private boolean hidden;
 
