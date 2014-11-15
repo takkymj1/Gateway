@@ -38,12 +38,13 @@ public interface LendingSettleService {
     /**
      * settle a loan , generate related invest repayment
      *
-     * @param loan
+     * @param employeeId
+     * @param loanId
      * @return 根据贷款所有投资金额生成的还款计划，用于更新贷款的LoanRepayment中的Repayment
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
-    SettleLoanResult settleLoan(Loan loan);
+    void settleLoan(String employeeId, String loanId);
 
     /**
      * cancel failed loan , release related invest
