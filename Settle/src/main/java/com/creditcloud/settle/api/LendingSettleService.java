@@ -52,28 +52,4 @@ public interface LendingSettleService {
      * @return
      */
     boolean cancelFailedLoan(Loan loan);
-
-    /**
-     * cancel loan , release related invest
-     *
-     * @param loan
-     * @return
-     */
-    boolean cancelLoan(Loan loan);
-
-    /**
-     * cancel scheduled loan, remove scheduled loan from market cache
-     *
-     * @param loanId
-     * @return
-     */
-    boolean cancelScheduledLoan(String loanId);
-
-    /**
-     * 取消用户的投标
-     *
-     * @param investId
-     * @return
-     */
-    boolean cancelInvest(String investId);
 }
