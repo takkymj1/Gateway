@@ -63,4 +63,11 @@ public class ContractSeal extends BaseObject {
     @XmlElement
     @Getter
     private String party  = "FIRST";
+    
+    /**
+     * 合同类型
+     */
+    @XmlElement
+    @Getter
+    private String type = "LOAN";
 }

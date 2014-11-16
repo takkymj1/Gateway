@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.LocalDate;
+import java.math.BigDecimal;
 
 /**
  *
@@ -50,4 +52,10 @@ public class LoanRequestDetail  extends BaseObject {
     private String coborrower;
     
     private int highestCreditAmount;
+    
+    private LocalDate timeEstablished;
+    
+    private BigDecimal registeredCapital;
+    
+    private String businessScope;
 }

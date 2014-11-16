@@ -52,6 +52,10 @@ public class CorporationUser extends BaseObject {
     @Size(max = CorporationConstant.TAX_CODE_LEN)
     private String taxCode;
 
+    //企业合同章特征码
+    @Size(max = CorporationConstant.CONTRACT_SEAL_CODE_LEN)
+    private String contractSealCode;
+    
     @NotNull
     private CorporationType type;
 
@@ -181,4 +185,6 @@ public class CorporationUser extends BaseObject {
     public String getUserEmail() {
         return user == null ? null : user.getEmail();
     }
+    
+    
 }
