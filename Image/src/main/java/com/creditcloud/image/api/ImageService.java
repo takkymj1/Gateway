@@ -86,11 +86,7 @@ public interface ImageService {
      * @param watermark:是否加水印
      * @return
      */
-    PagedResult<Image> listByRawName(String clientCode,
-									RealmEntity owner,
-									PageInfo info,
-									ImageSize size,
-									boolean watermark);
+    PagedResult<Image> listByRawName(String clientCode, RealmEntity owner, PageInfo info, ImageSize size, boolean watermark);
 
     /**
      * 删除某图片
