@@ -9,6 +9,11 @@ package com.creditcloud.model.constant;
  * @author rooseek
  */
 public interface ImageConstant {
+	
+	/**
+	 * 待定
+	 */
+	String IMAGE_UNDETERMINED = "image.not.determined";
     
     /**
      * 数据库中不存在此图片信息时返回该uri作为图片地址
