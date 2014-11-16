@@ -402,12 +402,14 @@ public interface ContractService {
      * @param loanRepayments
      * @param feeConfig
      * @param templateId:居间合同模板id，若为null，则根据
+     * @param seals
      */
     public void generateBrokerageContract(Client client,
                                         Loan loan,
                                         List<LoanRepayment> loanRepayments,
                                         FeeConfig feeConfig,
-                                        String templateId);
+                                        String templateId,
+                                        List<ContractSeal> seals);
             
     public Contract getBrokerageContract(String clientCode, 
             RealmEntity contractEntity, boolean withContent);
