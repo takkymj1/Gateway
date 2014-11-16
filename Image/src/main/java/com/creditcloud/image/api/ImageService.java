@@ -75,6 +75,18 @@ public interface ImageService {
                             PageInfo info,
                             ImageSize size,
                             boolean watermark);
+	
+	/**
+     * 返回满足条件的一组图片
+     *
+     * @param clientCode:客戶代码
+     * @param owner:图片所有者或关联者
+     * @param info:查找范围
+     * @param size:图片大小
+     * @param watermark:是否加水印
+     * @return
+     */
+    PagedResult<Image> list(String clientCode, RealmEntity owner, PageInfo info, ImageSize size);
 
     /**
      * 删除某图片
