@@ -41,66 +41,68 @@ public final class LoanCalculator {
     private static final BigDecimal rateScale = new BigDecimal(10000);
 
     private static final MathContext mc = new MathContext(16, NumberConstant.ROUNDING_MODE);
+
     /**
-    *计算下个月的还款日，还款日计算规则计算如下：
-    * day为本月的还款日，maxCurrentDay为本月天数，maxNextDay为下个月的天数
-    * 1:day<maxCurrentDay且day<maxNextDay 下次还款日为下月同一天
-    * 2：day=maxCurrentDay 下次还款日为下个月的maxNextDay，即为下月最后一天
-    * 3：day<maxCurrentDay且day>=maxNextDay, 下次还款日为下月的最后一天
-    */
-    public static LocalDate countDueDate(final LocalDate asOfDate){
-        final int [][] leap={{31,29,31,30,31,30,31,31,30,31,30,31},{31,28,31,30,31,30,31,31,30,31,30,31}};
-        int year=asOfDate.getYear();
-        int month=asOfDate.getMonthOfYear();
-        int day=asOfDate.getDayOfMonth();
-        
+     * 计算下个月的还款日，还款日计算规则计算如下： day为本月的还款日，maxCurrentDay为本月天数，maxNextDay为下个月的天数
+     * 1:day<maxCurrentDay且day<maxNextDay 下次还款日为下月同一天 2：day=maxCurrentDay
+     * 下次还款日为下个月的maxNextDay，即为下月最后一天 3：day<maxCurrentDay且day>=maxNextDay,
+     * 下次还款日为下月的最后一天
+     */
+    public static LocalDate countDueDate(final LocalDate asOfDate) {
+        final int[][] leap = {{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+        int year = asOfDate.getYear();
+        int month = asOfDate.getMonthOfYear();
+        int day = asOfDate.getDayOfMonth();
+
         //System.out.println(year+":"+month+":"+day);
         //
-        int i=((year % 4==0 && year % 100 !=0)|| (year % 400==0))?0:1;
-        int maxNextDay=leap[i][(month)%12];
-        int maxCurrentDay=leap[i][month-1];
-        LocalDate local=null;
+        int i = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 0 : 1;
+        int maxNextDay = leap[i][(month) % 12];
+        int maxCurrentDay = leap[i][month - 1];
+        LocalDate local = null;
         //不是月底且当月的天数不多于下月天数，增加当月天数即为下月天数，不管是闰年还是平年，一月都是31天
-        if(day<maxCurrentDay&& day<maxNextDay){
-            local=DateUtils.offset(asOfDate, new Duration(0,0,maxCurrentDay));
-        //月底，下月的付款日也是月底
-        }else if(day==maxCurrentDay){
-            local=DateUtils.offset(asOfDate,new Duration(0,0,maxNextDay));
-        //一月三十日、平年一月29日的情况。
-        }else{
-            local=DateUtils.offset(asOfDate,new Duration(0,0,0));
-            local=local.plusDays(maxNextDay+maxCurrentDay-day);
+        if (day < maxCurrentDay && day < maxNextDay) {
+            local = DateUtils.offset(asOfDate, new Duration(0, 0, maxCurrentDay));
+            //月底，下月的付款日也是月底
+        } else if (day == maxCurrentDay) {
+            local = DateUtils.offset(asOfDate, new Duration(0, 0, maxNextDay));
+            //一月三十日、平年一月29日的情况。
+        } else {
+            local = DateUtils.offset(asOfDate, new Duration(0, 0, 0));
+            local = local.plusDays(maxNextDay + maxCurrentDay - day);
         }
-      return local;
+        return local;
     }
+
     public static LoanDetail analyzeNew(final int amount,
-                                    final Duration duration,
-                                    final int rate,
-                                    final RepaymentMethod method,
-                                    final LocalDate asOfDate){
-       LocalDate local=asOfDate;
-       local=countDueDate(local);
-       LoanDetail loan=analyze(amount,duration,rate,method,asOfDate);
-       List<Repayment> list=loan.getRepayments();
-       if(!list.isEmpty()){
-           list.get(0).setDueDate(local);
-       }
-       return loan;
+            final Duration duration,
+            final int rate,
+            final RepaymentMethod method,
+            final LocalDate asOfDate) {
+        LocalDate local = asOfDate;
+        local = countDueDate(local);
+        LoanDetail loan = analyze(amount, duration, rate, method, asOfDate);
+        List<Repayment> list = loan.getRepayments();
+        if (!list.isEmpty()) {
+            list.get(0).setDueDate(local);
+        }
+        return loan;
     }
+
     /**
      *
      * @param amount
      * @param duration
-     * @param rate     2400 means 24.00%
+     * @param rate 2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
      */
     public static LoanDetail analyze(final int amount,
-                                     final Duration duration,
-                                     final int rate,
-                                     final RepaymentMethod method,
-                                     final LocalDate asOfDate) {
+            final Duration duration,
+            final int rate,
+            final RepaymentMethod method,
+            final LocalDate asOfDate) {
         return analyze(BigDecimal.valueOf(amount), duration, rate, method, asOfDate);
     }
 
@@ -108,16 +110,16 @@ public final class LoanCalculator {
      *
      * @param amount
      * @param duration
-     * @param rate     2400 means 24.00%
+     * @param rate 2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
      */
     public static LoanDetail analyze(final BigDecimal amount,
-                                     final Duration duration,
-                                     final int rate,
-                                     final RepaymentMethod method,
-                                     final LocalDate asOfDate) {
+            final Duration duration,
+            final int rate,
+            final RepaymentMethod method,
+            final LocalDate asOfDate) {
         LoanDetail result = null;
         //principal
         BigDecimal principal = amount;
@@ -184,14 +186,14 @@ public final class LoanCalculator {
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
                     if (i == tenure - 1) {  //last ONE we need to fix the rounding error and let the oustanding principal be ZERO
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
-                                                                 amortizedInterest,
-                                                                 ZERO,
-                                                                 dueDate));
+                                amortizedInterest,
+                                ZERO,
+                                dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                                                 amortizedInterest,
-                                                                 outstandingPrincipal,
-                                                                 dueDate));
+                                amortizedInterest,
+                                outstandingPrincipal,
+                                dueDate));
                     }
                     interest = interest.add(amortizedInterest);
                 }
@@ -222,14 +224,14 @@ public final class LoanCalculator {
                     //dueDate=countDueDate(asOfDate);
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
-                                                                 interests[i],
-                                                                 ZERO,
-                                                                 dueDate));
+                                interests[i],
+                                ZERO,
+                                dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                                                 interests[i],
-                                                                 outstandingPrincipals[i],
-                                                                 dueDate));
+                                interests[i],
+                                outstandingPrincipals[i],
+                                dueDate));
                     }
                 }
                 break;
@@ -249,14 +251,14 @@ public final class LoanCalculator {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
-                                                                 amortizedInterest,
-                                                                 ZERO,
-                                                                 dueDate));
+                                amortizedInterest,
+                                ZERO,
+                                dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                                                 amortizedInterest,
-                                                                 outstandingPrincipal,
-                                                                 dueDate));
+                                amortizedInterest,
+                                outstandingPrincipal,
+                                dueDate));
                     }
                 }
                 break;
@@ -272,17 +274,17 @@ public final class LoanCalculator {
      */
     public static LoanDetail analyze(LoanRequest request, LocalDate asOfDate) {
         return analyze(request.getAmount(),
-                       request.getDuration(),
-                       request.getRate(),
-                       request.getMethod(),
-                       asOfDate);
+                request.getDuration(),
+                request.getRate(),
+                request.getMethod(),
+                asOfDate);
     }
 
     /**
      * 快速计算利息
      *
-     * @param amount   金额
-     * @param rate     利率，2400代表24%
+     * @param amount 金额
+     * @param rate 利率，2400代表24%
      * @param duration 期限
      * @return
      */
@@ -293,8 +295,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount   金额
-     * @param rate     利率，2400代表24%
+     * @param amount 金额
+     * @param rate 利率，2400代表24%
      * @param duration 期限
      * @return
      */
