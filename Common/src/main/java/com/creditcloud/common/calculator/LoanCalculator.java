@@ -40,27 +40,47 @@ public final class LoanCalculator {
     private static final BigDecimal rateScale = new BigDecimal(10000);
 
     private static final MathContext mc = new MathContext(16, NumberConstant.ROUNDING_MODE);
+    /**
+    *计算下个月的还款日，还款日计算规则计算如下：
+    * day为本月的还款日，maxCurrentDay为本月天数，maxNextDay为下个月的天数
+    * 1:day<maxCurrentDay且day<maxNextDay 下次还款日为下月同一天
+    * 2：day=maxCurrentDay 下次还款日为下个月的maxNextDay，即为下月最后一天
+    * 3：day<maxCurrentDay且day>=maxNextDay, 下次还款日为下月的最后一天
+    */
     public static LocalDate countDueDate(final LocalDate asOfDate){
         final int [][] leap={{31,29,31,30,31,30,31,31,30,31,30,31},{31,28,31,30,31,30,31,31,30,31,30,31}};
         int year=asOfDate.getYear();
         int month=asOfDate.getMonthOfYear();
         int day=asOfDate.getDayOfMonth();
+        
         //System.out.println(year+":"+month+":"+day);
         //
         int i=((year % 4==0 && year % 100 !=0)|| (year % 400==0))?0:1;
+        int maxNextDay=leap[i][(month)%12];
+        int maxCurrentDay=leap[i][month-1];
         LocalDate local=null;
         //不是月底且当月的天数不多于下月天数，增加当月天数即为下月天数，不管是闰年还是平年，一月都是31天
-        if(day!=leap[i][month-1] && day<=leap[i][(month)%12]){
-            local=DateUtils.offset(asOfDate, new Duration(0,0,leap[i][month-1]));
+        if(day<maxCurrentDay&& day<maxNextDay){
+            local=DateUtils.offset(asOfDate, new Duration(0,0,maxCurrentDay));
         //月底，下月的付款日也是月底
-        }else if(day==leap[i][month-1]){
-            local=DateUtils.offset(asOfDate,new Duration(0,0,leap[i][(month)%12]));
+        }else if(day==maxCurrentDay){
+            local=DateUtils.offset(asOfDate,new Duration(0,0,maxNextDay));
         //一月三十日、平年一月29日的情况。
         }else{
             local=DateUtils.offset(asOfDate,new Duration(0,0,0));
-            local=local.plusDays(leap[i][(month)%12]+leap[i][month-1]-day);
+            local=local.plusDays(maxNextDay+maxCurrentDay-day);
         }
       return local;
+    }
+    public static LoanDetail analyze(final int amount,
+                                    final Duration duration,
+                                    final int rate,
+                                    final LocalDate asOfDate){
+        LoanDetail loan=new LoanDetail();
+        BigDecimal principal=new BigDecimal(amount);
+        BigDecimal interest=new BigDecimal(rate);
+        
+        return loan;
     }
     /**
      *
@@ -127,6 +147,7 @@ public final class LoanCalculator {
                 //add amortized items
                 for (int i = 0; i < duration.getTotalMonths(); i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    //dueDate=countDueDate(asOfDate);
                     if (i < duration.getTotalMonths() - 1) {    //only interest, no principal
                         result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal, dueDate));
                     } else {    //last ONE we pay off the principal as well as interest
@@ -154,6 +175,7 @@ public final class LoanCalculator {
                 outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    //dueDate=countDueDate(asOfDate);
                     amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, NumberConstant.ROUNDING_MODE);
                     amortizedPrincipal = installment.subtract(amortizedInterest);
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
@@ -194,6 +216,7 @@ public final class LoanCalculator {
                 //deal with amortized items
                 for (int i = 0; i < tenure; i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    //dueDate=countDueDate(asOfDate);
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
                                                                  interests[i],
@@ -220,7 +243,8 @@ public final class LoanCalculator {
                 outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
-                    dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
+                    //dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));w
+                    dueDate=countDueDate(asOfDate);
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
                                                                  amortizedInterest,
