@@ -15,6 +15,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum SocialType implements BaseEnum {
 
     WEIBO("新浪微博"),
+    IFENG("凤凰网"),
     QQ("QQ");
 
     private final String key;
