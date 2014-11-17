@@ -27,11 +27,12 @@ public interface BatchService extends BatchQueryService {
      * @param clientCode
      * @param submitter
      * @param type
+     * @param name 任务名称，不可为空
      * @param fileName
      * @param fileContent
      * @return null 如果没有创建成功
      */
-    BatchJob createBatchJob(String clientCode, RealmEntity submitter, BatchJobType type, String fileName, byte[] fileContent);
+    BatchJob createBatchJob(String clientCode, RealmEntity submitter, BatchJobType type, String name, String fileName, byte[] fileContent);
 
     /**
      * 触发执行一个批量任务.
