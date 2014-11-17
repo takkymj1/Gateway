@@ -59,20 +59,6 @@ public interface ImageService {
                    String imageName,
                    ImageSize size,
                    boolean watermark);
-	
-	/**
-     * 返回不同大小的图片
-     *
-     * @param clientCode:客戶代码
-     * @param owner:图片所有者或关联者
-     * @param imageName:图片名
-     * @param size:图片大小
-     * @return 
-     */
-    Image download(String clientCode,
-                   RealmEntity owner,
-                   String imageName,
-                   ImageSize size);
 
     /**
      * 返回满足条件的一组图片
