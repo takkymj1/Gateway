@@ -63,7 +63,7 @@ public class LoanCalculatorTest {
                                             2400,
                                             RepaymentMethod.EqualInterest,
                                             new LocalDate(2014, 2, 28));
-        expected = new LocalDate(2014, 3, 31);
+        expected = new LocalDate(2014, 2, 28);
         for (Repayment repayment : loanDetail.getRepayments()) {
    //         Assert.assertTrue(expected.equals(repayment.getDueDate()));
             expected = expected.plusMonths(1);
@@ -95,6 +95,46 @@ public class LoanCalculatorTest {
         expected=LoanCalculator.countDueDate(new LocalDate(2014,12,30));
         Assert.assertTrue(expected.equals(new LocalDate(2015,1,30)));
         expected=LoanCalculator.countDueDate(new LocalDate(2014,12,31));
+        Assert.assertTrue(expected.equals(new LocalDate(2015,1,31)));
+    }
+    @Test
+    public void testAnalyzeNew(){
+        LocalDate expected=null;
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2014,1,31)).getRepayments().get(0).getDueDate();
+        Assert.assertTrue(expected.equals(new LocalDate(2014,2,28)));
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2000,1,31)).getRepayments().get(0).getDueDate();
+        Assert.assertTrue(expected.equals(new LocalDate(2000,2,29)));
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2014,7,31)).getRepayments().get(0).getDueDate();
+        Assert.assertTrue(expected.equals(new LocalDate(2014,8,31)));
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2014,2,28)).getRepayments().get(0).getDueDate();
+        Assert.assertTrue(expected.equals(new LocalDate(2014,3,31)));
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2014,12,30)).getRepayments().get(0).getDueDate();
+        Assert.assertTrue(expected.equals(new LocalDate(2015,1,30)));
+        expected=LoanCalculator.analyzeNew(1000, 
+                                            new Duration(0,3,0), 
+                                            2400, 
+                                            RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2014,12,31)).getRepayments().get(0).getDueDate();
         Assert.assertTrue(expected.equals(new LocalDate(2015,1,31)));
     }
 }

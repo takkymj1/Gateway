@@ -19,6 +19,7 @@ import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import org.joda.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -72,15 +73,19 @@ public final class LoanCalculator {
         }
       return local;
     }
-    public static LoanDetail analyze(final int amount,
+    public static LoanDetail analyzeNew(final int amount,
                                     final Duration duration,
                                     final int rate,
+                                    final RepaymentMethod method,
                                     final LocalDate asOfDate){
-        LoanDetail loan=new LoanDetail();
-        BigDecimal principal=new BigDecimal(amount);
-        BigDecimal interest=new BigDecimal(rate);
-        
-        return loan;
+       LocalDate local=asOfDate;
+       local=countDueDate(local);
+       LoanDetail loan=analyze(amount,duration,rate,method,asOfDate);
+       List<Repayment> list=loan.getRepayments();
+       if(!list.isEmpty()){
+           list.get(0).setDueDate(local);
+       }
+       return loan;
     }
     /**
      *
@@ -147,7 +152,6 @@ public final class LoanCalculator {
                 //add amortized items
                 for (int i = 0; i < duration.getTotalMonths(); i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
-                    //dueDate=countDueDate(asOfDate);
                     if (i < duration.getTotalMonths() - 1) {    //only interest, no principal
                         result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal, dueDate));
                     } else {    //last ONE we pay off the principal as well as interest
@@ -175,7 +179,6 @@ public final class LoanCalculator {
                 outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
-                    //dueDate=countDueDate(asOfDate);
                     amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, NumberConstant.ROUNDING_MODE);
                     amortizedPrincipal = installment.subtract(amortizedInterest);
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
@@ -243,8 +246,7 @@ public final class LoanCalculator {
                 outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
-                    //dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));w
-                    dueDate=countDueDate(asOfDate);
+                    dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
                                                                  amortizedInterest,
