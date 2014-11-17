@@ -42,6 +42,7 @@ public enum ProofType implements BaseEnum {
     CAREER_CORP_COVER("企业大图", CertificateType.CAREER),
     CAREER_CORP_LOGO("企业Logo", CertificateType.CAREER),
     CAREER_CORP_ICON("企业Icon", CertificateType.CAREER),
+    CAREER_CORP_COMMITMENT_LETTER("企业承诺函", CertificateType.CAREER),
     CAREER_OTHER("其他工作相关证明", CertificateType.CAREER),
     /**
      * 收入认证证明
