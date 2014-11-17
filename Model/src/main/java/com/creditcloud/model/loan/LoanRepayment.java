@@ -8,7 +8,10 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -66,6 +69,9 @@ public class LoanRepayment extends BaseObject {
 
     //TODO replace with <FundRecordType, BigDecimal>
     private Map<String, BigDecimal> feeDetail;
+    
+    //for ui
+    private String loanTitle;
 
     public LoanRepayment(String id,
                          String loanId,
@@ -85,5 +91,14 @@ public class LoanRepayment extends BaseObject {
         this.repayAmount = repayAmount;
         this.repayDate = repayDate;
         this.repaySource = repaySource;
+    }
+
+    public static void sortLoanRepaymentByAscendingDueDate(List<LoanRepayment> loanRepayments) {
+        Collections.sort(loanRepayments, new Comparator<LoanRepayment>() {
+            @Override
+            public int compare(LoanRepayment repayment1, LoanRepayment repayment2) {
+                return repayment1.getRepayment().getDueDate().compareTo(repayment2.getRepayment().getDueDate());
+            }
+        });
     }
 }

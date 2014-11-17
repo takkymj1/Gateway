@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CacheConfig extends BaseConfig {
     
-    private static final long serialVersionUID = 20140902L;
+    private static final long serialVersionUID = 20141110L;
 
     public static final String CONFIG_NAME = "CacheConfig";
     

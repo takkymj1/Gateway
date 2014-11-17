@@ -366,8 +366,9 @@ public abstract class AbstractReadDAO<T> {
             Iterator<SortItem> iterator = sortInfo.getSortItems().iterator();
             while(iterator.hasNext()){
                 SortItem item = iterator.next();
-                orderBy.append("t.").append(item.getFieldName()).append(" ").append(item.isDescending()?"desc":"asc");   
+                orderBy.append("t.").append(item.getFieldName()).append(" ").append(item.isDescending()?"desc":"asc").append(",");   
             }
+            orderBy = new StringBuilder(orderBy.substring(0, orderBy.length()-1));;
         }
         
         String query = toSql(where,from,orderBy,false);

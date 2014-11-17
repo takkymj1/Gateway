@@ -5,6 +5,7 @@
  */
 package com.creditcloud.service.impl;
 
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
@@ -134,6 +135,16 @@ public class AbstractManagerLoanService implements ManagerLoanService {
 
     @Override
     public LoanRequestDetail getLoanRequestDetailByRequestId(String clientCode, String requestId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest,RealmEntity userRealm){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public PagedResult<Loan> findAll(CriteriaInfo criteriaInfo){
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

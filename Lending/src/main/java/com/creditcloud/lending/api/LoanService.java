@@ -5,6 +5,8 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.loan.Loan;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -12,7 +14,13 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LoanService extends LoanQueryService{
+public interface LoanService extends LoanQueryService, LoanStatService {
+
+    public Loan find(String id);
+
+    public Loan addNew(Loan loan);
+
+    public void update(Loan loan);
 
     /**
      * mark loan as cleared
@@ -32,6 +40,17 @@ public interface LoanService extends LoanQueryService{
     public boolean markStatus(LoanStatus status, String... ids);
 
     /**
+     * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新
+     *
+     * @param loanId
+     * @param status
+     * @param bidNumber
+     * @param bidAmount
+     * @return
+     */
+    public boolean markStatus(String loanId, LoanStatus status, int bidNumber, int bidAmount);
+
+    /**
      * update loan rewarded
      *
      * @param rewarded
@@ -39,5 +58,14 @@ public interface LoanService extends LoanQueryService{
      * @return
      */
     public boolean markRewarded(boolean rewarded, String... ids);
+
+    /**
+     * mark settle time for loan
+     *
+     * @param loanId
+     * @param timeSettled
+     * @return
+     */
+    public boolean markSettleTime(String loanId, Date timeSettled);
 
 }

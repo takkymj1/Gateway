@@ -17,13 +17,15 @@ public enum VirtualBookingRecordStatus implements BaseEnum{
 
     /**
      * 
+     *//**
+     * 
      */
     REVOCATION("撤销的"),
       
     /**
      * 未结算
      */
-    UNSETTLRD("未结算"),
+    UNSETTLED("未结算"),
     
     /**
      * 已经结算

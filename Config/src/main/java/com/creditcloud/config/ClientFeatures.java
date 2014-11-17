@@ -80,4 +80,11 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWechatInfo = false;
+    
+    /**
+     * 居间服务协议
+     */
+    @XmlElement
+    @Getter
+    private boolean enableBrokerage = false;
 }

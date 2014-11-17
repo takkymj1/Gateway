@@ -15,10 +15,14 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface LoanRepayService extends LoanRepayQueryService{
+public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatService {
+
+    public LoanRepayment find(String id);
 
     public void addNew(LoanRepayment repay);
-  
+
+    public void update(LoanRepayment repay);
+
     /**
      * 还款
      *
