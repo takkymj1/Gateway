@@ -6,6 +6,7 @@ package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -57,5 +58,14 @@ public interface LoanService extends LoanQueryService, LoanStatService {
      * @return
      */
     public boolean markRewarded(boolean rewarded, String... ids);
+
+    /**
+     * mark settle time for loan
+     *
+     * @param loanId
+     * @param timeSettled
+     * @return
+     */
+    public boolean markSettleTime(String loanId, Date timeSettled);
 
 }
