@@ -36,6 +36,8 @@ public enum ApiErrorCode implements BaseEnum {
     
     AMOUNT_ERROR("投标金额错误"),
 
+    INVALID_PARAMS("无效的参数"),
+    
     UNKNOWN("未知错误"),
     UNKNOWN_AND_INVEST_RETURN("未知错误,投资已返还"),
     UNKNOWN_AND_PREPARE_CONTACT("未知错误,请联系客服");

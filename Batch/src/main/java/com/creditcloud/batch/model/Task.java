@@ -16,7 +16,7 @@ import lombok.Getter;
  * 
  * @author sobranie
  */
-public abstract class Task {
+public class Task {
     
     @Getter
     @UUID

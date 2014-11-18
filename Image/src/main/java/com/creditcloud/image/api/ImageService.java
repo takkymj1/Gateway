@@ -52,7 +52,7 @@ public interface ImageService {
      * @param imageName:图片名
      * @param size:图片大小
      * @param watermark:是否加水印
-     * @return 
+     * @return
      */
     Image download(String clientCode,
                    RealmEntity owner,
@@ -75,6 +75,15 @@ public interface ImageService {
                             PageInfo info,
                             ImageSize size,
                             boolean watermark);
+
+    PagedResult<Image> list(String clientCode,
+                            RealmEntity owner,
+                            PageInfo info,
+                            ImageSize size);
+
+    PagedResult<Image> list(String clientCode,
+                            RealmEntity owner,
+                            PageInfo info);
 
     /**
      * 删除某图片

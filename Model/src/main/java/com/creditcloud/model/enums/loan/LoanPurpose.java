@@ -18,12 +18,7 @@ public enum LoanPurpose implements BaseEnum {
     CAR("车辆融资", true),
     HOUSE("房产融资", true),
     CORPORATION("企业融资", true),
-    OTHER("其它借款", true),
-    /**
-     * FENG
-     */
-    FENG_CX("凤呈祥", false),
-    FENG_RT("凤锐通", false);
+    OTHER("其它借款", true);
 
     private final String key;
 
