@@ -16,7 +16,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+import java.util.List;
 /**
  *
  * @author rooseek
@@ -84,58 +84,82 @@ public class LoanCalculatorTest {
     @Test
     public void testCountDueDate() {
         LocalDate expected = null;
-        expected = LoanCalculator.countDueDate(new LocalDate(2014, 1, 31));
+        expected = LoanCalculator.countDueDate(new LocalDate(2014, 1, 31),1);
         Assert.assertTrue(expected.equals(new LocalDate(2014, 2, 28)));
-        expected = LoanCalculator.countDueDate(new LocalDate(2000, 1, 31));
-        Assert.assertTrue(expected.equals(new LocalDate(2000, 2, 29)));
-        expected = LoanCalculator.countDueDate(new LocalDate(2014, 7, 31));
+        expected = LoanCalculator.countDueDate(new LocalDate(2000, 1, 31),3);
+        Assert.assertTrue(expected.equals(new LocalDate(2000, 4, 30)));
+        expected = LoanCalculator.countDueDate(new LocalDate(2014, 7, 31),1);
         Assert.assertTrue(expected.equals(new LocalDate(2014, 8, 31)));
-        expected = LoanCalculator.countDueDate(new LocalDate(2014, 2, 28));
-        Assert.assertTrue(expected.equals(new LocalDate(2014, 3, 31)));
-        expected = LoanCalculator.countDueDate(new LocalDate(2014, 12, 30));
-        Assert.assertTrue(expected.equals(new LocalDate(2015, 1, 30)));
-        expected = LoanCalculator.countDueDate(new LocalDate(2014, 12, 31));
+        expected = LoanCalculator.countDueDate(new LocalDate(2014, 2, 28),5);
+        Assert.assertTrue(expected.equals(new LocalDate(2014, 7, 31)));
+        expected = LoanCalculator.countDueDate(new LocalDate(2014, 12, 30),2);
+        Assert.assertTrue(expected.equals(new LocalDate(2015, 2, 28)));
+        expected = LoanCalculator.countDueDate(new LocalDate(2014, 12, 31),1);
         Assert.assertTrue(expected.equals(new LocalDate(2015, 1, 31)));
+        expected=LoanCalculator.countDueDate(new LocalDate(2000,1,30), 1);
+        Assert.assertTrue(expected.equals(new LocalDate(2000,2,29)));
     }
 
     @Test
     public void testAnalyzeNew() {
-        LocalDate expected = null;
-        expected = LoanCalculator.analyzeNew(1000,
+        List<Repayment> list=null;
+        list = LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2014, 1, 31)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2014, 2, 28)));
-        expected = LoanCalculator.analyzeNew(1000,
+                                             new LocalDate(2014, 1, 31)).getRepayments();
+        
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2014, 2, 28)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2014, 3, 31)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2014, 4, 30)));
+        list= LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2000, 1, 31)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2000, 2, 29)));
-        expected = LoanCalculator.analyzeNew(1000,
+                                             new LocalDate(2000, 1, 31)).getRepayments();
+                
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2000, 2, 29)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2000, 3, 31)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2000, 4, 30)));
+        list = LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2014, 7, 31)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2014, 8, 31)));
-        expected = LoanCalculator.analyzeNew(1000,
+                                             new LocalDate(2014, 7, 31)).getRepayments();
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2014, 8, 31)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2014, 9, 30)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2014, 10, 31)));        
+        list = LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2014, 2, 28)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2014, 3, 31)));
-        expected = LoanCalculator.analyzeNew(1000,
+                                             new LocalDate(2014, 2, 28)).getRepayments();
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2014, 3, 31)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2014, 4, 30)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2014, 5, 31)));
+        list = LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2014, 12, 30)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2015, 1, 30)));
-        expected = LoanCalculator.analyzeNew(1000,
+                                             new LocalDate(2014, 12, 30)).getRepayments();
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2015, 1, 30)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2015, 2, 28)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2015, 3, 30)));
+        list= LoanCalculator.analyzeNew(1000,
                                              new Duration(0, 3, 0),
                                              2400,
                                              RepaymentMethod.EqualInterest,
-                                             new LocalDate(2014, 12, 31)).getRepayments().get(0).getDueDate();
-        Assert.assertTrue(expected.equals(new LocalDate(2015, 1, 31)));
+                                             new LocalDate(2014, 12, 31)).getRepayments();
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2015, 1, 31)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2015, 2, 28)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2015, 3, 31)));
+        list= LoanCalculator.analyzeNew(1000,
+                                             new Duration(0, 3, 0),
+                                             2400,
+                                             RepaymentMethod.EqualInterest,
+                                             new LocalDate(2014, 3, 15)).getRepayments();
+        Assert.assertTrue(list.get(0).getDueDate().equals(new LocalDate(2014, 4, 15)));
+        Assert.assertTrue(list.get(1).getDueDate().equals(new LocalDate(2014, 5, 15)));
+        Assert.assertTrue(list.get(2).getDueDate().equals(new LocalDate(2014, 6, 15)));    
     }
 }

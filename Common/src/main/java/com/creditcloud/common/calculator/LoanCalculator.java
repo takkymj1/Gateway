@@ -42,31 +42,23 @@ public final class LoanCalculator {
 
     private static final MathContext mc = new MathContext(16, NumberConstant.ROUNDING_MODE);
 
-    /**
-     * 计算下个月的还款日，还款日计算规则计算如下： day为本月的还款日，maxCurrentDay为本月天数，maxNextDay为下个月的天数
-     * 1:day<maxCurrentDay且day<maxNextDay 下次还款日为下月同一天 2：day=maxCurrentDay
-     * 下次还款日为下个月的maxNextDay，即为下月最后一天 3：day<maxCurrentDay且day>=maxNextDay,
-     * 下次还款日为下月的最后一天
-     */
-    public static LocalDate countDueDate(final LocalDate asOfDate) {
+  
+    public static LocalDate countDueDate(final LocalDate asOfDate,int nextKMonth) {
         final int[][] leap = {{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
         int year = asOfDate.getYear();
         int month = asOfDate.getMonthOfYear();
         int day = asOfDate.getDayOfMonth();
-        int i = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 0 : 1;
-        int maxNextDay = leap[i][(month) % 12];
+        int i = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 0 : 1;      
+        int nextYear=year+(month+nextKMonth-1)/12;
+        int nextMonth=(month+nextKMonth-1)%12;
+        int j=((nextYear %4==0 && nextYear % 100 !=0) || (nextYear % 400 ==0))?0:1;
+        int maxNextDay = leap[j][nextMonth];
         int maxCurrentDay = leap[i][month - 1];
         LocalDate local = null;
-        //不是月底且当月的天数不多于下月天数，增加当月天数即为下月天数，不管是闰年还是平年，一月都是31天
         if (day < maxCurrentDay && day < maxNextDay) {
-            local = DateUtils.offset(asOfDate, new Duration(0, 0, maxCurrentDay));
-            //月底，下月的付款日也是月底
-        } else if (day == maxCurrentDay) {
-            local = DateUtils.offset(asOfDate, new Duration(0, 0, maxNextDay));
-            //一月三十日、平年一月29日的情况。
+            local=new LocalDate(nextYear,nextMonth+1,day);
         } else {
-            local = DateUtils.offset(asOfDate, new Duration(0, 0, 0));
-            local = local.plusDays(maxNextDay + maxCurrentDay - day);
+            local=new LocalDate(nextYear,nextMonth+1,maxNextDay);
         }
         return local;
     }
@@ -77,11 +69,11 @@ public final class LoanCalculator {
                                         final RepaymentMethod method,
                                         final LocalDate asOfDate) {
         LocalDate local = asOfDate;
-        local = countDueDate(local);
         LoanDetail loan = analyze(amount, duration, rate, method, asOfDate);
         List<Repayment> list = loan.getRepayments();
-        if (!list.isEmpty()) {
-            list.get(0).setDueDate(local);
+        for(int i=0;i<list.size();i++){
+            local=countDueDate(asOfDate,i+1);
+            list.get(i).setDueDate(local);
         }
         return loan;
     }
