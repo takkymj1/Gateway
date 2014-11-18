@@ -237,4 +237,11 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableAutoOverdueCheck = true;
+    
+    /**
+     * 批量处理功能
+     */
+    @Getter
+    @XmlElement
+    private boolean enableBatch = false;
 }

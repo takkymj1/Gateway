@@ -21,6 +21,11 @@ import com.creditcloud.ump.model.UmpTenderTransferRecord;
 import com.creditcloud.ump.model.UmpTransaction;
 import com.creditcloud.ump.model.UmpTransferResult;
 import com.creditcloud.ump.model.UmpUser;
+import com.creditcloud.ump.model.settle.UmpRechargeSettleRecord;
+import com.creditcloud.ump.model.settle.UmpSettleRecord;
+import com.creditcloud.ump.model.settle.UmpTenderSettleRecord;
+import com.creditcloud.ump.model.settle.UmpTransferSettleRecord;
+import com.creditcloud.ump.model.settle.UmpWithdrawSettleRecord;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.base.BaseResponse;
 import com.creditcloud.ump.model.ump.enums.AccountType;
@@ -127,6 +132,18 @@ public interface UmpService {
                                           UmpIdentityType idType,
                                           String idCode);
 
+    /**
+     * 用户无密取现
+     * 
+     * @param clientCode
+     * @param notifyUrl
+     * @param orderId
+     * @param date
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return 
+     */
     public UmpPaymentResult submitUserWithdrawalNoPwd(String clientCode,
                                                       String notifyUrl,
                                                       String orderId,
@@ -344,96 +361,96 @@ public interface UmpService {
     /**
      * 列出对账文件的下载记录
      */
-    public PagedResult<com.creditcloud.ump.model.settle.UmpSettleRecord> listSetteRecord(String clientCode,
-                                                                                         LocalDate beginDate,
-                                                                                         LocalDate endDate,
-                                                                                         PageInfo pageInfo,
-                                                                                         UmpSettleType... type);
+    public PagedResult<UmpSettleRecord> listSetteRecord(String clientCode,
+                                                        LocalDate beginDate,
+                                                        LocalDate endDate,
+                                                        PageInfo pageInfo,
+                                                        UmpSettleType... type);
 
     /**
      * 充值对账
      */
-    public PagedResult<com.creditcloud.ump.model.settle.UmpRechargeSettleRecord> saveReconciliation(String clientCode,
-                                                                                                    LocalDate beginDate,
-                                                                                                    LocalDate endDate,
-                                                                                                    PageInfo pageInfo);
+    public PagedResult<UmpRechargeSettleRecord> saveReconciliation(String clientCode,
+                                                                   LocalDate beginDate,
+                                                                   LocalDate endDate,
+                                                                   PageInfo pageInfo);
 
     /**
      * 提现对账
      */
-    public PagedResult<com.creditcloud.ump.model.settle.UmpWithdrawSettleRecord> cashReconciliation(String clientCode,
-                                                                                                    LocalDate beginDate,
-                                                                                                    LocalDate endDate,
-                                                                                                    PageInfo pageInfo);
+    public PagedResult<UmpWithdrawSettleRecord> cashReconciliation(String clientCode,
+                                                                   LocalDate beginDate,
+                                                                   LocalDate endDate,
+                                                                   PageInfo pageInfo);
 
     /**
      * 转账对账
      */
-    public PagedResult<com.creditcloud.ump.model.settle.UmpTransferSettleRecord> transferReconciliation(String clientCode,
-                                                                                                        LocalDate beginDate,
-                                                                                                        LocalDate endDate,
-                                                                                                        PageInfo pageInfo);
+    public PagedResult<UmpTransferSettleRecord> transferReconciliation(String clientCode,
+                                                                       LocalDate beginDate,
+                                                                       LocalDate endDate,
+                                                                       PageInfo pageInfo);
 
     /**
      * 标的对账
      */
-    public PagedResult<com.creditcloud.ump.model.settle.UmpTenderSettleRecord> loanReconciliation(String clientCode,
-                                                                                                  LocalDate beginDate,
-                                                                                                  LocalDate endDate,
-                                                                                                  PageInfo pageInfo);
+    public PagedResult<UmpTenderSettleRecord> loanReconciliation(String clientCode,
+                                                                 LocalDate beginDate,
+                                                                 LocalDate endDate,
+                                                                 PageInfo pageInfo);
 
     /**
      * 对UMP功能进行封装的冻结功能. 通过无密投资协议+投资实现.
-     * 
+     *
      * @param clientCode
      * @param userId 用户id
      * @param orderId 订单id
      * @param notifyUrl 后台通知路径
      * @param amount 金额>0
-     * @return 
+     * @return
      */
     public UmpFreezeResult freeze(String clientCode,
                                   String userId,
                                   String orderId,
                                   String notifyUrl,
                                   BigDecimal amount);
-    
+
     /**
      * 对UMP功能进行封装的解冻功能. 通过无密投资协议+撤资实现.
-     * 
+     *
      * @param clientCode
      * @param userId 用户id
      * @param orderId 订单id
      * @param notifyUrl 后台通知路径
      * @param amount 金额>0
-     * @return 
+     * @return
      */
     public UmpFreezeResult unfreeze(String clientCode,
                                     String userId,
                                     String orderId,
                                     String notifyUrl,
                                     BigDecimal amount);
-    
+
     /**
      * 查询该用户的冻结账户余额.
-     * 
+     *
      * @param clientCode
      * @param userId 用户id
-     * @return 
+     * @return
      */
     public BigDecimal getFreezeAmount(String clientCode,
                                       String userId);
-    
+
     /**
      * 对UMP功能进行封装的收费功能(用户->平台). 通过无密投资协议+用户投资+平台收费实现.
-     * 
+     *
      * @param clientCode
      * @param userId 用户id
      * @param outOrderId 转入标的账户的订单号
      * @param inOrderId 转出标的账户的订单号
      * @param notifyUrl 后台通知路径
      * @param amount 金额>0
-     * @return 
+     * @return
      */
     public UmpFeeResult fee(String clientCode,
                             String userId,
