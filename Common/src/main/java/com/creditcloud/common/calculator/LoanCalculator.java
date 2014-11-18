@@ -183,14 +183,14 @@ public final class LoanCalculator {
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
                     if (i == tenure - 1) {  //last ONE we need to fix the rounding error and let the oustanding principal be ZERO
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
-                                amortizedInterest,
-                                ZERO,
-                                dueDate));
+                                                                 amortizedInterest,
+                                                                 ZERO,
+                                                                 dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                amortizedInterest,
-                                outstandingPrincipal,
-                                dueDate));
+                                                                 amortizedInterest,
+                                                                 outstandingPrincipal,
+                                                                 dueDate));
                     }
                     interest = interest.add(amortizedInterest);
                 }
@@ -221,14 +221,14 @@ public final class LoanCalculator {
                     //dueDate=countDueDate(asOfDate);
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
-                                interests[i],
-                                ZERO,
-                                dueDate));
+                                                                 interests[i],
+                                                                 ZERO,
+                                                                 dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                interests[i],
-                                outstandingPrincipals[i],
-                                dueDate));
+                                                                 interests[i],
+                                                                 outstandingPrincipals[i],
+                                                                 dueDate));
                     }
                 }
                 break;
@@ -248,14 +248,14 @@ public final class LoanCalculator {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
-                                amortizedInterest,
-                                ZERO,
-                                dueDate));
+                                                                 amortizedInterest,
+                                                                 ZERO,
+                                                                 dueDate));
                     } else {
                         result.getRepayments().add(new Repayment(amortizedPrincipal,
-                                amortizedInterest,
-                                outstandingPrincipal,
-                                dueDate));
+                                                                 amortizedInterest,
+                                                                 outstandingPrincipal,
+                                                                 dueDate));
                     }
                 }
                 break;
@@ -271,10 +271,10 @@ public final class LoanCalculator {
      */
     public static LoanDetail analyze(LoanRequest request, LocalDate asOfDate) {
         return analyze(request.getAmount(),
-                request.getDuration(),
-                request.getRate(),
-                request.getMethod(),
-                asOfDate);
+                       request.getDuration(),
+                       request.getRate(),
+                       request.getMethod(),
+                       asOfDate);
     }
 
     /**
