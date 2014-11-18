@@ -72,10 +72,10 @@ public final class LoanCalculator {
     }
 
     public static LoanDetail analyzeNew(final int amount,
-            final Duration duration,
-            final int rate,
-            final RepaymentMethod method,
-            final LocalDate asOfDate) {
+                                        final Duration duration,
+                                        final int rate,
+                                        final RepaymentMethod method,
+                                        final LocalDate asOfDate) {
         LocalDate local = asOfDate;
         local = countDueDate(local);
         LoanDetail loan = analyze(amount, duration, rate, method, asOfDate);
@@ -96,10 +96,10 @@ public final class LoanCalculator {
      * @return
      */
     public static LoanDetail analyze(final int amount,
-            final Duration duration,
-            final int rate,
-            final RepaymentMethod method,
-            final LocalDate asOfDate) {
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate) {
         return analyze(BigDecimal.valueOf(amount), duration, rate, method, asOfDate);
     }
 
@@ -113,10 +113,10 @@ public final class LoanCalculator {
      * @return
      */
     public static LoanDetail analyze(final BigDecimal amount,
-            final Duration duration,
-            final int rate,
-            final RepaymentMethod method,
-            final LocalDate asOfDate) {
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate) {
         LoanDetail result = null;
         //principal
         BigDecimal principal = amount;
