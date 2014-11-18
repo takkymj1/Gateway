@@ -53,9 +53,6 @@ public final class LoanCalculator {
         int year = asOfDate.getYear();
         int month = asOfDate.getMonthOfYear();
         int day = asOfDate.getDayOfMonth();
-
-        //System.out.println(year+":"+month+":"+day);
-        //
         int i = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 0 : 1;
         int maxNextDay = leap[i][(month) % 12];
         int maxCurrentDay = leap[i][month - 1];
