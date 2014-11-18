@@ -218,7 +218,6 @@ public final class LoanCalculator {
                 //deal with amortized items
                 for (int i = 0; i < tenure; i++) {
                     dueDate = DateUtils.offset(dueDate, new Duration(0, 1, 0));
-                    //dueDate=countDueDate(asOfDate);
                     if (i == tenure - 1) {
                         result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
                                                                  interests[i],
