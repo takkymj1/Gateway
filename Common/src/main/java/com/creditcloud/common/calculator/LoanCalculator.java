@@ -71,9 +71,11 @@ public final class LoanCalculator {
         LocalDate local = asOfDate;
         LoanDetail loan = analyze(amount, duration, rate, method, asOfDate);
         List<Repayment> list = loan.getRepayments();
-        for(int i=0;i<list.size();i++){
-            local=countDueDate(asOfDate,i+1);
-            list.get(i).setDueDate(local);
+        if(list!=null){
+            for(int i=0;i<list.size();i++){
+                local=countDueDate(asOfDate,i+1);
+                list.get(i).setDueDate(local);
+            }
         }
         return loan;
     }
