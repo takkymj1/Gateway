@@ -14,14 +14,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import lombok.extern.slf4j.Slf4j;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
 import org.joda.time.LocalDate;
+import org.joda.time.Years;
+import org.joda.time.format.DateTimeFormat;
 
 /**
  *
  * @author sobranie
  */
+@Slf4j
 public class DateUtils {
 
     private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -106,5 +110,25 @@ public class DateUtils {
             }
         }
         data.putAll(extraData);
+    }
+    
+    /**
+     * 根据身份证号计算年龄，按照周岁计算
+     * 
+     * @param idNumber
+     * @return 0 idNumber格式错误
+     */
+    public static int getAgeFromIdNumber(String idNumber) {
+        LocalDate birthday = LocalDate.now();
+        try {
+            if (idNumber.length() == 18) {
+            birthday = LocalDate.parse(idNumber.substring(6, 14), DateTimeFormat.forPattern("yyyyMMdd"));
+        } else if (idNumber.length() == 15) {
+            birthday = LocalDate.parse(idNumber.substring(6, 12), DateTimeFormat.forPattern("yyMMdd"));
+        }
+        } catch (Exception ex) {
+            log.error("Error happend when parse age from idNumber.[idNumber={}]", idNumber, ex);
+        }
+        return Years.yearsBetween(birthday, LocalDate.now()).getYears();
     }
 }

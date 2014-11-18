@@ -47,11 +47,11 @@ public interface BatchQueryService {
      * 默认按照 Task.ordinal 正排序
      * 
      * @param clientCode
-     * @param id
+     * @param batchJobId
      * @param pageInfo
      * @return 
      */
-    PagedResult<Task> getBatchJobTasks(String clientCode, String id, PageInfo pageInfo);
+    PagedResult<Task> getBatchJobTasks(String clientCode, String batchJobId, PageInfo pageInfo);
     
     /**
      * 获取某批量任务特定状态的子任务列表.
@@ -59,12 +59,12 @@ public interface BatchQueryService {
      * 默认按照 Task.ordinal 正排序
      * 
      * @param clientCode
-     * @param id
+     * @param batchJobId
      * @param pageInfo
      * @param status
      * @return 
      */
-    PagedResult<Task> getBatchJobTasksByStatus(String clientCode, String id, PageInfo pageInfo, TaskStatus... status);
+    PagedResult<Task> getBatchJobTasksByStatus(String clientCode, String batchJobId, PageInfo pageInfo, TaskStatus... status);
     
     /**
      * 分页列出特定种类的批量任务

@@ -91,6 +91,7 @@ public enum Realm implements BaseEnum {
     MOBILE("手机号"),
     CONTRACT("合同"),
     CONTRACTTEMPLATE("合同模板"),
+    BROKERAGE_CONTRACTTEMPLATE("居间合同模板"),
     CONTRACTSEAL("合同章"),
     IMAGE("图片"),
     FILE("文件"),
