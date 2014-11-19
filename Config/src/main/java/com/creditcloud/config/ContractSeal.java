@@ -76,7 +76,7 @@ public class ContractSeal extends BaseObject {
      */
     @XmlElement
     @Getter
-    private String sign = "three";
+    private String sign;
     
     
 }
