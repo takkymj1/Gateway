@@ -98,6 +98,7 @@ public enum Realm implements BaseEnum {
     FSS("生利宝"),
     TICKET("支持工单"),
     BATCHJOB("批量任务"),
+    PAGES("页面"),
     
     /**
      * 原始债权
