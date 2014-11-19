@@ -25,7 +25,7 @@ public interface BatchJobFileFormat {
     /**
      * 区分各列的符号
      */
-    String DELIMITER = "|";
+    String DELIMITER = "\\|";
     
     /**
      * 批量生成用户的用户名前缀
