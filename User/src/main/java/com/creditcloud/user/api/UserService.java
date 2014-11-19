@@ -20,7 +20,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService extends UserSecurityService, UserRewardService {
+public interface UserService extends UserSecurityService, UserRewardService, UserSocialService {
 
     /**
      * list all users for client
