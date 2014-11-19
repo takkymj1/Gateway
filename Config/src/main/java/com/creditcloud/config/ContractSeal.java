@@ -70,4 +70,13 @@ public class ContractSeal extends BaseObject {
     @XmlElement
     @Getter
     private String type = "LOAN";
+    
+    /**
+     * 标志位
+     */
+    @XmlElement
+    @Getter
+    private String sign = "three";
+    
+    
 }
