@@ -7,6 +7,7 @@ package com.creditcloud.user.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.EmailAddress;
+import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.user.constant.UserConstants;
@@ -36,7 +37,8 @@ public class ShippingAddress extends BaseObject {
     private String userId;
 
     @FormParam("realName")
-    @RealName
+//    @RealName
+    @LoginName // for feng 
     private String realName;
 
     /**
