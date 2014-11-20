@@ -169,6 +169,10 @@ public enum Privilege implements BaseEnum {
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
     
+    BATCH_LIST("查看批量任务", Realm.BATCH, "批量导入相关权限"),
+    BATCH_IMPORT("添加批量任务", Realm.BATCH, "批量导入相关权限"),
+    BATCH_EXECUTE("执行批量任务", Realm.BATCH, "批量导入相关权限"),
+    
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页")
     ;
     

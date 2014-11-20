@@ -99,6 +99,7 @@ public enum Realm implements BaseEnum {
     TICKET("支持工单"),
     BATCHJOB("批量任务"),
     PAGES("页面"),
+    BATCH("批量导入"),
     
     /**
      * 原始债权
