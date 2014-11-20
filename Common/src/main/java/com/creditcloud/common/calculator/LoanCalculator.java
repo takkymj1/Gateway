@@ -19,6 +19,7 @@ import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import org.joda.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -41,11 +42,49 @@ public final class LoanCalculator {
 
     private static final MathContext mc = new MathContext(16, NumberConstant.ROUNDING_MODE);
 
+  
+    public static LocalDate countDueDate(final LocalDate asOfDate,int nextKMonth) {
+        final int[][] leap = {{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+        int year = asOfDate.getYear();
+        int month = asOfDate.getMonthOfYear();
+        int day = asOfDate.getDayOfMonth();
+        int i = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 0 : 1;      
+        int nextYear=year+(month+nextKMonth-1)/12;
+        int nextMonth=(month+nextKMonth-1)%12;
+        int j=((nextYear %4==0 && nextYear % 100 !=0) || (nextYear % 400 ==0))?0:1;
+        int maxNextDay = leap[j][nextMonth];
+        int maxCurrentDay = leap[i][month - 1];
+        LocalDate local = null;
+        if (day < maxCurrentDay && day < maxNextDay) {
+            local=new LocalDate(nextYear,nextMonth+1,day);
+        } else {
+            local=new LocalDate(nextYear,nextMonth+1,maxNextDay);
+        }
+        return local;
+    }
+
+    public static LoanDetail analyzeNew(final int amount,
+                                        final Duration duration,
+                                        final int rate,
+                                        final RepaymentMethod method,
+                                        final LocalDate asOfDate) {
+        LocalDate local = asOfDate;
+        LoanDetail loan = analyze(amount, duration, rate, method, asOfDate);
+        List<Repayment> list = loan.getRepayments();
+        if(list!=null){
+            for(int i=0;i<list.size();i++){
+                local=countDueDate(asOfDate,i+1);
+                list.get(i).setDueDate(local);
+            }
+        }
+        return loan;
+    }
+
     /**
      *
      * @param amount
      * @param duration
-     * @param rate     2400 means 24.00%
+     * @param rate 2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
@@ -62,7 +101,7 @@ public final class LoanCalculator {
      *
      * @param amount
      * @param duration
-     * @param rate     2400 means 24.00%
+     * @param rate 2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
@@ -234,8 +273,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount   金额
-     * @param rate     利率，2400代表24%
+     * @param amount 金额
+     * @param rate 利率，2400代表24%
      * @param duration 期限
      * @return
      */
@@ -246,8 +285,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount   金额
-     * @param rate     利率，2400代表24%
+     * @param amount 金额
+     * @param rate 利率，2400代表24%
      * @param duration 期限
      * @return
      */
