@@ -47,6 +47,21 @@ public interface CacheConstant {
     String KEY_PREFIX_USER_INVEST = "%1$s_INVEST";
     
     /**
+     * define cache key for user invest project relate
+     */
+    String KEY_PREFIX_USER_INVEST_PROJECT = "%1$s_INVEST_PROJECT";
+    
+    /**
+     * define cache key for user favorite project relate
+     */
+    String KEY_PREFIX_USER_FAVORITE_PROJECT = "%1$s_FAVORITE_PROJECT";
+    
+    /**
+     * define cache key for user create project relate
+     */
+    String KEY_PREFIX_USER_CREATE_PROJECT = "%1$s_CREATE_PROJECT";
+    
+    /**
      * define cache key for loan list (for invalidate cache)
      */
     String KEY_PREFIX_LOAN_LIST = "LOAN_LIST";
@@ -55,6 +70,11 @@ public interface CacheConstant {
      * define cache key for loan (for invalidate cache)
      */
     String KEY_PREFIX_LOAN = "%1$s_LOAN";
+    
+    /**
+     * define cache key for loan invest list (for invalidate cache)
+     */
+    String KEY_PREFIX_LOAN_INVEST_LIST = "%1$s_LOAN_INVEST_LIST";
     
     /**
      * define cache key for loan balance
