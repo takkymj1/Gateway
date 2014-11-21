@@ -12,6 +12,7 @@ import com.creditcloud.batch.model.Task;
 import com.creditcloud.batch.model.TaskStatus;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
 
 /**
@@ -76,5 +77,17 @@ public interface BatchQueryService {
      * @return 
      */
     PagedResult<BatchJob> listBatchJobsByType(String clientCode, BatchJobType type, PageInfo pageInfo, BatchJobStatus... status);
+    
+    /**
+     * 根据创建者分页列出特定种类的批量任务
+     * 
+     * @param clientCode
+     * @param type
+     * @param submitter
+     * @param pageInfo
+     * @param status
+     * @return 
+     */
+    PagedResult<BatchJob> listBatchJobsByTypeAndSubmitter(String clientCode, BatchJobType type, RealmEntity submitter, PageInfo pageInfo, BatchJobStatus... status);
     
 }
