@@ -6,17 +6,24 @@
 package com.creditcloud.batch.model;
 
 import com.creditcloud.model.constraints.UUID;
+import java.io.Serializable;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * 一个批处理中的任务
  * 
  * @author sobranie
  */
-public class Task {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Task implements Serializable{
     
     @Getter
     @UUID
