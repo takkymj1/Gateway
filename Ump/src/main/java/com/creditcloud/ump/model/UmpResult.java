@@ -25,7 +25,7 @@ public class UmpResult extends BaseObject {
     }
     
     public boolean success() {
-        return UmpConstant.SUCCESS_CODE.equals(resultType.getRetCode());
+        return UmpConstant.SUCCESS_CODE.equalsIgnoreCase(resultType.getRetCode());
     }
     
     public String getRetCode() {
