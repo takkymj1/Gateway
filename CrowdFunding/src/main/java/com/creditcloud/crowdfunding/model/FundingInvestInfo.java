@@ -40,7 +40,7 @@ public class FundingInvestInfo extends BaseObject {
      */
     private String contact;
 
-    @EmailAddress
+//    @EmailAddress // for feng
     private String email;
 
     /**
