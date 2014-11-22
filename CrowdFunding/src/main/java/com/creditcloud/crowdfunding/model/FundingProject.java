@@ -146,7 +146,16 @@ public class FundingProject extends BaseObject {
         this.location = location;
     }
 
+    /**
+     * TODO legacy dirty code. to be removed
+     *
+     * @return
+     */
     public BigDecimal getLoanAmont() {
         return loanAmount == null ? BigDecimal.ZERO : loanAmount;
+    }
+
+    public BigDecimal getLoanAmount() {
+        return getLoanAmont();
     }
 }
