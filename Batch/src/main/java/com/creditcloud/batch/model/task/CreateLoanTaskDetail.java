@@ -76,12 +76,8 @@ public class CreateLoanTaskDetail {
     private boolean hasRealestate;
     
     /**
-     * 借款协议模板Id
+     * 担保机构企业ID
      */
-    private String contractTemplateId;
+    private String guaranteeId;
     
-    /**
-     * 居间服务协议模板Id
-     */
-    private String brokerageContractTemplateId;
 }
