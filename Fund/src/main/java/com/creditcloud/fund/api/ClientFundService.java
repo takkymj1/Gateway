@@ -8,6 +8,7 @@ import com.creditcloud.fund.model.ClientFundRecord;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
@@ -131,4 +132,11 @@ public interface ClientFundService {
      * @return
      */
     ClientFundRecord getWithdrawByOperationAndStatus(String clientCode, String withdrawId, FundRecordOperation operation, FundRecordStatus status);
+    
+    /**
+     * 
+     * @param criteriaInfo
+     * @return 
+     */
+    PagedResult<ClientFundRecord> findAll(CriteriaInfo criteriaInfo);
 }
