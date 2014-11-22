@@ -48,7 +48,7 @@ public class ShippingAddress extends BaseObject {
     private String contact;
 
     @FormParam("email")
-    @EmailAddress
+//    @EmailAddress // for feng 
     private String email;
 
     /**
