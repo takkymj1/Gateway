@@ -88,6 +88,12 @@ public class User extends BaseObject {
 
     private String lastModifiedBy;
 
+    /**
+     * 渠道来源
+     */
+    @FormParam("channel")
+    private String channel;
+    
     protected Date lastLoginDate;
 
     protected Date registerDate;
