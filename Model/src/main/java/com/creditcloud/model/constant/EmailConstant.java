@@ -12,5 +12,5 @@ public interface EmailConstant {
     /**
      * The default (placeholding) email address for User who didn't have a valid email
      */
-    String DEFAULT_EMAIL = "notavailable@creditcloud.com";
+    String DEFAULT_EMAIL = "not@available.com";
 }
