@@ -12,37 +12,37 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 接口输出
+ * 回调通知
  *
  * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public abstract class BaseResponse extends BaseObject {
+public abstract class BaseNotification extends BaseObject {
 
     @NotNull
     private String platformNo;
 
     @NotNull
-    private BizType service;
-
-    private String requestNo;
+    private BizType bizType;
 
     @NotNull
     private String code;
 
-    private String description;
+    private String message;
 
-    public BaseResponse(String platformNo, 
-                        BizType service, 
-                        String requestNo, 
-                        String code, 
-                        String description) {
+    @NotNull
+    private String requestNo;
+
+    public BaseNotification(String platformNo,
+                            BizType bizType,
+                            String code,
+                            String message,
+                            String requestNo) {
         this.platformNo = platformNo;
-        this.service = service;
-        this.requestNo = requestNo;
+        this.bizType = bizType;
         this.code = code;
-        this.description = description;
+        this.message = message;
+        this.requestNo = requestNo;
     }
-
 }

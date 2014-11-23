@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package com.creditcloud.yeep.model;
-
-import com.creditcloud.model.BaseObject;
+package com.creditcloud.yeep.enums;
 
 /**
  *
  * @author rooseek
  */
-public abstract class BaseRequest extends BaseObject{
-    
+public enum YeepAction {
+
+    toRegister;
+    //TODO more
+
 }
