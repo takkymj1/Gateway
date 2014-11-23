@@ -19,6 +19,8 @@ public interface LoanProductService {
     
     public LoanProduct find(String id);
     
+    public LoanProduct findByKey(String key);
+    
     public List<LoanProduct> findAll();
     
     public LoanProduct create(LoanProduct product);

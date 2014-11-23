@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.loan.Duration;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -52,6 +53,9 @@ public class DateUtils {
 
     /**
      * list all dates between start date and end date, both day included
+     * @param start
+     * @param end
+     * @return 
      */
     public static List<Date> listDates(Date start, Date end) {
         List<Date> dates = new ArrayList<>();
@@ -130,5 +134,17 @@ public class DateUtils {
             log.error("Error happend when parse age from idNumber.[idNumber={}]", idNumber, ex);
         }
         return Years.yearsBetween(birthday, LocalDate.now()).getYears();
+    }
+    
+    /**
+     * 根据总月份计算Duration
+     * 
+     * @param totalMonths
+     * @return 
+     */
+    public static Duration getDurationFromMonths(int totalMonths) {
+        int months = totalMonths % TimeConstant.MONTHS_PER_YEAR;
+        int years = (totalMonths - months) / TimeConstant.MONTHS_PER_YEAR;
+        return new Duration(years, months, 0);
     }
 }

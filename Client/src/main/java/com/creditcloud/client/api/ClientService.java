@@ -36,4 +36,14 @@ public interface ClientService {
      * @return
      */
     String getIcon(String clientCode);
+    
+    /**
+     * 为特定客户生成默认邮件地址.
+     * 
+     * 有限使用support email的地址后缀，没有设置则使用clientCode小写.com
+     * 
+     * @param clientCode
+     * @return 
+     */
+    String getDefaultEmailForClient(String clientCode);
 }
