@@ -28,7 +28,6 @@ public abstract class BaseRequest extends BaseObject {
     //服务器通知 URL
     private String notifyUrl;
     
-    @NotNull
     private String sign;
 
     public BaseRequest(String platformNo,
