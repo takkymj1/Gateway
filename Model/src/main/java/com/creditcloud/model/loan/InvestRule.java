@@ -59,6 +59,21 @@ public class InvestRule extends BaseObject {
     @FormParam("maxTimes")
     @Max(LoanConstant.MAX_INVEST_AMOUNT)
     private int maxTimes = LoanConstant.MAX_INVEST_AMOUNT;
+    
+    /**
+     * quick constructor.
+     * 
+     * Only mandatory fields
+     * 
+     * @param minAmount
+     * @param maxAmount
+     * @param stepAmount 
+     */
+    public InvestRule(int minAmount, int maxAmount, int stepAmount) {
+        this.minAmount = minAmount;
+        this.maxAmount = maxAmount;
+        this.stepAmount = stepAmount;
+    }
 
     public InvestRule(int minAmount, int maxAmount, int stepAmount, int maxTotalAmount, int maxTimes) {
         this.minAmount = minAmount;

@@ -8,6 +8,7 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,7 @@ public class LoanProduct extends BaseObject {
 
     private String id;
 
+    @NotNull
     private String name;
 
     private RepaymentMethod repayMethod;
@@ -51,6 +53,7 @@ public class LoanProduct extends BaseObject {
     /**
      * 产品英文名称，类似于Enums的name
      */
+    @NotNull
     private String productKey;
 
     //TODO more filed
