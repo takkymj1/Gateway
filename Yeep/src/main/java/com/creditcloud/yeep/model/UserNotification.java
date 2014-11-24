@@ -26,9 +26,8 @@ public class UserNotification extends BaseNotification {
                             String platformNo, 
                             BizType bizType, 
                             String code, 
-                            String message, 
-                            String requestNo) {
-        super(platformNo, bizType, code, message, requestNo);
+                            String message) {
+        super(platformNo, bizType, code, message);
         this.platformUserNo = platformUserNo;
     }
 }

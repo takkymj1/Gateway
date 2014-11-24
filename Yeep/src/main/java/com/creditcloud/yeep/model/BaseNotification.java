@@ -31,18 +31,13 @@ public abstract class BaseNotification extends BaseObject {
 
     private String message;
 
-    @NotNull
-    private String requestNo;
-
     public BaseNotification(String platformNo,
                             BizType bizType,
                             String code,
-                            String message,
-                            String requestNo) {
+                            String message) {
         this.platformNo = platformNo;
         this.bizType = bizType;
         this.code = code;
         this.message = message;
-        this.requestNo = requestNo;
     }
 }
