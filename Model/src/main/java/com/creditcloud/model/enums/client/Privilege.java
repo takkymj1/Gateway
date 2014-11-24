@@ -32,6 +32,7 @@ public enum Privilege implements BaseEnum {
     USER_DELETE("禁用用户", Realm.USER, "用户相关权限"),
     USER_DOWNLOAD("下载用户信息", Realm.USER, "用户相关权限"),
     USER_RESETPASSWORD("重置用户密码", Realm.USER, "用户相关权限"),
+    USER_EXPORT_ENCRYPTED("导出用户加密信息", Realm.USER, "用户相关权限"),
     /**
      * 员工相关权限
      */
