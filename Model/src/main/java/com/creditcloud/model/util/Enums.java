@@ -22,6 +22,38 @@ public class Enums {
     private static final ConcurrentHashMap<Class, HashMap<String, Enum>> enumCache = new ConcurrentHashMap<>();
 
     private static final ConcurrentHashMap<Class, List<?>> listAllCache = new ConcurrentHashMap<>();
+    
+    /**
+     * 根据任意Enum的Ordinal获取值
+     * 
+     * @param <T>
+     * @param enumType
+     * @param ordinal
+     * @return 
+     */
+    public static <T extends Enum<T> & BaseEnum> T getEnumByOrdinal(Class<T> enumType, int ordinal) {
+        if (enumType == null || ordinal < 0) {
+            return null;
+        }
+
+        //must be subclass of Enum
+        if (!Enum.class.isAssignableFrom(enumType)) {
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be a subclass of Enum.");
+        }
+
+        //must be implementation of BaseEnum
+        if (!BaseEnum.class.isAssignableFrom(enumType)) {
+            throw new IllegalArgumentException("class " + enumType.getName() + " must be an implementation of BaseEnum.");
+        }
+        
+        T[] items = enumType.getEnumConstants();
+        
+        if (items == null || items.length <= ordinal) {
+            throw new IllegalArgumentException("Enum " + enumType.getName() + " don't have " + ordinal + " items");
+        }
+        
+        return items[ordinal];
+    }
 
     /**
      * get enum by key
