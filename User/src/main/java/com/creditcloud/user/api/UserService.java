@@ -274,14 +274,4 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return true if this email is available,false if already taken
      */
     boolean checkEmail(String clientCode, String email);
-    
-    /**
-     * 导出用户关键加密信息列表.
-     * 
-     * CSV格式，|符号分割的mobile,name,idNumber
-     * 
-     * @param clientCode
-     * @return 
-     */
-    byte[] exportEncryptedUser (String clientCode);
 }
