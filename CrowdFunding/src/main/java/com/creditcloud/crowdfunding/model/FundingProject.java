@@ -119,6 +119,9 @@ public class FundingProject extends BaseObject {
     private String detailDescription;//详细介绍
 
     private String acknowledgement;//感谢信
+    
+    //TODO not used now
+    private String productId;
 
     public FundingProject(String id,
                           String title,
