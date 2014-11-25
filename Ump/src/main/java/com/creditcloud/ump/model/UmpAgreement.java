@@ -29,22 +29,22 @@ public class UmpAgreement extends BaseObject{
     private String userId;
 
     /**
-     * 无密快捷协议
+     * 无密快捷协议:ZCZP0800
      */
     private boolean instant;
 
     /**
-     * 无密投资协议
+     * 无密投资协议:ZTBB0G00
      */
     private boolean invest;
 
     /**
-     * 无密还款协议
+     * 无密还款协议:ZHKB0H01
      */
     private boolean repay;
 
     /**
-     * 借记卡快捷协议
+     * 借记卡快捷协议:ZKJP0700
      */
     private boolean debit;
     
