@@ -24,6 +24,8 @@ public class Feedback extends BaseObject {
     
     String loginName;
     
+    String name;
+    
     String contact;
     
     String feedback;
