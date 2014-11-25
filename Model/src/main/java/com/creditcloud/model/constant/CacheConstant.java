@@ -102,6 +102,11 @@ public interface CacheConstant {
     String KEY_PREFIX_PROJECT_LIST = "PROJECT_LIST";
     
     /**
+     * define cache key for project tag list (for invalidate cache)
+     */
+    String KEY_PREFIX_PROJECT_TAG_LIST = "PROJECT_TAG_LIST";
+    
+    /**
      * define cache key for crowd funding raise number
      */
     String KEY_PREFIX_PROJECT_RAISE_NUMBER = "%1$s_PROJECT_RAISE_NUMBER";

@@ -15,6 +15,7 @@ public enum Status {
     INIT,
     SUCCESS,
     FREEZED,
+    LOANED,
     PREAUTH,//已授权
     CONFIRM,//已确认出款
     CANCEL,//已取消
