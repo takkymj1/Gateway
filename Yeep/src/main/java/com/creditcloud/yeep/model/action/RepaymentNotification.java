@@ -13,7 +13,7 @@ import com.creditcloud.yeep.model.BaseNotification;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

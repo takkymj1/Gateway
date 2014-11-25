@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
+@Data
+@NoArgsConstructor
 public class AuthorizeAutoRepaymentResponse extends BaseResponse {
 
     /**

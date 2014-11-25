@@ -15,7 +15,7 @@ import com.creditcloud.yeep.enums.MemberType;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

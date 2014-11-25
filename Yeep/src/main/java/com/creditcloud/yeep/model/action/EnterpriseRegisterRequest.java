@@ -13,7 +13,7 @@ import com.creditcloud.yeep.enums.MemberClassType;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

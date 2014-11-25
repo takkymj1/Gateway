@@ -6,7 +6,6 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;

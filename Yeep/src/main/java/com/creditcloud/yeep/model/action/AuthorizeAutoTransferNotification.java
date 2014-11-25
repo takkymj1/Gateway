@@ -12,7 +12,7 @@ import com.creditcloud.yeep.enums.BizType;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

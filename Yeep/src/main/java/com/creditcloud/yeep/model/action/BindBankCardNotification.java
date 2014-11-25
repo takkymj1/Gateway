@@ -15,7 +15,7 @@ import com.creditcloud.model.enums.misc.Bank;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

@@ -19,7 +19,7 @@ import com.creditcloud.yeep.model.UserRequest;
 
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 @Data
 @NoArgsConstructor

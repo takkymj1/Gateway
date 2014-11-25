@@ -9,7 +9,7 @@ import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 /**
  *
- * @author sobranie
+ * @author kakaci
  */
 import lombok.Data;
 import lombok.NoArgsConstructor;
