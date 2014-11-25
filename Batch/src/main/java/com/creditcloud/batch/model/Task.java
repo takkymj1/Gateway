@@ -51,4 +51,10 @@ public class Task implements Serializable{
     @NotNull
     private String source;
     
+    /**
+     * 该条记录的执行信息
+     */
+    @Getter
+    private String message;
+    
 }
