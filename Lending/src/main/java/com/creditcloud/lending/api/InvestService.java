@@ -9,7 +9,6 @@ import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import java.util.List;
-import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -23,17 +22,9 @@ public interface InvestService extends InvestQueryService, InvestStatService {
 
     public Invest getById(String investId);
 
-    /**
-     * just update certain field
-     *
-     * @param investId
-     * @param valueMap
-     * @return
-     */
-    public Invest update(String investId, Map<String, Object> valueMap);
-
     public boolean markStatus(InvestStatus status, List<String> ids);
 
+    @Deprecated
     public boolean markStatusByLoan(InvestStatus status, String loanId);
 
     public boolean markStatusByLoan(InvestStatus status, List<InvestStatus> currentStatus, String loanId);
