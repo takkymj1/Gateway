@@ -11,13 +11,14 @@ import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * 通用转账确认
+ *  
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class CompleteTransactionNotification extends BaseNotification {
+public class CompleteTranNtf extends BaseNotification {
     
     //CONFIRM 或者 CANCEL
     @NotNull
@@ -27,12 +28,12 @@ public class CompleteTransactionNotification extends BaseNotification {
     @NotNull
     private String requestNo;
     
-    public CompleteTransactionNotification(String platformNo,
-                                           BizType bizType,
-                                           String code,
-                                           String message,
-                                           Status status,
-                                           String requestNo) {
+    public CompleteTranNtf(String platformNo,
+                           BizType bizType,
+                           String code,
+                           String message,
+                           Status status,
+                           String requestNo) {
         super(platformNo,bizType,code,message);
         this.status =status;
         this.requestNo =requestNo;

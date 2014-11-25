@@ -7,14 +7,16 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.enums.RemitStatus;
 import com.creditcloud.yeep.enums.Status;
+import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import org.joda.time.LocalDate;
 
 /**
- *
+ * 提现记录
+ * 
  * @author tinglany
  */
-public class WithdrawRecordResponse {
+public class WithdrawRecordResponse extends BaseResponse {
     
     //提现金额
     @NotNull

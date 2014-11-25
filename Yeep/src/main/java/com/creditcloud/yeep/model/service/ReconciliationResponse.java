@@ -10,7 +10,8 @@ import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * 业务对账
+ * 
  * @author tinglany
  */
 

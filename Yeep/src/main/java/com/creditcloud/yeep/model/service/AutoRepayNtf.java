@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package com.creditcloud.yeep.model.service;
-
-import com.creditcloud.yeep.model.BaseNotification;
 import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
+
 /**
- *
+ * 账户查询
+ * 
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class LoanNotification extends BaseNotification {
+public class AutoRepayNtf extends BaseNotification {
     
     //请求流水号
     @NotNull
@@ -25,14 +26,12 @@ public class LoanNotification extends BaseNotification {
     @NotNull
     private String orderNo;
     
-    public LoanNotification(String platformNo,
-                            BizType bizType,
-                            String code,
-                            String message,
-                            String requestNo,
-                            String orderNo) {
-        super(platformNo,bizType,code,message);
-        this.requestNo = requestNo;
-        this.orderNo = orderNo;
-    }  
+    public AutoRepayNtf(String platformNo,
+                        BizType bizType,
+                        String code,
+                        String message,
+                        String requestNo,
+                        String orderNo) {
+        super(platformNo,bizType,code,message);    
+    }   
 }

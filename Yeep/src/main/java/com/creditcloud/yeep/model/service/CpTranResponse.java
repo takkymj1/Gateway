@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.enums.Status;
 import javax.validation.constraints.NotNull;
@@ -14,7 +15,7 @@ import javax.validation.constraints.NotNull;
  * 
  * @author tinglany
  */
-public class CpTransactionResponse {
+public class CpTranResponse extends BaseObject {
     
     //流水号
     @NotNull
@@ -36,7 +37,7 @@ public class CpTransactionResponse {
     @NotNull
     private Status subStatus;
     
-    public CpTransactionResponse(String requestNo,
+    public CpTranResponse(String requestNo,
                                  BizType bizType,
                                  String amount,
                                  Status status,

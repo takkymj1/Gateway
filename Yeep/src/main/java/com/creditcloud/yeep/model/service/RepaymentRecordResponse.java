@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.enums.Status;
+import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import org.joda.time.LocalDate;
 
@@ -17,7 +18,7 @@ import org.joda.time.LocalDate;
 
 //@Data
 //@NoArgsConstructor
-public class RepaymentRecordResponse {
+public class RepaymentRecordResponse extends BaseResponse{
     
     //还款金额
     @NotNull

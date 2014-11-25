@@ -7,27 +7,26 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
-import lombok.NoArgsConstructor;
+
 /**
- * 账户查询
+ * 取消自动投标授权
  * 
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class AccountInfoRequest extends UserRequest {
+public class UnAutoTranRequest extends UserRequest {
     
-    //商户编号
+    //请求流水号
     @NotNull
-    private String platformNo;
+    private String requestNo;
     
-    //平台会员编号
-    @NotNull
-    private String platformUserNo;
-    
-    public AccountInfoRequest(String platformUserNo,
-                               String platformNo) {
-        super(platformUserNo,platformNo,null,null,null);   
+    public UnAutoTranRequest(String platformNo,
+                             String platformUserNo,
+                             String requestNo) {
+        super(platformUserNo,platformNo,null,null,null);
+        this.requestNo = requestNo;
     }
+    
 }

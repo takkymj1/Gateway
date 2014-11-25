@@ -8,17 +8,18 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseResponse;
 
 /**
- *
+ * 通用转账确认
+ * 
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class CancelAuthorizeAutoRepaymentResponse extends BaseResponse {
+public class CompleteTranResponse extends BaseResponse {
     
-    public CancelAuthorizeAutoRepaymentResponse(String platformNo,
-                                                String code,
-                                                String description) {
+    public CompleteTranResponse(String platformNo,
+                                String code,
+                                String description) {
         super(platformNo,code,description);
-    }
+    }    
 }

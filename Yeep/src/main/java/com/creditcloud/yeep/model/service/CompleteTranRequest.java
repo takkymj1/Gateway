@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 
 //@Data
 //@NoArgsConstructor
-public class CompleteTransactionRequest extends BaseRequest {
+public class CompleteTranRequest extends BaseRequest {
     
     //请求流水号
     @NotNull
@@ -27,10 +27,10 @@ public class CompleteTransactionRequest extends BaseRequest {
     @NotNull
     private Status mode; 
     
-    public CompleteTransactionRequest(String platformNo,
-                                      String requestNo,
-                                      Status mode,
-                                      String notifyUrl) {
+    public CompleteTranRequest(String platformNo,
+                               String requestNo,
+                               Status mode,
+                               String notifyUrl) {
         super(platformNo,null,notifyUrl,null);
         this.requestNo = requestNo;
         this.mode = mode;

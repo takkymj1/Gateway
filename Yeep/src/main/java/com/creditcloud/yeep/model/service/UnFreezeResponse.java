@@ -6,7 +6,8 @@
 package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseResponse;
 /**
- *
+ * 资金解冻
+ * 
  * @author tinglany
  */
 

@@ -8,7 +8,8 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseResponse;
 
 /**
- *
+ * 取消投标
+ * 
  * @author tinglany
  */
 

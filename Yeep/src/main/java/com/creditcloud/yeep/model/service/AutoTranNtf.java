@@ -9,23 +9,24 @@ import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseNotification;
 
 /**
- *
+ * 自动投标
+ * 
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class AutoTransferNotification extends BaseNotification {
+public class AutoTranNtf extends BaseNotification {
     
     //请求流水号
     @NotNull
     private String requestNo;
     
-    public AutoTransferNotification(String platformNo,
-                                    BizType bizType,
-                                    String code,
-                                    String message,
-                                    String requestNo) {
+    public AutoTranNtf(String platformNo,
+                       BizType bizType,
+                       String code,
+                       String message,
+                       String requestNo) {
         super(platformNo,bizType,code,message);
         this.requestNo = requestNo;
     }   

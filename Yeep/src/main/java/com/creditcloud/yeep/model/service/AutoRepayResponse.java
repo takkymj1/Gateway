@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 package com.creditcloud.yeep.model.service;
-
 import com.creditcloud.yeep.model.BaseResponse;
 
 /**
- *
+ * 自动还款
+ *  
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class CancelAuthorizeAutoTransferResponse extends BaseResponse {
+public class AutoRepayResponse extends BaseResponse {
     
-    public CancelAuthorizeAutoTransferResponse(String platformNo,
-                                               String code,
-                                               String description) {
+    public AutoRepayResponse(String platformNo,
+                             String code,
+                             String description) {
         super(platformNo,code,description);
-    }    
+    }  
 }

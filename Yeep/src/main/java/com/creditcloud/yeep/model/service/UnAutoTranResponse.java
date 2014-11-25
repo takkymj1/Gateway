@@ -8,17 +8,18 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseResponse;
 
 /**
- *
+ * 取消自动投标授权
+ * 
  * @author tinglany
  */
 
 //@Data
 //@NoArgsConstructor
-public class CompleteTransactionResponse extends BaseResponse {
+public class UnAutoTranResponse extends BaseResponse {
     
-    public CompleteTransactionResponse(String platformNo,
-                                       String code,
-                                       String description) {
+    public UnAutoTranResponse(String platformNo,
+                              String code,
+                              String description) {
         super(platformNo,code,description);
     }    
 }
