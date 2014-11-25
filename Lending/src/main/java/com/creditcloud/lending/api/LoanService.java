@@ -19,8 +19,8 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public Loan find(String id);
 
     public Loan addNew(Loan loan);
-
-    public void update(Loan loan);
+    
+    public boolean markScheduled(String loanId, Date timeOpen, int timeOut);
 
     /**
      * mark loan as cleared
@@ -67,5 +67,8 @@ public interface LoanService extends LoanQueryService, LoanStatService {
      * @return
      */
     public boolean markSettleTime(String loanId, Date timeSettled);
-
+    
+    public boolean markTitle(String loanId, String title);
+    
+    public boolean markTimeOut(String loanId, int timeOut);
 }
