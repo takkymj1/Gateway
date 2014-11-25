@@ -155,4 +155,9 @@ public interface CacheConstant {
      * define cache key for context
      */
     String KEY_PREFIX_CONTEXT = "CONTEXT";
+    
+    /**
+     * define cache key for CMS
+     */
+    String KEY_PREFIX_CMS = "%1$s%2$s_CMS"; 
 }
