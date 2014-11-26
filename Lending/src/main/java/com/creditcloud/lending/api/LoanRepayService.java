@@ -21,8 +21,6 @@ public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatSe
 
     public void addNew(LoanRepayment repay);
 
-    public void update(LoanRepayment repay);
-
     /**
      * 还款
      *
