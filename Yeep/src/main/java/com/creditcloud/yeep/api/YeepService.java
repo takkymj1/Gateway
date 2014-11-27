@@ -13,7 +13,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface YeepService {
+public interface YeepService extends YeepQueryService{
 
     public YeepAccount getYeepAccount(String clientCode, String userId);
 }
