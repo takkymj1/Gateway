@@ -18,6 +18,8 @@ public interface FeeService {
     FeeItem addNew(FeeItem item);
     
     void update(FeeItem item);
+    
+    FeeItem getById(String itemId);
 
     FeeItem getByCategory(FeeCategory category);
     
