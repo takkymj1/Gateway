@@ -36,6 +36,12 @@ public class FeeItem extends BaseObject {
     private BigDecimal rate;
 
     private String description;
+    
+    private String umpTenderId;
+    
+    private String umpTenderAccountId;
+    
+    private String umpCheckDate;
 
     public FeeItem(String id,
                    String name,
