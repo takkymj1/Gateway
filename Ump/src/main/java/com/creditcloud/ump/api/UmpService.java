@@ -74,6 +74,22 @@ public interface UmpService {
                                                    UmpIdentityType idType,
                                                    String idCode,
                                                    String mobileId);
+    
+    /**
+     * 创建联动的企业账户记录.
+     * 
+     * 企业账户建立为线下流程，此处仅保存对应的 PaymentAccount 记录.
+     * 将 corpAccountId 保存为 AccountName.
+     * 同时会生成 UmpAgreement 以防止问题
+     * 
+     * @param clientCode
+     * @param userId
+     * @param corpAccountId 联动分配的企业账户号，形如7699045的7位数字
+     * @return 是否成功创建，如果已经创建也返回 true
+     */
+    public boolean createUmpCorpAccount(String clientCode,
+                                        String userId,
+                                        String corpAccountId);
 
     /**
      * 在联动服务器更新用户的手机号码.
@@ -108,6 +124,15 @@ public interface UmpService {
                                                    String umpAccountName,
                                                    String umpAccountId);
 
+    /**
+     * 获取UmpAccount.
+     * 
+     * 访问UmpAccount表中的记录，并不调用支付接口
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
     public String getUserIdByAccountName(String clientCode, String accountName);
@@ -236,16 +261,66 @@ public interface UmpService {
 
     public PagedResult<UmpSeqTransaction> queryTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
 
+    /**
+     * 查询企业用户.
+     * 
+     * 会调用支付接口查询，企业可以为平台或者平台上的企业用户
+     * 
+     * @param clientCode
+     * @param accountId 联动在线下分配的平台MerId或者企业用户号
+     * @return 
+     */
     public UmpEntUser queryEntUser(String clientCode, String accountId);
 
-    public UmpTender createUmpTender(String clientCode, String loanId, String loanName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
+    /**
+     * 建立标的.
+     * 建立标的账户、设置标的信息
+     * 会根据umpUserId对应的userId判断用户是否为企业，并建立正确的标的类型
+     * 
+     * @param clientCode
+     * @param loanId
+     * @param loanName
+     * @param amount
+     * @param expireDate
+     * @param umpUserId
+     * @param umpAccountId
+     * @param umpWarrantyUserId
+     * @param umpWarrantyAccountId
+     * @return 
+     */
+    public UmpTender createUmpTender(String clientCode,
+                                     String loanId,
+                                     String loanName,
+                                     BigDecimal amount,
+                                     LocalDate expireDate,
+                                     String umpUserId,
+                                     String umpAccountId,
+                                     String umpWarrantyUserId,
+                                     String umpWarrantyAccountId);
 
     public UmpTender getUmpTender(String clientCode, String loanId);
 
     public String getLoanIdByTenderId(String clientCode, String tenderId);
 
+    /**
+     * 改变标的账户状态.
+     * 
+     * @param clientCode
+     * @param umpTenderId
+     * @param status
+     * @return 
+     */
     public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
 
+    /**
+     * 开放投标
+     * 
+     * @param clientCode
+     * @param tenderId
+     * @return 
+     * @see #changeTenderStatus(java.lang.String, java.lang.String, com.creditcloud.ump.model.ump.enums.UmpTenderStatus) 
+     */
+    @Deprecated
     public boolean openTender(String clientCode, String tenderId);
 
     public boolean createTenderTransferRecord(String orderId,
