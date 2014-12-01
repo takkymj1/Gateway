@@ -28,6 +28,6 @@ public class AcctInfoRequest extends UserRequest {
     
     public AcctInfoRequest(String platformUserNo,
                            String platformNo) {
-        super(platformUserNo,platformNo,null,null,null);   
+        super(platformUserNo,platformNo,null,null,null,null);   
     }
 }

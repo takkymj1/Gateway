@@ -14,70 +14,102 @@ package com.creditcloud.yeep.model.action;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.IDCardType;
 import com.creditcloud.yeep.model.UserRequest;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
+
+
 @Data
 @NoArgsConstructor
+@XmlRootElement
 public class UserRegisterRequest extends UserRequest {
 
+    /*
+    @NotNull
+    private String platformNo;
+    
+    @NotNull
+    private String platformUserNo; 
+    
+    @NotNull
+    private String callbackUrl; 
+    
+    @NotNull
+    private String notifyUrl; 
+    */
     /**
      * 请求流水号
      */
-    @NotNull
-    private String requestNo;
 
+    @NotNull
+//    @XmlElement
+    private String requestNo;
+    
     /**
      * 昵称
      */
+//    @XmlElement
     private String nickName;
     /**
      * 会员真实姓名
      */
     @NotNull
+//    @XmlElement
     private String realName;
 
     /**
      * 身份证类型
      */
+    
     @NotNull
-    private IDCardType idCardType;
+//    @XmlElement
+    private String idCardType;
 
     /**
      * 身份证号
      */
     @NotNull
+//    @XmlElement
     private String idCardNo;
 
     /**
      * 手机号
      */
     @NotNull
+//    @XmlElement
     private String mobile;
 
     /**
      * 邮箱
      */
     @NotNull
+//    @XmlElement
     private String email;
 
     public UserRegisterRequest(String platformNo,
-                               String callbackUrl,
-                               String notifyUrl,
-                               String sign,
                                String platformUserNo,
                                String requestNo,
                                String nickName,
                                String realName,
-                               IDCardType idCardType,
+                               String idCardType,
                                String idCardNo,
                                String mobile,
-                               String email) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
+                               String email,
+                               String callbackUrl,
+                               String notifyUrl) {
+        super(platformUserNo, platformNo, null, null, callbackUrl, notifyUrl);
+        /*
+        this.platformNo = platformNo;
+        this.platformUserNo = platformUserNo;
+        this.callbackUrl = callbackUrl;
+        this.notifyUrl = notifyUrl;
+        */        
         this.requestNo = requestNo;
         this.nickName = nickName;
         this.realName = realName;

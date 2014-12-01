@@ -22,6 +22,7 @@ import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
+import com.creditcloud.config.YeepConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
@@ -48,6 +49,8 @@ public interface ConfigManager {
     public CreditManagerConfig getCreditManagerConfig();
 
     public CertificateConfig getCertificateConfig();
+    
+    public YeepConfig getYeepConfig();
 
     /**
      *
