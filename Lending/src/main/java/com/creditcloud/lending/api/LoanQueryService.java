@@ -128,4 +128,6 @@ public interface LoanQueryService {
     public int countByStatusAndPurpose(List<LoanStatus> statusList, List<LoanPurpose> purposeList);
 
     public PagedResult<Loan> listByStatusAndPurpose(List<LoanStatus> statusList, List<LoanPurpose> purposeList, PageInfo pageInfo);
+    
+    public PagedResult<Loan> listByStatusAndSettledDate(Date from, Date to, PageInfo pageInfo, LoanStatus... statusList);
 }

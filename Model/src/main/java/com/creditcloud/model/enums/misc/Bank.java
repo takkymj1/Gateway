@@ -37,7 +37,7 @@ public enum Bank implements BaseEnum {
     HXB("华夏银行", true, true),
     HZCB("杭州银行", true, false),
     NJCB("南京银行", true, false),
-    PINGAN("平安银行", true, false),
+    PINGAN("平安银行", true, "PINGAN", true,"SPAB"),
     PSBC("邮政储蓄银行", true, true),
     SDB("深发银行", true, false),
     SPDB("浦发银行", true, true),
