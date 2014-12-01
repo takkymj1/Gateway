@@ -30,6 +30,7 @@ public enum ApiErrorCode implements BaseEnum {
     
     LOAN_BALANCE_ERROR("标的可投金额错误"),
 
+    CROWD_FUNDING_NOT_FOUND("众筹项目未找到"),
     CROWD_FUNDING_STATUS_NOT_OPENED_OR_FINISHED("众筹项目尚未开始或已结束"),
     CROWD_FUNDING_STATUS_FINISHED("众筹已满"),
     ORDER_HAS_PROCESSED("订单已经被处理"),
@@ -37,6 +38,8 @@ public enum ApiErrorCode implements BaseEnum {
     AMOUNT_ERROR("投标金额错误"),
 
     INVALID_PARAMS("无效的参数"),
+    
+    TAG_NOT_FOUND("标签未找到"),
     
     UNKNOWN("未知错误"),
     UNKNOWN_AND_INVEST_RETURN("未知错误,投资已返还"),
