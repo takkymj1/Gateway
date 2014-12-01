@@ -15,6 +15,7 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
@@ -59,10 +60,11 @@ public interface ConfigManager {
 
     /**
      * 获取 sentinel 配置
-     * @return 
+     *
+     * @return
      */
     public SentinelConfig getSentinelConfig();
-    
+
     /**
      * 获取安融惠众接口配置
      *
@@ -102,6 +104,13 @@ public interface ConfigManager {
     public FuiouConfig getFuiouConfig();
 
     /**
+     * 快付通配置
+     *
+     * @return
+     */
+    public LycheePayConfig getLycheePayConfig();
+
+    /**
      * 获取联动优势(UMP)的配置
      *
      * @return
@@ -114,16 +123,18 @@ public interface ConfigManager {
      * @return
      */
     public WealthProductConfig getWealthProductConfig();
-    
+
     /**
      * 缓存配置文件
-     * @return 
+     *
+     * @return
      */
     public CacheConfig getCacheConfig();
-    
+
     /**
      * 合同章配置
-     * @return 
+     *
+     * @return
      */
     public ContractSealConfig getContractSealConfig();
 }
