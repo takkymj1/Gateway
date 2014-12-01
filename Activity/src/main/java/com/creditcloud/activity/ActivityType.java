@@ -66,7 +66,10 @@ public enum ActivityType implements BaseEnum {
      * 工单类活动
      */
     TICKET_REVIEW("审核工单", Realm.TICKET),
-    
+    /**
+     * 资金类活动
+     */
+    FUND_TRANSER_DIRECT("直接转账", Realm.FUND),
     /**
      * 众筹类
      */

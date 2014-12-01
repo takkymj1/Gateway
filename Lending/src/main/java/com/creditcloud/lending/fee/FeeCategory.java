@@ -3,31 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.ump.model.ump.enums;
+package com.creditcloud.lending.fee;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
  *
- * @author kdliu
+ * @author rooseek
  */
-public enum PayType implements BaseEnum {
-    /**
-     * 借记卡网银
-     */
-    B2CDEBITBANK("借记卡网银"),
-    /**
-     * 企业网银
-     */
-    B2BBANK("企业网银"),
-    /**
-     * 借记卡快捷
-     */
-    DEBITCARD("借记卡快捷");
-    
+public enum FeeCategory implements BaseEnum {
+
+    Withdraw("提现费");
+
     private final String key;
-    
-    private PayType(String key) {
+
+    private FeeCategory(String key) {
         this.key = key;
     }
 
@@ -35,5 +25,4 @@ public enum PayType implements BaseEnum {
     public String getKey() {
         return key;
     }
-    
 }
