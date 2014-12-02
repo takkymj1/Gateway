@@ -41,6 +41,7 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     List<User> listDisabledUsers(String clientCode);
 
     /**
