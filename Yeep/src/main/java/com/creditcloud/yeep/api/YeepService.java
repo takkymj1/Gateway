@@ -25,7 +25,7 @@ import javax.ejb.Remote;
      * @param userId
      * @return null表示用户没有在三方支付中开户
      */
-    public YeepAccount getUserYeepAccount(String clientCode, String userId);
+    public YeepAccount getYeepAccount(String clientCode, String userId);
     
     /**
      * 获取请求的CheckValue
@@ -52,6 +52,6 @@ import javax.ejb.Remote;
      * @param yeepAccount
      * @return
      */
-    public YeepAccount createUserYeepAccount(String clientCode, YeepAccount yeepAccount);
+    public YeepAccount createYeepAccount(String clientCode, YeepAccount yeepAccount);
 
 }

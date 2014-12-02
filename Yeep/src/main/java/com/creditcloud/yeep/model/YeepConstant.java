@@ -13,7 +13,7 @@ import java.math.RoundingMode;
  *
  * @author sobranie
  */
-public interface PnRConstant {
+public interface YeepConstant {
 
     /**
      * 默认的1.0版本version

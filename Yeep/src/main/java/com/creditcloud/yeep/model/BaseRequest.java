@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,19 +26,23 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 //@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement
+//@XmlRootElement
+@XmlType(propOrder = { "platformNo", "callbackUrl", "notifyUrl"})
+//@XmlType(propOrder = { "platformNo", "platformUserNo", "requestNo","nickName", "realName", "idCardType", "idCardNo", "mobile" , "email", "callbackUrl", "notifyUrl"})
+
 public abstract class BaseRequest extends BaseObject {
 
     //商户编号
     @NotNull
 //    @XmlElement
-//    @XmlAttribute(name ="request")
+    @XmlTransient ()
     private String platformNo;
 
     /**
      * 服务名称
      */
 //    @XmlElement
+    @XmlTransient
     private String service;
 
 
@@ -44,12 +50,14 @@ public abstract class BaseRequest extends BaseObject {
      * 页面回调URL
     */
 //    @XmlElement
+    @XmlTransient
     private String callbackUrl;
 
     /**
      * 服务器通知URL
     */
 //    @XmlElement
+    @XmlTransient
     private String notifyUrl;
 
     public BaseRequest(String platformNo,
@@ -60,5 +68,14 @@ public abstract class BaseRequest extends BaseObject {
         this.service = service;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
+    }
+    
+    @XmlTransient
+    public void setService(String service) {
+        this.service = service;
+    }
+   
+    public String getService() {
+        return service;
     }
 }

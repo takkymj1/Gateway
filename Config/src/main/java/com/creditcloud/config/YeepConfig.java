@@ -32,43 +32,43 @@ public class YeepConfig extends BaseConfig {
     /**
      * 商户编号
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String platformNo;
     
     /**
      * 客户私钥文件路径
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String privateKeyPath;
 
     /**
      * 公钥文件路径
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String publicKeyPath;
     
     /**
      * 三方支付服务器的URL
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private URL url;  
     
     /**
      * 三方支付服务的远程路径
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String path;
 
     /**
      * 三方支付回调的Url，一般是网站运行的地址
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String retUrl;
     
     /**
      * Manager三方支付回调url
      */
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String adminRetUrl;    
    
 }

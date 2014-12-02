@@ -15,9 +15,12 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.UserRequest;
-
 import javax.xml.bind.annotation.XmlElement;
+
+
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
@@ -27,7 +30,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @NoArgsConstructor
-@XmlRootElement
+@XmlRootElement (name = "request")
+//@XmlType(propOrder = { "platformNo", "platformUserNo", "requestNo","nickName", "realName", "idCardType", "idCardNo", "mobile" , "email", "callbackUrl", "notifyUrl"})
+@XmlType(propOrder = { "nickName", "realName", "idCardType", "idCardNo", "mobile" , "email"})
 public class UserRegisterRequest extends UserRequest {
 
     /*
@@ -43,24 +48,18 @@ public class UserRegisterRequest extends UserRequest {
     @NotNull
     private String notifyUrl; 
     */
-    /**
-     * 请求流水号
-     */
-
-    @NotNull
-//    @XmlElement
-    private String requestNo;
     
     /**
      * 昵称
      */
-//    @XmlElement
+    @XmlTransient
+   // @XmlElement(required = true)
     private String nickName;
     /**
      * 会员真实姓名
      */
     @NotNull
-//    @XmlElement
+    @XmlTransient
     private String realName;
 
     /**
@@ -68,21 +67,21 @@ public class UserRegisterRequest extends UserRequest {
      */
     
     @NotNull
-//    @XmlElement
+    @XmlTransient
     private String idCardType;
 
     /**
      * 身份证号
      */
     @NotNull
-//    @XmlElement
+    @XmlTransient
     private String idCardNo;
 
     /**
      * 手机号
      */
     @NotNull
-//    @XmlElement
+    @XmlTransient
     private String mobile;
 
     /**
@@ -90,8 +89,10 @@ public class UserRegisterRequest extends UserRequest {
      */
     @NotNull
 //    @XmlElement
+    @XmlTransient  
     private String email;
-
+    
+    
     public UserRegisterRequest(String platformNo,
                                String platformUserNo,
                                String requestNo,
@@ -103,14 +104,13 @@ public class UserRegisterRequest extends UserRequest {
                                String email,
                                String callbackUrl,
                                String notifyUrl) {
-        super(platformUserNo, platformNo, null, null, callbackUrl, notifyUrl);
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         /*
         this.platformNo = platformNo;
         this.platformUserNo = platformUserNo;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
         */        
-        this.requestNo = requestNo;
         this.nickName = nickName;
         this.realName = realName;
         this.idCardType = idCardType;

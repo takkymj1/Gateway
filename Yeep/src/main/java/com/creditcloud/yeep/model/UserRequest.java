@@ -8,6 +8,8 @@ package com.creditcloud.yeep.model;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sun.print.resources.serviceui;
@@ -16,10 +18,12 @@ import sun.print.resources.serviceui;
  *
  * @author rooseek
  */
-
 @Data
 @NoArgsConstructor
-@XmlRootElement
+//@XmlRootElement
+//@XmlType(propOrder = { "platformUserNo", "requestNo","nickName", "realName", "idCardType", "idCardNo", "mobile" , "email", "callbackUrl", "notifyUrl"})
+@XmlType(propOrder = { "platformUserNo", "requestNo"})
+
 public class UserRequest extends BaseRequest {
 
     /**
@@ -27,14 +31,15 @@ public class UserRequest extends BaseRequest {
      * 
      */
     @NotNull
-//    @XmlElement
+    @XmlTransient
     private String platformUserNo;
     
     /**
      *  请求流水号
      * 
      */
-//    @XmlElement    
+ //   @XmlElement 
+    @XmlTransient
     private String requestNo;
 
     public UserRequest(String platformUserNo,
