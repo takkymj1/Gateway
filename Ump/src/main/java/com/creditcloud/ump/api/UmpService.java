@@ -273,7 +273,19 @@ public interface UmpService {
 
     public UmpTransaction queryTrans(String clientCode, String orderId, String merDate, UmpBusiType busiType);
 
-    public UmpUser queryUser(String clientCode, String userId, boolean queryBalance, boolean queryAgreement);
+    /**
+     * 去联动查询用户的实时账户信息
+     * 
+     * @param clientCode
+     * @param userId
+     * @param queryBalance  是否查询用户余额
+     * @param queryAgreement 是否查询用户签约
+     * @return 
+     */
+    public UmpUser queryUser(String clientCode,
+                             String userId,
+                             boolean queryBalance,
+                             boolean queryAgreement);
 
     public UmpTenderRecord queryTender(String clientCode, String tenderId);
 
