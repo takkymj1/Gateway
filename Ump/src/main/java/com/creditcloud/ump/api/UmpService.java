@@ -159,7 +159,25 @@ public interface UmpService {
 
     public UmpAgreement getUmpAgreement(String clientCode, String userId);
 
-    public UmpPaymentResult submitEntWithdrawal(String clientCode, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
+    /**
+     * 提交商户/企业用户提现请求.
+     * 
+     * @param clientCode
+     * @param notify_url
+     * @param orderId
+     * @param merDate
+     * @param withdraw_merId 提现用的商户号/corpAccountId
+     * @param accountId 一般不使用
+     * @param amount
+     * @return 
+     */
+    public UmpPaymentResult submitEntWithdrawal(String clientCode,
+                                                String notify_url,
+                                                String orderId,
+                                                LocalDate merDate,
+                                                String withdraw_merId,
+                                                String accountId,
+                                                BigDecimal amount);
 
     /**
      * 用户无密绑卡
