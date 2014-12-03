@@ -18,9 +18,6 @@ import com.creditcloud.yeep.model.Repayment;
 //@NoArgsConstructor
 public class AutoRepaymentRequest extends UserRequest {
     
-    //请求流水号
-    @NotNull
-    private String requestNo;
     
     //标的号
     @NotNull
@@ -36,8 +33,7 @@ public class AutoRepaymentRequest extends UserRequest {
                                 String orderNo,
                                 Repayment repayment,
                                 String notifyUrl) {
-        super(platformUserNo,platformNo,null,notifyUrl,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
         this.orderNo = orderNo;
         this.repayment = repayment;
     }

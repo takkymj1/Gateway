@@ -18,9 +18,6 @@ import javax.validation.constraints.NotNull;
 //@NoArgsConstructor
 public class CancelAuthorizeAutoRepaymentRequest extends UserRequest {
     
-    //请求流水号
-    @NotNull
-    private String requestNo;
     
     //投标流水号
     @NotNull
@@ -30,8 +27,7 @@ public class CancelAuthorizeAutoRepaymentRequest extends UserRequest {
                                                String platformUserNo,
                                                String requestNo,
                                                String orderNo) {
-        super(platformUserNo,platformNo,null,null,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,null,null);
         this.orderNo = orderNo;
     }   
 }

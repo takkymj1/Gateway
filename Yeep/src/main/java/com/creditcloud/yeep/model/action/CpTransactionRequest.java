@@ -22,12 +22,6 @@ import com.creditcloud.yeep.enums.MemberType;
 public class CpTransactionRequest extends UserRequest {
 
     /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
-
-    /**
      * 固定值TRANSFER
      */
     @NotNull
@@ -72,8 +66,7 @@ public class CpTransactionRequest extends UserRequest {
                                 String amount,
                                 MemberType targetUserType,
                                 String targetPlatformUserNo) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.bizType = bizType;
         this.expired = expired;
         this.detail = detail;

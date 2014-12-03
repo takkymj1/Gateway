@@ -17,12 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class AuthorizeAutoRepaymentRequest extends UserRequest {
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
-    
+  
     /**
      * 标的号
      */
@@ -33,11 +28,9 @@ public class AuthorizeAutoRepaymentRequest extends UserRequest {
                                          String platformNo,
                                          String callbackUrl,
                                          String notifyUrl,
-                                         String sign,
                                          String requestNo,
                                          String orderNo) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
     }
 }

@@ -14,11 +14,11 @@ import com.creditcloud.yeep.model.BaseResponse;
 
 //@Data
 //@NoArgsConstructor
-public class CancelAuthorizeAutoTransferResponse extends BaseResponse {
+public class CancelAutoRepaymentResponse extends BaseResponse {
     
-    public CancelAuthorizeAutoTransferResponse(String platformNo,
-                                               String code,
-                                               String description) {
+    public CancelAutoRepaymentResponse(String platformNo,
+                                                String code,
+                                                String description) {
         super(platformNo,code,description);
-    }    
+    }
 }

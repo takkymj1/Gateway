@@ -16,14 +16,10 @@ import javax.validation.constraints.NotNull;
 //@NoArgsConstructor
 public class RevocationTransferRequest extends UserRequest {
     
-    //之前投标的请求流水号
-    @NotNull
-    private String requestNo;
     
     public RevocationTransferRequest(String platformNo,
                                      String requestNo,
                                      String platformUserNo) {
-        super(platformUserNo,platformNo,null,null,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,null,null);
     }   
 }
