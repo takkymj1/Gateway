@@ -10,24 +10,22 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 取消自动还款授权
- * 
+ *
  * @author tinglany
  */
-
 //@Data
 //@NoArgsConstructor
-public class CancelAuthorizeAutoRepaymentRequest extends UserRequest {
-    
-    
+public class CancelAutoRepaymentRequest extends UserRequest {
+
     //投标流水号
     @NotNull
     private String orderNo;
-    
-    public CancelAuthorizeAutoRepaymentRequest(String platformNo,
-                                               String platformUserNo,
-                                               String requestNo,
-                                               String orderNo) {
-        super(platformUserNo,platformNo,null,requestNo,null,null);
+
+    public CancelAutoRepaymentRequest(String platformNo,
+                                      String platformUserNo,
+                                      String requestNo,
+                                      String orderNo) {
+        super(platformUserNo, platformNo, null, requestNo, null, null);
         this.orderNo = orderNo;
-    }   
+    }
 }
