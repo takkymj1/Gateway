@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 //@Data
 //@NoArgsConstructor
-public class AcctInfoRequest extends UserRequest {
+public class AccntInfoRequest extends UserRequest {
     
     //商户编号
     @NotNull
@@ -26,8 +26,8 @@ public class AcctInfoRequest extends UserRequest {
     @NotNull
     private String platformUserNo;
     
-    public AcctInfoRequest(String platformUserNo,
-                           String platformNo) {
+    public AccntInfoRequest(String platformUserNo,
+                               String platformNo) {
         super(platformUserNo,platformNo,null,null,null,null);   
     }
 }

@@ -5,36 +5,21 @@
  */
 package com.creditcloud.ump.api;
 
-import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
 import com.creditcloud.ump.model.UmpCreateAccountResult;
-import com.creditcloud.ump.model.UmpEntUser;
 import com.creditcloud.ump.model.UmpFeeResult;
 import com.creditcloud.ump.model.UmpFreezeResult;
 import com.creditcloud.ump.model.UmpPaymentResult;
-import com.creditcloud.ump.model.UmpSeqTransaction;
 import com.creditcloud.ump.model.UmpTender;
-import com.creditcloud.ump.model.UmpTenderRecord;
 import com.creditcloud.ump.model.UmpTenderTransferRecord;
-import com.creditcloud.ump.model.UmpTransaction;
 import com.creditcloud.ump.model.UmpTransferResult;
-import com.creditcloud.ump.model.UmpUser;
-import com.creditcloud.ump.model.settle.UmpRechargeSettleRecord;
-import com.creditcloud.ump.model.settle.UmpSettleRecord;
-import com.creditcloud.ump.model.settle.UmpTenderSettleRecord;
-import com.creditcloud.ump.model.settle.UmpTransferSettleRecord;
-import com.creditcloud.ump.model.settle.UmpWithdrawSettleRecord;
 import com.creditcloud.ump.model.ump.base.BaseRequest;
 import com.creditcloud.ump.model.ump.base.BaseResponse;
-import com.creditcloud.ump.model.ump.enums.AccountType;
 import com.creditcloud.ump.model.ump.enums.ParticAccountType;
 import com.creditcloud.ump.model.ump.enums.TransferAction;
-import com.creditcloud.ump.model.ump.enums.UmpBusiType;
 import com.creditcloud.ump.model.ump.enums.UmpIdentityType;
 import com.creditcloud.ump.model.ump.enums.UmpParticType;
-import com.creditcloud.ump.model.ump.enums.UmpSettleType;
 import com.creditcloud.ump.model.ump.enums.UmpTenderAction;
 import com.creditcloud.ump.model.ump.enums.UmpTenderStatus;
 import com.creditcloud.ump.model.ump.enums.UmpTenderTransferType;
@@ -49,7 +34,7 @@ import org.joda.time.LocalDate;
  * @author kdliu
  */
 @Remote
-public interface UmpService {
+public interface UmpService extends UmpQueryService{
 
     public Map<String, String> getPostParams(String clientCode, BaseRequest request);
 
@@ -61,11 +46,11 @@ public interface UmpService {
      * 用户在联动开设第三方支付账户，并把相关信息记录在系统中.
      *
      * @param clientCode
-     * @param userId 用户在系统中的唯一id
-     * @param userName 用户的真实姓名
-     * @param idType 证件类型
-     * @param idCode 身份证号
-     * @param mobileId 手机号码
+     * @param userId     用户在系统中的唯一id
+     * @param userName   用户的真实姓名
+     * @param idType     证件类型
+     * @param idCode     身份证号
+     * @param mobileId   手机号码
      * @return
      */
     public UmpCreateAccountResult createUmpAccount(String clientCode,
@@ -76,14 +61,29 @@ public interface UmpService {
                                                    String mobileId);
 
     /**
+     * 创建联动的企业账户记录.
+     *
+     * 企业账户建立为线下流程，此处仅保存对应的 PaymentAccount 记录. 将 corpAccountId 保存为 AccountName.
+     * 同时会生成 UmpAgreement 以防止问题
+     *
+     * @param clientCode
+     * @param userId
+     * @param corpAccountId 联动分配的企业账户号，形如7699045的7位数字
+     * @return 是否成功创建，如果已经创建也返回 true
+     */
+    public boolean createUmpCorpAccount(String clientCode,
+                                        String userId,
+                                        String corpAccountId);
+
+    /**
      * 在联动服务器更新用户的手机号码.
      *
      * @param clientCode
-     * @param userId 需和开户时传入的一样
-     * @param userName 需和开户时传入的一样
-     * @param idType 需和开户时传入的一样
-     * @param idCode 需和开户时传入的一样
-     * @param mobileId 新的手机号码
+     * @param userId     需和开户时传入的一样
+     * @param userName   需和开户时传入的一样
+     * @param idType     需和开户时传入的一样
+     * @param idCode     需和开户时传入的一样
+     * @param mobileId   新的手机号码
      * @return
      */
     public UmpCreateAccountResult updateUmpMobileId(String clientCode,
@@ -98,9 +98,9 @@ public interface UmpService {
      * 在联动端线下开户的用户可使用该方法将联动的用户编号添加到系统中.
      *
      * @param clientCode
-     * @param userId 用户在系统中的唯一id
+     * @param userId         用户在系统中的唯一id
      * @param umpAccountName 联动线下开户的用户名
-     * @param umpAccountId 联动线下开户的账户号
+     * @param umpAccountId   联动线下开户的账户号
      * @return
      */
     public UmpCreateAccountResult updateUmpAccount(String clientCode,
@@ -108,20 +108,81 @@ public interface UmpService {
                                                    String umpAccountName,
                                                    String umpAccountId);
 
+    /**
+     * 获取UmpAccount.
+     *
+     * 访问UmpAccount表中的记录，并不调用支付接口
+     *
+     * @param clientCode
+     * @param userId
+     * @return
+     */
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
     public String getUserIdByAccountName(String clientCode, String accountName);
+    
+    public UmpAccount getUmpAccountByAccountName(String clientCode, String accountName);
 
     public String getUserIdByAccountId(String clientCode, String accountId);
+    
+    public UmpAccount getUmpAccountByAccountId(String clientCode, String accountId);
 
-    public boolean createUmpAgreement(String clientCode, String userId, String accountId, boolean isDebitAgreement, String cardNo);
+    /**
+     * 建立UMP协议条目
+     *
+     * @param clientCode
+     * @param userId
+     * @param accountName
+     * @param isDebitAgreement
+     * @param cardNo
+     * @return
+     */
+    public boolean createUmpAgreement(String clientCode,
+                                      String userId,
+                                      String accountName,
+                                      boolean isDebitAgreement,
+                                      String cardNo);
 
     public boolean updateUmpAgreement(String clientCode, UmpAgreement agreement);
 
     public UmpAgreement getUmpAgreement(String clientCode, String userId);
+    
+    public UmpAgreement getUmpAgreementByAccountName(String clientCode, String accoutName);
 
-    public UmpPaymentResult submitEntWithdrawal(String clientCode, String notify_url, String orderId, LocalDate merDate, String merId, String accountId, BigDecimal amount);
+    /**
+     * 提交商户/企业用户提现请求.
+     *
+     * @param clientCode
+     * @param notify_url
+     * @param orderId
+     * @param merDate
+     * @param withdraw_merId 提现用的商户号/corpAccountId
+     * @param accountId      一般不使用
+     * @param amount
+     * @return
+     */
+    public UmpPaymentResult submitEntWithdrawal(String clientCode,
+                                                String notify_url,
+                                                String orderId,
+                                                LocalDate merDate,
+                                                String withdraw_merId,
+                                                String accountId,
+                                                BigDecimal amount);
 
+    /**
+     * 用户无密绑卡
+     *
+     * @param clientCode
+     * @param notifyUrl
+     * @param orderId
+     * @param date
+     * @param umpAccountName
+     * @param cardId
+     * @param accountName
+     * @param idType
+     * @param idCode
+     * @return
+     */
     public UmpPaymentResult bindCardNoPwd(String clientCode,
                                           String notifyUrl,
                                           String orderId,
@@ -134,7 +195,7 @@ public interface UmpService {
 
     /**
      * 用户无密取现
-     * 
+     *
      * @param clientCode
      * @param notifyUrl
      * @param orderId
@@ -142,7 +203,7 @@ public interface UmpService {
      * @param umpAccountName
      * @param umpAccountId
      * @param amount
-     * @return 
+     * @return
      */
     public UmpPaymentResult submitUserWithdrawalNoPwd(String clientCode,
                                                       String notifyUrl,
@@ -154,6 +215,15 @@ public interface UmpService {
 
     /**
      * 无密充值: 个人用户的无密充值，需签订无密借记卡快捷充值
+     *
+     * @param clientCode
+     * @param notify_url
+     * @param orderId
+     * @param merDate
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpTransferResult rechargeNoPwd(String clientCode,
                                            String notify_url,
@@ -165,6 +235,19 @@ public interface UmpService {
 
     /**
      * 无密转账: 支持P2P平台对个人用户(对私)和企业用户(对公)转账, 企业用户(对公)对P2P平台转账
+     *
+     * @param clientCode
+     * @param ret_url
+     * @param notify_url
+     * @param orderId
+     * @param merDate
+     * @param merAccountId
+     * @param umpAccountType
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param action
+     * @param amount
+     * @return
      */
     public UmpTransferResult transferNoPwd(String clientCode,
                                            String ret_url,
@@ -178,24 +261,54 @@ public interface UmpService {
                                            TransferAction action,
                                            BigDecimal amount);
 
-    public UmpTransaction queryTrans(String clientCode, String orderId, String merDate, UmpBusiType busiType);
-
-    public UmpUser queryUser(String clientCode, String userId, boolean queryBalance, boolean queryAgreement);
-
-    public UmpTenderRecord queryTender(String clientCode, String tenderId);
-
-    public PagedResult<UmpSeqTransaction> queryTransSeq(String clientCode, String accountId, AccountType accountType, LocalDate from, LocalDate to, int startPage);
-
-    public UmpEntUser queryEntUser(String clientCode, String accountId);
-
-    public UmpTender createUmpTender(String clientCode, String loanId, String loanName, BigDecimal amount, LocalDate expireDate, String umpUserId, String umpAccountId, String umpWarrantyUserId, String umpWarrantyAccountId);
+    /**
+     * 建立标的. 建立标的账户、设置标的信息 会根据umpUserId对应的userId判断用户是否为企业，并建立正确的标的类型
+     *
+     * @param clientCode
+     * @param loanId
+     * @param loanName
+     * @param amount
+     * @param expireDate
+     * @param umpUserId
+     * @param umpAccountId
+     * @param umpWarrantyUserId
+     * @param umpWarrantyAccountId
+     * @return
+     */
+    public UmpTender createUmpTender(String clientCode,
+                                     String loanId,
+                                     String loanName,
+                                     BigDecimal amount,
+                                     LocalDate expireDate,
+                                     String umpUserId,
+                                     String umpAccountId,
+                                     String umpWarrantyUserId,
+                                     String umpWarrantyAccountId);
 
     public UmpTender getUmpTender(String clientCode, String loanId);
 
     public String getLoanIdByTenderId(String clientCode, String tenderId);
 
+    /**
+     * 改变标的账户状态.
+     *
+     * @param clientCode
+     * @param umpTenderId
+     * @param status
+     * @return
+     */
     public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
 
+    /**
+     * 开放投标
+     *
+     * @param clientCode
+     * @param tenderId
+     * @return
+     * @see #changeTenderStatus(java.lang.String, java.lang.String,
+     * com.creditcloud.ump.model.ump.enums.UmpTenderStatus)
+     */
+    @Deprecated
     public boolean openTender(String clientCode, String tenderId);
 
     public boolean createTenderTransferRecord(String orderId,
@@ -229,6 +342,17 @@ public interface UmpService {
 
     /**
      * 借款人以无密的方式(需事先在UMP账号中签订借记卡快捷协议和无密还款协议)，将还款还入标的账号
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult repayNoPwd(String clientCode,
                                        String orderId,
@@ -242,6 +366,17 @@ public interface UmpService {
 
     /**
      * 投资人自动投标(需事先在UMP账号中签订借记卡快捷协议和无密投资协议)，将投资转入标的账号
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult autoTender(String clientCode,
                                        String orderId,
@@ -255,6 +390,17 @@ public interface UmpService {
 
     /**
      * 从标的账号还款至投资人账号
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult repayRefund(String clientCode,
                                         String orderId,
@@ -268,6 +414,15 @@ public interface UmpService {
 
     /**
      * 平台对标的的收费，无需指定收费类型
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult fee(String clientCode,
                                 String orderId,
@@ -279,6 +434,17 @@ public interface UmpService {
 
     /**
      * 担保方对标的收取担保费
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult feeGuarantee(String clientCode,
                                          String orderId,
@@ -292,6 +458,17 @@ public interface UmpService {
 
     /**
      * 平台对标的进行垫付(偿付)，从<b>平台账号或保险金账号</b>转账入标的账号
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult disburse(String clientCode,
                                      String orderId,
@@ -305,6 +482,17 @@ public interface UmpService {
 
     /**
      * 平台对标的进行垫付(偿付)的返款，从<b>标的账号</b>转账入投资者账号
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult disburseRefund(String clientCode,
                                            String orderId,
@@ -318,6 +506,17 @@ public interface UmpService {
 
     /**
      * 投资人撤资
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param notifyUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult divest(String clientCode,
                                    String orderId,
@@ -331,6 +530,17 @@ public interface UmpService {
 
     /**
      * 放款给借款人(融资人)
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
      */
     public UmpPaymentResult loan(String clientCode,
                                  String orderId,
@@ -343,72 +553,16 @@ public interface UmpService {
                                  BigDecimal amount);
 
     /**
-     * 从联动服务器下载对账文件到系统中
-     *
-     * @param clientCode
-     * @param fileDate 对账日期
-     * @param settleType 对账类型
-     * @param force 若下载过，是否重新下载
-     * @param asyn 异步调用
-     * @return
-     */
-    public boolean downloadReconciliationFile(String clientCode,
-                                              LocalDate fileDate,
-                                              UmpSettleType settleType,
-                                              boolean force,
-                                              boolean asyn);
-
-    /**
-     * 列出对账文件的下载记录
-     */
-    public PagedResult<UmpSettleRecord> listSetteRecord(String clientCode,
-                                                        LocalDate beginDate,
-                                                        LocalDate endDate,
-                                                        PageInfo pageInfo,
-                                                        UmpSettleType... type);
-
-    /**
-     * 充值对账
-     */
-    public PagedResult<UmpRechargeSettleRecord> saveReconciliation(String clientCode,
-                                                                   LocalDate beginDate,
-                                                                   LocalDate endDate,
-                                                                   PageInfo pageInfo);
-
-    /**
-     * 提现对账
-     */
-    public PagedResult<UmpWithdrawSettleRecord> cashReconciliation(String clientCode,
-                                                                   LocalDate beginDate,
-                                                                   LocalDate endDate,
-                                                                   PageInfo pageInfo);
-
-    /**
-     * 转账对账
-     */
-    public PagedResult<UmpTransferSettleRecord> transferReconciliation(String clientCode,
-                                                                       LocalDate beginDate,
-                                                                       LocalDate endDate,
-                                                                       PageInfo pageInfo);
-
-    /**
-     * 标的对账
-     */
-    public PagedResult<UmpTenderSettleRecord> loanReconciliation(String clientCode,
-                                                                 LocalDate beginDate,
-                                                                 LocalDate endDate,
-                                                                 PageInfo pageInfo);
-
-    /**
      * 对UMP功能进行封装的冻结功能. 通过无密投资协议+投资实现.
      *
      * @param clientCode
-     * @param userId 用户id
-     * @param orderId 订单id
-     * @param notifyUrl 后台通知路径
-     * @param amount 金额>0
+     * @param userId     用户id
+     * @param orderId    订单id
+     * @param notifyUrl  后台通知路径
+     * @param amount     金额>0
      * @return
      */
+    @Deprecated
     public UmpFreezeResult freeze(String clientCode,
                                   String userId,
                                   String orderId,
@@ -419,12 +573,13 @@ public interface UmpService {
      * 对UMP功能进行封装的解冻功能. 通过无密投资协议+撤资实现.
      *
      * @param clientCode
-     * @param userId 用户id
-     * @param orderId 订单id
-     * @param notifyUrl 后台通知路径
-     * @param amount 金额>0
+     * @param userId     用户id
+     * @param orderId    订单id
+     * @param notifyUrl  后台通知路径
+     * @param amount     金额>0
      * @return
      */
+    @Deprecated
     public UmpFreezeResult unfreeze(String clientCode,
                                     String userId,
                                     String orderId,
@@ -435,9 +590,10 @@ public interface UmpService {
      * 查询该用户的冻结账户余额.
      *
      * @param clientCode
-     * @param userId 用户id
+     * @param userId     用户id
      * @return
      */
+    @Deprecated
     public BigDecimal getFreezeAmount(String clientCode,
                                       String userId);
 
@@ -445,11 +601,32 @@ public interface UmpService {
      * 对UMP功能进行封装的收费功能(用户->平台). 通过无密投资协议+用户投资+平台收费实现.
      *
      * @param clientCode
-     * @param userId 用户id
+     * @param userId     用户id
      * @param outOrderId 转入标的账户的订单号
-     * @param inOrderId 转出标的账户的订单号
-     * @param notifyUrl 后台通知路径
-     * @param amount 金额>0
+     * @param inOrderId  转出标的账户的订单号
+     * @param notifyUrl  后台通知路径
+     * @param amount     金额>0
+     * @return
+     */
+    @Deprecated
+    public UmpFeeResult fee(String clientCode,
+                            String userId,
+                            String outOrderId,
+                            String inOrderId,
+                            String notifyUrl,
+                            BigDecimal amount);
+
+    /**
+     * 平台收费接口，以费用的形式无密投标到标的账户，再收费给平台
+     *
+     * @param clientCode
+     * @param userId
+     * @param outOrderId
+     * @param inOrderId
+     * @param notifyUrl
+     * @param amount
+     * @param umpTenderId
+     * @param umpTenderAccountId
      * @return
      */
     public UmpFeeResult fee(String clientCode,
@@ -457,5 +634,7 @@ public interface UmpService {
                             String outOrderId,
                             String inOrderId,
                             String notifyUrl,
-                            BigDecimal amount);
+                            BigDecimal amount,
+                            String umpTenderId,
+                            String umpTenderAccountId);
 }

@@ -83,6 +83,8 @@ public class FundRecord extends BaseObject {
     protected String description;
 
     protected Date timeRecorded;
+    
+    protected String recordPriv;
 
 
     public FundRecord(String id,

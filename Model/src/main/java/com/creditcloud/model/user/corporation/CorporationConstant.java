@@ -29,13 +29,13 @@ public interface CorporationConstant {
     int CONTRACT_SEAL_CODE_LEN = 20;
     
     //企业介绍最大长度 
-    int MAX_CORP_DESC = 1024;
+    int MAX_CORP_DESC = 4096;
 
     //注册地址最大长度
     int MAX_REGI_LOC_LEN = 128;
 
     //营业范围最大长度
-    int MAX_BUSI_SCOPE_LEN = 512;
+    int MAX_BUSI_SCOPE_LEN = 4096;
 
     //营业执照公司类型最大長度
     int MAX_CORP_CTG_LEN = 128;

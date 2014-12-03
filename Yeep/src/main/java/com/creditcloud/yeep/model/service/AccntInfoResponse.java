@@ -17,7 +17,7 @@ import com.creditcloud.yeep.model.BaseResponse;
 
 //@Data
 //@NoArgsConstructor
-public class AcctInfoResponse extends BaseResponse {
+public class AccntInfoResponse extends BaseResponse {
       
     //【见会员类型】
     @NotNull
@@ -48,17 +48,18 @@ public class AcctInfoResponse extends BaseResponse {
     //【见银行代码】
     private String bank;
     
-    public AcctInfoResponse(String platfromNo,
-                            String code,
-                            String description,
-                            String memberType,
-                            String activeStatus,
-                            String balance,
-                            String availableAmount,
-                            String freezeAmount,
-                            String cardNo,
-                            String cardStatus,
-                            String bank) {
+    public AccntInfoResponse(String platfromNo,
+                                String code,
+                                String description,
+                                String memberType,
+                                String activeStatus,
+                                String balance,
+                                String availableAmount,
+                                String freezeAmount,
+                                String cardNo,
+                                String cardStatus,
+                                String bank
+                                ) {
         super(platfromNo,code,description);
         this.memberType = memberType;
         this.activeStatus = activeStatus;
