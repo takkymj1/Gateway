@@ -15,12 +15,10 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.UserRequest;
-import javax.xml.bind.annotation.XmlElement;
-
-
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
+
 
 /**
  *
@@ -31,8 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 @Data
 @NoArgsConstructor
 @XmlRootElement (name = "request")
-//@XmlType(propOrder = { "platformNo", "platformUserNo", "requestNo","nickName", "realName", "idCardType", "idCardNo", "mobile" , "email", "callbackUrl", "notifyUrl"})
-@XmlType(propOrder = { "nickName", "realName", "idCardType", "idCardNo", "mobile" , "email"})
+@XmlType(propOrder = { "nickName", "realName", "idCardType", "idCardNo", "mobile", "email"})
 public class UserRegisterRequest extends UserRequest {
 
     /*

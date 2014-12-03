@@ -7,12 +7,6 @@ package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
@@ -28,8 +22,6 @@ import lombok.NoArgsConstructor;
 //@XmlAccessorType(XmlAccessType.FIELD)
 //@XmlRootElement
 @XmlType(propOrder = { "platformNo", "callbackUrl", "notifyUrl"})
-//@XmlType(propOrder = { "platformNo", "platformUserNo", "requestNo","nickName", "realName", "idCardType", "idCardNo", "mobile" , "email", "callbackUrl", "notifyUrl"})
-
 public abstract class BaseRequest extends BaseObject {
 
     //商户编号
