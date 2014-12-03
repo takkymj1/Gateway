@@ -15,7 +15,7 @@ import lombok.ToString;
  * @author kdliu
  */
 @Data
-@ToString
+@ToString(callSuper = true)
 @XmlRootElement
 public class UmpPaymentResult extends UmpResult {
     

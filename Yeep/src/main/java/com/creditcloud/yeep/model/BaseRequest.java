@@ -23,14 +23,11 @@ public abstract class BaseRequest extends BaseObject {
     private String platformNo;
 
     //页面回跳 URL
-    @NotNull
     private String callbackUrl;
 
     //服务器通知 URL
-    @NotNull
     private String notifyUrl;
     
-    @NotNull
     private String sign;
 
     public BaseRequest(String platformNo,

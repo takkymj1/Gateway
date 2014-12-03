@@ -29,10 +29,11 @@ public interface FeedbackService {
      * add feedback
      * @param clientCode
      * @param userId
+     * @param name
      * @param contact
      * @param feedback 
      */
-    public void addFeedback(String clientCode, String userId, String contact, String feedback);
+    public void addFeedback(String clientCode, String userId, String name, String contact, String feedback);
     
     /**
      * get feedback list size

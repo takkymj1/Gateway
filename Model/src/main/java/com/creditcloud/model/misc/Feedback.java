@@ -22,11 +22,28 @@ public class Feedback extends BaseObject {
     
     String userId;
     
+    /**
+     * 用户登录名
+     */
     String loginName;
     
+    /**
+     * 姓名（非校验真实姓名）
+     */
+    String name;
+    
+    /**
+     * 联系人
+     */
     String contact;
     
+    /**
+     * 意见反馈
+     */
     String feedback;
     
+    /**
+     * 创建时间
+     */
     long created;
 }

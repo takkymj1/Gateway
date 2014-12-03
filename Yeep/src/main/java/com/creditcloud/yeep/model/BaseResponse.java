@@ -6,7 +6,6 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,23 +23,14 @@ public abstract class BaseResponse extends BaseObject {
     private String platformNo;
 
     @NotNull
-    private BizType service;
-
-    private String requestNo;
-
-    @NotNull
     private String code;
 
     private String description;
 
     public BaseResponse(String platformNo, 
-                        BizType service, 
-                        String requestNo, 
                         String code, 
                         String description) {
         this.platformNo = platformNo;
-        this.service = service;
-        this.requestNo = requestNo;
         this.code = code;
         this.description = description;
     }
