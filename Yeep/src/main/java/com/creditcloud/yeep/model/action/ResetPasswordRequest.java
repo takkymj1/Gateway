@@ -18,18 +18,12 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class ResetPasswordRequest extends UserRequest {
 
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
 
     public ResetPasswordRequest(String platformUserNo,
                                 String platformNo,
                                 String callbackUrl,
                                 String sign,
                                 String requestNo) {
-        super(platformUserNo, platformNo, callbackUrl, null, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, null);
     }
 }

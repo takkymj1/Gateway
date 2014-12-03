@@ -20,11 +20,7 @@ import com.creditcloud.yeep.model.UserRequest;
 @Data
 @NoArgsConstructor
 public class WithdrawAccountRequest extends UserRequest {
-    /**
-     * 请求序列号
-     */
-    @NotNull
-    private String requestNo;
+
     
     /**
      * 费率模式
@@ -45,9 +41,8 @@ public class WithdrawAccountRequest extends UserRequest {
                                   String callbackUrl,
                                   String notifyUrl,
                                   String sign) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.feeMode = feeMode;
         this.amount = amount;
-        this.requestNo = requestNo;
     }
 }

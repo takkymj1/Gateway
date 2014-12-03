@@ -16,17 +16,12 @@ import javax.validation.constraints.NotNull;
 
 //@Data
 //@NoArgsConstructor
-public class CancelAuthorizeAutoTransferRequest extends UserRequest {
-    
-    //请求流水号
-    @NotNull
-    private String requestNo;
-    
-    public CancelAuthorizeAutoTransferRequest(String platformNo,
+public class CancelAutoTransferRequest extends UserRequest {
+      
+    public CancelAutoTransferRequest(String platformNo,
                                               String platformUserNo,
                                               String requestNo) {
-        super(platformUserNo,platformNo,null,null,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,null,null);
     }
     
 }

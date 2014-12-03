@@ -17,11 +17,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BindBankCardRequest extends UserRequest {
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
 
     public BindBankCardRequest(String platformNo,
                                String requestNo,
@@ -29,7 +24,6 @@ public class BindBankCardRequest extends UserRequest {
                                String callbackUrl,
                                String sign,
                                String platformUserNo) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
     }
 }

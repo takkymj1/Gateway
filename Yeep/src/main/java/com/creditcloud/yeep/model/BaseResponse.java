@@ -9,11 +9,11 @@ import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import com.creditcloud.yeep.model.YeepConstant;
 /**
  * 接口输出
  *
- * @author rooseek
+ * @author tinglany
  */
 @Data
 @NoArgsConstructor
@@ -34,5 +34,19 @@ public abstract class BaseResponse extends BaseObject {
         this.code = code;
         this.description = description;
     }
-
+    
+    public boolean success() {
+        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(code);
+    }    
+    /**
+     * 用于做应答内容验证的ChkValue
+     * 
+     * @return 
+     
+    public abstract String chkString();
+    
+    public boolean success() {
+        return PnRConstant.SUCCESS_CODE.equalsIgnoreCase(code);
+    }
+    */
 }

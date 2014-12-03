@@ -19,12 +19,6 @@ import lombok.NoArgsConstructor;
 public class TransferClaimsRequest extends UserRequest {
 
     /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
-
-    /**
      * 标的号
      */
     @NotNull
@@ -50,8 +44,7 @@ public class TransferClaimsRequest extends UserRequest {
                                  String orderNo,
                                  String paymentRequestNo,
                                  String amount) {
-        super(platformUserNo, platformNo, null, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo, null, requestNo,null,notifyUrl);
         this.orderNo = orderNo;
         this.paymentRequestNo = paymentRequestNo;
         this.amount = amount;

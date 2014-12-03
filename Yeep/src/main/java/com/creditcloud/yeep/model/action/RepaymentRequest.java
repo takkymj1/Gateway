@@ -20,12 +20,6 @@ import com.creditcloud.yeep.model.Repayment;
 public class RepaymentRequest extends UserRequest {
 
     /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
-
-    /**
      * 标的号
      */
     @NotNull
@@ -42,8 +36,7 @@ public class RepaymentRequest extends UserRequest {
                             String requestNo,
                             String OrderNo,
                             Repayment repayment) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.OrderNo = OrderNo;
         this.repayment = repayment;
 

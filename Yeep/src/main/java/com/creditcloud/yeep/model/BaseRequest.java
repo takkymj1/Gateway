@@ -7,6 +7,8 @@ package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,29 +16,58 @@ import lombok.NoArgsConstructor;
  *
  * @author rooseek
  */
+//@XmlRootElement(name = "request")
 @Data
 @NoArgsConstructor
+//@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement
+@XmlType(propOrder = { "platformNo", "callbackUrl", "notifyUrl"})
 public abstract class BaseRequest extends BaseObject {
 
     //商户编号
     @NotNull
+//    @XmlElement
+    @XmlTransient ()
     private String platformNo;
 
-    //页面回跳 URL
+    /**
+     * 服务名称
+     */
+//    @XmlElement
+    @XmlTransient
+    private String service;
+
+
+    /**
+     * 页面回调URL
+    */
+//    @XmlElement
+    @XmlTransient
     private String callbackUrl;
 
-    //服务器通知 URL
+    /**
+     * 服务器通知URL
+    */
+//    @XmlElement
+    @XmlTransient
     private String notifyUrl;
-    
-    private String sign;
 
     public BaseRequest(String platformNo,
+                       String service,
                        String callbackUrl,
-                       String notifyUrl, 
-                       String sign) {
+                       String notifyUrl) {
         this.platformNo = platformNo;
+        this.service = service;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
-        this.sign = sign;
+    }
+    
+    @XmlTransient
+    public void setService(String service) {
+        this.service = service;
+    }
+   
+    public String getService() {
+        return service;
     }
 }
