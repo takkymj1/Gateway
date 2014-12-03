@@ -47,5 +47,6 @@
         <module>Batch</module>
         <module>Feedback</module>
     <module>Yeep</module>
+    <module>Order</module>
   </modules>
 </project>

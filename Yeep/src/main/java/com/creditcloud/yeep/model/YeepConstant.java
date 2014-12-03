@@ -11,24 +11,9 @@ import java.math.RoundingMode;
 /**
  * 易宝支付接口常量
  *
- * @author sobranie
+ * @author rooseek
  */
 public interface YeepConstant {
-
-    /**
-     * 默认的1.0版本version
-     */
-    String Version = "10";
-
-    /**
-     * 2.0版本version
-     */
-    String Version_2 = "20";
-
-    /**
-     * 默认的证件类型，身份证
-     */
-    String IdType = "00";
 
     /**
      * 默认的字符编码，固定使用UTF-8
@@ -36,39 +21,17 @@ public interface YeepConstant {
     String CharSet = "UTF-8";
 
     /**
-     * 每页最大记录数
+     * 成功的返回码
      */
-    int MAX_PAGE_SIZE = 1000;
+    String SUCCESS_CODE = "1";
 
     /**
      * 默认舍入方法
      */
-    RoundingMode PNR_ROUNDING_MODE = NumberConstant.ROUNDING_MODE;
+    RoundingMode YEEP_ROUNDING_MODE = NumberConstant.ROUNDING_MODE;
 
     /**
-     * 成功的返回码
-     */
-    String SUCCESS_CODE = "000";
-    
-    String SUCCESS_DESP = "成功";
-
-    /**
-     * 解冻时候如果已经解冻成功会报 107 重复交易,这种情况也可以认为是成功
-     */
-    String REPEATED_TRANSACTION = "107";
-
-    /**
-     * 已放款金额加本次放款金额超过投资人原单中的投资金额
-     */
-    String BID_LENDAMT_EQUALS_BIDAMT_ERROR = "334";
-
-    /**
-     * 本次还款金额加上已还款金额超过还款总额
-     */
-    String BID_RET_COUNT_ERROR = "349";
-
-    /**
-     * 不是汇付定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号
+     * 不是易宝定义的返回值，用于表示在PaymentAccount中未找到user的汇付账号
      */
     String ACCOUNT_NOT_FOUND_CODE = "account.not.found";
 
