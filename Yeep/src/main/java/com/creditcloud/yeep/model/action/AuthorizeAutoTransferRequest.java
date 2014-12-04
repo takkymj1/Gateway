@@ -17,11 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class AuthorizeAutoTransferRequest extends UserRequest {
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
+
 
     public AuthorizeAutoTransferRequest(String platformNo,
                                         String callbackUrl,
@@ -29,7 +25,6 @@ public class AuthorizeAutoTransferRequest extends UserRequest {
                                         String sign,
                                         String platformUserNo,
                                         String requestNo) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
     }
 }

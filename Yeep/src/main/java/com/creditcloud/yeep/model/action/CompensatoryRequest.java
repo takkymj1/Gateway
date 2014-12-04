@@ -19,11 +19,6 @@ import com.creditcloud.yeep.enums.MemberType;
 @NoArgsConstructor
 public class CompensatoryRequest extends UserRequest {
 
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
 
     /**
      * 标的号
@@ -66,8 +61,7 @@ public class CompensatoryRequest extends UserRequest {
                                String amount,
                                MemberType targetUserType,
                                String targetPlatformUserNo) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
         this.transfer = transfer;
         this.amount = amount;

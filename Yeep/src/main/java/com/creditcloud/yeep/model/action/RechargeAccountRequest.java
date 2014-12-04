@@ -27,11 +27,6 @@ public class RechargeAccountRequest extends UserRequest {
     @NotNull
     private String platformUserNo;
 
-    /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
 
     /**
      * 充值金额，如果不传则有用户填写充值金额
@@ -50,10 +45,8 @@ public class RechargeAccountRequest extends UserRequest {
                                   String amount,
                                   FeeModel feeMode,
                                   String callbackUrl,
-                                  String notifyUrl,
-                                  String sign) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+                                  String notifyUrl) {
+        super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);
         this.amount = amount;
         this.feeMode = feeMode;
     }
