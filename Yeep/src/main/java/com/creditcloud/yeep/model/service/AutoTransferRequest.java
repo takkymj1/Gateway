@@ -17,9 +17,6 @@ import com.creditcloud.yeep.model.UserRequest;
 //@NoArgsConstructor
 public class AutoTransferRequest extends UserRequest {
     
-    //请求流水号
-    @NotNull
-    private String requestNo;
     
     //标的号
     @NotNull
@@ -45,8 +42,7 @@ public class AutoTransferRequest extends UserRequest {
                                String targetPlatformUserNo,
                                String paymentAmount,
                                String notifyUrl) {
-        super(platformUserNo,platformNo,null,notifyUrl,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
         this.orderNo = orderNo;
         this.transferAmount = transferAmount;
         this.targetPlatformUserNo = targetPlatformUserNo;
