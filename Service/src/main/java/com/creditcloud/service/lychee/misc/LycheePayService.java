@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service.misc;
+package com.creditcloud.service.lychee.misc;
 
-import com.creditcloud.service.model.misc.LycheePayAccount;
+import com.creditcloud.service.lychee.model.misc.LycheePayAccount;
 import javax.ejb.Remote;
 
 /**
@@ -14,4 +14,10 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface LycheePayService {
+    /**
+     * 根据userId获取快付通账户信息
+     * @param userId
+     * @return 
+     */
+    public LycheePayAccount getByUserId(String userId);
 }

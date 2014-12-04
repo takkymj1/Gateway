@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service.model.misc;
+package com.creditcloud.service.lychee.model.misc;
 
 import com.creditcloud.model.BaseObject;
 import lombok.Data;
