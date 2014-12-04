@@ -21,15 +21,14 @@ public interface OrderService {
     /**
      * create a new order
      *
+     * @param orderId
      * @return
      */
-    TransOrder order();
-    
-    TransOrder order(String orderId);
-    
-    TransOrder order(String orderId, Date orderDate);
-    
-    TransOrder order(TransOrder order);
+    TransOrder create(String orderId);
+
+    TransOrder create(String orderId, Date orderDate);
+
+    TransOrder create(TransOrder order);
 
     TransOrder getByOrderId(String orderId);
 
