@@ -10,11 +10,13 @@ import com.creditcloud.yeep.model.BaseResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
+import lombok.ToString;
 
 /**
  *
  * @author kakaci
  */
+@ToString(callSuper = true)
 @Data
 @NoArgsConstructor
 public class UserRegisterResponse extends BaseResponse {
