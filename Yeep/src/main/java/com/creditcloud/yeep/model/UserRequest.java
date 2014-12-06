@@ -7,7 +7,6 @@ package com.creditcloud.yeep.model;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 /**
@@ -16,7 +15,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@XmlType(propOrder = { "platformUserNo", "requestNo"})
 public class UserRequest extends BaseRequest {
 
     /**
@@ -45,4 +43,10 @@ public class UserRequest extends BaseRequest {
         this.platformUserNo = platformUserNo;
         this.requestNo = requestNo;
     }
+    
+ 
+    
+    
+    
+    
 }
