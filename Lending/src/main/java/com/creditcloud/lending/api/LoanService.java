@@ -25,19 +25,19 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     /**
      * mark loan as cleared
      *
-     * @param ids
+     * @param id
      * @return
      */
-    public boolean markCleared(String... ids);
+    public boolean markCleared(String id);
 
     /**
      * update loan status
      *
      * @param status
-     * @param ids
+     * @param id
      * @return
      */
-    public boolean markStatus(LoanStatus status, String... ids);
+    public boolean markStatus(LoanStatus status, String id);
 
     /**
      * 主要供CreditMarket中更新状态用,只有OPENED/FAILED/FINISHED三种状态可以从CreditMarket更新
@@ -54,10 +54,10 @@ public interface LoanService extends LoanQueryService, LoanStatService {
      * update loan rewarded
      *
      * @param rewarded
-     * @param ids
+     * @param id
      * @return
      */
-    public boolean markRewarded(boolean rewarded, String... ids);
+    public boolean markRewarded(boolean rewarded, String id);
 
     /**
      * mark settle time for loan
