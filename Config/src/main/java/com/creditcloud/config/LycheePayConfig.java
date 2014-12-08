@@ -110,13 +110,13 @@ public class LycheePayConfig extends BaseConfig {
      * 网银充值
      */
     @XmlElement(required = false)
-    private String cashierTrade;
+    private String cashierTradePath;
     
     /**
      * 投标签约
      */
     @XmlElement(required = false)
-    private String signSubjectContract;
+    private String signSubjectContractPath;
 
     /**
      * 三方支付回调的Url，一般是网站运行的地址
