@@ -122,6 +122,9 @@ public class FundingProject extends BaseObject {
     
     //TODO not used now
     private String productId;
+    
+    //众筹项目的序号,平台可以自定义,允许重复，对于历史数据则为null
+    private Integer ordinal;
 
     public FundingProject(String id,
                           String title,
