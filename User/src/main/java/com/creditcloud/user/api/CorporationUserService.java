@@ -159,5 +159,15 @@ public interface CorporationUserService {
      * @return
      */
     List<CorporationUser> listByRtpo(String clientCode, Boolean rtpo);
+    
+    
+   /**
+     * 根据企业名称模糊查找企业
+     *
+     * @param clientCode
+     * @param name
+     * @return
+     */
+    List<com.creditcloud.model.user.corporation.CorporationUser>  listByName(String clientCode, String name) ;
 }
  
