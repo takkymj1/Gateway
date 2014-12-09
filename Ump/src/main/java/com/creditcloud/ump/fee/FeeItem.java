@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.lending.fee;
+package com.creditcloud.ump.fee;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -36,11 +36,14 @@ public class FeeItem extends BaseObject {
     private BigDecimal rate;
 
     private String description;
-    
+
+    //不存储，只用于页面显示
     private String umpTenderId;
-    
+
+    //不存储，只用于页面显示
     private String umpTenderAccountId;
-    
+
+    //不存储，只用于页面显示
     private String umpCheckDate;
 
     public FeeItem(String id,
