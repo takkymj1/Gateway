@@ -351,7 +351,7 @@ public interface CrowdFundingQueryService {
      * 列出所有下标ordinal非空的众筹项目
      *
      * @param clientCode
-     * @return
+     * @return empty list is nothing found
      */
     public List<FundingProject> listAllProjectWithOrdinal(String clientCode);
 }
