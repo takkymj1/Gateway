@@ -123,6 +123,15 @@ public interface UmpService extends UmpQueryService{
     
     public UmpAccount getUmpAccountByAccountName(String clientCode, String accountName);
 
+    /**
+     * 从 accountId 获取 userId.
+     * 
+     * 查询数据库寻找条目，返回userId
+     * 
+     * @param clientCode
+     * @param accountId 可以为空
+     * @return null 表示没有找到
+     */
     public String getUserIdByAccountId(String clientCode, String accountId);
     
     public UmpAccount getUmpAccountByAccountId(String clientCode, String accountId);
