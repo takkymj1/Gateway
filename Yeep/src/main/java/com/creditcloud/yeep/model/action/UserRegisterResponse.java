@@ -7,13 +7,10 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import lombok.ToString;
 
 /**
  *

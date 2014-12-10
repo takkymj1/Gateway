@@ -7,14 +7,12 @@ package com.creditcloud.yeep.model;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
 /**
  *
  * @author rooseek
  */
-@Data
-@NoArgsConstructor
+
 public class UserRequest extends BaseRequest {
 
     /**
@@ -43,10 +41,24 @@ public class UserRequest extends BaseRequest {
         this.platformUserNo = platformUserNo;
         this.requestNo = requestNo;
     }
-    
- 
-    
-    
-    
+
+    public UserRequest() {
+    }
+
+    public String getPlatformUserNo() {
+        return platformUserNo;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setPlatformUserNo(String platformUserNo) {
+        this.platformUserNo = platformUserNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
     
 }

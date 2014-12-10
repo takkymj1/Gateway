@@ -8,21 +8,23 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "notify")
 public class UserRegisterNotification extends UserNotification {
     /**
      * 请求流水号
      */
     @NotNull
     private String requestNo;
+
+    public UserRegisterNotification() {
+    }
 
     public UserRegisterNotification(String platformUserNo,
                                     String platformNo,
@@ -33,4 +35,15 @@ public class UserRegisterNotification extends UserNotification {
         super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
+    
+    @XmlElement (name = "requestNo")
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+    
+    
 }

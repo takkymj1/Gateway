@@ -7,12 +7,8 @@ package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.model.YeepConstant;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
 /**
  * 接口输出
  *
