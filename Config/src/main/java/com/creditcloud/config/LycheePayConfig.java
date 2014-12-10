@@ -63,6 +63,12 @@ public class LycheePayConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private URL url;
+    
+    /**
+     * 三方支付服务器收银台的URL
+     */
+    @XmlElement(required = false)
+    private URL cashierurl;
 
     /**
      * 用户开户路径
