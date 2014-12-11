@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.lending.fee;
+package com.creditcloud.yeep.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 费率模式
  *
  * @author rooseek
  */
-public enum FeeCategory implements BaseEnum {
+public enum FeeMode implements BaseEnum {
 
-    Withdraw("提现费");
+    PLATFORM("收取商户手续费"),
+    USER("收取用户手续费");
 
     private final String key;
 
-    private FeeCategory(String key) {
+    private FeeMode(String key) {
         this.key = key;
     }
 

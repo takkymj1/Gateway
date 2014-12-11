@@ -15,7 +15,7 @@ import lombok.ToString;
  * @author kdliu
  */
 @Data
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 public class TradeUserWithdrawalNoPwdResponse extends BaseResponse {
 
     private String order_id;

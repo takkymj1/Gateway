@@ -41,6 +41,7 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
      */
+    @Deprecated
     List<User> listDisabledUsers(String clientCode);
 
     /**
@@ -139,6 +140,21 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * the local client
      */
     User updateUser(String clientCode, User user);
+    
+    /**
+     * 为指定用户设置身份证号码与真实姓名.
+     * 
+     * 为userId指定的用户直接设置真实姓名和身份证号码
+     * 
+     * 不会做任何验证，直接update内容
+     * 
+     * @param clientCode
+     * @param userId
+     * @param name  真实姓名
+     * @param idNumber  身份证号，不再验证格式
+     * @return 更新后的用户，null表示没有找到
+     */
+    User setIdAndName(String clientCode, String userId, String name, String idNumber);
 
     //find methods
     /**

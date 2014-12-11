@@ -176,6 +176,7 @@ public interface UserCreditService {
      * @param certificateId
      * @return
      */
+    @Deprecated
     public List<CertificateRecord> listRecordByCertificate(String clientCode, String certificateId);
 
     /**

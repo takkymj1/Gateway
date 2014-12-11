@@ -55,6 +55,11 @@ public class LoanProduct extends BaseObject {
      */
     @NotNull
     private String productKey;
+    
+    /**
+     * 父产品id
+     */
+    private String parentId;
 
     //TODO more filed
     public LoanProduct(String id,

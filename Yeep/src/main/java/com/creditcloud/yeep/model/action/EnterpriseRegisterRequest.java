@@ -20,11 +20,6 @@ import com.creditcloud.yeep.enums.MemberClassType;
 public class EnterpriseRegisterRequest extends UserRequest {
 
     /**
-     * 请求流水号
-     */
-    @NotNull
-    private String requestNo;
-    /**
      * 企业名称
      */
     @NotNull
@@ -106,8 +101,7 @@ public class EnterpriseRegisterRequest extends UserRequest {
                                      String contactPhone,
                                      String email,
                                      MemberClassType memberClassTYpe) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.enterpriseName = enterpriseName;
         this.bankLicense = bankLicense;
         this.orgNo = orgNo;

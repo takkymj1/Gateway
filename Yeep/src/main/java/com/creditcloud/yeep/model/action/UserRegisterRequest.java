@@ -14,71 +14,99 @@ package com.creditcloud.yeep.model.action;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.IDCardType;
 import com.creditcloud.yeep.model.UserRequest;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  *
  * @author kakaci
  */
+
+
 @Data
 @NoArgsConstructor
+@XmlRootElement (name = "request")
 public class UserRegisterRequest extends UserRequest {
 
-    /**
-     * 请求流水号
-     */
+    /*
     @NotNull
-    private String requestNo;
-
+    private String platformNo;
+    
+    @NotNull
+    private String platformUserNo; 
+    
+    @NotNull
+    private String callbackUrl; 
+    
+    @NotNull
+    private String notifyUrl; 
+    */
+    
     /**
      * 昵称
      */
+    @XmlTransient
+   // @XmlElement(required = true)
     private String nickName;
     /**
      * 会员真实姓名
      */
     @NotNull
+    @XmlTransient
     private String realName;
 
     /**
      * 身份证类型
      */
+    
     @NotNull
-    private IDCardType idCardType;
+    @XmlTransient
+    private String idCardType;
 
     /**
      * 身份证号
      */
     @NotNull
+    @XmlTransient
     private String idCardNo;
 
     /**
      * 手机号
      */
     @NotNull
+    @XmlTransient
     private String mobile;
 
     /**
      * 邮箱
      */
     @NotNull
+//    @XmlElement
+    @XmlTransient  
     private String email;
-
+    
+    
     public UserRegisterRequest(String platformNo,
-                               String callbackUrl,
-                               String notifyUrl,
-                               String sign,
                                String platformUserNo,
                                String requestNo,
                                String nickName,
                                String realName,
-                               IDCardType idCardType,
+                               String idCardType,
                                String idCardNo,
                                String mobile,
-                               String email) {
-        super(platformUserNo, platformNo, callbackUrl, notifyUrl, sign);
-        this.requestNo = requestNo;
+                               String email,
+                               String callbackUrl,
+                               String notifyUrl) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
+        /*
+        this.platformNo = platformNo;
+        this.platformUserNo = platformUserNo;
+        this.callbackUrl = callbackUrl;
+        this.notifyUrl = notifyUrl;
+        */       
         this.nickName = nickName;
         this.realName = realName;
         this.idCardType = idCardType;
@@ -86,4 +114,5 @@ public class UserRegisterRequest extends UserRequest {
         this.mobile = mobile;
         this.email = email;
     }
+  
 }

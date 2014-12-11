@@ -7,7 +7,6 @@ package com.creditcloud.user.api;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.user.UserLoginResult;
 import com.creditcloud.user.UserAuthenticate;
-import com.creditcloud.user.social.ConnectSocialResult;
 import com.creditcloud.user.social.SocialId;
 import java.util.Map;
 
@@ -18,6 +17,18 @@ import java.util.Map;
  * @author rooseek
  */
 interface UserSecurityService {
+    
+    /**
+     * 快速登录，不保存登录记录等
+     * 
+     * @param clientCode
+     * @param credential
+     * @param password
+     * @return 
+     */
+    UserLoginResult quickLogin(String clientCode,
+                               String credential,
+                               String password);
 
     /**
      * validate user password for loginName

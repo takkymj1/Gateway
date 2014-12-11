@@ -15,9 +15,7 @@ import javax.validation.constraints.NotNull;
 //@NoArgsConstructor
 public class FreezeRequest extends UserRequest {
   
-    //请求流水号
-    @NotNull
-    private String requestNo;
+
     
     //冻结金额
     @NotNull
@@ -32,8 +30,7 @@ public class FreezeRequest extends UserRequest {
                          String requestNo,
                          String amount,
                          String expired) {
-        super(platformUserNo,platformNo,null,null,null);
-        this.requestNo = requestNo;
+        super(platformUserNo,platformNo,null,requestNo,null,null);
         this.amount = amount;
         this.expired = expired;
     }   

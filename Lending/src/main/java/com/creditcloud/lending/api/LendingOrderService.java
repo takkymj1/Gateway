@@ -17,7 +17,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface OrderService {
+public interface LendingOrderService {
 
     boolean markLoanOrderStat(TransStat stat, String orderId);
 
