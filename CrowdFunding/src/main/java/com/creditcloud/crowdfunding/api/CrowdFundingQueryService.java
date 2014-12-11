@@ -348,6 +348,16 @@ public interface CrowdFundingQueryService {
     public List<FundingProject> listProjectByOrdinal(String clientCode, int ordinal);
 
     /**
+     * 列出下标区间的众筹项目
+     *
+     * @param clientCode
+     * @param startOrdinal
+     * @param endOrdinal
+     * @return empty list if nothing found
+     */
+    public List<FundingProject> listProjectByOrdinal(String clientCode, int startOrdinal, int endOrdinal);
+
+    /**
      * 列出所有下标ordinal非空的众筹项目
      *
      * @param clientCode
