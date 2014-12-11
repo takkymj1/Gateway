@@ -119,7 +119,13 @@ public class LycheePayConfig extends BaseConfig {
     private String cashierTradePath;
     
     /**
-     * 投标签约
+     * 主动投标
+     */
+    @XmlElement(required = false)
+    private String applySubjectNoticePath;
+    
+    /**
+     * 投标签约(自动投标)
      */
     @XmlElement(required = false)
     private String signSubjectContractPath;
