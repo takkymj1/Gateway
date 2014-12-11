@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.service.lychee.model.misc;
+package com.creditcloud.lychee.model;
 
 import com.creditcloud.model.BaseObject;
 import java.util.Date;

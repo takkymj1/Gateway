@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.service.lychee.misc;
+package com.creditcloud.lychee.api;
 
-import com.creditcloud.service.lychee.model.misc.LycheePayAccount;
+import com.creditcloud.lychee.model.LycheePayAccount;
 import javax.ejb.Remote;
 
 /**

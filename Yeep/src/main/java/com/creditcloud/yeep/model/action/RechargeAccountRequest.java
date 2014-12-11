@@ -5,13 +5,11 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.FeeModel;
+import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
-
-import com.creditcloud.yeep.enums.FeeModel;
-import com.creditcloud.yeep.model.UserRequest;
 
 /**
  *
