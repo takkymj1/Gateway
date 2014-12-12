@@ -21,7 +21,9 @@ import javax.validation.constraints.Size;
  *
  * @author sobranie
  */
-@Pattern(regexp = "^(?!(([1][0-9]{10})|([\\\\w-]+(\\\\.[\\\\w-]+)*@[\\\\w-]+(\\\\.[\\\\w-]+)+)))([0-9a-zA-Z_\u4E00-\u9FBF]+)", message = "{common.loginName.Pattern}")
+//@Pattern(regexp = "^(?!(((13[0-9])|(14[0-9])|(15[^4,\\\\D])|(17[6,7,8])|(18[0,5-9]){8})|([\\\\w-]+(\\\\.[\\\\w-]+)*@[\\\\w-]+(\\\\.[\\\\w-]+)+)))([0-9a-zA-Z_\u4E00-\u9FBF]+)", message = "{common.loginName.Pattern}")
+@Pattern(regexp = "^(?!((((13[0-9])|(14[0-9])|(15[^4,\\D])|(17[6,7,8])|(18[0,5-9]))\\d{8})|([\\\\w-]+(\\\\.[\\\\w-]+)*@[\\\\w-]+(\\\\.[\\\\w-]+)+)))([0-9a-zA-Z_\u4E00-\u9FBF]+)", message = "{common.loginName.Pattern}")
+//@Pattern(regexp = "^(?!(([1][0-9]{10})|([\\\\w-]+(\\\\.[\\\\w-]+)*@[\\\\w-]+(\\\\.[\\\\w-]+)+)))([0-9a-zA-Z_\u4E00-\u9FBF]+)", message = "{common.loginName.Pattern}")
 @NotNull(message = "{common.loginName.NotNull}")
 @Size(min = 2, max = 30, message = "{common.loginName.Size}")
 @Constraint(validatedBy = {})

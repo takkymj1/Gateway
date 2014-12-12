@@ -93,10 +93,19 @@ public class LoginNameTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());
 
+        object.setLoginName("117705622243");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());
+        
+        object.setLoginName("15410001000");
+        constraintViolations = validator.validateProperty(object, "loginName");
+        assertEquals(0, constraintViolations.size());        
+        
         //accepted default login name for users registerd 
         object.setLoginName(MobileConstant.MOBILE_USER_LOGINNAME_PREFIX + "138100010000");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());
+        
     }
 
     @Test
