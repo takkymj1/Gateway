@@ -6,7 +6,15 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.BizType;
+import java.io.ByteArrayOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
@@ -21,7 +29,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 //@XmlAccessorType(XmlAccessType.FIELD)
 //@XmlRootElement
-@XmlType(propOrder = { "platformNo", "callbackUrl", "notifyUrl"})
 public abstract class BaseRequest extends BaseObject {
 
     //商户编号
@@ -62,6 +69,15 @@ public abstract class BaseRequest extends BaseObject {
         this.notifyUrl = notifyUrl;
     }
     
+    @XmlAttribute(name ="platformNo")
+    public  String getPlatformNo() {
+        return platformNo;
+    }
+    
+    public void setPlatformNo(String platformNo) {
+        this.platformNo = platformNo;
+    }
+    
     @XmlTransient
     public void setService(String service) {
         this.service = service;
@@ -70,4 +86,5 @@ public abstract class BaseRequest extends BaseObject {
     public String getService() {
         return service;
     }
+        
 }

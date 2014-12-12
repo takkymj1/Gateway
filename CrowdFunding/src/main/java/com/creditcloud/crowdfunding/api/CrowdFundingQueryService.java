@@ -327,10 +327,10 @@ public interface CrowdFundingQueryService {
      * @return
      */
     public PagedResult<FavoriteProject> listFavoriteByProject(String clientCode, String projectId, PageInfo pageInfo);
-    
+
     /**
      * 返回某用户喜欢的众筹项目Id列表
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param pageInfo
@@ -338,4 +338,30 @@ public interface CrowdFundingQueryService {
      */
     public PagedResult<String> listLikeByUser(String clientCode, String userId, PageInfo pageInfo);
 
+    /**
+     * 根据下标ordinal返回众筹项目
+     *
+     * @param clientCode
+     * @param ordinal
+     * @return empty list if nothing found
+     */
+    public List<FundingProject> listProjectByOrdinal(String clientCode, int ordinal);
+
+    /**
+     * 列出下标区间的众筹项目
+     *
+     * @param clientCode
+     * @param startOrdinal
+     * @param endOrdinal
+     * @return empty list if nothing found
+     */
+    public List<FundingProject> listProjectByOrdinal(String clientCode, int startOrdinal, int endOrdinal);
+
+    /**
+     * 列出所有下标ordinal非空的众筹项目
+     *
+     * @param clientCode
+     * @return empty list is nothing found
+     */
+    public List<FundingProject> listAllProjectWithOrdinal(String clientCode);
 }

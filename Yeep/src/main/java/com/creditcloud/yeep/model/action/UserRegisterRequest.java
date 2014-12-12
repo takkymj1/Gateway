@@ -29,7 +29,6 @@ import javax.xml.bind.annotation.XmlType;
 @Data
 @NoArgsConstructor
 @XmlRootElement (name = "request")
-@XmlType(propOrder = { "nickName", "realName", "idCardType", "idCardNo", "mobile", "email"})
 public class UserRegisterRequest extends UserRequest {
 
     /*
@@ -107,7 +106,7 @@ public class UserRegisterRequest extends UserRequest {
         this.platformUserNo = platformUserNo;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
-        */        
+        */       
         this.nickName = nickName;
         this.realName = realName;
         this.idCardType = idCardType;
@@ -115,4 +114,5 @@ public class UserRegisterRequest extends UserRequest {
         this.mobile = mobile;
         this.email = email;
     }
+  
 }

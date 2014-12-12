@@ -8,7 +8,7 @@ package com.creditcloud.yeep.model.action;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.FeeModel;
+import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
 
 
@@ -26,7 +26,7 @@ public class WithdrawAccountRequest extends UserRequest {
      * 费率模式
      */
     @NotNull
-    private FeeModel feeMode;
+    private FeeMode feeMode;
     
     /**
      * 提现金额，如果不传则由用户输入金额
@@ -36,7 +36,7 @@ public class WithdrawAccountRequest extends UserRequest {
     public WithdrawAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
-                                  FeeModel feeMode,
+                                  FeeMode feeMode,
                                   String amount,
                                   String callbackUrl,
                                   String notifyUrl,
