@@ -9,6 +9,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.TransStat;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.order.OrderConstant;
+import com.creditcloud.order.enums.OrderCategory;
 import java.util.Date;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
@@ -27,34 +28,36 @@ public class TransOrder extends BaseObject {
 
     @NotNull
     private String orderId;
-    
+
     @NotNull
     private Date orderDate;
+
+    private OrderCategory category;
 
     private RealmEntity entity;
 
     private TransStat stat;
-    
+
     @Max(OrderConstant.MAX_ORDER_DES_LEN)
     private String description;
-    
-    public TransOrder(String orderId, 
+
+    public TransOrder(String orderId,
                       Date orderDate,
-                      RealmEntity entity, 
+                      OrderCategory category,
+                      RealmEntity entity,
                       TransStat stat) {
-        this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.entity = entity;
-        this.stat = stat;
+        this(orderId, orderDate, category, entity, stat, null);
     }
-    
-     public TransOrder(String orderId, 
+
+    public TransOrder(String orderId,
                       Date orderDate,
-                      RealmEntity entity, 
+                      OrderCategory category,
+                      RealmEntity entity,
                       TransStat stat,
                       String description) {
         this.orderId = orderId;
         this.orderDate = orderDate;
+        this.category = category;
         this.entity = entity;
         this.stat = stat;
         this.description = description;
