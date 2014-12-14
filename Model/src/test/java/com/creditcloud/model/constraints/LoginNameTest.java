@@ -88,16 +88,11 @@ public class LoginNameTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(1, constraintViolations.size());
 
-        object.setLoginName("15410001000");		
-        constraintViolations = validator.validateProperty(object, "loginName");
-        assertEquals(1, constraintViolations.size());  
         //accepted non-mobile number
         object.setLoginName("1381000100");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());
-        
 
-         
         object.setLoginName("117705622243");
         constraintViolations = validator.validateProperty(object, "loginName");
         assertEquals(0, constraintViolations.size());        
