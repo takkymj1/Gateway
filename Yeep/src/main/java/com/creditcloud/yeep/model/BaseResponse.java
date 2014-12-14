@@ -25,6 +25,8 @@ public abstract class BaseResponse extends BaseObject {
 
     @NotNull
     private String description;
+    
+    private String sign;
 
     public BaseResponse(String platformNo, 
                         String code, 
@@ -36,10 +38,6 @@ public abstract class BaseResponse extends BaseObject {
 
     public BaseResponse() {
     }
-    
-    public boolean success() {
-        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(code);
-    }  
 
     @XmlAttribute (name ="platformNo")   
     public  String getPlatformNo() {
@@ -66,17 +64,17 @@ public abstract class BaseResponse extends BaseObject {
     public void setPlatformNo(String platformNo) {
         this.platformNo = platformNo;
     }
-    
+  
     
     /**
      * 用于做应答内容验证的ChkValue
      * 
      * @return 
-     
+     */
     public abstract String chkString();
     
     public boolean success() {
         return PnRConstant.SUCCESS_CODE.equalsIgnoreCase(code);
     }
-    */
+    
 }
