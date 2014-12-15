@@ -93,17 +93,17 @@ public interface LoanConstant {
     /**
      * 抵质押信息最大长度
      */
-    int MAX_MORTGAGE_INFO = 1000;
+    int MAX_MORTGAGE_INFO = 4000;
 
     /**
      * 担保信息最大长度
      */
-    int MAX_GUARANTEE_INFO = 1000;
+    int MAX_GUARANTEE_INFO = 4000;
 
     /**
      * 风险信息最大长度
      */
-    int MAX_RISK_INFO = 1000;
+    int MAX_RISK_INFO = 4000;
 
     /**
      * 担保公司名称最大长度
