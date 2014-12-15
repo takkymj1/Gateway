@@ -239,6 +239,15 @@ public class Features extends BaseObject {
     private boolean enableAutoOverdueCheck = true;
     
     /**
+     * 当计算判断逾期时是否跳过周末以及节假日.
+     * 
+     * 节假日通过<b>CREDITCLOUD_HOME<b>/holiday文件控制
+     */
+    @Getter
+    @XmlElement
+    private boolean enableOverdueSkip = false;
+    
+    /**
      * 批量处理功能
      */
     @Getter

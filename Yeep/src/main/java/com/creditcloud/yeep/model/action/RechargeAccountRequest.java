@@ -10,7 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
-import com.creditcloud.yeep.enums.FeeModel;
+import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
 
 /**
@@ -37,13 +37,13 @@ public class RechargeAccountRequest extends UserRequest {
      * 费率模式，固定值PLATFORM
      */
     @NotNull
-    private FeeModel feeMode;
+    private FeeMode feeMode;
 
     public RechargeAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
                                   String amount,
-                                  FeeModel feeMode,
+                                  FeeMode feeMode,
                                   String callbackUrl,
                                   String notifyUrl) {
         super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);

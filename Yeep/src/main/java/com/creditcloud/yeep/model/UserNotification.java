@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model;
 
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,12 +15,12 @@ import lombok.NoArgsConstructor;
  *
  * @author rooseek
  */
-@Data
-@NoArgsConstructor
+
 public class UserNotification extends BaseNotification {
 
     //用户编号
     @NotNull
+    @XmlTransient
     private String platformUserNo;
 
     public UserNotification(String platformUserNo, 
@@ -30,4 +31,16 @@ public class UserNotification extends BaseNotification {
         super(platformNo, bizType, code, message);
         this.platformUserNo = platformUserNo;
     }
+
+    public UserNotification() {
+    }
+
+    public String getPlatformUserNo() {
+        return platformUserNo;
+    }
+
+    public void setPlatformUserNo(String platformUserNo) {
+        this.platformUserNo = platformUserNo;
+    }
+    
 }

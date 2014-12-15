@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 /**
  * 账户查询
@@ -14,8 +15,8 @@ import lombok.NoArgsConstructor;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@Data
+@NoArgsConstructor
 public class AcctInfoRequest extends UserRequest {
     
     //商户编号
@@ -30,4 +31,5 @@ public class AcctInfoRequest extends UserRequest {
                                String platformNo) {
         super(platformUserNo,platformNo,null,null,null,null);   
     }
+    
 }

@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,8 +17,7 @@ import lombok.NoArgsConstructor;
  *
  * @author rooseek
  */
-@Data
-@NoArgsConstructor
+
 public abstract class BaseNotification extends BaseObject {
 
     @NotNull
@@ -31,6 +31,9 @@ public abstract class BaseNotification extends BaseObject {
 
     private String message;
 
+    public BaseNotification() {
+    }
+
     public BaseNotification(String platformNo,
                             BizType bizType,
                             String code,
@@ -40,4 +43,42 @@ public abstract class BaseNotification extends BaseObject {
         this.code = code;
         this.message = message;
     }
+    
+    @XmlElement (name = "platformNo")
+    public String getPlatformNo() {
+        return platformNo;
+    }
+
+    @XmlElement (name = "bizType")
+    public BizType getBizType() {
+        return bizType;
+    }
+
+    @XmlElement (name = "code")
+    public String getCode() {
+        return code;
+    }
+
+    @XmlElement (name = "message")
+    public String getMessage() {
+        return message;
+    }
+
+    public void setPlatformNo(String platformNo) {
+        this.platformNo = platformNo;
+    }
+
+    public void setBizType(BizType bizType) {
+        this.bizType = bizType;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
 }
