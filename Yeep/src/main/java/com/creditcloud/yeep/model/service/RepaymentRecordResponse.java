@@ -6,7 +6,9 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.enums.Status;
+import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
 /**
@@ -17,7 +19,7 @@ import org.joda.time.LocalDate;
 
 //@Data
 //@NoArgsConstructor
-public class RepaymentRecordResponse {
+public class RepaymentRecordResponse extends BaseResponse {
     
     //还款金额
     @NotNull
@@ -37,11 +39,22 @@ public class RepaymentRecordResponse {
     public RepaymentRecordResponse(String repaymentAmount,
                                    String targetUserNo,
                                    LocalDate loanTime,
-                                   Status status) {
+                                   Status status,
+                                   String sign) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
         this.loanTime = loanTime;
         this.status = status;
     }
-    
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(repaymentAmount))
+                .append(StringUtils.trimToEmpty(targetUserNo))
+                .append(StringUtils.trimToEmpty(loanTime.toString()))
+                .append(StringUtils.trimToEmpty(status.name()));
+        return sb.toString();
+    }
 }

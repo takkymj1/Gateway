@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 平台划款
  * 
@@ -48,13 +49,27 @@ public class PlatformTransferRequest extends BaseRequest {
                                    String sourcePlatformUserNo,
                                    String amount,
                                    String targetUserType,
-                                   String targetPlatformUserNo) {
-        super(platformNo,null,null,null);
+                                   String targetPlatformUserNo,
+                                   String sign) {
+        super(platformNo,null,null,null,sign);
         this.requestNo = requestNo;
         this.sourceUserType = sourceUserType;
         this.sourcePlatformUserNo = sourcePlatformUserNo;
         this.amount = amount;
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
-    }    
+    } 
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(sourceUserType))
+                .append(StringUtils.trimToEmpty(sourcePlatformUserNo))
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(targetUserType))
+                .append(StringUtils.trimToEmpty(targetPlatformUserNo));
+        return sb.toString();
+    }
 }

@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.enums.QueryModel;
 import com.creditcloud.yeep.model.BaseRequest;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 单笔业务查询
  * 
@@ -28,10 +29,20 @@ public class QueryRequest extends BaseRequest {
     
     public QueryRequest(String platformNo,
                         String requestNo,
-                        QueryModel queryModel) {
-        super(platformNo,null,null,null);
+                        QueryModel queryModel,
+                        String sign) {
+        super(platformNo,null,null,null,sign);
         this.requestNo = requestNo;
         this.queryModel = queryModel;
+    }
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(queryModel.toString()));
+        return sb.toString();
     }
     
 }

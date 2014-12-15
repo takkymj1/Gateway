@@ -7,29 +7,27 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 账户查询
  * 
  * @author tinglany
  */
-
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "request")
 public class AcctInfoRequest extends UserRequest {
-    
-    //商户编号
-    @NotNull
-    private String platformNo;
-    
-    //平台会员编号
-    @NotNull
-    private String platformUserNo;
-    
+     
     public AcctInfoRequest(String platformUserNo,
-                               String platformNo) {
-        super(platformUserNo,platformNo,null,null,null,null);   
+                           String platformNo,
+                           String sign) {
+        super(platformUserNo,platformNo,null,null,null,null,sign);   
     }
-    
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();
+    }
 }

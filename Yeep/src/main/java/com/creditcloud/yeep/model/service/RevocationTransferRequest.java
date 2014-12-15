@@ -19,7 +19,15 @@ public class RevocationTransferRequest extends UserRequest {
     
     public RevocationTransferRequest(String platformNo,
                                      String requestNo,
-                                     String platformUserNo) {
-        super(platformUserNo,platformNo,null,requestNo,null,null);
-    }   
+                                     String platformUserNo,
+                                     String sign) {
+        super(platformUserNo,platformNo,null,requestNo,null,null,sign);
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();
+    }    
 }

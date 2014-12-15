@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -40,8 +41,9 @@ public class UserRegisterResponse extends BaseResponse {
                                 String requestNo,
                                 BizType service,
                                 String code,
-                                String description) {
-        super(platformNo, code, description);
+                                String description,
+                                String sign) {
+        super(platformNo, code, description,sign);
         this.service = service;
         this.requestNo = requestNo;
     }
@@ -66,5 +68,13 @@ public class UserRegisterResponse extends BaseResponse {
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
-    
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(service.name()))
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
+    }
 }

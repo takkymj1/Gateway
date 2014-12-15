@@ -10,6 +10,7 @@ import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -36,9 +37,19 @@ public class TransferClaimsNotification extends BaseNotification {
                                       String code,
                                       String message,
                                       String requestNo,
-                                      String orderNo) {
-        super(platformNo, bizType, code, message);
+                                      String orderNo,
+                                      String sign) {
+        super(platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
         this.orderNo = orderNo;
     }
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(orderNo));
+        return sb.toString();
+    }  
 }

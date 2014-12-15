@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -45,12 +46,25 @@ public class ReconciliationResponse extends BaseResponse {
                                   BizType bizType,
                                   String fee,
                                   String balance,
-                                  String amount) {
-        super(platformNo,code,description);
+                                  String amount,
+                                  String sign) {
+        super(platformNo,code,description,sign);
         this.records = records;
         this.bizType = bizType;
         this.fee = fee;
         this.balance = balance;
         this.amount = amount;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(records))
+                .append(StringUtils.trimToEmpty(bizType.name()))
+                .append(StringUtils.trimToEmpty(fee))
+                .append(StringUtils.trimToEmpty(balance))
+                .append(StringUtils.trimToEmpty(amount));
+        return sb.toString();
     }    
 }

@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 
 import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -20,13 +21,6 @@ import com.creditcloud.yeep.model.UserRequest;
 @Data
 @NoArgsConstructor
 public class RechargeAccountRequest extends UserRequest {
-
-    /**
-     * 平台用户编号
-     */
-    @NotNull
-    private String platformUserNo;
-
 
     /**
      * 充值金额，如果不传则有用户填写充值金额
@@ -45,9 +39,19 @@ public class RechargeAccountRequest extends UserRequest {
                                   String amount,
                                   FeeMode feeMode,
                                   String callbackUrl,
-                                  String notifyUrl) {
-        super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);
+                                  String notifyUrl,
+                                  String sign) {
+        super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl,sign);
         this.amount = amount;
         this.feeMode = feeMode;
     }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(feeMode.name()));
+        return sb.toString();
+    }    
 }

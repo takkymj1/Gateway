@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.enums.misc.Bank;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -53,11 +54,23 @@ public class BindBankCardNotification extends UserNotification {
                                     String platformUserNo,
                                     String bankCardNo,
                                     CardStatus cardStatus,
-                                    Bank bank) {
-        super(platformUserNo, platformNo, bizType, code, message);
+                                    Bank bank,
+                                    String sign) {
+        super(platformUserNo, platformNo, bizType, code, message, sign);
         this.requestNo = requestNo;
         this.bankCardNo = bankCardNo;
         this.cardStatus = cardStatus;
         this.bank = bank;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(bankCardNo))
+                .append(StringUtils.trimToEmpty(cardStatus.name()))
+                .append(StringUtils.trimToEmpty(bank.name()));
+        return sb.toString();
     }
 }

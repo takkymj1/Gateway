@@ -10,6 +10,7 @@ import com.creditcloud.yeep.model.UserNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -31,8 +32,9 @@ public class UserRegisterNotification extends UserNotification {
                                     BizType bizType,
                                     String code,
                                     String message,
-                                    String requestNo) {
-        super(platformUserNo, platformNo, bizType, code, message);
+                                    String requestNo,
+                                    String sign) {
+        super(platformUserNo, platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
     }
     
@@ -45,5 +47,12 @@ public class UserRegisterNotification extends UserNotification {
         this.requestNo = requestNo;
     }
     
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
+    }    
     
 }

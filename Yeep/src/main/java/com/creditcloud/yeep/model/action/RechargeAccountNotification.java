@@ -10,6 +10,7 @@ import com.creditcloud.yeep.model.UserNotification;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -29,8 +30,17 @@ public class RechargeAccountNotification extends UserNotification {
                                        String code,
                                        String message,
                                        String requestNo,
-                                       String platformUserNo) {
-        super(platformUserNo, platformNo, bizType, code, message);
+                                       String platformUserNo,
+                                       String sign) {
+        super(platformUserNo, platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
     }
 }

@@ -6,35 +6,21 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.yeep.enums.BizType;
-import java.io.ByteArrayOutputStream;
-import java.util.HashMap;
-import java.util.Map;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author rooseek
  */
-//@XmlRootElement(name = "request")
-@Data
-@NoArgsConstructor
-//@XmlAccessorType(XmlAccessType.FIELD)
-//@XmlRootElement
 public abstract class BaseRequest extends BaseObject {
 
     //商户编号
     @NotNull
 //    @XmlElement
-    @XmlTransient ()
+    @XmlTransient
     private String platformNo;
 
     /**
@@ -58,33 +44,87 @@ public abstract class BaseRequest extends BaseObject {
 //    @XmlElement
     @XmlTransient
     private String notifyUrl;
+    
+    @NotNull
+    @XmlTransient
+    private String sign;
+
+    public BaseRequest() {
+    }
 
     public BaseRequest(String platformNo,
                        String service,
                        String callbackUrl,
-                       String notifyUrl) {
+                       String notifyUrl,
+                       String sign) {
         this.platformNo = platformNo;
         this.service = service;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
+        this.sign = sign;
     }
+    
+    /**
+     * 共有的验证数据段
+     * 
+     * @return 
+     */
+    protected String baseChkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(StringUtils.trimToEmpty(getPlatformNo()));
+        sb.append(StringUtils.trimToEmpty(getCallbackUrl()));
+        sb.append(StringUtils.trimToEmpty(getNotifyUrl()));
+        return sb.toString();
+    }
+    
+    /**
+     * 每一个具体的请求需要实现构造验证数据的方法
+     * 
+     * @return 
+     */
+    public abstract String chkString();   
     
     @XmlAttribute(name ="platformNo")
     public  String getPlatformNo() {
         return platformNo;
+    }
+
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public String getNotifyUrl() {
+        return notifyUrl;
+    }
+    
+    @XmlTransient
+    public String getService() {
+        return service;
+    }
+    
+    @XmlTransient
+    public String getSign() {
+        return sign;
     }
     
     public void setPlatformNo(String platformNo) {
         this.platformNo = platformNo;
     }
     
-    @XmlTransient
     public void setService(String service) {
         this.service = service;
     }
-   
-    public String getService() {
-        return service;
+
+    public void setSign(String sign) {
+        this.sign = sign;
     }
-        
+
+    public void setCallbackUrl(String callbackUrl) {
+        this.callbackUrl = callbackUrl;
+    }
+
+    public void setNotifyUrl(String notifyUrl) {
+        this.notifyUrl = notifyUrl;
+    }
+       
 }

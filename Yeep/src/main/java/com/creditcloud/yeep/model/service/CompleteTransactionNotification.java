@@ -9,6 +9,7 @@ import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -32,9 +33,19 @@ public class CompleteTransactionNotification extends BaseNotification {
                                            String code,
                                            String message,
                                            Status status,
-                                           String requestNo) {
-        super(platformNo,bizType,code,message);
+                                           String requestNo,
+                                           String sign) {
+        super(platformNo,bizType,code,message,sign);
         this.status =status;
         this.requestNo =requestNo;
-    }                                                                                                                                         
+    } 
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(status.name()))
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
+    }
 }
