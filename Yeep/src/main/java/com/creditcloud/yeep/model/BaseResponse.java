@@ -35,11 +35,10 @@ public abstract class BaseResponse extends BaseObject {
     }
 
     public BaseResponse() {
-    }
-    
-    public boolean success() {
-        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(code);
-    }  
+    }    		
+    public boolean success() {		
+        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(code);		
+    }      
 
     @XmlAttribute (name ="platformNo")   
     public  String getPlatformNo() {
