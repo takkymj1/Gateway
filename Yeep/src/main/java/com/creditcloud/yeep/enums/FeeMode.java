@@ -12,14 +12,14 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum FeeModel implements BaseEnum {
+public enum FeeMode implements BaseEnum {
 
     PLATFORM("收取商户手续费"),
     USER("收取用户手续费");
 
     private final String key;
 
-    private FeeModel(String key) {
+    private FeeMode(String key) {
         this.key = key;
     }
 
