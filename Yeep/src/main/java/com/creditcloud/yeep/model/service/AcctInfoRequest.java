@@ -17,9 +17,13 @@ import org.apache.commons.lang3.StringUtils;
  */
 @XmlRootElement (name = "request")
 public class AcctInfoRequest extends UserRequest {
+
+    public AcctInfoRequest() {
+    }
+
      
-    public AcctInfoRequest(String platformUserNo,
-                           String platformNo,
+    public AcctInfoRequest(String platformNo,
+                           String platformUserNo,
                            String sign) {
         super(platformUserNo,platformNo,null,null,null,null,sign);   
     }

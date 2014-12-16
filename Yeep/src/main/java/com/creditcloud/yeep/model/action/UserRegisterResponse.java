@@ -7,6 +7,8 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
+import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,7 +30,7 @@ public class UserRegisterResponse extends BaseResponse {
      */
     @NotNull
     @XmlTransient
-    private BizType service;
+    private String service;
 
     /**
      * 请求流水号
@@ -39,7 +41,7 @@ public class UserRegisterResponse extends BaseResponse {
 
     public UserRegisterResponse(String platformNo,
                                 String requestNo,
-                                BizType service,
+                                String service,
                                 String code,
                                 String description,
                                 String sign) {
@@ -52,7 +54,7 @@ public class UserRegisterResponse extends BaseResponse {
     }
 
     @XmlElement (name = "service")
-    public BizType getService() {
+    public String getService() {
         return service;
     }
     
@@ -61,7 +63,7 @@ public class UserRegisterResponse extends BaseResponse {
         return requestNo;
     }
 
-    public void setService(BizType service) {
+    public void setService(String service) {
         this.service = service;
     }
 
@@ -72,8 +74,8 @@ public class UserRegisterResponse extends BaseResponse {
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(service.name()))
+        sb.append(super.baseChkString())               
+                .append(StringUtils.trimToEmpty(service))
                 .append(StringUtils.trimToEmpty(requestNo));
         return sb.toString();
     }

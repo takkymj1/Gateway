@@ -32,6 +32,9 @@ public abstract class BaseResponse extends BaseObject {
     @XmlTransient
     private String sign;
 
+    public BaseResponse() {
+    } 
+    
     public BaseResponse(String platformNo, 
                         String code, 
                         String description,
@@ -40,17 +43,19 @@ public abstract class BaseResponse extends BaseObject {
         this.code = code;
         this.description = description;
     }
+ 
+
     
     protected String baseChkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(platformNo));
         sb.append(StringUtils.trimToEmpty(code));
         sb.append(StringUtils.trimToEmpty(description));
+        System.out.println("###"+sb.toString());
         return sb.toString();
     }
     
-    public BaseResponse() {
-    } 
+
     
     /**
      * 用于做应答内容验证的ChkValue

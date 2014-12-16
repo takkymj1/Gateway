@@ -72,6 +72,7 @@ public abstract class BaseRequest extends BaseObject {
     protected String baseChkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(getPlatformNo()));
+        sb.append(StringUtils.trimToEmpty(getService()));
         sb.append(StringUtils.trimToEmpty(getCallbackUrl()));
         sb.append(StringUtils.trimToEmpty(getNotifyUrl()));
         return sb.toString();

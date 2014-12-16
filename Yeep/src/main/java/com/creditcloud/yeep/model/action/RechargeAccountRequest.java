@@ -12,14 +12,15 @@ import java.math.BigDecimal;
 
 import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+
+@XmlRootElement (name = "request")
 public class RechargeAccountRequest extends UserRequest {
 
     /**
@@ -31,13 +32,16 @@ public class RechargeAccountRequest extends UserRequest {
      * 费率模式，固定值PLATFORM
      */
     @NotNull
-    private FeeMode feeMode;
+    private String feeMode;
+
+    public RechargeAccountRequest() {
+    }
 
     public RechargeAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
                                   String amount,
-                                  FeeMode feeMode,
+                                  String feeMode,
                                   String callbackUrl,
                                   String notifyUrl,
                                   String sign) {
@@ -45,13 +49,30 @@ public class RechargeAccountRequest extends UserRequest {
         this.amount = amount;
         this.feeMode = feeMode;
     }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getFeeMode() {
+        return feeMode;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public void setFeeMode(String feeMode) {
+        this.feeMode = feeMode;
+    }
+    
     
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(feeMode.name()));
+                .append(StringUtils.trimToEmpty(feeMode));
         return sb.toString();
     }    
 }
