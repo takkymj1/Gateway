@@ -5,7 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.FeeModel;
+import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -35,13 +35,13 @@ public class RechargeAccountRequest extends UserRequest {
      * 费率模式，固定值PLATFORM
      */
     @NotNull
-    private FeeModel feeMode;
+    private FeeMode feeMode;
 
     public RechargeAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
                                   String amount,
-                                  FeeModel feeMode,
+                                  FeeMode feeMode,
                                   String callbackUrl,
                                   String notifyUrl) {
         super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);

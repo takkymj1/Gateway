@@ -34,7 +34,7 @@ import org.joda.time.LocalDate;
  * @author kdliu
  */
 @Remote
-public interface UmpService extends UmpQueryService{
+public interface UmpService extends UmpQueryService {
 
     public Map<String, String> getPostParams(String clientCode, BaseRequest request);
 
@@ -120,20 +120,20 @@ public interface UmpService extends UmpQueryService{
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
     public String getUserIdByAccountName(String clientCode, String accountName);
-    
+
     public UmpAccount getUmpAccountByAccountName(String clientCode, String accountName);
 
     /**
      * 从 accountId 获取 userId.
-     * 
+     *
      * 查询数据库寻找条目，返回userId
-     * 
+     *
      * @param clientCode
-     * @param accountId 可以为空
+     * @param accountId  可以为空
      * @return null 表示没有找到
      */
     public String getUserIdByAccountId(String clientCode, String accountId);
-    
+
     public UmpAccount getUmpAccountByAccountId(String clientCode, String accountId);
 
     /**
@@ -155,7 +155,7 @@ public interface UmpService extends UmpQueryService{
     public boolean updateUmpAgreement(String clientCode, UmpAgreement agreement);
 
     public UmpAgreement getUmpAgreement(String clientCode, String userId);
-    
+
     public UmpAgreement getUmpAgreementByAccountName(String clientCode, String accoutName);
 
     /**
@@ -294,7 +294,23 @@ public interface UmpService extends UmpQueryService{
                                      String umpWarrantyUserId,
                                      String umpWarrantyAccountId);
 
-    public UmpTender getUmpTender(String clientCode, String loanId);
+    /**
+     * 根据entityId查找UmpTender, entityId可以是任何关联到联动标的实体Id,如Loan，FeeItem等
+     *
+     * @param clientCode
+     * @param entityId
+     * @return
+     */
+    public UmpTender getUmpTender(String clientCode, String entityId);
+
+    /**
+     * 根据联动标的号查找UmpTender
+     *
+     * @param clientCode
+     * @param tenderId
+     * @return
+     */
+    public UmpTender getUmpTenderByTenderId(String clientCode, String tenderId);
 
     public String getLoanIdByTenderId(String clientCode, String tenderId);
 

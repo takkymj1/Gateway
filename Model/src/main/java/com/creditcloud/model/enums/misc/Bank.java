@@ -21,7 +21,7 @@ public enum Bank implements BaseEnum {
     ABC("中国农业银行", true, true),
     CMB("招商银行", true, true),
     CCB("建设银行", true, true),
-    BCCB("北京银行", true, "BCCB", true, "BJB"),
+    BCCB("北京银行", true, "BCCB", true, "BJBANK"),
     BJRCB("北京农村商业银行", true, true),
     BOC("中国银行", true, true),
     BOCOM("交通银行", true, "BOCOM", true, "COMM"),
@@ -234,7 +234,9 @@ public enum Bank implements BaseEnum {
     ZHRCU("珠海农村信用社", false, true),
     ZMDB("驻马店市商业银行", false, true),
     ZGB("自贡市商业银行", false, true),
-    ZYB("遵义市商业银行", false, true);
+    ZYB("遵义市商业银行", false, true),
+    //未知银行，当根据Code取不到时选用，这里只能防止数据库完整性问题，如需向第三方提交则会有一些问题
+    UNKNOWN("未知银行", false, false);
 
     private static Map<String, Bank> pnrMap;
     private static Map<String, Bank> umpMap;
@@ -337,20 +339,20 @@ public enum Bank implements BaseEnum {
      * 从PNR代码构造Bank对象
      *
      * @param pnrCode
-     * @return
+     * @return 找不到code则返回UNKNOWN
      */
     public static Bank getEnumFromPnrCode(String pnrCode) {
-        return pnrMap.get(pnrCode);
+        return pnrMap.containsKey(pnrCode) ? pnrMap.get(pnrCode) : UNKNOWN;
     }
 
     /**
      * 从UMP代码构造Bank对象
      *
      * @param umpCode
-     * @return
+     * @return 找不到code则返回UNKNOWN
      */
     public static Bank getEnumFromUmpCode(String umpCode) {
-        return umpMap.get(umpCode);
+        return umpMap.containsKey(umpCode) ? umpMap.get(umpCode) : UNKNOWN;
     }
 
     /**

@@ -75,7 +75,7 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      *
      * @param clientCode
      * @param currentStatus current status
-     * @param newStatus     status after update
+     * @param newStatus status after update
      * @param investIds
      * @return
      */
@@ -127,52 +127,61 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public boolean markFavorite(String clientCode, String projectId, String userId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param projectId
      * @param userId
-     * @return 
+     * @return
      */
     public boolean unmarkFavorite(String clientCode, String projectId, String userId);
-    
+
     /**
-     * 
+     *
      * @param clientCode
      * @param projectId
-     * @return 
+     * @return
      */
     public int favoriteCountByProject(String clientCode, String projectId);
-    
+
     // like 接口，用TagService实现
-    
     /**
      * 标记某用户喜欢该项目
-     * 
+     *
      * @param clientCode
      * @param projectId
      * @param userId
      * @return 该项目的like数
      */
     public int markLike(String clientCode, String projectId, String userId);
-    
+
     /**
      * 标记某用户不喜欢该项目
-     * 
+     *
      * @param clientCode
      * @param projectId
      * @param userId
      * @return 该项目的like数
      */
     public int unmarkLike(String clientCode, String projectId, String userId);
-    
+
     /**
      * 某项目的Like计数
-     * 
+     *
      * @param clientCode
      * @param projectId
-     * @return 
+     * @return
      */
     public int likeCountByProject(String clientCode, String projectId);
+
+    /**
+     * 设置项目的ordinal
+     *
+     * @param clientCode
+     * @param projectId
+     * @param ordinal
+     * @return true if change successful, false if project not found
+     */
+    public boolean changeOrdinal(String clientCode, String projectId, Integer ordinal);
 }
