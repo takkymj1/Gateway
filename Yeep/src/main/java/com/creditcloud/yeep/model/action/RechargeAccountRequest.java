@@ -5,15 +5,20 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.FeeMode;
+import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+<<<<<<< HEAD
 import java.math.BigDecimal;
 
 import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
+=======
+>>>>>>> upstream/master
 
 /**
  *
