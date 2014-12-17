@@ -372,5 +372,4 @@ public enum Bank implements BaseEnum {
     public static Collection<Bank> getPnrBanks() {
         return pnrMap.values();
     }
-    
 }
