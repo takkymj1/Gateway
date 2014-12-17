@@ -7,10 +7,8 @@ package com.creditcloud.contract;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.misc.ContractSealType;
 import com.creditcloud.model.user.User;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 /**
  * 合同章 （Seal 实例）
@@ -18,13 +16,19 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
 public class ContractSeal extends BaseObject {
     
     private static final long serialVersionUID = 20140801L;
     
     private String id;
+    
+    private boolean locateByKeyword = false;
+    
+    private String keyword;
+    
+    public String getKeyword(){
+        return keyword != null ? keyword.trim() : keyword;
+    }
     
     // 页码
     private int page;
@@ -39,6 +43,19 @@ public class ContractSeal extends BaseObject {
     // 关联合同模板
     private String templateId;
     
+    public ContractSeal(){}
+    
+    public ContractSeal(String id, boolean locateByKeyword, String keyword, int page, int x, int y, Seal seal, String templateId){
+        this.id = id;
+        this.locateByKeyword = locateByKeyword;
+        this.keyword = keyword;
+        this.page = page;
+        this.x = x;
+        this.y = y;
+        this.seal = seal;
+        this.templateId = templateId;
+    }
+    
     /**
      * 生成私章（电子签名）
      * @param code  证书
@@ -49,7 +66,12 @@ public class ContractSeal extends BaseObject {
      */
     public static ContractSeal generatePersonContractSeal(String code, int page, int x, int y) {
         Seal seal = new Seal(null, code, ContractSealType.PERSONAL, null, null, null, null);
-        return new ContractSeal(null, page, x, y, seal, null);
+        return new ContractSeal(null, false, "", page, x, y, seal, null);
+    }
+    
+    public static ContractSeal generatePersonContractSeal(String code, String keyword) {
+        Seal seal = new Seal(null, code, ContractSealType.PERSONAL, null, null, null, null);
+        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
     }
     
     /**
@@ -62,7 +84,12 @@ public class ContractSeal extends BaseObject {
      */
     public static ContractSeal generatePersonContractSeal(User user, int page, int x, int y) {
         Seal seal = new Seal(null, null, ContractSealType.PERSONAL, null, user.getId(), user, null);
-        return new ContractSeal(null, page, x, y, seal, null);
+        return new ContractSeal(null, false, "", page, x, y, seal, null);
+    }
+    
+    public static ContractSeal generatePersonContractSeal(User user, String keyword) {
+        Seal seal = new Seal(null, null, ContractSealType.PERSONAL, null, user.getId(), user, null);
+        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
     }
     
     /**
@@ -75,6 +102,11 @@ public class ContractSeal extends BaseObject {
      */
     public static ContractSeal generateContractSeal(String code, int page, int x, int y) {
         Seal seal = new Seal(null, code, ContractSealType.ENTERPRISE, null, null, null, null);
-        return new ContractSeal(null, page, x, y, seal, null);
+        return new ContractSeal(null, false, "", page, x, y, seal, null);
+    }
+    
+    public static ContractSeal generateContractSeal(String code, String keyword){
+        Seal seal = new Seal(null, code, ContractSealType.ENTERPRISE, null, null, null, null);
+        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
     }
 }
