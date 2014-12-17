@@ -5,8 +5,6 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.FeeMode;
-import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.xml.bind.annotation.XmlRootElement;
