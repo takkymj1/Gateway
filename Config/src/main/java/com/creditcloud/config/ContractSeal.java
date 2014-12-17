@@ -22,6 +22,14 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ContractSeal extends BaseObject {
  
+    @XmlElement
+    @Getter
+    private boolean locateByKeyword = false;
+    
+    @XmlElement
+    @Getter
+    private String keyword = "";
+    
     /**
      * page
      */
