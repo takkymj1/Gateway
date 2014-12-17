@@ -6,6 +6,7 @@
 package com.creditcloud.service.model;
 
 import com.creditcloud.model.BaseObject;
+import javax.ws.rs.FormParam;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -24,10 +25,19 @@ public class MarketControl extends BaseObject {
     /**
      * 跳过还款流程借款人往标的账户转账
      */
+    @FormParam("ignoreUmpRepayRefund")
     private boolean ignoreUmpRepayRefund = false;
-    
+
     /**
      * 跳过垫付流程平台/担保方往标的账户转账
      */
+    @FormParam("ignoreUmpDisburseRefund")
     private boolean ignoreUmpDisburseRefund = false;
+
+    public MarketControl(boolean ignoreUmpRepayRefund,
+                         boolean ignoreUmpDisburseRefund) {
+        this.ignoreUmpDisburseRefund = ignoreUmpDisburseRefund;
+        this.ignoreUmpRepayRefund = ignoreUmpRepayRefund;
+    }
+
 }

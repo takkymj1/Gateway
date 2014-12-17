@@ -56,4 +56,10 @@ public interface MarketControlService {
      */
     public boolean updateMarketControl(String clientCode, MarketControl control);
 
+    /**
+     * 
+     * @param clientCode
+     * @return 
+     */
+    public MarketControl getMarketControl(String clientCode);
 }

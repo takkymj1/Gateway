@@ -34,4 +34,9 @@ public class AbstractMarketControlService implements MarketControlService {
     public boolean updateMarketControl(String clientCode, MarketControl control) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public MarketControl getMarketControl(String clientCode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
