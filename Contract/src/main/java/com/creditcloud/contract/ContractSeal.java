@@ -7,8 +7,10 @@ package com.creditcloud.contract;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.misc.ContractSealType;
 import com.creditcloud.model.user.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 合同章 （Seal 实例）
@@ -16,6 +18,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
 public class ContractSeal extends BaseObject {
     
     private static final long serialVersionUID = 20140801L;
@@ -43,12 +47,8 @@ public class ContractSeal extends BaseObject {
     // 关联合同模板
     private String templateId;
     
-    public ContractSeal(){}
-    
-    public ContractSeal(String id, boolean locateByKeyword, String keyword, int page, int x, int y, Seal seal, String templateId){
+    public ContractSeal(String id, int page, int x, int y, Seal seal, String templateId){
         this.id = id;
-        this.locateByKeyword = locateByKeyword;
-        this.keyword = keyword;
         this.page = page;
         this.x = x;
         this.y = y;
