@@ -23,6 +23,13 @@ public class UnbindBankCardRequest extends UserRequest {
                                  String callbackUrl,
                                  String sign,
                                  String requestNo) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, null);
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, null,sign);
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();
     }
 }

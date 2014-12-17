@@ -12,39 +12,19 @@
 package com.creditcloud.yeep.model.action;
 
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
+import org.apache.commons.lang3.StringUtils;
 
 
 /**
  *
  * @author kakaci
  */
-
-
-@Data
-@NoArgsConstructor
 @XmlRootElement (name = "request")
 public class UserRegisterRequest extends UserRequest {
-
-    /*
-    @NotNull
-    private String platformNo;
-    
-    @NotNull
-    private String platformUserNo; 
-    
-    @NotNull
-    private String callbackUrl; 
-    
-    @NotNull
-    private String notifyUrl; 
-    */
-    
+   
     /**
      * 昵称
      */
@@ -87,6 +67,9 @@ public class UserRegisterRequest extends UserRequest {
 //    @XmlElement
     @XmlTransient  
     private String email;
+
+    public UserRegisterRequest() {
+    }
     
     
     public UserRegisterRequest(String platformNo,
@@ -100,13 +83,7 @@ public class UserRegisterRequest extends UserRequest {
                                String email,
                                String callbackUrl,
                                String notifyUrl) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
-        /*
-        this.platformNo = platformNo;
-        this.platformUserNo = platformUserNo;
-        this.callbackUrl = callbackUrl;
-        this.notifyUrl = notifyUrl;
-        */       
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,null);     
         this.nickName = nickName;
         this.realName = realName;
         this.idCardType = idCardType;
@@ -114,5 +91,67 @@ public class UserRegisterRequest extends UserRequest {
         this.mobile = mobile;
         this.email = email;
     }
-  
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(nickName))
+                .append(StringUtils.trimToEmpty(realName))
+                .append(StringUtils.trimToEmpty(idCardType))
+                .append(StringUtils.trimToEmpty(idCardNo))
+                .append(StringUtils.trimToEmpty(mobile))
+                .append(StringUtils.trimToEmpty(email));
+        return sb.toString();
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public String getIdCardType() {
+        return idCardType;
+    }
+
+    public String getIdCardNo() {
+        return idCardNo;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public void setIdCardType(String idCardType) {
+        this.idCardType = idCardType;
+    }
+
+    public void setIdCardNo(String idCardNo) {
+        this.idCardNo = idCardNo;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    
 }

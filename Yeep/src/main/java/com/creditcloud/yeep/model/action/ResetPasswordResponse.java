@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
+import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author kakaci
@@ -33,9 +34,18 @@ public class ResetPasswordResponse extends BaseResponse{
                                  String code,
                                  BizType service,
                                  String requestNo,
-                                 String description) {
-        super(platformNo, code, description);
+                                 String description,
+                                 String sign) {
+        super(platformNo, code, description,sign);
         this.service = service;
         this.requestNo=requestNo;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
     }
 }

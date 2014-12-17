@@ -9,6 +9,8 @@ import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 接口输出
  *
@@ -25,17 +27,43 @@ public abstract class BaseResponse extends BaseObject {
 
     @NotNull
     private String description;
+    
+    @NotNull
+    @XmlTransient
+    private String sign;
 
+    public BaseResponse() {
+    } 
+    
     public BaseResponse(String platformNo, 
                         String code, 
-                        String description) {
+                        String description,
+                        String sign) {
         this.platformNo = platformNo;
         this.code = code;
         this.description = description;
     }
+ 
 
-    public BaseResponse() {
-    }    		
+    
+    protected String baseChkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(StringUtils.trimToEmpty(platformNo));
+        sb.append(StringUtils.trimToEmpty(code));
+        sb.append(StringUtils.trimToEmpty(description));
+        System.out.println("###"+sb.toString());
+        return sb.toString();
+    }
+    
+
+    
+    /**
+     * 用于做应答内容验证的ChkValue
+     * 
+     * @return 
+     */
+    public abstract String chkString();
+    
     public boolean success() {		
         return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(code);		
     }      
@@ -54,6 +82,11 @@ public abstract class BaseResponse extends BaseObject {
         return description;
     }
 
+    @XmlTransient
+    public String getSign() {
+        return sign;
+    }
+    
     public void setCode(String code) {
         this.code = code;
     }
@@ -65,8 +98,14 @@ public abstract class BaseResponse extends BaseObject {
     public void setPlatformNo(String platformNo) {
         this.platformNo = platformNo;
     }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
     
-    
+    public String getChkValue() {
+        return sign;
+    }    
     /**
      * 用于做应答内容验证的ChkValue
      * 

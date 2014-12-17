@@ -15,7 +15,7 @@ public enum AccountType {
     MERCHANT("02"),
     TENDER("03");
 
-    String code;
+    private final String code;
 
     AccountType(String code) {
         this.code = code;

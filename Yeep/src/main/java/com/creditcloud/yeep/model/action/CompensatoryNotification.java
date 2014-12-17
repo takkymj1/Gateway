@@ -10,6 +10,7 @@ import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -29,8 +30,17 @@ public class CompensatoryNotification extends BaseNotification {
                                     BizType bizType,
                                     String code,
                                     String message,
-                                    String requestNo) {
-        super(platformNo, bizType, code, message);
+                                    String requestNo,
+                                    String sign) {
+        super(platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
     }
 }

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.enums.BizType;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -35,10 +36,17 @@ public class CpTransactionResponse extends BaseResponse {
                                  String code,
                                  String description,
                                  String requestNo,
-                                 BizType service) {
-        super(platformNo, code, description);
+                                 BizType service,
+                                 String sign) {
+        super(platformNo, code, description,sign);
         this.requestNo = requestNo;
         this.service = service;
     }
-
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
+    }
 }
