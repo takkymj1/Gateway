@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.enums.MemberType;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -54,18 +55,30 @@ public class CompensatoryRequest extends UserRequest {
                                String platformNo,
                                String callbackUrl,
                                String notifyUrl,
-                               String sign,
                                String requestNo,
                                String orderNo,
                                String transfer,
                                String amount,
                                MemberType targetUserType,
-                               String targetPlatformUserNo) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
+                               String targetPlatformUserNo,
+                               String sign) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
         this.orderNo = orderNo;
         this.transfer = transfer;
         this.amount = amount;
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
     }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo))
+                .append(StringUtils.trimToEmpty(transfer))
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(targetUserType.name()))
+                .append(StringUtils.trimToEmpty(targetPlatformUserNo));
+        return sb.toString();
+    }    
 }

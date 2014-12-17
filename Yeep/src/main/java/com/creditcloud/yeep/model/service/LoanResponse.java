@@ -17,7 +17,15 @@ public class LoanResponse extends BaseResponse{
     
     public LoanResponse(String platfromNo,
                         String code,
-                        String description) {
-        super(platfromNo,code,description);
-    }   
+                        String description,
+                        String sign) {
+        super(platfromNo,code,description,sign);
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();
+    }    
 }

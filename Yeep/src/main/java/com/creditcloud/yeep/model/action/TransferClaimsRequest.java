@@ -9,6 +9,7 @@ import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -44,9 +45,19 @@ public class TransferClaimsRequest extends UserRequest {
                                  String orderNo,
                                  String paymentRequestNo,
                                  String amount) {
-        super(platformUserNo, platformNo, null, requestNo,null,notifyUrl);
+        super(platformUserNo, platformNo, null, requestNo,null,notifyUrl,sign);
         this.orderNo = orderNo;
         this.paymentRequestNo = paymentRequestNo;
         this.amount = amount;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo))
+                .append(StringUtils.trimToEmpty(paymentRequestNo))
+                .append(StringUtils.trimToEmpty(amount));
+        return sb.toString();
     }
 }
