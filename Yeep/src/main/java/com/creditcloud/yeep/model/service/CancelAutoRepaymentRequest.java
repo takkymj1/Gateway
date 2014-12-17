@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 取消自动还款授权
@@ -24,8 +25,17 @@ public class CancelAutoRepaymentRequest extends UserRequest {
     public CancelAutoRepaymentRequest(String platformNo,
                                       String platformUserNo,
                                       String requestNo,
-                                      String orderNo) {
-        super(platformUserNo, platformNo, null, requestNo, null, null);
+                                      String orderNo,
+                                      String sign) {
+        super(platformUserNo, platformNo, null, requestNo, null, null,sign);
         this.orderNo = orderNo;
     }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo));
+        return sb.toString();
+    }    
 }

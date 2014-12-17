@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
+import org.apache.commons.lang3.StringUtils;
 
 
 
@@ -41,8 +42,17 @@ public class WithdrawAccountRequest extends UserRequest {
                                   String callbackUrl,
                                   String notifyUrl,
                                   String sign) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
         this.feeMode = feeMode;
         this.amount = amount;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(feeMode.name()))
+                .append(StringUtils.trimToEmpty(amount));
+        return sb.toString();
     }
 }

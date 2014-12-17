@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseNotification;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author tinglany
@@ -30,9 +31,19 @@ public class LoanNotification extends BaseNotification {
                             String code,
                             String message,
                             String requestNo,
-                            String orderNo) {
-        super(platformNo,bizType,code,message);
+                            String orderNo,
+                            String sign) {
+        super(platformNo,bizType,code,message,sign);
         this.requestNo = requestNo;
         this.orderNo = orderNo;
-    }  
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(orderNo));
+        return sb.toString();
+    }    
 }

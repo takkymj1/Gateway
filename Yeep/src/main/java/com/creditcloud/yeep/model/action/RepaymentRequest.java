@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.Repayment;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -32,14 +33,21 @@ public class RepaymentRequest extends UserRequest {
                             String platformNo,
                             String callbackUrl,
                             String notifyUrl,
-                            String sign,
                             String requestNo,
                             String OrderNo,
-                            Repayment repayment) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
+                            Repayment repayment,
+                            String sign) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
         this.OrderNo = OrderNo;
         this.repayment = repayment;
-
     }
 
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(OrderNo))
+                .append(StringUtils.trimToEmpty(repayment.toString()));
+        return sb.toString();
+    }    
 }

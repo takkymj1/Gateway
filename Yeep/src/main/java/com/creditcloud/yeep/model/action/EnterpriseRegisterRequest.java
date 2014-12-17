@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.enums.MemberClassType;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -88,7 +89,6 @@ public class EnterpriseRegisterRequest extends UserRequest {
                                      String platformNo,
                                      String callbackUrl,
                                      String notifyUrl,
-                                     String sign,
                                      String requestNo,
                                      String enterpriseName,
                                      String bankLicense,
@@ -100,8 +100,9 @@ public class EnterpriseRegisterRequest extends UserRequest {
                                      String contact,
                                      String contactPhone,
                                      String email,
-                                     MemberClassType memberClassTYpe) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
+                                     MemberClassType memberClassTYpe,
+                                     String sign) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
         this.enterpriseName = enterpriseName;
         this.bankLicense = bankLicense;
         this.orgNo = orgNo;
@@ -113,5 +114,23 @@ public class EnterpriseRegisterRequest extends UserRequest {
         this.contactPhone = contactPhone;
         this.email = email;
         this.memberClassType = memberClassType;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(enterpriseName))
+                .append(StringUtils.trimToEmpty(bankLicense))
+                .append(StringUtils.trimToEmpty(orgNo))
+                .append(StringUtils.trimToEmpty(businessLicense))
+                .append(StringUtils.trimToEmpty(taxNo))
+                .append(StringUtils.trimToEmpty(legal))
+                .append(StringUtils.trimToEmpty(legalNo))
+                .append(StringUtils.trimToEmpty(contact))
+                .append(StringUtils.trimToEmpty(contactPhone))
+                .append(StringUtils.trimToEmpty(email))
+                .append(StringUtils.trimToEmpty(memberClassType.name()));
+        return sb.toString();
     }
 }

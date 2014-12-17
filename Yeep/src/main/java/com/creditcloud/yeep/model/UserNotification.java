@@ -8,8 +8,7 @@ package com.creditcloud.yeep.model;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -27,8 +26,9 @@ public class UserNotification extends BaseNotification {
                             String platformNo, 
                             BizType bizType, 
                             String code, 
-                            String message) {
-        super(platformNo, bizType, code, message);
+                            String message,
+                            String sign) {
+        super(platformNo, bizType, code, message,sign);
         this.platformUserNo = platformUserNo;
     }
 
@@ -42,5 +42,11 @@ public class UserNotification extends BaseNotification {
     public void setPlatformUserNo(String platformUserNo) {
         this.platformUserNo = platformUserNo;
     }
-    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(platformUserNo));
+        return sb.toString();
+    }    
 }

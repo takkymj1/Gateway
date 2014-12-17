@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -30,7 +31,17 @@ public class AutoRepaymentNotification extends BaseNotification {
                                      String code,
                                      String message,
                                      String requestNo,
-                                     String orderNo) {
-        super(platformNo,bizType,code,message);    
-    }   
+                                     String orderNo,
+                                     String sign) {
+        super(platformNo,bizType,code,message,sign);    
+    } 
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(orderNo));
+        return sb.toString();
+    }
 }

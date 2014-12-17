@@ -5,22 +5,32 @@
  */
 package com.creditcloud.ump.model.ump.enums;
 
+import com.creditcloud.model.enums.BaseEnum;
+
 /**
  *
  * @author kdliu
  */
-public enum ParticAccountType {
+public enum ParticAccountType implements BaseEnum {
 
-    PERSONAL("01"),
-    CORPORATE("02");
+    PERSONAL("01", "个人用户"),
+    CORPORATE("02", "企业用户");
 
-    String code;
+    private final String code;
 
-    ParticAccountType(String code) {
+    private final String key;
+
+    ParticAccountType(final String code, final String key) {
         this.code = code;
+        this.key = key;
     }
 
     public String getCode() {
         return code;
+    }
+
+    @Override
+    public String getKey() {
+        return key;
     }
 }

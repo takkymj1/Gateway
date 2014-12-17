@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.Transfer;
+import org.apache.commons.lang3.StringUtils;
 /**
  * 放款
  * 
@@ -42,12 +43,25 @@ public class LoanRequest extends BaseRequest {
                        String requestNo,
                        String fee,
                        Transfer transfer,
-                       String notifyUrl) {
-        super(platformNo,null,notifyUrl,null);
+                       String notifyUrl,
+                       String sign) {
+        super(platformNo,null,notifyUrl,null,sign);
         this.orderNo = orderNo;
         this.requestNo = requestNo;
         this.fee = fee;
         this.transfer = transfer;
         this.notifyUrl = notifyUrl;
+    } 
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo))
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(fee))
+                .append(StringUtils.trimToEmpty(transfer.toString()))
+                .append(StringUtils.trimToEmpty(notifyUrl));
+        return sb.toString();
     }    
 }
