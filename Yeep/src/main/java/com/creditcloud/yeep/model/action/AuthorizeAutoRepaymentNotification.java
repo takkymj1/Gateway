@@ -22,7 +22,15 @@ public class AuthorizeAutoRepaymentNotification extends UserNotification {
                                               String platformNo,
                                               BizType bizType,
                                               String code,
-                                              String message) {
-        super(platformUserNo, platformNo, bizType, code, message);
+                                              String message,
+                                              String sign) {
+        super(platformUserNo, platformNo, bizType, code, message,sign);
+    }
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();
     }
 }

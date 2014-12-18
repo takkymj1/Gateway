@@ -7,14 +7,16 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.enums.Status;
+import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 通用转账记录
  * 
  * @author tinglany
  */
-public class CpTransactionResponse {
+public class CpTransactionResponse extends BaseResponse {
     
     //流水号
     @NotNull
@@ -40,11 +42,24 @@ public class CpTransactionResponse {
                                  BizType bizType,
                                  String amount,
                                  Status status,
-                                 Status subStatus) {
+                                 Status subStatus,
+                                 String sign) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
         this.status = status;
         this.subStatus = subStatus;
     }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(bizType.name()))
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(status.name()))
+                .append(StringUtils.trimToEmpty(subStatus.name()));
+        return sb.toString();
+    }    
 }

@@ -7,14 +7,16 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.enums.RemitStatus;
 import com.creditcloud.yeep.enums.Status;
+import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
 /**
  *
  * @author tinglany
  */
-public class WithdrawRecordResponse {
+public class WithdrawRecordResponse extends BaseResponse {
     
     //提现金额
     @NotNull
@@ -39,11 +41,24 @@ public class WithdrawRecordResponse {
                                   String userNo,
                                   LocalDate createTime,
                                   Status status,
-                                  RemitStatus remitStatus) {
+                                  RemitStatus remitStatus,
+                                  String sign) {
         this.amount = amount;
         this.userNo = userNo;
         this.createTime = createTime;
         this.status = status;
         this.remitStatus = remitStatus;
-    }   
+    } 
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(userNo))
+                .append(StringUtils.trimToEmpty(createTime.toString()))
+                .append(StringUtils.trimToEmpty(status.name()))
+                .append(StringUtils.trimToEmpty(remitStatus.name()));
+        return sb.toString();
+    }    
 }

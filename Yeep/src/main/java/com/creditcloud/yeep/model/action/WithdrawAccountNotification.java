@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.enums.misc.Bank;
+import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author kakaci
@@ -44,11 +45,21 @@ public class WithdrawAccountNotification extends UserNotification {
                                        String requestNo,
                                        String platformUserNo,
                                        String cardNo,
-                                       Bank bank) {
-        super(platformUserNo, platformNo, bizType, code, message);
+                                       Bank bank,
+                                       String sign) {
+        super(platformUserNo, platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
         this.cardNo = cardNo;
         this.bank = bank;
     }
 
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(cardNo))
+                .append(StringUtils.trimToEmpty(bank.name()));
+        return sb.toString();
+    }
 }

@@ -9,6 +9,7 @@ import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -29,8 +30,17 @@ public class AuthorizeAutoRepaymentRequest extends UserRequest {
                                          String callbackUrl,
                                          String notifyUrl,
                                          String requestNo,
-                                         String orderNo) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
+                                         String orderNo,
+                                         String sign) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
         this.orderNo = orderNo;
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo));
+        return sb.toString();
     }
 }

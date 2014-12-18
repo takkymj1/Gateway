@@ -17,8 +17,16 @@ import com.creditcloud.yeep.model.BaseResponse;
 public class CancelAutoTransferResponse extends BaseResponse {
     
     public CancelAutoTransferResponse(String platformNo,
-                                               String code,
-                                               String description) {
-        super(platformNo,code,description);
-    }    
+                                      String code,
+                                      String description,
+                                      String sign) {
+        super(platformNo,code,description,sign);
+    } 
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString());
+        return sb.toString();    
+    }     
 }

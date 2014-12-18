@@ -5,6 +5,7 @@
  */
 package com.creditcloud.service;
 
+import com.creditcloud.service.model.MarketControl;
 import javax.ejb.Remote;
 
 /**
@@ -46,4 +47,19 @@ public interface MarketControlService {
      */
     public boolean cancelFundingProject(String clientCode, String projectId);
 
+    /**
+     * update MarketControl
+     *
+     * @param clientCode
+     * @param control
+     * @return
+     */
+    public boolean updateMarketControl(String clientCode, MarketControl control);
+
+    /**
+     * 
+     * @param clientCode
+     * @return 
+     */
+    public MarketControl getMarketControl(String clientCode);
 }

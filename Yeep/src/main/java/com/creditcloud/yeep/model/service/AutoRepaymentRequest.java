@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
 import com.creditcloud.yeep.model.Repayment;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 自动还款
@@ -32,14 +33,18 @@ public class AutoRepaymentRequest extends UserRequest {
                                 String requestNo,
                                 String orderNo,
                                 Repayment repayment,
-                                String notifyUrl) {
-        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
+                                String notifyUrl,
+                                String sign) {
+        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null,sign);
         this.orderNo = orderNo;
         this.repayment = repayment;
     }
-    
-    
-    
-    
-    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(orderNo))
+                .append(StringUtils.trimToEmpty(repayment.toString()));
+        return sb.toString();
+    }   
 }

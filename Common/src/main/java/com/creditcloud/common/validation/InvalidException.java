@@ -33,7 +33,10 @@ public class InvalidException extends RuntimeException {
     public String getMessage() {
         StringBuilder sb = new StringBuilder();
         for (Violation violation : violations) {
-            sb.append(violation.getInvalidValue()).append(":").append(violation.getMessage()).append("\n");
+            sb.append(String.format("[invalidValue={}][propertyPath={}][message={}]\n",
+                                    violation.getInvalidValue(),
+                                    violation.getPropertyPath(),
+                                    violation.getMessage()));
         }
         return sb.toString();
     }
@@ -42,13 +45,16 @@ public class InvalidException extends RuntimeException {
         Set<Violation> result = new HashSet<>();
         if (cvs != null && cvs.size() > 0) {
             for (ConstraintViolation<T> cv : cvs) {
-                result.add(new Violation(cv.getMessage(), cv.getInvalidValue(), cv.getRootBean()));
+                result.add(new Violation(cv.getMessage(),
+                                         cv.getInvalidValue(),
+                                         cv.getPropertyPath() == null ? null : cv.getPropertyPath().toString(),
+                                         cv.getRootBean()));
             }
         }
         return new InvalidException(result);
     }
 
     static InvalidException create(String regex, String value) {
-        return new InvalidException(Collections.singleton(new Violation(String.format("Value %s not matching the regex %s.", value, regex), value, regex)));
+        return new InvalidException(Collections.singleton(new Violation(String.format("Value %s not matching the regex %s.", value, regex), value, null, regex)));
     }
 }

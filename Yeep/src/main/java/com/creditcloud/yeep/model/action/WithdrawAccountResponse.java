@@ -10,6 +10,7 @@ import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -34,9 +35,19 @@ public class WithdrawAccountResponse extends BaseResponse {
                                    BizType service,
                                    String requestNo,
                                    String code,
-                                   String description) {
-        super(platformNo, code, description);
+                                   String description,
+                                   String sign) {
+        super(platformNo, code, description,sign);
         this.service = service;
         this.requestNo = requestNo;
+    }
+
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(service.name()))
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
     }
 }

@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
 
@@ -25,8 +26,17 @@ public class ReconciliationRequest extends BaseRequest {
     private LocalDate date;
     
     public ReconciliationRequest(String platformNo,
-                                 LocalDate date) {
-        super(platformNo,null,null,null);
+                                 LocalDate date,
+                                 String sign) {
+        super(platformNo,null,null,null,sign);
         this.date = date;
-    }   
+    }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(date.toString()));
+        return sb.toString();
+    }    
 }

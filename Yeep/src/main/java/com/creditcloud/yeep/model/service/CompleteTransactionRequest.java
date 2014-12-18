@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 通用转账确认
@@ -30,10 +31,19 @@ public class CompleteTransactionRequest extends BaseRequest {
     public CompleteTransactionRequest(String platformNo,
                                       String requestNo,
                                       Status mode,
-                                      String notifyUrl) {
-        super(platformNo,null,notifyUrl,null);
+                                      String notifyUrl,
+                                      String sign) {
+        super(platformNo,null,notifyUrl,null,sign);
         this.requestNo = requestNo;
         this.mode = mode;
     }
     
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(requestNo))
+                .append(StringUtils.trimToEmpty(mode.name()));
+        return sb.toString();
+    }    
 }

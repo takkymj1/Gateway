@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -31,20 +32,30 @@ public class UserRequest extends BaseRequest {
     @XmlTransient
     private String requestNo;
 
+    public UserRequest() {
+    }
+
     public UserRequest(String platformUserNo,
                        String platformNo,
                        String service,
                        String requestNo,
                        String callbackUrl,
-                       String notifyUrl) {
-        super(platformNo, service, callbackUrl, notifyUrl);
+                       String notifyUrl,
+                       String sign) {
+        super(platformNo, service, callbackUrl, notifyUrl,sign);
         this.platformUserNo = platformUserNo;
         this.requestNo = requestNo;
     }
 
-    public UserRequest() {
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(platformUserNo))
+                .append(StringUtils.trimToEmpty(requestNo));
+        return sb.toString();
     }
-
+    
     public String getPlatformUserNo() {
         return platformUserNo;
     }

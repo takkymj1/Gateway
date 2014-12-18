@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.enums.BizType;
 
 import com.creditcloud.yeep.enums.MemberType;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -58,15 +59,15 @@ public class CpTransactionRequest extends UserRequest {
                                 String platformNo,
                                 String callbackUrl,
                                 String notifyUrl,
-                                String sign,
                                 String requestNo,
                                 BizType bizType,
                                 String expired,
                                 String detail,
                                 String amount,
                                 MemberType targetUserType,
-                                String targetPlatformUserNo) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
+                                String targetPlatformUserNo,
+                                String sign) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
         this.bizType = bizType;
         this.expired = expired;
         this.detail = detail;
@@ -74,4 +75,17 @@ public class CpTransactionRequest extends UserRequest {
         this.targetPlatformUserNo = targetPlatformUserNo;
         this.targetUserType = targetUserType;
     }
+    
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+                .append(StringUtils.trimToEmpty(bizType.name()))
+                .append(StringUtils.trimToEmpty(expired))
+                .append(StringUtils.trimToEmpty(detail))
+                .append(StringUtils.trimToEmpty(amount))
+                .append(StringUtils.trimToEmpty(targetPlatformUserNo))
+                .append(StringUtils.trimToEmpty(targetUserType.name()));
+        return sb.toString();
+    }    
 }
