@@ -56,7 +56,7 @@ public interface LoanQueryService {
      * @param entity
      * @return
      */
-    public List<Loan> listByCorporationUser(RealmEntity entity);
+    public PagedResult<Loan> listByCorporationUser(RealmEntity entity, PageInfo pageInfo, LoanStatus... statusList);
 
     /**
      * count by loan status
