@@ -19,8 +19,9 @@ public enum ApiErrorCode implements BaseEnum {
     USER_AMOUNT_INSUFFICIENT_AND_INVEST_RETURN("可用余额不足,投资已返还"),
     USER_AMOUNT_INSUFFICIENT_AND_PREPARE_CONTACT("可用金额不足,请联系客服"),
     
-    UMP_TENDER_NOT_FOUND("联动优势投标未发现"),
+    UMP_TENDER_NOT_FOUND("未找到联动优势标的账户"),
     UMP_CREATE_ACCOUNT_FAILED("联动优势账号创建失败"),
+    UMP_ACCOUNT_NOT_FOUND("未开通联动优势账户"),
     
     LOAN_STATUS_FINISHED_OR_CANCEL("标的已经结束或关闭"),
     LOAN_STATUS_FINISHED_AND_INVEST_RETURN("投资失败,已满标,投资已返还"),
@@ -42,6 +43,7 @@ public enum ApiErrorCode implements BaseEnum {
     INVALID_CAPTCHA("无效的验证码"),
     INVALID_MOBILE("无效的手机号"),
     INVALID_MOBILE_CAPTCHA("无效的手机验证码"),    
+    INVALID_UMP_TENDER_AMOUNT("无效的投标金额联动优势"),
     
     AGREEMENT_NOT_SIGNED("未签署相关协议"),
     
