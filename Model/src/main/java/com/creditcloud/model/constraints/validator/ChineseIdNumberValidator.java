@@ -96,7 +96,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
     private static final int weightFactor[] = {7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2};
 
-    private static final String checkCode[] = {"1", "0", "X", "x", "9", "8", "7", "6", "5",
+    private static final String checkCode[] = {"1", "0", "X", "9", "8", "7", "6", "5",
                                                "4", "3", "2"};
 
     private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
