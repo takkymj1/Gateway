@@ -17,14 +17,18 @@ public class Violation extends BaseObject {
     private final String message;
 
     private final Object invalidValue;
+    
+    private final String propertyPath;
 
     private final Object invalidObject;
 
     public Violation(final String message,
                      final Object invalidValue,
+                     final String propertyPath,
                      final Object invalidObject) {
         this.message = message;
         this.invalidValue = invalidValue;
+        this.propertyPath = propertyPath;
         this.invalidObject = invalidObject;
     }
 
@@ -34,6 +38,10 @@ public class Violation extends BaseObject {
 
     public Object getInvalidValue() {
         return invalidValue;
+    }
+    
+    public String getPropertyPath() {
+        return propertyPath;
     }
 
     public Object getInvalidObject() {
