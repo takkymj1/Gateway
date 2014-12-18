@@ -58,6 +58,13 @@ public class Features extends BaseObject {
     private boolean enableShadowLoan = false;
 
     /**
+     * 新手标
+     */
+    @XmlElement
+    @Getter
+    private boolean enableNewBeeLoan = false;
+
+    /**
      * 是否关闭默认公安部认证，改从后台平台自己来审核身份验证信息
      */
     @XmlElement
@@ -228,7 +235,7 @@ public class Features extends BaseObject {
      * jpa auto managed flush to db
      */
     @Getter
-    @XmlElement 
+    @XmlElement
     private boolean enableManualFlush = true;
     
     /**
@@ -240,7 +247,7 @@ public class Features extends BaseObject {
     
     /**
      * 当计算判断逾期时是否跳过周末以及节假日.
-     * 
+     *
      * 节假日通过<b>CREDITCLOUD_HOME<b>/holiday文件控制
      */
     @Getter
