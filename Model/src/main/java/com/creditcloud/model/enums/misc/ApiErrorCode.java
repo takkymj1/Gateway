@@ -20,6 +20,7 @@ public enum ApiErrorCode implements BaseEnum {
     USER_AMOUNT_INSUFFICIENT_AND_PREPARE_CONTACT("可用金额不足,请联系客服"),
     
     UMP_TENDER_NOT_FOUND("联动优势投标未发现"),
+    UMP_CREATE_ACCOUNT_FAILED("联动优势账号创建失败"),
     
     LOAN_STATUS_FINISHED_OR_CANCEL("标的已经结束或关闭"),
     LOAN_STATUS_FINISHED_AND_INVEST_RETURN("投资失败,已满标,投资已返还"),
@@ -38,6 +39,26 @@ public enum ApiErrorCode implements BaseEnum {
     AMOUNT_ERROR("投标金额错误"),
 
     INVALID_PARAMS("无效的参数"),
+    INVALID_CAPTCHA("无效的验证码"),
+    INVALID_MOBILE("无效的手机号"),
+    INVALID_MOBILE_CAPTCHA("无效的手机验证码"),    
+    
+    AGREEMENT_NOT_SIGNED("未签署相关协议"),
+    
+    MOBILE_AND_NAME_NOT_MATCH("手机号与真实姓名不匹配"),
+    MOBILE_CAPTCHA_ALREADY_SENT("手机验证码已经发送"),
+    MOBILE_CAPTCHA_EXPIRED("手机验证码已经过期"),
+    MOBILE_ALREADY_EXISTED("手机号已经存在"),
+    
+    LOGINNAME_ALREADY_EXISTED("登录名已经存在"),
+    
+    IDNUMBER_ALREADY_EXISTED("身份证号已经存在"),
+    IDNUMBER_AND_NAME_NOT_MATCH("身份证号与真实姓名不匹配"),
+    
+    MSG_RECEIVER_EMPTY("消息接受方为空"),
+    MSG_TITLE_EMPTY("消息标题为空"),
+    MSG_CONTENT_EMPTY("消息内容为空"),
+    MSG_SEND_FAILED("消息发送失败"),
     
     TAG_NOT_FOUND("标签未找到"),
     
