@@ -151,7 +151,7 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @param clientCode
      * @param userId
      * @param name  真实姓名
-     * @param idNumber  身份证号，不再验证格式
+     * @param idNumber  身份证号，不再验证格式，会被转为大写
      * @return 更新后的用户，null表示没有找到
      */
     User setIdAndName(String clientCode, String userId, String name, String idNumber);
