@@ -5,10 +5,11 @@
  */
 package com.creditcloud.service.impl;
 
+import com.creditcloud.service.model.MarketControl;
 import com.creditcloud.service.MarketControlService;
 
 /**
- * general portal for control impl in Market</p>
+ * general portal for control impl/procedure in Market</p>
  *
  * @author rooseek
  */
@@ -26,6 +27,16 @@ public class AbstractMarketControlService implements MarketControlService {
 
     @Override
     public boolean cancelFundingProject(String clientCode, String projectId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean updateMarketControl(String clientCode, MarketControl control) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public MarketControl getMarketControl(String clientCode) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

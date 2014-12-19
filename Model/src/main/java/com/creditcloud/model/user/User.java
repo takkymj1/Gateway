@@ -93,7 +93,7 @@ public class User extends BaseObject {
      */
     @FormParam("channel")
     private String channel;
-    
+
     protected Date lastLoginDate;
 
     protected Date registerDate;
@@ -122,6 +122,11 @@ public class User extends BaseObject {
      * 是否已经推荐奖励
      */
     private boolean referralRewarded;
+
+    /**
+     * 用戶组
+     */
+    private String groupId;
 
     public User(String Id,
                 String clientCode,
