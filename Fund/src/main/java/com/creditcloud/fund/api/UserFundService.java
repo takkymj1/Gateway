@@ -22,7 +22,7 @@ public interface UserFundService {
      * get user fund by user id
      *
      * @param clientCode
-     * @param userId
+     * @param userId 必须为有效uuid
      * @return null if not found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client

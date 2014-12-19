@@ -283,6 +283,7 @@ public class ChineseIdNumberValidator implements IdNumberValidator {
 
         //check the sum of prefix 17 numbers mutilplied by weighted factor equals the last check code
         if (null != charArray) {
+            idNumber18Code = idNumber18Code.toUpperCase();
             if (!idNumber18Code.equals(
                     getCheckCode(
                             getPowerSum(

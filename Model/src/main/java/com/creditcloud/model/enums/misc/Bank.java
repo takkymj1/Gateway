@@ -176,7 +176,6 @@ public enum Bank implements BaseEnum {
     NBCB("宁波通商银行", false, true),
     PZHCCB("攀枝花市商业银行", false, true),
     PJB("盘锦市商业银行", false, true),
-    SPAB("平安银行", false, true),
     PDSCB("平顶山银行", false, true),
     PYYH("濮阳银行", false, true),
     QSB("齐商银行", false, true),

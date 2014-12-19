@@ -25,6 +25,8 @@ public class IdNumberTest extends BaseTest<User> {
 
     private static final String[] validIdNumbers = {IdNumberConstant.DEFAULT_IDNUMBER,
                                                     "42010619620204815X",
+                                                    //小写x兼容脏数据
+                                                    "42010619620204815x",
                                                     "132826197909170619",
                                                     //male idNumber   
                                                     "230109198810127372",
@@ -172,7 +174,7 @@ public class IdNumberTest extends BaseTest<User> {
         //last 'X' must be upper case
         object.setIdNumber("42010619620204815x");
         constraintViolations = validator.validateProperty(object, "idNumber");
-        assertEquals(1, constraintViolations.size());
+        assertEquals(0, constraintViolations.size());
 
         //start with **0000 is province code
         object.setIdNumber("42000019620204815x");
