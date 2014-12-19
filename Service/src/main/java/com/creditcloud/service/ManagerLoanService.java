@@ -14,7 +14,6 @@ import com.creditcloud.model.loan.LoanReward;
 import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
-import com.creditcloud.service.model.misc.LoanRequestDetail;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -174,13 +173,6 @@ public interface ManagerLoanService extends ManagerLoanRequestService {
      */
     PagedResult<Loan> listLoanByComplexCondition(String clientCode,List<RepaymentMethod> methodList,int minRate,int maxRate,int minDuration,int maxDuration,PageInfo pageInfo, List<LoanStatus> statusList);
 
-    /**
-     * 查询贷款申请扩展信息
-     * @param clientCode
-     * @param requestId
-     * @return 
-     */
-    LoanRequestDetail  getLoanRequestDetailByRequestId(String clientCode, String requestId);
     
     /**
      * 

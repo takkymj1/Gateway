@@ -87,4 +87,11 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableBrokerage = false;
+    
+    /**
+     * 是否支持原始债权
+     */
+    @XmlElement
+    @Getter
+    private boolean enableHanHuaFeature = false;
 }

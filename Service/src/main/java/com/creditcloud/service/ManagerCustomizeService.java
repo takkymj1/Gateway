@@ -5,7 +5,6 @@
  */
 package com.creditcloud.service;
 
-import com.creditcloud.service.misc.LoanRequestDetailService;
 import javax.ejb.Remote;
 
 /**
@@ -14,5 +13,5 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface ManagerCustomizeService extends LoanRequestDetailService {
+public interface ManagerCustomizeService {
 }
