@@ -33,7 +33,7 @@ public enum Bank implements BaseEnum {
     CITIC("中信银行", true, true),
     CZB("浙商银行", true, true),
     GDB("广发银行", true, true),
-    BEA("东亚银行", true, true),
+    HKBEA("东亚银行", true, "HKBEA", true, "BEA"),
     HXB("华夏银行", true, true),
     HZCB("杭州银行", true, false),
     NJCB("南京银行", true, true),
