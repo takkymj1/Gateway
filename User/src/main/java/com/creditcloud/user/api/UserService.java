@@ -143,15 +143,15 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
     
     /**
      * 为指定用户设置身份证号码与真实姓名.
-     * 
+     *
      * 为userId指定的用户直接设置真实姓名和身份证号码
-     * 
+     *
      * 不会做任何验证，直接update内容
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @param name  真实姓名
-     * @param idNumber  身份证号，不再验证格式
+     * @param name       真实姓名
+     * @param idNumber   身份证号，不再验证格式，会被转为大写
      * @return 更新后的用户，null表示没有找到
      */
     User setIdAndName(String clientCode, String userId, String name, String idNumber);
@@ -204,14 +204,17 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
     User findByIdNumber(String clientCode, String idNumber);
 
     /**
-     * find user by email
+     * find user by email</p>
+     * 查看email是否被占用,使用checkEmail方法
      *
      * @param clientCode
      * @param email
      * @return null if not found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
+     * @throw NonUniqueResultException if more than one user found
      */
+    @Deprecated
     User findByEmail(String clientCode, String email);
 
     /**
