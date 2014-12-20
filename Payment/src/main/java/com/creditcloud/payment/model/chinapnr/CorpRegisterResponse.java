@@ -13,7 +13,6 @@ import org.apache.commons.lang3.StringUtils;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import lombok.ToString;
 
-
 /**
  *
  * @author rooseek
@@ -55,6 +54,7 @@ public class CorpRegisterResponse extends BaseResponse {
     private String OpenBankId;
 
     @FormParam("CardId")
+    @Size(max = 40)
     private String CardId;
 
     @FormParam("BgRetUrl")
