@@ -62,4 +62,12 @@ public class WithdrawAccountNotification extends UserNotification {
                 .append(StringUtils.trimToEmpty(bank.name()));
         return sb.toString();
     }
+
+    public boolean success() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean success() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

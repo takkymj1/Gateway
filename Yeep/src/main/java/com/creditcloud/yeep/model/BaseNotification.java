@@ -116,5 +116,9 @@ public abstract class BaseNotification extends BaseObject {
     public void setSign(String sign) {
         this.sign = sign;
     }
+    
+    public boolean success() {
+        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(getCode());
+    }
       
 }

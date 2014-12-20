@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
+import com.creditcloud.yeep.model.YeepConstant;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -53,5 +54,9 @@ public class RechargeAccountNotification extends UserNotification {
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(requestNo));
         return sb.toString();
+    }
+
+    public boolean success() {
+        return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(getCode());
     }
 }
