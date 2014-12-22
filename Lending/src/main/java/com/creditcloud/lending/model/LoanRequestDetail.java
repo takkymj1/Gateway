@@ -36,7 +36,7 @@ public class LoanRequestDetail extends BaseObject {
     /**
      * 共同借款人
      */
-    private String coborrower;
+    private RealmEntity coborrower;
     
     /**
      * 最小资金比例
