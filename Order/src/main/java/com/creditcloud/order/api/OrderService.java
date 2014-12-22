@@ -6,7 +6,6 @@
 package com.creditcloud.order.api;
 
 import com.creditcloud.model.enums.TransStat;
-import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.order.model.TransOrder;
 import java.util.Date;
 import java.util.List;
@@ -30,7 +29,7 @@ public interface OrderService {
     TransOrder create(String orderId, Date orderDate);
 
     TransOrder create(TransOrder order);
-    
+
     TransOrder getByOrderId(String orderId);
 
     boolean markStat(String orderId, TransStat stat);
