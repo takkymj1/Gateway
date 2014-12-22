@@ -48,5 +48,10 @@ public class UserNotification extends BaseNotification {
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(platformUserNo));
         return sb.toString();
-    }    
+    }  
+ 
+    @Override
+    public boolean success() {
+        return super.success();
+    }
 }

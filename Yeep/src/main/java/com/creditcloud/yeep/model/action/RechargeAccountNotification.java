@@ -55,7 +55,8 @@ public class RechargeAccountNotification extends UserNotification {
                 .append(StringUtils.trimToEmpty(requestNo));
         return sb.toString();
     }
-
+    
+    @Override
     public boolean success() {
         return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(getCode());
     }
