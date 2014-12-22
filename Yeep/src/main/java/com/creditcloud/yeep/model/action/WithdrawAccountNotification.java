@@ -63,11 +63,9 @@ public class WithdrawAccountNotification extends UserNotification {
         return sb.toString();
     }
 
+    @Override
     public boolean success() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return super.success();
     }
 
-    public boolean success() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
