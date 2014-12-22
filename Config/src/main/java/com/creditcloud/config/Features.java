@@ -6,6 +6,7 @@
 package com.creditcloud.config;
 
 import com.creditcloud.config.enums.LoanContractType;
+import com.creditcloud.config.enums.StorageProvider;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Max;
@@ -184,7 +185,7 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean useUnionMobilePayment = false;
-    
+
     /**
      * 使用联动优势资金托管平台担保商户功能，该商户为线下开户的企业账户
      */
@@ -223,28 +224,28 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWealthProduct = false;
-    
+
     /**
      * 工单功能
      */
     @XmlElement
     @Getter
     private boolean enableTicketService = false;
-    
+
     /**
      * jpa auto managed flush to db
      */
     @Getter
     @XmlElement
     private boolean enableManualFlush = true;
-    
+
     /**
      * open/close auto overdue check
      */
     @Getter
     @XmlElement
     private boolean enableAutoOverdueCheck = true;
-    
+
     /**
      * 当计算判断逾期时是否跳过周末以及节假日.
      *
@@ -253,11 +254,18 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableOverdueSkip = false;
-    
+
     /**
      * 批量处理功能
      */
     @Getter
     @XmlElement
     private boolean enableBatch = false;
+
+    /**
+     * 默认使用upyun
+     */
+    @Getter
+    @XmlElement
+    private StorageProvider storage = StorageProvider.UpYun;
 }
