@@ -64,12 +64,10 @@ public final class SecurityUtils {
      * @return
      */
     public static String getSalt(String identity) {
-        //去掉首尾空格，防止保存错误
-        identity = identity.trim();
         String now = df.format(new Date());
         String identityString = identity == null
                                 ? RandomStringUtils.randomAlphanumeric(20)
-                                : identity;
+                                : identity.trim();
         return Base64.encodeBase64String(blend(now.getBytes(), identityString.getBytes()));
     }
 
