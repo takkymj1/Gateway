@@ -24,7 +24,7 @@ public class UserNotification extends BaseNotification {
 
     public UserNotification(String platformUserNo, 
                             String platformNo, 
-                            BizType bizType, 
+                            String bizType, 
                             String code, 
                             String message,
                             String sign) {

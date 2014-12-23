@@ -30,7 +30,7 @@ public class RechargeAccountNotification extends UserNotification {
     }
 
     public RechargeAccountNotification(String platformNo,
-                                       BizType bizType,
+                                       String bizType,
                                        String code,
                                        String message,
                                        String requestNo,

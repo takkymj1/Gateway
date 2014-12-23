@@ -26,7 +26,7 @@ public class TransferNotification extends BaseNotification {
     private String requestNo;
 
     public TransferNotification(String platformNo,
-                                BizType bizType,
+                                String bizType,
                                 String code,
                                 String message,
                                 String requestNo,

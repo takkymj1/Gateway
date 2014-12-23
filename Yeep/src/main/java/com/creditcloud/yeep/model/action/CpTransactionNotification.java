@@ -33,7 +33,7 @@ public class CpTransactionNotification extends BaseNotification {
     private String requestNo;
 
     public CpTransactionNotification(String platformNo,
-                                     BizType bizType,
+                                     String bizType,
                                      String code,
                                      String message,
                                      String status,

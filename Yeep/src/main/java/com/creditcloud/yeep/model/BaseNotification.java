@@ -26,7 +26,7 @@ public abstract class BaseNotification extends BaseObject {
     private String platformNo;
 
     @NotNull
-    private BizType bizType;
+    private String bizType;
 
     @NotNull
     private String code;
@@ -40,7 +40,7 @@ public abstract class BaseNotification extends BaseObject {
     }
 
     public BaseNotification(String platformNo,
-                            BizType bizType,
+                            String bizType,
                             String code,
                             String message,
                             String sign) {
@@ -59,7 +59,7 @@ public abstract class BaseNotification extends BaseObject {
     protected String baseChkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(platformNo));
-        sb.append(StringUtils.trimToEmpty(bizType.getKey()));
+        sb.append(StringUtils.trimToEmpty(bizType));
         sb.append(StringUtils.trimToEmpty(code));
         sb.append(StringUtils.trimToEmpty(message));
         return sb.toString();
@@ -72,22 +72,20 @@ public abstract class BaseNotification extends BaseObject {
      */
     public abstract String chkString();
     
-    @XmlElement (name = "platformNo")
+
     public String getPlatformNo() {
         return platformNo;
     }
 
-    @XmlElement (name = "bizType")
-    public BizType getBizType() {
+
+    public String getBizType() {
         return bizType;
     }
 
-    @XmlElement (name = "code")
     public String getCode() {
         return code;
     }
 
-    @XmlElement (name = "message")
     public String getMessage() {
         return message;
     }
@@ -101,7 +99,7 @@ public abstract class BaseNotification extends BaseObject {
         this.platformNo = platformNo;
     }
 
-    public void setBizType(BizType bizType) {
+    public void setBizType(String bizType) {
         this.bizType = bizType;
     }
 
