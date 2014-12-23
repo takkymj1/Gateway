@@ -27,7 +27,7 @@ public class DisburseInfo extends AbstractRepay {
     /**
      * 担保方垫付, false则为平台垫付
      */
-    private boolean fromGuarantee = false;
+    private boolean fromGuarantee = true;
     
     public DisburseInfo(LoanRepayment loanRepayment, DisburseType type) {
         setLoanRepayment(loanRepayment);
