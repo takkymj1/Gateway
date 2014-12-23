@@ -35,7 +35,7 @@ public interface StringLockPrefix {
     /**
      * yeep账户创建
      */
-    String Yeep_Create_Lock = "yee.create.lock";
+    String Yeep_Create_Lock = "yeep.create.lock";
 
     /**
      * lychee账户创建
