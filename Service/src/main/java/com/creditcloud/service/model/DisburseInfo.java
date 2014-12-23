@@ -10,6 +10,7 @@ import com.creditcloud.model.loan.LoanRepayment;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  *
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
+@ToString(callSuper = true)
 public class DisburseInfo extends AbstractRepay {
     
     private static final long serialVersionUID = 20140804L;
