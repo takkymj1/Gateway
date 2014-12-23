@@ -21,18 +21,23 @@ import lombok.ToString;
 @XmlRootElement
 @ToString(callSuper = true)
 public class DisburseInfo extends AbstractRepay {
-    
+
     private static final long serialVersionUID = 20140804L;
-    
+
     private DisburseType type;
-    
+
     /**
      * 担保方垫付, false则为平台垫付
      */
     private boolean fromGuarantee = true;
-    
+
     public DisburseInfo(LoanRepayment loanRepayment, DisburseType type) {
         setLoanRepayment(loanRepayment);
         this.type = type;
+    }
+
+    public DisburseInfo(LoanRepayment loanRepayment, DisburseType type, boolean fromGuarantee) {
+        this(loanRepayment, type);
+        this.fromGuarantee = fromGuarantee;
     }
 }
