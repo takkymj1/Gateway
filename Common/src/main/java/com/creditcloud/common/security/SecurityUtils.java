@@ -12,6 +12,7 @@ import java.util.Scanner;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,9 +66,9 @@ public final class SecurityUtils {
      */
     public static String getSalt(String identity) {
         String now = df.format(new Date());
-        String identityString = identity == null
+        String identityString = StringUtils.isBlank(identity)
                                 ? RandomStringUtils.randomAlphanumeric(20)
-                                : identity;
+                                : identity.trim();
         return Base64.encodeBase64String(blend(now.getBytes(), identityString.getBytes()));
     }
 
