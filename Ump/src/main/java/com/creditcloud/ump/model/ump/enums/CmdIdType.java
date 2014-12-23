@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.ump.model.ump.enums;
 
 /**
  * UMP接口操作类型
- * 
+ *
  * @author kdliu
  */
 public enum CmdIdType {
+
     /**
      * 个人用户注册
      */
@@ -28,6 +28,10 @@ public enum CmdIdType {
      * 绑定银行卡结果通知
      */
     MER_BIND_CARD_NOTIFY,
+    /**
+     * 绑定银行卡结果通知-联动新接口替换 MER_BIND_CARD_NOTIFY
+     */
+    MER_BIND_CARD_APPLY_NOTIFY,
     /**
      * 无密签约
      */
@@ -96,6 +100,10 @@ public enum CmdIdType {
      * 提现通知
      */
     WITHDRAW_NOTIFY,
+    /**
+     * 提现通知-联动新接口替换 WITHDRAW_NOTIFY
+     */
+    WITHDRAW_APPLY_NOTIFY,
     /**
      * 普通免密转账
      */
