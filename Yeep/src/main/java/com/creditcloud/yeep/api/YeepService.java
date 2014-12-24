@@ -9,7 +9,6 @@ import com.creditcloud.yeep.model.BaseRequest;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
-import com.creditcloud.yeep.model.service.FreezeResponse;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 
