@@ -4,9 +4,9 @@
  */
 package com.creditcloud.lending.api;
 
-import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 
