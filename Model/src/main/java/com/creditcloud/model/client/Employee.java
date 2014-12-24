@@ -10,6 +10,7 @@ import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import com.creditcloud.model.constraints.UUID;
 import java.util.Date;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -54,6 +55,7 @@ public class Employee extends BaseObject {
     /**
      * 员工所属分支机构Id 因为Branch中包含了Employee,此处不能用Branch类型，否则序列化转json有问题
      */
+    @FormParam("branchId")
     private String branchId;
 
     private Date registerDate;
