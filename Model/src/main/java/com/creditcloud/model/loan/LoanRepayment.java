@@ -72,6 +72,9 @@ public class LoanRepayment extends BaseObject {
     
     //for ui
     private String loanTitle;
+    
+    //for ui 担保企业简称
+    private String guaranteeShortName;
 
     public LoanRepayment(String id,
                          String loanId,
