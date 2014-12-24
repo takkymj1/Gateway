@@ -21,10 +21,18 @@ import javax.ejb.Remote;
 @Remote
 public interface DisburseRecordService {
 
+    @Deprecated
     public void addNew(String loanRepaymentId,
                        String employeeId,
                        DisburseStatus status,
                        DisburseType type);
+
+    /**
+     *
+     * @param record
+     * @return
+     */
+    public DisburseRecord addNew(DisburseRecord record);
 
     public int countByDate(Date from, Date to, List<DisburseStatus> statusList);
 
