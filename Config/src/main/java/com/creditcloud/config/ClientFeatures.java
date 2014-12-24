@@ -89,9 +89,23 @@ public class ClientFeatures extends BaseObject {
     private boolean enableBrokerage = false;
     
     /**
-     * 是否支持原始债权
+     * 是否支持快速还款
      */
     @XmlElement
     @Getter
-    private boolean enableHanHuaFeature = false;
+    private boolean enableLoanFastRepay = false;
+    
+    /**
+     * 是否支持LoanRequestDatail
+     */
+    @XmlElement
+    @Getter
+    private boolean enableLoanRequestDatail = false;
+    
+    /**
+     * 限制提现
+     */
+    @XmlElement
+    @Getter
+    private boolean restrictWithdraw = false;
 }
