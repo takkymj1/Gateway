@@ -24,7 +24,7 @@ public class UserNotification extends BaseNotification {
 
     public UserNotification(String platformUserNo, 
                             String platformNo, 
-                            BizType bizType, 
+                            String bizType, 
                             String code, 
                             String message,
                             String sign) {
@@ -48,5 +48,10 @@ public class UserNotification extends BaseNotification {
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(platformUserNo));
         return sb.toString();
-    }    
+    }  
+ 
+    @Override
+    public boolean success() {
+        return super.success();
+    }
 }

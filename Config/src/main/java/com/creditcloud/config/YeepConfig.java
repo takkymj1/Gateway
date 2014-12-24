@@ -70,5 +70,12 @@ public class YeepConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String adminRetUrl;    
+    
+    //下面配置的是商户子账户
+    /**
+     * 基本账户用于充值取现,类型:专属借记账户
+     */
+    @XmlElement(name = "baseAccount", required = true)
+    private SubAccount baseAccount;
    
 }

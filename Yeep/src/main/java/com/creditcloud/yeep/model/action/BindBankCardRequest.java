@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,9 +15,11 @@ import lombok.NoArgsConstructor;
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement(name = "request")
 public class BindBankCardRequest extends UserRequest {
+
+    public BindBankCardRequest() {
+    }
 
     public BindBankCardRequest(String platformNo,
                                String requestNo,

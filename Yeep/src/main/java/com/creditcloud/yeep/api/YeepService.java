@@ -7,7 +7,9 @@ package com.creditcloud.yeep.api;
 
 import com.creditcloud.yeep.model.BaseRequest;
 import com.creditcloud.yeep.model.BaseResponse;
+import com.creditcloud.yeep.model.FreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -15,7 +17,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface YeepService extends YeepQueryService{
+    public interface YeepService extends YeepQueryService{
     /**
      * 获取用户在三方支付中的YeepAccount
      *
@@ -23,7 +25,37 @@ public interface YeepService extends YeepQueryService{
      * @param userId
      * @return null表示用户没有在三方支付中开户
      */
-    public YeepAccount getYeepAccount(String clientCode, String userId);
+    public YeepAccount getUserYeepAccount(String clientCode, String userId);
+
+    
+    /**
+     * 根据在三方支付中的ID获取对应的UserId
+     *
+     * @param clientCode
+     * @param accountId
+     * @return null 表示accountId不存在
+     */
+    public String getUserIdByAccountId(String clientCode, String accountId);
+    
+    
+    /**
+     * 冻结指定用户的资金
+     *
+     * @param clientCode
+     * @param userId
+     * @param orderId 此次操作的唯一订单号
+     * @param amount
+     * @param BgRetUrl 后台返回的回调路径
+     * @param merPriv
+     * @return 如果找不到userId对应的支付账号返回null
+     */
+    public FreezeResult userFreeze(String clientCode,
+                                   String userId,
+                                   BigDecimal amount,
+                                   String orderId,
+                                   String BgRetUrl,
+                                   String merPriv);
+    
     
     /**
      * 获取请求的CheckValue
@@ -50,6 +82,6 @@ public interface YeepService extends YeepQueryService{
      * @param yeepAccount
      * @return
      */
-    public YeepAccount createYeepAccount(String clientCode, YeepAccount yeepAccount);
+    public YeepAccount createUserYeepAccount(String clientCode, YeepAccount yeepAccount);
 
 }

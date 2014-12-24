@@ -27,7 +27,7 @@ public class AutoRepaymentNotification extends BaseNotification {
     private String orderNo;
     
     public AutoRepaymentNotification(String platformNo,
-                                     BizType bizType,
+                                     String bizType,
                                      String code,
                                      String message,
                                      String requestNo,
