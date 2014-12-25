@@ -7,20 +7,22 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author kakaci
  */
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
+
+@XmlRootElement (name = "response")
 public class AuthorizeAutoRepaymentNotification extends UserNotification {
+
+    public AuthorizeAutoRepaymentNotification() {
+    }
 
     public AuthorizeAutoRepaymentNotification(String platformUserNo,
                                               String platformNo,
-                                              BizType bizType,
+                                              String bizType,
                                               String code,
                                               String message,
                                               String sign) {

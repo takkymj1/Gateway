@@ -27,7 +27,7 @@ public class LoanNotification extends BaseNotification {
     private String orderNo;
     
     public LoanNotification(String platformNo,
-                            BizType bizType,
+                            String bizType,
                             String code,
                             String message,
                             String requestNo,

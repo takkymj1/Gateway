@@ -53,7 +53,8 @@ public class InvestRepayment extends BaseObject {
     private Date repayDate;
 
     /**
-     * 还款来源，实际还款人，如果为null则为loan中借款人，还可以为平台或者担保公司等
+     * 还款/垫付来源，实际还款/垫付人，默认为null不填写，与对应LoanRepayment中repaySource一致</p>
+     * 只有同一还款来源不同时才需要填写，系统暂不支持此种还款/垫付
      */
     private RealmEntity repaySource;
 
