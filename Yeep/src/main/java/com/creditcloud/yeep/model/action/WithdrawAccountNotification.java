@@ -5,19 +5,16 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.creditcloud.model.enums.misc.Bank;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang3.StringUtils;
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "notify")
 public class WithdrawAccountNotification extends UserNotification {
 
     /**
@@ -36,20 +33,47 @@ public class WithdrawAccountNotification extends UserNotification {
      * 银行代码
      */
     @NotNull
-    private Bank bank;
+    private String bank;
+
+    public WithdrawAccountNotification() {
+    }
 
     public WithdrawAccountNotification(String platformNo,
-                                       BizType bizType,
+                                       String bizType,
                                        String code,
                                        String message,
                                        String requestNo,
                                        String platformUserNo,
                                        String cardNo,
-                                       Bank bank,
+                                       String bank,
                                        String sign) {
         super(platformUserNo, platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
         this.cardNo = cardNo;
+        this.bank = bank;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getCardNo() {
+        return cardNo;
+    }
+
+    public String getBank() {
+        return bank;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
+
+    public void setBank(String bank) {
         this.bank = bank;
     }
 
@@ -59,7 +83,13 @@ public class WithdrawAccountNotification extends UserNotification {
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(requestNo))
                 .append(StringUtils.trimToEmpty(cardNo))
-                .append(StringUtils.trimToEmpty(bank.name()));
+                .append(StringUtils.trimToEmpty(bank));
         return sb.toString();
     }
+
+    @Override
+    public boolean success() {
+        return super.success();
+    }
+
 }

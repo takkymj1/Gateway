@@ -33,7 +33,7 @@ public class TransferClaimsNotification extends BaseNotification {
     private String orderNo;
 
     public TransferClaimsNotification(String platformNo,
-                                      BizType bizType,
+                                      String bizType,
                                       String code,
                                       String message,
                                       String requestNo,

@@ -23,7 +23,7 @@ public class AutoTransferNotification extends BaseNotification {
     private String requestNo;
     
     public AutoTransferNotification(String platformNo,
-                                    BizType bizType,
+                                    String bizType,
                                     String code,
                                     String message,
                                     String requestNo,

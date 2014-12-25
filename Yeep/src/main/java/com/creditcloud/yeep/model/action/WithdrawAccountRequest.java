@@ -6,10 +6,8 @@
 package com.creditcloud.yeep.model.action;
 
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.FeeMode;
 import com.creditcloud.yeep.model.UserRequest;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 
@@ -18,8 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "request")
 public class WithdrawAccountRequest extends UserRequest {
 
     
@@ -27,17 +24,20 @@ public class WithdrawAccountRequest extends UserRequest {
      * 费率模式
      */
     @NotNull
-    private FeeMode feeMode;
+    private String feeMode;
     
     /**
      * 提现金额，如果不传则由用户输入金额
      */
     private String amount;
 
+    public WithdrawAccountRequest() {
+    }
+    
     public WithdrawAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
-                                  FeeMode feeMode,
+                                  String feeMode,
                                   String amount,
                                   String callbackUrl,
                                   String notifyUrl,
@@ -46,12 +46,28 @@ public class WithdrawAccountRequest extends UserRequest {
         this.feeMode = feeMode;
         this.amount = amount;
     }
+
+    public String getFeeMode() {
+        return feeMode;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setFeeMode(String feeMode) {
+        this.feeMode = feeMode;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
     
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(feeMode.name()))
+                .append(StringUtils.trimToEmpty(feeMode))
                 .append(StringUtils.trimToEmpty(amount));
         return sb.toString();
     }

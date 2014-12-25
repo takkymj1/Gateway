@@ -27,8 +27,14 @@ public class UmpEntUser extends BaseObject {
     
     private BigDecimal balance;
     
+    /**
+     * 01：现金账户
+     */
     private String accountType;
     
+    /**
+     * 1-正常 2-挂失 3-冻结 4-锁定 9-销户
+     */
     private String accountState;
     
 }

@@ -29,7 +29,7 @@ public class UserRegisterNotification extends UserNotification {
 
     public UserRegisterNotification(String platformUserNo,
                                     String platformNo,
-                                    BizType bizType,
+                                    String bizType,
                                     String code,
                                     String message,
                                     String requestNo,
