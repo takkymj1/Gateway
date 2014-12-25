@@ -48,5 +48,10 @@ public class LoanRequestDetail extends BaseObject {
      */
     private String riskGrade;
     
+    /**
+     * 行业类别
+     */
+    private String industry;
+    
 
 }
