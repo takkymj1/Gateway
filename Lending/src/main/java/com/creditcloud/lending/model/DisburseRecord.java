@@ -32,7 +32,8 @@ public class DisburseRecord extends BaseObject {
     private String loanRepaymentId;
 
     /**
-     * 执行垫付操作员工
+     * 执行垫付操作员工或者担保企业</p>
+     * TODO use RealmEntity
      */
     @NotNull
     private String employeeId;
