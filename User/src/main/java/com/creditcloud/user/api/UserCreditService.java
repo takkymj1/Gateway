@@ -138,6 +138,27 @@ public interface UserCreditService {
     public List<Proof> listProofByUserAndType(String clientCode, String userId, List<CertificateType> certificateTypes, List<ProofContentType> contentTypes);
 
     /**
+     * list proof by user/owner and proofType
+     *
+     * @param clientCode
+     * @param userId
+     * @param owner
+     * @param proofTypes
+     * @return
+     */
+    public List<Proof> listProofByUserAndProofType(String clientCode, String userId, RealmEntity owner, List<ProofType> proofTypes);
+
+    /**
+     * list proof by user and proofType
+     *
+     * @param clientCode
+     * @param userId
+     * @param proofTypes
+     * @return
+     */
+    public List<Proof> listProofByUserAndProofType(String clientCode, String userId, List<ProofType> proofTypes);
+
+    /**
      * 列出用户关于某贷款请求的proof
      *
      * @param clientCode
