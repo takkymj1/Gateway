@@ -8,6 +8,7 @@ package com.creditcloud.lending.model;
 import com.creditcloud.lending.enums.DisburseStatus;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.DisburseType;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Transient;
@@ -43,7 +44,12 @@ public class DisburseRecord extends BaseObject {
     private DisburseType type;
 
     private String description;
-    
+
+    /**
+     * 垫付来源，平台或者担保户等
+     */
+    private RealmEntity disburseSource;
+
     private Date timeRecorded;
 
     /**
@@ -69,12 +75,14 @@ public class DisburseRecord extends BaseObject {
                           String employeeId,
                           DisburseStatus status,
                           DisburseType type,
+                          RealmEntity disburseSource,
                           String description) {
         this.id = id;
         this.loanRepaymentId = loanRepaymentId;
         this.employeeId = employeeId;
         this.status = status;
         this.type = type;
+        this.disburseSource = disburseSource;
         this.description = description;
     }
 

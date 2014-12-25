@@ -29,7 +29,7 @@ public class CompleteTransactionNotification extends BaseNotification {
     private String requestNo;
     
     public CompleteTransactionNotification(String platformNo,
-                                           BizType bizType,
+                                           String bizType,
                                            String code,
                                            String message,
                                            Status status,

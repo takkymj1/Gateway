@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.model.BaseNotification;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlTransient;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -16,23 +17,34 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+
 public class CompensatoryNotification extends BaseNotification {
 
     /**
      * 请求流水号
      */
     @NotNull
+    @XmlTransient
     private String requestNo;
 
+    public CompensatoryNotification() {
+    }
+
     public CompensatoryNotification(String platformNo,
-                                    BizType bizType,
+                                    String bizType,
                                     String code,
                                     String message,
                                     String requestNo,
                                     String sign) {
         super(platformNo, bizType, code, message,sign);
+        this.requestNo = requestNo;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
     

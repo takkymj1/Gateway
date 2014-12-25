@@ -14,13 +14,15 @@ import com.creditcloud.yeep.enums.BizType;
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+
 public class AuthorizeAutoTransferNotification extends UserNotification {
+
+    public AuthorizeAutoTransferNotification() {
+    }
 
     public AuthorizeAutoTransferNotification(String platformUserNo,
                                              String platformNo,
-                                             BizType bizType,
+                                             String bizType,
                                              String code,
                                              String message,
                                              String sign) {

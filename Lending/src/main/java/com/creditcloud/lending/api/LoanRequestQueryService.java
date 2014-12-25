@@ -5,11 +5,11 @@
  */
 package com.creditcloud.lending.api;
 
-import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import java.util.List;
 

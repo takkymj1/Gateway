@@ -27,7 +27,7 @@ public class EnterpiseRegisterNotification extends UserNotification {
     private String requestNo;
 
     public EnterpiseRegisterNotification(String platformNo,
-                                         BizType bizType,
+                                         String bizType,
                                          String code,
                                          String message,
                                          String requestNo,

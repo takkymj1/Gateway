@@ -12,42 +12,50 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.model.enums.misc.Bank;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author kakaci
+ * @author tinglany
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "notify")
 public class BindBankCardNotification extends UserNotification {
 
     /**
      * 请求流水号
      */
     @NotNull
+    @XmlTransient
     private String requestNo;
 
     /**
      * 绑定的卡号
      */
     @NotNull
+    @XmlTransient
     private String bankCardNo;
 
     /**
      * 绑卡状态
      */
     @NotNull
+    @XmlTransient
     private CardStatus cardStatus;
 
     /**
      * 银行代码
      */
     @NotNull
+    @XmlTransient
     private Bank bank;
 
+    public BindBankCardNotification() {
+    }
+
     public BindBankCardNotification(String platformNo,
-                                    BizType bizType,
+                                    String bizType,
                                     String code,
                                     String message,
                                     String requestNo,
@@ -60,6 +68,38 @@ public class BindBankCardNotification extends UserNotification {
         this.requestNo = requestNo;
         this.bankCardNo = bankCardNo;
         this.cardStatus = cardStatus;
+        this.bank = bank;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getBankCardNo() {
+        return bankCardNo;
+    }
+
+    public CardStatus getCardStatus() {
+        return cardStatus;
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setBankCardNo(String bankCardNo) {
+        this.bankCardNo = bankCardNo;
+    }
+
+    public void setCardStatus(CardStatus cardStatus) {
+        this.cardStatus = cardStatus;
+    }
+
+    public void setBank(Bank bank) {
         this.bank = bank;
     }
     

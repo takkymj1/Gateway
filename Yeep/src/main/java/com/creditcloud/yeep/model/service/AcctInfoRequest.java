@@ -6,10 +6,8 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.apache.commons.lang3.StringUtils;
+
 /**
  * 账户查询
  * 

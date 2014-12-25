@@ -33,7 +33,7 @@ public class RepaymentNotification extends BaseNotification {
     private String orderNo;
 
     public RepaymentNotification(String platformNo,
-                                 BizType bizType, 
+                                 String bizType, 
                                  String code, 
                                  String message, 
                                  String requestNo, 

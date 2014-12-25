@@ -13,7 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum FeeCategory implements BaseEnum {
 
-    Withdraw("提现费");
+    Withdraw("提现费"),
+    Deposit("充值费");
 
     private final String key;
 
