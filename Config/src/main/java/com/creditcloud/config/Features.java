@@ -274,6 +274,6 @@ public class Features extends BaseObject {
      */
     @Getter
     @XmlElement
-    private boolean enableThirdPart = false;
+    private boolean enableThirdParty = false;
             
 }
