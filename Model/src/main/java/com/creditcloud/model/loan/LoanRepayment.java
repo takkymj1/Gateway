@@ -72,7 +72,7 @@ public class LoanRepayment extends BaseObject {
     
     //for ui
     private String loanTitle;
-
+    
     public LoanRepayment(String id,
                          String loanId,
                          String userId,
