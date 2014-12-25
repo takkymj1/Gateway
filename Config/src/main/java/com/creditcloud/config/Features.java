@@ -268,4 +268,12 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private StorageProvider storage = StorageProvider.UpYun;
+    
+    /**
+     * 第三方登陆后功能显示控制
+     */
+    @Getter
+    @XmlElement
+    private boolean enableThirdPart = false;
+            
 }
