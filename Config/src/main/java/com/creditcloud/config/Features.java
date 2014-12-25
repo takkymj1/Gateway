@@ -268,4 +268,34 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private StorageProvider storage = StorageProvider.UpYun;
+    
+    /**
+     * 企业借款的违约列表
+     */
+    @Getter
+    @XmlElement
+    private boolean enableCorpLoanBreach = false;
+            
+    /**
+     * 用户管理
+     */
+    @Getter
+    @XmlElement
+    private boolean enableUserManagement = false;
+    
+    /**
+     * 侧边导航栏快捷方式
+     */
+    @Getter
+    @XmlElement
+    private boolean enableSidebarShortcuts = false;
+    
+    
+    /**
+     * 借款及借款请求列表
+     */
+    @Getter
+    @XmlElement
+    private boolean enableRequestLoanList = false;
+    
 }
