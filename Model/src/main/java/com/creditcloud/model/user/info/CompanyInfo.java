@@ -35,6 +35,11 @@ public class CompanyInfo extends BaseObject {
     @FormParam("industry")
     @XmlElement(name = "industry")
     private CompanyIndustry industry;
+    
+    //公司行业api中文
+    @FormParam("industryName")
+    @XmlElement(name = "industryName")
+    private String industryName;
 
     //公司规模
     @FormParam("size")
@@ -123,5 +128,13 @@ public class CompanyInfo extends BaseObject {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getIndustryName() {
+        return industryName;
+    }
+
+    public void setIndustryName(String industryName) {
+        this.industryName = industryName;
     }
 }
