@@ -28,7 +28,6 @@ public class DisburseRecord extends BaseObject {
 
     private String id;
 
-    @NotNull
     private String loanRepaymentId;
 
     /**
@@ -41,7 +40,6 @@ public class DisburseRecord extends BaseObject {
     @NotNull
     private DisburseStatus status;
 
-    @NotNull
     private DisburseType type;
 
     private String description;
