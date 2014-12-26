@@ -5,9 +5,9 @@
  */
 package com.creditcloud.yeep.model.service;
 
-import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
@@ -17,8 +17,7 @@ import org.joda.time.LocalDate;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement (name = "response")
 public class RepaymentRecordResponse extends BaseResponse {
     
     //还款金额
@@ -34,12 +33,15 @@ public class RepaymentRecordResponse extends BaseResponse {
     
     //还款状态
     @NotNull
-    private Status status;
-    
+    private String status;
+
+    public RepaymentRecordResponse() {
+    }
+        
     public RepaymentRecordResponse(String repaymentAmount,
                                    String targetUserNo,
                                    LocalDate loanTime,
-                                   Status status,
+                                   String status,
                                    String sign) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
@@ -47,6 +49,39 @@ public class RepaymentRecordResponse extends BaseResponse {
         this.status = status;
     }
 
+    public String getRepaymentAmount() {
+        return repaymentAmount;
+    }
+
+    public String getTargetUserNo() {
+        return targetUserNo;
+    }
+
+    public LocalDate getLoanTime() {
+        return loanTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setRepaymentAmount(String repaymentAmount) {
+        this.repaymentAmount = repaymentAmount;
+    }
+
+    public void setTargetUserNo(String targetUserNo) {
+        this.targetUserNo = targetUserNo;
+    }
+
+    public void setLoanTime(LocalDate loanTime) {
+        this.loanTime = loanTime;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
@@ -54,7 +89,7 @@ public class RepaymentRecordResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(repaymentAmount))
                 .append(StringUtils.trimToEmpty(targetUserNo))
                 .append(StringUtils.trimToEmpty(loanTime.toString()))
-                .append(StringUtils.trimToEmpty(status.name()));
+                .append(StringUtils.trimToEmpty(status));
         return sb.toString();
     }
 }
