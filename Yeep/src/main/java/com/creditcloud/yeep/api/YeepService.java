@@ -17,7 +17,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-    public interface YeepService extends YeepQueryService{
+public interface YeepService extends YeepQueryService{
     /**
      * 获取用户在三方支付中的YeepAccount
      *

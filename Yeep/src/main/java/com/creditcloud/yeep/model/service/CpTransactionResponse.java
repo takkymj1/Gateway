@@ -5,10 +5,9 @@
  */
 package com.creditcloud.yeep.model.service;
 
-import com.creditcloud.yeep.enums.BizType;
-import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  * 
  * @author tinglany
  */
+@XmlRootElement (name = "response")
 public class CpTransactionResponse extends BaseResponse {
     
     //流水号
@@ -24,7 +24,7 @@ public class CpTransactionResponse extends BaseResponse {
     
     //业务类型
     @NotNull
-    private BizType bizType;
+    private String bizType;
     
     //转账总金额
     @NotNull
@@ -32,22 +32,65 @@ public class CpTransactionResponse extends BaseResponse {
     
     //充值状态
     @NotNull
-    private Status status;
+    private String status;
     
     //处理状态: PROCESSING:处理中。SUCCESS:成功。ERROR:异常。FAIL:失败
     @NotNull
-    private Status subStatus;
+    private String subStatus;
+
+    public CpTransactionResponse() {
+    }
     
     public CpTransactionResponse(String requestNo,
-                                 BizType bizType,
+                                 String bizType,
                                  String amount,
-                                 Status status,
-                                 Status subStatus,
+                                 String status,
+                                 String subStatus,
                                  String sign) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
         this.status = status;
+        this.subStatus = subStatus;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getBizType() {
+        return bizType;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getSubStatus() {
+        return subStatus;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setBizType(String bizType) {
+        this.bizType = bizType;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSubStatus(String subStatus) {
         this.subStatus = subStatus;
     }
     
@@ -56,10 +99,10 @@ public class CpTransactionResponse extends BaseResponse {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(bizType.name()))
+                .append(StringUtils.trimToEmpty(bizType))
                 .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(status.name()))
-                .append(StringUtils.trimToEmpty(subStatus.name()));
+                .append(StringUtils.trimToEmpty(status))
+                .append(StringUtils.trimToEmpty(subStatus));
         return sb.toString();
     }    
 }

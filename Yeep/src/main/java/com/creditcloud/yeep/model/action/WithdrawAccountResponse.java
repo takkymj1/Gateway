@@ -5,34 +5,34 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "response")
 public class WithdrawAccountResponse extends BaseResponse {
 
     /**
      * 固定值WITHDRAW
      */
     @NotNull
-    private BizType service;
+    private String service;
 
     /**
      * 请求流水号
      */
     private String requestNo;
 
+    public WithdrawAccountResponse() {
+    }
+
     public WithdrawAccountResponse(String platformNo,
-                                   BizType service,
+                                   String service,
                                    String requestNo,
                                    String code,
                                    String description,
@@ -42,11 +42,27 @@ public class WithdrawAccountResponse extends BaseResponse {
         this.requestNo = requestNo;
     }
 
+    public String getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(service.name()))
+                .append(StringUtils.trimToEmpty(service))
                 .append(StringUtils.trimToEmpty(requestNo));
         return sb.toString();
     }
