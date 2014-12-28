@@ -18,6 +18,7 @@ import java.util.Map.Entry;
 import lombok.extern.slf4j.Slf4j;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
+import org.joda.time.DateTimeConstants;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 import org.joda.time.format.DateTimeFormat;
@@ -53,9 +54,10 @@ public class DateUtils {
 
     /**
      * list all dates between start date and end date, both day included
+     *
      * @param start
      * @param end
-     * @return 
+     * @return
      */
     public static List<Date> listDates(Date start, Date end) {
         List<Date> dates = new ArrayList<>();
@@ -115,10 +117,10 @@ public class DateUtils {
         }
         data.putAll(extraData);
     }
-    
+
     /**
      * 根据身份证号计算年龄，按照周岁计算
-     * 
+     *
      * @param idNumber
      * @return 0 idNumber格式错误
      */
@@ -126,25 +128,39 @@ public class DateUtils {
         LocalDate birthday = LocalDate.now();
         try {
             if (idNumber.length() == 18) {
-            birthday = LocalDate.parse(idNumber.substring(6, 14), DateTimeFormat.forPattern("yyyyMMdd"));
-        } else if (idNumber.length() == 15) {
-            birthday = LocalDate.parse(idNumber.substring(6, 12), DateTimeFormat.forPattern("yyMMdd"));
-        }
+                birthday = LocalDate.parse(idNumber.substring(6, 14), DateTimeFormat.forPattern("yyyyMMdd"));
+            } else if (idNumber.length() == 15) {
+                birthday = LocalDate.parse(idNumber.substring(6, 12), DateTimeFormat.forPattern("yyMMdd"));
+            }
         } catch (Exception ex) {
             log.error("Error happend when parse age from idNumber.[idNumber={}]", idNumber, ex);
         }
         return Years.yearsBetween(birthday, LocalDate.now()).getYears();
     }
-    
+
     /**
      * 根据总月份计算Duration
-     * 
+     *
      * @param totalMonths
-     * @return 
+     * @return
      */
     public static Duration getDurationFromMonths(int totalMonths) {
         int months = totalMonths % TimeConstant.MONTHS_PER_YEAR;
         int years = (totalMonths - months) / TimeConstant.MONTHS_PER_YEAR;
         return new Duration(years, months, 0);
+    }
+
+    /**
+     * 判断某天是否为周末
+     *
+     * @param date
+     * @return
+     */
+    public static boolean isWeekend(LocalDate date) {
+        if (date == null) {
+            return false;
+        }
+        int dayOfWeek = date.getDayOfWeek();
+        return DateTimeConstants.SATURDAY == dayOfWeek || DateTimeConstants.SUNDAY == dayOfWeek;
     }
 }
