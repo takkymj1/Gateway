@@ -36,11 +36,6 @@ public class CompanyInfo extends BaseObject {
     @XmlElement(name = "industry")
     private CompanyIndustry industry;
     
-    //公司行业api中文
-    @FormParam("industryName")
-    @XmlElement(name = "industryName")
-    private String industryName;
-
     //公司规模
     @FormParam("size")
     @XmlElement(name = "size")
@@ -131,6 +126,6 @@ public class CompanyInfo extends BaseObject {
     }
 
     public String getIndustryName() {
-        return industryName;
+        return industry.name();
     }
 }
