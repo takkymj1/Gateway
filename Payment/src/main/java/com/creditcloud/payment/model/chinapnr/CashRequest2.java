@@ -61,6 +61,26 @@ public class CashRequest2 extends BaseRequest {
     @Size(max = 512)
     private String ReqExt;
 
+    /**
+     * 用户商户指定取现手续费的收取对象,优先级别高</p>
+     * 于商户配置的收取对象 M:向商户收取 U:向用户收取
+     */
+    private String FeeObjFlag;
+
+    /**
+     * FeeObjFlag=M.必填</p>
+     * FeeObjFlag=U.忽略
+     */
+    private String FeeAcctId;
+
+    /**
+     * FAST 快速取现</p>
+     * GENERAL 一般取现</p>
+     * IMMEDIATE 即时取现</p>
+     * 可传的取现通道范围小于等于商户配置的取现通道
+     */
+    private String CashChl;
+
     public CashRequest2(String MerCustId,
                         String OrdId,
                         String UsrCustId,
