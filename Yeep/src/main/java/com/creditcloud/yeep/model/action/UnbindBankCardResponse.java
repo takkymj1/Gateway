@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -18,6 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
+@XmlRootElement(name = "response")
 public class UnbindBankCardResponse extends BaseResponse {
 
     /**

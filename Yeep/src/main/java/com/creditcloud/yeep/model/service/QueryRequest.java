@@ -6,8 +6,8 @@
 package com.creditcloud.yeep.model.service;
 
 import javax.validation.constraints.NotNull;
-import com.creditcloud.yeep.enums.QueryModel;
 import com.creditcloud.yeep.model.BaseRequest;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 /**
  * 单笔业务查询
@@ -15,8 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement (name = "request")
 public class QueryRequest extends BaseRequest {
     
     //各个业务的请求流水号
@@ -25,15 +24,34 @@ public class QueryRequest extends BaseRequest {
     
     //查询模式
     @NotNull
-    private QueryModel queryModel;
+    private String mode;
+
+    public QueryRequest() {
+    }
     
     public QueryRequest(String platformNo,
                         String requestNo,
-                        QueryModel queryModel,
+                        String mode,
                         String sign) {
         super(platformNo,null,null,null,sign);
         this.requestNo = requestNo;
-        this.queryModel = queryModel;
+        this.mode = mode;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
     }
 
     @Override
@@ -41,7 +59,7 @@ public class QueryRequest extends BaseRequest {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(queryModel.toString()));
+                .append(StringUtils.trimToEmpty(mode));
         return sb.toString();
     }
     

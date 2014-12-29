@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class FreezeResult extends YeepResult {
 
-    private static final long serialVersionUID = 20131113L;
+    private static final long serialVersionUID = 20141225L;
 
     @Size(max = 9)
     private String SubAcctType;

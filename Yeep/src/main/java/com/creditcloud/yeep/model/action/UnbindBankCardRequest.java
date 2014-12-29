@@ -5,18 +5,20 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.UserRequest;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author kakaci
+ * @author tinglany
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name = "request")
 public class UnbindBankCardRequest extends UserRequest {
+
+    
+    public UnbindBankCardRequest() {
+    }
 
     public UnbindBankCardRequest(String platformUserNo,
                                  String platformNo,
@@ -25,6 +27,7 @@ public class UnbindBankCardRequest extends UserRequest {
                                  String requestNo) {
         super(platformUserNo, platformNo, null, requestNo, callbackUrl, null,sign);
     }
+
     
     @Override
     public String chkString() {
@@ -33,3 +36,4 @@ public class UnbindBankCardRequest extends UserRequest {
         return sb.toString();
     }
 }
+
