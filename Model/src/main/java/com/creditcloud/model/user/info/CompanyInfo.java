@@ -126,6 +126,10 @@ public class CompanyInfo extends BaseObject {
     }
 
     public String getIndustryName() {
-        return industry.getKey();
+        if (industry != null) {
+            return industry.getKey();
+        } else {
+            return "";
+        }
     }
 }
