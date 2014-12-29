@@ -4,10 +4,8 @@
  */
 package com.creditcloud.lending.api;
 
-import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
-import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
 import javax.ejb.Remote;
 
@@ -75,16 +73,6 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public boolean changeTimeOut(String loanId, int timeOut);
    
     
-    /**
-     * list loan by user id
-     *
-     * @param clientCode
-     * @param userId
-     * @param pageInfo
-     * @return empty list if nothing found
-     * @throw ClientCodeNotMatchException if incoming client code do not match
-     * the local client
-     */
-    PagedResult<Loan> listByUser(String userId, PageInfo pageInfo);
+
 
 }

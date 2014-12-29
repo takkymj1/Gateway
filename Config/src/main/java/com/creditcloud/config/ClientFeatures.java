@@ -100,7 +100,7 @@ public class ClientFeatures extends BaseObject {
      */
     @XmlElement
     @Getter
-    private boolean enableLoanRequestDatail = false;
+    private boolean enableLoanRequestDetail = false;
     
     /**
      * 限制提现
