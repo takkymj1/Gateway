@@ -11,8 +11,8 @@ import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.order.OrderConstant;
 import com.creditcloud.order.enums.OrderCategory;
 import java.util.Date;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -38,7 +38,7 @@ public class TransOrder extends BaseObject {
 
     private TransStat stat;
 
-    @Max(OrderConstant.MAX_ORDER_DES_LEN)
+    @Size(max = OrderConstant.MAX_ORDER_DES_LEN)
     private String description;
 
     public TransOrder(String orderId,
