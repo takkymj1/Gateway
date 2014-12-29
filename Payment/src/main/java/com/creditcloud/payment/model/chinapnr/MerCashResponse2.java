@@ -67,9 +67,11 @@ public class MerCashResponse2 extends BaseResponse {
     @Size(max = 9)
     private String FeeAcctId;
 
+    @FormParam("ServFee")
     @Size(max = 14)
     private String ServFee;
 
+    @FormParam("ServFeeAcctId")
     @Size(max = 9)
     private String ServFeeAcctId;
 
@@ -82,6 +84,7 @@ public class MerCashResponse2 extends BaseResponse {
     @Size(max = 128)
     private String BgRetUrl;
 
+    @FormParam("RespExt")
     @Size(max = 512)
     private String RespExt;
 
