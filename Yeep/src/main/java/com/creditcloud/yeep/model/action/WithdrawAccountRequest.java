@@ -37,10 +37,10 @@ public class WithdrawAccountRequest extends UserRequest {
     public WithdrawAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
-                                  String feeMode,
-                                  String amount,
+                                  String feeMode,                                
                                   String callbackUrl,
                                   String notifyUrl,
+                                  String amount,
                                   String sign) {
         super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
         this.feeMode = feeMode;
