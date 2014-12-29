@@ -133,8 +133,4 @@ public class CompanyInfo extends BaseObject {
     public String getIndustryName() {
         return industryName;
     }
-
-    public void setIndustryName(String industryName) {
-        this.industryName = industryName;
-    }
 }
