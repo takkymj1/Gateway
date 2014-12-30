@@ -85,8 +85,9 @@ public enum CmdIdType {
     FssPurchaseReconciliation(CmdIdGroup.Reconciliation),
     FssRedeemReconciliation(CmdIdGroup.Reconciliation),
     QueryFss, //生利宝产品信息查询
-    QueryFssAccts;  //生利宝账户信息查询
-
+    QueryFssAccts,  //生利宝账户信息查询
+    
+    AddBidInfo;
     private final CmdIdGroup group;
 
     private CmdIdType() {

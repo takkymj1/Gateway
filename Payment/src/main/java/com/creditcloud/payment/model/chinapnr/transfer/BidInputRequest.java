@@ -80,6 +80,7 @@ public class BidInputRequest extends BaseRequest {
     public BidInputRequest(CmdIdType cmdIdType,
                            String MerCustId,
                            String ProId,
+                           String BorrCustId,
                            String BorrTotAmt,
                            String YearRate,
                            String RetType,
@@ -94,7 +95,7 @@ public class BidInputRequest extends BaseRequest {
                            String ReqExt) {
         super(PnRConstant.Version, cmdIdType, MerCustId);
         this.ProId = ProId;
-        this.BorrCustId = BorrTotAmt;
+        this.BorrCustId = BorrCustId;
         this.BorrTotAmt = BorrTotAmt;
         this.YearRate = YearRate;
         this.RetType = RetType;
