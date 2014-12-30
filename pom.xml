@@ -18,13 +18,13 @@
         <module>Service</module>
         <module>Model</module>
         <module>Client</module>
-        <module>User</module>
+        <module>Config</module>
         <module>Email</module>
         <module>Image</module>
         <module>Message</module>
         <module>SMS</module>
         <module>IDCard</module>
-        <module>Config</module>
+        <module>User</module>
         <module>Comment</module>
         <module>File</module>
         <module>Task</module>
