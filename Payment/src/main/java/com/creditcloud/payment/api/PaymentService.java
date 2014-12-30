@@ -67,6 +67,7 @@ public interface PaymentService {
           * @param GuarCompId   担保公司的唯一标识
           * @param GuarAmt     担保金额，精确到分，例如：1200.00
           * @param ProArea     项目所在地
+          * @param MerPriv     自定义域
           * @param BgRetUrl  
           * @param ReqExt
           * @return 
@@ -85,6 +86,7 @@ public interface PaymentService {
                                                 String GuarAmt,
                                                 String ProArea,
                                                 String BgRetUrl,
+                                                String MerPriv,
                                                 String ReqExt);
     /**
      * 获取用户在三方支付中的PaymentAccount

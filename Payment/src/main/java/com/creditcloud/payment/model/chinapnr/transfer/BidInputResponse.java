@@ -62,7 +62,7 @@ public class BidInputResponse extends BaseResponse{
     
       @Override
     public String chkString() {
-        StringBuilder sb = new StringBuilder(baseChkString());
+        StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(this.getCmdId().name()))
                 .append(StringUtils.trimToEmpty(this.getRespCode()))
                 .append(StringUtils.trimToEmpty(this.getMerCustId()))
