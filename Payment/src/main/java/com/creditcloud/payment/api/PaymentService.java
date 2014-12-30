@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
+import com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse;
 
 /**
  *
@@ -51,23 +52,22 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface PaymentService {
-        public com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse executeBidInput(
-            String clientCode,
-            CmdIdType cmdIdType,
-            String MerCustId,
-            String ProId,
-            String BorrTotAmt,
-            String YearRate,
-            String RetType,
-            String BidStartDate,
-            String BidEndDate,
-            String RetAmt,
-            String RetDate,
-            String GuarCompId,
-            String GuarAmt,
-            String ProArea,
-            String BgRetUrl,
-            String ReqExt);
+        public BidInputResponse executeBidInput(String clientCode,
+                                                CmdIdType cmdIdType,
+                                                String MerCustId,
+                                                String ProId,
+                                                String BorrTotAmt,
+                                                String YearRate,
+                                                String RetType,
+                                                String BidStartDate,
+                                                String BidEndDate,
+                                                String RetAmt,
+                                                String RetDate,
+                                                String GuarCompId,
+                                                String GuarAmt,
+                                                String ProArea,
+                                                String BgRetUrl,
+                                                String ReqExt);
     /**
      * 获取用户在三方支付中的PaymentAccount
      *

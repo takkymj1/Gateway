@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import org.apache.commons.lang3.StringUtils;
+
 /**
  *
  * @author kakaci
@@ -21,92 +22,92 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class BidInputRequest extends BaseRequest{
-    
+public class BidInputRequest extends BaseRequest {
+
     @NotNull
-    @Size(max=16)
+    @Size(max = 16)
     private String ProId;
-    
+
     @NotNull
-    @Size(max=16)
+    @Size(max = 16)
     private String BorrCustId;
-    
+
     @NotNull
-    @Size(max=14)
+    @Size(max = 14)
     private String BorrTotAmt;
 
     @NotNull
-    @Size(max=14)
+    @Size(max = 14)
     private String YearRate;
-    
+
     @NotNull
-    @Size(max=2)
+    @Size(max = 2)
     private String RetType;
-    
+
     @NotNull
-    @Size(max=14)    
+    @Size(max = 14)
     private String BidStartDate;
-    
+
     @NotNull
-    @Size(max=14)
+    @Size(max = 14)
     private String BidEndDate;
-    
+
     @NotNull
-    @Size(max=14)
+    @Size(max = 14)
     private String RetAmt;
-    
+
     @NotNull
-    @Size(max=8)
+    @Size(max = 8)
     private String RetDate;
-    
-    @Size(max=16)
+
+    @Size(max = 16)
     private String GuarCompId;
-    
-    @Size(max=14)
+
+    @Size(max = 14)
     private String GuarAmt;
-    
+
     @NotNull
-    @Size(max=4)
+    @Size(max = 4)
     private String ProArea;
 
     @NotNull
-    @Size(max=128)
+    @Size(max = 128)
     private String BgRetUrl;
-    
-    @Size(max=512)
+
+    @Size(max = 512)
     private String ReqExt;
-    
+
     public BidInputRequest(CmdIdType cmdIdType,
-            String MerCustId,
-            String ProId,
-            String BorrTotAmt,
-            String YearRate,
-            String RetType,
-            String BidStartDate,
-            String BidEndDate,
-            String RetAmt,
-            String RetDate,
-            String GuarCompId,
-            String GuarAmt,
-            String ProArea,
-            String BgRetUrl,
-            String ReqExt){
+                           String MerCustId,
+                           String ProId,
+                           String BorrTotAmt,
+                           String YearRate,
+                           String RetType,
+                           String BidStartDate,
+                           String BidEndDate,
+                           String RetAmt,
+                           String RetDate,
+                           String GuarCompId,
+                           String GuarAmt,
+                           String ProArea,
+                           String BgRetUrl,
+                           String ReqExt) {
         super(PnRConstant.Version, cmdIdType, MerCustId);
-        this.ProId=ProId;
-        this.BorrCustId=BorrTotAmt;
-        this.BorrTotAmt=BorrTotAmt;
-        this.YearRate=YearRate;
-        this.RetType=RetType;
-        this.BidStartDate=BidStartDate;
-        this.BidEndDate=BidEndDate;
-        this.RetAmt=RetAmt;
-        this.RetDate=RetDate;
-        this.GuarCompId=GuarCompId;
-        this.GuarAmt=GuarAmt;
-        this.ProArea=ProArea;
-        this.ReqExt=ReqExt;
+        this.ProId = ProId;
+        this.BorrCustId = BorrTotAmt;
+        this.BorrTotAmt = BorrTotAmt;
+        this.YearRate = YearRate;
+        this.RetType = RetType;
+        this.BidStartDate = BidStartDate;
+        this.BidEndDate = BidEndDate;
+        this.RetAmt = RetAmt;
+        this.RetDate = RetDate;
+        this.GuarCompId = GuarCompId;
+        this.GuarAmt = GuarAmt;
+        this.ProArea = ProArea;
+        this.ReqExt = ReqExt;
     }
-    
+
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(getVersion()));
