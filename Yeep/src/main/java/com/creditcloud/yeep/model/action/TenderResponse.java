@@ -8,17 +8,15 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class TransferResponse extends BaseResponse {
+@XmlRootElement (name = "response")
+public class TenderResponse extends BaseResponse {
 
     /**
      * 固定值TRANSFER
@@ -32,7 +30,10 @@ public class TransferResponse extends BaseResponse {
     @NotNull
     private String requestNo;
 
-    public TransferResponse(String platformNo,
+    public TenderResponse() {
+    }
+
+    public TenderResponse(String platformNo,
                             BizType service,
                             String requestNo,
                             String code,
@@ -40,6 +41,22 @@ public class TransferResponse extends BaseResponse {
                             String sign) {
         super(platformNo, code, description,sign);
         this.service = service;
+        this.requestNo = requestNo;
+    }
+
+    public BizType getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(BizType service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
 

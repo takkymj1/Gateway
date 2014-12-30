@@ -69,7 +69,14 @@ public class YeepConfig extends BaseConfig {
      * Manager三方支付回调url
      */
     @XmlElement(required = true)
-    private String adminRetUrl;    
+    private String adminRetUrl;   
+    
+    /**
+     * 最大借款手续费率
+     */
+    @XmlElement(required = false)
+    private String maxBorrowerRate;
+    
     
     //下面配置的是商户子账户
     /**
