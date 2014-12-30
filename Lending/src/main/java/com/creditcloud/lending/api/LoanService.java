@@ -71,4 +71,8 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public boolean changeTitle(String loanId, String title);
     
     public boolean changeTimeOut(String loanId, int timeOut);
+   
+    
+
+
 }

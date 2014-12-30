@@ -37,5 +37,21 @@ public class LoanRequestDetail extends BaseObject {
      * 共同借款人
      */
     private RealmEntity coborrower;
+    
+    /**
+     * 最小资金比例
+     */
+    private int minCapitalRatio;
+    
+    /**
+     * 风险等级
+     */
+    private String riskGrade;
+    
+    /**
+     * 行业类别
+     */
+    private String industry;
+    
 
 }
