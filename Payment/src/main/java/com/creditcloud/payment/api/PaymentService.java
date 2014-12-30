@@ -28,6 +28,7 @@ import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.enums.AcctType;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
+import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
@@ -50,7 +51,23 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface PaymentService {
-
+        public com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse executeBidInput(
+            String clientCode,
+            CmdIdType cmdIdType,
+            String MerCustId,
+            String ProId,
+            String BorrTotAmt,
+            String YearRate,
+            String RetType,
+            String BidStartDate,
+            String BidEndDate,
+            String RetAmt,
+            String RetDate,
+            String GuarCompId,
+            String GuarAmt,
+            String ProArea,
+            String BgRetUrl,
+            String ReqExt);
     /**
      * 获取用户在三方支付中的PaymentAccount
      *
