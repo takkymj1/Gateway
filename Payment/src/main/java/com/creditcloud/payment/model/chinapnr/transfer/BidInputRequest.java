@@ -92,6 +92,7 @@ public class BidInputRequest extends BaseRequest {
                            String GuarAmt,
                            String ProArea,
                            String BgRetUrl,
+                           String MerPriv,
                            String ReqExt) {
         super(PnRConstant.Version, cmdIdType, MerCustId);
         this.ProId = ProId;
@@ -106,7 +107,9 @@ public class BidInputRequest extends BaseRequest {
         this.GuarCompId = GuarCompId;
         this.GuarAmt = GuarAmt;
         this.ProArea = ProArea;
+        this.BgRetUrl=BgRetUrl;
         this.ReqExt = ReqExt;
+        this.setMerPriv(MerPriv);
     }
 
     public String chkString() {
