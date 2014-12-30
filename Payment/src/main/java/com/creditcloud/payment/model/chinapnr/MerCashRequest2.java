@@ -73,8 +73,6 @@ public class MerCashRequest2 extends BaseRequest {
                            String RetUrl,
                            String BgRetUrl,
                            String Remark,
-                           String CharSet,
-                           String ReqExt,
                            String FeeObjFlag,
                            String FeeAcctId) {
         super(PnRConstant.Version_2, CmdIdType.Cash, MerCustId);
@@ -86,8 +84,6 @@ public class MerCashRequest2 extends BaseRequest {
         this.RetUrl = RetUrl;
         this.BgRetUrl = BgRetUrl;
         this.Remark = Remark;
-        this.CharSet = CharSet;
-        this.ReqExt = ReqExt;
         this.FeeObjFlag = FeeObjFlag;
         this.FeeAcctId = FeeAcctId;
     }

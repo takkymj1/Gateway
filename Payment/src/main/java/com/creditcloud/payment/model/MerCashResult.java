@@ -4,14 +4,19 @@
  */
 package com.creditcloud.payment.model;
 
+import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class MerCashResult extends PaymentResult {
 
@@ -21,57 +26,25 @@ public class MerCashResult extends PaymentResult {
     @NotNull
     private BigDecimal FeeAmt;
 
+    private FeeObjFlag FeeObjFlag;
+    
     @NotNull
     private String FeeCustId;
 
-    @NotNull
     private String FeeAcctId;
-
-    public MerCashResult() {
-    }
 
     public MerCashResult(String RespCode, 
                          String RespDesc,
                          BigDecimal TransAmt,
                          BigDecimal FeeAmt, 
+                         FeeObjFlag FeeObjFlag,
                          String FeeCustId, 
                          String FeeAcctId) {
         super(RespCode, RespDesc);
         this.TransAmt = TransAmt;
         this.FeeAmt = FeeAmt;
+        this.FeeObjFlag = FeeObjFlag;
         this.FeeCustId = FeeCustId;
-        this.FeeAcctId = FeeAcctId;
-    }
-
-    public BigDecimal getTransAmt() {
-        return TransAmt;
-    }
-
-    public BigDecimal getFeeAmt() {
-        return FeeAmt;
-    }
-
-    public String getFeeCustId() {
-        return FeeCustId;
-    }
-
-    public String getFeeAcctId() {
-        return FeeAcctId;
-    }
-
-    public void setTransAmt(BigDecimal TransAmt) {
-        this.TransAmt = TransAmt;
-    }
-
-    public void setFeeAmt(BigDecimal FeeAmt) {
-        this.FeeAmt = FeeAmt;
-    }
-
-    public void setFeeCustId(String FeeCustId) {
-        this.FeeCustId = FeeCustId;
-    }
-
-    public void setFeeAcctId(String FeeAcctId) {
         this.FeeAcctId = FeeAcctId;
     }
 }

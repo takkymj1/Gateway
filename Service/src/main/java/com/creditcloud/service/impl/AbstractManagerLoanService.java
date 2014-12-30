@@ -20,7 +20,6 @@ import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.ManagerLoanService;
-import com.creditcloud.service.model.misc.LoanRequestDetail;
 import java.util.Date;
 import java.util.List;
 
@@ -133,10 +132,6 @@ public class AbstractManagerLoanService implements ManagerLoanService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public LoanRequestDetail getLoanRequestDetailByRequestId(String clientCode, String requestId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     @Override
     public SubmitRequestResult submitLoanRequest(String clientCode, LoanRequest loanRequest,RealmEntity userRealm){
