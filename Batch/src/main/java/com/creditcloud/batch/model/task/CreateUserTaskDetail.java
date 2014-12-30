@@ -59,4 +59,50 @@ public class CreateUserTaskDetail {
     private boolean children;
     
     private EducationLevel educationLevel;
+    
+    /**
+     * 公司类别
+     */
+    private CompanyType companyType;
+    
+    /**
+     * 所属行业
+     */
+    private CompanyIndustry companyIndustry;
+    
+    /**
+     * 公司规模
+     */
+    private CompanySize companySize;
+    
+    /**
+     * 职业状态
+     */
+    private CareerStatus careerStatus;
+    
+    /**
+     * 具体职位
+     */
+    private String position;
+    
+    /**
+     * 月薪
+     */
+    private MonthlySalary monthlySalary;
+    
+    /**
+     * 工作年限
+     */
+    private YearOfService yearOfService;
+    
+    /**
+     * 工作省份
+     */
+    private String workProvince;
+    
+    /**
+     * 工作城市
+     */
+    private String workCity;
+        
 }
