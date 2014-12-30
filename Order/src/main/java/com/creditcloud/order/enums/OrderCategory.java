@@ -16,7 +16,8 @@ public enum OrderCategory implements BaseEnum {
     Register("注册开户"),
     Withdraw("提现"),
     Deposit("充值"),
-    Transfer("转账");
+    Transfer("转账"),
+    Tender("投标");
 
     private final String key;
 
