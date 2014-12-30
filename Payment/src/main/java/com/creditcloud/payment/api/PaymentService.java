@@ -53,8 +53,6 @@ import com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse;
 @Remote
 public interface PaymentService {
         public BidInputResponse executeBidInput(String clientCode,
-                                                CmdIdType cmdIdType,
-                                                String MerCustId,
                                                 String ProId,
                                                 String BorrTotAmt,
                                                 String YearRate,
