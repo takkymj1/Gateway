@@ -18,11 +18,13 @@
         <module>Service</module>
         <module>Model</module>
         <module>Client</module>
+        <module>User</module>
         <module>Email</module>
         <module>Image</module>
         <module>Message</module>
         <module>SMS</module>
         <module>IDCard</module>
+        <module>Config</module>
         <module>Comment</module>
         <module>File</module>
         <module>Task</module>
@@ -46,8 +48,6 @@
         <module>Feedback</module>
     <module>Yeep</module>
     <module>Order</module>
-    <module>Lychee</module>
-        <module>User</module>
-        <module>Config</module>
+    <module>Lychee</module>        
     </modules>
 </project>
