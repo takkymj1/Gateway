@@ -5,7 +5,12 @@
 package com.creditcloud.model.enums;
 
 /**
- * 交易状态，记录交易在三方支付的状态
+ * 交易状态，记录交易在三方支付的状态</p>
+ * 对于汇付状态对应如下</p>
+ * 1:投标 N--成功 C-失败 </p>
+ * 2:放款,还款 I--初始 P--部分成功 </p>
+ * 3:取现 S--成功 F--失败 H--经办 R--拒绝 </p>
+ * 4:冻结解冻 F – 冻结 U – 已解冻 N –无需解冻,对于解冻交易
  *
  * @author rooseek
  */
@@ -50,7 +55,8 @@ public enum TransStat implements BaseEnum {
     /**
      * 对汇付表示,查询自动投标状态表示关闭!
      */
-    C("关闭"),;
+    C("关闭"),
+    U("已解冻");
 
     private final String key;
 
