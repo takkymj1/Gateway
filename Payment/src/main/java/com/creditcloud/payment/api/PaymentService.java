@@ -73,7 +73,7 @@ public interface PaymentService {
      * @param ReqExt
      * @return
      */
-    public AddBidInfoResponse executeBidInput(String clientCode,
+    public boolean executeBidInput(String clientCode,
                                               String ProId,
                                               String BorrCustId,
                                               String BorrTotAmt,

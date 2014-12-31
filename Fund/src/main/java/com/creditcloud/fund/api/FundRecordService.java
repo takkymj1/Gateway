@@ -38,7 +38,7 @@ public interface FundRecordService {
      * @return 
      */
     
-    PagedResult<FundRecord> listByEntity(String clientCode,com.creditcloud.model.misc.RealmEntity entity); 
+    PagedResult<FundRecord> listByEntity(String clientCode,RealmEntity entity); 
     
     /**
      * 根据OrderId来列出所有FundRecord
