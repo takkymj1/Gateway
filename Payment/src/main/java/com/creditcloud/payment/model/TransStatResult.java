@@ -8,14 +8,19 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.TransStat;
 import com.creditcloud.payment.model.chinapnr.constraint.PnRDate;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
+@Data
+@NoArgsConstructor
 @XmlRootElement
 public class TransStatResult extends BaseObject {
 
@@ -34,48 +39,21 @@ public class TransStatResult extends BaseObject {
 
     private TransStat TransStat;
 
-    public TransStatResult() {
-    }
+    private BigDecimal TransAmt;
+
+    private String TrxId;
 
     public TransStatResult(String OrdId,
                            String OrdDate,
                            QueryTransType QueryTransType,
-                           TransStat TransStat) {
+                           TransStat TransStat,
+                           BigDecimal TransAmt,
+                           String TrxId) {
         this.OrdId = OrdId;
         this.OrdDate = OrdDate;
         this.QueryTransType = QueryTransType;
         this.TransStat = TransStat;
-    }
-
-    public String getOrdId() {
-        return OrdId;
-    }
-
-    public String getOrdDate() {
-        return OrdDate;
-    }
-
-    public QueryTransType getQueryTransType() {
-        return QueryTransType;
-    }
-
-    public TransStat getTransStat() {
-        return TransStat;
-    }
-
-    public void setOrdId(String OrdId) {
-        this.OrdId = OrdId;
-    }
-
-    public void setOrdDate(String OrdDate) {
-        this.OrdDate = OrdDate;
-    }
-
-    public void setQueryTransType(QueryTransType QueryTransType) {
-        this.QueryTransType = QueryTransType;
-    }
-
-    public void setTransStat(TransStat TransStat) {
-        this.TransStat = TransStat;
+        this.TransAmt = TransAmt;
+        this.TrxId = TrxId;
     }
 }
