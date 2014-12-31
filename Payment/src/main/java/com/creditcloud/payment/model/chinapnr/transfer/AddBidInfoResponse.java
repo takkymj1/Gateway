@@ -21,7 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 @ToString(callSuper = true)
 @NoArgsConstructor
-public class BidInputResponse extends BaseResponse{
+public class AddBidInfoResponse extends BaseResponse{
     
     @FormParam("ProId")
     @NotNull

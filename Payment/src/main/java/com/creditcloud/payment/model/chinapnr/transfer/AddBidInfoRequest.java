@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 @NoArgsConstructor
 @ToString(callSuper = true)
-public class BidInputRequest extends BaseRequest {
+public class AddBidInfoRequest extends BaseRequest {
 
     @NotNull
     @Size(max = 16)
@@ -77,24 +77,23 @@ public class BidInputRequest extends BaseRequest {
     @Size(max = 512)
     private String ReqExt;
 
-    public BidInputRequest(CmdIdType cmdIdType,
-                           String MerCustId,
-                           String ProId,
-                           String BorrCustId,
-                           String BorrTotAmt,
-                           String YearRate,
-                           String RetType,
-                           String BidStartDate,
-                           String BidEndDate,
-                           String RetAmt,
-                           String RetDate,
-                           String GuarCompId,
-                           String GuarAmt,
-                           String ProArea,
-                           String BgRetUrl,
-                           String MerPriv,
-                           String ReqExt) {
-        super(PnRConstant.Version, cmdIdType, MerCustId);
+    public AddBidInfoRequest(String MerCustId,
+                             String ProId,
+                             String BorrCustId,
+                             String BorrTotAmt,
+                             String YearRate,
+                             String RetType,
+                             String BidStartDate,
+                             String BidEndDate,
+                             String RetAmt,
+                             String RetDate,
+                             String GuarCompId,
+                             String GuarAmt,
+                             String ProArea,
+                             String BgRetUrl,
+                             String MerPriv,
+                             String ReqExt) {
+        super(PnRConstant.Version, CmdIdType.AddBidInfo, MerCustId);
         this.ProId = ProId;
         this.BorrCustId = BorrCustId;
         this.BorrTotAmt = BorrTotAmt;
@@ -107,7 +106,7 @@ public class BidInputRequest extends BaseRequest {
         this.GuarCompId = GuarCompId;
         this.GuarAmt = GuarAmt;
         this.ProArea = ProArea;
-        this.BgRetUrl=BgRetUrl;
+        this.BgRetUrl = BgRetUrl;
         this.ReqExt = ReqExt;
         this.setMerPriv(MerPriv);
     }
