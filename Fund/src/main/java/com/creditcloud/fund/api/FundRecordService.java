@@ -38,7 +38,7 @@ public interface FundRecordService {
      * @return 
      */
     
-    PagedResult<FundRecord> listByEntity(String clientCode,RealmEntity entity); 
+    PagedResult<FundRecord> listByEntity(String clientCode,PageInfo pageInfo,RealmEntity entity); 
     
     /**
      * 根据OrderId来列出所有FundRecord
@@ -46,7 +46,7 @@ public interface FundRecordService {
      * @param orderId
      * @return 
      */
-    PagedResult<FundRecord> listByOrderId(String clientCode, String orderId); 
+    PagedResult<FundRecord> listByOrderId(String clientCode,PageInfo pageInfo, String orderId); 
     /**
      *
      * @param clientCode
