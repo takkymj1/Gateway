@@ -57,7 +57,13 @@ public class YeepConfig extends BaseConfig {
      * 三方支付服务的远程路径
      */
     @XmlElement(required = true)
-    private String path;
+    private String actionPath;
+    
+    /**
+     * 三方支付服务的远程路径
+     */
+    @XmlElement(required = true)
+    private String servicePath;
 
     /**
      * 三方支付回调的Url，一般是网站运行的地址
