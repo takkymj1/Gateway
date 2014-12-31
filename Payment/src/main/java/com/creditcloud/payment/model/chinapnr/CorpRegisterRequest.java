@@ -31,10 +31,10 @@ public class CorpRegisterRequest extends BaseRequest {
     private String InstuCode;
 
     @NotNull
-    @Size( max = 30)
+    @Size(max = 30)
     private String BusiCode;
 
-    @Size( max = 30)
+    @Size(max = 30)
     private String TaxCode;
 
     private String Charset;
@@ -48,6 +48,10 @@ public class CorpRegisterRequest extends BaseRequest {
 
     @Size(max = 512)
     private String ReqExt;
+
+    //企业用户备案金
+    @Size(max = 14)
+    private String GuarCorpEarnestAmt;
 
     public CorpRegisterRequest(String MerCustId,
                                String UsrId,
