@@ -52,4 +52,14 @@ public class CashReconciliation extends BaseObject {
 
     @NotNull
     private String PnrSeqId;
+
+    @Size(max = 14)
+    private String FeeAmt;
+
+    @Size(max = 16)
+    private String FeeCustId;
+
+    @Size(max = 9)
+    private String FeeAcctId;
+
 }
