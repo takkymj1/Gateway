@@ -24,7 +24,7 @@ public enum CompanyIndustry implements BaseEnum {
     GOVERNMENT("国家机关/政党机关/社会团体"),
     MEDIA_ADVERTISEMENT("媒体/广告/广播/电影/电视"),
     RETAIL_WHOLESALE("零售/批发"),
-    EDUCATION_TRAINING("教育/培训 "),
+    EDUCATION_TRAINING("教育/培训"),
     PUBLIC_SERVICES("社会服务业"),
     FINANCE_LAW("金融/保险/法律"),
     TRANSPORTATION("交通运输/仓储/邮政"),

@@ -28,13 +28,13 @@ import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import com.creditcloud.payment.model.chinapnr.enums.AcctType;
 import com.creditcloud.payment.model.chinapnr.enums.AuditFlag;
-import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
 import com.creditcloud.payment.model.chinapnr.enums.FeeObjFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
+import com.creditcloud.payment.model.chinapnr.transfer.AddBidInfoResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
@@ -44,7 +44,6 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
-import com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse;
 
 /**
  *
@@ -52,42 +51,45 @@ import com.creditcloud.payment.model.chinapnr.transfer.BidInputResponse;
  */
 @Remote
 public interface PaymentService {
-         /**
-          * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
-          * @param clientCode
-          * @param ProId     标的唯一标识
-          * @param BorrCustId 借款人的唯一标识
-          * @param BorrTotAmt 借款总金额，格式为：1200.00
-          * @param YearRate   年利率，精确到小数点2位
-          * @param RetType    还款方式，01：等额本息，02：等额本金，03：按期还款，04：一次性还款，99：其他
-          * @param BidStartDate 投标开始时间 yyyyMMddhhmmss
-          * @param BidEndDate   投标截止时间 yyyyMMddhhmmss
-          * @param RetAmt     应还款总额，单位为元，精确到分，例如：1200.00
-          * @param RetDate    应还款日期，格式为yyyyMMdd
-          * @param GuarCompId   担保公司的唯一标识
-          * @param GuarAmt     担保金额，精确到分，例如：1200.00
-          * @param ProArea     项目所在地
-          * @param MerPriv     自定义域
-          * @param BgRetUrl  
-          * @param ReqExt
-          * @return 
-          */
-        public BidInputResponse executeBidInput(String clientCode,
-                                                String ProId,
-                                                String BorrCustId,
-                                                String BorrTotAmt,
-                                                String YearRate,
-                                                String RetType,
-                                                String BidStartDate,
-                                                String BidEndDate,
-                                                String RetAmt,
-                                                String RetDate,
-                                                String GuarCompId,
-                                                String GuarAmt,
-                                                String ProArea,
-                                                String BgRetUrl,
-                                                String MerPriv,
-                                                String ReqExt);
+
+    /**
+     * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
+     *
+     * @param clientCode
+     * @param ProId        标的唯一标识
+     * @param BorrCustId   借款人的唯一标识
+     * @param BorrTotAmt   借款总金额，格式为：1200.00
+     * @param YearRate     年利率，精确到小数点2位
+     * @param RetType      还款方式，01：等额本息，02：等额本金，03：按期还款，04：一次性还款，99：其他
+     * @param BidStartDate 投标开始时间 yyyyMMddhhmmss
+     * @param BidEndDate   投标截止时间 yyyyMMddhhmmss
+     * @param RetAmt       应还款总额，单位为元，精确到分，例如：1200.00
+     * @param RetDate      应还款日期，格式为yyyyMMdd
+     * @param GuarCompId   担保公司的唯一标识
+     * @param GuarAmt      担保金额，精确到分，例如：1200.00
+     * @param ProArea      项目所在地
+     * @param MerPriv      自定义域
+     * @param BgRetUrl
+     * @param ReqExt
+     * @return
+     */
+    public AddBidInfoResponse executeBidInput(String clientCode,
+                                              String ProId,
+                                              String BorrCustId,
+                                              String BorrTotAmt,
+                                              String YearRate,
+                                              String RetType,
+                                              String BidStartDate,
+                                              String BidEndDate,
+                                              String RetAmt,
+                                              String RetDate,
+                                              String GuarCompId,
+                                              String GuarAmt,
+                                              String ProArea,
+                                              String BgRetUrl,
+                                              String MerPriv,
+                                              String ReqExt);
+
     /**
      * 获取用户在三方支付中的PaymentAccount
      *

@@ -66,4 +66,9 @@ public class Contract extends BaseObject {
      * 合同内容
      */
     private byte[] content;
+    
+    /**
+     * 合同编号
+     */
+    private String contractNo;
 }

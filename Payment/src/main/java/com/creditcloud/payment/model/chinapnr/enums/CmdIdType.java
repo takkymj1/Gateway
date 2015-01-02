@@ -87,7 +87,13 @@ public enum CmdIdType {
     QueryFss, //生利宝产品信息查询
     QueryFssAccts,  //生利宝账户信息查询
     
-    AddBidInfo;
+    /**
+     * 2014.12.31更新
+     */
+    AddBidInfo,
+    QueryUsrInfo,
+    QueryTransDetail;
+    
     private final CmdIdGroup group;
 
     private CmdIdType() {
