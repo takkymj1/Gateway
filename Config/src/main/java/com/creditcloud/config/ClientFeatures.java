@@ -108,4 +108,18 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean restrictWithdraw = false;
+    
+    /**
+     * 是否启用费率
+     */
+    @XmlElement
+    @Getter
+    private boolean enableFee = true;
+    
+    /**
+     * 可以控制第三方账户权限
+     */
+    @XmlElement
+    @Getter
+    private boolean thirdPartyPerm = true;
 }
