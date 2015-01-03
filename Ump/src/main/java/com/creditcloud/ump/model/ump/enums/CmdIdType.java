@@ -49,6 +49,10 @@ public enum CmdIdType {
      */
     MER_UNBIND_AGREEMNT_NOTIFY,
     /**
+     * 下发交易密码
+     */
+    MER_SEND_SMS_PWD,
+    /**
      * 发标
      */
     MER_BIND_PROJECT,
