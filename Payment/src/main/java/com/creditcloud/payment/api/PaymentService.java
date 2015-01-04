@@ -73,22 +73,22 @@ public interface PaymentService {
      * @param ReqExt
      * @return
      */
-    public AddBidInfoResponse executeBidInput(String clientCode,
-                                              String ProId,
-                                              String BorrCustId,
-                                              String BorrTotAmt,
-                                              String YearRate,
-                                              String RetType,
-                                              String BidStartDate,
-                                              String BidEndDate,
-                                              String RetAmt,
-                                              String RetDate,
-                                              String GuarCompId,
-                                              String GuarAmt,
-                                              String ProArea,
-                                              String BgRetUrl,
-                                              String MerPriv,
-                                              String ReqExt);
+    public boolean executeBidInput(String clientCode,
+                                   String ProId,
+                                   String BorrCustId,
+                                   String BorrTotAmt,
+                                   String YearRate,
+                                   String RetType,
+                                   String BidStartDate,
+                                   String BidEndDate,
+                                   String RetAmt,
+                                   String RetDate,
+                                   String GuarCompId,
+                                   String GuarAmt,
+                                   String ProArea,
+                                   String BgRetUrl,
+                                   String MerPriv,
+                                   String ReqExt);
 
     /**
      * 获取用户在三方支付中的PaymentAccount
