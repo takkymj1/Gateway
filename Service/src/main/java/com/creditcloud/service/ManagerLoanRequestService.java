@@ -11,7 +11,6 @@ import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
-import com.creditcloud.service.model.misc.LoanRequestDetail;
 import javax.ejb.Remote;
 
 /**

@@ -57,7 +57,13 @@ public class YeepConfig extends BaseConfig {
      * 三方支付服务的远程路径
      */
     @XmlElement(required = true)
-    private String path;
+    private String actionPath;
+    
+    /**
+     * 三方支付服务的远程路径
+     */
+    @XmlElement(required = true)
+    private String servicePath;
 
     /**
      * 三方支付回调的Url，一般是网站运行的地址
@@ -69,7 +75,14 @@ public class YeepConfig extends BaseConfig {
      * Manager三方支付回调url
      */
     @XmlElement(required = true)
-    private String adminRetUrl;    
+    private String adminRetUrl;   
+    
+    /**
+     * 最大借款手续费率
+     */
+    @XmlElement(required = false)
+    private String maxBorrowerRate;
+    
     
     //下面配置的是商户子账户
     /**

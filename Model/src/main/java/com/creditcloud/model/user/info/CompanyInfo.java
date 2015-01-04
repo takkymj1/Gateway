@@ -35,7 +35,7 @@ public class CompanyInfo extends BaseObject {
     @FormParam("industry")
     @XmlElement(name = "industry")
     private CompanyIndustry industry;
-
+    
     //公司规模
     @FormParam("size")
     @XmlElement(name = "size")
@@ -123,5 +123,9 @@ public class CompanyInfo extends BaseObject {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getIndustryName() {
+            return industry == null ? "" : industry.getKey();
     }
 }

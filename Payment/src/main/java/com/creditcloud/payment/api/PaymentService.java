@@ -34,6 +34,7 @@ import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
+import com.creditcloud.payment.model.chinapnr.transfer.AddBidInfoResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
@@ -50,6 +51,44 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface PaymentService {
+
+    /**
+     * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
+     *
+     * @param clientCode
+     * @param ProId        标的唯一标识
+     * @param BorrCustId   借款人的唯一标识
+     * @param BorrTotAmt   借款总金额，格式为：1200.00
+     * @param YearRate     年利率，精确到小数点2位
+     * @param RetType      还款方式，01：等额本息，02：等额本金，03：按期还款，04：一次性还款，99：其他
+     * @param BidStartDate 投标开始时间 yyyyMMddhhmmss
+     * @param BidEndDate   投标截止时间 yyyyMMddhhmmss
+     * @param RetAmt       应还款总额，单位为元，精确到分，例如：1200.00
+     * @param RetDate      应还款日期，格式为yyyyMMdd
+     * @param GuarCompId   担保公司的唯一标识
+     * @param GuarAmt      担保金额，精确到分，例如：1200.00
+     * @param ProArea      项目所在地
+     * @param MerPriv      自定义域
+     * @param BgRetUrl
+     * @param ReqExt
+     * @return
+     */
+    public boolean executeBidInput(String clientCode,
+                                   String ProId,
+                                   String BorrCustId,
+                                   String BorrTotAmt,
+                                   String YearRate,
+                                   String RetType,
+                                   String BidStartDate,
+                                   String BidEndDate,
+                                   String RetAmt,
+                                   String RetDate,
+                                   String GuarCompId,
+                                   String GuarAmt,
+                                   String ProArea,
+                                   String BgRetUrl,
+                                   String MerPriv,
+                                   String ReqExt);
 
     /**
      * 获取用户在三方支付中的PaymentAccount
@@ -77,7 +116,7 @@ public interface PaymentService {
      * @param accountId
      * @param accountName
      * @return new account updated, null if account with userId not found or
-     * accountId/accountName is illegal
+     *         accountId/accountName is illegal
      */
     public PaymentAccount updatePaymentAccount(String clientCode,
                                                String userId,
@@ -177,9 +216,9 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param orderId 此次操作的唯一订单号
+     * @param orderId    此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl 后台返回的回调路径
+     * @param BgRetUrl   后台返回的回调路径
      * @param merPriv
      * @return 如果找不到userId对应的支付账号返回null
      */
@@ -228,9 +267,9 @@ public interface PaymentService {
      * @param clientCode
      * @param userId
      * @param amount
-     * @param orderId 此次操作的唯一订单号
-     * @param auditFlag 复核标识
-     * @param BgRetUr 后台返回的回调路径
+     * @param orderId    此次操作的唯一订单号
+     * @param auditFlag  复核标识
+     * @param BgRetUr    后台返回的回调路径
      * @return
      */
     public CashAuditResult cashAudit(String clientCode,
@@ -260,16 +299,16 @@ public interface PaymentService {
      * 放款
      *
      * @param clientCode
-     * @param ordId 此次操作订单号
-     * @param ordDate 订单日期
+     * @param ordId        此次操作订单号
+     * @param ordDate      订单日期
      * @param investUserId 投资人id
-     * @param amount 投资金额
-     * @param fee 商户扣账手续费
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单号日期?
-     * @param loanUserId 贷款人Id
-     * @param details 分账账户串
-     * @param isDefault 是否需要在放款后发起自动取现
+     * @param amount       投资金额
+     * @param fee          商户扣账手续费
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单号日期?
+     * @param loanUserId   贷款人Id
+     * @param details      分账账户串
+     * @param isDefault    是否需要在放款后发起自动取现
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -330,15 +369,15 @@ public interface PaymentService {
      * 还款
      *
      * @param clientCode
-     * @param ordId 本操作订单号
-     * @param ordDate 订单日期
-     * @param loanUserId 借款人id
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单日期
-     * @param transAmt 还款金额
-     * @param fee 手续费
+     * @param ordId        本操作订单号
+     * @param ordDate      订单日期
+     * @param loanUserId   借款人id
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单日期
+     * @param transAmt     还款金额
+     * @param fee          手续费
      * @param investUserId 投资人id
-     * @param details 分账信息
+     * @param details      分账信息
      * @param BgRetUrl
      * @param merPriv
      * @return
@@ -392,11 +431,11 @@ public interface PaymentService {
      * 垫付
      *
      * @param clientCode
-     * @param ordId 本操作订单号
-     * @param ordDate 订单日期
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单日期
-     * @param transAmt 还款金额
+     * @param ordId        本操作订单号
+     * @param ordDate      订单日期
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单日期
+     * @param transAmt     还款金额
      * @param fee
      * @param investUserId 投资人id
      * @param details
@@ -421,12 +460,12 @@ public interface PaymentService {
      * TODO 逐步取代上面的方法
      *
      * @param clientCode
-     * @param ordId 本操作订单号
-     * @param ordDate 订单日期
-     * @param subOrdId 投标订单号
-     * @param subOrdDate 投标订单日期
-     * @param transAmt 还款金额
-     * @param outAcctId 商户出账账户
+     * @param ordId        本操作订单号
+     * @param ordDate      订单日期
+     * @param subOrdId     投标订单号
+     * @param subOrdDate   投标订单日期
+     * @param transAmt     还款金额
+     * @param outAcctId    商户出账账户
      * @param fee
      * @param investUserId 投资人id
      * @param details
@@ -501,7 +540,7 @@ public interface PaymentService {
      * 验证从三方支付返回的数据对象是否合法
      *
      * @param clientCode
-     * @param response 返回数据
+     * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response);
@@ -529,13 +568,13 @@ public interface PaymentService {
      * 后台绑卡
      *
      * @param clientCode
-     * @param userId 用户Id
+     * @param userId         用户Id
      * @param openAcctId
      * @param openBankId
      * @param openProvId
      * @param openAreaId
      * @param OpenBranchName
-     * @param isDefault 是否默认银行卡
+     * @param isDefault      是否默认银行卡
      * @return
      */
     public PaymentResult bgBindCard(String clientCode,
@@ -552,12 +591,12 @@ public interface PaymentService {
      *
      * @param clientCode
      * @param userId
-     * @param usrName 真实姓名
-     * @param loginPwd 登陆密码
-     * @param transPwd 交易密码
-     * @param idNo 身份证
-     * @param usrMp 手机号
-     * @param usrEmail 邮箱名
+     * @param usrName    真实姓名
+     * @param loginPwd   登陆密码
+     * @param transPwd   交易密码
+     * @param idNo       身份证
+     * @param usrMp      手机号
+     * @param usrEmail   邮箱名
      * @return 返回null如果创建失败
      */
     public PaymentAccount bgRegister(String clientCode,
@@ -597,7 +636,7 @@ public interface PaymentService {
      * @param amount
      * @param orderId
      * @param BgRetUrl
-     * @param forUser true for merCash for user, false for client
+     * @param forUser    true for merCash for user, false for client
      * @return
      */
     public MerCashResult merCash(String clientCode,
@@ -606,6 +645,29 @@ public interface PaymentService {
                                  String orderId,
                                  String BgRetUrl,
                                  boolean forUser);
+
+    /**
+     * 商户代取现接口,对应汇付2.0版本.</p>
+     * TODO替换上面1.0接口
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount
+     * @param orderId
+     * @param BgRetUrl
+     * @param forUser
+     * @param feeObjFlag
+     * @param feeAcctId
+     * @return
+     */
+    public MerCashResult merCash2(String clientCode,
+                                  String userId,
+                                  BigDecimal amount,
+                                  String orderId,
+                                  String BgRetUrl,
+                                  boolean forUser,
+                                  FeeObjFlag feeObjFlag,
+                                  String feeAcctId);
 
     /**
      * 前台用户之间转账接口，必须是企业用户和个人用户之间，TODO测试用

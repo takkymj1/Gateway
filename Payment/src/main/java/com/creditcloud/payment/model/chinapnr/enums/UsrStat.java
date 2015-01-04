@@ -3,25 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.order.enums;
+package com.creditcloud.payment.model.chinapnr.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 用戶状态
  *
  * @author rooseek
  */
-public enum OrderCategory implements BaseEnum {
+public enum UsrStat implements BaseEnum {
 
-    Register("注册开户"),
-    Withdraw("提现"),
-    Deposit("充值"),
-    Transfer("转账"),
-    Tender("投标");
+    N("正常"),
+    A("待激活,登录后需要用户激活"),
+    C("被关闭,临时关闭,不能登陆"),
+    D("销户");
 
     private final String key;
 
-    private OrderCategory(final String key) {
+    private UsrStat(String key) {
         this.key = key;
     }
 

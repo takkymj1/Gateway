@@ -15,7 +15,7 @@ import lombok.ToString;
  * @author kdliu
  */
 @Data
-@ToString(callSuper=true)
+@ToString(callSuper = true)
 public class UserRegisterRequest extends BaseRequest {
 
     private String mer_cust_id;
@@ -32,12 +32,12 @@ public class UserRegisterRequest extends BaseRequest {
      * nillable
      */
     private String email;
-    
+
     public UserRegisterRequest(String mer_id,
                                String mer_cust_id,
-                               String mer_cust_name, 
-                               String identity_type, 
-                               String identity_code, 
+                               String mer_cust_name,
+                               String identity_type,
+                               String identity_code,
                                String mobile_id) {
         super(CmdIdType.MER_REGISTER_PERSON, mer_id);
         this.mer_cust_id = mer_cust_id;

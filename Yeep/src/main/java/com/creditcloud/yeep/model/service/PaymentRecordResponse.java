@@ -5,9 +5,9 @@
  */
 package com.creditcloud.yeep.model.service;
 
-import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
@@ -16,9 +16,7 @@ import org.joda.time.LocalDate;
  * 
  * @author tinglany
  */
-
-//@Data
-//@NoArgsConstructor
+@XmlRootElement (name = "response")
 public class PaymentRecordResponse extends BaseResponse {
     
     @NotNull
@@ -33,13 +31,16 @@ public class PaymentRecordResponse extends BaseResponse {
     private LocalDate loanTime;
     
     @NotNull
-    private Status status;
+    private String status;
+
+    public PaymentRecordResponse() {
+    }
     
     public PaymentRecordResponse(String paymentAmount,
                                  String sourceUserNo,
                                  LocalDate createTime,
                                  LocalDate loanTime,
-                                 Status status,
+                                 String status,
                                  String sign) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
@@ -47,6 +48,46 @@ public class PaymentRecordResponse extends BaseResponse {
         this.loanTime = loanTime;
         this.status = status;
     } 
+
+    public String getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public String getSourceUserNo() {
+        return sourceUserNo;
+    }
+
+    public LocalDate getCreateTime() {
+        return createTime;
+    }
+
+    public LocalDate getLoanTime() {
+        return loanTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
+
+    public void setSourceUserNo(String sourceUserNo) {
+        this.sourceUserNo = sourceUserNo;
+    }
+
+    public void setCreateTime(LocalDate createTime) {
+        this.createTime = createTime;
+    }
+
+    public void setLoanTime(LocalDate loanTime) {
+        this.loanTime = loanTime;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
     
     @Override
     public String chkString() {
@@ -56,7 +97,7 @@ public class PaymentRecordResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(sourceUserNo))
                 .append(StringUtils.trimToEmpty(createTime.toString()))
                 .append(StringUtils.trimToEmpty(loanTime.toString()))
-                .append(StringUtils.trimToEmpty(status.name()));
+                .append(StringUtils.trimToEmpty(status));
         return sb.toString();
     }    
 }

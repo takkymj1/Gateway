@@ -14,7 +14,9 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum FeeObjFlag implements BaseEnum {
 
     I("向入款客户号InCustId收取"),
-    O("向出款客户号OutCustId收取");
+    O("向出款客户号OutCustId收取"),
+    M("向商户收取"),
+    U("向用户收取");
 
     private final String key;
 
