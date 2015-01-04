@@ -69,7 +69,12 @@ public enum SMSType {
     /**
     * 用户提交取现申请，参数为 client.shortName, user.name, amount, supportPhone
     */
-    NOTIFICATION_WITHDRAW_APPLY("notification.withdraw.apply");
+    NOTIFICATION_WITHDRAW_APPLY("notification.withdraw.apply"),
+    
+    /**
+     * 用户还款提前10天短信告知提示
+     */
+    POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind");
 
     private final String key;
 

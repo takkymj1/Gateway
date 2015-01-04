@@ -74,6 +74,20 @@ public interface UmpService extends UmpQueryService {
     public boolean createUmpCorpAccount(String clientCode,
                                         String userId,
                                         String corpAccountId);
+    
+    /**
+     * 下发交易密码到用户手机号.
+     * 
+     * 发送到用户开联动账号时使用的手机号码
+     * 
+     * @param clientCode
+     * @param userId
+     * @param orderId
+     * @return 是否成功发出
+     */
+    public boolean sendUmpPassword(String clientCode,
+                                   String userId,
+                                   String orderId);
 
     /**
      * 在联动服务器更新用户的手机号码.

@@ -41,6 +41,10 @@ public enum CmdIdRspType {
      */
     MER_UNBIND_AGREEMNT_NOTIFY_RSP,
     /**
+     * 下发交易密码结果
+     */
+    MER_SEND_SMS_PWD_RSP,
+    /**
      * 发标
      */
     MER_BIND_PROJECT_RSP,
