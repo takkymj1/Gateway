@@ -455,7 +455,7 @@ public interface ContractService {
     
     
     /**
-     * 获取主合同编号
+     * 获取基于借款标的的合同编号（借款人与多投资人）
      *
      * @param loan
      * @return
