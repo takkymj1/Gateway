@@ -20,6 +20,7 @@ public enum ApiErrorCode implements BaseEnum {
     USER_AMOUNT_INSUFFICIENT_AND_PREPARE_CONTACT("可用金额不足,请联系客服"),
     USER_DEPOSIT_FAILED("用户充值失败"),
     USER_WITHDRAW_EXCEED_LIMIT("用户提现超出限额"),
+    USER_WITHDRAW_FAILED("用户提现失败"),
     USER_NOT_BIND_BANK_CARD("用户未绑定银行卡"),
     USER_BANK_ACCOUNT_NOT_FOUND("用户银行卡未找到"),
     
@@ -48,6 +49,7 @@ public enum ApiErrorCode implements BaseEnum {
     INVALID_MOBILE("无效的手机号"),
     INVALID_MOBILE_CAPTCHA("无效的手机验证码"),    
     INVALID_UMP_TENDER_AMOUNT("无效的投标金额联动优势"),
+    INVALID_AMOUNT("无效的金额"),
     
     AGREEMENT_NOT_SIGNED("未签署相关协议"),
     
