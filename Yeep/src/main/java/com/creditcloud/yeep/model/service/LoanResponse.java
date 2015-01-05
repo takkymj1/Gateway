@@ -6,14 +6,17 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement (name = "response")
 public class LoanResponse extends BaseResponse{
+
+    public LoanResponse() {
+    }
     
     public LoanResponse(String platfromNo,
                         String code,

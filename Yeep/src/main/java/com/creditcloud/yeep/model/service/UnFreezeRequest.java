@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 /**
  * 资金解冻
@@ -13,18 +14,28 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement ( name = "request")
 public class UnFreezeRequest extends BaseRequest {
     
     //冻结时的请求流水号
     @NotNull
     private String freezeRequestNo;
+
+    public UnFreezeRequest() {
+    }
     
     public UnFreezeRequest(String platformNo,
                            String freezeRequestNo,
                            String sign) {
         super(platformNo,null,null,null,sign);
+        this.freezeRequestNo = freezeRequestNo;
+    }
+
+    public String getFreezeRequestNo() {
+        return freezeRequestNo;
+    }
+
+    public void setFreezeRequestNo(String freezeRequestNo) {
         this.freezeRequestNo = freezeRequestNo;
     }
 
