@@ -65,8 +65,6 @@ interface UserRewardService {
      * @return
      */
     PagedResult<RealmEntity> listReferral(String clientCode, Date from, Date to, PageInfo pageInfo);
-    
-    PagedResult<RealmEntity> listReferralByMobile(String clientCode, Date from, Date to, PageInfo pageInfo, String mobile);
 
     /**
      * 统计所有推荐人
