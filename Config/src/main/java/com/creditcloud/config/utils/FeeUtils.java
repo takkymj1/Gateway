@@ -202,6 +202,8 @@ public class FeeUtils {
                 case BOTH:
                     overdueAmount = repayment.getAmount();
                     break;
+                case OUTSTANDING:
+                    overdueAmount = repayment.getAmountOutstanding();
             }
             switch (overdueFee.getPeriod()) {
                 case DAILY:
@@ -233,6 +235,8 @@ public class FeeUtils {
                 case BOTH:
                     penaltyAmount = repayment.getAmount();
                     break;
+                case OUTSTANDING:
+                    penaltyAmount = repayment.getAmountOutstanding();
             }
             switch (penaltyFee.getPeriod()) {
                 case DAILY:
