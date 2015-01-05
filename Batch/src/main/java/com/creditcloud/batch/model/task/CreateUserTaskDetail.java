@@ -9,6 +9,7 @@ import com.creditcloud.model.constraints.BankAccountNumber;
 import com.creditcloud.model.constraints.IdNumber;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
+import com.creditcloud.model.enums.user.credit.CertificateStatus;
 import com.creditcloud.model.enums.user.info.MaritalStatus;
 import com.creditcloud.model.enums.user.info.EducationLevel;
 import com.creditcloud.model.enums.user.info.CareerStatus;
@@ -110,5 +111,14 @@ public class CreateUserTaskDetail {
      * 工作城市
      */
     private String workCity;
-        
+    
+    /**
+     * 房产认证状态
+     */
+    private CertificateStatus realestateCertificate;
+    
+    /**
+     * 购车认证状态
+     */
+    private CertificateStatus vehicleCertificate;
 }
