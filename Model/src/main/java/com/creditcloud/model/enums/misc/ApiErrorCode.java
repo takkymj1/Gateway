@@ -34,7 +34,6 @@ public enum ApiErrorCode implements BaseEnum {
     
     LOAN_INSUFFICIENT_AND_INVEST_RETURN("可用余额不足,投资已返还"),
     LOAN_INSUFFICIENT_AND_PREPARE_CONTACT("可用金额不足,请联系客服"),
-    
     LOAN_BALANCE_ERROR("标的可投金额错误"),
 
     CROWD_FUNDING_NOT_FOUND("众筹项目未找到"),
@@ -71,8 +70,6 @@ public enum ApiErrorCode implements BaseEnum {
     TAG_NOT_FOUND("标签未找到"),
     
     BANK_NOT_FOUND("银行卡未找到"),
-    
-    ORDERID_CREATED_FAILED("订单创建失败"),
     
     UNKNOWN("未知错误"),
     UNKNOWN_AND_INVEST_RETURN("未知错误,投资已返还"),
