@@ -18,6 +18,10 @@ public enum ApiErrorCode implements BaseEnum {
     USER_AMOUNT_INSUFFICIENT("可用金额不足"),
     USER_AMOUNT_INSUFFICIENT_AND_INVEST_RETURN("可用余额不足,投资已返还"),
     USER_AMOUNT_INSUFFICIENT_AND_PREPARE_CONTACT("可用金额不足,请联系客服"),
+    USER_DEPOSIT_FAILED("用户充值失败"),
+    USER_WITHDRAW_EXCEED_LIMIT("用户提现超出限额"),
+    USER_NOT_BIND_BANK_CARD("用户未绑定银行卡"),
+    USER_BANK_ACCOUNT_NOT_FOUND("用户银行卡未找到"),
     
     UMP_TENDER_NOT_FOUND("未找到联动优势标的账户"),
     UMP_CREATE_ACCOUNT_FAILED("联动优势账号创建失败"),
@@ -63,6 +67,10 @@ public enum ApiErrorCode implements BaseEnum {
     MSG_SEND_FAILED("消息发送失败"),
     
     TAG_NOT_FOUND("标签未找到"),
+    
+    BANK_NOT_FOUND("银行卡未找到"),
+    
+    ORDERID_CREATED_FAILED("订单创建失败"),
     
     UNKNOWN("未知错误"),
     UNKNOWN_AND_INVEST_RETURN("未知错误,投资已返还"),

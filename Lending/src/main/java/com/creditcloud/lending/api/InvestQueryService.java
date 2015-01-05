@@ -93,6 +93,17 @@ public interface InvestQueryService {
     public int countByLoanAndUser(String userId, String loanId, List<InvestStatus> statusList, List<BidMethod> bidMethods);
 
     /**
+     * list by loan and user
+     *
+     * @param userId
+     * @param loanId
+     * @param statusList
+     * @param bidMethods
+     * @return
+     */
+    public List<Invest> listByLoanAndUser(String userId, String loanId, List<InvestStatus> statusList, List<BidMethod> bidMethods);
+
+    /**
      * list invest between fromdate and todate
      *
      * @param userId
@@ -149,7 +160,7 @@ public interface InvestQueryService {
     public List<Invest> listByLoanOrderByUser(String loanId, List<InvestStatus> statusList);
 
     public int countByStatus(List<InvestStatus> statusList);
-    
+
     public List<ElementCount<InvestStatus>> countEachByLoanAndStatus(String loanId, List<InvestStatus> statusList);
 
     public List<ElementSum<InvestStatus>> sumEachByLoanAndStatus(String loanId, List<InvestStatus> statusList);

@@ -30,6 +30,23 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface FundRecordService {
+    
+    /**
+     * 根据FundRecord中的entity来列出所有FundRecord
+     * @param clientCode
+     * @param entity
+     * @return 
+     */
+    
+    PagedResult<FundRecord> listByEntity(String clientCode,PageInfo pageInfo,RealmEntity entity); 
+    
+    /**
+     * 根据OrderId来列出所有FundRecord
+     * @param clientCode
+     * @param orderId
+     * @return 
+     */
+    PagedResult<FundRecord> listByOrderId(String clientCode,PageInfo pageInfo, String orderId); 
 
     /**
      *
@@ -121,6 +138,46 @@ public interface FundRecordService {
                                        List<FundRecordType> type,
                                        List<FundRecordOperation> operation,
                                        List<FundRecordStatus> status);
+
+    /**
+     * 统计一段时间内用户资金记录金额总和
+     *
+     * @param clientCode
+     * @param userId
+     * @param startDate
+     * @param endDate
+     * @param statusList
+     * @param operationList
+     * @param typeList
+     * @return
+     */
+    BigDecimal sumByUser(String clientCode,
+                         String userId,
+                         Date startDate,
+                         Date endDate,
+                         List<FundRecordStatus> statusList,
+                         List<FundRecordOperation> operationList,
+                         List<FundRecordType> typeList);
+
+    /**
+     * 统计一段时间内用户资金记录数目
+     *
+     * @param clientCode
+     * @param userId
+     * @param startDate
+     * @param endDate
+     * @param statusList
+     * @param operationList
+     * @param typeList
+     * @return
+     */
+    int countByUser(String clientCode,
+                    String userId,
+                    Date startDate,
+                    Date endDate,
+                    List<FundRecordStatus> statusList,
+                    List<FundRecordOperation> operationList,
+                    List<FundRecordType> typeList);
 
     /**
      *
@@ -389,18 +446,18 @@ public interface FundRecordService {
                                 String loanId,
                                 Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                 String orderId);
-    
+
     /**
      * 联动支付: 用于结算时记录统一放款给借款人和记录收费，不记录投资人的记录
-     * 
+     *
      * @param clientCode
      * @param loanUserId
      * @param loanId
      * @param refundAmount
      * @param refundOrderId
-     * @param account 商户账号
-     * @param feeToMerchantDetails 进入商户账号的手续费
-     * @param userId 担保用户id
+     * @param account               商户账号
+     * @param feeToMerchantDetails  进入商户账号的手续费
+     * @param userId                担保用户id
      * @param feeToGuaranteeDetails 进入担保账户的手续费
      */
     void settleInvestRecord2UmpRefund(String clientCode,
