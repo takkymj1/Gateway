@@ -83,7 +83,7 @@ public interface YeepService extends YeepQueryService{
      * @param platformNo
      * @param ordNo
      * @param settleRequestNo
-     * @param bigRequestNo
+     * @param bidRequestNo
      * @param investAmount
      * @param investUserId 投资人id
      * @param fee          商户扣账手续费
@@ -95,7 +95,7 @@ public interface YeepService extends YeepQueryService{
                            String platformNo,
                            String ordNo,
                            String settleRequestNo,
-                           String bigRequestNo,
+                           String bidRequestNo,
                            String investUserId,
                            BigDecimal investAmount,
                            BigDecimal fee,
