@@ -30,7 +30,23 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface FundRecordService {
-
+    
+    /**
+     * 根据FundRecord中的entity来列出所有FundRecord
+     * @param clientCode
+     * @param entity
+     * @return 
+     */
+    
+    PagedResult<FundRecord> listByEntity(String clientCode,PageInfo pageInfo,RealmEntity entity); 
+    
+    /**
+     * 根据OrderId来列出所有FundRecord
+     * @param clientCode
+     * @param orderId
+     * @return 
+     */
+    PagedResult<FundRecord> listByOrderId(String clientCode,PageInfo pageInfo, String orderId); 
     /**
      * 根据FundRecord中的entity来列出所有FundRecord
      *
