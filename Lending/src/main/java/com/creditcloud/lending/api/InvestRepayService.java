@@ -24,7 +24,7 @@ import org.joda.time.LocalDate;
  * @author rooseek
  */
 @Remote
-public interface InvestRepayService extends InvestRepayQueryService{
+public interface InvestRepayService extends InvestRepayQueryService {
 
     boolean addNew(InvestRepayment repay);
 
@@ -56,8 +56,8 @@ public interface InvestRepayService extends InvestRepayQueryService{
     public InvestRepayment getLastByInvestAndStatus(String investId, List<RepaymentStatus> statusList);
 
     InvestRepayment getByInvestAndPeriod(String investId, int period);
-    
-     /**
+
+    /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
      * 只计算未还款状态的
      *
@@ -91,29 +91,4 @@ public interface InvestRepayService extends InvestRepayQueryService{
      * @return
      */
     RepayDetail getDisburseDetail(DisburseInfo disburseInfo);
-    
-    /**
-     * 根据dueDate统计InvestRepayment之和
-     * 
-     * @param userId
-     * @param from
-     * @param to
-     * @param statusList
-     * @return 
-     */
-    int countByIntervalAndStatus(String userId, LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
-    
-    
-    /**
-     * 根据dueDate统计InvestRepayment amount之和
-     * 
-     * @param userId
-     * @param repayType
-     * @param from
-     * @param to
-     * @param statusList
-     * @return 
-     */
-    BigDecimal sumByIntervalAndStatus(String userId,RepayType repayType, LocalDate from, LocalDate to , List<RepaymentStatus> statusList);
-    
 }
