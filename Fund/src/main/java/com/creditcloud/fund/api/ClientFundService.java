@@ -21,7 +21,23 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface ClientFundService {
-
+    /**
+     * 根据ClientFundRecord中的entity来列出所有FundRecord
+     * @param clientCode
+     * @param pageInfo
+     * @param entity
+     * @return 
+     */
+    PagedResult<ClientFundRecord> listByEntity(String clientCode,PageInfo pageInfo,com.creditcloud.model.misc.RealmEntity entity);
+    
+    /**
+     * 根据OrderId来列出所有ClientFundRecord
+     * @param clientCode
+     * @param pageInfo
+     * @param orderId
+     * @return 
+     */
+    PagedResult<ClientFundRecord> listByOrderId(String clientCode,PageInfo pageInfo, String orderId); 
     /**
      * 列出商户资金记录
      *
