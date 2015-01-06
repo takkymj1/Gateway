@@ -5,26 +5,23 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement ( name = "response")
 public class RepaymentResponse extends BaseResponse {
 
     /**
      * 固定值REPAYMENT
      */
     @NotNull
-    private BizType service;
+    private String service;
 
     /**
      * 请求流水号
@@ -32,14 +29,33 @@ public class RepaymentResponse extends BaseResponse {
     @NotNull
     private String requestNo;
 
+    public RepaymentResponse() {
+    }
+
     public RepaymentResponse(String platformNo,
-                             BizType service,
+                             String service,
                              String requestNo,
                              String code,
                              String description,
                              String sign) {
         super(platformNo, code, description,sign);
         this.service = service;
+        this.requestNo = requestNo;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
     

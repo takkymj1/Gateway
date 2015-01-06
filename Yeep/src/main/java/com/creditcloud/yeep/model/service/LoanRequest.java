@@ -8,6 +8,10 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.Transfer;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 /**
  * 放款
@@ -15,8 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement ( name = "request")
 public class LoanRequest extends BaseRequest {
     
     //标的号
@@ -32,26 +35,59 @@ public class LoanRequest extends BaseRequest {
     
     //transfer
     @NotNull
-    private Transfer transfer;
+    private List<Transfer> transfers;
     
-    //服务器通知 URL
-    @NotNull
-    private String notifyUrl;
+
+    public LoanRequest() {
+    }
     
     public LoanRequest(String platformNo,
                        String orderNo,
                        String requestNo,
                        String fee,
-                       Transfer transfer,
+                       List<Transfer> transfers,
                        String notifyUrl,
                        String sign) {
-        super(platformNo,null,notifyUrl,null,sign);
+        super(platformNo,null,null,notifyUrl,sign);
         this.orderNo = orderNo;
         this.requestNo = requestNo;
         this.fee = fee;
-        this.transfer = transfer;
-        this.notifyUrl = notifyUrl;
+        this.transfers = transfers;
     } 
+
+    @XmlElementWrapper(name="transfers")
+    @XmlElement(name="transfer")
+    public List<Transfer> getTransfers() {
+        return transfers;
+    }    
+    
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
+    public void setTransfer(List<Transfer> transfer) {
+        this.transfers = transfers;
+    }
     
     @Override
     public String chkString() {
@@ -60,8 +96,7 @@ public class LoanRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(orderNo))
                 .append(StringUtils.trimToEmpty(requestNo))
                 .append(StringUtils.trimToEmpty(fee))
-                .append(StringUtils.trimToEmpty(transfer.toString()))
-                .append(StringUtils.trimToEmpty(notifyUrl));
+                .append(StringUtils.trimToEmpty(transfers.get(0).toString()));
         return sb.toString();
     }    
 }
