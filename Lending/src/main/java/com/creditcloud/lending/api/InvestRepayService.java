@@ -5,6 +5,7 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
@@ -14,6 +15,7 @@ import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -89,4 +91,28 @@ public interface InvestRepayService extends InvestRepayQueryService{
      * @return
      */
     RepayDetail getDisburseDetail(DisburseInfo disburseInfo);
+    
+    /**
+     * 统计InvestRepayment之和
+     * 
+     * @param userId
+     * @param from
+     * @param to
+     * @param statusList
+     * @return 
+     */
+    int countByIntervalAndStatus(String userId, Date from, Date to, List<RepaymentStatus> statusList);
+    
+    
+    /**
+     * 统计InvestRepayment amount之和
+     * 
+     * @param userId
+     * @param from
+     * @param to
+     * @param statusList
+     * @return 
+     */
+    BigDecimal sumByIntervalAndStatus(String userId,RepayType repayType, Date from, Date to , List<RepaymentStatus> statusList);
+    
 }
