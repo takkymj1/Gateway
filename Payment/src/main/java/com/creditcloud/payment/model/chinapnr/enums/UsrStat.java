@@ -17,7 +17,11 @@ public enum UsrStat implements BaseEnum {
     N("正常"),
     A("待激活,登录后需要用户激活"),
     C("被关闭,临时关闭,不能登陆"),
-    D("销户");
+    D("销户"),
+    /**
+     * 自定义用于标示找不到此用户
+     */
+    NOT_EXIST("不存在此用户");
 
     private final String key;
 

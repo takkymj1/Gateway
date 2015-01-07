@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -20,27 +21,29 @@ import org.apache.commons.lang3.StringUtils;
  */
 @Data
 @NoArgsConstructor
-public class QueryTransDetailRequest extends BaseRequest{
+@ToString(callSuper = true)
+public class QueryTransDetailRequest extends BaseRequest {
+
     @NotNull
-    @Size(max=20)
+    @Size(max = 20)
     private String OrderId;
-    
+
     @NotNull
     private String QueryTransType;
-    
-    @Size(max=512)
+
+    @Size(max = 512)
     private String ReqExt;
-    
-    public QueryTransDetailRequest(String MerCustId,String OrderId,String QueryTransType,String ReqExt){
-        super(PnRConstant.Version,CmdIdType.QueryTransDetail,MerCustId);
-        this.OrderId=OrderId;
-        this.QueryTransType=QueryTransType;
-        this.ReqExt=ReqExt;
+
+    public QueryTransDetailRequest(String MerCustId, String QueryTransType, String OrderId, String ReqExt) {
+        super(PnRConstant.Version, CmdIdType.QueryTransDetail, MerCustId);
+        this.OrderId = OrderId;
+        this.QueryTransType = QueryTransType;
+        this.ReqExt = ReqExt;
     }
-    
+
     @Override
-    public String chkString(){
-        StringBuilder sb=new StringBuilder();
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(getVersion()));
         sb.append(StringUtils.trimToEmpty(getCmdId().name()));
         sb.append(StringUtils.trimToEmpty(getMerCustId()));

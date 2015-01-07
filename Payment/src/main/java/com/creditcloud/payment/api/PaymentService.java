@@ -19,6 +19,7 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.QueryUsrInfoResult;
 import com.creditcloud.payment.model.TenderResult;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.TransferResult;
@@ -34,7 +35,6 @@ import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
-import com.creditcloud.payment.model.chinapnr.transfer.AddBidInfoResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
@@ -51,29 +51,33 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface PaymentService {
+
     /**
      * 根据用户身份证号查询用户信息
      *
      * @param clientCode
-     * @param CertId    用户身份证号
+     * @param CertId     用户身份证号
      * @param ReqExt
      * @return
      */
-    public boolean queryUsrInfo(String clientCode,
-                                String CertId,
-                                String ReqExt);
-    
+    public QueryUsrInfoResult queryUsrInfo(String clientCode,
+                                           String CertId,
+                                           String ReqExt);
+
     /**
      * 根据订单号查询交易明细，现只有充值交易明细查询
      *
      * @param clientCode
-     * @param OrdId 订单号
+     * @param type
+     * @param OrdId      订单号
      * @param ReqExt
      * @return
      */
     public boolean queryTransDetail(String clientCode,
+                                    QueryTransType type,
                                     String OrdId,
                                     String ReqExt);
+
     /**
      * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
      *
