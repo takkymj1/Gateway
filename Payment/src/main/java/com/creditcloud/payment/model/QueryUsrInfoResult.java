@@ -8,6 +8,7 @@ package com.creditcloud.payment.model;
 import com.creditcloud.payment.model.chinapnr.enums.UsrStat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  *
@@ -15,6 +16,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 public class QueryUsrInfoResult extends PaymentResult {
 
     private static final long serialVersionUID = 20150107L;

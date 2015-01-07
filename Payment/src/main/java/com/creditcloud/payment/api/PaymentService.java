@@ -19,6 +19,7 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.QueryTransDetailResult;
 import com.creditcloud.payment.model.QueryUsrInfoResult;
 import com.creditcloud.payment.model.TenderResult;
 import com.creditcloud.payment.model.TransStatResult;
@@ -73,10 +74,10 @@ public interface PaymentService {
      * @param ReqExt
      * @return
      */
-    public boolean queryTransDetail(String clientCode,
-                                    QueryTransType type,
-                                    String OrdId,
-                                    String ReqExt);
+    public QueryTransDetailResult queryTransDetail(String clientCode,
+                                                   QueryTransType type,
+                                                   String OrdId,
+                                                   String ReqExt);
 
     /**
      * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
