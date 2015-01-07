@@ -65,19 +65,16 @@ public class CreateLoanTaskDetail {
     /**
      * 借款用途
      */
-    @NotNull
     private LoanPurpose loanPurpose;
     
     /**
      * 所属产品分类的Key
      */
-    @NotNull
     private String productKey;
 
     /**
      * 担保机构企业名称
      */
-    @NotNull
     private String guaranteeName;
     
     /**
@@ -88,26 +85,21 @@ public class CreateLoanTaskDetail {
     /**
      * 借款合同名称
      */
-    @NotNull
     private String loanContractTemplateName;
     
     /**
      * 居间服务协议模板名称
      */
-    @NotNull
     private String brokerageContractTemplateName;
     
     /**
      * 担保费率
      */
-    @NotNull
     private BigDecimal loanGuaranteeFee;
-
 
     /**
      * 服务费率
      */
-    @NotNull
     private BigDecimal loanServiceFee;
 
 }
