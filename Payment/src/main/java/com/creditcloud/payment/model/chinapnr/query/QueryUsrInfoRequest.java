@@ -16,31 +16,33 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author kakaci
+ * @author rooseek
  */
 @Data
 @NoArgsConstructor
 public class QueryUsrInfoRequest extends BaseRequest {
-    
+
     @NotNull
     @Size(max = 30)
     private String CertId;
-    
+
     @Size(max = 512)
     private String ReqExt;
-    
-    public QueryUsrInfoRequest(String MerCustId,String CertId,String ReqExt){
-        super(PnRConstant.Version,CmdIdType.QueryUsrInfo,MerCustId);
-        this.CertId=CertId;
-        this.ReqExt=ReqExt;
+
+    public QueryUsrInfoRequest(String MerCustId, String CertId, String ReqExt) {
+        super(PnRConstant.Version, CmdIdType.QueryUsrInfo, MerCustId);
+        this.CertId = CertId;
+        this.ReqExt = ReqExt;
     }
-    public String chkString(){
+
+    @Override
+    public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(getVersion()));
         sb.append(StringUtils.trimToEmpty(getCmdId().name()));
         sb.append(StringUtils.trimToEmpty(getMerCustId()));
-        sb.append(StringUtils.trimToEmpty(this.getCertId()));
-        sb.append(StringUtils.trimToEmpty(this.getReqExt()));
-        return sb.toString();          
+        sb.append(StringUtils.trimToEmpty(getCertId()));
+        sb.append(StringUtils.trimToEmpty(getReqExt()));
+        return sb.toString();
     }
 }
