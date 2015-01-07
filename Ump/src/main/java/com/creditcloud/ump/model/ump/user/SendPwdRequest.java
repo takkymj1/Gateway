@@ -24,10 +24,11 @@ public class SendPwdRequest extends BaseRequest {
 
     private String identity_code;
 
-    public SendPwdRequest(String user_id,
+    public SendPwdRequest(String mer_id,
+                          String user_id,
                           String order_id,
                           String identity_code) {
-        super(CmdIdType.MER_SEND_SMS_PWD);
+        super(CmdIdType.MER_SEND_SMS_PWD, mer_id);
         this.user_id = user_id;
         this.order_id = order_id;
         this.identity_code = identity_code;
