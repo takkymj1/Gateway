@@ -23,4 +23,6 @@ public interface LoanRequestService extends LoanRequestQueryService, LoanRequest
     public void update(LoanRequest loanRequest);
 
     public boolean markStatus(LoanRequestStatus status, String id);
+    
+    public LoanRequest getBySerial(String serial);
 }
