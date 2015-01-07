@@ -5,6 +5,7 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
@@ -16,13 +17,14 @@ import com.creditcloud.service.model.RepayInfo;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
  * @author rooseek
  */
 @Remote
-public interface InvestRepayService extends InvestRepayQueryService{
+public interface InvestRepayService extends InvestRepayQueryService {
 
     boolean addNew(InvestRepayment repay);
 
@@ -54,8 +56,8 @@ public interface InvestRepayService extends InvestRepayQueryService{
     public InvestRepayment getLastByInvestAndStatus(String investId, List<RepaymentStatus> statusList);
 
     InvestRepayment getByInvestAndPeriod(String investId, int period);
-    
-     /**
+
+    /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
      * 只计算未还款状态的
      *

@@ -5,9 +5,11 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.RepayAmount;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -93,4 +95,26 @@ public interface InvestRepayQueryService {
      */
     public RepayAmount sumDueRepay(LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 
+    /**
+     * 根据dueDate统计InvestRepayment之和
+     *
+     * @param userId
+     * @param from
+     * @param to
+     * @param statusList
+     * @return
+     */
+    int countByUser(String userId, LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
+
+    /**
+     * 根据dueDate统计InvestRepayment amount之和
+     *
+     * @param userId
+     * @param repayType
+     * @param from
+     * @param to
+     * @param statusList
+     * @return
+     */
+    BigDecimal sumByUser(String userId, RepayType repayType, LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 }
