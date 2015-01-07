@@ -27,5 +27,11 @@
             <artifactId>Config</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.sms</groupId>
+            <artifactId>SMS</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

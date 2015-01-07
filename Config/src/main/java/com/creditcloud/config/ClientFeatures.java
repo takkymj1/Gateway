@@ -124,4 +124,12 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean thirdPartyPerm = true;
+    
+    
+    /**
+     * 是否支持手机验证码管理
+     */
+    @XmlElement
+    @Getter
+    private boolean enableMobileCaptchaManage = false;
 }

@@ -9,8 +9,12 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.service.MarketCustomizeService;
 import com.creditcloud.service.model.misc.WechatInfo;
+import com.creditcloud.sms.SMSType;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -36,5 +40,10 @@ public class AbstractMarketCustomizeService implements MarketCustomizeService {
     @Override
     public boolean rewardWechatInfo(String id) {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Map<SMSType, ConcurrentHashMap<String, Map<String, Pair<Long, Long>>>> querySmsCaptchaMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
