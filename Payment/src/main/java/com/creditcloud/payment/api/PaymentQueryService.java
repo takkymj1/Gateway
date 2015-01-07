@@ -120,5 +120,4 @@ public interface PaymentQueryService {
      * @return
      */
     public FssRedeemReconciliationResult fssRedeemReconciliation(String clientCode, LocalDate beginDate, LocalDate endDate, int pageNum, int pageSize);
-
 }
