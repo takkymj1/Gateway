@@ -80,7 +80,7 @@ public class CreateLoanTaskDetail {
     /**
      * 借款说明
      */
-    private String loadDescription;
+    private String loanDescription;
     
     /**
      * 借款合同名称
