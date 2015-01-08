@@ -19,6 +19,7 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.PnrTender;
 import com.creditcloud.payment.model.QueryTransDetailResult;
 import com.creditcloud.payment.model.QueryUsrInfoResult;
 import com.creditcloud.payment.model.TenderResult;
@@ -780,4 +781,22 @@ public interface PaymentService {
      * @return not null
      */
     public Map<String, FssAccount> getAllFssAccounts(String clientCode);
+
+    /**
+     * 根据tenderId查找PnrTender
+     *
+     * @param clientCode
+     * @param tenderId
+     * @return
+     */
+    public PnrTender getPnrTenderByTenderId(String clientCode, String tenderId);
+
+    /**
+     * 根据entityId查找PnrTender
+     *
+     * @param clientCode
+     * @param entityId   例如loan的id
+     * @return
+     */
+    public PnrTender getPnrTenderByEntityId(String clientCode, String entityId);
 }
