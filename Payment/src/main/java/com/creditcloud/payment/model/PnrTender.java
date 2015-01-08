@@ -21,8 +21,14 @@ public class PnrTender extends BaseObject {
 
     private static final long serialVersionUID = 20150108L;
 
+    /**
+     * 系统标的号，如loanId
+     */
     private String entityId;
 
+    /**
+     * 汇付标的号
+     */
     private String tenderId;
 
     private Date timeCreated;
