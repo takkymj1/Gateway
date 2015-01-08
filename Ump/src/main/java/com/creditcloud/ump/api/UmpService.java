@@ -134,7 +134,13 @@ public interface UmpService extends UmpQueryService {
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
     public String getUserIdByAccountName(String clientCode, String accountName);
-
+    
+    /**
+     * 通过accountName获得UmpAccount,每个UmpAccount的accountName都唯一
+     * @param clientCode
+     * @param accountName
+     * @return 
+     */
     public UmpAccount getUmpAccountByAccountName(String clientCode, String accountName);
 
     /**
@@ -148,6 +154,12 @@ public interface UmpService extends UmpQueryService {
      */
     public String getUserIdByAccountId(String clientCode, String accountId);
 
+    /**
+     * 通过accountId获得UmpAccount,每个UmpAccount的accountId都唯一
+     * @param clientCode
+     * @param accountId
+     * @return 
+     */
     public UmpAccount getUmpAccountByAccountId(String clientCode, String accountId);
 
     /**

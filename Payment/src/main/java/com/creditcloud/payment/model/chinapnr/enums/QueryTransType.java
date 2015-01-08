@@ -17,6 +17,7 @@ public enum QueryTransType implements BaseEnum {
     REPAYMENT("还款交易查询"),
     TENDER("投标交易查询"),
     CASH("取现交易查询"),
+    SAVE("充值交易查询"),
     FREEZE("冻结解冻交易查询");
 
     private final String key;
