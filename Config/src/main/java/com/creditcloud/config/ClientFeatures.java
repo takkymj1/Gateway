@@ -124,4 +124,11 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean thirdPartyPerm = true;
+    
+    /**
+     * 可以控制借款人（有借款）是否计算平台取现服务费
+     */
+    @XmlElement
+    @Getter
+    private boolean enableWithdrawFeeToClientWhenLoan = false;
 }
