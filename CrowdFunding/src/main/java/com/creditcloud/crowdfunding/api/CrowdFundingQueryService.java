@@ -368,11 +368,35 @@ public interface CrowdFundingQueryService {
     
     /**
      * 根据用户ID和投标起始时间列出用户支持的众筹项目
+     * @param clientCode
      * @param userId
      * @param from
      * @param to
      * @param pageInfo
+     * @param statusList
      * @return 
      */
-    public PagedResult<FundingProject> listProjectByUserAndSubmitTime(String clientCode, String userId, Date from, Date to, PageInfo pageInfo);
+    public PagedResult<FundingProject> listProjectByUserAndSubmitTime(String clientCode,
+                                                                      String userId, 
+                                                                      Date from, 
+                                                                      Date to, 
+                                                                      List<InvestStatus> statusList,
+                                                                      PageInfo pageInfo);
+    
+    /**
+     * 根据用户ID和投标起始时间列出用户投标
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
+    public PagedResult<FundingInvest> listInvestByUserAndSubmitTime(String clientCode,
+                                                                    String userId, 
+                                                                    Date from, 
+                                                                    Date to, 
+                                                                    List<InvestStatus> statusList,
+                                                                    PageInfo pageInfo);
 }
