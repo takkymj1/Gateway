@@ -18,7 +18,9 @@ public enum InvestEventType implements BaseEnum {
     LOAN("融资"),
     LOAN_REPAY("融资还款"),
     DEPOSIT("充值"),
-    WITHDRAW("提现");
+    WITHDRAW("提现"),
+    //2015.01.09 兼容众筹投资类型，后续最好为众筹单独建立一套投资事件对象
+    FUNDINGINVEST("众筹投资");
 
     private final String key;
 
