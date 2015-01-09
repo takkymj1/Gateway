@@ -8,9 +8,11 @@ package com.creditcloud.batch.model.task;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.constraints.MobileNumber;
+import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.InvestRule;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
@@ -61,23 +63,43 @@ public class CreateLoanTaskDetail {
     private String title;
     
     /**
+     * 借款用途
+     */
+    private LoanPurpose loanPurpose;
+    
+    /**
      * 所属产品分类的Key
      */
     private String productKey;
+
+    /**
+     * 担保机构企业名称
+     */
+    private String guaranteeName;
     
     /**
-     * 经过车辆认证
+     * 借款说明
      */
-    private boolean hasVehicle;
+    private String loanDescription;
     
     /**
-     * 经过房产认证
+     * 借款合同名称
      */
-    private boolean hasRealestate;
+    private String loanContractTemplateName;
     
     /**
-     * 担保机构企业ID
+     * 居间服务协议模板名称
      */
-    private String guaranteeId;
+    private String brokerageContractTemplateName;
     
+    /**
+     * 担保费率
+     */
+    private BigDecimal loanGuaranteeFee;
+
+    /**
+     * 服务费率
+     */
+    private BigDecimal loanServiceFee;
+
 }

@@ -63,18 +63,17 @@ public abstract class BaseRequest extends BaseObject {
     }
     
     public BaseRequest(CmdIdType service) {
-        this.service = service;
+        this(service, null);
     }
     
     public BaseRequest(CmdIdType service, String mer_id) {
-        this.service = service;
-        this.mer_id = mer_id;
-        this.sign_type = UmpConstant.SIGN_TYPE;
-        this.charset = UmpConstant.ENCODE_TYPE;
-        this.res_format = UmpConstant.RESPONSE_FORMAT;
-        this.sign = "";
-        this.mer_id = mer_id;
-        this.version = UmpConstant.VERSION_1;
+        this(service,
+             UmpConstant.SIGN_TYPE,
+             UmpConstant.ENCODE_TYPE,
+             UmpConstant.RESPONSE_FORMAT,
+             "",
+             mer_id,
+             UmpConstant.VERSION_1);
     }
     
     public String chkString() {

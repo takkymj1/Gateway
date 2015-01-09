@@ -8,45 +8,49 @@ package com.creditcloud.payment.model.chinapnr.query;
 import com.creditcloud.payment.model.PnRConstant;
 import com.creditcloud.payment.model.chinapnr.base.BaseRequest;
 import com.creditcloud.payment.model.chinapnr.enums.CmdIdType;
+import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author kakaci
+ * @author rooseek
  */
 @Data
 @NoArgsConstructor
-public class QueryTransDetailRequest extends BaseRequest{
+@ToString(callSuper = true)
+public class QueryTransDetailRequest extends BaseRequest {
+
     @NotNull
-    @Size(max=20)
-    private String OrderId;
-    
+    @Size(max = 20)
+    private String OrdId;
+
     @NotNull
     private String QueryTransType;
-    
-    @Size(max=512)
+
+    @Size(max = 512)
     private String ReqExt;
-    
-    public QueryTransDetailRequest(String MerCustId,String OrderId,String QueryTransType,String ReqExt){
-        super(PnRConstant.Version,CmdIdType.QueryTransDetail,MerCustId);
-        this.OrderId=OrderId;
-        this.QueryTransType=QueryTransType;
-        this.ReqExt=ReqExt;
+
+    public QueryTransDetailRequest(String MerCustId, QueryTransType QueryTransType, String OrdId, String ReqExt) {
+        super(PnRConstant.Version, CmdIdType.QueryTransDetail, MerCustId);
+        this.OrdId = OrdId;
+        this.QueryTransType = QueryTransType.name();
+        this.ReqExt = ReqExt;
     }
-    
+
     @Override
-    public String chkString(){
-        StringBuilder sb=new StringBuilder();
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
         sb.append(StringUtils.trimToEmpty(getVersion()));
         sb.append(StringUtils.trimToEmpty(getCmdId().name()));
         sb.append(StringUtils.trimToEmpty(getMerCustId()));
-        sb.append(StringUtils.trimToEmpty(this.getOrderId()));
-        sb.append(StringUtils.trimToEmpty(this.getQueryTransType()));
-        sb.append(StringUtils.trimToEmpty(this.getReqExt()));
+        sb.append(StringUtils.trimToEmpty(getOrdId()));
+        sb.append(StringUtils.trimToEmpty(getQueryTransType()));
+        sb.append(StringUtils.trimToEmpty(getReqExt()));
         return sb.toString();
     }
 }
