@@ -5,9 +5,11 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.RepayAmount;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -92,5 +94,16 @@ public interface InvestRepayQueryService {
      * @return
      */
     public RepayAmount sumDueRepay(LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
+    
+    /**
+     * 按照userId和实际repayDate来list
+     *
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<InvestRepayment> listByRepayDate(String userId, Date from, Date to, PageInfo pageInfo);
 
 }
