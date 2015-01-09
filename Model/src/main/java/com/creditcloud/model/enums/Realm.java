@@ -120,7 +120,11 @@ public enum Realm implements BaseEnum {
     /**
      * 担保审计
      */
-    GUARANTEE_AUDIT("GUARANTEE_AUDIT"); 
+    GUARANTEE_AUDIT("GUARANTEE_AUDIT"),
+    /**
+     * 系统
+     */
+    SYSTEM("系统"); 
 
     private final String key;
 

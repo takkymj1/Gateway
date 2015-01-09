@@ -14,7 +14,11 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum MarketControlOperation implements BaseEnum {
 
     Update_ScheduledAndOpen_Loan("更新发标"),
+    Update_FinishedAndSettled_Loan("更新满标和结算标"),
+    Update_Failed_Loan("更新流标"),
     Update_ScheduledAndOpen_Funding("更新众筹发标"),
+    Update_FinishedAndSettled_Funding("更新众筹满标和结算标"),
+    Update_Failed_Funding("更新众筹流标"),
     Nothing("无操作");
 
     private final String key;
