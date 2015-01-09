@@ -74,12 +74,12 @@ public interface UmpService extends UmpQueryService {
     public boolean createUmpCorpAccount(String clientCode,
                                         String userId,
                                         String corpAccountId);
-    
+
     /**
      * 下发交易密码到用户手机号.
-     * 
+     *
      * 发送到用户开联动账号时使用的手机号码
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param orderId
@@ -134,7 +134,13 @@ public interface UmpService extends UmpQueryService {
     public UmpAccount getUmpAccount(String clientCode, String userId);
 
     public String getUserIdByAccountName(String clientCode, String accountName);
-
+    
+    /**
+     * 通过accountName获得UmpAccount,每个UmpAccount的accountName都唯一
+     * @param clientCode
+     * @param accountName
+     * @return 
+     */
     public UmpAccount getUmpAccountByAccountName(String clientCode, String accountName);
 
     /**
@@ -148,6 +154,12 @@ public interface UmpService extends UmpQueryService {
      */
     public String getUserIdByAccountId(String clientCode, String accountId);
 
+    /**
+     * 通过accountId获得UmpAccount,每个UmpAccount的accountId都唯一
+     * @param clientCode
+     * @param accountId
+     * @return 
+     */
     public UmpAccount getUmpAccountByAccountId(String clientCode, String accountId);
 
     /**
@@ -590,6 +602,30 @@ public interface UmpService extends UmpQueryService {
                                  String umpAccountName,
                                  String umpAccountId,
                                  BigDecimal amount);
+
+    /**
+     * 债权转让放款给转让人
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
+     */
+    public UmpPaymentResult creditRefund(String clientCode,
+                                         String orderId,
+                                         LocalDate orderDate,
+                                         String retUrl,
+                                         String umpTenderId,
+                                         String umpTenderAccountId,
+                                         String umpAccountName,
+                                         String umpAccountId,
+                                         BigDecimal amount);
 
     /**
      * 对UMP功能进行封装的冻结功能. 通过无密投资协议+投资实现.

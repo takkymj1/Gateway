@@ -54,4 +54,11 @@ public class ContractSealConfig extends BaseConfig {
     @Getter
     private String apiPDFApplyCert = "http://121.199.18.174:8181/APWebPF/CfcaCertServlet";
     
+    /**
+     * 是否回传公章签章日志
+     */
+    @XmlElement
+    @Getter
+    private boolean enableContractSealLog = false;
+    
 }

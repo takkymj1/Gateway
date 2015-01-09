@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 package com.creditcloud.yeep.model;
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlType;
 import lombok.Data;
 /**
  *
  * @author tinglany
  */
-//@Data
-public class Repayment {
+@XmlType
+public class Repayment extends BaseObject {
     
     //投标时用的请求流水号
     @NotNull
@@ -28,6 +30,10 @@ public class Repayment {
     //平台分润
     @NotNull
     private String fee;
+
+    public Repayment() {
+    }
+    
     
     public Repayment(String paymentRequestNo,
                      String targetUserNo,
@@ -38,7 +44,37 @@ public class Repayment {
         this.amount = amount;
         this.fee = fee;
     }
-    
+
+    public String getPaymentRequestNo() {
+        return paymentRequestNo;
+    }
+
+    public String getTargetUserNo() {
+        return targetUserNo;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setPaymentRequestNo(String paymentRequestNo) {
+        this.paymentRequestNo = paymentRequestNo;
+    }
+
+    public void setTargetUserNo(String targetUserNo) {
+        this.targetUserNo = targetUserNo;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
    
-    
 }

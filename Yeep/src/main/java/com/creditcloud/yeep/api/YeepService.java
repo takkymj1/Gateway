@@ -7,10 +7,15 @@ package com.creditcloud.yeep.api;
 
 import com.creditcloud.yeep.model.BaseRequest;
 import com.creditcloud.yeep.model.BaseResponse;
+import com.creditcloud.yeep.model.DivDetail;
 import com.creditcloud.yeep.model.FreezeResult;
+import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
+import com.creditcloud.yeep.model.YeepResult;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -18,6 +23,7 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface YeepService extends YeepQueryService{
+       
     /**
      * 获取用户在三方支付中的YeepAccount
      *
@@ -56,6 +62,75 @@ public interface YeepService extends YeepQueryService{
                                    String BgRetUrl,
                                    String merPriv);
     
+    /**
+     * 解冻指定用户的资金
+     *
+     * @param clientCode
+     * @param freezeRequestNo
+     * @param trxId
+     * @param BgRetUrl
+     * @return 如果找不到userId对应的支付账号返回null
+     */
+    public  UnFreezeResult userUnFreeze(String clientCode,
+                                        String freezeRequestNo,
+                                        String trxId,
+                                        String BgRetUrl);
+    
+    /**
+     * 放款
+     *
+     * @param clientCode
+     * @param platformNo
+     * @param ordNo
+     * @param settleRequestNo
+     * @param bidRequestNo
+     * @param investAmount
+     * @param investUserId 投资人id
+     * @param fee          商户扣账手续费
+     * @param loanUserId   贷款人Id
+     * @param BgRetUrl
+     * @return
+     */
+    public YeepResult loan(String clientCode,
+                           String platformNo,
+                           String ordNo,
+                           String settleRequestNo,
+                           String bidRequestNo,
+                           String investUserId,
+                           BigDecimal investAmount,
+                           BigDecimal fee,
+                           String loanUserId,
+                           String BgRetUrl);
+    
+    /**
+     * 还款 
+     * 
+     * @param clientCode
+     * @param platformNo
+     * @param platformUserNo
+     * @param ordNo
+     * @param requestNo
+     * @param bidRequestNo
+     * @param investUserId
+     * @param investAmount
+     * @param fee
+     * @param loanUserId
+     * @param BgRetUrl
+     * @param AdminRetUrl
+     * @return 
+     */
+    public YeepResult repay(String clientCode,
+                            String platformNo,
+                            String platformUserNo,
+                            String ordNo,
+                            String requestNo,
+                            String bidRequestNo,
+                            String investUserId,
+                            BigDecimal investAmount,
+                            BigDecimal fee,
+                            String loanUserId,
+                            String BgRetUrl,
+                            String AdminRetUrl);
     
     /**
      * 获取请求的CheckValue

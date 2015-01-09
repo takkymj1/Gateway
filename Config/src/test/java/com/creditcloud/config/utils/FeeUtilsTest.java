@@ -308,7 +308,7 @@ public class FeeUtilsTest {
         config.getLoanOverdueFee().setScope(FeeScope.OUTSTANDING);
         config.getLoanPenaltyFee().setScope(FeeScope.OUTSTANDING);
         result = FeeUtils.overdueFee(config, repayment);
-        expected = new OverduePenalty(BigDecimal.ZERO, BigDecimal.ZERO);
+        expected = new OverduePenalty(BigDecimal.valueOf(1000), BigDecimal.valueOf(2000));
         if (!equalOverduePenalty(result, expected)) {
             fail("not equal");
         }
