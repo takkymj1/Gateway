@@ -51,5 +51,10 @@ public final class SMSConfig extends BaseConfig {
     @XmlElement(required = false)
     @Getter
     private String signature;
+    
+    // for zucp.net 扩展账号
+    @XmlElement(required = false)
+    @Getter
+    private String ext;
 
 }

@@ -19,6 +19,7 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.PnrTender;
 import com.creditcloud.payment.model.QueryTransDetailResult;
 import com.creditcloud.payment.model.QueryUsrInfoResult;
 import com.creditcloud.payment.model.TenderResult;
@@ -97,10 +98,9 @@ public interface PaymentService {
      * @param ProArea      项目所在地
      * @param MerPriv      自定义域
      * @param BgRetUrl
-     * @param ReqExt
      * @return
      */
-    public boolean executeBidInput(String clientCode,
+    public boolean createPnrTender(String clientCode,
                                    String ProId,
                                    String BorrCustId,
                                    String BorrTotAmt,
@@ -114,8 +114,7 @@ public interface PaymentService {
                                    String GuarAmt,
                                    String ProArea,
                                    String BgRetUrl,
-                                   String MerPriv,
-                                   String ReqExt);
+                                   String MerPriv);
 
     /**
      * 获取用户在三方支付中的PaymentAccount
@@ -780,4 +779,22 @@ public interface PaymentService {
      * @return not null
      */
     public Map<String, FssAccount> getAllFssAccounts(String clientCode);
+
+    /**
+     * 根据tenderId查找PnrTender
+     *
+     * @param clientCode
+     * @param tenderId
+     * @return
+     */
+    public PnrTender getPnrTenderByTenderId(String clientCode, String tenderId);
+
+    /**
+     * 根据entityId查找PnrTender
+     *
+     * @param clientCode
+     * @param entityId   例如loan的id
+     * @return
+     */
+    public PnrTender getPnrTenderByEntityId(String clientCode, String entityId);
 }
