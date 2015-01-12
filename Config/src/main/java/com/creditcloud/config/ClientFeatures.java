@@ -131,4 +131,13 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableWithdrawFeeToClientWhenLoan = false;
+    
+    /**
+     * 可用控制又拍云存储
+     * true 又拍云
+     * false 凤凰
+     */
+    @XmlElement
+    @Getter
+    private boolean enableUPaiYun = false;
 }
