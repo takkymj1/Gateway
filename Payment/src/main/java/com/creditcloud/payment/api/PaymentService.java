@@ -98,10 +98,9 @@ public interface PaymentService {
      * @param ProArea      项目所在地
      * @param MerPriv      自定义域
      * @param BgRetUrl
-     * @param ReqExt
      * @return
      */
-    public boolean executeBidInput(String clientCode,
+    public boolean createPnrTender(String clientCode,
                                    String ProId,
                                    String BorrCustId,
                                    String BorrTotAmt,
@@ -115,8 +114,7 @@ public interface PaymentService {
                                    String GuarAmt,
                                    String ProArea,
                                    String BgRetUrl,
-                                   String MerPriv,
-                                   String ReqExt);
+                                   String MerPriv);
 
     /**
      * 获取用户在三方支付中的PaymentAccount

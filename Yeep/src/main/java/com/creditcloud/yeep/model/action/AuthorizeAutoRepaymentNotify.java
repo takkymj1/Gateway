@@ -5,7 +5,6 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
@@ -14,13 +13,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 
-@XmlRootElement (name = "response")
-public class AuthorizeAutoRepaymentNotification extends UserNotification {
+@XmlRootElement (name = "notify")
+public class AuthorizeAutoRepaymentNotify extends UserNotification {
 
-    public AuthorizeAutoRepaymentNotification() {
+    public AuthorizeAutoRepaymentNotify() {
     }
 
-    public AuthorizeAutoRepaymentNotification(String platformUserNo,
+    public AuthorizeAutoRepaymentNotify(String platformUserNo,
                                               String platformNo,
                                               String bizType,
                                               String code,

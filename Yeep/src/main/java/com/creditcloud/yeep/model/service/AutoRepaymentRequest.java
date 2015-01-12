@@ -7,6 +7,10 @@ package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
 import com.creditcloud.yeep.model.Repayment;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -15,8 +19,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement (name ="request")
 public class AutoRepaymentRequest extends UserRequest {
     
     
@@ -26,25 +29,47 @@ public class AutoRepaymentRequest extends UserRequest {
     
     //repayment
     @NotNull
-    private Repayment repayment;
+    private List<Repayment> repayments;
+
+    public AutoRepaymentRequest() {
+    }
     
     public AutoRepaymentRequest(String platformNo,
                                 String platformUserNo,
                                 String requestNo,
                                 String orderNo,
-                                Repayment repayment,
+                                List<Repayment> repayments,
                                 String notifyUrl,
                                 String sign) {
         super(platformUserNo,platformNo,null,requestNo,notifyUrl,null,sign);
         this.orderNo = orderNo;
-        this.repayment = repayment;
+        this.repayments = repayments;
     }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    @XmlElementWrapper(name="repayments")
+    @XmlElement(name="repayment")     
+    public List<Repayment> getRepayments() {
+        return repayments;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setRepayments(List<Repayment> repayments) {
+        this.repayments = repayments;
+    }
+    
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(repayment.toString()));
+                .append(StringUtils.trimToEmpty(repayments.get(0).toString()));
         return sb.toString();
     }   
 }

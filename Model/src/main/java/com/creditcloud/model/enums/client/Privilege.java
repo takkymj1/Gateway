@@ -152,7 +152,7 @@ public enum Privilege implements BaseEnum {
      */
     BATCHJOB_LIST("列出批量任务", Realm.BATCHJOB, "批量任务相关权限"),
     BATCHJOB_SUBMIT("提交批量任务", Realm.BATCHJOB, "批量任务相关权限"),
-    BATCHJOB_EXECUTE("执行批量任务", Realm.BATCHJOB, "批量任务相关权限"),   //注意一般需要复合权限才可以真正执行，比如批量建标需要 BATCHJOB_EXECUTE以及LOANREQUEST_ALTER
+    BATCHJOB_EXECUTE("执行批量任务", Realm.BATCHJOB, "批量任务相关权限"), //注意一般需要复合权限才可以真正执行，比如批量建标需要 BATCHJOB_EXECUTE以及LOANREQUEST_ALTER
     /**
      * 支持工单相关权限
      */
@@ -163,20 +163,16 @@ public enum Privilege implements BaseEnum {
     TICKET_REPLY("处理工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_REVIEW("评审工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_DOWNLOAD("下载工单", Realm.TICKET, "支持工单相关权限"),
-    
     CROWDFUNDING_LIST("列出众筹", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_DETAIL("查看众筹详情", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
-    
     BATCH_LIST("查看批量任务", Realm.BATCH, "批量导入相关权限"),
     BATCH_IMPORT("添加批量任务", Realm.BATCH, "批量导入相关权限"),
     BATCH_EXECUTE("执行批量任务", Realm.BATCH, "批量导入相关权限"),
-    
-    VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页")
-    ;
-    
-    
+    VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
+    MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
+
     private final String key;
 
     private final Realm realm;

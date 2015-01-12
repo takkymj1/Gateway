@@ -19,6 +19,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -364,4 +365,38 @@ public interface CrowdFundingQueryService {
      * @return empty list is nothing found
      */
     public List<FundingProject> listAllProjectWithOrdinal(String clientCode);
+    
+    /**
+     * 根据用户ID和投标起始时间列出用户支持的众筹项目
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
+    public PagedResult<FundingProject> listProjectByUserAndSubmitTime(String clientCode,
+                                                                      String userId, 
+                                                                      Date from, 
+                                                                      Date to, 
+                                                                      List<InvestStatus> statusList,
+                                                                      PageInfo pageInfo);
+    
+    /**
+     * 根据用户ID和投标起始时间列出用户投标
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
+    public PagedResult<FundingInvest> listInvestByUserAndSubmitTime(String clientCode,
+                                                                    String userId, 
+                                                                    Date from, 
+                                                                    Date to, 
+                                                                    List<InvestStatus> statusList,
+                                                                    PageInfo pageInfo);
 }

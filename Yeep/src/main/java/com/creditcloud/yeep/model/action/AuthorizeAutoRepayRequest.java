@@ -7,17 +7,15 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author kakaci
+ * @author tinglany
  */
-@Data
-@NoArgsConstructor
-public class AuthorizeAutoRepaymentRequest extends UserRequest {
+@XmlRootElement (name = "request")
+public class AuthorizeAutoRepayRequest extends UserRequest {
   
     /**
      * 标的号
@@ -25,14 +23,25 @@ public class AuthorizeAutoRepaymentRequest extends UserRequest {
     @NotNull
     private String orderNo;
 
-    public AuthorizeAutoRepaymentRequest(String platformUserNo,
-                                         String platformNo,
-                                         String callbackUrl,
-                                         String notifyUrl,
-                                         String requestNo,
-                                         String orderNo,
-                                         String sign) {
+    public AuthorizeAutoRepayRequest() {
+    }
+
+    public AuthorizeAutoRepayRequest(String platformNo,
+                                     String platformUserNo,
+                                     String requestNo,
+                                     String orderNo,
+                                     String callbackUrl,
+                                     String notifyUrl,  
+                                     String sign) {
         super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+        this.orderNo = orderNo;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
     }
     
