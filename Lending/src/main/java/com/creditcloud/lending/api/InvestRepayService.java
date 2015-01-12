@@ -5,10 +5,11 @@
  */
 package com.creditcloud.lending.api;
 
-import com.creditcloud.model.enums.loan.RepayType;
+import com.creditcloud.config.FeeConfig;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
+import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
 import com.creditcloud.model.misc.RealmEntity;
@@ -17,7 +18,6 @@ import com.creditcloud.service.model.RepayInfo;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
-import org.joda.time.LocalDate;
 
 /**
  *
@@ -75,6 +75,15 @@ public interface InvestRepayService extends InvestRepayQueryService {
      * @return
      */
     OverdueRepayDetail getOverdueRepayDetail(RepayInfo repayInfo);
+
+    /**
+     * 计算单笔invest repayment逾期相关费用
+     *
+     * @param investRepayId
+     * @param feeConfig
+     * @return null if invest repay not found
+     */
+    OverduePenalty getOverduePenalty(String investRepayId, FeeConfig feeConfig);
 
     /**
      * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同
