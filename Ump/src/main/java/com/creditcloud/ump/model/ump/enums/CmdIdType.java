@@ -143,5 +143,9 @@ public enum CmdIdType {
     /**
      * 对账文件下载
      */
-    DOWNLOAD_SETTLE_FILE_P;
+    DOWNLOAD_SETTLE_FILE_P,
+   /**
+    * 更换银行卡
+    */
+   MER_REPLACE_CARD;
 }
