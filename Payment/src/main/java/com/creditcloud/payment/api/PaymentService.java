@@ -19,6 +19,7 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.PaymentTenderResult;
 import com.creditcloud.payment.model.PnrTender;
 import com.creditcloud.payment.model.QueryTransDetailResult;
 import com.creditcloud.payment.model.QueryUsrInfoResult;
@@ -797,4 +798,33 @@ public interface PaymentService {
      * @return
      */
     public PnrTender getPnrTenderByEntityId(String clientCode, String entityId);
+    
+    /**
+     * 系统发标时，在汇付进行一次标的信息录入
+     * @param clientCode
+     * @param proId
+     * @param borrCustId
+     * @param borrTotAtm
+     * @param yearRate
+     * @param retType
+     * @param bidStartDate
+     * @param bidEndDate
+     * @param retAmt
+     * @param retDate
+     * @param proArea
+     * @param loanId
+     * @return 
+     */
+    public PaymentTenderResult addBidInfo(String clientCode,
+                                          String proId, 
+                                          String borrCustId,
+                                          String borrTotAtm,
+                                          String yearRate,
+                                          String retType,
+                                          String bidStartDate,
+                                          String bidEndDate,
+                                          String retAmt,
+                                          String retDate,
+                                          String proArea,
+                                          String loanId);
 }

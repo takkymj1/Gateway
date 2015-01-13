@@ -6,6 +6,7 @@
 package com.creditcloud.payment.model.chinapnr.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
 
 /**
  *
@@ -35,5 +36,25 @@ public enum RetType implements BaseEnum {
 
     public String getCode() {
         return code;
+    }
+    
+    public static String getByRepaymentMethod(RepaymentMethod method){
+        
+        if(method == null){
+            return null;
+        }
+        
+        switch (method){
+            case MonthlyInterest:
+                return MonthlyInterest.getCode();
+            case EqualInstallment:
+                return EqualInstallment.getCode();
+            case EqualPrincipal:
+                return EqualPrincipal.getCode();
+            case BulletRepayment:
+                return BulletRepayment.getCode();
+            default:
+                return OTHER.getCode();
+        }
     }
 }
