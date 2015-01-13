@@ -81,6 +81,11 @@ public class UserAutoBid extends BaseObject {
     @Column(nullable = false)
     private boolean enable;
 
+    /**
+     * 自定义扩展
+     */
+    private String priv;
+
     public UserAutoBid(String userId,
                        boolean active,
                        int singleAmount,
