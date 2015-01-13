@@ -125,6 +125,14 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean thirdPartyPerm = true;
     
+    
+    /**
+     * 是否支持手机验证码管理
+     */
+    @XmlElement
+    @Getter
+    private boolean enableMobileCaptchaManage = false;
+
     /**
      * 可以控制借款人（有借款）是否计算平台取现服务费
      */
