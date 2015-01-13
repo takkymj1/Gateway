@@ -17,7 +17,7 @@ import javax.validation.constraints.Pattern;
  *
  * @author sobranie
  */
-@Pattern(regexp = "[\u4E00-\u9FBF]{2,15}", message = "{common.realName.Pattern}")
+@Pattern(regexp = "([\u4E00-\u9FBF]{1,10}·?[\u4E00-\u9FBF]{1,10}){1,5}", message = "{common.realName.Pattern}")
 //@NotNull(message = "{common.realName.NotNull}")
 @Constraint(validatedBy = {})
 @Target({ElementType.METHOD,
