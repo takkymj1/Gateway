@@ -64,10 +64,23 @@ public class RealNameTest extends BaseTest<User> {
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(1, constraintViolations.size());
 
-        /**
-         * TODO "·" is not allowed yet
-         */
         object.setName("古丽孜哈·买买提");
+        constraintViolations = validator.validateProperty(object, "name");
+        assertEquals(0, constraintViolations.size());
+
+        object.setName("古丽孜哈··买买提");
+        constraintViolations = validator.validateProperty(object, "name");
+        assertEquals(1, constraintViolations.size());
+
+        object.setName("古丽孜哈·买买提·买买提·买买提");
+        constraintViolations = validator.validateProperty(object, "name");
+        assertEquals(0, constraintViolations.size());
+
+        object.setName("·买买提");
+        constraintViolations = validator.validateProperty(object, "name");
+        assertEquals(1, constraintViolations.size());
+
+        object.setName("买买提·");
         constraintViolations = validator.validateProperty(object, "name");
         assertEquals(1, constraintViolations.size());
 
