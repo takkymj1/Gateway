@@ -73,8 +73,10 @@ public enum ApiErrorCode implements BaseEnum {
     
     UNKNOWN("未知错误"),
     UNKNOWN_AND_INVEST_RETURN("未知错误,投资已返还"),
-    UNKNOWN_AND_PREPARE_CONTACT("未知错误,请联系客服");
-    
+    UNKNOWN_AND_PREPARE_CONTACT("未知错误,请联系客服"),
+    USER_NOT_FOUND("用户名不存在"),
+    PASSWORD_ERROR("登录密码错误");
+   
     private final String key;
     
     ApiErrorCode(String key) {
