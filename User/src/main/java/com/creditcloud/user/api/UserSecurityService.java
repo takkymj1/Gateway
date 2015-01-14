@@ -100,6 +100,16 @@ interface UserSecurityService {
     boolean resetPassword(String clientCode, String mobile);
 
     /**
+     * 忘记密码时，根据指定密码重设密码
+     *
+     * @param clientCode
+     * @param mobile
+     * @param password
+     * @return
+     */
+    boolean resetPassword(String clientCode, String mobile, String password);
+    
+    /**
      * 获取基本的验证信息
      *
      * @param clientCode
