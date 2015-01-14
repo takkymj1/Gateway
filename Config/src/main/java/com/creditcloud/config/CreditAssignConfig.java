@@ -8,7 +8,6 @@ package com.creditcloud.config;
 import com.creditcloud.config.enums.FeePeriod;
 import com.creditcloud.config.enums.FeeScope;
 import com.creditcloud.config.enums.FeeType;
-import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,15 +23,32 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @NoArgsConstructor
-@XmlRootElement
+@XmlRootElement(name = "CreditAssignConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CreditAssignConfig extends BaseObject {
+public class CreditAssignConfig extends BaseConfig {
 
     private static final long serialVersionUID = 20140814L;
+
+    public static final String CONFIG_NAME = "CreditAssignConfig";
+
+    /**
+     * 债权转让最大手续费率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal maxCreditAssignRate = BigDecimal.ZERO;
+
+    /**
+     * 债权转让最大折价率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal maxCreditAssignDiscountRate = BigDecimal.ZERO;
 
     /**
      * 债权转让费，给平台
      */
+    @Getter
     @XmlElement(required = false)
     private Fee fee;
 
@@ -77,12 +93,12 @@ public class CreditAssignConfig extends BaseObject {
 
     public Fee getFee() {
         return fee != null
-                ? fee
-                : new Fee(FeeType.FLOATING,
-                          BigDecimal.ZERO,
-                          BigDecimal.ZERO,
-                          FeePeriod.SINGLE,
-                          FeeScope.PRINCIPAL);
+               ? fee
+               : new Fee(FeeType.NONE,
+                         BigDecimal.ZERO,
+                         BigDecimal.ZERO,
+                         FeePeriod.SINGLE,
+                         FeeScope.PRINCIPAL);
     }
 
 }
