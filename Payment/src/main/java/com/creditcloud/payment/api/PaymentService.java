@@ -99,6 +99,7 @@ public interface PaymentService {
      * @param ProArea      项目所在地
      * @param MerPriv      自定义域
      * @param BgRetUrl
+     * @param loanId
      * @return
      */
     public boolean createPnrTender(String clientCode,
@@ -107,15 +108,16 @@ public interface PaymentService {
                                    String BorrTotAmt,
                                    String YearRate,
                                    String RetType,
-                                   String BidStartDate,
-                                   String BidEndDate,
+                                   Date BidStartDate,
+                                   Date BidEndDate,
                                    String RetAmt,
-                                   String RetDate,
+                                   Date RetDate,
                                    String GuarCompId,
                                    String GuarAmt,
                                    String ProArea,
                                    String BgRetUrl,
-                                   String MerPriv);
+                                   String MerPriv,
+                                   String loanId);
 
     /**
      * 获取用户在三方支付中的PaymentAccount
@@ -798,34 +800,4 @@ public interface PaymentService {
      * @return
      */
     public PnrTender getPnrTenderByEntityId(String clientCode, String entityId);
-    
-    /**
-     * 系统发标时，在汇付进行一次标的信息录入
-     * 并在PnrTender表中保存记录
-     * @param clientCode
-     * @param proId
-     * @param borrCustId
-     * @param borrTotAmt
-     * @param yearRate
-     * @param retType
-     * @param bidStartDate
-     * @param bidEndDate
-     * @param retAmt
-     * @param retDate
-     * @param proArea
-     * @param loanId
-     * @return 
-     */
-    public boolean addBidInfo(String clientCode,
-                              String proId, 
-                              String borrCustId,
-                              String borrTotAmt,
-                              String yearRate,
-                              String retType,
-                              Date bidStartDate,
-                              Date bidEndDate,
-                              String retAmt,
-                              Date retDate,
-                              String proArea,
-                              String loanId);
 }
