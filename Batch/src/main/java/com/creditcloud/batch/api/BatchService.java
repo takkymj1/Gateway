@@ -8,6 +8,7 @@ package com.creditcloud.batch.api;
 import com.creditcloud.batch.model.BatchJob;
 import com.creditcloud.batch.model.BatchJobStatus;
 import com.creditcloud.batch.model.BatchJobType;
+import com.creditcloud.batch.model.Task;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.concurrent.Future;
 import javax.ejb.Remote;
@@ -56,5 +57,23 @@ public interface BatchService extends BatchQueryService {
      * @return
      */
     boolean cancelBatchJob(String clientCode, RealmEntity executor, String batchId);
+    
+    /**
+     * 更新Task信息
+     * 
+     * @param clientCode
+     * @param task
+     * @return 
+     */
+    void updateTask(String clientCode, Task task);
+    
+    
+    /**
+     * 更新Job信息
+     * 
+     * @param clientCode
+     * @param job 
+     */
+    void updateJob(String clientCode, BatchJob job);
 
 }
