@@ -124,4 +124,28 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean thirdPartyPerm = true;
+    
+    
+    /**
+     * 是否支持手机验证码管理
+     */
+    @XmlElement
+    @Getter
+    private boolean enableMobileCaptchaManage = false;
+
+    /**
+     * 可以控制借款人（有借款）是否计算平台取现服务费
+     */
+    @XmlElement
+    @Getter
+    private boolean enableWithdrawFeeToClientWhenLoan = false;
+    
+    /**
+     * 可用控制又拍云存储
+     * true 又拍云
+     * false 凤凰
+     */
+    @XmlElement
+    @Getter
+    private boolean enableUPaiYun = false;
 }
