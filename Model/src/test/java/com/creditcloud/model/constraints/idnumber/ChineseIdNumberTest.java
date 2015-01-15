@@ -118,6 +118,6 @@ public class ChineseIdNumberTest {
         Assert.assertNotNull(date);
         //1988-08-06
         Date expected = new Date(586796400000l);
-//        Assert.assertTrue(DateUtils.isSameDay(date, expected));
+        Assert.assertTrue(DateUtils.isSameDay(date, expected));
     }
 }
