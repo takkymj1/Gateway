@@ -88,8 +88,8 @@ public interface LoanRepayQueryService {
     /**
      * 按时间区间和还款状态统计一段时间内所有到期的LoanRepayment
      *
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param status
      * @return
      */
@@ -98,8 +98,8 @@ public interface LoanRepayQueryService {
     /**
      * 按时间区间和还款状态列出一段时间内所有到期的LoanRepayment
      *
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param info
      * @param status
      * @return
@@ -110,8 +110,8 @@ public interface LoanRepayQueryService {
      * 按特定借款人在时间区间和还款状态统计一段时间内所有到期的LoanRepayment
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param status
      * @return
      */
@@ -121,8 +121,8 @@ public interface LoanRepayQueryService {
      * 按特定借款人在时间区间和还款状态列出一段时间内所有到期的LoanRepayment
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param info
      * @param status
      * @return
@@ -171,8 +171,8 @@ public interface LoanRepayQueryService {
     /**
      * 统计一段时间内到期的还款总和
      *
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param status
      * @return
      */

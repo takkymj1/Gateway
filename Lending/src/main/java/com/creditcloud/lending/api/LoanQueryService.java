@@ -39,7 +39,16 @@ public interface LoanQueryService {
     public PagedResult<Loan> listByUser(String userId, PageInfo pageInfo);
 
     public int countByUserAndStatusAndDate(String userId, Date from, Date to, LoanStatus... statusList);
-
+    
+    /**
+     * 
+     * @param userId
+     * @param from 标的开放时间
+     * @param to    标的满标时间
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
     public PagedResult<Loan> listByUserAndStatusAndDate(String userId, Date from, Date to, PageInfo pageInfo, LoanStatus... statusList);
 
     /**
