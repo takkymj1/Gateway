@@ -9,6 +9,7 @@ import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.ContractSealConfig;
+import com.creditcloud.config.CreditAssignConfig;
 import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
@@ -50,7 +51,7 @@ public interface ConfigManager {
     public CreditManagerConfig getCreditManagerConfig();
 
     public CertificateConfig getCertificateConfig();
-    
+
     public YeepConfig getYeepConfig();
 
     /**
@@ -140,4 +141,9 @@ public interface ConfigManager {
      * @return
      */
     public ContractSealConfig getContractSealConfig();
+
+    /**
+     * 债权转让相关配置
+     */
+    public CreditAssignConfig getCreditAssignConfig();
 }
