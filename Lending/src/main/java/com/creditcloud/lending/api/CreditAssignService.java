@@ -5,6 +5,8 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.lending.model.PrepareAssignResult;
+import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.CreditAssignStatus;
 import com.creditcloud.model.enums.loan.SubmitCreditAssignResult;
 import com.creditcloud.model.loan.CreditAssign;
@@ -39,4 +41,30 @@ public interface CreditAssignService extends CreditAssignQueryService {
      */
     public CreditAssign getById(String creditAssignId);
 
+    /**
+     * prepare for assign
+     *
+     * @param creditAssignId
+     * @param bidMethod
+     * @param principalAmount
+     * @param userId
+     * @return
+     */
+    public PrepareAssignResult prepareAssign(String creditAssignId, BidMethod bidMethod, BigDecimal principalAmount, String userId);
+
+    /**
+     * finish assign
+     *
+     * @param userId
+     * @param orderId
+     * @param creditAmount
+     * @param creditDealAmount
+     * @param feeAmount
+     * @return
+     */
+    public boolean finishAssign(String userId,
+                                String orderId,
+                                BigDecimal creditAmount,
+                                BigDecimal creditDealAmount,
+                                BigDecimal feeAmount);
 }
