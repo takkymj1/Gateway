@@ -43,8 +43,8 @@ public interface LoanQueryService {
     /**
      * 
      * @param userId
-     * @param from 标的开放时间
-     * @param to    标的满标时间
+     * @param from  开标时间timeOpen的查询起始时间
+     * @param to    开标时间timeOpen的查询截止时间
      * @param pageInfo
      * @param statusList
      * @return 
