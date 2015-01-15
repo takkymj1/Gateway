@@ -30,8 +30,8 @@ public interface InvestRepayQueryService {
      * TODO 因为回款可能会逾期，所以应该按照dueDate和实际repayDate来list，目前只按照dueDate来list
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @return
      */
     public List<InvestRepayment> listByDate(String userId, Date from, Date to);
@@ -93,8 +93,8 @@ public interface InvestRepayQueryService {
      * 此方法功能LoanRepayService中已提供，且更高效<p>
      * 主要用來跟LoanRepayment做比对测试用
      *
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to  dueDate，应还款日期
      * @param statusList
      * @return
      */
@@ -104,8 +104,8 @@ public interface InvestRepayQueryService {
      * 按照userId和实际repayDate来list
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from repayDate,实际回款日期
+     * @param to repayDate,实际回款日期
      * @param pageInfo
      * @return
      */
@@ -115,8 +115,8 @@ public interface InvestRepayQueryService {
      * 根据dueDate统计InvestRepayment之和
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from  dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param statusList
      * @return
      */
@@ -127,8 +127,8 @@ public interface InvestRepayQueryService {
      *
      * @param userId
      * @param repayType
-     * @param from
-     * @param to
+     * @param from dueDate，应还款日期
+     * @param to dueDate，应还款日期
      * @param statusList
      * @return
      */
