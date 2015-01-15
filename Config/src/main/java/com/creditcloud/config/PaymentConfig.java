@@ -94,18 +94,6 @@ public class PaymentConfig extends BaseConfig {
     @XmlElement(required = false)
     private String maxBorrowerRate;
 
-    /**
-     * 债权转让最大手续费率
-     */
-    @XmlElement(required = false)
-    private String maxCreditAssignRate;
-
-    /**
-     * 债权转让最大折价率
-     */
-    @XmlElement(required = false)
-    private String maxCreditAssignDiscountRate;
-
     //下面配置的是商户子账户
     /**
      * 基本账户用于充值取现,类型:专属借记账户
@@ -144,12 +132,6 @@ public class PaymentConfig extends BaseConfig {
      */
     @XmlElement(name = "userRegisterSuffix", required = false)
     private String userRegisterSuffix;
-
-    /**
-     * 债权转让相关配置
-     */
-    @XmlElement(name = "creditAssignConfig", required = false)
-    private CreditAssignConfig creditAssignConfig;
 
     /**
      * 对账内容太多，可以选择不输出到log

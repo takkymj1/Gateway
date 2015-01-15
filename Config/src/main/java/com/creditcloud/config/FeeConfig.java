@@ -124,15 +124,4 @@ public class FeeConfig extends BaseConfig {
     @Min(1)
     @XmlElement(required = false)
     private int maxDaysForOverdueFee = Integer.MAX_VALUE;
-
-    /**
-     * 债权转让相关配置
-     */
-    @XmlElement(required = false)
-    private CreditAssignConfig creditAssignConfig;
-
-    public CreditAssignConfig getCreditAssignConfig() {
-        return creditAssignConfig == null ? new CreditAssignConfig() : creditAssignConfig;
-    }
-
 }

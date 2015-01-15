@@ -42,6 +42,7 @@ import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -98,6 +99,7 @@ public interface PaymentService {
      * @param ProArea      项目所在地
      * @param MerPriv      自定义域
      * @param BgRetUrl
+     * @param loanId
      * @return
      */
     public boolean createPnrTender(String clientCode,
@@ -106,15 +108,16 @@ public interface PaymentService {
                                    String BorrTotAmt,
                                    String YearRate,
                                    String RetType,
-                                   String BidStartDate,
-                                   String BidEndDate,
+                                   Date BidStartDate,
+                                   Date BidEndDate,
                                    String RetAmt,
-                                   String RetDate,
+                                   Date RetDate,
                                    String GuarCompId,
                                    String GuarAmt,
                                    String ProArea,
                                    String BgRetUrl,
-                                   String MerPriv);
+                                   String MerPriv,
+                                   String loanId);
 
     /**
      * 获取用户在三方支付中的PaymentAccount

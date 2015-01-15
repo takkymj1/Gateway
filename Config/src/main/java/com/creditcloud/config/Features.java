@@ -275,5 +275,12 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableThirdParty = false;
-            
+    
+    
+    /**
+     * 系统发标后，对去汇付进行标的录入的控制
+     */
+    @Getter
+    @XmlElement
+    private boolean enablePaymentTender = false;   
 }

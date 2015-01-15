@@ -11,6 +11,9 @@ public class MockData {
 
     @PnRDate
     private String date;
+    
+    @PnRDateAndTime
+    private String dateAndTime;
 
     public MockData() {
     }
@@ -22,6 +25,12 @@ public class MockData {
 
     public MockData(String url) {
         this.url = url;
+    }
+
+    public MockData(String url, String date, String dateAndTime) {
+        this.url = url;
+        this.date = date;
+        this.dateAndTime = dateAndTime;
     }
 
     public void setUrl(String url) {
@@ -38,5 +47,13 @@ public class MockData {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getDateAndTime() {
+        return dateAndTime;
+    }
+
+    public void setDateAndTime(String dateAndTime) {
+        this.dateAndTime = dateAndTime;
     }
 }
