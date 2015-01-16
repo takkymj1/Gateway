@@ -142,4 +142,42 @@ public class Duration extends BaseObject implements Comparable<Duration> {
     public void setDays(int days) {
         this.days = days;
     }
+
+    /**
+     * return copy of Duration minus specified number of months
+     *
+     * @param months
+     * @return
+     */
+    public Duration minusMonths(int months) {
+        if (months < 0) {
+            return null;
+        }
+        int totalMonths = getTotalMonths() - months;
+        if (totalMonths < 0) {
+            return null;
+        }
+        int years_ = totalMonths / 12;
+        int months_ = totalMonths - 12 * years_;
+        int days_ = days;
+        return new Duration(years_, months_, days_);
+    }
+
+    /**
+     * return copy of Duration plus specified number of months
+     *
+     * @param months
+     * @return
+     */
+    public Duration plusMonths(int months) {
+        if (months < 0) {
+            return null;
+        }
+        int totalMonths = getTotalMonths() + months;
+        int years_ = totalMonths / 12;
+        int months_ = totalMonths - 12 * years_;
+        int days_ = days;
+        return new Duration(years_, months_, days_);
+    }
+
 }
