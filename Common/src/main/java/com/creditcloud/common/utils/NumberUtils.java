@@ -95,7 +95,7 @@ public class NumberUtils {
     public String decimalToString(BigDecimal amount) {
         return amount.setScale(NumberConstant.DEFAULT_SCALE).toPlainString();
     }
-
+    
     /**
      * 将利率rate转化为string，最多保留小数点后一位0
      *
