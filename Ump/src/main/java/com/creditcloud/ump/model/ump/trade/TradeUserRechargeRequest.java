@@ -84,12 +84,7 @@ public class TradeUserRechargeRequest extends BaseRequest {
         this.user_ip = user_ip;
     }
     
-    public TradeUserRechargeRequest(String sign_type,
-                                    String charset,
-                                    String res_format,
-                                    String sign,
-                                    String mer_id,
-                                    String version,
+    public TradeUserRechargeRequest(String mer_id,
                                     String ret_url,
                                     String notify_url,
                                     String order_id,
@@ -101,7 +96,7 @@ public class TradeUserRechargeRequest extends BaseRequest {
                                     String gate_id,
                                     String user_ip,
                                     String sourceV) {
-        super(CmdIdType.MER_RECHARGE_PERSON, sign_type, charset, res_format, sign, mer_id, version);
+        super(CmdIdType.MER_RECHARGE_PERSON, mer_id);
         this.ret_url = ret_url;
         this.notify_url = notify_url;
         this.order_id = order_id;
@@ -115,7 +110,6 @@ public class TradeUserRechargeRequest extends BaseRequest {
         this.sourceV = sourceV;
     }
     
-
     public TradeUserRechargeRequest(String mer_id,
                                     String ret_url,
                                     String notify_url,
