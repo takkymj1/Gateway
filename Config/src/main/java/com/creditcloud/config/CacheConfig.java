@@ -31,11 +31,4 @@ public class CacheConfig extends BaseConfig {
     @Getter
     private boolean enableMutiPoint = false;
     
-    
-    /**
-     * 是否支持Redis抢标
-     */
-    @XmlElement
-    @Getter
-    private boolean enable = false;
 }
