@@ -33,6 +33,10 @@ public enum CouponStatus implements BaseEnum {
      */
     USED("已使用"),
     /**
+     * 运营人员因为某种原因将该张奖券作废，只在其他最终状态之前的状态使用有效，属于最终状态
+     */
+    CANCELLED("已作废"),
+    /**
      * 奖券未能在到期前兑现使用，属于最终状态
      */
     EXPIRED("过期"),
