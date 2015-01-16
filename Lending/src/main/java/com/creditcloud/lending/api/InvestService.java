@@ -8,6 +8,7 @@ package com.creditcloud.lending.api;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -20,6 +21,10 @@ public interface InvestService extends InvestQueryService, InvestStatService {
 
     public Invest addNew(Invest invest);
 
+    public boolean updateAmount(String investId, BigDecimal amount);
+    
+    public boolean updateOriginalAmount(String investId, BigDecimal originalAmount);
+
     public Invest getById(String investId);
 
     public boolean markStatus(InvestStatus status, List<String> ids);
@@ -30,6 +35,6 @@ public interface InvestService extends InvestQueryService, InvestStatService {
     public boolean markStatusByLoan(InvestStatus status, List<InvestStatus> currentStatus, String loanId);
 
     public boolean invest(String investId, int amount);
-    
+
     public void notifyLoanStatus(String loanId, LoanStatus status, List<LoanStatus> currentStatus);
 }
