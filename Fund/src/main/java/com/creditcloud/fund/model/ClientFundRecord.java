@@ -86,6 +86,8 @@ public class ClientFundRecord extends BaseObject {
     private String description;
 
     private Date timeRecorded;
+    
+    private String recordPriv;
 
     public ClientFundRecord(String id,
                             String account,
