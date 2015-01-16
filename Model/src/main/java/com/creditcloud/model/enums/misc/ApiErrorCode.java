@@ -27,6 +27,12 @@ public enum ApiErrorCode implements BaseEnum {
     UMP_TENDER_NOT_FOUND("未找到联动优势标的账户"),
     UMP_CREATE_ACCOUNT_FAILED("联动优势账号创建失败"),
     UMP_ACCOUNT_NOT_FOUND("未开通联动优势账户"),
+    UMP_AGREEMENT_NOT_BIND("未绑定联动优势账户相关协议"),
+    UMP_AGREEMENT_INSTANT_NOT_BIND("未绑定联动优势无密快捷协议"),
+    UMP_AGREEMENT_DEBIT_NOT_BIND("未绑定联动优势借记卡快捷协议"),
+    UMP_RET_MSG("请求联动优势返回错误信息"),
+    
+    FUND_RECORD_RECHARGE_BY_ORDERID_NOT_FOUND("根据订单编号未找到相关资金记录"),
     
     LOAN_STATUS_FINISHED_OR_CANCEL("标的已经结束或关闭"),
     LOAN_STATUS_FINISHED_AND_INVEST_RETURN("投资失败,已满标,投资已返还"),
