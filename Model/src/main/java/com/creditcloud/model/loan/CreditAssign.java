@@ -113,7 +113,12 @@ public class CreditAssign extends BaseObject {
         this.timeFinished = timeFinished;
     }
 
-    public BigDecimal getBalance(){
-        throw new UnsupportedOperationException();
+    /**
+     * 可投余额
+     *
+     * @return
+     */
+    public BigDecimal getBalance() {
+        return creditAmount.subtract(bidAmount);
     }
 }

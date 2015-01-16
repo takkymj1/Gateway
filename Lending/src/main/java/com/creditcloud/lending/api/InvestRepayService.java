@@ -12,6 +12,7 @@ import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
+import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
@@ -27,6 +28,16 @@ import javax.ejb.Remote;
 public interface InvestRepayService extends InvestRepayQueryService {
 
     boolean addNew(InvestRepayment repay);
+
+    /**
+     * 更新还款计划</p>
+     * TODO暂时只能更新金额部分
+     *
+     * @param investRepayId
+     * @param repayment
+     * @return
+     */
+    boolean updateRepayment(String investRepayId, Repayment repayment);
 
     public boolean markStatus(RepaymentStatus status, List<String> ids);
 
