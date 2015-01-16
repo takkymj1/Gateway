@@ -8,7 +8,6 @@ package com.creditcloud.lending.api;
 import com.creditcloud.model.enums.loan.CreditAssignStatus;
 import com.creditcloud.model.loan.CreditAssign;
 import java.math.BigDecimal;
-import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -24,10 +23,10 @@ public interface CreditAssignService extends CreditAssignQueryService {
      * mark credit assign status
      *
      * @param status
-     * @param creditAssignIds
+     * @param creditAssignId
      * @return 
      */
-    public boolean markStatus(CreditAssignStatus status, List<String> creditAssignIds);
+    public boolean markStatus(CreditAssignStatus status, String creditAssignId);
 
     /**
      *
