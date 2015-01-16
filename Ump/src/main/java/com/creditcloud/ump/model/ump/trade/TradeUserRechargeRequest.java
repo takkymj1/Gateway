@@ -33,13 +33,6 @@ public class TradeUserRechargeRequest extends BaseRequest {
     private String account_id;
 
     /**
-     * 视图类型
-     * 
-     * 说明：传入HTML5可访问手机页面，web不需要传入
-     */
-    private String sourceV;
-    
-    /**
      * TO BE REMOVED
      */
     private String account_type;
@@ -53,6 +46,15 @@ public class TradeUserRechargeRequest extends BaseRequest {
      */
     private String user_ip;
 
+    /**
+     * 视图类型
+     * 
+     * 说明：传入HTML5可访问手机页面，web不需要传入
+     * 
+     * 能否为空: 是
+     */
+    private String sourceV;
+    
     public TradeUserRechargeRequest(String sign_type,
                                     String charset,
                                     String res_format,
