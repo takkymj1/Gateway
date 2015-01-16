@@ -97,17 +97,17 @@ public class NumberUtils {
     }
 
     /**
-     * 将利率rate转化为string，最多保留小数点后一位0
+     * 将利率rate转化为string，最多保留小数点后一位0</p>
+     * rate:800->8.0%
+     * rate:1100->11.0%
+     * rate:1111->11.11%
      *
      * @param rate
      * @return
      */
     public static String rateToString(int rate) {
-        double percent = rate / 10000D;
-        boolean flag = rate % 10 == 0;
         NumberFormat nt = NumberFormat.getPercentInstance();
-        nt.setMinimumFractionDigits(flag ? 1 : 2);
-        String temp = nt.format(percent);
-        return temp;
+        nt.setMinimumFractionDigits(rate % 10 == 0 ? 1 : 2);
+        return nt.format(rate / 10000D);
     }
 }
