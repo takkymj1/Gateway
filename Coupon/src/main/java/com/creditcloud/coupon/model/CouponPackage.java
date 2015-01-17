@@ -9,6 +9,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -22,6 +23,8 @@ import lombok.Data;
 @Data
 public class CouponPackage extends BaseObject {
     
+    private static final long serialVersionUID = 20150117L;
+
     @UUID
     @NotNull
     private String id;
@@ -46,7 +49,18 @@ public class CouponPackage extends BaseObject {
     /**
      * 发行总数，不是总值，而是奖券的总张数
      */
+    @Min(1)
     private int totalCount;
+    
+    /**
+     * 票面价值.
+     * 
+     * 对于现金券，表示其兑换现金的额度.
+     * 
+     * 对于加息券，表示其提高利息的基点数（万分之一，参考rate）
+     */
+    @Min(0)
+    private int parValue;
     
     /**
      * 发行人.
