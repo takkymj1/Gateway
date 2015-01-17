@@ -100,6 +100,7 @@ public enum Realm implements BaseEnum {
     BATCHJOB("批量任务"),
     PAGES("页面"),
     BATCH("批量导入"),
+    COUPON("奖券"),
     
     /**
      * 原始债权
