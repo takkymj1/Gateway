@@ -37,7 +37,7 @@ public interface CouponQueryService {
      * @param pageInfo
      * @return 
      */
-    PagedResult<CouponPlacement> listMyPlacement(String userId, PageInfo pageInfo);
+    PagedResult<CouponPlacement> listUserPlacement(String userId, PageInfo pageInfo);
     
     /**
      * 按照给定状态分页列出某个人的奖券.
