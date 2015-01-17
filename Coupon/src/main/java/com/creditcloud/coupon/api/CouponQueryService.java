@@ -50,6 +50,6 @@ public interface CouponQueryService {
      * @param pageInfo
      * @return 
      */
-    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, List<CouponStatus> statusList, PageInfo pageInfo);
+    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, PageInfo pageInfo, CouponStatus... statusList);
     
 }

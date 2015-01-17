@@ -10,6 +10,7 @@ import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -20,6 +21,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@AllArgsConstructor
 public class CouponPlacement extends BaseObject {
     
     private static final long serialVersionUID = 20150117L;
@@ -61,21 +63,4 @@ public class CouponPlacement extends BaseObject {
      * 兑换成现金的时间
      */
     private Date timeRedeemed;
-    
-    public CouponPlacement(String id,
-                           CouponPackage couponPackage,
-                           CouponStatus status,
-                           RealmEntity owner,
-                           RealmEntity subject,
-                           Date timePlaced,
-                           Date timeRedeemed) {
-        this.id = id;
-        this.couponPackage = couponPackage;
-        this.status = status;
-        this.owner = owner;
-        this.subject = subject;
-        this.timePlaced = timePlaced;
-        this.timeRedeemed = timeRedeemed;
-    }
-
 }
