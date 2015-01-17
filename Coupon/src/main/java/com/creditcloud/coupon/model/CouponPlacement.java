@@ -20,7 +20,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
-public abstract class CouponPlacement extends BaseObject {
+public class CouponPlacement extends BaseObject {
     
     private static final long serialVersionUID = 20150117L;
 
