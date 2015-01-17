@@ -96,4 +96,10 @@ public class CouponPackage extends BaseObject {
      * null表示永不过期
      */
     private Date timeExpire;
+    
+    /**
+     * 该批奖券在前台显示的名字
+     */
+    @NotNull
+    private String displayName;
 }
