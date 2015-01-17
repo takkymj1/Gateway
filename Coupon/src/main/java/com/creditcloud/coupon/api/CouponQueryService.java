@@ -39,6 +39,17 @@ public interface CouponQueryService {
     PagedResult<CouponPackage> listCouponPackage(String clientCode, PageInfo pageInfo);
     
     /**
+     * 分页列出某个奖券包的所有分配情况.
+     * 
+     * @param clientCode
+     * @param packageId
+     * @param pageInfo
+     * @param statusList 传入一个参数可以当做分类列出使用
+     * @return 
+     */
+    PagedResult<CouponPlacement> listPlacementByPackage(String clientCode, String packageId, PageInfo pageInfo, CouponStatus... statusList);
+    
+    /**
      * 分页列出某个人的所有奖券.
      * 
      * 第一排序是状态，第二排序是获得时间
