@@ -29,7 +29,9 @@ public interface CouponQueryService {
     PagedResult<CouponPackage> listCouponPackage(PageInfo pageInfo);
     
     /**
-     * 分页列出某个人的所有奖券
+     * 分页列出某个人的所有奖券.
+     * 
+     * 第一排序是状态，第二排序是获得时间
      * 
      * @param userId
      * @param pageInfo
