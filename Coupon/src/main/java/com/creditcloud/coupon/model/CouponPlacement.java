@@ -21,6 +21,8 @@ import lombok.Data;
  */
 @Data
 public abstract class CouponPlacement extends BaseObject {
+    
+    private static final long serialVersionUID = 20150117L;
 
     @UUID
     @NotNull

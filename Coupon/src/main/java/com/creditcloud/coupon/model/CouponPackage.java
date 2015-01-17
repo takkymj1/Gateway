@@ -23,6 +23,8 @@ import lombok.Data;
 @Data
 public class CouponPackage extends BaseObject {
     
+    private static final long serialVersionUID = 20150117L;
+
     @UUID
     @NotNull
     private String id;
