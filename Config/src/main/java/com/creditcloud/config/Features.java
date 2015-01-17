@@ -261,13 +261,6 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableBatch = false;
-
-    /**
-     * 默认使用upyun
-     */
-    @Getter
-    @XmlElement
-    private StorageProvider storage = StorageProvider.UpYun;
     
     /**
      * 第三方登陆后功能显示控制
