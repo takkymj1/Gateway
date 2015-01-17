@@ -179,6 +179,7 @@ public enum Privilege implements BaseEnum {
     /**
      * 奖券相关权限
      */
+    COUPON_LIST("查看奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_ISSUE("发行奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_PLACE("分配奖券", Realm.COUPON, "奖券相关权限"),
     /**

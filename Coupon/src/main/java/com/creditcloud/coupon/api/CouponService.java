@@ -42,7 +42,8 @@ public interface CouponService extends CouponQueryService {
     /**
      * 兑现现金券.
      * 
-     * 对应的CouponPlacement状态改为USED
+     * 对应的CouponPlacement状态改为USED <br/>
+     * <b>只有现金券才有效，其他类型不能兑现</b>
      * 
      * @param placementId CouponPlacement.id
      * @return 是否成功提交兑现申请
@@ -50,9 +51,12 @@ public interface CouponService extends CouponQueryService {
     public boolean redeem (String placementId);
     
     /**
-     * 使用加息券增加某笔投资的收益.
+     * 使用加息券或增值券增加某笔投资的收益.
      * 
-     * 对应的CouponPlacement状态改为USED
+     * 对应的CouponPlacement状态改为USED <br/>
+     * <p/>
+     * 只有加息券或增值券才适用该方法 <br/>
+     * <b>如果某一笔投资已经使用了任意券则不能成功</b>
      * 
      * @param placementId
      * @param investId

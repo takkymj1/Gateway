@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 奖券的分配和使用信息
@@ -21,6 +22,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class CouponPlacement extends BaseObject {
     
@@ -50,12 +52,12 @@ public class CouponPlacement extends BaseObject {
     /**
      * 关联主体.
      * 
-     * 加息券一般为 Realm.Invest, Invest.id
+     * 加息券及增值券一般为 Realm.Invest, Invest.id
      */
     private RealmEntity subject;
 
     /**
-     * 现金券分配给持有人的时间
+     * 奖券分配给持有人的时间
      */
     private Date timePlaced;
 
