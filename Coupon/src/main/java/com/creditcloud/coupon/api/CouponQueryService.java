@@ -10,7 +10,6 @@ import com.creditcloud.coupon.model.CouponPlacement;
 import com.creditcloud.coupon.model.CouponStatus;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import java.util.List;
 import javax.ejb.Remote;
 
 /**
