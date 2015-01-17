@@ -94,4 +94,26 @@ public class CouponPackage extends BaseObject {
      * null表示永不过期
      */
     private Date timeExpire;
+    
+    public CouponPackage(String id,
+                         CouponType type,
+                         String name,
+                         String description,
+                         int totalCount,
+                         int parValue,
+                         RealmEntity issuer,
+                         Date timeIssued,
+                         Date timeStart,
+                         Date timeExpire) {
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.description = description;
+        this.totalCount = totalCount;
+        this.parValue = parValue;
+        this.issuer = issuer;
+        this.timeIssued = timeIssued;
+        this.timeStart = timeStart;
+        this.timeExpire = timeExpire;
+    }
 }

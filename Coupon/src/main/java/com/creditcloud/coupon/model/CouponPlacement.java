@@ -61,5 +61,21 @@ public class CouponPlacement extends BaseObject {
      * 兑换成现金的时间
      */
     private Date timeRedeemed;
+    
+    public CouponPlacement(String id,
+                           CouponPackage couponPackage,
+                           CouponStatus status,
+                           RealmEntity owner,
+                           RealmEntity subject,
+                           Date timePlaced,
+                           Date timeRedeemed) {
+        this.id = id;
+        this.couponPackage = couponPackage;
+        this.status = status;
+        this.owner = owner;
+        this.subject = subject;
+        this.timePlaced = timePlaced;
+        this.timeRedeemed = timeRedeemed;
+    }
 
 }

@@ -62,6 +62,7 @@ public interface CouponService extends CouponQueryService {
     
     /**
      * 审核人员接受并通过该张加息券兑现请求
+     * placed->used, 更新前状态不是placed，则返回false
      * 
      * @param placementId
      * @return 
@@ -70,6 +71,7 @@ public interface CouponService extends CouponQueryService {
     
     /**
      * 驳回某张奖券的redeem请求
+     * placed->cancellled, 更新前状态不是placed，则返回false //TODO 确认是否是如此变化
      * 
      * @param placementId
      * @return 

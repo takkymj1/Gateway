@@ -10,6 +10,7 @@ import com.creditcloud.coupon.model.CouponPlacement;
 import com.creditcloud.coupon.model.CouponStatus;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -45,10 +46,10 @@ public interface CouponQueryService {
      * 排序按照获得时间倒序
      * 
      * @param userId
-     * @param status
+     * @param statusList
      * @param pageInfo
      * @return 
      */
-    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, CouponStatus status, PageInfo pageInfo);
+    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, List<CouponStatus> statusList, PageInfo pageInfo);
     
 }
