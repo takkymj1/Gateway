@@ -11,6 +11,7 @@ import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -21,6 +22,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@AllArgsConstructor
 public class CouponPackage extends BaseObject {
     
     private static final long serialVersionUID = 20150117L;
@@ -94,4 +96,10 @@ public class CouponPackage extends BaseObject {
      * null表示永不过期
      */
     private Date timeExpire;
+    
+    /**
+     * 该批奖券在前台显示的名字
+     */
+    @NotNull
+    private String displayName;
 }

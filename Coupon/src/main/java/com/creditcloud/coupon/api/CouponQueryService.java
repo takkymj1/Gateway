@@ -45,10 +45,10 @@ public interface CouponQueryService {
      * 排序按照获得时间倒序
      * 
      * @param userId
-     * @param status
+     * @param statusList
      * @param pageInfo
      * @return 
      */
-    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, CouponStatus status, PageInfo pageInfo);
+    PagedResult<CouponPlacement> listUserPlacementByStatus(String userId, PageInfo pageInfo, CouponStatus... statusList);
     
 }
