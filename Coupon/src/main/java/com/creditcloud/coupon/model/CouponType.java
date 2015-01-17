@@ -21,7 +21,13 @@ public enum CouponType implements BaseEnum {
     /**
      * 投资固定收益产品时额外增加收益的奖券.
      */
-    INTEREST("加息券");
+    INTEREST("加息券"),
+    /**
+     * 投资固定收益产品时，增加虚拟本金并获得对应利息收益的奖券.
+     * 
+     * 票面值为虚拟增加的本金，这部分不会参与到实际的资金借贷中，但根据这部分虚拟资金计算增值利息，作为奖励发放
+     */
+    PRINCIPAL("增值券");
     
     private final String key;
     

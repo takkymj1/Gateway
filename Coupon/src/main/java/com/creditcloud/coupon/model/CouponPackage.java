@@ -13,6 +13,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 一个批次的奖券，属于同一个类型.
@@ -22,6 +23,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class CouponPackage extends BaseObject {
     
