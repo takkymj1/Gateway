@@ -163,13 +163,27 @@ public enum Privilege implements BaseEnum {
     TICKET_REPLY("处理工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_REVIEW("评审工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_DOWNLOAD("下载工单", Realm.TICKET, "支持工单相关权限"),
+    /**
+     * 众筹相关权限
+     */
     CROWDFUNDING_LIST("列出众筹", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_DETAIL("查看众筹详情", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    /**
+     * 批量任务相关权限
+     */
     BATCH_LIST("查看批量任务", Realm.BATCH, "批量导入相关权限"),
     BATCH_IMPORT("添加批量任务", Realm.BATCH, "批量导入相关权限"),
     BATCH_EXECUTE("执行批量任务", Realm.BATCH, "批量导入相关权限"),
+    /**
+     * 奖券相关权限
+     */
+    COUPON_ISSUE("发行奖券", Realm.COUPON, "奖券相关权限"),
+    COUPON_PLACE("分配奖券", Realm.COUPON, "奖券相关权限"),
+    /**
+     * 其他杂项权限
+     */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
 
