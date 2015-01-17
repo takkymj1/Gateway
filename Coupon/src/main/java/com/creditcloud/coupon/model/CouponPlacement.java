@@ -8,7 +8,9 @@ package com.creditcloud.coupon.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.misc.RealmEntity;
+import java.math.BigDecimal;
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -65,4 +67,10 @@ public class CouponPlacement extends BaseObject {
      * 兑换成现金的时间
      */
     private Date timeRedeemed;
+    
+    /**
+     * 最终实际兑换成现金的金额
+     */
+    @Min(0)
+    private BigDecimal actualAmount;
 }

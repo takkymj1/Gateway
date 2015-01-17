@@ -35,4 +35,15 @@ public class RealmEntity extends BaseObject {
     public String toString() {
         return realm + ":" + entityId;
     }
+
+    /**
+     * 快速建立RealmEntity
+     * 
+     * @param realm
+     * @param entityId
+     * @return 
+     */
+    public static RealmEntity of(final Realm realm, final String entityId) {
+        return new RealmEntity(realm, entityId);
+    }
 }
