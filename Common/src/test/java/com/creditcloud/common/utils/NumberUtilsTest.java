@@ -65,4 +65,43 @@ public class NumberUtilsTest {
         temp = from;
         assertTrue(NumberUtils.between(from, to, temp));
     }
+
+    @Test
+    public void testRateToString() {
+        int rate = 1;
+        assertEquals(NumberUtils.rateToString(rate), "0.01%");
+
+        rate = 0;
+        assertEquals(NumberUtils.rateToString(rate), "0.0%");
+
+        rate = 10;
+        assertEquals(NumberUtils.rateToString(rate), "0.1%");
+
+        rate = 11;
+        assertEquals(NumberUtils.rateToString(rate), "0.11%");
+
+        rate = 100;
+        assertEquals(NumberUtils.rateToString(rate), "1.0%");
+
+        rate = 110;
+        assertEquals(NumberUtils.rateToString(rate), "1.1%");
+
+        rate = 111;
+        assertEquals(NumberUtils.rateToString(rate), "1.11%");
+
+        rate = 1000;
+        assertEquals(NumberUtils.rateToString(rate), "10.0%");
+
+        rate = 1001;
+        assertEquals(NumberUtils.rateToString(rate), "10.01%");
+
+        rate = 1100;
+        assertEquals(NumberUtils.rateToString(rate), "11.0%");
+
+        rate = 1110;
+        assertEquals(NumberUtils.rateToString(rate), "11.1%");
+
+        rate = 1111;
+        assertEquals(NumberUtils.rateToString(rate), "11.11%");
+    }
 }

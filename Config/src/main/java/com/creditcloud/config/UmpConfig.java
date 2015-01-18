@@ -61,39 +61,41 @@ public class UmpConfig extends BaseConfig {
     @XmlElement(required = true)
     @Getter
     private String path;
-    
+
     /**
      * UMP的通知回调地址(Market端)
      */
     @XmlElement(required = true)
     @Getter
     private String retUrl;
-    
+
     /**
      * UMP的通知回调地址(Manager端)
      */
     @XmlElement(required = true)
     @Getter
     private String adminRetUrl;
-    
+
     /**
      * 创建用于实现冻结操作的标的借款人
      */
+    @Deprecated
     @XmlElement(required = false)
     @Getter
     private String freezeUserId;
-    
+
     /**
      * 商户在UMP的账户
      */
-    @XmlElement(name = "baseAccount", required = true) 
+    @XmlElement(name = "baseAccount", required = true)
     @Getter
     private UmpSubAccount baseAccount;
-    
+
     /**
      * 担保方UMP的账户, 可以无担保方
      */
-    @XmlElement(name = "guaranteeAccount", required = false) 
+    @Deprecated
+    @XmlElement(name = "guaranteeAccount", required = false)
     @Getter
     private UmpSubAccount guaranteeAccount;
 

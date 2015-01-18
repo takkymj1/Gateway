@@ -2,6 +2,7 @@ package com.creditcloud.common.utils;
 
 import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -93,5 +94,20 @@ public class NumberUtils {
      */
     public String decimalToString(BigDecimal amount) {
         return amount.setScale(NumberConstant.DEFAULT_SCALE).toPlainString();
+    }
+    
+    /**
+     * 将利率rate转化为string，最多保留小数点后一位0</p>
+     * rate:800->8.0%
+     * rate:1100->11.0%
+     * rate:1111->11.11%
+     *
+     * @param rate
+     * @return
+     */
+    public static String rateToString(int rate) {
+        NumberFormat nt = NumberFormat.getPercentInstance();
+        nt.setMinimumFractionDigits(rate % 10 == 0 ? 1 : 2);
+        return nt.format(rate / 10000D);
     }
 }

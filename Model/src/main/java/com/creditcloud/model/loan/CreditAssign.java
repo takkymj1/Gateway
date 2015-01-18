@@ -82,6 +82,7 @@ public class CreditAssign extends BaseObject {
     /**
      * 该债权对应的未还还款
      */
+    @Deprecated
     private List<Repayment> repayment;
 
     public CreditAssign(String id,
@@ -112,4 +113,12 @@ public class CreditAssign extends BaseObject {
         this.timeFinished = timeFinished;
     }
 
+    /**
+     * 可投余额
+     *
+     * @return
+     */
+    public BigDecimal getBalance() {
+        return creditAmount.subtract(bidAmount);
+    }
 }
