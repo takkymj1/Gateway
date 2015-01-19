@@ -6,7 +6,6 @@
 package com.creditcloud.config;
 
 import com.creditcloud.config.enums.LoanContractType;
-import com.creditcloud.config.enums.StorageProvider;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Max;
@@ -129,6 +128,13 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableRegistryReward = false;
+    
+    /**
+     * 是否打开奖券功能
+     */
+    @XmlElement
+    @Getter
+    private boolean enableCoupon = false;
 
     /**
      * 是否拆分提现审批为审核和批准/拒绝两个步骤
@@ -261,13 +267,6 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableBatch = false;
-
-    /**
-     * 默认使用upyun
-     */
-    @Getter
-    @XmlElement
-    private StorageProvider storage = StorageProvider.UpYun;
     
     /**
      * 第三方登陆后功能显示控制
