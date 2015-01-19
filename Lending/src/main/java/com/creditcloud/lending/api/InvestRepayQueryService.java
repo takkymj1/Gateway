@@ -5,9 +5,16 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.RepayAmount;
+import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.enums.loan.RepayType;
+import com.creditcloud.model.enums.loan.RepaymentStatus;
+import com.creditcloud.model.loan.InvestRepayment;
+import com.creditcloud.model.loan.RepayAmount;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,13 +30,22 @@ public interface InvestRepayQueryService {
      * TODO 因为回款可能会逾期，所以应该按照dueDate和实际repayDate来list，目前只按照dueDate来list
      *
      * @param userId
-     * @param from
-     * @param to
+     * @param from   dueDate，应还款日期
+     * @param to     dueDate，应还款日期
      * @return
      */
     public List<InvestRepayment> listByDate(String userId, Date from, Date to);
 
     public List<InvestRepayment> listByInvest(String investId, List<RepaymentStatus> statusList);
+
+    /**
+     * 按照投标invest和还款状态统计
+     *
+     * @param investId
+     * @param statusList
+     * @return
+     */
+    public int countByInvest(String investId, List<RepaymentStatus> statusList);
 
     /**
      * 根据贷款Id和第几期还款列出所有的InvestRepayment.
@@ -86,11 +102,44 @@ public interface InvestRepayQueryService {
      * 此方法功能LoanRepayService中已提供，且更高效<p>
      * 主要用來跟LoanRepayment做比对测试用
      *
-     * @param from
-     * @param to
+     * @param from       dueDate，应还款日期
+     * @param to         dueDate，应还款日期
      * @param statusList
      * @return
      */
     public RepayAmount sumDueRepay(LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 
+    /**
+     * 按照userId和实际repayDate来list
+     *
+     * @param userId
+     * @param from     repayDate,实际回款日期
+     * @param to       repayDate,实际回款日期
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<InvestRepayment> listByRepayDate(String userId, Date from, Date to, PageInfo pageInfo);
+
+    /**
+     * 根据dueDate统计InvestRepayment之和
+     *
+     * @param userId
+     * @param from       dueDate，应还款日期
+     * @param to         dueDate，应还款日期
+     * @param statusList
+     * @return
+     */
+    int countByUser(String userId, LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
+
+    /**
+     * 根据dueDate统计InvestRepayment amount之和
+     *
+     * @param userId
+     * @param repayType
+     * @param from       dueDate，应还款日期
+     * @param to         dueDate，应还款日期
+     * @param statusList
+     * @return
+     */
+    BigDecimal sumByUser(String userId, RepayType repayType, LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 }

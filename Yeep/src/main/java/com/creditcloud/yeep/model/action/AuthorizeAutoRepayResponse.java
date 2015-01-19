@@ -8,17 +8,16 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class AuthorizeAutoRepaymentResponse extends BaseResponse {
+@XmlRootElement (name = "response")
+public class AuthorizeAutoRepayResponse extends BaseResponse {
 
     /**
      * 固定值AUTHORIZE_AUTO_REPAYMENT
@@ -32,7 +31,10 @@ public class AuthorizeAutoRepaymentResponse extends BaseResponse {
     @NotNull
     private String requestNo;
 
-    public AuthorizeAutoRepaymentResponse(String platformNo,
+    public AuthorizeAutoRepayResponse() {
+    }
+
+    public AuthorizeAutoRepayResponse(String platformNo,
                                           BizType service,
                                           String requestNo,
                                           String code,
@@ -42,6 +44,24 @@ public class AuthorizeAutoRepaymentResponse extends BaseResponse {
         this.service = service;
         this.requestNo = requestNo;
     }
+
+    public BizType getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(BizType service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+    
+    
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();

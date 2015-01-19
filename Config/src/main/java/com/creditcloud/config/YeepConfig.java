@@ -91,4 +91,10 @@ public class YeepConfig extends BaseConfig {
     @XmlElement(name = "baseAccount", required = true)
     private SubAccount baseAccount;
    
+    /**
+     * 收费账户, 类型:专用借记账户
+     */
+    @XmlElement(name = "feeAccount", required = true)
+    private SubAccount feeAccount;
+
 }

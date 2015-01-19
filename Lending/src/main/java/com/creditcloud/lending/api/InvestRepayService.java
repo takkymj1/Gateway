@@ -5,11 +5,14 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.config.FeeConfig;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.AdvanceRepayDetail;
 import com.creditcloud.model.loan.InvestRepayment;
+import com.creditcloud.model.loan.OverduePenalty;
 import com.creditcloud.model.loan.OverdueRepayDetail;
 import com.creditcloud.model.loan.RepayDetail;
+import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
@@ -22,9 +25,19 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface InvestRepayService extends InvestRepayQueryService{
+public interface InvestRepayService extends InvestRepayQueryService {
 
     boolean addNew(InvestRepayment repay);
+
+    /**
+     * 更新还款计划</p>
+     * TODO暂时只能更新金额部分
+     *
+     * @param investRepayId
+     * @param repayment
+     * @return
+     */
+    boolean updateRepayment(String investRepayId, Repayment repayment);
 
     public boolean markStatus(RepaymentStatus status, List<String> ids);
 
@@ -54,8 +67,8 @@ public interface InvestRepayService extends InvestRepayQueryService{
     public InvestRepayment getLastByInvestAndStatus(String investId, List<RepaymentStatus> statusList);
 
     InvestRepayment getByInvestAndPeriod(String investId, int period);
-    
-     /**
+
+    /**
      * 根据贷款第几期所有投资应还款计算总费用，以避免直接从LoanRepayment计算的误差<p>
      * 只计算未还款状态的
      *
@@ -73,6 +86,15 @@ public interface InvestRepayService extends InvestRepayQueryService{
      * @return
      */
     OverdueRepayDetail getOverdueRepayDetail(RepayInfo repayInfo);
+
+    /**
+     * 计算单笔invest repayment逾期相关费用
+     *
+     * @param investRepayId
+     * @param feeConfig
+     * @return null if invest repay not found
+     */
+    OverduePenalty getOverduePenalty(String investRepayId, FeeConfig feeConfig);
 
     /**
      * 提前还款详情，一般与getRepayDetail返回内容相同，对于收取提前还款违约金的客户有所不同

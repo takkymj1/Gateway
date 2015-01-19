@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.ump.model.ump.enums;
 
 /**
  * UMP接口操作返回类型
- * 
+ *
  * @author kdliu
  */
 public enum CmdIdRspType {
+
     /**
      * 个人用户注册
      */
@@ -123,5 +123,9 @@ public enum CmdIdRspType {
     /**
      * 商户账户查询
      */
-    PTP_MER_QUERY_RSP;
+    PTP_MER_QUERY_RSP,
+    /**
+     * 更换银行卡
+     */
+    MER_REPLACE_CARD_RSP;
 }

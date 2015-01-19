@@ -24,7 +24,11 @@ public interface YeepConstant {
      * 成功的返回码
      */
     String SUCCESS_CODE = "1";
-
+    
+    /**
+     * 冻结到期时间
+     */
+    String FREEZE_ERXPIRED = "2099-12-31 00:00:00";
     /**
      * 默认舍入方法
      */

@@ -100,6 +100,7 @@ public enum Realm implements BaseEnum {
     BATCHJOB("批量任务"),
     PAGES("页面"),
     BATCH("批量导入"),
+    COUPON("奖券"),
     
     /**
      * 原始债权
@@ -120,7 +121,11 @@ public enum Realm implements BaseEnum {
     /**
      * 担保审计
      */
-    GUARANTEE_AUDIT("GUARANTEE_AUDIT"); 
+    GUARANTEE_AUDIT("GUARANTEE_AUDIT"),
+    /**
+     * 系统
+     */
+    SYSTEM("系统"); 
 
     private final String key;
 

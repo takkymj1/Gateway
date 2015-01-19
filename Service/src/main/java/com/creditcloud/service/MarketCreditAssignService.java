@@ -21,7 +21,7 @@ import javax.ejb.Remote;
  * @author rooseek
  */
 @Remote
-public interface CreditAssignService {
+public interface MarketCreditAssignService {
 
     /**
      * mark credit assign status

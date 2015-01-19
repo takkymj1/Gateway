@@ -19,6 +19,9 @@ import com.creditcloud.payment.model.LoanResult;
 import com.creditcloud.payment.model.MerCashResult;
 import com.creditcloud.payment.model.PaymentAccount;
 import com.creditcloud.payment.model.PaymentResult;
+import com.creditcloud.payment.model.PnrTender;
+import com.creditcloud.payment.model.QueryTransDetailResult;
+import com.creditcloud.payment.model.QueryUsrInfoResult;
 import com.creditcloud.payment.model.TenderResult;
 import com.creditcloud.payment.model.TransStatResult;
 import com.creditcloud.payment.model.TransferResult;
@@ -34,12 +37,12 @@ import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
-import com.creditcloud.payment.model.chinapnr.transfer.AddBidInfoResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.DivDetail2;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -51,6 +54,32 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface PaymentService {
+
+    /**
+     * 根据用户身份证号查询用户信息
+     *
+     * @param clientCode
+     * @param CertId     用户身份证号
+     * @param ReqExt
+     * @return
+     */
+    public QueryUsrInfoResult queryUsrInfo(String clientCode,
+                                           String CertId,
+                                           String ReqExt);
+
+    /**
+     * 根据订单号查询交易明细，现只有充值交易明细查询
+     *
+     * @param clientCode
+     * @param type
+     * @param OrdId      订单号
+     * @param ReqExt
+     * @return
+     */
+    public QueryTransDetailResult queryTransDetail(String clientCode,
+                                                   QueryTransType type,
+                                                   String OrdId,
+                                                   String ReqExt);
 
     /**
      * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
@@ -70,25 +99,25 @@ public interface PaymentService {
      * @param ProArea      项目所在地
      * @param MerPriv      自定义域
      * @param BgRetUrl
-     * @param ReqExt
+     * @param loanId
      * @return
      */
-    public boolean executeBidInput(String clientCode,
+    public boolean createPnrTender(String clientCode,
                                    String ProId,
                                    String BorrCustId,
                                    String BorrTotAmt,
                                    String YearRate,
                                    String RetType,
-                                   String BidStartDate,
-                                   String BidEndDate,
+                                   Date BidStartDate,
+                                   Date BidEndDate,
                                    String RetAmt,
-                                   String RetDate,
+                                   Date RetDate,
                                    String GuarCompId,
                                    String GuarAmt,
                                    String ProArea,
                                    String BgRetUrl,
                                    String MerPriv,
-                                   String ReqExt);
+                                   String loanId);
 
     /**
      * 获取用户在三方支付中的PaymentAccount
@@ -753,4 +782,22 @@ public interface PaymentService {
      * @return not null
      */
     public Map<String, FssAccount> getAllFssAccounts(String clientCode);
+
+    /**
+     * 根据tenderId查找PnrTender
+     *
+     * @param clientCode
+     * @param tenderId
+     * @return
+     */
+    public PnrTender getPnrTenderByTenderId(String clientCode, String tenderId);
+
+    /**
+     * 根据entityId查找PnrTender
+     *
+     * @param clientCode
+     * @param entityId   例如loan的id
+     * @return
+     */
+    public PnrTender getPnrTenderByEntityId(String clientCode, String entityId);
 }
