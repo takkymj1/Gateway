@@ -66,8 +66,8 @@ public interface CreditAssignQueryService {
      * @param statusList
      * @return
      */
-    public List<CreditAssign> listByOriginalInvest(String investId,
-                                                   List<CreditAssignStatus> statusList);
+    public List<CreditAssign> listByInvest(String investId,
+                                           List<CreditAssignStatus> statusList);
 
     /**
      * list invest on a credit assign
