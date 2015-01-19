@@ -33,6 +33,8 @@ public enum ApiErrorCode implements BaseEnum {
     UMP_AGREEMENT_DEBIT_NOT_BIND("未绑定联动优势借记卡快捷协议"),
     UMP_RET_MSG("请求联动优势返回错误信息"),
     
+    PAYMENT_ACCOUNT_NOT_FOUND("未开通汇付账户"),
+    
     FUND_RECORD_RECHARGE_BY_ORDERID_NOT_FOUND("根据订单编号未找到相关资金记录"),
     
     LOAN_STATUS_FINISHED_OR_CANCEL("标的已经结束或关闭"),
@@ -84,8 +86,10 @@ public enum ApiErrorCode implements BaseEnum {
     UNKNOWN_AND_PREPARE_CONTACT("未知错误,请联系客服"),
     USER_NOT_FOUND("用户名不存在"),
     PASSWORD_RESET_FAILURE("更改密码失败"),
-    PASSWORD_ERROR("登录密码错误");
+    PASSWORD_ERROR("登录密码错误"),
    
+    CREDITASSIGN_ERROR("债权转让错误");
+    
     private final String key;
     
     ApiErrorCode(String key) {
