@@ -134,4 +134,8 @@ public class Invest extends BaseObject {
 
         return user == null ? null : user.getId();
     }
+    
+    public boolean hasBeenCreditAssigned(){
+        throw new UnsupportedOperationException();
+    }
 }
