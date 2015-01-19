@@ -8,17 +8,15 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class EnterpiseRegisterResponse extends BaseResponse {
+@XmlRootElement(name = "response")
+public class CorpRegisterResponse extends BaseResponse {
 
     /**
      * 固定值REGISTER
@@ -32,7 +30,10 @@ public class EnterpiseRegisterResponse extends BaseResponse {
     @NotNull
     private String requestNo;
 
-    public EnterpiseRegisterResponse(String platformNo,
+    public CorpRegisterResponse() {
+    }
+
+    public CorpRegisterResponse(String platformNo,
                                      BizType service,
                                      String requestNo,
                                      String code,
@@ -42,12 +43,29 @@ public class EnterpiseRegisterResponse extends BaseResponse {
         this.service = service;
         this.requestNo = requestNo;
     }
+
+    public BizType getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(BizType service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
     
     @Override
     public String chkString() {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
+          .append(service)
+          .append(StringUtils.trimToEmpty(requestNo));
         return sb.toString();
     }       
 }

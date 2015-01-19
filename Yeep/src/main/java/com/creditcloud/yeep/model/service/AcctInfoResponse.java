@@ -5,8 +5,6 @@
  */
 package com.creditcloud.yeep.model.service;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -57,6 +55,9 @@ public class AcctInfoResponse extends BaseResponse {
     //【见银行代码】
     @XmlTransient
     private String bank;
+
+    public AcctInfoResponse() {
+    }
     
     public AcctInfoResponse(String platfromNo,
                                 String code,
@@ -80,9 +81,6 @@ public class AcctInfoResponse extends BaseResponse {
         this.cardStatus = cardStatus;
         this.bank = bank;
         
-    }
-
-    public AcctInfoResponse() {
     }
 
     public String getMemberType() {

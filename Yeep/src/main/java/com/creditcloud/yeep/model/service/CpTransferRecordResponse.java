@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 @XmlRootElement (name = "response")
-public class CpTransactionResponse extends BaseResponse {
+public class CpTransferRecordResponse extends BaseResponse {
     
     //流水号
     @NotNull
@@ -38,15 +38,15 @@ public class CpTransactionResponse extends BaseResponse {
     @NotNull
     private String subStatus;
 
-    public CpTransactionResponse() {
+    public CpTransferRecordResponse() {
     }
     
-    public CpTransactionResponse(String requestNo,
-                                 String bizType,
-                                 String amount,
-                                 String status,
-                                 String subStatus,
-                                 String sign) {
+    public CpTransferRecordResponse(String requestNo,
+                                    String bizType,
+                                    String amount,
+                                    String status,
+                                    String subStatus,
+                                    String sign) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
