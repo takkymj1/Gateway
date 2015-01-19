@@ -70,6 +70,16 @@ public interface CreditAssignQueryService {
                                            List<CreditAssignStatus> statusList);
 
     /**
+     * count all credit assign from an original loan invest
+     *
+     * @param investId
+     * @param statusList
+     * @return
+     */
+    public int countByInvest(String investId,
+                             List<CreditAssignStatus> statusList);
+
+    /**
      * list invest on a credit assign
      *
      * @param creditAssignId
