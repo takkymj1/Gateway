@@ -24,6 +24,12 @@ public enum AssignBidResult implements BaseEnum {
      * 收到重复的bid返回
      */
     ASSIGN_REDUNDANT("重复的转让返回"),
+    /**
+     * ump相关错误
+     */
+    ASSIGN_IN_FAIL("债权转让标的转入失败"),
+    ASSIGN_OUT_FAIL("债权转让标的转出失败"),
+    ASSIGN_FEE_FAIL("债权转让收费失败"),
     FAILED("其他原因失败");
 
     private final String key;
