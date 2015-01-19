@@ -1,0 +1,68 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.creditcloud.yeep.model.action;
+
+import com.creditcloud.yeep.model.BaseResponse;
+import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ *
+ * @author tinglany
+ */
+
+@XmlRootElement(name = "response")
+public class authorCpTransferResponse extends BaseResponse {
+ 
+    //请求流水号
+    @NotNull
+    private String requestNo;
+    
+    //请求流水号
+    @NotNull
+    private String service;
+    
+    public authorCpTransferResponse() {
+    }
+
+    public authorCpTransferResponse(String platformNo, 
+                                    String requestNo, 
+                                    String service, 
+                                    String code, 
+                                    String description, 
+                                    String sign) {
+        super(platformNo, code, description,sign);
+        this.requestNo = requestNo;
+        this.service =service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+       
+    @Override
+    public String chkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.baseChkString())
+          .append(requestNo)
+          .append(service); 
+        return sb.toString();
+    }    
+       
+}
