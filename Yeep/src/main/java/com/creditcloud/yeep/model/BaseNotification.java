@@ -6,12 +6,9 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -51,28 +48,7 @@ public abstract class BaseNotification extends BaseObject {
         this.sign = sign;
     }
 
-    /**
-     * 共有的验证数据段
-     * 
-     * @return 
-     */
-    protected String baseChkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(StringUtils.trimToEmpty(platformNo));
-        sb.append(StringUtils.trimToEmpty(bizType));
-        sb.append(StringUtils.trimToEmpty(code));
-        sb.append(StringUtils.trimToEmpty(message));
-        return sb.toString();
-    }
-    
-    /**
-     * 用于做应答内容验证的ChkValue
-     * 
-     * @return 
-     */
-    public abstract String chkString();
-    
-
+    @XmlAttribute (name ="platformNo") 
     public String getPlatformNo() {
         return platformNo;
     }
@@ -118,5 +94,25 @@ public abstract class BaseNotification extends BaseObject {
     public boolean success() {
         return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(getCode());
     }
-      
+ 
+    /**
+     * 共有的验证数据段
+     * 
+     * @return 
+     */
+    protected String baseChkString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(StringUtils.trimToEmpty(platformNo));
+        sb.append(StringUtils.trimToEmpty(bizType));
+        sb.append(StringUtils.trimToEmpty(code));
+        sb.append(StringUtils.trimToEmpty(message));
+        return sb.toString();
+    }
+    
+    /**
+     * 用于做应答内容验证的ChkValue
+     * 
+     * @return 
+     */
+    public abstract String chkString();
 }

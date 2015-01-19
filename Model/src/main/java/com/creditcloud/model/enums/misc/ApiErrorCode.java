@@ -24,6 +24,7 @@ public enum ApiErrorCode implements BaseEnum {
     USER_NOT_BIND_BANK_CARD("用户未绑定银行卡"),
     USER_BANK_ACCOUNT_NOT_FOUND("用户银行卡未找到"),
     
+    UMP_TRANSFER_ENT2SYS_FAILED("企业向商户转账失败"),
     UMP_TENDER_NOT_FOUND("未找到联动优势标的账户"),
     UMP_CREATE_ACCOUNT_FAILED("联动优势账号创建失败"),
     UMP_ACCOUNT_NOT_FOUND("未开通联动优势账户"),

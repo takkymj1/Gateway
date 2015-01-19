@@ -8,6 +8,7 @@ package com.creditcloud.coupon.api;
 import com.creditcloud.coupon.model.CouponPackage;
 import com.creditcloud.coupon.model.CouponPlacement;
 import com.creditcloud.coupon.model.CouponStatus;
+import com.creditcloud.coupon.model.CouponType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
@@ -60,6 +61,19 @@ public interface CouponQueryService {
      * @return 
      */
     PagedResult<CouponPlacement> listUserPlacement(String clientCode, String userId, PageInfo pageInfo);
+    
+    /**
+     * 按照奖券种类分页列出用户的奖券.
+     * 
+     * 第一排序是状态，第二排序是获得时间
+     * 
+     * @param clientCode
+     * @param userId
+     * @param type
+     * @param pageInfo
+     * @return 
+     */
+    PagedResult<CouponPlacement> listUserPlacementByType(String clientCode, String userId, CouponType type, PageInfo pageInfo);
     
     /**
      * 按照给定状态分页列出某个人的奖券.

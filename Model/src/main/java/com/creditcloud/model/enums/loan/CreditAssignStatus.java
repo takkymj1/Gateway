@@ -14,6 +14,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum CreditAssignStatus implements BaseEnum {
 
+    /**
+     * TODO 暂时没用上,直接OPEN
+     */
     SCHEDULED("已安排"),
     OPEN("转让中"),
     FINISHED("转让已满"),

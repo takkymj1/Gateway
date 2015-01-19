@@ -51,7 +51,6 @@ public abstract class BaseResponse extends BaseObject {
         sb.append(StringUtils.trimToEmpty(platformNo));
         sb.append(StringUtils.trimToEmpty(code));
         sb.append(StringUtils.trimToEmpty(description));
-        System.out.println("###"+sb.toString());
         return sb.toString();
     }
     

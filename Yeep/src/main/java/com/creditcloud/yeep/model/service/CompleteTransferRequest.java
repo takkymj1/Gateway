@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -16,9 +17,8 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class CompleteTransactionRequest extends BaseRequest {
+@XmlRootElement(name = "request")
+public class CompleteTransferRequest extends BaseRequest {
     
     //请求流水号
     @NotNull
@@ -26,15 +26,34 @@ public class CompleteTransactionRequest extends BaseRequest {
     
     //CONFIRM 表示解冻后完成资金划转,CANCEL 表示解冻后取消转账
     @NotNull
-    private Status mode; 
+    private String mode; 
+
+    public CompleteTransferRequest() {
+    }
     
-    public CompleteTransactionRequest(String platformNo,
+    public CompleteTransferRequest(String platformNo,
                                       String requestNo,
-                                      Status mode,
+                                      String mode,
                                       String notifyUrl,
                                       String sign) {
         super(platformNo,null,notifyUrl,null,sign);
         this.requestNo = requestNo;
+        this.mode = mode;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setMode(String mode) {
         this.mode = mode;
     }
     
@@ -43,7 +62,7 @@ public class CompleteTransactionRequest extends BaseRequest {
         StringBuilder sb = new StringBuilder();
         sb.append(super.baseChkString())
                 .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(mode.name()));
+                .append(StringUtils.trimToEmpty(mode));
         return sb.toString();
     }    
 }
