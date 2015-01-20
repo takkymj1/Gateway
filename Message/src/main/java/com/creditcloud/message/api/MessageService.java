@@ -181,6 +181,18 @@ public interface MessageService {
     PagedResult<MessageBody> listNotification(Client client,
                                               PageInfo pageInfo,
                                               Realm... realms);
+    
+    /**
+     * 列出realm对应的message
+     *
+     * @param client
+     * @param realms
+     * @param pageInfo
+     * @return
+     */
+    PagedResult<Message> listMessage(Client client,
+                                              PageInfo pageInfo,
+                                              Realm realm);
 
     /**
      * mark MessageStatus for messages
