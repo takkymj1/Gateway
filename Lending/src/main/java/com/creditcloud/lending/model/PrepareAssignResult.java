@@ -7,22 +7,34 @@ package com.creditcloud.lending.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.AssignBidResult;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  *
  * @author rooseek
  */
-@AllArgsConstructor
+@Data
 public class PrepareAssignResult extends BaseObject {
 
     private static final long serialVersionUID = 20140831L;
 
-    @Getter
-    private final CreditAssignOrder order;
+    private CreditAssignOrder order;
 
-    @Getter
-    private final AssignBidResult bidResult;
+    private AssignBidResult bidResult;
 
+    private BigDecimal princilPalAmount;
+
+    public PrepareAssignResult(CreditAssignOrder order, AssignBidResult bidResult) {
+        this.order = order;
+        this.bidResult = bidResult;
+    }
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult,
+                               BigDecimal princilPalAmount) {
+        this.order = order;
+        this.bidResult = bidResult;
+        this.princilPalAmount = princilPalAmount;
+    }
 }
