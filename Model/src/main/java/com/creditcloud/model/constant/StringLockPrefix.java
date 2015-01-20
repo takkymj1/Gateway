@@ -41,4 +41,9 @@ public interface StringLockPrefix {
      * lychee账户创建
      */
     String Lychee_Create_Lock = "lychee.create.lock";
+
+    /**
+     * 债权转让
+     */
+    String Credit_Assign_Lock = "credit.assign.lock";
 }

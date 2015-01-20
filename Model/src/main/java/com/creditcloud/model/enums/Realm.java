@@ -124,6 +124,10 @@ public enum Realm implements BaseEnum {
      */
     GUARANTEE_AUDIT("GUARANTEE_AUDIT"),
     /**
+     * 订单
+     */
+    ORDER("订单"),
+    /**
      * 系统
      */
     SYSTEM("系统"); 
