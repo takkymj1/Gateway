@@ -42,4 +42,8 @@ public enum AssignBidResult implements BaseEnum {
     public String getKey() {
         return key;
     }
+
+    public boolean success() {
+        return this.equals(SUCCESSFUL) || this.equals(PARTLY_SUCCESSFUL);
+    }
 }
