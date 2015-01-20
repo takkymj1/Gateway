@@ -72,6 +72,7 @@ public enum Realm implements BaseEnum {
      */
     FUND("资金"),
     WITHDRAW("取现"),
+    TRANSFER("转账"),
     /**
      * CMS管理
      */
