@@ -11,6 +11,7 @@ import com.creditcloud.coupon.model.CouponStatus;
 import com.creditcloud.coupon.model.CouponType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
 
 /**
@@ -46,7 +47,7 @@ public interface CouponQueryService {
       * @param id
       * @return 
       */
-     public CouponPlacement findCouponPlacementbySubjectId(String clientCode, String id);
+     public CouponPlacement findCouponPlacementbySubject(String clientCode, RealmEntity subject);
 
     /**
      * 分页列出所有的奖券包
