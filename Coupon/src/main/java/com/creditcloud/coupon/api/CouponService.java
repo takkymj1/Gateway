@@ -30,6 +30,15 @@ public interface CouponService extends CouponQueryService {
     public boolean saveCouponPackage(String clientCode, CouponPackage couponPackage);
     
     /**
+     * 更新优惠券
+     * 
+     * @param clientCode
+     * @param couponPlacement
+     * @return 
+     */
+    public boolean updateCouponPlacement(String clientCode, CouponPlacement couponPlacement);
+    
+    /**
      * 分配某个package中的一个具体奖券给owner.
      * 
      * 比如分配某张现金券給特定个人在未来使用
