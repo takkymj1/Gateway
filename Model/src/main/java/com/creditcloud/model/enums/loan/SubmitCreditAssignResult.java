@@ -15,6 +15,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum SubmitCreditAssignResult implements BaseEnum {
 
     CREDIT_ASSIGN_DISABLED("没有开启债权转让功能"),
+    INVEST_NOT_FOUND("原始投标找不到"),
     SUCCESSFUL("成功"),
     EXCEED_DISCOUNT_LIMIT("超过债权转让折让率允许范围"),
     REPEATED_ASSIGN_REQUEST("债权转让已存在,不能重复转让"),

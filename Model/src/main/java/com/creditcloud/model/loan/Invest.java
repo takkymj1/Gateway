@@ -97,7 +97,7 @@ public class Invest extends BaseObject {
         this.status = status;
         this.submitTime = submitTime;
     }
-    
+
     //for api
     public Invest(String id,
                   String userId,
@@ -134,8 +134,21 @@ public class Invest extends BaseObject {
 
         return user == null ? null : user.getId();
     }
-    
-    public boolean hasBeenCreditAssigned(){
-        throw new UnsupportedOperationException();
+
+    /**
+     * 原始本金是否被转让过
+     *
+     * @return
+     */
+    public boolean hasBeenCreditAssigned() {
+        return originalAmount != null;
+    }
+
+    public boolean isLoanInvest() {
+        return creditAssignId == null;
+    }
+
+    public boolean isAssignInvest() {
+        return !isLoanInvest();
     }
 }
