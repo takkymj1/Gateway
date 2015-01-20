@@ -29,6 +29,24 @@ public interface CouponQueryService {
      * @return 
      */
      public CouponPackage findCouponPackagebyId(String clientCode, String id);
+     
+     /**
+      * 根据Id获取奖券
+      * 
+      * @param clientCode
+      * @param id
+      * @return 
+      */
+     public CouponPlacement findCouponPlacementbyId(String clientCode, String id);
+     
+     /**
+      * 根据Subject Id获取奖券
+      * 
+      * @param clientCode
+      * @param id
+      * @return 
+      */
+     public CouponPlacement findCouponPlacementbySubjectId(String clientCode, String id);
 
     /**
      * 分页列出所有的奖券包
