@@ -123,10 +123,6 @@ public class Invest extends BaseObject {
         this.purpose = purpose;
     }
 
-    public BigDecimal getOriginalAmount() {
-        return originalAmount == null ? amount : originalAmount;
-    }
-
     public String getUserId() {
         if (userId != null) {
             return userId;

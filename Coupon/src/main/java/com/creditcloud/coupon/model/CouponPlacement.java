@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class CouponPlacement extends BaseObject {
     
     private static final long serialVersionUID = 20150117L;
@@ -73,4 +72,27 @@ public class CouponPlacement extends BaseObject {
      */
     @Min(0)
     private BigDecimal actualAmount;
+    
+    /**
+     * 保存附加信息：如相关联的借款标ID
+     */
+    private String priv;
+    
+    public CouponPlacement(String id,
+                           CouponPackage couponPackage,
+                           CouponStatus status,
+                           RealmEntity owner,
+                           RealmEntity subject,
+                           Date timePlaced,
+                           Date timeRedeemed,
+                           BigDecimal actualAmount) {
+        this.id = id;
+        this.couponPackage = couponPackage;
+        this.owner = owner;
+        this.status = status;
+        this.subject = subject;
+        this.timePlaced = timePlaced;
+        this.timeRedeemed = timeRedeemed;
+        this.actualAmount = actualAmount;
+    }
 }
