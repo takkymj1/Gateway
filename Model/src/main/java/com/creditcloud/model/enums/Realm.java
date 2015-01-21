@@ -42,7 +42,6 @@ public enum Realm implements BaseEnum {
     /**
      * 基本类型
      */
-    PLATUSER("平台用戶"),
     USER("用戶"),
     CORPORATIONUSER("企业用户"),
     EMPLOYEE("员工"),

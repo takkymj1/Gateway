@@ -40,6 +40,24 @@ public interface MessageService {
                      String content,
                      String sender,
                      String... receiver);
+    
+    /**
+     * send short message from one sender to receivers
+     *
+     * @param client
+     * @param realm
+     * @param title
+     * @param content
+     * @param sender
+     * @param receiver
+     */
+    @Asynchronous
+    void sendShortMessage(Client client,
+                     Realm realm,
+                     String title,
+                     String content,
+                     String sender,
+                     String... receiver);
 
     /**
      * reply a sender
