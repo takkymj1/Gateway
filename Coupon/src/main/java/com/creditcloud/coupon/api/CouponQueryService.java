@@ -108,6 +108,16 @@ public interface CouponQueryService {
     PagedResult<CouponPlacement> listUserPlacementByStatus(String clientCode, String userId, PageInfo pageInfo, CouponStatus... statusList);
     
     /**
+     * 根据状态列出奖券
+     * 
+     * @param clientCode
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
+    PagedResult<CouponPlacement> listPlacementByStatus(String clientCode, PageInfo pageInfo, CouponStatus... statusList);
+    
+    /**
      * 获取某个package下可分配的奖券数量.
      * 
      * 当package过期时，永远返回0<br/>
