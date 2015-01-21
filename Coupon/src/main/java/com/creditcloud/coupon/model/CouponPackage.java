@@ -73,11 +73,11 @@ public class CouponPackage extends BaseObject {
      * 票面价值.
      *
      * 对于现金券，表示其兑换现金的额度.<br/>
-     * 
+     *
      * 对于增值券，表示其可以虚拟的本金量.<br/>
      *
      * 对于加息券，表示其提高利息的基点数（万分之一，参考rate）.<br/>
-     * 
+     *
      * 对于返现券，表示满足投资要求后平台直接返现的金额.
      */
     @FormParam("parValue")
@@ -108,6 +108,7 @@ public class CouponPackage extends BaseObject {
      *
      * null表示即时生效
      */
+    @FormParam(value = "timeStart")
     private Date timeStart;
 
     /**
@@ -115,11 +116,12 @@ public class CouponPackage extends BaseObject {
      *
      * null表示永不过期
      */
+    @FormParam(value = "timeExpire")
     private Date timeExpire;
-    
+
     /**
      * 最小投资门槛，当奖券与投资挂钩时要求的最小有效投资额.
-     * 
+     *
      * 如果用户绑定的Invest金额不时无法使用该奖券
      */
     @FormParam("minimumInvest")

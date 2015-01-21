@@ -72,6 +72,7 @@ public enum Realm implements BaseEnum {
      */
     FUND("资金"),
     WITHDRAW("取现"),
+    TRANSFER("转账"),
     /**
      * CMS管理
      */
@@ -123,6 +124,10 @@ public enum Realm implements BaseEnum {
      * 担保审计
      */
     GUARANTEE_AUDIT("GUARANTEE_AUDIT"),
+    /**
+     * 订单
+     */
+    ORDER("订单"),
     /**
      * 系统
      */
