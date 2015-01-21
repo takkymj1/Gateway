@@ -497,6 +497,7 @@ public interface UmpService extends UmpQueryService {
      * @param assignOrderId
      * @param refundOrderId
      * @param feeOrderId
+     * @param orderDate
      * @param notifyUrl
      * @param dealAmount
      * @param refundAmount
@@ -510,6 +511,7 @@ public interface UmpService extends UmpQueryService {
                                             String assignOrderId,
                                             String refundOrderId,
                                             String feeOrderId,
+                                            LocalDate orderDate,
                                             String notifyUrl,
                                             BigDecimal dealAmount,
                                             BigDecimal refundAmount,

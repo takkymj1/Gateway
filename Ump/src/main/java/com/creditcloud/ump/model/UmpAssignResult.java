@@ -6,23 +6,23 @@
 package com.creditcloud.ump.model;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
+import lombok.Getter;
 
 /**
  *
  * @author rooseek
  */
-@Data
+@Getter
 @XmlRootElement
 public class UmpAssignResult extends UmpResult {
 
     private static final long serialVersionUID = 20150120L;
 
-    private UmpPaymentResult assignOrder;
+    private final UmpPaymentResult assignOrder;
 
-    private UmpPaymentResult refundOrder;
+    private final  UmpPaymentResult refundOrder;
 
-    private UmpPaymentResult feeOrder;
+    private final UmpPaymentResult feeOrder;
 
     public UmpAssignResult(UmpResultType resultType,
                            UmpPaymentResult assignOrder,

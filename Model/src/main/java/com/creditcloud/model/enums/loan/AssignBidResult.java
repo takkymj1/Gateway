@@ -21,6 +21,7 @@ public enum AssignBidResult implements BaseEnum {
     ASSIGN_NO_BALANCE("转让已满"),
     SELF_ASSIGN("不能承接自己的转让"),
     FEE_EXCEED_LIMIT("费率超过上限"),
+    ILLEGAL_AMOUNT("金额错误"),
     /**
      * 收到重复的bid返回
      */
