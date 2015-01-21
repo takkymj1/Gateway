@@ -118,5 +118,14 @@ public interface CouponService extends CouponQueryService {
      * @return
      */
     public boolean rejectRedeem(String clientCode, String placementId);
+    
+    /**
+     * 当标的流标等情况下，取消奖券使用，重置为replaced状态
+     * 
+     * @param clientCode
+     * @param placementId
+     * @return 
+     */
+    public boolean cancelRedeem(String clientCode, String placementId);
 
 }
