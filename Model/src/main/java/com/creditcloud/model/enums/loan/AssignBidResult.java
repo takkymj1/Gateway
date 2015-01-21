@@ -21,6 +21,7 @@ public enum AssignBidResult implements BaseEnum {
     ASSIGN_NO_BALANCE("转让已满"),
     SELF_ASSIGN_FORBIDDEN("不能承接自己的转让"),
     BORROWER_ASSIGN_FORBIDDEN("标的借款人不能承接转让"),
+    PARTLY_ASSIGN_FORBIDDEN("必须全额承接"),
     FEE_EXCEED_LIMIT("费率超过上限"),
     ILLEGAL_AMOUNT("金额错误"),
     /**
