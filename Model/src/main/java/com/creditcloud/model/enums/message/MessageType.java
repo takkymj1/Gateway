@@ -24,7 +24,7 @@ public enum MessageType implements BaseEnum {
     /**
      * plat send short message
      */
-    SHORTMESSAGE("私信");
+    SHORTMESSAGE("短信");
 
     private final String key;
 
