@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.model.FundingExperienceApply;
 import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
@@ -46,6 +47,14 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public FundingReward addReward(String clientCode, FundingReward reward);
+    
+    /**
+     *
+     * @param clientCode
+     * @param apply
+     * @return
+     */
+    public FundingExperienceApply addExperienceApply(String clientCode, FundingExperienceApply apply);
 
     /**
      *
