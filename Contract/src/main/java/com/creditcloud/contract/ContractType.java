@@ -27,7 +27,13 @@ public enum ContractType implements BaseEnum {
     /**
      * 居间服务合同 by zaishu.ye@fengjr.com
      */
-    BROKERAGE("居间服务合同");
+    BROKERAGE("居间服务合同"),
+    
+    
+    /**
+     * 众筹合同
+     */
+    FUNDINGCONTRACT("众筹合同");
     
     private final String key;
 
