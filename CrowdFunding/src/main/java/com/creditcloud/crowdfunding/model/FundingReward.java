@@ -85,6 +85,11 @@ public class FundingReward extends BaseObject {
      */
     private int applyCount;
 
+    /**
+     * 限定条件的判断结果
+     */
+    private boolean restrictionResult;
+    
     public FundingReward(String id,
                          String projectId,
                          BigDecimal amount,
@@ -115,6 +120,24 @@ public class FundingReward extends BaseObject {
         this.deliveryTime = deliveryTime;
     }
 
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         String description,
+                         String deliveryDetail,
+                         String deliveryTime,
+                         boolean restrictionResult) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.description = description;
+        this.deliveryDetail = deliveryDetail;
+        this.deliveryTime = deliveryTime;
+        this.restrictionResult = restrictionResult;
+    }
+    
     /**
      * left number
      *
