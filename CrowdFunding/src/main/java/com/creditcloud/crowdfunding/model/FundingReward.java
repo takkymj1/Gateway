@@ -79,6 +79,11 @@ public class FundingReward extends BaseObject {
      * 预计回报发送时间
      */
     private String deliveryTime;
+    
+    /**
+     * 众筹回报申请体验次数
+     */
+    private int applyCount;
 
     /**
      * 限定条件的判断结果
@@ -142,4 +147,5 @@ public class FundingReward extends BaseObject {
         int result = limitNumber - raiseNumber;
         return result < 0 ? 0 : result;
     }
+    
 }

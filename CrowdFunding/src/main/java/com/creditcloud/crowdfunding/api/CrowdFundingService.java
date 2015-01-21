@@ -206,5 +206,17 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     public PagedResult<FundingRewardRestriction> getRewardRistrictionByProject(String clientCode, String projectId);
 
+    
+    /**
+     * 计算用户众筹回报申请体验次数
+     * @param clientCode
+     * @param projectId
+     * @param rewardId
+     * @param userId
+     * @return 
+     */
+    public int countByProjectAndRewardAndUser(String clientCode, String projectId, String rewardId, String userId);
+
     public int countByRewardAndUser(String rewardId, String userId, List successInvestList);
+
 }
