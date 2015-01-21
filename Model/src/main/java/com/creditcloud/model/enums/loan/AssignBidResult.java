@@ -19,7 +19,8 @@ public enum AssignBidResult implements BaseEnum {
     PARTLY_SUCCESSFUL("转让部分成功"),
     ASSIGN_NOT_OPEN("转让没有开始,或者已经结束"),
     ASSIGN_NO_BALANCE("转让已满"),
-    SELF_ASSIGN("不能承接自己的转让"),
+    SELF_ASSIGN_FORBIDDEN("不能承接自己的转让"),
+    BORROWER_ASSIGN_FORBIDDEN("标的借款人不能承接转让"),
     FEE_EXCEED_LIMIT("费率超过上限"),
     ILLEGAL_AMOUNT("金额错误"),
     /**
