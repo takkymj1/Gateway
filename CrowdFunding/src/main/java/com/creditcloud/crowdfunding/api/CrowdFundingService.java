@@ -205,4 +205,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return true if change successful, false if project not found
      */
     public PagedResult<FundingRewardRestriction> getRewardRistrictionByProject(String clientCode, String projectId);
+
+    public int countByRewardAndUser(String rewardId, String userId, List successInvestList);
 }
