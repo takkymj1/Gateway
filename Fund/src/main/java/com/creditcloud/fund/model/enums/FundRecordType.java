@@ -28,6 +28,10 @@ public enum FundRecordType implements BaseEnum {
     REWARD_REFERRAL("推荐奖励"),
     REWARD_INVEST("投标奖励"),
     REWARD_DEPOSIT("充值奖励"),
+    COUPON_CASH("现金券"),
+    COUPON_INTEREST("加息券"),
+    COUPON_PRINCIPAL("增值券"),
+    COUPON_REBATE("返现券"),
     /**
      * 服务管理手续费
      */
