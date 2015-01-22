@@ -16,6 +16,8 @@ public enum ContractType implements BaseEnum {
 
     /**
      * 平台与借款人之间合同双方合同
+     *//**
+     * 平台与借款人之间合同双方合同
      */
     LOAN_CLIENT("借款人与平台合同"),
     /**
@@ -33,7 +35,7 @@ public enum ContractType implements BaseEnum {
     /**
      * 众筹合同
      */
-    FUNDINGCONTRACT("众筹合同");
+    FUNDING("众筹合同");
     
     private final String key;
 

@@ -462,4 +462,18 @@ public interface ContractService {
      */
     public String getContractCodeByLoan(Loan loan);
     
+    /**
+     * 针对众筹投资生成众筹合同（如果项目设定要生成合同的话）
+     * @param investId
+     * @return 
+     */
+    public boolean generateCrowdFundingContract(String investId);
+    
+    /**
+     * 针对众筹项目ID生成所有众筹投资合同（如果项目设定要生成合同的话）
+     * @param projectId
+     * @param templateId
+     * @return 
+     */
+    public boolean generateCrowdFundingContracts(String projectId, String templateId);
 }
