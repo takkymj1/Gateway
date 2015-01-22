@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<CreditAssignConfig>
+    <enablePartlyAssign>true</enablePartlyAssign>
+    <maxCreditAssignRate>0.10</maxCreditAssignRate>
+    <maxCreditAssignDiscountRate>0.10</maxCreditAssignDiscountRate>
+    <fee>
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.10</rate>
+        <period>SINGLE</period>
+        <scope>PRINCIPAL</scope>
+    </fee>
+</CreditAssignConfig>
