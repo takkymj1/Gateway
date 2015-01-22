@@ -31,6 +31,12 @@ public class BidBorrowerDetail extends BaseObject {
     @Size(max = 14)
     private String PrinAmt;
 
+    /**
+     * 有标的时候才需要传，默认没有
+     */
+    @Size(max = 16)
+    private String ProId;
+
     public BidBorrowerDetail(String BorrowerCustId, String BorrowerCreditAmt, String PrinAmt) {
         this.BorrowerCustId = BorrowerCustId;
         this.BorrowerCreditAmt = BorrowerCreditAmt;
