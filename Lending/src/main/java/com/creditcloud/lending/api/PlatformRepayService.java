@@ -22,7 +22,7 @@ public interface PlatformRepayService {
 
     List<PlatformRepayment> listByLoanId(String loanId);
 
-    PlatformRepayment create(PlatformRepayment PlatformRepayment);
+    PlatformRepayment create(PlatformRepayment platformRepayment);
 
     PlatformRepayment getByLoanRepayment(String loanRepaymentId, int currentPeriod, int amount, Duration duration, int comprehensiveRate, RepaymentMethod method, Date timeSettled);
 }
