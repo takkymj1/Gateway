@@ -23,7 +23,7 @@ public class PrepareAssignResult extends BaseObject {
 
     private AssignBidResult bidResult;
 
-    private BigDecimal princilPalAmount;
+    private BigDecimal princiPalAmount;
 
     public PrepareAssignResult(CreditAssignOrder order, AssignBidResult bidResult) {
         this.order = order;
@@ -32,9 +32,9 @@ public class PrepareAssignResult extends BaseObject {
 
     public PrepareAssignResult(CreditAssignOrder order,
                                AssignBidResult bidResult,
-                               BigDecimal princilPalAmount) {
+                               BigDecimal princiPalAmount) {
         this.order = order;
         this.bidResult = bidResult;
-        this.princilPalAmount = princilPalAmount;
+        this.princiPalAmount = princiPalAmount;
     }
 }
