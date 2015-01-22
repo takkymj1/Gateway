@@ -72,6 +72,11 @@ public class LoanRepayment extends BaseObject {
     
     //for ui
     private String loanTitle;
+
+    /**
+     * 针对平台的回款计划，例如：证大速贷的标的，证大垫付该对象的本金加利息到标的账户
+     */
+    private PlatformRepayment platformRepayment;
     
     public LoanRepayment(String id,
                          String loanId,
