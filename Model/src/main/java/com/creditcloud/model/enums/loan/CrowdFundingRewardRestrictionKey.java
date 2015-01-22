@@ -15,12 +15,14 @@ public enum CrowdFundingRewardRestrictionKey implements BaseEnum {
 
     /**
      * investTimes 
+     *//**
+     * investTimes 
      */
     INVESTTIMES("投资次数"),
     /**
      * investAmount
      */
-    INVESTAMOUT("总投资金额"),
+    INVESTAMOUNT("总投资金额"),
     /**
      * p2pbidlist
      */

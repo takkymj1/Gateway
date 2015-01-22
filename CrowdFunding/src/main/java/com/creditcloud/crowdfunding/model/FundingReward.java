@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import java.util.Map;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
