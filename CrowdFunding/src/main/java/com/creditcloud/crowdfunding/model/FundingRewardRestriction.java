@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
@@ -28,46 +29,40 @@ public class FundingRewardRestriction extends BaseObject {
     private String id;
 
     @NotNull
-    @PathParam("projectId")
     private String projectId;
 
     @NotNull
-    @PathParam("rewardId")
     private String rewardId;
     
     /**
      * 
      */
     @NotNull
-    @FormParam("restrictionKey")
     private String restrictionKey;
 
     /**
      * 
      */
     @NotNull
-    @FormParam("restrictionValue")
     private String restrictionValue;
     
     /**
      * 
      */
-    @FormParam("startTime")
-    private String startTime;
+    private Date startTime;
 
     /**
      * 
      */
-    @FormParam("endTime")
-    private String endTime;
+    private Date endTime;
 
     public FundingRewardRestriction(String id,
                                     String projectId,
                                     String rewardId,
                                     String restrictionKey,
                                     String restrictionValue,
-                                    String startTime,
-                                    String endTime) {
+                                    Date startTime,
+                                    Date endTime) {
         this.id = id;
         this.projectId = projectId;
         this.rewardId = rewardId;
