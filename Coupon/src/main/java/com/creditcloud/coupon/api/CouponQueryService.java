@@ -130,4 +130,14 @@ public interface CouponQueryService {
      */
     int availableCouponNumber(String clientCode, String packageId);
     
+    /**
+     * 根据状态和用户Id统计奖券数量
+     * 
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @return 
+     */
+    int countUserPlacementByStatus(String clientCode, String userId, CouponStatus... statusList);
+    
 }
