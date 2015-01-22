@@ -9,6 +9,7 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
+import java.math.BigDecimal;
 import org.joda.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -80,6 +81,16 @@ public class LoanCalculatorTest {
         i = 0;
         for (Repayment repayment : loanDetail.getRepayments()) {
             assertTrue(expected.plusMonths(++i).equals(repayment.getDueDate()));
+        }
+        
+        loanDetail = LoanCalculator.analyze(1000000, 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.YearlyInterest, 
+                                            new LocalDate(2015, 01, 22));
+        expected = new LocalDate(2015, 01, 22);
+        i = 0;
+        for (Repayment repayment : loanDetail.getRepayments()) {
+            assertTrue(expected.plusYears(++i).equals(repayment.getDueDate()));
         }
     }
 
