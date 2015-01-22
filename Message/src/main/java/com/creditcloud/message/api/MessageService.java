@@ -40,6 +40,25 @@ public interface MessageService {
                      String content,
                      String sender,
                      String... receiver);
+    
+    /**
+     * send short message from one sender to receivers
+     * @param client
+     * @param realm
+     * @param title
+     * @param content
+     * @param sender
+     * @param type
+     * @param receiver 
+     */
+    @Asynchronous
+    void sendMessage(Client client,
+                     Realm realm,
+                     String title,
+                     String content,
+                     String sender,
+                     MessageType type,
+                     String... receiver);
 
     /**
      * reply a sender
@@ -181,6 +200,19 @@ public interface MessageService {
     PagedResult<MessageBody> listNotification(Client client,
                                               PageInfo pageInfo,
                                               Realm... realms);
+    
+    /**
+     * 列出realm对应的message
+     * @param client
+     * @param pageInfo
+     * @param realm
+     * @param types
+     * @return 
+     */
+    PagedResult<Message> listMessage(Client client,
+                                              PageInfo pageInfo,
+                                              Realm realm,
+                                              MessageType... types);
 
     /**
      * mark MessageStatus for messages
