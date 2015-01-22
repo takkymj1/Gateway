@@ -43,20 +43,21 @@ public interface MessageService {
     
     /**
      * send short message from one sender to receivers
-     *
      * @param client
      * @param realm
      * @param title
      * @param content
      * @param sender
-     * @param receiver
+     * @param type
+     * @param receiver 
      */
     @Asynchronous
-    void sendShortMessage(Client client,
+    void sendMessage(Client client,
                      Realm realm,
                      String title,
                      String content,
                      String sender,
+                     MessageType type,
                      String... receiver);
 
     /**
@@ -202,15 +203,16 @@ public interface MessageService {
     
     /**
      * 列出realm对应的message
-     *
      * @param client
-     * @param realms
      * @param pageInfo
-     * @return
+     * @param realm
+     * @param types
+     * @return 
      */
     PagedResult<Message> listMessage(Client client,
                                               PageInfo pageInfo,
-                                              Realm realm);
+                                              Realm realm,
+                                              MessageType... types);
 
     /**
      * mark MessageStatus for messages
