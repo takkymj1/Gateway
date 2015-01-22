@@ -5,7 +5,10 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.PlatformRepayment;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -15,10 +18,11 @@ import javax.ejb.Remote;
 @Remote
 public interface PlatformRepayService {
 
-    PlatformRepayment find(String Id);
+    PlatformRepayment find(String id);
 
     List<PlatformRepayment> listByLoanId(String loanId);
 
     PlatformRepayment create(PlatformRepayment PlatformRepayment);
 
+    PlatformRepayment getByLoanRepayment(String loanRepaymentId, int currentPeriod, int amount, Duration duration, int comprehensiveRate, RepaymentMethod method, Date timeSettled);
 }
