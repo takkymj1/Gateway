@@ -148,4 +148,13 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableUPaiYun = false;
+    
+    /**
+     * 可用控制平台消息管理中短信发送功能
+     * true 使用
+     * false 不使用
+     */
+    @XmlElement
+    @Getter
+    private boolean enableMessageSend = false;
 }

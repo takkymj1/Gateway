@@ -53,5 +53,10 @@ public class LoanRequestDetail extends BaseObject {
      */
     private String industry;
     
+    /**
+     * 提供方项目编号
+     */
+    private String providerProjectCode;
+    
 
 }
