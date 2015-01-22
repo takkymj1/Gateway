@@ -32,6 +32,13 @@ public class CreditAssignConfig extends BaseConfig {
     public static final String CONFIG_NAME = "CreditAssignConfig";
 
     /**
+     * 债权转让默认全部承接
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enablePartlyAssign = false;
+
+    /**
      * 债权转让最大手续费率
      */
     @Getter
