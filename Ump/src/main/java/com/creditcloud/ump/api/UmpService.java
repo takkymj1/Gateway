@@ -7,6 +7,7 @@ package com.creditcloud.ump.api;
 
 import com.creditcloud.ump.model.UmpAccount;
 import com.creditcloud.ump.model.UmpAgreement;
+import com.creditcloud.ump.model.UmpAssignResult;
 import com.creditcloud.ump.model.UmpCreateAccountResult;
 import com.creditcloud.ump.model.UmpFeeResult;
 import com.creditcloud.ump.model.UmpFreezeResult;
@@ -466,6 +467,60 @@ public interface UmpService extends UmpQueryService {
                                              BigDecimal amount);
 
     /**
+     * 债权转让放款给转让人
+     *
+     * @param clientCode
+     * @param orderId
+     * @param orderDate
+     * @param retUrl
+     * @param umpTenderId
+     * @param umpTenderAccountId
+     * @param umpAccountName
+     * @param umpAccountId
+     * @param amount
+     * @return
+     */
+    public UmpPaymentResult creditAssignRefund(String clientCode,
+                                               String orderId,
+                                               LocalDate orderDate,
+                                               String retUrl,
+                                               String umpTenderId,
+                                               String umpTenderAccountId,
+                                               String umpAccountName,
+                                               String umpAccountId,
+                                               BigDecimal amount);
+
+    /**
+     * 债权转让:完成承接人出金、债权人入金、平台收费三个步骤
+     *
+     * @param clientCode
+     * @param assignOrderId
+     * @param refundOrderId
+     * @param feeOrderId
+     * @param orderDate
+     * @param notifyUrl
+     * @param dealAmount
+     * @param refundAmount
+     * @param feeAmount
+     * @param loanId
+     * @param buyUserId
+     * @param sellUserId
+     * @return
+     */
+    public UmpAssignResult autoCreditAssign(String clientCode,
+                                            String assignOrderId,
+                                            String refundOrderId,
+                                            String feeOrderId,
+                                            LocalDate orderDate,
+                                            String notifyUrl,
+                                            BigDecimal dealAmount,
+                                            BigDecimal refundAmount,
+                                            BigDecimal feeAmount,
+                                            String loanId,
+                                            String buyUserId,
+                                            String sellUserId);
+
+    /**
      * 从标的账号还款至投资人账号
      *
      * @param clientCode
@@ -628,30 +683,6 @@ public interface UmpService extends UmpQueryService {
                                  String umpAccountName,
                                  String umpAccountId,
                                  BigDecimal amount);
-
-    /**
-     * 债权转让放款给转让人
-     *
-     * @param clientCode
-     * @param orderId
-     * @param orderDate
-     * @param retUrl
-     * @param umpTenderId
-     * @param umpTenderAccountId
-     * @param umpAccountName
-     * @param umpAccountId
-     * @param amount
-     * @return
-     */
-    public UmpPaymentResult creditAssignRefund(String clientCode,
-                                               String orderId,
-                                               LocalDate orderDate,
-                                               String retUrl,
-                                               String umpTenderId,
-                                               String umpTenderAccountId,
-                                               String umpAccountName,
-                                               String umpAccountId,
-                                               BigDecimal amount);
 
     /**
      * 对UMP功能进行封装的冻结功能. 通过无密投资协议+投资实现.
