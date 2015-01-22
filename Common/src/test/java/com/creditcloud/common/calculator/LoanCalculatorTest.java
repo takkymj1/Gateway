@@ -5,11 +5,14 @@
  */
 package com.creditcloud.common.calculator;
 
+import com.creditcloud.model.constant.NumberConstant;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import org.joda.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -87,10 +90,22 @@ public class LoanCalculatorTest {
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.YearlyInterest, 
                                             new LocalDate(2015, 01, 22));
-        expected = new LocalDate(2015, 01, 22);
+        LocalDate expectedDate = new LocalDate(2015, 01, 22);
+        BigDecimal expectedAmortizedInterest = new BigDecimal(1000000 * 0.12).setScale(2, NumberConstant.ROUNDING_MODE);
+        BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO).setScale(2);
+        BigDecimal expectedOutstandingPrincipal = loanDetail.getPrincipal();
         i = 0;
         for (Repayment repayment : loanDetail.getRepayments()) {
-            assertTrue(expected.plusYears(++i).equals(repayment.getDueDate()));
+            assertTrue(expectedDate.plusYears(++i).equals(repayment.getDueDate()));
+            assertTrue(expectedAmortizedInterest.equals(repayment.getAmountInterest()));
+            //last ONE, pay off the principal and interest
+            if(i == loanDetail.getRepayments().size()){
+                expectedPrincipal = loanDetail.getPrincipal();
+                expectedOutstandingPrincipal = expectedOutstandingPrincipal.subtract(loanDetail.getPrincipal())
+                                                .setScale(2, NumberConstant.ROUNDING_MODE);
+            }
+            assertTrue(expectedPrincipal.equals(repayment.getAmountPrincipal()));
+            assertTrue(expectedOutstandingPrincipal.equals(repayment.getAmountOutstanding()));
         }
     }
 
