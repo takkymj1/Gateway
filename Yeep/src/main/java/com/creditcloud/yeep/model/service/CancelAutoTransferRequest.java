@@ -6,7 +6,6 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
-import javax.validation.constraints.NotNull;
 
 /**
  * 取消自动投标授权
@@ -20,15 +19,8 @@ public class CancelAutoTransferRequest extends UserRequest {
       
     public CancelAutoTransferRequest(String platformNo,
                                               String platformUserNo,
-                                              String requestNo,
-                                              String sign) {
-        super(platformUserNo,platformNo,null,requestNo,null,null,sign);
+                                              String requestNo) {
+        super(platformUserNo,platformNo,null,requestNo,null,null);
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();    
-    }     
+   
 }

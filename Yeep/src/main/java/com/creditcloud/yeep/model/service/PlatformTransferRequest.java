@@ -49,9 +49,8 @@ public class PlatformTransferRequest extends BaseRequest {
                                    String sourcePlatformUserNo,
                                    String amount,
                                    String targetUserType,
-                                   String targetPlatformUserNo,
-                                   String sign) {
-        super(platformNo,null,null,null,sign);
+                                   String targetPlatformUserNo) {
+        super(platformNo,null,null,null);
         this.requestNo = requestNo;
         this.sourceUserType = sourceUserType;
         this.sourcePlatformUserNo = sourcePlatformUserNo;
@@ -59,17 +58,5 @@ public class PlatformTransferRequest extends BaseRequest {
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
     } 
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(sourceUserType))
-                .append(StringUtils.trimToEmpty(sourcePlatformUserNo))
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(targetUserType))
-                .append(StringUtils.trimToEmpty(targetPlatformUserNo));
-        return sb.toString();
-    }
+
 }

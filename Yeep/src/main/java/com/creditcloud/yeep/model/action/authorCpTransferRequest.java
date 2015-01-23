@@ -50,9 +50,8 @@ public class authorCpTransferRequest extends UserRequest {
                                 String expired,
                                 List<CpTransDetail> details,
                                 String notifyUrl,
-                                String callbackUrl,
-                                String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+                                String callbackUrl) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.userType = userType;
         this.bizType = bizType;
         this.expired = expired;
@@ -92,16 +91,5 @@ public class authorCpTransferRequest extends UserRequest {
     public void setUserType(String userType) {
         this.userType = userType;
     }
-
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(bizType))
-                .append(StringUtils.trimToEmpty(userType))
-                .append(StringUtils.trimToEmpty(expired))
-                .append(StringUtils.trimToEmpty(details.get(0).toString()));
-        return sb.toString();
-    }    
 }

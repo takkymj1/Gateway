@@ -40,8 +40,7 @@ public class RechargeRecordResponse extends BaseResponse {
     public RechargeRecordResponse(String amount,
                                   String UserNo,
                                   LocalDate createTime,
-                                  String status,
-                                  String sign) {
+                                  String status) {
         this.amount = amount;
         this.UserNo = UserNo;
         this.createTime = createTime;
@@ -81,15 +80,5 @@ public class RechargeRecordResponse extends BaseResponse {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(UserNo))
-                .append(StringUtils.trimToEmpty(createTime.toString()))
-                .append(StringUtils.trimToEmpty(status));
-        return sb.toString();
-    }    
+   
 }

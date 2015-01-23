@@ -40,9 +40,8 @@ public class RechargeAccountRequest extends UserRequest {
                                   String amount,
                                   String feeMode,
                                   String callbackUrl,
-                                  String notifyUrl,
-                                  String sign) {
-        super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl,sign);
+                                  String notifyUrl) {
+        super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);
         this.amount = amount;
         this.feeMode = feeMode;
     }
@@ -62,14 +61,5 @@ public class RechargeAccountRequest extends UserRequest {
     public void setFeeMode(String feeMode) {
         this.feeMode = feeMode;
     }
-    
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(feeMode));
-        return sb.toString();
-    }    
+   
 }

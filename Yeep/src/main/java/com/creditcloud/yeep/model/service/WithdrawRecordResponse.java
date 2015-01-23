@@ -52,9 +52,8 @@ public class WithdrawRecordResponse extends BaseResponse {
                                   String userNo,
                                   LocalDate createTime,
                                   Status status,
-                                  RemitStatus remitStatus,
-                                  String sign) {
-        super(platformNo,code,description,null);
+                                  RemitStatus remitStatus) {
+        super(platformNo,code,description);
         this.amount = amount;
         this.userNo = userNo;
         this.createTime = createTime;
@@ -102,16 +101,5 @@ public class WithdrawRecordResponse extends BaseResponse {
     public void setRemitStatus(RemitStatus remitStatus) {
         this.remitStatus = remitStatus;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(userNo))
-                .append(StringUtils.trimToEmpty(createTime.toString()))
-                .append(StringUtils.trimToEmpty(status.name()))
-                .append(StringUtils.trimToEmpty(remitStatus.name()));
-        return sb.toString();
-    }    
+      
 }

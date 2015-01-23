@@ -60,25 +60,13 @@ public class CompensatoryRequest extends UserRequest {
                                String transfer,
                                String amount,
                                MemberType targetUserType,
-                               String targetPlatformUserNo,
-                               String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+                               String targetPlatformUserNo) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
         this.transfer = transfer;
         this.amount = amount;
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(transfer))
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(targetUserType.name()))
-                .append(StringUtils.trimToEmpty(targetPlatformUserNo));
-        return sb.toString();
-    }    
+      
 }

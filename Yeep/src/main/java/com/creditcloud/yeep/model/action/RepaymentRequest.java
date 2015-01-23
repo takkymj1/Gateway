@@ -39,9 +39,8 @@ public class RepaymentRequest extends UserRequest {
                             String OrderNo,
                             List<Repayment> repayments,
                             String callbackUrl,
-                            String notifyUrl,
-                            String sign) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
+                            String notifyUrl) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.OrderNo = OrderNo;
         this.repayments = repayments;
     }
@@ -63,14 +62,5 @@ public class RepaymentRequest extends UserRequest {
     public void setRepayments(List<Repayment> repayments) {
         this.repayments = repayments;
     }
-
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(OrderNo))
-                .append(StringUtils.trimToEmpty(repayments.get(0).toString()));
-        return sb.toString();
-    }    
 }

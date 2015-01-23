@@ -46,25 +46,13 @@ public class ReconciliationResponse extends BaseResponse {
                                   BizType bizType,
                                   String fee,
                                   String balance,
-                                  String amount,
-                                  String sign) {
-        super(platformNo,code,description,sign);
+                                  String amountn) {
+        super(platformNo,code,description);
         this.records = records;
         this.bizType = bizType;
         this.fee = fee;
         this.balance = balance;
         this.amount = amount;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(records))
-                .append(StringUtils.trimToEmpty(bizType.name()))
-                .append(StringUtils.trimToEmpty(fee))
-                .append(StringUtils.trimToEmpty(balance))
-                .append(StringUtils.trimToEmpty(amount));
-        return sb.toString();
-    }    
+       
 }

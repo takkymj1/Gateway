@@ -69,9 +69,8 @@ public class AcctInfoResponse extends BaseResponse {
                                 String freezeAmount,
                                 String cardNo,
                                 String cardStatus,
-                                String bank,
-                                String sign) {
-        super(platfromNo,code,description,sign);
+                                String bank) {
+        super(platfromNo,code,description);
         this.memberType = memberType;
         this.activeStatus = activeStatus;
         this.balance = balance;
@@ -146,20 +145,5 @@ public class AcctInfoResponse extends BaseResponse {
     public void setBank(String bank) {
         this.bank = bank;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(memberType))
-                .append(StringUtils.trimToEmpty(activeStatus))
-                .append(StringUtils.trimToEmpty(balance))
-                .append(StringUtils.trimToEmpty(availableAmount))
-                .append(StringUtils.trimToEmpty(freezeAmount))
-                .append(StringUtils.trimToEmpty(cardNo))
-                .append(StringUtils.trimToEmpty(cardStatus))
-                .append(StringUtils.trimToEmpty(bank));
-        return sb.toString();
-    } 
     
 }

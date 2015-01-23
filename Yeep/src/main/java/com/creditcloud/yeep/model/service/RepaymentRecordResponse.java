@@ -41,8 +41,7 @@ public class RepaymentRecordResponse extends BaseResponse {
     public RepaymentRecordResponse(String repaymentAmount,
                                    String targetUserNo,
                                    LocalDate loanTime,
-                                   String status,
-                                   String sign) {
+                                   String status) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
         this.loanTime = loanTime;
@@ -81,15 +80,4 @@ public class RepaymentRecordResponse extends BaseResponse {
         this.status = status;
     }
 
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(repaymentAmount))
-                .append(StringUtils.trimToEmpty(targetUserNo))
-                .append(StringUtils.trimToEmpty(loanTime.toString()))
-                .append(StringUtils.trimToEmpty(status));
-        return sb.toString();
-    }
 }
