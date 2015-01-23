@@ -33,7 +33,10 @@ public enum ApiErrorCode implements BaseEnum {
     UMP_AGREEMENT_DEBIT_NOT_BIND("未绑定联动优势借记卡快捷协议"),
     UMP_RET_MSG("请求联动优势返回错误信息"),
     
-    PAYMENT_ACCOUNT_NOT_FOUND("未开通汇付账户"),
+    CHINAPNR_AUTOTENDER_OPEN_FAILED("开通汇付自动投标失败"),
+    CHINAPNR_AUTOTENDER_CLOSE_FAILED("关闭汇付自动投标失败"),
+    
+    PAYMENT_ACCOUNT_NOT_FOUND("未开通第三方托管账户"),
     
     FUND_RECORD_RECHARGE_BY_ORDERID_NOT_FOUND("根据订单编号未找到相关资金记录"),
     
