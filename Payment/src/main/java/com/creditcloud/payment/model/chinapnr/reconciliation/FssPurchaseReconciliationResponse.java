@@ -6,6 +6,7 @@
 package com.creditcloud.payment.model.chinapnr.reconciliation;
 
 import java.util.List;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,6 +18,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class FssPurchaseReconciliationResponse extends ReconciliationResponse {
 
-    private List<FssPurchaseReconciliation> FssReconciliationList;
+    @Size(max = 512)
+    private String RespExt;
 
+    private List<FssPurchaseReconciliation> FssReconciliationList;
 }
