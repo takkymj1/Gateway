@@ -45,7 +45,7 @@ public interface LoanQueryService {
      * @param pageInfo
      * @return
      */
-    public PagedResult<com.creditcloud.model.loan.Loan> listByUserIds(List<String> userIds, PageInfo pageInfo);
+    public PagedResult<com.creditcloud.model.loan.Loan> listByUserIdsAndStatus(List<String> userIds, PageInfo pageInfo,LoanStatus... statusList );
 
     public int countByUserAndStatusAndDate(String userId, Date from, Date to, LoanStatus... statusList);
     
