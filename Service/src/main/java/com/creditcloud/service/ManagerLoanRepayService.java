@@ -153,6 +153,7 @@ public interface ManagerLoanRepayService {
      * @param corrections
      * @return
      */
+    @Deprecated
     boolean correctOnCreditAssign(String clientCode, List<LoanRepaymentCorrection> corrections);
 
     /**
