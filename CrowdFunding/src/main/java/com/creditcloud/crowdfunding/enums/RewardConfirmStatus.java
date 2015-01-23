@@ -8,8 +8,11 @@ package com.creditcloud.crowdfunding.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 
+ * 众筹回报的状态
+ *分为是否需要以及是否已确认
  *
- * @author zaishu.ye@fengjr.com
+ * @author sobranie
  */
 public enum RewardConfirmStatus implements BaseEnum {
     NONEED("不需要确认"),
