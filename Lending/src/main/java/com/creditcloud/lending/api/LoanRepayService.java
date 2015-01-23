@@ -34,5 +34,10 @@ public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatSe
 
     public boolean markStatus(RepaymentStatus status, String... ids);
     
+    /**
+     * 增加还款计划，并增加对应的平台回款计划
+     * @param repay 还款计划信息
+     * @param repayForPlatform 平台回款计划信息
+     */
     public void addNew(LoanRepayment repay, PlatformRepayment repayForPlatform);
 }
