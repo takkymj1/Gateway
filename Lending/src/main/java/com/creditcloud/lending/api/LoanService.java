@@ -72,10 +72,10 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     
     public boolean changeTitle(String loanId, String title);
     
-    public boolean changeTimeOut(String loanId, int timeOut);
+    public boolean changeTimeOut(String loanId, int timeOut); 
    
     
-    public List<Loan> loanByNameAndTitle(String title, String name, String loginName) ;
+    public List<Loan> loanByNameAndTitle(String title, String name, String loginName);
     
     public PagedResult<com.creditcloud.model.loan.Loan> loanByTitle(String title);
 
