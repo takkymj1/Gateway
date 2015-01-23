@@ -126,6 +126,8 @@ public class FundingProject extends BaseObject {
     //众筹项目的序号,平台可以自定义,允许重复，对于历史数据则为null
     private Integer ordinal;
 
+    private boolean needContract = false;//是否需要生成合同
+    
     public FundingProject(String id,
                           String title,
                           ProjectStatus status,
@@ -137,7 +139,8 @@ public class FundingProject extends BaseObject {
                           String videoUrl,
                           String introduction,
                           String detail,
-                          String location) {
+                          String location,
+                          boolean needContract) {
         this.id = id;
         this.title = title;
         this.status = status;
@@ -150,6 +153,7 @@ public class FundingProject extends BaseObject {
         this.introduction = introduction;
         this.detail = detail;
         this.location = location;
+        this.needContract = needContract;
     }
 
     /**

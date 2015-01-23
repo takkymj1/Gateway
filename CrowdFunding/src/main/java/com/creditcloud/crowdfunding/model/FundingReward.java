@@ -5,8 +5,10 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
@@ -79,7 +81,33 @@ public class FundingReward extends BaseObject {
      * 预计回报发送时间
      */
     private String deliveryTime;
+    
+    private boolean needConfirmReward = false;
+    
+    private RewardConfirmStatus launcherRewardConfirmStatus = RewardConfirmStatus.NONEED;
+    
+    private Date launcherRewardConfirmTime;
+    
+    /**
+     * 众筹回报申请体验次数
+     */
+    private int applyCount;
 
+    /**
+     * 限定条件的判断结果
+     */
+    private boolean restrictionResult;
+    
+    /**
+     * 是否可以申请体验
+     */
+    private boolean needExperienceApply;
+    
+    /**
+     * 申请体验提示内容
+     */
+    private String experienceApplyContent;
+    
     public FundingReward(String id,
                          String projectId,
                          BigDecimal amount,
@@ -110,6 +138,34 @@ public class FundingReward extends BaseObject {
         this.deliveryTime = deliveryTime;
     }
 
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         String description,
+                         String deliveryDetail,
+                         String deliveryTime,
+                         boolean needConfirmReward,
+                         RewardConfirmStatus launcherRewardConfirmStatus,
+                         boolean needExperienceApply,
+                         String experienceApplyContent,
+                         Date launcherRewardConfirmTime,
+                         boolean restrictionResult) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.description = description;
+        this.deliveryDetail = deliveryDetail;
+        this.deliveryTime = deliveryTime;
+        this.needConfirmReward = needConfirmReward;
+        this.launcherRewardConfirmStatus = launcherRewardConfirmStatus;
+        this.needExperienceApply = needExperienceApply;
+        this.experienceApplyContent = experienceApplyContent;
+        this.launcherRewardConfirmTime = launcherRewardConfirmTime;
+        this.restrictionResult = restrictionResult;
+    }
+    
     /**
      * left number
      *
@@ -119,4 +175,5 @@ public class FundingReward extends BaseObject {
         int result = limitNumber - raiseNumber;
         return result < 0 ? 0 : result;
     }
+    
 }

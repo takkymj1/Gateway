@@ -7,10 +7,13 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.model.FundingExperienceApply;
 import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
 import com.creditcloud.crowdfunding.model.FundingReward;
+import com.creditcloud.crowdfunding.model.FundingRewardRestriction;
 import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -44,6 +47,14 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public FundingReward addReward(String clientCode, FundingReward reward);
+    
+    /**
+     *
+     * @param clientCode
+     * @param apply
+     * @return
+     */
+    public FundingExperienceApply addExperienceApply(String clientCode, FundingExperienceApply apply);
 
     /**
      *
@@ -184,4 +195,28 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return true if change successful, false if project not found
      */
     public boolean changeOrdinal(String clientCode, String projectId, Integer ordinal);
+    
+    
+    /**
+     * 根据项目id获取回报限定条件
+     *
+     * @param clientCode
+     * @param projectId
+     * @return true if change successful, false if project not found
+     */
+    public PagedResult<FundingRewardRestriction> getRewardRistrictionByProject(String clientCode, String projectId);
+
+    
+    /**
+     * 计算用户众筹回报申请体验次数
+     * @param clientCode
+     * @param projectId
+     * @param rewardId
+     * @param userId
+     * @return 
+     */
+    public int countByProjectAndRewardAndUser(String clientCode, String projectId, String rewardId, String userId);
+
+    public int countByRewardAndUser(String rewardId, String userId, List successInvestList);
+
 }
