@@ -397,6 +397,19 @@ public interface CrowdFundingQueryService {
                                                                       PageInfo pageInfo);
 
     /**
+     * 是否是银河国际的众筹项目, 根据是否需要合同来判断,需要则是银河国际的众筹项目
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @param to
+     * @param statusList
+     * @param pageInfo
+     * @return 
+     */
+    PagedResult<String> listProjectByNeedContract(String clientCode,
+                                           List<InvestStatus> statusList);
+    
+    /**
      * 根据用户ID和投标起始时间列出用户投标
      *
      * @param clientCode
