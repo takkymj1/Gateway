@@ -38,6 +38,14 @@ public class CashResponse2 extends BaseResponse {
     @Size(max = 14)
     private String TransAmt;
 
+    /**
+     * 取现交易实际到账的金额
+     */
+    @FormParam("RealTransAmt")
+    @NotNull
+    @Size(max = 14)
+    private String RealTransAmt;
+
     @FormParam("OpenAcctId")
     @Size(max = 40)
     private String OpenAcctId;
