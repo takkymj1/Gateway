@@ -21,15 +21,8 @@ public class AcctInfoRequest extends UserRequest {
 
      
     public AcctInfoRequest(String platformNo,
-                           String platformUserNo,
-                           String sign) {
-        super(platformUserNo,platformNo,null,null,null,null,sign);   
+                           String platformUserNo) {
+        super(platformUserNo,platformNo,null,null,null,null);   
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
 }

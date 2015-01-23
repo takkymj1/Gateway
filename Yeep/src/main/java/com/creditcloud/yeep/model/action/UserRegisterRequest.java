@@ -83,26 +83,13 @@ public class UserRegisterRequest extends UserRequest {
                                String email,
                                String callbackUrl,
                                String notifyUrl) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,null);     
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);     
         this.nickName = nickName;
         this.realName = realName;
         this.idCardType = idCardType;
         this.idCardNo = idCardNo;
         this.mobile = mobile;
         this.email = email;
-    }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(nickName))
-                .append(StringUtils.trimToEmpty(realName))
-                .append(StringUtils.trimToEmpty(idCardType))
-                .append(StringUtils.trimToEmpty(idCardNo))
-                .append(StringUtils.trimToEmpty(mobile))
-                .append(StringUtils.trimToEmpty(email));
-        return sb.toString();
     }
 
     public String getNickName() {

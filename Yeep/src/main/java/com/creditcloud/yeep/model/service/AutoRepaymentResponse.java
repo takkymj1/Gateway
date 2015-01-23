@@ -20,16 +20,8 @@ public class AutoRepaymentResponse extends BaseResponse {
     
     public AutoRepaymentResponse(String platformNo,
                                  String code,
-                                 String description,
-                                 String sign) {
-        super(platformNo,code,description,sign);
+                                 String description) {
+        super(platformNo,code,description);
     } 
-
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();    
-    }
       
 }

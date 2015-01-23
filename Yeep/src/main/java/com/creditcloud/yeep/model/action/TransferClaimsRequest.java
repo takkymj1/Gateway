@@ -7,16 +7,13 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement(name = "request")
 public class TransferClaimsRequest extends UserRequest {
 
     /**
@@ -37,27 +34,44 @@ public class TransferClaimsRequest extends UserRequest {
     @NotNull
     private String amount;
 
-    public TransferClaimsRequest(String platformUserNo,
-                                 String platformNo,
-                                 String notifyUrl,
-                                 String sign,
+    public TransferClaimsRequest() {
+    }
+
+    public TransferClaimsRequest(String platformNo,
+                                 String platformUserNo,
                                  String requestNo,
                                  String orderNo,
                                  String paymentRequestNo,
-                                 String amount) {
-        super(platformUserNo, platformNo, null, requestNo,null,notifyUrl,sign);
+                                 String amount,
+                                 String notifyUrl) {
+        super(platformUserNo, platformNo, null, requestNo,null,notifyUrl);
         this.orderNo = orderNo;
         this.paymentRequestNo = paymentRequestNo;
         this.amount = amount;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(paymentRequestNo))
-                .append(StringUtils.trimToEmpty(amount));
-        return sb.toString();
+
+    public String getOrderNo() {
+        return orderNo;
     }
+
+    public String getPaymentRequestNo() {
+        return paymentRequestNo;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setPaymentRequestNo(String paymentRequestNo) {
+        this.paymentRequestNo = paymentRequestNo;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }   
+
 }

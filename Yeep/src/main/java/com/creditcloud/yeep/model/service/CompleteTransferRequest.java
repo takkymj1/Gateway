@@ -5,11 +5,9 @@
  */
 package com.creditcloud.yeep.model.service;
 
-import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 通用转账确认
@@ -34,9 +32,8 @@ public class CompleteTransferRequest extends BaseRequest {
     public CompleteTransferRequest(String platformNo,
                                       String requestNo,
                                       String mode,
-                                      String notifyUrl,
-                                      String sign) {
-        super(platformNo,null,notifyUrl,null,sign);
+                                      String notifyUrl) {
+        super(platformNo,null,notifyUrl,null);
         this.requestNo = requestNo;
         this.mode = mode;
     }
@@ -56,13 +53,5 @@ public class CompleteTransferRequest extends BaseRequest {
     public void setMode(String mode) {
         this.mode = mode;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(mode));
-        return sb.toString();
-    }    
+     
 }

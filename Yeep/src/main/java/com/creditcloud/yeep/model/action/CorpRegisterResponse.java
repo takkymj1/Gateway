@@ -37,9 +37,8 @@ public class CorpRegisterResponse extends BaseResponse {
                                      BizType service,
                                      String requestNo,
                                      String code,
-                                     String description,
-                                     String sign) {
-        super(platformNo, code, description,sign);
+                                     String description) {
+        super(platformNo, code, description);
         this.service = service;
         this.requestNo = requestNo;
     }
@@ -59,13 +58,5 @@ public class CorpRegisterResponse extends BaseResponse {
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-          .append(service)
-          .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }       
+      
 }

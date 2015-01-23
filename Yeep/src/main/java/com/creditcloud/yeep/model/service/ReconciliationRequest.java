@@ -26,17 +26,9 @@ public class ReconciliationRequest extends BaseRequest {
     private LocalDate date;
     
     public ReconciliationRequest(String platformNo,
-                                 LocalDate date,
-                                 String sign) {
-        super(platformNo,null,null,null,sign);
+                                 LocalDate date) {
+        super(platformNo,null,null,null);
         this.date = date;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(date.toString()));
-        return sb.toString();
-    }    
+
 }
