@@ -91,6 +91,16 @@ public class FundingReward extends BaseObject {
      */
     private boolean restrictionResult;
     
+    /**
+     * 是否可以申请体验
+     */
+    private boolean needExperienceApply;
+    
+    /**
+     * 申请体验提示内容
+     */
+    private String experienceApplyContent;
+    
     public FundingReward(String id,
                          String projectId,
                          BigDecimal amount,
@@ -128,6 +138,8 @@ public class FundingReward extends BaseObject {
                          String description,
                          String deliveryDetail,
                          String deliveryTime,
+                         boolean needExperienceApply,
+                         String experienceApplyContent,
                          boolean restrictionResult) {
         this.id = id;
         this.projectId = projectId;
@@ -136,6 +148,8 @@ public class FundingReward extends BaseObject {
         this.description = description;
         this.deliveryDetail = deliveryDetail;
         this.deliveryTime = deliveryTime;
+        this.needExperienceApply = needExperienceApply;
+        this.experienceApplyContent = experienceApplyContent;
         this.restrictionResult = restrictionResult;
     }
     
