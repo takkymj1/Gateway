@@ -5,9 +5,10 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.PathParam;
@@ -81,6 +82,12 @@ public class FundingReward extends BaseObject {
      */
     private String deliveryTime;
     
+    private boolean needConfirmReward = false;
+    
+    private RewardConfirmStatus launcherRewardConfirmStatus = RewardConfirmStatus.NONEED;
+    
+    private Date launcherRewardConfirmTime;
+    
     /**
      * 众筹回报申请体验次数
      */
@@ -138,8 +145,11 @@ public class FundingReward extends BaseObject {
                          String description,
                          String deliveryDetail,
                          String deliveryTime,
+                         boolean needConfirmReward,
+                         RewardConfirmStatus launcherRewardConfirmStatus,
                          boolean needExperienceApply,
                          String experienceApplyContent,
+                         Date launcherRewardConfirmTime,
                          boolean restrictionResult) {
         this.id = id;
         this.projectId = projectId;
@@ -148,8 +158,11 @@ public class FundingReward extends BaseObject {
         this.description = description;
         this.deliveryDetail = deliveryDetail;
         this.deliveryTime = deliveryTime;
+        this.needConfirmReward = needConfirmReward;
+        this.launcherRewardConfirmStatus = launcherRewardConfirmStatus;
         this.needExperienceApply = needExperienceApply;
         this.experienceApplyContent = experienceApplyContent;
+        this.launcherRewardConfirmTime = launcherRewardConfirmTime;
         this.restrictionResult = restrictionResult;
     }
     
