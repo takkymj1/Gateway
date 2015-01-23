@@ -198,6 +198,6 @@ public interface InvestQueryService {
                                                              List<LoanPurpose> purposeList,
                                                              PageInfo pageInfo);
 
-    public PagedResult<Invest> listByUserAndStatusAndLoans(String userId, PageInfo pageInfo, List<InvestStatus> statusList, List<Loan> loanList);
+    public List<Invest> listByUserAndStatusAndLoans(String userId, PageInfo pageInfo, List<InvestStatus> statusList, List<Loan> loanList);
 
 }
