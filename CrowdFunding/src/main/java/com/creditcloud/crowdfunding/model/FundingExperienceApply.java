@@ -9,16 +9,20 @@ import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  *
  * @author xiongyong
+ * 众筹项目回报的申请体验
+ * 
  */
 @XmlRootElement
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class FundingExperienceApply extends BaseObject {
 
     private static final long serialVersionUID = 20140922L;
@@ -41,17 +45,4 @@ public class FundingExperienceApply extends BaseObject {
     private String userId;
 
     private Date submitTime;
-
-
-    public FundingExperienceApply(String id,
-                         String projectId,
-                         String rewardId,
-                         String userId,
-                         Date submitTime) {
-        this.id = id;
-        this.projectId = projectId;
-        this.rewardId = rewardId;
-        this.userId = userId;
-        this.submitTime = submitTime;
-    }
 }
