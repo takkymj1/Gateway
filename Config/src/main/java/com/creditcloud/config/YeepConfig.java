@@ -76,25 +76,5 @@ public class YeepConfig extends BaseConfig {
      */
     @XmlElement(required = true)
     private String adminRetUrl;   
-    
-    /**
-     * 最大借款手续费率
-     */
-    @XmlElement(required = false)
-    private String maxBorrowerRate;
-    
-    
-    //下面配置的是商户子账户
-    /**
-     * 基本账户用于充值取现,类型:专属借记账户
-     */
-    @XmlElement(name = "baseAccount", required = true)
-    private SubAccount baseAccount;
-   
-    /**
-     * 收费账户, 类型:专用借记账户
-     */
-    @XmlElement(name = "feeAccount", required = true)
-    private SubAccount feeAccount;
 
 }
