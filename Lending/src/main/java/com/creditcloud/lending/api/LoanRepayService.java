@@ -6,6 +6,7 @@ package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.loan.PlatformRepayment;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
@@ -32,4 +33,6 @@ public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatSe
     public boolean repay(String repayId, BigDecimal repayAmount, RealmEntity repaySource);
 
     public boolean markStatus(RepaymentStatus status, String... ids);
+    
+    public void addNew(LoanRepayment repay, PlatformRepayment repayForPlatform);
 }
