@@ -28,7 +28,7 @@ public interface LoanQueryService {
      * @return
      */
     public int countByUser(String userId);
-
+    
     /**
      * list by user id
      *
@@ -37,6 +37,15 @@ public interface LoanQueryService {
      * @return
      */
     public PagedResult<Loan> listByUser(String userId, PageInfo pageInfo);
+    
+    /**
+     * list by userIds
+     *
+     * @param userIds
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<com.creditcloud.model.loan.Loan> listByUserIdsAndStatus(List<String> userIds, PageInfo pageInfo,LoanStatus... statusList );
 
     public int countByUserAndStatusAndDate(String userId, Date from, Date to, LoanStatus... statusList);
     
