@@ -16,7 +16,8 @@ public enum RepaymentMethod implements BaseEnum {
     EqualInstallment("按月等额本息", "还款便捷"),
     EqualPrincipal("按月等额本金", "总利息最低"),
     BulletRepayment("一次性还本付息", "短期首选"),
-    EqualInterest("月平息", "实际利率最高");
+    EqualInterest("月平息", "实际利率最高"),
+    YearlyInterest("按年付息到期还本", "还款压力小"),;
 
     private final String key;
 

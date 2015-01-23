@@ -203,7 +203,7 @@ public class LoanRequest extends BaseObject {
      * 归属产品
      */
     private String productId;
-    
+
     private String productKey;
 
     private boolean hidden;
@@ -274,5 +274,12 @@ public class LoanRequest extends BaseObject {
         this.riskInfo = riskInfo;
         this.serial = serial;
         this.investRule = investRule;
+    }
+
+    public String getUserId() {
+        if (userId == null) {
+            return user == null ? null : user.getId();
+        }
+        return userId;
     }
 }
