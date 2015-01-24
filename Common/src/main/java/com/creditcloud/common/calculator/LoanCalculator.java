@@ -12,6 +12,7 @@ import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInterest;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.YearlyInterest;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.LoanRequest;
@@ -145,8 +146,11 @@ public final class LoanCalculator {
                 interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
                 //add monthly interest
                 interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
-                //add daily interest
-                interest = interest.add(principal.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
+                
+                //如果day不为空，则使用按天计算利息
+                if(duration.getDays() > 0)
+                    interest = principal.multiply(rateDay).multiply(new BigDecimal(duration.getTotalDays()));
+
                 //ceilling the interest
                 interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
                 //create result
@@ -262,6 +266,23 @@ public final class LoanCalculator {
                                                                  amortizedInterest,
                                                                  outstandingPrincipal,
                                                                  DateUtils.offset(asOfDate, new Duration(0, i + 1, 0))));
+                    }
+                }
+                break;
+            case YearlyInterest:
+                //times of repayments.
+                tenure = duration.getYears();
+                //calc amortized interest and interest
+                amortizedInterest = principal.multiply(rateYear).setScale(2, NumberConstant.ROUNDING_MODE);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                //create LoanDetail
+                result = new LoanDetail(principal, interest, duration, YearlyInterest);
+                //add amortized items
+                for (int i = 0; i < tenure; i++) {
+                    if (i < tenure - 1) {    //only interest, no principal
+                        result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal, DateUtils.offset(asOfDate, new Duration(i + 1, 0, 0))));
+                    } else {    //last ONE we pay off the principal as well as interest
+                        result.getRepayments().add(new Repayment(principal, amortizedInterest, ZERO, DateUtils.offset(asOfDate, new Duration(i + 1, 0, 0))));
                     }
                 }
                 break;

@@ -74,7 +74,12 @@ public enum SMSType {
     /**
      * 用户还款提前10天短信告知提示
      */
-    POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind");
+    POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind"),
+    
+    /**
+     * 不使用短信模板
+     */
+    WITHOUT_TEMPLATE("");
 
     private final String key;
 

@@ -187,6 +187,7 @@ public enum Privilege implements BaseEnum {
      * 其他杂项权限
      */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
+    MESSAGE_SEND("短信发送",Realm.SYSTEM,"系统相关权限"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
 
     private final String key;

@@ -7,7 +7,6 @@ package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 /**
  * 资金解冻
  * 
@@ -25,9 +24,8 @@ public class UnFreezeRequest extends BaseRequest {
     }
     
     public UnFreezeRequest(String platformNo,
-                           String freezeRequestNo,
-                           String sign) {
-        super(platformNo,null,null,null,sign);
+                           String freezeRequestNo) {
+        super(platformNo,null,null,null);
         this.freezeRequestNo = freezeRequestNo;
     }
 
@@ -39,11 +37,4 @@ public class UnFreezeRequest extends BaseRequest {
         this.freezeRequestNo = freezeRequestNo;
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(freezeRequestNo));
-        return sb.toString();
-    }
 }

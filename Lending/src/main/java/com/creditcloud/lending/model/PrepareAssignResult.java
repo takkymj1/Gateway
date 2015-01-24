@@ -23,18 +23,31 @@ public class PrepareAssignResult extends BaseObject {
 
     private AssignBidResult bidResult;
 
-    private BigDecimal princilPalAmount;
+    private BigDecimal principalAmount;
 
-    public PrepareAssignResult(CreditAssignOrder order, AssignBidResult bidResult) {
-        this.order = order;
-        this.bidResult = bidResult;
+    /**
+     * 债权转让最后一笔承接
+     */
+    private boolean lastAssign;
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult) {
+        this(order, bidResult, null);
     }
 
     public PrepareAssignResult(CreditAssignOrder order,
                                AssignBidResult bidResult,
-                               BigDecimal princilPalAmount) {
+                               BigDecimal principalAmount) {
+        this(order, bidResult, principalAmount, false);
+    }
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult,
+                               BigDecimal principalAmount,
+                               boolean lastAssign) {
         this.order = order;
         this.bidResult = bidResult;
-        this.princilPalAmount = princilPalAmount;
+        this.principalAmount = principalAmount;
+        this.lastAssign = lastAssign;
     }
 }

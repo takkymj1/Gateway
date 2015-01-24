@@ -40,9 +40,8 @@ public class WithdrawAccountRequest extends UserRequest {
                                   String feeMode,                                
                                   String callbackUrl,
                                   String notifyUrl,
-                                  String amount,
-                                  String sign) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
+                                  String amount) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.feeMode = feeMode;
         this.amount = amount;
     }
@@ -63,12 +62,4 @@ public class WithdrawAccountRequest extends UserRequest {
         this.amount = amount;
     }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(feeMode))
-                .append(StringUtils.trimToEmpty(amount));
-        return sb.toString();
-    }
 }

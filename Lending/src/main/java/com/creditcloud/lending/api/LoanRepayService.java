@@ -32,4 +32,5 @@ public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatSe
     public boolean repay(String repayId, BigDecimal repayAmount, RealmEntity repaySource);
 
     public boolean markStatus(RepaymentStatus status, String... ids);
+    
 }

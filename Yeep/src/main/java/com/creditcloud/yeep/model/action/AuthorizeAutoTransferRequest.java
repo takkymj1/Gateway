@@ -25,15 +25,8 @@ public class AuthorizeAutoTransferRequest extends UserRequest {
                                         String callbackUrl,
                                         String notifyUrl,
                                         String platformUserNo,
-                                        String requestNo,
-                                        String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+                                        String requestNo) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
+
 }

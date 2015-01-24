@@ -25,15 +25,8 @@ public class BindBankCardRequest extends UserRequest {
                                String requestNo,
                                String notifyUrl,
                                String callbackUrl,
-                               String platformUserNo,
-                               String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+                               String platformUserNo) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }    
+  
 }

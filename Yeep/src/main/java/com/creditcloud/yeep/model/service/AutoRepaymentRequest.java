@@ -11,7 +11,6 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 自动还款
@@ -39,9 +38,8 @@ public class AutoRepaymentRequest extends UserRequest {
                                 String requestNo,
                                 String orderNo,
                                 List<Repayment> repayments,
-                                String notifyUrl,
-                                String sign) {
-        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null,sign);
+                                String notifyUrl) {
+        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
         this.orderNo = orderNo;
         this.repayments = repayments;
     }
@@ -63,13 +61,5 @@ public class AutoRepaymentRequest extends UserRequest {
     public void setRepayments(List<Repayment> repayments) {
         this.repayments = repayments;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(repayments.get(0).toString()));
-        return sb.toString();
-    }   
+     
 }

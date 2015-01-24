@@ -203,10 +203,20 @@ public class LoanRequest extends BaseObject {
      * 归属产品
      */
     private String productId;
-    
+
     private String productKey;
 
     private boolean hidden;
+
+    /**
+     * 对应平台的综合利率（万分之几）
+     */
+    @IncrementalInteger(min = LoanConstant.MIN_LOAN_RATE,
+                        increment = 1,
+                        max = LoanConstant.MAX_LOAN_RATE,
+                        groups = Default.class)
+    @XmlElement(name = "comprehensiveRate")
+    private int comprehensiveRate;
 
     /**
      *
@@ -264,5 +274,12 @@ public class LoanRequest extends BaseObject {
         this.riskInfo = riskInfo;
         this.serial = serial;
         this.investRule = investRule;
+    }
+
+    public String getUserId() {
+        if (userId == null) {
+            return user == null ? null : user.getId();
+        }
+        return userId;
     }
 }
