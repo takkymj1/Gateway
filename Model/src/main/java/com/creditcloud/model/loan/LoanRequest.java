@@ -209,6 +209,16 @@ public class LoanRequest extends BaseObject {
     private boolean hidden;
 
     /**
+     * 对应平台的综合利率（万分之几）
+     */
+    @IncrementalInteger(min = LoanConstant.MIN_LOAN_RATE,
+                        increment = 1,
+                        max = LoanConstant.MAX_LOAN_RATE,
+                        groups = Default.class)
+    @XmlElement(name = "comprehensiveRate")
+    private int comprehensiveRate;
+
+    /**
      *
      * @param id          LoanRequest Id, nullable
      * @param user        用户
