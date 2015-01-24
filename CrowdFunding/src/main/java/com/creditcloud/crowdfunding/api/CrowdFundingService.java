@@ -14,6 +14,7 @@ import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.FundingRewardRestriction;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -219,4 +220,19 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
 
     public int countByRewardAndUser(String rewardId, String userId, List successInvestList);
 
+    /**
+     * 众筹支持者确认回报
+     * @param investId
+     * @param confirmTime
+     * @return 
+     */
+    public boolean supporterRewardConfirm(String investId, Date confirmTime);
+    
+    /**
+     * 众筹发起者确认回报
+     * @param rewardId
+     * @param confirmTime
+     * @return 
+     */
+    public boolean launcherRewardConfirm(String rewardId, Date confirmTime);
 }
