@@ -49,6 +49,7 @@ public enum Realm implements BaseEnum {
     CLIENT("客戶"),
     BRANCH("分支机构"),
     CORPORATION("企业"),//注意不是平台用户
+    USER_CORPORATION("企业关联的用户"),//银河国际借款人
     /**
      * 认证
      */
