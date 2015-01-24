@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.crowdfunding.enums.ProjectCategory;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -127,6 +128,8 @@ public class FundingProject extends BaseObject {
     private Integer ordinal;
 
     private boolean needContract = false;//是否需要生成合同
+    
+    private RewardConfirmStatus rewardConfirmStatus;
     
     public FundingProject(String id,
                           String title,
