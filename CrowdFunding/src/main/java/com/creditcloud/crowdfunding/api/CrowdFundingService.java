@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.crowdfunding.model.FundingExperienceApply;
 import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
@@ -14,7 +15,6 @@ import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.FundingRewardRestriction;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -223,16 +223,17 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
     /**
      * 众筹支持者确认回报
      * @param investId
-     * @param confirmTime
+     * @param status
      * @return 
      */
-    public boolean supporterRewardConfirm(String investId, Date confirmTime);
+    public boolean supporterRewardConfirm(String investId, RewardConfirmStatus status);
     
     /**
-     * 众筹发起者确认回报
+     * 众筹发起者确认项目下所有回报的回报状态
      * @param rewardId
-     * @param confirmTime
+     * @param status
      * @return 
      */
-    public boolean launcherRewardConfirm(String rewardId, Date confirmTime);
+    public boolean launcherRewardConfirm(String rewardId, RewardConfirmStatus status);
+    
 }

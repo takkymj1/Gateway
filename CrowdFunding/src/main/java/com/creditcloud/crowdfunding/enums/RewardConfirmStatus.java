@@ -9,15 +9,17 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  * 
- * 众筹回报的状态
- *分为是否需要以及是否已确认
+ * 众筹回报的确认状态
  *
  * @author sobranie
  */
 public enum RewardConfirmStatus implements BaseEnum {
     NONEED("不需要确认"),
     WAITING("待确认"),
-    CONFIRMED("已确认");
+    CONFIRMED("已确认"),
+    OVERDUE("逾期不可确认"),
+    CONFIRM_FAILD("确认失败"),
+    FORBIDDEN("禁止操作");
     
     private final String key;
 
