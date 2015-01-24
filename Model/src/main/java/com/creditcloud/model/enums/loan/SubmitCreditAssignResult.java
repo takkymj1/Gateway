@@ -21,6 +21,7 @@ public enum SubmitCreditAssignResult implements BaseEnum {
     REPEATED_ASSIGN_REQUEST("债权转让已存在,不能重复转让"),
     INSUFFICIENT("没有本金可转让"),
     ILLEGAL_INVEST("投标状态不可转让"),
+    ILLEGAL_INVEST_USER("只能转让自己的投标"),
     ILLEGAL_REPAYMENT("投标有逾期违约还款");
 
     private final String key;

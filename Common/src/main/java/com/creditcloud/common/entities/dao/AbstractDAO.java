@@ -4,6 +4,7 @@
  */
 package com.creditcloud.common.entities.dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 
@@ -13,7 +14,7 @@ import javax.persistence.LockModeType;
  * @author sobranie
  */
 public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
-
+    
     public AbstractDAO(Class<T> entityClass) {
         super(entityClass);
     }
@@ -30,6 +31,17 @@ public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
         em.flush();
         em.refresh(entity, LockModeType.PESSIMISTIC_READ);
         return entity;
+    }
+    
+    public void batchCreate(List<T> entityList) {
+        EntityManager em = getEntityManager();
+        for (int i = 0; i < entityList.size(); i++) {
+            em.persist(entityList.get(i));
+            if (i % 10 == 0) {
+                em.flush();
+                em.clear();
+            }
+        }
     }
 
     /**

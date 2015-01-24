@@ -11,6 +11,7 @@ import com.creditcloud.coupon.model.CouponStatus;
 import com.creditcloud.coupon.model.CouponType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
 
 /**
@@ -29,6 +30,24 @@ public interface CouponQueryService {
      * @return 
      */
      public CouponPackage findCouponPackagebyId(String clientCode, String id);
+     
+     /**
+      * 根据Id获取奖券
+      * 
+      * @param clientCode
+      * @param id
+      * @return 
+      */
+     public CouponPlacement findCouponPlacementbyId(String clientCode, String id);
+     
+     /**
+      * 根据Subject Id获取奖券
+      * 
+      * @param clientCode
+     * @param subject
+      * @return 
+      */
+     public CouponPlacement findCouponPlacementbySubject(String clientCode, RealmEntity subject);
 
     /**
      * 分页列出所有的奖券包
@@ -87,5 +106,38 @@ public interface CouponQueryService {
      * @return 
      */
     PagedResult<CouponPlacement> listUserPlacementByStatus(String clientCode, String userId, PageInfo pageInfo, CouponStatus... statusList);
+    
+    /**
+     * 根据状态列出奖券
+     * 
+     * @param clientCode
+     * @param pageInfo
+     * @param statusList
+     * @return 
+     */
+    PagedResult<CouponPlacement> listPlacementByStatus(String clientCode, PageInfo pageInfo, CouponStatus... statusList);
+    
+    /**
+     * 获取某个package下可分配的奖券数量.
+     * 
+     * 当package过期时，永远返回0<br/>
+     * 
+     * 计数会排除掉状态为CANCELLED的Placement数量
+     * 
+     * @param clientCode
+     * @param packageId
+     * @return 
+     */
+    int availableCouponNumber(String clientCode, String packageId);
+    
+    /**
+     * 根据状态和用户Id统计奖券数量
+     * 
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @return 
+     */
+    int countUserPlacementByStatus(String clientCode, String userId, CouponStatus... statusList);
     
 }

@@ -7,22 +7,47 @@ package com.creditcloud.lending.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.AssignBidResult;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import java.math.BigDecimal;
+import lombok.Data;
 
 /**
  *
  * @author rooseek
  */
-@AllArgsConstructor
+@Data
 public class PrepareAssignResult extends BaseObject {
 
     private static final long serialVersionUID = 20140831L;
 
-    @Getter
-    private final CreditAssignOrder order;
+    private CreditAssignOrder order;
 
-    @Getter
-    private final AssignBidResult bidResult;
+    private AssignBidResult bidResult;
 
+    private BigDecimal principalAmount;
+
+    /**
+     * 债权转让最后一笔承接
+     */
+    private boolean lastAssign;
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult) {
+        this(order, bidResult, null);
+    }
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult,
+                               BigDecimal principalAmount) {
+        this(order, bidResult, principalAmount, false);
+    }
+
+    public PrepareAssignResult(CreditAssignOrder order,
+                               AssignBidResult bidResult,
+                               BigDecimal principalAmount,
+                               boolean lastAssign) {
+        this.order = order;
+        this.bidResult = bidResult;
+        this.principalAmount = principalAmount;
+        this.lastAssign = lastAssign;
+    }
 }

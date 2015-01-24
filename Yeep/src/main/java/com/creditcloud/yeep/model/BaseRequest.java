@@ -45,45 +45,20 @@ public abstract class BaseRequest extends BaseObject {
     @XmlTransient
     private String notifyUrl;
     
-    @NotNull
-    @XmlTransient
-    private String sign;
-
     public BaseRequest() {
     }
 
     public BaseRequest(String platformNo,
                        String service,
                        String callbackUrl,
-                       String notifyUrl,
-                       String sign) {
+                       String notifyUrl) {
         this.platformNo = platformNo;
         this.service = service;
         this.callbackUrl = callbackUrl;
         this.notifyUrl = notifyUrl;
-        this.sign = sign;
     }
     
-    /**
-     * 共有的验证数据段
-     * 
-     * @return 
-     */
-    protected String baseChkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(StringUtils.trimToEmpty(getPlatformNo()));
-        sb.append(StringUtils.trimToEmpty(getService()));
-        sb.append(StringUtils.trimToEmpty(getCallbackUrl()));
-        sb.append(StringUtils.trimToEmpty(getNotifyUrl()));
-        return sb.toString();
-    }
     
-    /**
-     * 每一个具体的请求需要实现构造验证数据的方法
-     * 
-     * @return 
-     */
-    public abstract String chkString();   
     
     @XmlAttribute(name ="platformNo")
     public  String getPlatformNo() {
@@ -103,21 +78,12 @@ public abstract class BaseRequest extends BaseObject {
         return service;
     }
     
-    @XmlTransient
-    public String getSign() {
-        return sign;
-    }
-    
     public void setPlatformNo(String platformNo) {
         this.platformNo = platformNo;
     }
     
     public void setService(String service) {
         this.service = service;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
     }
 
     public void setCallbackUrl(String callbackUrl) {

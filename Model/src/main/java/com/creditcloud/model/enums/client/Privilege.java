@@ -182,10 +182,12 @@ public enum Privilege implements BaseEnum {
     COUPON_LIST("查看奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_ISSUE("发行奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_PLACE("分配奖券", Realm.COUPON, "奖券相关权限"),
+    COUPON_APPROVE("奖券使用复核", Realm.COUPON, "奖券相关权限"),
     /**
      * 其他杂项权限
      */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
+    MESSAGE_SEND("短信发送",Realm.SYSTEM,"系统相关权限"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
 
     private final String key;

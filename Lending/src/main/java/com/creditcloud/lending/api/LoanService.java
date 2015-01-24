@@ -6,7 +6,9 @@ package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
+import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -70,9 +72,11 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     
     public boolean changeTitle(String loanId, String title);
     
-    public boolean changeTimeOut(String loanId, int timeOut);
+    public boolean changeTimeOut(String loanId, int timeOut); 
    
     
-
+    public List<Loan> loanByNameAndTitle(String title, String name, String loginName);
+    
+    public PagedResult<com.creditcloud.model.loan.Loan> loanByTitle(String title);
 
 }

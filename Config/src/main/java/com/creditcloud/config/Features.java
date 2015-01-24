@@ -282,4 +282,11 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enablePaymentTender = false;   
+    
+    /**
+     * 平台综合利率
+     */
+    @Getter
+    @XmlElement
+    private boolean enableComprehensiveRate = false;
 }

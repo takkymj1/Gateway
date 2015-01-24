@@ -45,8 +45,7 @@ public class CpTransferRecordResponse extends BaseResponse {
                                     String bizType,
                                     String amount,
                                     String status,
-                                    String subStatus,
-                                    String sign) {
+                                    String subStatus) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
@@ -93,16 +92,5 @@ public class CpTransferRecordResponse extends BaseResponse {
     public void setSubStatus(String subStatus) {
         this.subStatus = subStatus;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(bizType))
-                .append(StringUtils.trimToEmpty(amount))
-                .append(StringUtils.trimToEmpty(status))
-                .append(StringUtils.trimToEmpty(subStatus));
-        return sb.toString();
-    }    
+   
 }

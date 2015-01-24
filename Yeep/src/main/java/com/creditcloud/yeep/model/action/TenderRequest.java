@@ -59,9 +59,8 @@ public class TenderRequest extends UserRequest {
                          String paymentAmount,
                          String expired,
                          String callbackUrl,
-                         String notifyUrl,
-                         String sign) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
+                         String notifyUrl) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
         this.transferAmount = transferAmount;
         this.targetPlatformUserNo = targetPlatformUserNo;
@@ -108,16 +107,5 @@ public class TenderRequest extends UserRequest {
     public void setExpired(String expired) {
         this.expired = expired;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(transferAmount))
-                .append(StringUtils.trimToEmpty(targetPlatformUserNo))
-                .append(StringUtils.trimToEmpty(paymentAmount))
-                .append(StringUtils.trimToEmpty(expired));
-        return sb.toString();
-    }
+
 }

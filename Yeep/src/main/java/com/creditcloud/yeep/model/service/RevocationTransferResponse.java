@@ -18,15 +18,8 @@ public class RevocationTransferResponse extends BaseResponse {
     
     public RevocationTransferResponse(String platfomNo,
                                       String code,
-                                      String description,
-                                      String sign) {
-        super(platfomNo,code,description,sign);
+                                      String description) {
+        super(platfomNo,code,description);
     } 
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
+
 }

@@ -40,20 +40,10 @@ public class UserRequest extends BaseRequest {
                        String service,
                        String requestNo,
                        String callbackUrl,
-                       String notifyUrl,
-                       String sign) {
-        super(platformNo, service, callbackUrl, notifyUrl,sign);
+                       String notifyUrl) {
+        super(platformNo, service, callbackUrl, notifyUrl);
         this.platformUserNo = platformUserNo;
         this.requestNo = requestNo;
-    }
-
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(platformUserNo))
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
     }
     
     public String getPlatformUserNo() {

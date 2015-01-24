@@ -20,20 +20,12 @@ public class UnbindBankCardRequest extends UserRequest {
     public UnbindBankCardRequest() {
     }
 
-    public UnbindBankCardRequest(String platformUserNo,
-                                 String platformNo,
+    public UnbindBankCardRequest(String platformNo,
+                                 String requestNo,
                                  String callbackUrl,
-                                 String sign,
-                                 String requestNo) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, null,sign);
+                                 String platformUserNo) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, null);
     }
 
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
 }
 

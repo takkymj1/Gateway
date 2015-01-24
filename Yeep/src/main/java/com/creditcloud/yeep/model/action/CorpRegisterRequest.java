@@ -100,9 +100,8 @@ public class CorpRegisterRequest extends UserRequest {
                                String email,
                                String memberClassType,
                                String callbackUrl,
-                               String notifyUrl,
-                               String sign) {
-        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl,sign);
+                               String notifyUrl) {
+        super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.enterpriseName = enterpriseName;
         this.bankLicense = bankLicense;
         this.orgNo = orgNo;
@@ -204,21 +203,4 @@ public class CorpRegisterRequest extends UserRequest {
         this.memberClassType = memberClassType;
     }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(enterpriseName))
-                .append(StringUtils.trimToEmpty(bankLicense))
-                .append(StringUtils.trimToEmpty(orgNo))
-                .append(StringUtils.trimToEmpty(businessLicense))
-                .append(StringUtils.trimToEmpty(taxNo))
-                .append(StringUtils.trimToEmpty(legal))
-                .append(StringUtils.trimToEmpty(legalNo))
-                .append(StringUtils.trimToEmpty(contact))
-                .append(StringUtils.trimToEmpty(contactPhone))
-                .append(StringUtils.trimToEmpty(email))
-                .append(StringUtils.trimToEmpty(memberClassType));
-        return sb.toString();
-    }
 }
