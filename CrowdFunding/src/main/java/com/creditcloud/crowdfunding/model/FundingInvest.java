@@ -57,6 +57,11 @@ public class FundingInvest extends BaseObject {
 
     private Date submitTime;
 
+    /**
+     * 该‘众筹支持’是否存在合同
+     */
+    private boolean hasContract = false;
+    
     private RewardConfirmStatus rewardConfirmStatus = RewardConfirmStatus.NONEED;
     
     private Date rewardConfirmTime;
