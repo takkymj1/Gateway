@@ -101,5 +101,10 @@ public class CreateLoanTaskDetail {
      * 服务费率
      */
     private BigDecimal loanServiceFee;
+    
+    /**
+     * 综合利率（万分之几）
+     */
+    private int comprehensiveRate;
 
 }
