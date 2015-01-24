@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
+import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.crowdfunding.model.FundingExperienceApply;
 import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
@@ -219,4 +220,20 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
 
     public int countByRewardAndUser(String rewardId, String userId, List successInvestList);
 
+    /**
+     * 众筹支持者确认回报
+     * @param investId
+     * @param status
+     * @return 
+     */
+    public boolean supporterRewardConfirm(String investId, RewardConfirmStatus status);
+    
+    /**
+     * 众筹发起者确认项目下所有回报的回报状态
+     * @param rewardId
+     * @param status
+     * @return 
+     */
+    public boolean launcherRewardConfirm(String rewardId, RewardConfirmStatus status);
+    
 }
