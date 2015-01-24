@@ -130,24 +130,6 @@ public interface YeepService extends YeepQueryService{
                             String AdminRetUrl);
     
     /**
-     * 获取请求的CheckValue
-     *
-     * @param clientCode
-     * @param request
-     * @return
-     */
-    public String getChkValue(String clientCode, BaseRequest request);
-   
-    /**
-     * 验证从三方支付返回的数据对象是否合法
-     *
-     * @param clientCode
-     * @param response   返回数据
-     * @return 0 表示正常，负值为失败
-     */
-    public int verifyResponse(String clientCode, BaseResponse response);
-    
-    /**
      * 创建用户在第三方支付中的账号
      *
      * @param clientCode
@@ -155,5 +137,26 @@ public interface YeepService extends YeepQueryService{
      * @return
      */
     public YeepAccount createUserYeepAccount(String clientCode, YeepAccount yeepAccount);
+    
+    /**
+     * 验证直连接口从三方支付返回的数据对象是否合法
+     *
+     * @param clientCode
+     * @param response   返回数据
+     * @return 0 表示正常，负值为失败
+     */
+    public int verifyResponse(String clientCode, BaseResponse response);
+   
+    /**
+     * 验证网关接口从三方支付返回的数据对象是否合法
+     *
+     * @param clientCode
+     * @param response   返回数据
+     * @param resp
+     * @param reSign
+     * @return 0 表示正常，负值为失败
+     */
+    public int verifyResponse(String clientCode, BaseResponse response, String resp, String reSign);
+    
 
 }

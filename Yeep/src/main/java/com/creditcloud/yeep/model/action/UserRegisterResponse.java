@@ -43,9 +43,8 @@ public class UserRegisterResponse extends BaseResponse {
                                 String requestNo,
                                 String service,
                                 String code,
-                                String description,
-                                String sign) {
-        super(platformNo, code, description,sign);
+                                String description) {
+        super(platformNo, code, description);
         this.service = service;
         this.requestNo = requestNo;
     }
@@ -71,12 +70,4 @@ public class UserRegisterResponse extends BaseResponse {
         this.requestNo = requestNo;
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())               
-                .append(StringUtils.trimToEmpty(service))
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }
 }

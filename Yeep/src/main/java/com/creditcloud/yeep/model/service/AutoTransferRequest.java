@@ -6,7 +6,6 @@
 package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 自动投标
@@ -42,23 +41,12 @@ public class AutoTransferRequest extends UserRequest {
                                String transferAmount,
                                String targetPlatformUserNo,
                                String paymentAmount,
-                               String notifyUrl,
-                               String sign) {
-        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null,sign);
+                               String notifyUrl) {
+        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
         this.orderNo = orderNo;
         this.transferAmount = transferAmount;
         this.targetPlatformUserNo = targetPlatformUserNo;
         this.paymentAmount = paymentAmount;     
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(transferAmount))
-                .append(StringUtils.trimToEmpty(targetPlatformUserNo))
-                .append(StringUtils.trimToEmpty(paymentAmount));
-        return sb.toString();
-    }    
+ 
 }
