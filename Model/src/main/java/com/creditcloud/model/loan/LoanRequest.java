@@ -207,7 +207,7 @@ public class LoanRequest extends BaseObject {
     private String productKey;
 
     /**
-     * 用戶控制标的是否对所有人可见
+     * 控制标的是否对所有人可见
      */
     private boolean hidden;
 

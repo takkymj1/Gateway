@@ -7,6 +7,7 @@ package com.creditcloud.model.loan;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.user.User;
 import com.creditcloud.model.constant.LoanConstant;
+import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanPurpose;
@@ -74,7 +75,13 @@ public class Invest extends BaseObject {
      */
     private BigDecimal originalAmount;
 
+    @Deprecated
     private LoanPurpose purpose;
+
+    /**
+     * 投标来源，一般是Web/Mobile
+     */
+    private Source source;
 
     public Invest(String id,
                   User user,
@@ -109,7 +116,8 @@ public class Invest extends BaseObject {
                   RepaymentMethod repayMethod,
                   InvestStatus status,
                   Date submitTime,
-                  LoanPurpose purpose) {
+                  LoanPurpose purpose,
+                  Source source) {
         this.id = id;
         this.userId = userId;
         this.loanId = loanId;
@@ -121,6 +129,7 @@ public class Invest extends BaseObject {
         this.status = status;
         this.submitTime = submitTime;
         this.purpose = purpose;
+        this.source = source;
     }
 
     public String getUserId() {
