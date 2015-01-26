@@ -157,4 +157,29 @@ public class ClientFeatures extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableMessageSend = false;
+    
+    /**
+     * 是否启用合同格式化控制合同生成
+     * 
+     * true 启用 按照 ContractPatternConfig.xml 配置对合同字段域进行调整
+     * false 不启用 按照原有的生成方式生成相关字段域
+     * 
+     * @return
+     */
+    @XmlElement
+    @Getter
+    private boolean enableContractPattern = false;
+    
+    /**
+     * 临时方案：待ContractPattern完善后移除此配置,
+     * 隐藏除投资人本身的其他投资人的非当前合同用户的姓名***，身份证号码只显示后4位
+     * 
+     * 客户：红象金融（HXJR）
+     * 
+     * @return
+     */
+    @XmlElement
+    @Getter
+    private boolean enableInvestorListFieldInvisible = false;
+    
 }
