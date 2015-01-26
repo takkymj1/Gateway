@@ -96,7 +96,7 @@ public class FundingReward extends BaseObject {
     /**
      * 限定条件的判断结果
      */
-    private boolean restrictionResult;
+    private String restrictionResult;
     
     /**
      * 是否可以申请体验
@@ -150,7 +150,7 @@ public class FundingReward extends BaseObject {
                          boolean needExperienceApply,
                          String experienceApplyContent,
                          Date launcherRewardConfirmTime,
-                         boolean restrictionResult) {
+                         String restrictionResult) {
         this.id = id;
         this.projectId = projectId;
         this.amount = amount;
