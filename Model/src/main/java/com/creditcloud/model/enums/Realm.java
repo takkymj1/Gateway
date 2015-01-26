@@ -87,15 +87,12 @@ public enum Realm implements BaseEnum {
     PROJECTLOAN("众筹放款"),
     FUNDINGREWARD("众筹奖励"),
     FUNDINGLIKE("众筹点赞"),
+    FUNDINGSPACIALTOPIC("众筹专题页"),//一个众筹项目只允许属于一个专题
+    
     /**
      * 其他
      */
     MOBILE("手机号"),
-    CONTRACT("合同"),
-    CONTRACTTEMPLATE("合同模板"),
-    BROKERAGE_CONTRACTTEMPLATE("居间合同模板"),
-    FUNDING_CONTRACTTEMPLATE("众筹合同模板"),
-    CONTRACTSEAL("合同章"),
     IMAGE("图片"),
     FILE("文件"),
     FSS("生利宝"),
@@ -111,10 +108,15 @@ public enum Realm implements BaseEnum {
     CLAIM("CLAIM"),
     
     /**
-     * 合同模板
+     * 合同相关
      */
+    CONTRACT("合同"),
+    CONTRACTSEAL("合同章"),
+    CONTRACTTEMPLATE("合同模板"),
     CONTRACTTEMPLATE_O2O("合同模板一对一"),
     CONTRACTTEMPLATE_O2M("合同模板一对多"),
+    BROKERAGE_CONTRACTTEMPLATE("居间合同模板"),
+    FUNDING_CONTRACTTEMPLATE("众筹合同模板"),
     
     /**
      * 序列号
