@@ -108,6 +108,30 @@ public class FundingReward extends BaseObject {
      */
     private String experienceApplyContent;
     
+    /**
+     * 支持时是否弹出提醒
+     */
+    private boolean supportPopNotice;
+    
+    /**
+     * 申请体验按钮是否可以点击
+     */
+    private boolean applyClickable;
+    
+    /**
+     * 申请体验提示内容
+     */
+    private String applyAction;
+    
+    /**
+     * 
+     * @param id
+     * @param projectId
+     * @param amount
+     * @param limitNumber
+     * @param description
+     * @param deliveryDetail 
+     */
     public FundingReward(String id,
                          String projectId,
                          BigDecimal amount,
@@ -150,7 +174,9 @@ public class FundingReward extends BaseObject {
                          boolean needExperienceApply,
                          String experienceApplyContent,
                          Date launcherRewardConfirmTime,
-                         String restrictionResult) {
+                         String restrictionResult,
+                         boolean supportPopNotice,
+                         boolean applyClickable) {
         this.id = id;
         this.projectId = projectId;
         this.amount = amount;
@@ -164,6 +190,8 @@ public class FundingReward extends BaseObject {
         this.experienceApplyContent = experienceApplyContent;
         this.launcherRewardConfirmTime = launcherRewardConfirmTime;
         this.restrictionResult = restrictionResult;
+        this.supportPopNotice = supportPopNotice;
+        this.applyClickable = applyClickable;
     }
     
     /**
