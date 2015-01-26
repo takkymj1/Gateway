@@ -205,7 +205,12 @@ public class LoanRequest extends BaseObject {
     private String productId;
 
     private String productKey;
+    
+    private String productName;
 
+    /**
+     * 控制标的是否对所有人可见
+     */
     private boolean hidden;
 
     /**

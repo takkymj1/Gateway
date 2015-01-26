@@ -21,7 +21,7 @@ public enum CreditAssignStatus implements BaseEnum {
     OPEN("转让中"),
     FINISHED("转让已满"),
     FAILED("转让未满"),
-    SETTLED("转让成功"),
+//    SETTLED("转让成功"),
     CANCELED("已取消");
 
     private final String key;
