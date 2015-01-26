@@ -22,15 +22,8 @@ public class ResetPasswordRequest extends UserRequest {
     public ResetPasswordRequest(String platformUserNo,
                                 String platformNo,
                                 String callbackUrl,
-                                String requestNo,
-                                String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, null,sign);
+                                String requestNo) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, null);
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
+
 }

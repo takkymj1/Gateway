@@ -8,7 +8,6 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 import org.joda.time.LocalDate;
 
 /**
@@ -40,8 +39,7 @@ public class PaymentRecordResponse extends BaseResponse {
                                  String sourceUserNo,
                                  LocalDate createTime,
                                  LocalDate loanTime,
-                                 String status,
-                                 String sign) {
+                                 String status) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
         this.createTime = createTime;
@@ -88,16 +86,5 @@ public class PaymentRecordResponse extends BaseResponse {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(paymentAmount))
-                .append(StringUtils.trimToEmpty(sourceUserNo))
-                .append(StringUtils.trimToEmpty(createTime.toString()))
-                .append(StringUtils.trimToEmpty(loanTime.toString()))
-                .append(StringUtils.trimToEmpty(status));
-        return sb.toString();
-    }    
+      
 }

@@ -38,9 +38,8 @@ public class RechargeAccountResponse extends BaseResponse {
                                    String service,
                                    String requestNo,
                                    String code,
-                                   String description,
-                                   String sign) {
-        super(platformNo, code, description,sign);
+                                   String description) {
+        super(platformNo, code, description);
         this.service=service;
         this.requestNo=requestNo;
     }
@@ -60,12 +59,5 @@ public class RechargeAccountResponse extends BaseResponse {
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }
+
 }

@@ -31,9 +31,8 @@ public class AuthorizeAutoRepayRequest extends UserRequest {
                                      String requestNo,
                                      String orderNo,
                                      String callbackUrl,
-                                     String notifyUrl,  
-                                     String sign) {
-        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl,sign);
+                                     String notifyUrl) {
+        super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
     }
 
@@ -45,11 +44,4 @@ public class AuthorizeAutoRepayRequest extends UserRequest {
         this.orderNo = orderNo;
     }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo));
-        return sb.toString();
-    }
 }

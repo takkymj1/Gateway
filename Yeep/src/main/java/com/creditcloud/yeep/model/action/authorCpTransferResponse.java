@@ -32,9 +32,8 @@ public class authorCpTransferResponse extends BaseResponse {
                                     String requestNo, 
                                     String service, 
                                     String code, 
-                                    String description, 
-                                    String sign) {
-        super(platformNo, code, description,sign);
+                                    String description) {
+        super(platformNo, code, description);
         this.requestNo = requestNo;
         this.service =service;
     }
@@ -53,16 +52,6 @@ public class authorCpTransferResponse extends BaseResponse {
 
     public void setService(String service) {
         this.service = service;
-    }
-
-       
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-          .append(requestNo)
-          .append(service); 
-        return sb.toString();
-    }    
+    }  
        
 }

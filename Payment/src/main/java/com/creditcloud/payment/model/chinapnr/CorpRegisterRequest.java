@@ -49,9 +49,13 @@ public class CorpRegisterRequest extends BaseRequest {
     @Size(max = 512)
     private String ReqExt;
 
-    //企业用户备案金
-    @Size(max = 14)
-    private String GuarCorpEarnestAmt;
+    /**
+     * 企业用户备案金</p>
+     * ReqExt 二级参数</p>
+     * {" GuarCorpEarnestAmt ":"100000.00"}
+     */
+//    @Size(max = 14)
+//    private String GuarCorpEarnestAmt;
 
     public CorpRegisterRequest(String MerCustId,
                                String UsrId,

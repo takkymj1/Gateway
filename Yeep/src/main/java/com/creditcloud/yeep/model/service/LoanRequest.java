@@ -12,7 +12,6 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 /**
  * 放款
  * 
@@ -46,9 +45,8 @@ public class LoanRequest extends BaseRequest {
                        String requestNo,
                        String fee,
                        List<Transfer> transfers,
-                       String notifyUrl,
-                       String sign) {
-        super(platformNo,null,null,notifyUrl,sign);
+                       String notifyUrl) {
+        super(platformNo,null,null,notifyUrl);
         this.orderNo = orderNo;
         this.requestNo = requestNo;
         this.fee = fee;
@@ -88,15 +86,5 @@ public class LoanRequest extends BaseRequest {
     public void setTransfer(List<Transfer> transfer) {
         this.transfers = transfers;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(orderNo))
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(fee))
-                .append(StringUtils.trimToEmpty(transfers.get(0).toString()));
-        return sb.toString();
-    }    
+  
 }

@@ -31,9 +31,8 @@ public class QueryRequest extends BaseRequest {
     
     public QueryRequest(String platformNo,
                         String requestNo,
-                        String mode,
-                        String sign) {
-        super(platformNo,null,null,null,sign);
+                        String mode) {
+        super(platformNo,null,null,null);
         this.requestNo = requestNo;
         this.mode = mode;
     }
@@ -52,15 +51,6 @@ public class QueryRequest extends BaseRequest {
 
     public void setMode(String mode) {
         this.mode = mode;
-    }
-
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(mode));
-        return sb.toString();
     }
     
 }
