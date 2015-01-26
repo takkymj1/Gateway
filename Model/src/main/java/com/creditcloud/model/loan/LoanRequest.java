@@ -205,6 +205,8 @@ public class LoanRequest extends BaseObject {
     private String productId;
 
     private String productKey;
+    
+    private String productName;
 
     private boolean hidden;
 
