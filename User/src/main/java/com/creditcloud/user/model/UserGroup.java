@@ -36,6 +36,16 @@ public class UserGroup extends BaseObject {
     private Date timeCreated;
 
     private Date timeLastUpdated;
+    
+    /**
+     * 可以直接存邮件后缀，或者邮件正则，用来过滤本组用户邮件
+     */
+    private String emailPattern;
+
+    /**
+     * 平台自定义field
+     */
+    private String priv;
 
     public UserGroup(String id,
                      String name,
