@@ -66,7 +66,29 @@ interface UserRewardService {
      */
     PagedResult<RealmEntity> listReferral(String clientCode, Date from, Date to, PageInfo pageInfo);
     
+    /**
+     * 根据手机号码查找推荐人
+     * 
+     * @param clientCode
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param mobile
+     * @return 
+     */
     PagedResult<RealmEntity> listReferralByMobile(String clientCode, Date from, Date to, PageInfo pageInfo, String mobile);
+    
+    /**
+     * 根据用户名查找推荐人
+     * 
+     * @param clientCode
+     * @param from
+     * @param to
+     * @param pageInfo
+     * @param loginName
+     * @return 
+     */
+    PagedResult<RealmEntity> listReferralByLoginName(String clientCode, Date from, Date to, PageInfo pageInfo, String loginName);
 
     /**
      * 统计所有推荐人
