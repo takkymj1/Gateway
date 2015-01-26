@@ -467,7 +467,7 @@ public interface ContractService {
      * @param investId
      * @return 
      */
-    public boolean generateCrowdFundingContract(String investId);
+    public void generateCrowdFundingContract(String investId);
     
     /**
      * 针对众筹项目ID生成所有众筹投资合同（如果项目设定要生成合同的话）
@@ -475,5 +475,5 @@ public interface ContractService {
      * @param templateId
      * @return 
      */
-    public boolean generateCrowdFundingContracts(String projectId, String templateId);
+    public void generateCrowdFundingContracts(String projectId, String templateId);
 }

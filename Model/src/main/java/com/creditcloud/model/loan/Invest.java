@@ -147,4 +147,13 @@ public class Invest extends BaseObject {
     public boolean isAssignInvest() {
         return !isLoanInvest();
     }
+
+    /**
+     * 原始投标金额:此投标对应的原始投标金额，对象可能是Loan或者CreditAssign，不管是否有本金转让出去
+     *
+     * @return
+     */
+    public BigDecimal getInvestAmount() {
+        return originalAmount == null ? amount : originalAmount;
+    }
 }
