@@ -9,6 +9,8 @@ import com.creditcloud.payment.model.chinapnr.base.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author sobranie
  */
+@Data
 @ToString(callSuper = true)
 public class NetSaveResponse extends BaseResponse {
 
@@ -48,14 +51,22 @@ public class NetSaveResponse extends BaseResponse {
     @FormParam("BgRetUrl")
     @NotNull
     private String BgRetUrl;
+
+    @FormParam("GateBusiId")
+    @Size(max = 6)
+    private String GateBusiId;
     
+    @FormParam("GateBankId")
+    @Size(max = 8)
+    private String GateBankId;
+
     /**
      * 真实收取的手续费
      */
     @FormParam("FeeAmt")
     @NotNull
     private String FeeAmt;
-    
+
     /**
      * 收取手续费的账号
      */
@@ -63,7 +74,7 @@ public class NetSaveResponse extends BaseResponse {
     @NotNull
     @Size(max = 16)
     private String FeeCustId;
-    
+
     @FormParam("FeeAcctId")
     @NotNull
     @Size(max = 9)
@@ -85,85 +96,4 @@ public class NetSaveResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
-
-    public String getUsrCustId() {
-        return UsrCustId;
-    }
-
-    public void setUsrCustId(String UsrCustId) {
-        this.UsrCustId = UsrCustId;
-    }
-
-    public String getOrdId() {
-        return OrdId;
-    }
-
-    public void setOrdId(String OrdId) {
-        this.OrdId = OrdId;
-    }
-
-    public String getOrdDate() {
-        return OrdDate;
-    }
-
-    public void setOrdDate(String OrdDate) {
-        this.OrdDate = OrdDate;
-    }
-
-    public String getTransAmt() {
-        return TransAmt;
-    }
-
-    public void setTransAmt(String TransAmt) {
-        this.TransAmt = TransAmt;
-    }
-
-    public String getTrxId() {
-        return TrxId;
-    }
-
-    public void setTrxId(String TrxId) {
-        this.TrxId = TrxId;
-    }
-
-    public String getRetUrl() {
-        return RetUrl;
-    }
-
-    public void setRetUrl(String RetUrl) {
-        this.RetUrl = RetUrl;
-    }
-
-    public String getBgRetUrl() {
-        return BgRetUrl;
-    }
-
-    public void setBgRetUrl(String BgRetUrl) {
-        this.BgRetUrl = BgRetUrl;
-    }
-
-    public String getFeeAmt() {
-        return FeeAmt;
-    }
-
-    public void setFeeAmt(String FeeAmt) {
-        this.FeeAmt = FeeAmt;
-    }
-
-    public String getFeeCustId() {
-        return FeeCustId;
-    }
-
-    public void setFeeCustId(String FeeCustId) {
-        this.FeeCustId = FeeCustId;
-    }
-
-    public String getFeeAcctId() {
-        return FeeAcctId;
-    }
-
-    public void setFeeAcctId(String FeeAcctId) {
-        this.FeeAcctId = FeeAcctId;
-    }
-
 }
