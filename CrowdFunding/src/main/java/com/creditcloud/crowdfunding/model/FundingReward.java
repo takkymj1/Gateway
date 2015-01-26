@@ -119,9 +119,14 @@ public class FundingReward extends BaseObject {
     private boolean applyClickable;
     
     /**
-     * 申请体验提示内容
+     * 申请体验按钮操作指向类型
      */
     private String applyAction;
+    
+    /**
+     * 手机端专题页url
+     */
+    private String mobileSpecialTopic;
     
     /**
      * 
@@ -176,7 +181,9 @@ public class FundingReward extends BaseObject {
                          Date launcherRewardConfirmTime,
                          String restrictionResult,
                          boolean supportPopNotice,
-                         boolean applyClickable) {
+                         boolean applyClickable,
+                         String applyAction,
+                         String mobileSpecialTopic) {
         this.id = id;
         this.projectId = projectId;
         this.amount = amount;
@@ -192,6 +199,8 @@ public class FundingReward extends BaseObject {
         this.restrictionResult = restrictionResult;
         this.supportPopNotice = supportPopNotice;
         this.applyClickable = applyClickable;
+        this.applyAction = applyAction;
+        this.mobileSpecialTopic = mobileSpecialTopic;
     }
     
     /**

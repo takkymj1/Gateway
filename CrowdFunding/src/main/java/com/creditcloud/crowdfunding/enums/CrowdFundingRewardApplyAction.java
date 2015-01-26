@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loan;
+package com.creditcloud.crowdfunding.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
@@ -17,11 +17,17 @@ public enum CrowdFundingRewardApplyAction implements BaseEnum {
      * specialLink 
      */
     SPECIALLINK("专题链接"),
+    
     /**
      * popNotice
      */
-    POPNOTICE("弹出框提醒");
+    POPNOTICE("弹出框提醒"),
 
+    /**
+     * mobileSpecialTopic 
+     */
+    MOBILESPECIALTOPIC("/specialTopic/mobileyhgj");
+    
     private final String key;
 
     private CrowdFundingRewardApplyAction(final String key) {
