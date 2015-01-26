@@ -99,6 +99,11 @@ public class FundingReward extends BaseObject {
     private String restrictionResult;
     
     /**
+     * 限定条件的判断结果信息
+     */
+    private String restrictionMsg;
+    
+    /**
      * 是否可以申请体验
      */
     private boolean needExperienceApply;
@@ -179,11 +184,40 @@ public class FundingReward extends BaseObject {
                          boolean needExperienceApply,
                          String experienceApplyContent,
                          Date launcherRewardConfirmTime,
+                         String restrictionResult) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.description = description;
+        this.deliveryDetail = deliveryDetail;
+        this.deliveryTime = deliveryTime;
+        this.needConfirmReward = needConfirmReward;
+        this.launcherRewardConfirmStatus = launcherRewardConfirmStatus;
+        this.needExperienceApply = needExperienceApply;
+        this.experienceApplyContent = experienceApplyContent;
+        this.launcherRewardConfirmTime = launcherRewardConfirmTime;
+        this.restrictionResult = restrictionResult;
+    }
+    
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         String description,
+                         String deliveryDetail,
+                         String deliveryTime,
+                         boolean needConfirmReward,
+                         RewardConfirmStatus launcherRewardConfirmStatus,
+                         boolean needExperienceApply,
+                         String experienceApplyContent,
+                         Date launcherRewardConfirmTime,
                          String restrictionResult,
                          boolean supportPopNotice,
                          boolean applyClickable,
                          String applyAction,
-                         String mobileSpecialTopic) {
+                         String mobileSpecialTopic,
+                         String restrictionMsg) {
         this.id = id;
         this.projectId = projectId;
         this.amount = amount;
@@ -201,6 +235,7 @@ public class FundingReward extends BaseObject {
         this.applyClickable = applyClickable;
         this.applyAction = applyAction;
         this.mobileSpecialTopic = mobileSpecialTopic;
+        this.restrictionMsg = restrictionMsg;
     }
     
     /**
