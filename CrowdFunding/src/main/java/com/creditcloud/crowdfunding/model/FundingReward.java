@@ -99,6 +99,11 @@ public class FundingReward extends BaseObject {
     private String restrictionResult;
     
     /**
+     * 限定条件的判断结果信息
+     */
+    private String restrictionMsg;
+    
+    /**
      * 是否可以申请体验
      */
     private boolean needExperienceApply;
@@ -108,6 +113,35 @@ public class FundingReward extends BaseObject {
      */
     private String experienceApplyContent;
     
+    /**
+     * 支持时是否弹出提醒
+     */
+    private boolean supportPopNotice;
+    
+    /**
+     * 申请体验按钮是否可以点击
+     */
+    private boolean applyClickable;
+    
+    /**
+     * 申请体验按钮操作指向类型
+     */
+    private String applyAction;
+    
+    /**
+     * 手机端专题页url
+     */
+    private String mobileSpecialTopic;
+    
+    /**
+     * 
+     * @param id
+     * @param projectId
+     * @param amount
+     * @param limitNumber
+     * @param description
+     * @param deliveryDetail 
+     */
     public FundingReward(String id,
                          String projectId,
                          BigDecimal amount,
@@ -164,6 +198,44 @@ public class FundingReward extends BaseObject {
         this.experienceApplyContent = experienceApplyContent;
         this.launcherRewardConfirmTime = launcherRewardConfirmTime;
         this.restrictionResult = restrictionResult;
+    }
+    
+    public FundingReward(String id,
+                         String projectId,
+                         BigDecimal amount,
+                         int limitNumber,
+                         String description,
+                         String deliveryDetail,
+                         String deliveryTime,
+                         boolean needConfirmReward,
+                         RewardConfirmStatus launcherRewardConfirmStatus,
+                         boolean needExperienceApply,
+                         String experienceApplyContent,
+                         Date launcherRewardConfirmTime,
+                         String restrictionResult,
+                         boolean supportPopNotice,
+                         boolean applyClickable,
+                         String applyAction,
+                         String mobileSpecialTopic,
+                         String restrictionMsg) {
+        this.id = id;
+        this.projectId = projectId;
+        this.amount = amount;
+        this.limitNumber = limitNumber;
+        this.description = description;
+        this.deliveryDetail = deliveryDetail;
+        this.deliveryTime = deliveryTime;
+        this.needConfirmReward = needConfirmReward;
+        this.launcherRewardConfirmStatus = launcherRewardConfirmStatus;
+        this.needExperienceApply = needExperienceApply;
+        this.experienceApplyContent = experienceApplyContent;
+        this.launcherRewardConfirmTime = launcherRewardConfirmTime;
+        this.restrictionResult = restrictionResult;
+        this.supportPopNotice = supportPopNotice;
+        this.applyClickable = applyClickable;
+        this.applyAction = applyAction;
+        this.mobileSpecialTopic = mobileSpecialTopic;
+        this.restrictionMsg = restrictionMsg;
     }
     
     /**
