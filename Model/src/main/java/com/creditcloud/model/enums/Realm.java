@@ -49,6 +49,7 @@ public enum Realm implements BaseEnum {
     CLIENT("客戶"),
     BRANCH("分支机构"),
     CORPORATION("企业"),//注意不是平台用户
+    USERGROUP("用户组"),
     /**
      * 认证
      */
@@ -130,7 +131,11 @@ public enum Realm implements BaseEnum {
     /**
      * 系统
      */
-    SYSTEM("系统"); 
+    SYSTEM("系统"),
+    /**
+     * 自定义标
+     */
+    PRIVATE_LOAN_PRODUCT("自定义标"); 
 
     private final String key;
 

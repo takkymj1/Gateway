@@ -281,5 +281,12 @@ public class Features extends BaseObject {
      */
     @Getter
     @XmlElement
-    private boolean enablePaymentTender = false;   
+    private boolean enablePaymentTender = false;
+    
+    /**
+     * 限定标的投标人范围
+     */
+    @Getter
+    @XmlElement
+    private boolean enablePrivateLoanProduct = false;
 }
