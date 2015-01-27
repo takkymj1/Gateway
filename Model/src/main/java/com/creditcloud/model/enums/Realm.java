@@ -135,7 +135,7 @@ public enum Realm implements BaseEnum {
     /**
      * 自定义标
      */
-    PRIVATE_LOAN_PRODUCT("自定义标"); 
+    PRIVATE_LOAN_PRODUCT("自定义产品"); 
 
     private final String key;
 
