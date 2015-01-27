@@ -11,6 +11,7 @@ import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -130,6 +131,9 @@ public class FundingProject extends BaseObject {
     private boolean needContract = false;//是否需要生成合同
     
     private RewardConfirmStatus rewardConfirmStatus;
+    
+    
+    private List<FundingReward> fundingRewardList = null;
     
     public FundingProject(String id,
                           String title,
