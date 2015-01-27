@@ -245,4 +245,13 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      */
     public FundingRewardRestriction addFundingRewardRestriction(FundingRewardRestriction fundingRewardRestriction);
     
+     /**
+     * 根据回报id删除回报限定条件
+     *
+     * @param clientCode
+     * @param projectId
+     * @return true if change successful, false if project not found
+     */
+    public void removeRewardRistrictionByReward(String clientCode, String rewardId);
+    
 }
