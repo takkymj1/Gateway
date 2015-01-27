@@ -6,6 +6,7 @@
 package com.creditcloud.crowdfunding.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
+import javax.json.Json;
 
 /**
  * 
@@ -31,4 +32,9 @@ public enum RewardConfirmStatus implements BaseEnum {
     public String getKey() {
         return key;
     }
+    
+    public String toJsonString(){
+        return Json.createObjectBuilder().add(this.getClass().getSimpleName(), this.name()).build().toString();
+    }
+    
 }
