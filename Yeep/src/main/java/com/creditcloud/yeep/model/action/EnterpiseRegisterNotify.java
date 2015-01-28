@@ -6,19 +6,15 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserNotification;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class EnterpiseRegisterNotification extends UserNotification {
+@XmlRootElement (name = "notify")
+public class EnterpiseRegisterNotify extends UserNotification {
 
     /**
      * 请求流水号
@@ -26,7 +22,10 @@ public class EnterpiseRegisterNotification extends UserNotification {
     @NotNull
     private String requestNo;
 
-    public EnterpiseRegisterNotification(String platformNo,
+    public EnterpiseRegisterNotify() {
+    }
+
+    public EnterpiseRegisterNotify(String platformNo,
                                          String bizType,
                                          String code,
                                          String message,
@@ -36,12 +35,8 @@ public class EnterpiseRegisterNotification extends UserNotification {
         super(platformUserNo, platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }    
+
+    public String getRequestNo() {
+        return requestNo;
+    }  
 }

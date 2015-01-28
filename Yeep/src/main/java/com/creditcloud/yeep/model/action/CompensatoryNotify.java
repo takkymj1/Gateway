@@ -5,40 +5,38 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
-import com.creditcloud.yeep.model.UserNotification;
+import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author kakaci
  */
-@XmlRootElement (name = "notify")
-public class UserRegisterNotification extends UserNotification {
+@XmlRootElement(name = "notify")
+public class CompensatoryNotify extends BaseNotification {
+
     /**
      * 请求流水号
      */
     @NotNull
+    @XmlTransient
     private String requestNo;
 
-    public UserRegisterNotification() {
+    public CompensatoryNotify() {
     }
 
-    public UserRegisterNotification(String platformUserNo,
-                                    String platformNo,
+    public CompensatoryNotify(String platformNo,
                                     String bizType,
                                     String code,
                                     String message,
                                     String requestNo,
                                     String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+        super(platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
     }
-    
-    @XmlElement (name = "requestNo")
+
     public String getRequestNo() {
         return requestNo;
     }
@@ -46,13 +44,5 @@ public class UserRegisterNotification extends UserNotification {
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }    
     
 }

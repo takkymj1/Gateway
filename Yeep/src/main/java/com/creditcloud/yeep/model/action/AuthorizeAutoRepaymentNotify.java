@@ -28,10 +28,4 @@ public class AuthorizeAutoRepaymentNotify extends UserNotification {
         super(platformUserNo, platformNo, bizType, code, message,sign);
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString());
-        return sb.toString();
-    }
 }

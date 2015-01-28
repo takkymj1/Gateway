@@ -5,14 +5,16 @@
  */
 package com.creditcloud.yeep.api;
 
-import com.creditcloud.yeep.model.BaseRequest;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
+import com.creditcloud.yeep.model.ReconciliationResult;
+import com.creditcloud.yeep.model.TransferResult;
 import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -128,6 +130,31 @@ public interface YeepService extends YeepQueryService{
                             String loanUserId,
                             String BgRetUrl,
                             String AdminRetUrl);
+    
+    /**
+     * 平台划款
+     *
+     * @param clientCode
+     * @param ordId
+     * @param platformNo
+     * @param targetUserNo
+     * @param amount
+     * @param BgRetUrl
+     * @return
+     */
+    public String transfer(String clientCode,
+                           String ordId,
+                           String platformNo,
+                           BigDecimal amount,
+                           String targetUserNo);
+    
+    /**
+     *  业务对账
+     * @param clientCode
+     * @param date
+     * @return 
+     */
+    public ReconciliationResult Reconciliation(String clientCode, LocalDate date);
     
     /**
      * 创建用户在第三方支付中的账号

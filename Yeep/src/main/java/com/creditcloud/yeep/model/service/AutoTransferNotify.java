@@ -4,25 +4,26 @@
  * and open the template in the editor.
  */
 package com.creditcloud.yeep.model.service;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseNotification;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class AutoTransferNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class AutoTransferNotify extends BaseNotification {
     
     //请求流水号
     @NotNull
     private String requestNo;
+
+    public AutoTransferNotify() {
+    }
     
-    public AutoTransferNotification(String platformNo,
+    public AutoTransferNotify(String platformNo,
                                     String bizType,
                                     String code,
                                     String message,
@@ -31,13 +32,13 @@ public class AutoTransferNotification extends BaseNotification {
         super(platformNo,bizType,code,message,sign);
         this.requestNo = requestNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
 
-        return sb.toString();
-    }    
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+      
 }

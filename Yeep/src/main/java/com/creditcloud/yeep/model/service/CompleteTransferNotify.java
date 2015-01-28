@@ -8,7 +8,6 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 通用转账确认回调
@@ -58,12 +57,4 @@ public class CompleteTransferNotify extends BaseNotification {
         this.requestNo = requestNo;
     }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(status))
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }
 }
