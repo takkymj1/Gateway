@@ -133,7 +133,7 @@ public enum Realm implements BaseEnum {
      */
     SYSTEM("系统"),
     /**
-     * 自定义标
+     * 自定义产品，限制了投标人的范围
      */
     PRIVATE_LOAN_PRODUCT("自定义产品"); 
 
