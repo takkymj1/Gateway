@@ -9,6 +9,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.User;
+import com.creditcloud.user.model.UserProperty;
 import com.creditcloud.user.social.SocialId;
 import java.util.Date;
 import java.util.List;
@@ -140,7 +141,7 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * the local client
      */
     User updateUser(String clientCode, User user);
-    
+
     /**
      * 为指定用户设置身份证号码与真实姓名.
      *
@@ -293,4 +294,13 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return true if this email is available,false if already taken
      */
     boolean checkEmail(String clientCode, String email);
+
+    /**
+     * 验证所有用户信息
+     *
+     * @param clientCode
+     * @return 返回所有验证不通过的用户信息
+     */
+    @Deprecated
+    List<UserProperty> validateAllUser(String clientCode);
 }
