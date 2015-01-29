@@ -7,9 +7,7 @@ package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.user.model.UserGroup;
 import java.util.Date;
-import java.util.List;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -62,8 +60,6 @@ public class LoanProduct extends BaseObject {
      * 父产品id
      */
     private String parentId;
-
-    private List<UserGroup> groups;
     
     //TODO more filed
     public LoanProduct(String id,
