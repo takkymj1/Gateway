@@ -6,6 +6,7 @@ package com.creditcloud.service;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepayLoanResult;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
@@ -187,16 +188,12 @@ public interface ManagerLoanRepayService {
     PagedResult<LoanRepayment> listAllRepaymentByStatus(String clientCode, PageInfo pageInfo, RepaymentStatus... statusList);
     
     /**
-     * 计算待收总额=所有未还款的标的的本金和利息总和
+     * 待收总额=所有未还款的标的的本金和利息总和
+     * 为客户赚取收益=所有已还款的利息总和
      * @param clientCode
+     * @param type
+     * @param status
      * @return 
      */
-    BigDecimal unRepayTotalAmount(String clientCode);
-    
-    /**
-     * 计算为客户赚取收益=所有已还款的利息总和
-     * @param clientCode
-     * @return 
-     */
-    BigDecimal repayTotalAmount(String clientCode);
+    BigDecimal sumTotalAmount(String clientCode, RepayType type, RepaymentStatus... status);
 }

@@ -194,9 +194,10 @@ public interface ManagerLoanService extends ManagerLoanRequestService {
     PagedResult<Loan> listAllLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
     
     /**
-     * 计算融资总额=已放款的标的金额总和
+     * 计算融资总额=所有已放款标的的金额总和
      * @param clientCode
+     * @param status
      * @return 
      */
-    BigDecimal lendTotalAmount(String clientCode);
+    BigDecimal sumTotalAmount(String clientCode, LoanStatus... status);
 }

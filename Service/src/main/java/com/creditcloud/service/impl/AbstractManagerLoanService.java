@@ -150,7 +150,7 @@ public class AbstractManagerLoanService implements ManagerLoanService {
     }
 
     @Override
-    public BigDecimal lendTotalAmount(String clientCode) {
+    public BigDecimal sumTotalAmount(String clientCode, LoanStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

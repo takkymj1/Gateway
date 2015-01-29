@@ -7,6 +7,7 @@ package com.creditcloud.service.impl;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.RepayLoanResult;
+import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
@@ -94,13 +95,7 @@ public class AbstractManagerLoanRepayService implements ManagerLoanRepayService 
     }
 
     @Override
-    public BigDecimal unRepayTotalAmount(String clientCode) {
+    public BigDecimal sumTotalAmount(String clientCode, RepayType type, RepaymentStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public BigDecimal repayTotalAmount(String clientCode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
