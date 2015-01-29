@@ -6,26 +6,25 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.BaseNotification;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class TransferNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class TransferNotify extends BaseNotification {
     /**
      * 请求流水号
      */
     @NotNull
     private String requestNo;
 
-    public TransferNotification(String platformNo,
+    public TransferNotify() {
+    }
+
+    public TransferNotify(String platformNo,
                                 String bizType,
                                 String code,
                                 String message,
@@ -34,12 +33,14 @@ public class TransferNotification extends BaseNotification {
         super(platformNo, bizType, code, message,sign);
         this.requestNo = requestNo;
     }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo));
-        return sb.toString();
-    }    
+ 
 }

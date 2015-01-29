@@ -5,16 +5,15 @@
  */
 package com.creditcloud.yeep.model;
 
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author rooseek
  */
-
+@XmlRootElement(name = "notify")
 public class UserNotification extends BaseNotification {
 
     //用户编号
@@ -42,16 +41,5 @@ public class UserNotification extends BaseNotification {
     public void setPlatformUserNo(String platformUserNo) {
         this.platformUserNo = platformUserNo;
     }
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(platformUserNo));
-        return sb.toString();
-    }  
  
-    @Override
-    public boolean success() {
-        return super.success();
-    }
 }

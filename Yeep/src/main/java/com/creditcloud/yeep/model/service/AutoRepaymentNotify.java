@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -14,9 +15,8 @@ import org.apache.commons.lang3.StringUtils;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class AutoRepaymentNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class AutoRepaymentNotify extends BaseNotification {
     
     //请求流水号
     @NotNull
@@ -25,8 +25,11 @@ public class AutoRepaymentNotification extends BaseNotification {
     //标的号
     @NotNull
     private String orderNo;
+
+    public AutoRepaymentNotify() {
+    }
     
-    public AutoRepaymentNotification(String platformNo,
+    public AutoRepaymentNotify(String platformNo,
                                      String bizType,
                                      String code,
                                      String message,
@@ -36,12 +39,20 @@ public class AutoRepaymentNotification extends BaseNotification {
         super(platformNo,bizType,code,message,sign);    
     } 
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(orderNo));
-        return sb.toString();
+    public String getRequestNo() {
+        return requestNo;
     }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
 }

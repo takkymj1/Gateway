@@ -7,21 +7,17 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserNotification;
 import com.creditcloud.yeep.enums.CardStatus;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author tinglany
  */
 @XmlRootElement (name = "notify")
-public class BindBankCardNotification extends UserNotification {
+public class BindBankCardNotify extends UserNotification {
 
     /**
      * 请求流水号
@@ -51,10 +47,10 @@ public class BindBankCardNotification extends UserNotification {
     @XmlTransient
     private Bank bank;
 
-    public BindBankCardNotification() {
+    public BindBankCardNotify() {
     }
 
-    public BindBankCardNotification(String platformNo,
+    public BindBankCardNotify(String platformNo,
                                     String bizType,
                                     String code,
                                     String message,
@@ -103,14 +99,5 @@ public class BindBankCardNotification extends UserNotification {
         this.bank = bank;
     }
     
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(bankCardNo))
-                .append(StringUtils.trimToEmpty(cardStatus.name()))
-                .append(StringUtils.trimToEmpty(bank.name()));
-        return sb.toString();
-    }
+
 }

@@ -6,19 +6,15 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.BaseNotification;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class TransferClaimsNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class TransferClaimsNotify extends BaseNotification {
 
     /**
      * 请求流水号
@@ -32,7 +28,10 @@ public class TransferClaimsNotification extends BaseNotification {
     @NotNull
     private String orderNo;
 
-    public TransferClaimsNotification(String platformNo,
+    public TransferClaimsNotify() {
+    }
+
+    public TransferClaimsNotify(String platformNo,
                                       String bizType,
                                       String code,
                                       String message,
@@ -44,12 +43,20 @@ public class TransferClaimsNotification extends BaseNotification {
         this.orderNo = orderNo;
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(orderNo));
-        return sb.toString();
-    }  
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
 }

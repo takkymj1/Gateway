@@ -6,21 +6,19 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserNotification;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.BizType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
+@XmlRootElement(name = "notify")
+public class AuthorizeAutoTransferNotify extends UserNotification {
 
-public class AuthorizeAutoTransferNotification extends UserNotification {
-
-    public AuthorizeAutoTransferNotification() {
+    public AuthorizeAutoTransferNotify() {
     }
 
-    public AuthorizeAutoTransferNotification(String platformUserNo,
+    public AuthorizeAutoTransferNotify(String platformUserNo,
                                              String platformNo,
                                              String bizType,
                                              String code,
@@ -29,9 +27,4 @@ public class AuthorizeAutoTransferNotification extends UserNotification {
         super(platformUserNo, platformNo, bizType, code, message,sign);
     }
 
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        return sb.toString();
-    }
 }

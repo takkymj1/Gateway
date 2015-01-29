@@ -7,15 +7,14 @@ package com.creditcloud.yeep.model.service;
 
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 平台划款
  * 
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement(name = "request")
 public class PlatformTransferRequest extends BaseRequest {
     
     //请求流水号
@@ -42,6 +41,9 @@ public class PlatformTransferRequest extends BaseRequest {
     //收款人编号
     @NotNull
     private String targetPlatformUserNo;
+
+    public PlatformTransferRequest() {
+    }
     
     public PlatformTransferRequest(String platformNo,
                                    String requestNo,
@@ -58,5 +60,53 @@ public class PlatformTransferRequest extends BaseRequest {
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
     } 
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getSourceUserType() {
+        return sourceUserType;
+    }
+
+    public String getSourcePlatformUserNo() {
+        return sourcePlatformUserNo;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public String getTargetUserType() {
+        return targetUserType;
+    }
+
+    public String getTargetPlatformUserNo() {
+        return targetPlatformUserNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setSourceUserType(String sourceUserType) {
+        this.sourceUserType = sourceUserType;
+    }
+
+    public void setSourcePlatformUserNo(String sourcePlatformUserNo) {
+        this.sourcePlatformUserNo = sourcePlatformUserNo;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public void setTargetUserType(String targetUserType) {
+        this.targetUserType = targetUserType;
+    }
+
+    public void setTargetPlatformUserNo(String targetPlatformUserNo) {
+        this.targetPlatformUserNo = targetPlatformUserNo;
+    }
 
 }
