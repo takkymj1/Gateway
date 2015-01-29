@@ -145,11 +145,6 @@ public class AbstractManagerLoanService implements ManagerLoanService {
     }
 
     @Override
-    public PagedResult<Loan> listAllLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public BigDecimal sumTotalAmount(String clientCode, LoanStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

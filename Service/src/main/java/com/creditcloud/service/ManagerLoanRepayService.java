@@ -179,15 +179,6 @@ public interface ManagerLoanRepayService {
     int countByUserAndStatus(String clientCode, String userId, RepaymentStatus... statusList);
     
     /**
-     * 列出指定状态下的所有loanRepayment
-     * @param clientCode
-     * @param statusList
-     * @param pageInfo
-     * @return 
-     */
-    PagedResult<LoanRepayment> listAllRepaymentByStatus(String clientCode, PageInfo pageInfo, RepaymentStatus... statusList);
-    
-    /**
      * 待收总额=所有未还款的标的的本金和利息总和
      * 为客户赚取收益=所有已还款的利息总和
      * @param clientCode

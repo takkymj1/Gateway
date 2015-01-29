@@ -90,11 +90,6 @@ public class AbstractManagerLoanRepayService implements ManagerLoanRepayService 
     }
 
     @Override
-    public PagedResult<LoanRepayment> listAllRepaymentByStatus(String clientCode, PageInfo pageInfo, RepaymentStatus... statusList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public BigDecimal sumTotalAmount(String clientCode, RepayType type, RepaymentStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

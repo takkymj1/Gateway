@@ -183,17 +183,6 @@ public interface ManagerLoanService extends ManagerLoanRequestService {
     PagedResult<Loan> findAll(CriteriaInfo criteriaInfo);
     
     /**
-     * list loans by their status
-     *
-     * @param clientCode
-     * @param statusList
-     * @param pageInfo
-     * @param hidden
-     * @return
-     */
-    PagedResult<Loan> listAllLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList);
-    
-    /**
      * 计算融资总额=所有已放款标的的金额总和
      * @param clientCode
      * @param status
