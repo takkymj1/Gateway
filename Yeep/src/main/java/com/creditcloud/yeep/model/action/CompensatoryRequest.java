@@ -7,17 +7,16 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import com.creditcloud.yeep.enums.MemberType;
-import org.apache.commons.lang3.StringUtils;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement (name ="request")
 public class CompensatoryRequest extends UserRequest {
 
 
@@ -31,42 +30,40 @@ public class CompensatoryRequest extends UserRequest {
      *
      */
     @NotNull
-    private String transfer;
+    private List<transfer> transfers;
 
-    /**
-     * 代偿金额
-     */
-    @NotNull
-    private String amount;
+    public CompensatoryRequest() {
+    }
 
-    /**
-     * 投资人平台用户类型
-     */
-    @NotNull
-    private MemberType targetUserType;
 
-    /**
-     * 投资人平台用户编号
-     */
-    @NotNull
-    private String targetPlatformUserNo;
-
-    public CompensatoryRequest(String platformUserNo,
+    public CompensatoryRequest(String requestNo,
                                String platformNo,
-                               String callbackUrl,
-                               String notifyUrl,
-                               String requestNo,
+                               String platformUserNo,
                                String orderNo,
-                               String transfer,
-                               String amount,
-                               MemberType targetUserType,
-                               String targetPlatformUserNo) {
+                               List<transfer> transfers ,
+                               String notifyUrl,
+                               String callbackUrl) {
         super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
         this.orderNo = orderNo;
-        this.transfer = transfer;
-        this.amount = amount;
-        this.targetUserType = targetUserType;
-        this.targetPlatformUserNo = targetPlatformUserNo;
+        this.transfers = transfers;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    @XmlElementWrapper(name="transfers")
+    @XmlElement(name="transfer")   
+    public List<transfer> getTransfers() {
+        return transfers;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setTransfers(List<transfer> transfers) {
+        this.transfers = transfers;
     }
       
 }

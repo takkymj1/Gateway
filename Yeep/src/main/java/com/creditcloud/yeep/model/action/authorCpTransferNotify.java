@@ -41,15 +41,6 @@ public class authorCpTransferNotify extends BaseNotification {
 
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
-    }
-
-       
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-          .append(requestNo);
-        return sb.toString();
-    }    
+    } 
        
 }

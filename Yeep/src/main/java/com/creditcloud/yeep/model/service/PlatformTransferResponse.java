@@ -6,14 +6,17 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement(name = "response")
 public class PlatformTransferResponse extends BaseResponse {
+
+    public PlatformTransferResponse() {
+    }
     
     public PlatformTransferResponse(String platformNo,
                                     String code,
