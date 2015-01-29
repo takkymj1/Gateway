@@ -46,9 +46,5 @@
         <module>Lending</module>
         <module>Batch</module>
         <module>Feedback</module>
-        <module>Yeep</module>
-        <module>Order</module>
-        <module>Lychee</module>
-        <module>Coupon</module>
     </modules>
 </project>
