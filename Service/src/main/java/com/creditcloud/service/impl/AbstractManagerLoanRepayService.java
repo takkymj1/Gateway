@@ -13,6 +13,7 @@ import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.service.ManagerLoanRepayService;
 import com.creditcloud.service.model.LoanRepaymentCorrection;
+import java.math.BigDecimal;
 import java.util.List;
 import org.joda.time.LocalDate;
 
@@ -84,6 +85,21 @@ public class AbstractManagerLoanRepayService implements ManagerLoanRepayService 
 
     @Override
     public int countByUserAndStatus(String clientCode, String userId, RepaymentStatus... statusList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public PagedResult<LoanRepayment> listAllRepaymentByStatus(String clientCode, PageInfo pageInfo, RepaymentStatus... statusList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BigDecimal unRepayTotalAmount(String clientCode) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BigDecimal repayTotalAmount(String clientCode) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

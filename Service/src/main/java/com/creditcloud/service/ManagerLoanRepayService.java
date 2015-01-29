@@ -11,6 +11,7 @@ import com.creditcloud.model.loan.LoanRepayment;
 import com.creditcloud.model.loan.RepayAmount;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.service.model.LoanRepaymentCorrection;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -175,4 +176,27 @@ public interface ManagerLoanRepayService {
      * @return
      */
     int countByUserAndStatus(String clientCode, String userId, RepaymentStatus... statusList);
+    
+    /**
+     * 列出指定状态下的所有loanRepayment
+     * @param clientCode
+     * @param statusList
+     * @param pageInfo
+     * @return 
+     */
+    PagedResult<LoanRepayment> listAllRepaymentByStatus(String clientCode, PageInfo pageInfo, RepaymentStatus... statusList);
+    
+    /**
+     * 计算待收总额=所有未还款的标的的本金和利息总和
+     * @param clientCode
+     * @return 
+     */
+    BigDecimal unRepayTotalAmount(String clientCode);
+    
+    /**
+     * 计算为客户赚取收益=所有已还款的利息总和
+     * @param clientCode
+     * @return 
+     */
+    BigDecimal repayTotalAmount(String clientCode);
 }

@@ -20,6 +20,7 @@ import com.creditcloud.model.loan.SubmitRequestResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.service.ManagerLoanService;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -140,6 +141,16 @@ public class AbstractManagerLoanService implements ManagerLoanService {
     
     @Override
     public PagedResult<Loan> findAll(CriteriaInfo criteriaInfo){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public PagedResult<Loan> listAllLoanByStatus(String clientCode, PageInfo pageInfo, LoanStatus... statusList) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BigDecimal lendTotalAmount(String clientCode) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
