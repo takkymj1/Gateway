@@ -12,7 +12,9 @@ import com.creditcloud.yeep.model.TransferResult;
 import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
+import com.creditcloud.yeep.model.action.transfer;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -150,12 +152,31 @@ public interface YeepService extends YeepQueryService{
     
     /**
      *  业务对账
+     * 
      * @param clientCode
      * @param date
      * @return 
      */
     public ReconciliationResult Reconciliation(String clientCode, LocalDate date);
-    
+ 
+
+//    /**
+//     *  担保公司代偿
+//     * 
+//     * @param clientCode
+//     * @param ordId
+//     * @param platfromUserNo
+//     * @param ordNo
+//     * @param targetPlatfromUserNo
+//     * @param transfers
+//     * @return 
+//     */
+//    public YeepResult disburse(String clientCode,
+//                                  String ordId,
+//                                  String platfromUserNo,
+//                                  String ordNo,
+//                                  String targetPlatfromUserNo,
+//                                  List<transfer> transfers);
     /**
      * 创建用户在第三方支付中的账号
      *
