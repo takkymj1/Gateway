@@ -7,6 +7,7 @@ package com.creditcloud.contract;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.client.Client;
+import com.creditcloud.model.enums.loan.ContractConfirmStatus;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
 import java.util.Date;
@@ -71,4 +72,9 @@ public class Contract extends BaseObject {
      * 合同编号
      */
     private String contractNo;
+    
+    /**
+     * 合同是否已经被确认
+     */
+    private ContractConfirmStatus confirmStatus;
 }
