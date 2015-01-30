@@ -32,15 +32,15 @@ public class transfer extends BaseObject {
     
     @NotNull
     @XmlTransient
-    private String targetPlatformUserType;  
+    private String targetPlatformUserNo;  
 
     public transfer() {
     }
 
-    public transfer(String amount, String targetUserType, String targetPlatformUserType) {
+    public transfer(String amount, String targetUserType, String targetPlatformUserNo) {
         this.amount = amount;
         this.targetUserType = targetUserType;
-        this.targetPlatformUserType = targetPlatformUserType;
+        this.targetPlatformUserNo = targetPlatformUserNo;
     }
 
     public String getAmount() {
@@ -51,8 +51,8 @@ public class transfer extends BaseObject {
         return targetUserType;
     }
 
-    public String getTargetPlatformUserType() {
-        return targetPlatformUserType;
+    public String getTargetPlatformUserNo() {
+        return targetPlatformUserNo;
     }
 
     public void setAmount(String amount) {
@@ -63,8 +63,8 @@ public class transfer extends BaseObject {
         this.targetUserType = targetUserType;
     }
 
-    public void setTargetPlatformUserType(String targetPlatformUserType) {
-        this.targetPlatformUserType = targetPlatformUserType;
+    public void setTargetPlatformUserType(String targetPlatformUserNo) {
+        this.targetPlatformUserNo = targetPlatformUserNo;
     }
     
     
