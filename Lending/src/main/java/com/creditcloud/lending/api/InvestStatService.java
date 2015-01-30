@@ -6,9 +6,11 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.ReferralUser;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -23,5 +25,11 @@ public interface InvestStatService {
                                              Date from,
                                              Date to,
                                              PageInfo pageInfo);
-
+    
+    /**
+     * 根据指定的状态，计算投资金额总和
+     * @param status
+     * @return 
+     */
+    BigDecimal sumAmountByStatus(InvestStatus... status);
 }
