@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.api;
 
+import com.creditcloud.yeep.model.AccountDetail;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
 import com.creditcloud.yeep.model.ReconciliationResult;
@@ -24,7 +25,8 @@ import org.joda.time.LocalDate;
  */
 @Remote
 public interface YeepService extends YeepQueryService{
-       
+ 
+    public AccountDetail queryAccount(String platformNo,String platformUserNo);
     /**
      * 获取用户在三方支付中的YeepAccount
      *

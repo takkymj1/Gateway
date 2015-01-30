@@ -11,11 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 分账账户
- *
- * @author tinglany
- */
 @Data
 @NoArgsConstructor
 @XmlRootElement
@@ -34,3 +29,4 @@ public class DivDetail extends BaseObject {
         this.DivAmt = DivAmt;
     }
 }
+

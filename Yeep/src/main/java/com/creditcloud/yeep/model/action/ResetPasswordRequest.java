@@ -6,23 +6,23 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
+@XmlRootElement(name = "request")
 public class ResetPasswordRequest extends UserRequest {
 
+    public ResetPasswordRequest() {
+    }
 
-    public ResetPasswordRequest(String platformUserNo,
+
+    public ResetPasswordRequest(String requestNo,
                                 String platformNo,
-                                String callbackUrl,
-                                String requestNo) {
+                                String platformUserNo,
+                                String callbackUrl) {
         super(platformUserNo, platformNo,null,requestNo, callbackUrl, null);
     }
 
