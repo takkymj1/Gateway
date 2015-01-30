@@ -3,26 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.contract;
+package com.creditcloud.model.enums.loan;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 合同方
+ * 合同确认状态
  * 
- * @author sobranie
+ * @author peili
  */
-public enum ContractParty implements BaseEnum {
+public enum ContractConfirmStatus implements BaseEnum {
 
-    FIRST("甲方"),
-    SECOND("乙方"),
-    THIRD("丙方"),
-    FOURTH("丁方"),
-    FIFTH("戊方");
+    CONFIRMED("已确认"),
+    UNCONFIRMED("未确认");
 
     private final String key;
 
-    ContractParty(String key) {
+    ContractConfirmStatus(String key) {
         this.key = key;
     }
 
