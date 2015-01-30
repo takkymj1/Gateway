@@ -5,20 +5,18 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
+
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.creditcloud.yeep.model.BaseNotification;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class RepaymentNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class RepaymentNotify extends BaseNotification {
 
     /**
      * 请求流水号
@@ -32,7 +30,10 @@ public class RepaymentNotification extends BaseNotification {
     @NotNull
     private String orderNo;
 
-    public RepaymentNotification(String platformNo,
+    public RepaymentNotify() {
+    }
+
+    public RepaymentNotify(String platformNo,
                                  String bizType, 
                                  String code, 
                                  String message, 
@@ -43,13 +44,21 @@ public class RepaymentNotification extends BaseNotification {
         this.requestNo = requestNo;
         this.orderNo = orderNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(orderNo));
-        return sb.toString();
-    }    
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+       
 }

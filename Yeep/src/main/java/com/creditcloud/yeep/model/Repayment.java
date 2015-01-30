@@ -7,7 +7,6 @@ package com.creditcloud.yeep.model;
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
-import lombok.Data;
 /**
  *
  * @author tinglany

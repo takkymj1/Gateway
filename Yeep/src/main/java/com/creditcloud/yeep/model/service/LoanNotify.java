@@ -6,17 +6,15 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseNotification;
-import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class LoanNotification extends BaseNotification {
+@XmlRootElement(name = "notify")
+public class LoanNotify extends BaseNotification {
     
     //请求流水号
     @NotNull
@@ -25,8 +23,11 @@ public class LoanNotification extends BaseNotification {
     //标的号
     @NotNull
     private String orderNo;
+
+    public LoanNotify() {
+    }
     
-    public LoanNotification(String platformNo,
+    public LoanNotify(String platformNo,
                             String bizType,
                             String code,
                             String message,
@@ -37,13 +38,21 @@ public class LoanNotification extends BaseNotification {
         this.requestNo = requestNo;
         this.orderNo = orderNo;
     }
-    
-    @Override
-    public String chkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(super.baseChkString())
-                .append(StringUtils.trimToEmpty(requestNo))
-                .append(StringUtils.trimToEmpty(orderNo));
-        return sb.toString();
-    }    
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+       
 }

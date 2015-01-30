@@ -60,7 +60,7 @@ public class LoanProduct extends BaseObject {
      * 父产品id
      */
     private String parentId;
-
+    
     //TODO more filed
     public LoanProduct(String id,
                        String name,

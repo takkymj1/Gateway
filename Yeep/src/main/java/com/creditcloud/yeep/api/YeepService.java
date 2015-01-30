@@ -5,14 +5,18 @@
  */
 package com.creditcloud.yeep.api;
 
-import com.creditcloud.yeep.model.BaseRequest;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
+import com.creditcloud.yeep.model.ReconciliationResult;
+import com.creditcloud.yeep.model.TransferResult;
 import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
+import com.creditcloud.yeep.model.action.transfer;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
+import org.joda.time.LocalDate;
 
 /**
  *
@@ -129,6 +133,50 @@ public interface YeepService extends YeepQueryService{
                             String BgRetUrl,
                             String AdminRetUrl);
     
+    /**
+     * 平台划款
+     *
+     * @param clientCode
+     * @param ordId
+     * @param platformNo
+     * @param targetUserNo
+     * @param amount
+     * @param BgRetUrl
+     * @return
+     */
+    public String transfer(String clientCode,
+                           String ordId,
+                           String platformNo,
+                           BigDecimal amount,
+                           String targetUserNo);
+    
+    /**
+     *  业务对账
+     * 
+     * @param clientCode
+     * @param date
+     * @return 
+     */
+    public ReconciliationResult Reconciliation(String clientCode, LocalDate date);
+ 
+
+//    /**
+//     *  担保公司代偿
+//     * 
+//     * @param clientCode
+//     * @param ordId
+//     * @param platfromUserNo
+//     * @param ordNo
+//     * @param targetPlatfromUserNo
+//     * @param transfers
+//     * @return 
+//     */
+//    public YeepResult disburse(String clientCode,
+//                                  String ordId,
+//                                  String platfromUserNo,
+//                                  String ordNo,
+//                                  String targetPlatfromUserNo,
+//                                  List<transfer> transfers);
     /**
      * 创建用户在第三方支付中的账号
      *

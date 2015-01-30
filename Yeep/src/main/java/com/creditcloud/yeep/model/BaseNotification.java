@@ -95,24 +95,4 @@ public abstract class BaseNotification extends BaseObject {
         return YeepConstant.SUCCESS_CODE.equalsIgnoreCase(getCode());
     }
  
-    /**
-     * 共有的验证数据段
-     * 
-     * @return 
-     */
-    protected String baseChkString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(StringUtils.trimToEmpty(platformNo));
-        sb.append(StringUtils.trimToEmpty(bizType));
-        sb.append(StringUtils.trimToEmpty(code));
-        sb.append(StringUtils.trimToEmpty(message));
-        return sb.toString();
-    }
-    
-    /**
-     * 用于做应答内容验证的ChkValue
-     * 
-     * @return 
-     */
-    public abstract String chkString();
 }

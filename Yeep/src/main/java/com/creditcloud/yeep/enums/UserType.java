@@ -12,14 +12,14 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum TargetUserType implements BaseEnum {
+public enum UserType implements BaseEnum {
 
     MEMBER("个人会员"),
     MERCHANT("商户");
 
     private final String key;
 
-    private TargetUserType(String key) {
+    private UserType(String key) {
         this.key = key;
     }
 

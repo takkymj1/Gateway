@@ -14,6 +14,7 @@ import com.creditcloud.model.loan.LoanReward;
 import com.creditcloud.model.loan.LoanStatistics;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -180,4 +181,12 @@ public interface ManagerLoanService extends ManagerLoanRequestService {
      * @return 
      */
     PagedResult<Loan> findAll(CriteriaInfo criteriaInfo);
+    
+    /**
+     * 计算融资总额=所有已放款标的的金额总和
+     * @param clientCode
+     * @param status
+     * @return 
+     */
+    BigDecimal sumTotalAmount(String clientCode, LoanStatus... status);
 }
