@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
 import com.creditcloud.yeep.model.UserRequest;
 import javax.xml.bind.annotation.XmlRootElement;

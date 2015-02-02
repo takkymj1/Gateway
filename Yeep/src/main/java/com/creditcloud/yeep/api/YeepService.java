@@ -23,9 +23,36 @@ import org.joda.time.LocalDate;
 @Remote
 public interface YeepService extends YeepQueryService {
 
+    /**
+     * 账户查询接口
+     * 
+     * @param clientCode
+     * @param platformUserNo
+     * @return 
+     */
     public AccountDetail queryAccount(String clientCode, String platformUserNo);
 
     public AccountDetail queryAccountByUserId(String clientCode, String userId);
+   
+    /**
+     * 通用转账确认
+     * 
+     * @param clientCode
+     * @param reqNo
+     * @return 
+     */
+    public boolean confirmCompleteTrans(String clientCode,String reqNo,String mode);
+    
+    /**
+     * 单笔业务查询
+     * 
+     * @param clientCode
+     * @param reqNo
+     * @param mode
+     * @param clazz
+     * @return 
+     */
+    public <T extends BaseResponse> T querySingleTrans(String clientCode,String reqNo,String mode, Class<T> clazz);
 
     /**
      * 获取用户在三方支付中的YeepAccount

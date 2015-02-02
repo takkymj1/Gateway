@@ -3,49 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
-import com.creditcloud.yeep.model.BaseResponse;
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlType;
 
 /**
- * 通用转账记录
- * 
+ *
  * @author tinglany
  */
-@XmlRootElement (name = "response")
-public class CpTransferRecordResponse extends BaseResponse {
-    
-    //流水号
+@XmlType
+public class CpTransferRecord extends BaseObject {
+
     @NotNull
     private String requestNo;
     
-    //业务类型
     @NotNull
     private String bizType;
     
-    //转账总金额
     @NotNull
     private String amount;
     
-    //充值状态
     @NotNull
     private String status;
     
-    //处理状态: PROCESSING:处理中。SUCCESS:成功。ERROR:异常。FAIL:失败
     @NotNull
     private String subStatus;
 
-    public CpTransferRecordResponse() {
+    public CpTransferRecord() {
     }
-    
-    public CpTransferRecordResponse(String requestNo,
-                                    String bizType,
-                                    String amount,
-                                    String status,
-                                    String subStatus) {
+
+    public CpTransferRecord(String requestNo, String bizType, String amount, String status, String subStatus) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
@@ -92,5 +81,6 @@ public class CpTransferRecordResponse extends BaseResponse {
     public void setSubStatus(String subStatus) {
         this.subStatus = subStatus;
     }
-   
+    
+    
 }
