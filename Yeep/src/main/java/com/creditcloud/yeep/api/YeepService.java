@@ -33,6 +33,16 @@ public interface YeepService extends YeepQueryService {
     public AccountDetail queryAccount(String clientCode, String platformUserNo);
 
     public AccountDetail queryAccountByUserId(String clientCode, String userId);
+   
+    /**
+     * 通用转账确认
+     * 
+     * @param reqNo
+     * @param mode
+     * @param notifyUrl
+     * @return 
+     */
+    public boolean confirmCompleteTrans(String clientCode,String reqNo,String mode);
     
     /**
      * 单笔业务查询

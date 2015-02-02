@@ -3,48 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
-import com.creditcloud.yeep.model.BaseResponse;
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
-import org.joda.time.LocalDate;
+import javax.xml.bind.annotation.XmlType;
 
 /**
- * 还款记录
- * 
+ *
  * @author tinglany
  */
-
-@XmlRootElement (name = "response")
-public class RepaymentRecordResponse extends BaseResponse {
-    
-    //还款金额
+@XmlType
+public class RepaymentRecord extends BaseObject {
     @NotNull
     private String repaymentAmount;
     
-    //原投资人的标识
     @NotNull
     private String targetUserNo;
     
-    //还款时间
-    private LocalDate loanTime;
-    
-    //还款状态
     @NotNull
-    private String status;
+    private String createTime;
+    
+    @NotNull
+    private String status; 
 
-    public RepaymentRecordResponse() {
+    public RepaymentRecord() {
     }
-        
-    public RepaymentRecordResponse(String repaymentAmount,
-                                   String targetUserNo,
-                                   LocalDate loanTime,
-                                   String status) {
+
+    public RepaymentRecord(String repaymentAmount, String targetUserNo, String createTime, String status) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
-        this.loanTime = loanTime;
+        this.createTime = createTime;
         this.status = status;
     }
 
@@ -56,8 +45,8 @@ public class RepaymentRecordResponse extends BaseResponse {
         return targetUserNo;
     }
 
-    public LocalDate getLoanTime() {
-        return loanTime;
+    public String getCreateTime() {
+        return createTime;
     }
 
     public String getStatus() {
@@ -72,12 +61,12 @@ public class RepaymentRecordResponse extends BaseResponse {
         this.targetUserNo = targetUserNo;
     }
 
-    public void setLoanTime(LocalDate loanTime) {
-        this.loanTime = loanTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
-
+    
 }

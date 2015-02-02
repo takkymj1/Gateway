@@ -3,21 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
-import com.creditcloud.yeep.model.BaseResponse;
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-import org.joda.time.LocalDate;
+import javax.xml.bind.annotation.XmlType;
 
 /**
- * 投标记录
- * 
+ *
  * @author tinglany
  */
-@XmlRootElement (name = "response")
-public class PaymentRecordResponse extends BaseResponse {
-    
+@XmlType
+public class PaymentRecord extends BaseObject {
     @NotNull
     private String paymentAmount;
     
@@ -25,27 +22,23 @@ public class PaymentRecordResponse extends BaseResponse {
     private String sourceUserNo;
     
     @NotNull
-    private LocalDate createTime;
+    private String createTime;
     
-    private LocalDate loanTime;
+    private String loanTime;
     
     @NotNull
     private String status;
 
-    public PaymentRecordResponse() {
+    public PaymentRecord() {
     }
-    
-    public PaymentRecordResponse(String paymentAmount,
-                                 String sourceUserNo,
-                                 LocalDate createTime,
-                                 LocalDate loanTime,
-                                 String status) {
+
+    public PaymentRecord(String paymentAmount, String sourceUserNo, String createTime, String loanTime, String status) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
         this.createTime = createTime;
         this.loanTime = loanTime;
         this.status = status;
-    } 
+    }
 
     public String getPaymentAmount() {
         return paymentAmount;
@@ -55,11 +48,11 @@ public class PaymentRecordResponse extends BaseResponse {
         return sourceUserNo;
     }
 
-    public LocalDate getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public LocalDate getLoanTime() {
+    public String getLoanTime() {
         return loanTime;
     }
 
@@ -75,16 +68,17 @@ public class PaymentRecordResponse extends BaseResponse {
         this.sourceUserNo = sourceUserNo;
     }
 
-    public void setCreateTime(LocalDate createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public void setLoanTime(LocalDate loanTime) {
+    public void setLoanTime(String loanTime) {
         this.loanTime = loanTime;
     }
 
     public void setStatus(String status) {
         this.status = status;
     }
-      
+    
+    
 }
