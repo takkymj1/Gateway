@@ -54,7 +54,7 @@ public interface YeepService extends YeepQueryService {
      * @param clazz
      * @return 
      */
-    public <T extends BaseResponse> BaseResponse querySingleTrans(String clientCode,String reqNo,QueryModel mode, Class<T> clazz);
+    public BaseResponse querySingleTrans(String clientCode,String reqNo,QueryModel mode);
 
     /**
      * 获取用户在三方支付中的YeepAccount
