@@ -6,6 +6,9 @@
 package com.creditcloud.yeep.model.service.query;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.Status;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -20,21 +23,21 @@ public class CpTransferRecord extends BaseObject {
     private String requestNo;
     
     @NotNull
-    private String bizType;
+    private BizType bizType;
     
     @NotNull
-    private String amount;
+    private BigDecimal amount;
     
     @NotNull
-    private String status;
+    private Status status;
     
     @NotNull
-    private String subStatus;
+    private Status subStatus;
 
     public CpTransferRecord() {
     }
 
-    public CpTransferRecord(String requestNo, String bizType, String amount, String status, String subStatus) {
+    public CpTransferRecord(String requestNo, BizType bizType, BigDecimal amount, Status status, Status subStatus) {
         this.requestNo = requestNo;
         this.bizType = bizType;
         this.amount = amount;
@@ -46,19 +49,19 @@ public class CpTransferRecord extends BaseObject {
         return requestNo;
     }
 
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public String getSubStatus() {
+    public Status getSubStatus() {
         return subStatus;
     }
 
@@ -66,19 +69,19 @@ public class CpTransferRecord extends BaseObject {
         this.requestNo = requestNo;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public void setSubStatus(String subStatus) {
+    public void setSubStatus(Status subStatus) {
         this.subStatus = subStatus;
     }
     

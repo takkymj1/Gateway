@@ -6,6 +6,9 @@
 package com.creditcloud.yeep.model.service.query;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.Status;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -16,23 +19,23 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 public class PaymentRecord extends BaseObject {
     @NotNull
-    private String paymentAmount;
+    private BigDecimal paymentAmount;
     
     @NotNull
     private String sourceUserNo;
     
     @NotNull
-    private String createTime;
+    private Date createTime;
     
-    private String loanTime;
+    private Date loanTime;
     
     @NotNull
-    private String status;
+    private Status status;
 
     public PaymentRecord() {
     }
 
-    public PaymentRecord(String paymentAmount, String sourceUserNo, String createTime, String loanTime, String status) {
+    public PaymentRecord(BigDecimal paymentAmount, String sourceUserNo, Date createTime, Date loanTime, Status status) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
         this.createTime = createTime;
@@ -40,7 +43,7 @@ public class PaymentRecord extends BaseObject {
         this.status = status;
     }
 
-    public String getPaymentAmount() {
+    public BigDecimal getPaymentAmount() {
         return paymentAmount;
     }
 
@@ -48,19 +51,19 @@ public class PaymentRecord extends BaseObject {
         return sourceUserNo;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public String getLoanTime() {
+    public Date getLoanTime() {
         return loanTime;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setPaymentAmount(String paymentAmount) {
+    public void setPaymentAmount(BigDecimal paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
@@ -68,15 +71,15 @@ public class PaymentRecord extends BaseObject {
         this.sourceUserNo = sourceUserNo;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public void setLoanTime(String loanTime) {
+    public void setLoanTime(Date loanTime) {
         this.loanTime = loanTime;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
     
