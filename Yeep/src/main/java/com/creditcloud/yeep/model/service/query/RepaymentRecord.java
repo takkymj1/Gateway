@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service.query;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.yeep.enums.Status;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ public class RepaymentRecord extends BaseObject {
     private String targetUserNo;
     
     @NotNull
-    private String createTime;
+    private Date createTime;
     
     @NotNull
     private Status status; 
@@ -32,7 +33,7 @@ public class RepaymentRecord extends BaseObject {
     public RepaymentRecord() {
     }
 
-    public RepaymentRecord(BigDecimal repaymentAmount, String targetUserNo, String createTime, Status status) {
+    public RepaymentRecord(BigDecimal repaymentAmount, String targetUserNo, Date createTime, Status status) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
         this.createTime = createTime;
@@ -47,7 +48,7 @@ public class RepaymentRecord extends BaseObject {
         return targetUserNo;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
@@ -63,7 +64,7 @@ public class RepaymentRecord extends BaseObject {
         this.targetUserNo = targetUserNo;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
