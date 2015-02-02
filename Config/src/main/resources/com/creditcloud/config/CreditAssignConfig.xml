@@ -10,4 +10,20 @@
         <period>SINGLE</period>
         <scope>PRINCIPAL</scope>
     </fee>
+    
+    <lessSixMonthAssignServiceFee> <!--起息6个月内含6个月的转让平台服务费-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.5</rate>
+        <period>SINGLE</period>
+        <scope>ASSIGNAMOUNT</scope>
+    </lessSixMonthAssignServiceFee>
+    
+    <moreSixMonthAssignServiceFee> <!--起息6个月以上的转让平台服务费-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.25</rate>
+        <period>SINGLE</period>
+        <scope>ASSIGNAMOUNT</scope>
+    </moreSixMonthAssignServiceFee>
 </CreditAssignConfig>

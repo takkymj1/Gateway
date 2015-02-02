@@ -30,6 +30,10 @@ public enum FeeScope {
     /**
      * 对借款/投资涉及的所有本金收费，暂时没用上
      */
-    ALLPRINCIPAL;
+    ALLPRINCIPAL,
+    /**
+     * 对债权转让涉及的转让金额收费
+     */
+    ASSIGNAMOUNT;
 
 }

@@ -53,12 +53,27 @@ public class CreditAssignConfig extends BaseConfig {
     private BigDecimal maxCreditAssignDiscountRate = BigDecimal.ZERO;
 
     /**
-     * 债权转让费，给平台
+     * 债权转让费，给平台, 这个暂时不用了,
      */
     @Getter
     @XmlElement(required = false)
     private Fee fee;
 
+    /**
+     * 起息6个月内含6个月的债权转让平台服务费，给平台
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee lessSixMonthAssignServiceFee;
+    
+    
+    /**
+     * 起息6个月以上的债权转让平台服务费，给平台
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee moreSixMonthAssignServiceFee;
+    
     /**
      * 持有原始债权一定天数后才转让将免收债权转让费用
      */
