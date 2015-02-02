@@ -26,4 +26,11 @@
         <period>SINGLE</period>
         <scope>ASSIGNAMOUNT</scope>
     </moreSixMonthAssignServiceFee>
+    
+    <assignableDateCarrayInterest>30</assignableDateCarrayInterest> <!--起息后可转让的时间期限, 单位为天-->
+    <nonassignableBeforeDue>15</nonassignableBeforeDue>  <!--距离到期前一定期限内不可以转让, 单位为天--> 
+    
+    <startAssignableTime>08:10</startAssignableTime>  <!-- 可转让日每天哪个时刻以后可以申请转让 -->
+    <endAssignableTime>22:10</endAssignableTime>  <!-- 可转让日每天哪个时刻以后不可以再申请转让 -->
+    
 </CreditAssignConfig>

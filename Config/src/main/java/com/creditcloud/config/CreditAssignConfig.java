@@ -75,6 +75,34 @@ public class CreditAssignConfig extends BaseConfig {
     private Fee moreSixMonthAssignServiceFee;
     
     /**
+     * 起息后可转让的时间期限, 单位为天
+     */
+    @Getter
+    @XmlElement(required = false)
+    private int assignableDateCarrayInterest;
+    
+    /**
+     * 距离到期前一定期限内不可以转让, 单位为天
+     */
+    @Getter
+    @XmlElement(required = false)
+    private int nonassignableBeforeDue;
+    
+    /**
+     * 可转让日每天哪个时刻以后可以申请转让, 格式为:小时:分钟 hh:mm
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String startAssignableTime;
+    
+    /**
+     * 可转让日每天哪个时刻以后不可以再申请转让, 格式为:小时:分钟 hh:mm
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String endAssignableTime;
+    
+    /**
      * 持有原始债权一定天数后才转让将免收债权转让费用
      */
     @Getter
