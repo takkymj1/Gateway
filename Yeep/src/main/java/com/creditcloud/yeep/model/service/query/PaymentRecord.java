@@ -6,6 +6,8 @@
 package com.creditcloud.yeep.model.service.query;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.Status;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 public class PaymentRecord extends BaseObject {
     @NotNull
-    private String paymentAmount;
+    private BigDecimal paymentAmount;
     
     @NotNull
     private String sourceUserNo;
@@ -27,12 +29,12 @@ public class PaymentRecord extends BaseObject {
     private String loanTime;
     
     @NotNull
-    private String status;
+    private Status status;
 
     public PaymentRecord() {
     }
 
-    public PaymentRecord(String paymentAmount, String sourceUserNo, String createTime, String loanTime, String status) {
+    public PaymentRecord(BigDecimal paymentAmount, String sourceUserNo, String createTime, String loanTime, Status status) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
         this.createTime = createTime;
@@ -40,7 +42,7 @@ public class PaymentRecord extends BaseObject {
         this.status = status;
     }
 
-    public String getPaymentAmount() {
+    public BigDecimal getPaymentAmount() {
         return paymentAmount;
     }
 
@@ -56,11 +58,11 @@ public class PaymentRecord extends BaseObject {
         return loanTime;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setPaymentAmount(String paymentAmount) {
+    public void setPaymentAmount(BigDecimal paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 
@@ -76,7 +78,7 @@ public class PaymentRecord extends BaseObject {
         this.loanTime = loanTime;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
     

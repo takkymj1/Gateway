@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.api;
 
+import com.creditcloud.yeep.enums.QueryModel;
 import com.creditcloud.yeep.model.AccountDetail;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
@@ -12,6 +13,7 @@ import com.creditcloud.yeep.model.ReconciliationResult;
 import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
+import com.creditcloud.yeep.model.service.QueryRequest;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
@@ -52,7 +54,7 @@ public interface YeepService extends YeepQueryService {
      * @param clazz
      * @return 
      */
-    public <T extends BaseResponse> T querySingleTrans(String clientCode,String reqNo,String mode, Class<T> clazz);
+    public <T extends BaseResponse> BaseResponse querySingleTrans(String clientCode,String reqNo,QueryModel mode, Class<T> clazz);
 
     /**
      * 获取用户在三方支付中的YeepAccount
