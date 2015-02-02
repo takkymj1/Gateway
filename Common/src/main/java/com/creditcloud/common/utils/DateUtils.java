@@ -16,8 +16,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import lombok.extern.slf4j.Slf4j;
-
-import static org.apache.commons.lang3.time.DateUtils.*;
+import static org.apache.commons.lang3.time.DateUtils.addDays;
+import static org.apache.commons.lang3.time.DateUtils.addMonths;
+import static org.apache.commons.lang3.time.DateUtils.addYears;
 import org.joda.time.DateTimeConstants;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
@@ -92,6 +93,25 @@ public class DateUtils {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         calendar.set(year, month, day, 0, 0, 0);
+        return calendar.getTime();
+    }
+    
+    /**
+     * return the 0'clock time for a date, like 2013/8/1 23:59:59
+     *
+     * @param date
+     * @return
+     */
+    public static Date get24OClock(Date date) {
+        if (date == null) {
+            return null;
+        }
+
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        calendar.set(year, month, day, 23, 59, 59);
         return calendar.getTime();
     }
 
