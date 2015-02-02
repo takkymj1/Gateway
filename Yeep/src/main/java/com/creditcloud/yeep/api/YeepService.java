@@ -37,9 +37,8 @@ public interface YeepService extends YeepQueryService {
     /**
      * 通用转账确认
      * 
+     * @param clientCode
      * @param reqNo
-     * @param mode
-     * @param notifyUrl
      * @return 
      */
     public boolean confirmCompleteTrans(String clientCode,String reqNo,String mode);
