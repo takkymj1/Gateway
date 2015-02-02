@@ -14,8 +14,16 @@ package com.creditcloud.yeep.utils;
  * @author tinglany
  */
 public class YeepUtils {
-    public static String getUserNo(String clientCode,String mobile) {
+
+    /**
+     * yeep账户默认使用clientcode+mobile
+     *
+     * @param clientCode
+     * @param mobile
+     * @return
+     */
+    public static String getUserNo(String clientCode, String mobile) {
         String result = clientCode + mobile;
         return result;
-    }    
+    }
 }
