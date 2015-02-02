@@ -30,13 +30,25 @@ public interface ContractTemplateService {
     /**
      * 按照type列出所有模板
      *
-     * 只返回id和name,不返回content内容
+     * 默认会返回content内容
      *
      * @param clientCode
      * @param type
      * @return
      */
     public List<ContractTemplate> listByType(String clientCode, ContractType... type);
+    
+    /**
+     * 按照type列出所有模板
+     *
+     * 根据withContent 决定是否返回合同内容
+     *
+     * @param clientCode
+     * @param withContent
+     * @param type
+     * @return
+     */
+    public List<ContractTemplate> listByType(String clientCode, boolean withContent, ContractType... type);
 
     /**
      * 添加模板.
@@ -87,12 +99,11 @@ public interface ContractTemplateService {
 
     /**
      * 将某id的ContractTemplate设置为该合同类型默认
-     *
+     * 
      * @param clientCode
      * @param id
-     * @param type
      */
-    public void setDefault(String clientCode, String id, ContractType type);
+    public void setDefault(String clientCode, String id);
 
     /**
      * 根据模板Id删除实体
@@ -112,4 +123,6 @@ public interface ContractTemplateService {
     public void renameById(String clientCode,
                            String id,
                            String name);
+    
+    public void edit(String clientCode, String id, String newName, byte[] newContent);
 }
