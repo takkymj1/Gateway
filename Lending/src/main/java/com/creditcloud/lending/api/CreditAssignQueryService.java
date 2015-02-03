@@ -109,4 +109,12 @@ public interface CreditAssignQueryService {
      * @return
      */
     public List<CreditAssign> listByIdsAndStatus(List<String> creditAssignIds, List<CreditAssignStatus> statusList);
+    
+   /**
+    * 
+    * @param investIdList
+    * @param statusList
+    * @return 
+    */ 
+    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
 }
