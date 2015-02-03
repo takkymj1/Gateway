@@ -112,6 +112,7 @@ public class CorporationUser extends BaseObject {
         this.category = category;
         this.legalPersonId = legalPersonId;
         this.rtpo = rtpo;
+        this.bankLicense = bankLicense;
     }
 
     public String getUserId() {
