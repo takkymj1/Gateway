@@ -5,10 +5,11 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.FeeMode;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 
 
@@ -23,13 +24,13 @@ public class RechargeAccountRequest extends UserRequest {
     /**
      * 充值金额，如果不传则有用户填写充值金额
      */
-    private String amount;
+    private BigDecimal amount;
 
     /**
      * 费率模式，固定值PLATFORM
      */
     @NotNull
-    private String feeMode;
+    private FeeMode feeMode;
 
     public RechargeAccountRequest() {
     }
@@ -37,8 +38,8 @@ public class RechargeAccountRequest extends UserRequest {
     public RechargeAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
-                                  String amount,
-                                  String feeMode,
+                                  BigDecimal amount,
+                                  FeeMode feeMode,
                                   String callbackUrl,
                                   String notifyUrl) {
         super(platformUserNo, platformNo, null,requestNo,callbackUrl, notifyUrl);
@@ -46,19 +47,19 @@ public class RechargeAccountRequest extends UserRequest {
         this.feeMode = feeMode;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getFeeMode() {
+    public FeeMode getFeeMode() {
         return feeMode;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setFeeMode(String feeMode) {
+    public void setFeeMode(FeeMode feeMode) {
         this.feeMode = feeMode;
     }
    

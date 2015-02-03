@@ -5,6 +5,8 @@
  */
 package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
@@ -17,7 +19,7 @@ public class FreezeRequest extends UserRequest {
   
     //冻结金额
     @NotNull
-    private String amount; 
+    private BigDecimal amount; 
     
     //到期自动解冻
     @NotNull
@@ -29,14 +31,14 @@ public class FreezeRequest extends UserRequest {
     public FreezeRequest(String platformNo,
                          String platformUserNo,
                          String requestNo,
-                         String amount,
+                         BigDecimal amount,
                          String expired) {
         super(platformUserNo,platformNo,null,requestNo,null,null);
         this.amount = amount;
         this.expired = expired;
     } 
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -44,7 +46,7 @@ public class FreezeRequest extends UserRequest {
         return expired;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

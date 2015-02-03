@@ -24,13 +24,13 @@ public class ReconciliationResult extends BaseResponse {
     private List<record> records;
 
     @NotNull
-    private String fee;
+    private BigDecimal fee;
 
     @NotNull
-    private String balance;
+    private BigDecimal balance;
 
     @NotNull
-    private String amount;
+    private BigDecimal amount;
 
 
     public ReconciliationResult() {
@@ -40,9 +40,9 @@ public class ReconciliationResult extends BaseResponse {
                                 String code, 
                                 String description,
                                 List<record> records,
-                                String fee, 
-                                String balance, 
-                                String amount) {
+                                BigDecimal fee, 
+                                BigDecimal balance, 
+                                BigDecimal amount) {
         super(platformNo, code, description);
         this.records = records;
         this.fee = fee;
@@ -54,15 +54,15 @@ public class ReconciliationResult extends BaseResponse {
         return records;
     }
 
-    public String getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
-    public String getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -70,15 +70,15 @@ public class ReconciliationResult extends BaseResponse {
         this.records = records;
     }
 
-    public void setFee(String fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

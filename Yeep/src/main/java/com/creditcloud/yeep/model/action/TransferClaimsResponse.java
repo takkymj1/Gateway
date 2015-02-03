@@ -7,10 +7,10 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -24,7 +24,7 @@ public class TransferClaimsResponse extends BaseResponse {
      * 固定值TRANSFER_CLAIMS
      */
     @NotNull
-    private BizType service;
+    private ServiceType service;
 
     /**
      * 请求流水号
@@ -33,7 +33,7 @@ public class TransferClaimsResponse extends BaseResponse {
     private String requestNo;
 
     public TransferClaimsResponse(String platformNo,
-                                  BizType service,
+                                  ServiceType service,
                                   String requestNo,
                                   String code,
                                   String description) {

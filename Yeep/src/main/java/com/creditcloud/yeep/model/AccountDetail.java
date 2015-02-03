@@ -5,6 +5,9 @@
  */
 package com.creditcloud.yeep.model;
 
+import com.creditcloud.yeep.enums.ActiveStatus;
+import com.creditcloud.yeep.enums.CardStatus;
+import com.creditcloud.yeep.enums.MemberType;
 import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,10 +29,10 @@ public class AccountDetail extends YeepResult {
     protected String platfromNo;
 
     @NotNull
-    protected String memberType;
+    protected MemberType memberType;
 
     @NotNull
-    protected String activeStatus;
+    protected ActiveStatus activeStatus;
 
     @NotNull
     protected BigDecimal balance;
@@ -42,7 +45,7 @@ public class AccountDetail extends YeepResult {
 
     protected String cardNo;
 
-    protected String cardStatus;
+    protected CardStatus cardStatus;
 
     protected String bank;
 
@@ -52,13 +55,13 @@ public class AccountDetail extends YeepResult {
     public AccountDetail(String platfromNo,
                          String code,
                          String description,
-                         String memberType,
-                         String activeStatus,
+                         MemberType memberType,
+                         ActiveStatus activeStatus,
                          BigDecimal balance,
                          BigDecimal availableAmount,
                          BigDecimal freezeAmount,
                          String cardNo,
-                         String cardStatus,
+                         CardStatus cardStatus,
                          String bank) {
         super(code, description);
         this.memberType = memberType;

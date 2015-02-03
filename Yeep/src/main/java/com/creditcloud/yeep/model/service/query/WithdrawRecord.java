@@ -26,7 +26,7 @@ public class WithdrawRecord extends BaseObject {
     private String userNo;
     
     @NotNull
-    private Date createTime;
+    private String createTime;
     
     @NotNull
     private Status status; 
@@ -36,7 +36,7 @@ public class WithdrawRecord extends BaseObject {
     public WithdrawRecord() {
     }
 
-    public WithdrawRecord(BigDecimal amount, String userNo, Date createTime, Status status, RemitStatus remitStatus) {
+    public WithdrawRecord(BigDecimal amount, String userNo, String createTime, Status status, RemitStatus remitStatus) {
         this.amount = amount;
         this.userNo = userNo;
         this.createTime = createTime;
@@ -52,7 +52,7 @@ public class WithdrawRecord extends BaseObject {
         return userNo;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
@@ -72,7 +72,7 @@ public class WithdrawRecord extends BaseObject {
         this.userNo = userNo;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

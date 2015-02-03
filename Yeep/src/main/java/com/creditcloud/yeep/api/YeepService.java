@@ -15,6 +15,7 @@ import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
 import com.creditcloud.yeep.model.service.QueryRequest;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 

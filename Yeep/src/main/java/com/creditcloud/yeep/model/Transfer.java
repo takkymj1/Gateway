@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model;
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.UserType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +26,7 @@ public class Transfer extends BaseObject {
     
     //投资人会员类型,【见用户类型】
     @NotNull
-    private String sourceUserType;
+    private UserType sourceUserType;
     
     //投资人会员编号
     @NotNull
@@ -33,7 +34,7 @@ public class Transfer extends BaseObject {
     
     //借款人会员类型,【见用户类型】
     @NotNull
-    private String targetUserType;
+    private UserType targetUserType;
     
     //借款人会员编号
     @NotNull
@@ -44,9 +45,9 @@ public class Transfer extends BaseObject {
     
     public Transfer (String requestNo,
                      String transferAmount,
-                     String sourceUserType,
+                     UserType sourceUserType,
                      String sourcePlatformUserNo,
-                     String targetUserType,
+                     UserType targetUserType,
                      String targetPlatformUserNo) {
         this.requestNo = requestNo;
         this.transferAmount = transferAmount;
@@ -64,7 +65,7 @@ public class Transfer extends BaseObject {
         return transferAmount;
     }
 
-    public String getSourceUserType() {
+    public UserType getSourceUserType() {
         return sourceUserType;
     }
 
@@ -72,7 +73,7 @@ public class Transfer extends BaseObject {
         return sourcePlatformUserNo;
     }
 
-    public String getTargetUserType() {
+    public UserType getTargetUserType() {
         return targetUserType;
     }
 
@@ -88,7 +89,7 @@ public class Transfer extends BaseObject {
         this.transferAmount = transferAmount;
     }
 
-    public void setSourceUserType(String sourceUserType) {
+    public void setSourceUserType(UserType sourceUserType) {
         this.sourceUserType = sourceUserType;
     }
 
@@ -96,7 +97,7 @@ public class Transfer extends BaseObject {
         this.sourcePlatformUserNo = sourcePlatformUserNo;
     }
 
-    public void setTargetUserType(String targetUserType) {
+    public void setTargetUserType(UserType targetUserType) {
         this.targetUserType = targetUserType;
     }
 

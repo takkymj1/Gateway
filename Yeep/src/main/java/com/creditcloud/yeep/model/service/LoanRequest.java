@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.service;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.Transfer;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
@@ -30,7 +31,7 @@ public class LoanRequest extends BaseRequest {
     private String requestNo;
     
     //平台方收取分润
-    private String fee;
+    private BigDecimal fee;
     
     //transfer
     @NotNull
@@ -43,7 +44,7 @@ public class LoanRequest extends BaseRequest {
     public LoanRequest(String platformNo,
                        String orderNo,
                        String requestNo,
-                       String fee,
+                       BigDecimal fee,
                        List<Transfer> transfers,
                        String notifyUrl) {
         super(platformNo,null,null,notifyUrl);
@@ -67,7 +68,7 @@ public class LoanRequest extends BaseRequest {
         return requestNo;
     }
 
-    public String getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
@@ -79,7 +80,7 @@ public class LoanRequest extends BaseRequest {
         this.requestNo = requestNo;
     }
 
-    public void setFee(String fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 

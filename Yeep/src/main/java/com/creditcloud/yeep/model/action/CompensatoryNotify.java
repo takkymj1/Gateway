@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -28,7 +29,7 @@ public class CompensatoryNotify extends BaseNotification {
     }
 
     public CompensatoryNotify(String platformNo,
-                                    String bizType,
+                                    BizType bizType,
                                     String code,
                                     String message,
                                     String requestNo,
