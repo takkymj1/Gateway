@@ -5,7 +5,12 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.MemberType;
+import com.creditcloud.yeep.enums.ServiceType;
+import com.creditcloud.yeep.enums.UserType;
 import com.creditcloud.yeep.model.UserRequest;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,10 +30,10 @@ public class authorCpTransferRequest extends UserRequest {
      * 固定值TRANSFER
      */
     @NotNull
-    private  String bizType;
+    private  BizType bizType;
     
     @NotNull
-    private String userType;
+    private UserType userType;
 
     /**
      * 超过此时间既不容许提交订单
@@ -45,8 +50,8 @@ public class authorCpTransferRequest extends UserRequest {
     public authorCpTransferRequest(String requestNo,
                                 String platformNo,
                                 String platformUserNo,
-                                String bizType,
-                                String userType,
+                                BizType bizType,
+                                UserType userType,
                                 String expired,
                                 List<CpTransDetail> details,
                                 String notifyUrl,
@@ -58,7 +63,7 @@ public class authorCpTransferRequest extends UserRequest {
         this.details = details;
     }
 
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
@@ -66,7 +71,7 @@ public class authorCpTransferRequest extends UserRequest {
         return expired;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
@@ -76,7 +81,7 @@ public class authorCpTransferRequest extends UserRequest {
         return details;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
 
@@ -88,7 +93,7 @@ public class authorCpTransferRequest extends UserRequest {
         this.details = details;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
     

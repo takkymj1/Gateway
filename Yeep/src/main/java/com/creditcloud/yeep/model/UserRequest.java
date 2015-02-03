@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model;
 
+import com.creditcloud.yeep.enums.ServiceType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.commons.lang3.StringUtils;
@@ -37,7 +38,7 @@ public class UserRequest extends BaseRequest {
 
     public UserRequest(String platformUserNo,
                        String platformNo,
-                       String service,
+                       ServiceType service,
                        String requestNo,
                        String callbackUrl,
                        String notifyUrl) {

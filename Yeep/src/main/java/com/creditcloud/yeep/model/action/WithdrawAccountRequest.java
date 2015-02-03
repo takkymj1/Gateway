@@ -5,8 +5,10 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.FeeMode;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
 
@@ -24,12 +26,12 @@ public class WithdrawAccountRequest extends UserRequest {
      * 费率模式
      */
     @NotNull
-    private String feeMode;
+    private FeeMode feeMode;
     
     /**
      * 提现金额，如果不传则由用户输入金额
      */
-    private String amount;
+    private BigDecimal amount;
 
     public WithdrawAccountRequest() {
     }
@@ -37,28 +39,28 @@ public class WithdrawAccountRequest extends UserRequest {
     public WithdrawAccountRequest(String platformNo,
                                   String platformUserNo,
                                   String requestNo,
-                                  String feeMode,                                
+                                  FeeMode feeMode,                                
                                   String callbackUrl,
                                   String notifyUrl,
-                                  String amount) {
+                                  BigDecimal amount) {
         super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
         this.feeMode = feeMode;
         this.amount = amount;
     }
 
-    public String getFeeMode() {
+    public FeeMode getFeeMode() {
         return feeMode;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setFeeMode(String feeMode) {
+    public void setFeeMode(FeeMode feeMode) {
         this.feeMode = feeMode;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
     

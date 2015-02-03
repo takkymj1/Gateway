@@ -5,7 +5,9 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseResponse;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
@@ -22,7 +24,7 @@ public class ReconciliationResponse extends BaseResponse {
     
     //记录列表
     @NotNull
-    private String bizType;
+    private BizType bizType;
     
     //业务类型,枚举值:
     @NotNull
@@ -30,20 +32,20 @@ public class ReconciliationResponse extends BaseResponse {
     
     //易宝收取手续费
     @NotNull
-    private String fee;
+    private BigDecimal fee;
     
     //商户平台收取分润
     @NotNull
-    private String balance;
+    private BigDecimal balance;
     
     //业务金额
     @NotNull
-    private String amount;
+    private BigDecimal amount;
 
     public ReconciliationResponse() {
     }
 
-    public ReconciliationResponse(String bizType, List<record> records, String fee, String balance, String amount) {
+    public ReconciliationResponse(BizType bizType, List<record> records, BigDecimal fee, BigDecimal balance, BigDecimal amount) {
         this.bizType = bizType;
         this.records = records;
         this.fee = fee;
@@ -51,7 +53,7 @@ public class ReconciliationResponse extends BaseResponse {
         this.amount = amount;
     }
 
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
@@ -61,15 +63,15 @@ public class ReconciliationResponse extends BaseResponse {
         return records;
     }
 
-    public String getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
-    public String getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
 
@@ -77,19 +79,19 @@ public class ReconciliationResponse extends BaseResponse {
         this.records = records;
     }
 
-    public void setFee(String fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
     

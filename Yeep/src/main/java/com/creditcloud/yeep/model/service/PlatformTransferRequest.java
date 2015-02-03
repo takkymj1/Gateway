@@ -5,8 +5,11 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.yeep.enums.MemberType;
+import com.creditcloud.yeep.enums.UserType;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 平台划款
@@ -24,7 +27,7 @@ public class PlatformTransferRequest extends BaseRequest {
     
     //出款人类型,【见用户类型】,现在只支持 MERCHANT
     @NotNull
-    private String sourceUserType;
+    private UserType sourceUserType;
     
     //出款人编号,如果是 MERCHANT 类型,请填写商户编号
     @NotNull
@@ -32,11 +35,11 @@ public class PlatformTransferRequest extends BaseRequest {
     
     //划款金额
     @NotNull
-    private String amount;
+    private BigDecimal amount;
     
     //【见用户类型】
     @NotNull
-    private String targetUserType;
+    private UserType targetUserType;
     
     //收款人编号
     @NotNull
@@ -47,10 +50,10 @@ public class PlatformTransferRequest extends BaseRequest {
     
     public PlatformTransferRequest(String platformNo,
                                    String requestNo,
-                                   String sourceUserType,
+                                   UserType sourceUserType,
                                    String sourcePlatformUserNo,
-                                   String amount,
-                                   String targetUserType,
+                                   BigDecimal amount,
+                                   UserType targetUserType,
                                    String targetPlatformUserNo) {
         super(platformNo,null,null,null);
         this.requestNo = requestNo;
@@ -65,7 +68,7 @@ public class PlatformTransferRequest extends BaseRequest {
         return requestNo;
     }
 
-    public String getSourceUserType() {
+    public UserType getSourceUserType() {
         return sourceUserType;
     }
 
@@ -73,11 +76,11 @@ public class PlatformTransferRequest extends BaseRequest {
         return sourcePlatformUserNo;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getTargetUserType() {
+    public UserType getTargetUserType() {
         return targetUserType;
     }
 
@@ -89,7 +92,7 @@ public class PlatformTransferRequest extends BaseRequest {
         this.requestNo = requestNo;
     }
 
-    public void setSourceUserType(String sourceUserType) {
+    public void setSourceUserType(UserType sourceUserType) {
         this.sourceUserType = sourceUserType;
     }
 
@@ -97,11 +100,11 @@ public class PlatformTransferRequest extends BaseRequest {
         this.sourcePlatformUserNo = sourcePlatformUserNo;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setTargetUserType(String targetUserType) {
+    public void setTargetUserType(UserType targetUserType) {
         this.targetUserType = targetUserType;
     }
 

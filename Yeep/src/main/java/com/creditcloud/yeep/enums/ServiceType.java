@@ -8,11 +8,10 @@ package com.creditcloud.yeep.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 服务名称
  *
  * @author tinglany
  */
-public enum BizType implements BaseEnum {
+public enum ServiceType implements BaseEnum {
 
     REGISTER("注册"),
     RECHARGE("充值"),
@@ -28,10 +27,11 @@ public enum BizType implements BaseEnum {
     TRANSACTION("转账"),
     RESET_PASSWORD("重置密码");
     
+    
 
     private final String key;
 
-    private BizType(String key) {
+    private ServiceType(String key) {
         this.key = key;
     }
 

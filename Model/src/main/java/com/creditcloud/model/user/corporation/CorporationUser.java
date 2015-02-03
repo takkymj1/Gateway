@@ -63,6 +63,11 @@ public class CorporationUser extends BaseObject {
     @Size(max = CorporationConstant.MAX_CORP_CTG_LEN)
     private String category;
     
+    //开户银行许可证
+    @Size(max = CorporationConstant.BANK_LICENSE_LEN)
+    private String bankLicense;
+
+    
     /**
      * 是否第三方机构
      * 

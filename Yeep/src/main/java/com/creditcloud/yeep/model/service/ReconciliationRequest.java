@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseRequest;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.joda.time.LocalDate;
