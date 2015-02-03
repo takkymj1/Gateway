@@ -8,6 +8,8 @@ import com.creditcloud.model.enums.misc.CacheType;
 import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import javax.ejb.Remote;
 import redis.clients.jedis.JedisPubSub;
 
@@ -391,4 +393,28 @@ public interface SentinelService {
      */
     public long ttl(CacheType type, String key);
     
+    /**
+     * Returns the specified range of elements in the sorted set stored at key.
+     * The elements are considered to be ordered from the highest to the lowest
+     * score. Descending lexicographical order is used for elements with equal
+     * score.
+     *
+     * Apart from the reversed ordering, ZREVRANGE is similar to ZRANGE.
+     * @param type
+     * @param key
+     * @param start
+     * @param end
+     * @return 
+     */
+    public Set<String> getRevrange(CacheType type, String key, long start, long end);
+    
+    /**
+     * Returns all fields and values of the hash stored at key. In the returned value, 
+     * every field name is followed by its value, 
+     * so the length of the reply is twice the size of the hash.
+     * @param type
+     * @param key
+     * @return 
+     */
+    public Map<String,String> getAllHashvalues(CacheType type, String key);
 }
