@@ -122,7 +122,7 @@ public class NumberUtils {
      */
     public static BigDecimal getCurrentPeriodInterest(int rate, LocalDate lastRepayedDate, BigDecimal unpayedPrincipal) {
         //月利率
-        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12));
+        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
         //债权转让日与上一个利息支付日之间的天数
         int interestCalculateTotalDays = Days.daysBetween(lastRepayedDate, LocalDate.now()).getDays();
         //当期应计利息
