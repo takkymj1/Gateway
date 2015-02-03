@@ -8,6 +8,7 @@ package com.creditcloud.lending.api;
 import com.creditcloud.model.enums.loan.CreditAssignStatus;
 import com.creditcloud.model.loan.CreditAssign;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -45,4 +46,12 @@ public interface CreditAssignService extends CreditAssignQueryService {
      * @return
      */
     public CreditAssign find(String creditAssignId);
+    
+   /**
+    * 
+    * @param investIdList
+    * @param statusList
+    * @return 
+    */ 
+    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
 }

@@ -120,4 +120,13 @@ public interface LoanConstant {
      */
     int MAX_BID_TIME_OUT = 300;
 
+    /**
+     * 最低可配置折让率
+     */
+    int MIN_DISCOUNT_RATE = 0;
+
+    /**
+     * 最高可配置折让率
+     */
+    int MAX_DISCOUNT_RATE = 10000;
 }
