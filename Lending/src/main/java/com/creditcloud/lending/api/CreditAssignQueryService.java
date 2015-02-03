@@ -87,4 +87,16 @@ public interface CreditAssignQueryService {
      * @return
      */
     public PagedResult<Invest> listInvest(String creditAssignId, List<InvestStatus> statusList);
+    
+    /**
+     * list cretiral credit assign 
+     * @param pageInfo
+     * @param minRate
+     * @param maxRate
+     * @param minLeftMonth
+     * @param maxLeftMonth
+     * @param repayMethod
+     * @return 
+     */
+    public List<CreditAssign> listByCriteria(PageInfo pageInfo, int minRate, int maxRate, int minLeftMonth, int maxLeftMonth, String repayMethod);
 }

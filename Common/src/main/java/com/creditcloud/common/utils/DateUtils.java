@@ -4,8 +4,10 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.constant.GlobalConstant;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.loan.Duration;
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -15,13 +17,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
-
-import static org.apache.commons.lang3.time.DateUtils.*;
+import static org.apache.commons.lang3.time.DateUtils.addDays;
+import static org.apache.commons.lang3.time.DateUtils.addMonths;
+import static org.apache.commons.lang3.time.DateUtils.addYears;
 import org.joda.time.DateTimeConstants;
 import org.joda.time.LocalDate;
 import org.joda.time.Years;
 import org.joda.time.format.DateTimeFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -33,6 +39,8 @@ public class DateUtils {
     private static final GregorianCalendar calendar = (GregorianCalendar) GregorianCalendar.getInstance();
 
     public static final Date FIRST_DATE = new Date(0);
+    
+    private static Logger logger = LoggerFactory.getLogger(DateUtils.class);
 
     public static Date offset(final Date asOfDate, final Duration duration) {
         Date result = addYears(asOfDate, duration.getYears());
@@ -92,6 +100,25 @@ public class DateUtils {
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         calendar.set(year, month, day, 0, 0, 0);
+        return calendar.getTime();
+    }
+    
+    /**
+     * return the 0'clock time for a date, like 2013/8/1 23:59:59
+     *
+     * @param date
+     * @return
+     */
+    public static Date get24OClock(Date date) {
+        if (date == null) {
+            return null;
+        }
+
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        calendar.set(year, month, day, 23, 59, 59);
         return calendar.getTime();
     }
 
@@ -162,5 +189,45 @@ public class DateUtils {
         }
         int dayOfWeek = date.getDayOfWeek();
         return DateTimeConstants.SATURDAY == dayOfWeek || DateTimeConstants.SUNDAY == dayOfWeek;
+    }
+    
+    /**
+     * 判断当前日期是否是周末或节假日
+     * @param currentDate
+     * @return 
+     */
+    public static boolean isPublicHoliday(LocalDate currentDate) {
+        boolean isWeekend = isWeekend(currentDate);
+        boolean isHoliday = false;
+        //读取假日文件，判断假日文件中是否有当天
+        File holidayFile = new File(GlobalConstant.CREDITCLOUD_HOME + File.separator + "holiday");
+        if (holidayFile.canRead()) {
+            try (Scanner scanner = new Scanner(holidayFile)) {
+                while (scanner.hasNextLine()) {
+                    if (scanner.nextLine().contains(currentDate.toString("yyyyMMdd"))) {
+                        isHoliday = true;
+                        break;
+                    }
+                }
+            } catch (Exception ex) {
+                logger.error("Can't use scanner on holiday file.");
+            }
+        }
+        return isWeekend || isHoliday;
+    }
+    
+    /**
+     * 查找下一个工作日
+     * @param currentDate 周末或者节假日
+     * @return 
+     */
+    public static LocalDate nextWorkingDay(LocalDate currentDate) {
+        boolean isPublicHoliday = isPublicHoliday(currentDate);
+        //找周末或者节假日的下一个工作日
+        if (isPublicHoliday) {
+            currentDate = currentDate.plusDays(1);
+            return nextWorkingDay(currentDate);
+        }
+        return currentDate;
     }
 }

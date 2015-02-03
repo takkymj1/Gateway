@@ -49,6 +49,10 @@ public enum InvestStatus implements BaseEnum {
      */
     CLEARED("还款完成"),
     /**
+     * 债权转让全部转出
+     */
+    TURNOUT("全部转出"),
+    /**
      * 还款逾期
      */
     OVERDUE("逾期"),

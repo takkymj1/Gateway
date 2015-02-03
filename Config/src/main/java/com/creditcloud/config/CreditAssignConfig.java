@@ -37,6 +37,13 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enablePartlyAssign = false;
+    
+    /**
+     * 承接的债权是否允许二次转让
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableReassign = false;
 
     /**
      * 债权转让最大手续费率
@@ -50,7 +57,7 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal maxCreditAssignDiscountRate = BigDecimal.ZERO;
+    private BigDecimal maxCreditAssignDiscountRate = new BigDecimal(2).divide(new BigDecimal(10));
 
     /**
      * 债权转让费，给平台, 这个暂时不用了,
@@ -145,7 +152,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int maxTimeOut = 72;
+    private int maxTimeOut = 23;
 
     /**
      * 发起债权转让的最小金额
