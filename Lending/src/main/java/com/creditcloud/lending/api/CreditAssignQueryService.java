@@ -99,4 +99,14 @@ public interface CreditAssignQueryService {
      * @return 
      */
     public List<CreditAssign> listByCriteria(PageInfo pageInfo, int minRate, int maxRate, int minLeftMonth, int maxLeftMonth, String repayMethod);
+    
+    /**
+     * get by ids and status
+     *
+     * @author jiadong.cao@fengjr.com
+     * @param creditAssignIds
+     * @param statusList
+     * @return
+     */
+    public List<CreditAssign> listByIdsAndStatus(List<String> creditAssignIds, List<CreditAssignStatus> statusList);
 }
