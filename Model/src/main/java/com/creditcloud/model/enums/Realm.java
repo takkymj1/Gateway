@@ -1,13 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.creditcloud.model.enums;
 
 /**
  * 定义实体相关的域
  *
  * @author rooseek
+ * @author 老叶 新增债权转让合同模板Realm
  */
 public enum Realm implements BaseEnum {
 
@@ -117,6 +114,7 @@ public enum Realm implements BaseEnum {
     CONTRACTTEMPLATE_O2M("合同模板一对多"),
     BROKERAGE_CONTRACTTEMPLATE("居间合同模板"),
     FUNDING_CONTRACTTEMPLATE("众筹合同模板"),
+    ASSIGN_CONTRACTTEMPLATE("债权转让合同模板"),
     
     /**
      * 序列号
