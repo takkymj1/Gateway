@@ -33,19 +33,13 @@ public class BorrowerDetail extends BaseObject {
     @Size(max = 12)
     private BigDecimal BorrowerAmt;
     
-    /**
-     * 借款手续费率
-     */
-    @Size(max = 6)
-    private BigDecimal BorrowerRate;
 
     public BorrowerDetail() {
     }
 
-    public BorrowerDetail(String targetPmUserNo, BigDecimal BorrowerAmt, BigDecimal BorrowerRate) {
+    public BorrowerDetail(String targetPmUserNo, BigDecimal BorrowerAmt) {
         this.targetPmUserNo = targetPmUserNo;
         this.BorrowerAmt = BorrowerAmt;
-        this.BorrowerRate = BorrowerRate;
     }
 
     public String getTargetPmUserNo() {
@@ -56,22 +50,12 @@ public class BorrowerDetail extends BaseObject {
         return BorrowerAmt;
     }
 
-    public BigDecimal getBorrowerRate() {
-        return BorrowerRate;
-    }
-
     public void setTargetPmUserNo(String targetPmUserNo) {
         this.targetPmUserNo = targetPmUserNo;
     }
 
     public void setBorrowerAmt(BigDecimal BorrowerAmt) {
         this.BorrowerAmt = BorrowerAmt;
-    }
-
-    public void setBorrowerRate(BigDecimal BorrowerRate) {
-        this.BorrowerRate = BorrowerRate;
-    }
-    
-    
+    }   
     
 }

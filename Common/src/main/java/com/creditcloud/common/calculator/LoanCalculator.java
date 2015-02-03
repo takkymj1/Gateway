@@ -13,6 +13,7 @@ import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInterest;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.YearlyInterest;
+import com.creditcloud.model.enums.loan.RepaymentPeriod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.LoanRequest;
@@ -45,10 +46,10 @@ public final class LoanCalculator {
 
     /**
      * @deprecated analyze方法已经修正了每月最后一天的问题
-     * 
+     *
      * @param asOfDate
      * @param nextKMonth
-     * @return 
+     * @return
      */
     public static LocalDate countDueDate(final LocalDate asOfDate, int nextKMonth) {
         final int[][] leap = {{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
@@ -71,15 +72,15 @@ public final class LoanCalculator {
     }
 
     /**
-     * 
+     *
      * @deprecated analyze方法已经修正了每月最后一天的问题
-     * 
+     *
      * @param amount
      * @param duration
      * @param rate
      * @param method
      * @param asOfDate
-     * @return 
+     * @return
      */
     public static LoanDetail analyzeNew(final int amount,
                                         final Duration duration,
@@ -102,7 +103,7 @@ public final class LoanCalculator {
      *
      * @param amount
      * @param duration
-     * @param rate 2400 means 24.00%
+     * @param rate     2400 means 24.00%
      * @param method
      * @param asOfDate
      * @return
@@ -114,13 +115,40 @@ public final class LoanCalculator {
                                      final LocalDate asOfDate) {
         return analyze(BigDecimal.valueOf(amount), duration, rate, method, asOfDate);
     }
-    
+
     /**
      * 根据参数分析还款表.
-     * 
+     *
      * @param amount
      * @param duration
-     * @param rate 2400 means 24.00%
+     * @param rate     2400 means 24.00%
+     * @param method
+     * @param asOfDate 起息日，1月31日起息，三个月，还款日应为: 2月28(闰年29)、3月31、4月30
+     * @param period   还款周期
+     * @return
+     */
+    public static LoanDetail analyze(final BigDecimal amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate,
+                                     final RepaymentPeriod period) {
+        if (period == null) {
+            return analyze(amount, duration, rate, method, asOfDate);
+        }
+        if (!method.isExtensible()) {
+            throw new IllegalArgumentException(method + "is not extensible repayment.");
+        }
+        //TODO
+        return null;
+    }
+
+    /**
+     * 根据参数分析还款表.
+     *
+     * @param amount
+     * @param duration
+     * @param rate     2400 means 24.00%
      * @param method
      * @param asOfDate 起息日，1月31日起息，三个月，还款日应为: 2月28(闰年29)、3月31、4月30
      * @return
@@ -146,10 +174,11 @@ public final class LoanCalculator {
                 interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
                 //add monthly interest
                 interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
-                
+
                 //如果day不为空，则使用按天计算利息
-                if(duration.getDays() > 0)
+                if (duration.getDays() > 0) {
                     interest = principal.multiply(rateDay).multiply(new BigDecimal(duration.getTotalDays()));
+                }
 
                 //ceilling the interest
                 interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
@@ -307,8 +336,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount 金额
-     * @param rate 利率，2400代表24%
+     * @param amount   金额
+     * @param rate     利率，2400代表24%
      * @param duration 期限
      * @return
      */
@@ -319,8 +348,8 @@ public final class LoanCalculator {
     /**
      * 快速计算利息
      *
-     * @param amount 金额
-     * @param rate 利率，2400代表24%
+     * @param amount   金额
+     * @param rate     利率，2400代表24%
      * @param duration 期限
      * @return
      */
