@@ -63,6 +63,11 @@ public class CorporationUser extends BaseObject {
     @Size(max = CorporationConstant.MAX_CORP_CTG_LEN)
     private String category;
     
+    //开户银行许可证
+    @NotNull
+    private String bankLicense;
+
+    
     /**
      * 是否第三方机构
      * 
@@ -79,7 +84,8 @@ public class CorporationUser extends BaseObject {
                            String taxCode,
                            CorporationType type,
                            String category,
-                           String legalPersonId) {
+                           String legalPersonId,
+                           String bankLicense) {
         this.user = user;
         this.name = name;
         this.shortName = shortName;
@@ -100,6 +106,7 @@ public class CorporationUser extends BaseObject {
                            CorporationType type,
                            String category,
                            String legalPersonId,
+                           String bankLicense,
                            Boolean rtpo) {
         this.user = user;
         this.name = name;
