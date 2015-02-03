@@ -105,7 +105,8 @@ public class CorporationUser extends BaseObject {
                            CorporationType type,
                            String category,
                            String legalPersonId,
-                           Boolean rtpo) {
+                           Boolean rtpo,
+                           String bankLicense) {
         this.user = user;
         this.name = name;
         this.shortName = shortName;
