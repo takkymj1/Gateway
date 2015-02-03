@@ -442,4 +442,15 @@ public interface SentinelService {
      * @param scoreMembers 
      */
     public void putSortedSet(CacheType type, String key, Map<String, Double> scoreMembers);
+    
+    /**
+     * Returns all keys matching pattern.
+     * While the time complexity for this operation is O(N), the constant times are fairly low. 
+     * For example, Redis running on an entry level laptop can scan a 1 million key database in 40 milliseconds.
+     * 
+     * @param type
+     * @param key
+     * @return 
+     */
+    public Set<String> getMatchKeys(CacheType type, String key);
 }
