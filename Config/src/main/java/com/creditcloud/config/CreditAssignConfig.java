@@ -79,7 +79,7 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private int assignableDateCarrayInterest;
+    private int assignableMonthCarrayInterest;
     
     /**
      * 距离到期前一定期限内不可以转让, 单位为天
@@ -101,6 +101,27 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private String endAssignableTime;
+    
+    /**
+     * 最低折让率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal minDicountRate;
+    
+    /**
+     * 最高折让率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal maxDicountRate;
+    
+    /**
+     * 转让申请的失效时间
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String assignApplyExpireTime;
     
     /**
      * 持有原始债权一定天数后才转让将免收债权转让费用
