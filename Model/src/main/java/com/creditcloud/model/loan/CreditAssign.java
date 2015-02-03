@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 @XmlRootElement
 public class CreditAssign extends BaseObject {

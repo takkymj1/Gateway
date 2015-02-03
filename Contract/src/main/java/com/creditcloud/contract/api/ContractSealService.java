@@ -22,14 +22,11 @@ public interface ContractSealService {
     /**
      * 创建合同章
      * @param clientCode
-     * @param page          合同模板页码
-     * @param x             合同章横坐标
-     * @param y             合同章纵坐标
      * @param sealId        合同特征章ID
      * @param templateId    合同模板
      * @return 
      */
-    public ContractSeal createContractSeal(String clientCode, int page, int x, int y, String sealId, String templateId);
+    public ContractSeal createContractSeal(String clientCode, String sealId, String templateId);
     
     /**
      * 创建特征章 (公章&私章)
