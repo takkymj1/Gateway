@@ -476,4 +476,10 @@ public interface ContractService {
      * @return 
      */
     public void generateCrowdFundingContracts(String projectId, String templateId);
+    
+    /**
+     * 批量确认合同信息，将确认的合同的confirm属性设置为true
+     * @param contractIdList 
+     */
+    public void confirmContract(List<String> contractIdList);
 }

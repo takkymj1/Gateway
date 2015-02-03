@@ -133,6 +133,11 @@ public class FundingReward extends BaseObject {
      */
     private String mobileSpecialTopic;
     
+     /**
+     * 回报所属众筹名称
+     */
+    private String projectName;
+    
     /**
      * 
      * @param id
