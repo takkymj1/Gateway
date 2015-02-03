@@ -412,9 +412,34 @@ public interface SentinelService {
      * Returns all fields and values of the hash stored at key. In the returned value, 
      * every field name is followed by its value, 
      * so the length of the reply is twice the size of the hash.
+     * 
      * @param type
      * @param key
      * @return 
      */
     public Map<String,String> getAllHashvalues(CacheType type, String key);
+    
+    /**
+     * Sets the specified fields to their respective values in the hash stored at key. 
+     * This command overwrites any existing fields in the hash. 
+     * If key does not exist, a new key holding a hash is created.
+     * 
+     * @param type
+     * @param key
+     * @param value 
+     */
+    public void putHashvalues(CacheType type, String key, Map<String, String> value);
+    
+    /**
+     * Adds all the specified members with the specified scores to the sorted set stored at key. 
+     * It is possible to specify multiple score / member pairs. 
+     * If a specified member is already a member of the sorted set, the score is updated and the element reinserted at the right position to ensure the correct ordering.
+     * If key does not exist, a new sorted set with the specified members as sole members is created, like if the sorted set was empty. 
+     * If the key exists but does not hold a sorted set, an error is returned.The score values should be the string representation of a double precision floating point number. +inf and -inf values are valid values as well.
+     * 
+     * @param type
+     * @param key
+     * @param scoreMembers 
+     */
+    public void putSortedSet(CacheType type, String key, Map<String, Double> scoreMembers);
 }
