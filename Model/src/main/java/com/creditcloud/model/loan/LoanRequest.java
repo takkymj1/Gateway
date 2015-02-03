@@ -8,12 +8,15 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.enums.loan.GuarantyStyle;
 import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.LoanRequestAssignType;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
+import com.creditcloud.model.user.corporation.CorporationUser;
 import java.util.Collection;
 import java.util.Date;
 import javax.validation.Valid;
@@ -24,8 +27,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.creditcloud.model.user.corporation.CorporationUser;
-import com.creditcloud.model.enums.loan.GuarantyStyle;
 
 /**
  *
@@ -220,6 +221,13 @@ public class LoanRequest extends BaseObject {
     private int comprehensiveRate;
 
     /**
+     * 目的
+     */
+    @NotNull
+    @XmlElement(name = "assignable")
+    private LoanRequestAssignType assignable;
+    
+    /**
      *
      * @param id          LoanRequest Id, nullable
      * @param user        用户
@@ -253,7 +261,8 @@ public class LoanRequest extends BaseObject {
                        String guaranteeInfo,
                        String riskInfo,
                        String serial,
-                       InvestRule investRule) {
+                       InvestRule investRule,
+                       LoanRequestAssignType assignable) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -275,6 +284,7 @@ public class LoanRequest extends BaseObject {
         this.riskInfo = riskInfo;
         this.serial = serial;
         this.investRule = investRule;
+        this.assignable = assignable;
     }
 
     public String getUserId() {
