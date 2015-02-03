@@ -47,6 +47,16 @@ public interface InvestRepayService extends InvestRepayQueryService {
                                     int period);
 
     public boolean repay(String id, BigDecimal repayAmount, RealmEntity repaySource);
+    
+    /**
+     * 债权转让全部转出后，更新债权人还款计划时使用
+     * @param id
+     * @param repayAmount
+     * @param repaySource
+     * @param status
+     * @return 
+     */
+    public boolean creditAssignDeprecated(String id, BigDecimal repayAmount, RealmEntity repaySource, RepaymentStatus status);
 
     /**
      * get first invest repayment by invest and status with ascending duedate

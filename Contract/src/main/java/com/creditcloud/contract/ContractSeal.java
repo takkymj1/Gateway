@@ -26,20 +26,11 @@ public class ContractSeal extends BaseObject {
     
     private String id;
     
-    private boolean locateByKeyword = false;
-    
-    private String keyword;
+    private String keyword;//盖章位置定位关键词#xxx#
     
     public String getKeyword(){
         return keyword != null ? keyword.trim() : keyword;
     }
-    
-    // 页码
-    private int page;
-    
-    private int x;
-    
-    private int y;
     
     // 印章
     private Seal seal;
@@ -47,66 +38,43 @@ public class ContractSeal extends BaseObject {
     // 关联合同模板
     private String templateId;
     
-    public ContractSeal(String id, int page, int x, int y, Seal seal, String templateId){
+    public ContractSeal(String id, Seal seal, String keyword, String templateId){
         this.id = id;
-        this.page = page;
-        this.x = x;
-        this.y = y;
         this.seal = seal;
+        this.keyword = keyword;
         this.templateId = templateId;
     }
     
     /**
      * 生成私章（电子签名）
-     * @param code  证书
-     * @param page  私章在 pdf 页码
-     * @param x     私章在 pdf 的横坐标
-     * @param y     私章在 pdf 的纵坐标
+     * @param code
+     * @param keyword
      * @return 
      */
-    public static ContractSeal generatePersonContractSeal(String code, int page, int x, int y) {
-        Seal seal = new Seal(null, code, ContractSealType.PERSONAL, null, null, null, null);
-        return new ContractSeal(null, false, "", page, x, y, seal, null);
-    }
-    
     public static ContractSeal generatePersonContractSeal(String code, String keyword) {
         Seal seal = new Seal(null, code, ContractSealType.PERSONAL, null, null, null, null);
-        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
+        return new ContractSeal(null, seal, keyword, null);
     }
     
     /**
      * 生成私章（电子签名）
-     * @param user  用户
-     * @param page  私章在 pdf 页码
-     * @param x     私章在 pdf 的横坐标
-     * @param y     私章在 pdf 的纵坐标
+     * @param user
+     * @param keyword
      * @return 
      */
-    public static ContractSeal generatePersonContractSeal(User user, int page, int x, int y) {
-        Seal seal = new Seal(null, null, ContractSealType.PERSONAL, null, user.getId(), user, null);
-        return new ContractSeal(null, false, "", page, x, y, seal, null);
-    }
-    
     public static ContractSeal generatePersonContractSeal(User user, String keyword) {
         Seal seal = new Seal(null, null, ContractSealType.PERSONAL, null, user.getId(), user, null);
-        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
+        return new ContractSeal(null, seal, keyword, null);
     }
     
     /**
      * 生成公章
-     * @param code  特征码
-     * @param page  私章在 pdf 页码
-     * @param x     私章在 pdf 的横坐标
-     * @param y     私章在 pdf 的纵坐标
+     * @param code
+     * @param keyword
      * @return 
      */
-    public static ContractSeal generateContractSeal(String code, int page, int x, int y) {
-        Seal seal = new Seal(null, code, ContractSealType.ENTERPRISE, null, null, null, null);
-        return new ContractSeal(null, false, "", page, x, y, seal, null);
-    }
-    
     public static ContractSeal generateContractSeal(String code, String keyword){
         Seal seal = new Seal(null, code, ContractSealType.ENTERPRISE, null, null, null, null);
-        return new ContractSeal(null, true, keyword, 0, 0, 0, seal, null);
+        return new ContractSeal(null, seal, keyword, null);
     }
 }
