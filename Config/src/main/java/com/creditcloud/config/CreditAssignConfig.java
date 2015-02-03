@@ -57,7 +57,7 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal maxCreditAssignDiscountRate = BigDecimal.ONE.divide(new BigDecimal(10));
+    private BigDecimal maxCreditAssignDiscountRate = new BigDecimal(2).divide(new BigDecimal(10));
 
     /**
      * 债权转让费，给平台, 这个暂时不用了,
