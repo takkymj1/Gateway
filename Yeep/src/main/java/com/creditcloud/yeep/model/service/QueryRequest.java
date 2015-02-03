@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.yeep.enums.QueryModel;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,14 +25,14 @@ public class QueryRequest extends BaseRequest {
     
     //查询模式
     @NotNull
-    private String mode;
+    private QueryModel mode;
 
     public QueryRequest() {
     }
     
     public QueryRequest(String platformNo,
                         String requestNo,
-                        String mode) {
+                        QueryModel mode) {
         super(platformNo,null,null,null);
         this.requestNo = requestNo;
         this.mode = mode;
@@ -41,7 +42,7 @@ public class QueryRequest extends BaseRequest {
         return requestNo;
     }
 
-    public String getMode() {
+    public QueryModel getMode() {
         return mode;
     }
 
@@ -49,7 +50,7 @@ public class QueryRequest extends BaseRequest {
         this.requestNo = requestNo;
     }
 
-    public void setMode(String mode) {
+    public void setMode(QueryModel mode) {
         this.mode = mode;
     }
     

@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseRequest;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;

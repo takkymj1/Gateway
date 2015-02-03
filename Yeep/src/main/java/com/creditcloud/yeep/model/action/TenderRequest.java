@@ -6,6 +6,8 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.StringUtils;
@@ -27,7 +29,7 @@ public class TenderRequest extends UserRequest {
      * 标的金额
      */
     @NotNull
-    private String transferAmount;
+    private BigDecimal transferAmount;
 
     /**
      * 借款人平台用户编号
@@ -39,7 +41,7 @@ public class TenderRequest extends UserRequest {
      * 本次投标金额，至少0.01元
      */
     @NotNull
-    private String paymentAmount;
+    private BigDecimal paymentAmount;
 
     /**
      * 超过此时间久不容许用户投标，格式为“YYYY-mm-dd”
@@ -54,9 +56,9 @@ public class TenderRequest extends UserRequest {
                          String platformUserNo,
                          String requestNo,
                          String orderNo,
-                         String transferAmount,
+                         BigDecimal transferAmount,
                          String targetPlatformUserNo,
-                         String paymentAmount,
+                         BigDecimal paymentAmount,
                          String expired,
                          String callbackUrl,
                          String notifyUrl) {
@@ -72,7 +74,7 @@ public class TenderRequest extends UserRequest {
         return orderNo;
     }
 
-    public String getTransferAmount() {
+    public BigDecimal getTransferAmount() {
         return transferAmount;
     }
 
@@ -80,7 +82,7 @@ public class TenderRequest extends UserRequest {
         return targetPlatformUserNo;
     }
 
-    public String getPaymentAmount() {
+    public BigDecimal getPaymentAmount() {
         return paymentAmount;
     }
 
@@ -92,7 +94,7 @@ public class TenderRequest extends UserRequest {
         this.orderNo = orderNo;
     }
 
-    public void setTransferAmount(String transferAmount) {
+    public void setTransferAmount(BigDecimal transferAmount) {
         this.transferAmount = transferAmount;
     }
 
@@ -100,7 +102,7 @@ public class TenderRequest extends UserRequest {
         this.targetPlatformUserNo = targetPlatformUserNo;
     }
 
-    public void setPaymentAmount(String paymentAmount) {
+    public void setPaymentAmount(BigDecimal paymentAmount) {
         this.paymentAmount = paymentAmount;
     }
 

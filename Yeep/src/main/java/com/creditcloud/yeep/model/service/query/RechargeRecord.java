@@ -25,7 +25,7 @@ public class RechargeRecord extends BaseObject {
     private String userNo;
     
     @NotNull
-    private Date createTime;
+    private String createTime;
     
     @NotNull
     private Status status;  
@@ -33,7 +33,7 @@ public class RechargeRecord extends BaseObject {
     public RechargeRecord() {
     }
 
-    public RechargeRecord(BigDecimal amount, String userNo, Date createTime, Status status) {
+    public RechargeRecord(BigDecimal amount, String userNo, String createTime, Status status) {
         this.amount = amount;
         this.userNo = userNo;
         this.createTime = createTime;
@@ -48,7 +48,7 @@ public class RechargeRecord extends BaseObject {
         return userNo;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
@@ -64,7 +64,7 @@ public class RechargeRecord extends BaseObject {
         this.userNo = userNo;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

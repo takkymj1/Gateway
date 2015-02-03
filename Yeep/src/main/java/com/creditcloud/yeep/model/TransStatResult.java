@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.TransStat;
 import com.creditcloud.yeep.enums.QueryTransType;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;

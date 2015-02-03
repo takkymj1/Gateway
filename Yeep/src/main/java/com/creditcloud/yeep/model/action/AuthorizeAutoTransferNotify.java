@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -20,7 +21,7 @@ public class AuthorizeAutoTransferNotify extends UserNotification {
 
     public AuthorizeAutoTransferNotify(String platformUserNo,
                                              String platformNo,
-                                             String bizType,
+                                             BizType bizType,
                                              String code,
                                              String message,
                                              String sign) {

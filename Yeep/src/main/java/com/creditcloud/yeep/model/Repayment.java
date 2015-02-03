@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model;
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 /**
@@ -24,11 +25,11 @@ public class Repayment extends BaseObject {
     
     //还款金额。投资人到账金额=还款金额-平台分润,至少 0.01 元
     @NotNull
-    private String amount;
+    private BigDecimal amount;
     
     //平台分润
     @NotNull
-    private String fee;
+    private BigDecimal fee;
 
     public Repayment() {
     }
@@ -36,8 +37,8 @@ public class Repayment extends BaseObject {
     
     public Repayment(String paymentRequestNo,
                      String targetUserNo,
-                     String amount,
-                     String fee) {
+                     BigDecimal amount,
+                     BigDecimal fee) {
         this.paymentRequestNo = paymentRequestNo;
         this.targetUserNo = targetUserNo;
         this.amount = amount;
@@ -52,11 +53,11 @@ public class Repayment extends BaseObject {
         return targetUserNo;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
@@ -68,11 +69,11 @@ public class Repayment extends BaseObject {
         this.targetUserNo = targetUserNo;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setFee(String fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
    

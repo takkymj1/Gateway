@@ -25,9 +25,9 @@ public class PaymentRecord extends BaseObject {
     private String sourceUserNo;
     
     @NotNull
-    private Date createTime;
+    private String createTime;
     
-    private Date loanTime;
+    private String loanTime;
     
     @NotNull
     private Status status;
@@ -35,7 +35,7 @@ public class PaymentRecord extends BaseObject {
     public PaymentRecord() {
     }
 
-    public PaymentRecord(BigDecimal paymentAmount, String sourceUserNo, Date createTime, Date loanTime, Status status) {
+    public PaymentRecord(BigDecimal paymentAmount, String sourceUserNo, String createTime, String loanTime, Status status) {
         this.paymentAmount = paymentAmount;
         this.sourceUserNo = sourceUserNo;
         this.createTime = createTime;
@@ -51,11 +51,11 @@ public class PaymentRecord extends BaseObject {
         return sourceUserNo;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public Date getLoanTime() {
+    public String getLoanTime() {
         return loanTime;
     }
 
@@ -71,11 +71,11 @@ public class PaymentRecord extends BaseObject {
         this.sourceUserNo = sourceUserNo;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
-    public void setLoanTime(Date loanTime) {
+    public void setLoanTime(String loanTime) {
         this.loanTime = loanTime;
     }
 

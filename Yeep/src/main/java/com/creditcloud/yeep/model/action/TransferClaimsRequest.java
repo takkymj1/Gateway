@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -32,7 +33,7 @@ public class TransferClaimsRequest extends UserRequest {
      * 债权购买人出资的金额
      */
     @NotNull
-    private String amount;
+    private BigDecimal amount;
 
     public TransferClaimsRequest() {
     }
@@ -42,7 +43,7 @@ public class TransferClaimsRequest extends UserRequest {
                                  String requestNo,
                                  String orderNo,
                                  String paymentRequestNo,
-                                 String amount,
+                                 BigDecimal amount,
                                  String notifyUrl) {
         super(platformUserNo, platformNo, null, requestNo,null,notifyUrl);
         this.orderNo = orderNo;
@@ -58,7 +59,7 @@ public class TransferClaimsRequest extends UserRequest {
         return paymentRequestNo;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -70,7 +71,7 @@ public class TransferClaimsRequest extends UserRequest {
         this.paymentRequestNo = paymentRequestNo;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }   
 
