@@ -34,7 +34,7 @@
     <endAssignableTime>22:10</endAssignableTime>  <!-- 可转让日每天哪个时刻以后不可以再申请转让 -->
     <assignApplyExpireTime>23:10</assignApplyExpireTime>  <!-- 转让申请的失效时间 -->
     
-    <minDicountRate>0.0</minDicountRate>  <!-- 最低折让率 -->
-    <maxDicountRate>0.20</maxDicountRate>  <!-- 最高折让率 -->
+    <minDiscountRate>0.0</minDiscountRate>  <!-- 最低折让率 -->
+    <maxDiscountRate>0.20</maxDiscountRate>  <!-- 最高折让率 -->
     
 </CreditAssignConfig>

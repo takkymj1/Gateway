@@ -47,11 +47,4 @@ public interface CreditAssignService extends CreditAssignQueryService {
      */
     public CreditAssign find(String creditAssignId);
     
-   /**
-    * 
-    * @param investIdList
-    * @param statusList
-    * @return 
-    */ 
-    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
 }
