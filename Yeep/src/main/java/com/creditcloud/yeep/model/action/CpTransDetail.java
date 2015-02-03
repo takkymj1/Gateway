@@ -6,6 +6,10 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.MemberType;
+import com.creditcloud.yeep.enums.UserType;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlType;
 
@@ -18,11 +22,11 @@ import javax.xml.bind.annotation.XmlType;
 public class CpTransDetail extends BaseObject {
     //转入金额
     @NotNull
-    private String amount;
+    private BigDecimal amount;
     
     //用户类型
     @NotNull
-    private String targetUserType;
+    private UserType targetUserType;
     
     //平台用户标号
     @NotNull
@@ -30,23 +34,23 @@ public class CpTransDetail extends BaseObject {
     
     //固定值TRANSFER
     @NotNull
-    private String bizType;
+    private BizType bizType;
 
     public CpTransDetail() {
     }
 
-    public CpTransDetail(String amount, String targetUserType, String targetPlatformUserNo, String bizType) {
+    public CpTransDetail(BigDecimal amount, UserType targetUserType, String targetPlatformUserNo, BizType bizType) {
         this.amount = amount;
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
         this.bizType = bizType;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getTargetUserType() {
+    public UserType getTargetUserType() {
         return targetUserType;
     }
 
@@ -54,15 +58,15 @@ public class CpTransDetail extends BaseObject {
         return targetPlatformUserNo;
     }
 
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setTargetUserType(String targetUserType) {
+    public void setTargetUserType(UserType targetUserType) {
         this.targetUserType = targetUserType;
     }
 
@@ -70,7 +74,7 @@ public class CpTransDetail extends BaseObject {
         this.targetPlatformUserNo = targetPlatformUserNo;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
     

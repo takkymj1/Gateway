@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
@@ -23,7 +24,7 @@ public abstract class BaseNotification extends BaseObject {
     private String platformNo;
 
     @NotNull
-    private String bizType;
+    private BizType bizType;
 
     @NotNull
     private String code;
@@ -37,7 +38,7 @@ public abstract class BaseNotification extends BaseObject {
     }
 
     public BaseNotification(String platformNo,
-                            String bizType,
+                            BizType bizType,
                             String code,
                             String message,
                             String sign) {
@@ -54,7 +55,7 @@ public abstract class BaseNotification extends BaseObject {
     }
 
 
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
@@ -75,7 +76,7 @@ public abstract class BaseNotification extends BaseObject {
         this.platformNo = platformNo;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
 

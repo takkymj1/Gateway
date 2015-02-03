@@ -6,6 +6,9 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.BizType;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
@@ -19,19 +22,19 @@ public class record extends BaseObject {
     //业务类型
     @NotNull
     @XmlTransient
-    private String bizType;
+    private BizType bizType;
     
     @NotNull
     @XmlTransient
-    private String fee;  
+    private BigDecimal fee;  
     
     @NotNull
     @XmlTransient
-    private String balance;
+    private BigDecimal balance;
 
     @NotNull
     @XmlTransient
-    private String amount;
+    private BigDecimal amount;
     
     @NotNull
     @XmlTransient
@@ -48,7 +51,7 @@ public class record extends BaseObject {
     public record() {
     }
 
-    public record(String bizType, String fee,String balance, String amount, String time, String requestNo, String platformNo) {
+    public record(BizType bizType, BigDecimal fee,BigDecimal balance, BigDecimal amount, String time, String requestNo, String platformNo) {
         this.bizType = bizType;
         this.fee = fee;
         this.amount = amount;
@@ -61,22 +64,22 @@ public class record extends BaseObject {
 
     
     @XmlAttribute(name ="bizType")
-    public String getBizType() {
+    public BizType getBizType() {
         return bizType;
     }
 
     @XmlAttribute(name ="fee")
-    public String getFee() {
+    public BigDecimal getFee() {
         return fee;
     }
 
     @XmlAttribute(name ="balance")
-    public String getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
     
     @XmlAttribute(name ="amount")
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -95,19 +98,19 @@ public class record extends BaseObject {
         return platformNo;
     }
 
-    public void setBizType(String bizType) {
+    public void setBizType(BizType bizType) {
         this.bizType = bizType;
     }
 
-    public void setFee(String fee) {
+    public void setFee(BigDecimal fee) {
         this.fee = fee;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

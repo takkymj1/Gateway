@@ -5,10 +5,11 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -21,7 +22,7 @@ public class RepaymentResponse extends BaseResponse {
      * 固定值REPAYMENT
      */
     @NotNull
-    private String service;
+    private ServiceType service;
 
     /**
      * 请求流水号
@@ -33,7 +34,7 @@ public class RepaymentResponse extends BaseResponse {
     }
 
     public RepaymentResponse(String platformNo,
-                             String service,
+                             ServiceType service,
                              String requestNo,
                              String code,
                              String description) {
@@ -42,7 +43,7 @@ public class RepaymentResponse extends BaseResponse {
         this.requestNo = requestNo;
     }
 
-    public String getService() {
+    public ServiceType getService() {
         return service;
     }
 
@@ -50,7 +51,7 @@ public class RepaymentResponse extends BaseResponse {
         return requestNo;
     }
 
-    public void setService(String service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }
 

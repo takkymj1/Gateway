@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.MemberClassType;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -80,7 +81,7 @@ public class CorpRegisterRequest extends UserRequest {
      * ENTEPRISE:企业借款人 GUARANTEE_CORP:担保公司
      */
     @NotNull
-    private String memberClassType;
+    private MemberClassType memberClassType;
 
     public CorpRegisterRequest() {
     }
@@ -98,7 +99,7 @@ public class CorpRegisterRequest extends UserRequest {
                                String contact,
                                String contactPhone,
                                String email,
-                               String memberClassType,
+                               MemberClassType memberClassType,
                                String callbackUrl,
                                String notifyUrl) {
         super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
@@ -155,7 +156,7 @@ public class CorpRegisterRequest extends UserRequest {
         return email;
     }
 
-    public String getMemberClassType() {
+    public MemberClassType getMemberClassType() {
         return memberClassType;
     }
 
@@ -199,7 +200,7 @@ public class CorpRegisterRequest extends UserRequest {
         this.email = email;
     }
 
-    public void setMemberClassType(String memberClassType) {
+    public void setMemberClassType(MemberClassType memberClassType) {
         this.memberClassType = memberClassType;
     }
     

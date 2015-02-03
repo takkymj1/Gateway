@@ -25,7 +25,7 @@ public class RepaymentRecord extends BaseObject {
     private String targetUserNo;
     
     @NotNull
-    private Date createTime;
+    private String createTime;
     
     @NotNull
     private Status status; 
@@ -33,7 +33,7 @@ public class RepaymentRecord extends BaseObject {
     public RepaymentRecord() {
     }
 
-    public RepaymentRecord(BigDecimal repaymentAmount, String targetUserNo, Date createTime, Status status) {
+    public RepaymentRecord(BigDecimal repaymentAmount, String targetUserNo, String createTime, Status status) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
         this.createTime = createTime;
@@ -48,7 +48,7 @@ public class RepaymentRecord extends BaseObject {
         return targetUserNo;
     }
 
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
@@ -64,7 +64,7 @@ public class RepaymentRecord extends BaseObject {
         this.targetUserNo = targetUserNo;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
