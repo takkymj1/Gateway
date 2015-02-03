@@ -114,14 +114,14 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal minDicountRate;
+    private BigDecimal minDiscountRate;
     
     /**
      * 最高折让率
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal maxDicountRate;
+    private BigDecimal maxDiscountRate;
     
     /**
      * 转让申请的失效时间
