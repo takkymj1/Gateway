@@ -64,7 +64,6 @@ public class CorporationUser extends BaseObject {
     private String category;
     
     //开户银行许可证
-    @NotNull
     private String bankLicense;
 
     
@@ -84,8 +83,7 @@ public class CorporationUser extends BaseObject {
                            String taxCode,
                            CorporationType type,
                            String category,
-                           String legalPersonId,
-                           String bankLicense) {
+                           String legalPersonId) {
         this.user = user;
         this.name = name;
         this.shortName = shortName;
@@ -106,7 +104,6 @@ public class CorporationUser extends BaseObject {
                            CorporationType type,
                            String category,
                            String legalPersonId,
-                           String bankLicense,
                            Boolean rtpo) {
         this.user = user;
         this.name = name;
