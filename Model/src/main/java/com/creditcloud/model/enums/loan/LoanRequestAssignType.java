@@ -8,7 +8,7 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  * 标的可转让类别
- * @author admin
+ * @author jiaguangfu
  */
 public enum LoanRequestAssignType implements BaseEnum {
 
