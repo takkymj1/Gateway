@@ -81,7 +81,7 @@ public class CorpRegisterRequest extends UserRequest {
      * ENTEPRISE:企业借款人 GUARANTEE_CORP:担保公司
      */
     @NotNull
-    private MemberClassType memberClassType;
+    private String memberClassType;
 
     public CorpRegisterRequest() {
     }
@@ -99,7 +99,7 @@ public class CorpRegisterRequest extends UserRequest {
                                String contact,
                                String contactPhone,
                                String email,
-                               MemberClassType memberClassType,
+                               String memberClassType,
                                String callbackUrl,
                                String notifyUrl) {
         super(platformUserNo, platformNo, null, requestNo, callbackUrl, notifyUrl);
@@ -156,7 +156,7 @@ public class CorpRegisterRequest extends UserRequest {
         return email;
     }
 
-    public MemberClassType getMemberClassType() {
+    public String getMemberClassType() {
         return memberClassType;
     }
 
@@ -200,7 +200,7 @@ public class CorpRegisterRequest extends UserRequest {
         this.email = email;
     }
 
-    public void setMemberClassType(MemberClassType memberClassType) {
+    public void setMemberClassType(String memberClassType) {
         this.memberClassType = memberClassType;
     }
     
