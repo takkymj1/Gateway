@@ -130,7 +130,7 @@
         <dependency>
             <groupId>com.creditcloud.redis</groupId>
             <artifactId>RedisService</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.1-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
         <dependency>
