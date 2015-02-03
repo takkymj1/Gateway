@@ -17,6 +17,8 @@ public enum RepaymentStatus implements BaseEnum {
     OVERDUE("逾期"),
     BREACH("违约"),
     REPAYED("已还清"),
+    //债权转让全部转出时使用
+    DEPRECATED("已废弃"),
     /**
      * TODO 暂时未用上,一律用REPAYED表示已还状态</p>
      * 出现逾期或违约后，回收或垫付的状态
