@@ -26,7 +26,7 @@ public class CpTransferRecordResponse extends BaseResponse {
     public CpTransferRecordResponse() {
     }
 
-    public CpTransferRecordResponse(List<CpTransferRecord> records, String platformNo, String code, String description) {
+    public CpTransferRecordResponse(String platformNo, String code, String description,List<CpTransferRecord> records) {
         super(platformNo, code, description);
         this.records = records;
     }
@@ -35,6 +35,10 @@ public class CpTransferRecordResponse extends BaseResponse {
     @XmlElement(name="record") 
     public List<CpTransferRecord> getRecords() {
         return records;
+    }
+
+    public void setRecords(List<CpTransferRecord> records) {
+        this.records = records;
     }
 
    
