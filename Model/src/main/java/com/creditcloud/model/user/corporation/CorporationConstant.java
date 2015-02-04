@@ -39,5 +39,8 @@ public interface CorporationConstant {
 
     //营业执照公司类型最大長度
     int MAX_CORP_CTG_LEN = 128;
+    
+    //开户银行许可证
+    int BANKLICENSE_LEN = 14;
 
 }
