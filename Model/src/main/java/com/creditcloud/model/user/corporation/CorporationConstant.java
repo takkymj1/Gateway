@@ -41,6 +41,6 @@ public interface CorporationConstant {
     int MAX_CORP_CTG_LEN = 128;
     
     //开户银行许可证
-    int BANKLICENSE_LEN = 14;
+    int BANK_LICENSE_LEN = 14;
 
 }

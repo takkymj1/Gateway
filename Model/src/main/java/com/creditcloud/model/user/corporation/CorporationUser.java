@@ -64,7 +64,7 @@ public class CorporationUser extends BaseObject {
     private String category;
     
     //开户银行许可证
-    @Size(max = CorporationConstant.BANKLICENSE_LEN)
+    @Size(max = CorporationConstant.BANK_LICENSE_LEN)
     private String bankLicense;
     
     /**
