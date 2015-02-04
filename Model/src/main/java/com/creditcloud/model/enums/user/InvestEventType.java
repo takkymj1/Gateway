@@ -22,7 +22,8 @@ public enum InvestEventType implements BaseEnum {
     //2015.01.09 兼容众筹投资类型，后续最好为众筹单独建立一套投资事件对象
     FUNDINGINVEST("众筹投资"),
     
-    CREDITASSIGN("债权转让");
+    CREDITASSIGN("债权转让"),
+    CREDITASSIGNINVEST("债权转让投资");
 
     private final String key;
 

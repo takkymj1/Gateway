@@ -37,7 +37,7 @@ public interface CreditAssignService extends CreditAssignQueryService {
      * @param bidAmount
      * @return 
      */
-    public boolean markStatus(String creditAssignId, CreditAssignStatus status, int bidNumber, BigDecimal bidAmount);
+    public boolean markStatus(String creditAssignId, CreditAssignStatus status, int bidNumber, BigDecimal bidAmount, BigDecimal bidDealAmount);
 
     /**
      * get by id
