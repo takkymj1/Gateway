@@ -453,4 +453,16 @@ public interface SentinelService {
      * @return 
      */
     public Set<String> getMatchKeys(CacheType type, String key);
+    
+    /**
+     * Returns the score of member in the sorted set at key.
+     * If member does not exist in the sorted set, or key does not exist, nil is returned.
+     * 
+     * @param type
+     * @param key
+     * @param member
+     * @return 
+     * @author xiongyong
+     */
+    public Double getScoreByMember(CacheType type, String key, String member);
 }
