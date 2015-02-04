@@ -141,10 +141,10 @@ public final class LoanCalculator {
         if (!method.isExtensible()) {
             throw new IllegalArgumentException(method + "is not extensible repayment.");
         }
-        if(!method.equals(BulletRepayment)){//一次性还款不需要验证
+        if (!method.equals(BulletRepayment)) {//一次性还款不需要验证
             //period和RepaymentMethod的组合是否合规
             ValidateResult validateResult = LoanValidateUtils.validatePeriodAndDuration(period, duration);
-            if(!validateResult.isSuccess()){
+            if (!validateResult.isSuccess()) {
                 throw new IllegalArgumentException(validateResult.getMessage());
             }
         }
@@ -158,13 +158,13 @@ public final class LoanCalculator {
         BigDecimal ratePeriod = rateMonth.multiply(new BigDecimal(period.getMonthsOfPeriod()));
         //dealing with different methods
         BigDecimal interest, amortizedInterest, amortizedPrincipal, outstandingPrincipal;
-        
+
         int tenure;
         switch (method) {
-            case BulletRepayment :
+            case BulletRepayment:
                 analyze(amount, duration, rate, method, asOfDate);
                 break;
-            case MonthlyInterest : //按period付息，到期还本
+            case MonthlyInterest: //按period付息，到期还本
                 tenure = duration.getTotalMonths() / period.getMonthsOfPeriod();
                 amortizedInterest = principal.multiply(ratePeriod).setScale(2, NumberConstant.ROUNDING_MODE);
                 interest = amortizedInterest.multiply(new BigDecimal(tenure));
@@ -174,14 +174,14 @@ public final class LoanCalculator {
                 for (int i = 0; i < tenure; i++) {
                     if (i < tenure - 1) {    //only interest, no principal
                         result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal,
-                                DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
                     } else {    //last ONE we pay off the principal as well as interest
                         result.getRepayments().add(new Repayment(principal, amortizedInterest, ZERO,
-                                DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
                     }
                 }
                 break;
-            case EqualInstallment : //按period等额本息
+            case EqualInstallment: //按period等额本息
                 //times of repayments in months
                 tenure = (duration.getYears() * 12 + duration.getMonths()) / period.getMonthsOfPeriod();
                 BigDecimal[] is = new BigDecimal[tenure + 1];
@@ -308,19 +308,22 @@ public final class LoanCalculator {
         int tenure;
         switch (method) {
             case BulletRepayment:
-                //add yearly interest
-                interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
-                //add monthly interest
-                interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
-                //add daily interest
-                interest = interest.add(principal.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
+                //天数不为0直接按照日息计算，自然年360天，自然月30天
+                if (duration.getDays() > 0) {
+                    interest = principal.multiply(rateDay).multiply(new BigDecimal(duration.getTotalDays()));
+                } else {
+                    //add yearly interest
+                    interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
+                    //add monthly interest
+                    interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
+                }
 
                 //ceilling the interest
                 interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
                 //create result
                 result = new LoanDetail(principal, interest, duration, BulletRepayment);
                 //add single amortize item
-                result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration)));
+                result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration.getTotalDays())));
                 break;
             case MonthlyInterest:   //in this case we don't need to worry about duration.days since that must be 0
                 amortizedInterest = principal.multiply(rateMonth).setScale(2, NumberConstant.ROUNDING_MODE);

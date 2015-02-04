@@ -51,6 +51,10 @@ public class DateUtils {
     public static LocalDate offset(LocalDate asOfDate, Duration duration) {
         return asOfDate.plusDays(duration.getDays()).plusMonths(duration.getMonths()).plusYears(duration.getYears());
     }
+    
+    public static LocalDate offset(LocalDate asOfDate, int days){
+        return asOfDate.plusDays(days);
+    }
 
     /**
      * list all dates between start date and end date, both day included
