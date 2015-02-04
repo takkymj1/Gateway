@@ -27,13 +27,12 @@ public class EnterpiseRegisterNotify extends UserNotification {
     }
 
     public EnterpiseRegisterNotify(String platformNo,
-                                         BizType bizType,
-                                         String code,
-                                         String message,
-                                         String requestNo,
-                                         String platformUserNo,
-                                         String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+                                   BizType bizType,
+                                   String code,
+                                   String message,
+                                   String requestNo,
+                                   String platformUserNo) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 

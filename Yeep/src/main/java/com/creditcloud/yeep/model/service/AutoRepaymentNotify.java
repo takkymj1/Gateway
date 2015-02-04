@@ -29,13 +29,12 @@ public class AutoRepaymentNotify extends BaseNotification {
     }
     
     public AutoRepaymentNotify(String platformNo,
-                                     BizType bizType,
-                                     String code,
-                                     String message,
-                                     String requestNo,
-                                     String orderNo,
-                                     String sign) {
-        super(platformNo,bizType,code,message,sign);    
+                               BizType bizType,
+                               String code,
+                               String message,
+                               String requestNo,
+                               String orderNo) {
+        super(platformNo,bizType,code,message);    
     } 
 
     public String getRequestNo() {

@@ -27,13 +27,12 @@ public class UserRegisterNotify extends UserNotification {
     }
 
     public UserRegisterNotify(String platformUserNo,
-                                    String platformNo,
-                                    BizType bizType,
-                                    String code,
-                                    String message,
-                                    String requestNo,
-                                    String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+                              String platformNo,
+                              BizType bizType,
+                              String code,
+                              String message,
+                              String requestNo) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
     

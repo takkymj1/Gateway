@@ -21,12 +21,11 @@ public class AuthorizeAutoRepaymentNotify extends UserNotification {
     }
 
     public AuthorizeAutoRepaymentNotify(String platformUserNo,
-                                              String platformNo,
-                                              BizType bizType,
-                                              String code,
-                                              String message,
-                                              String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+                                        String platformNo,
+                                        BizType bizType,
+                                        String code,
+                                        String message) {
+        super(platformUserNo, platformNo, bizType, code, message);
     }
 
 }

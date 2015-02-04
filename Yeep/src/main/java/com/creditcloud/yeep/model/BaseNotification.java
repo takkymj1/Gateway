@@ -9,8 +9,6 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.yeep.enums.BizType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlTransient;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 回调通知
@@ -31,22 +29,17 @@ public abstract class BaseNotification extends BaseObject {
 
     private String message;
     
-    @NotNull
-    private String sign;
-
     public BaseNotification() {
     }
 
     public BaseNotification(String platformNo,
                             BizType bizType,
                             String code,
-                            String message,
-                            String sign) {
+                            String message) {
         this.platformNo = platformNo;
         this.bizType = bizType;
         this.code = code;
         this.message = message;
-        this.sign = sign;
     }
 
     @XmlAttribute (name ="platformNo") 
@@ -66,11 +59,7 @@ public abstract class BaseNotification extends BaseObject {
     public String getMessage() {
         return message;
     }
-    
-    @XmlTransient
-    public String getSign() {
-        return sign;
-    }    
+       
 
     public void setPlatformNo(String platformNo) {
         this.platformNo = platformNo;
@@ -86,10 +75,6 @@ public abstract class BaseNotification extends BaseObject {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
     }
     
     public boolean success() {

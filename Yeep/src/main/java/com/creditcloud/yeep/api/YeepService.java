@@ -7,6 +7,7 @@ package com.creditcloud.yeep.api;
 
 import com.creditcloud.yeep.enums.QueryModel;
 import com.creditcloud.yeep.model.AccountDetail;
+import com.creditcloud.yeep.model.BaseNotification;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.model.FreezeResult;
 import com.creditcloud.yeep.model.ReconciliationResult;
@@ -222,6 +223,7 @@ public interface YeepService extends YeepQueryService {
      * @param response   返回数据
      * @return 0 表示正常，负值为失败
      */
+    
     public int verifyResponse(String clientCode, BaseResponse response);
 
     /**
@@ -234,5 +236,25 @@ public interface YeepService extends YeepQueryService {
      * @return 0 表示正常，负值为失败
      */
     public int verifyResponse(String clientCode, BaseResponse response, String resp, String reSign);
+
+    /**
+     * 无签名验证的直连回调
+     * 
+     * @param clientCode
+     * @param notify
+     * @return 
+     */
+    public int verifyNotify(String clientCode, BaseNotification notify);
+    
+    /**
+     * 签名验证的直连回调
+     *
+     * @param clientCode
+     * @param notify
+     * @param resp
+     * @param reSign
+     * @return 0 表示正常，负值为失败
+     */
+    public int verifyNotify(String clientCode, BaseNotification notify, String resp, String reSign);
 
 }

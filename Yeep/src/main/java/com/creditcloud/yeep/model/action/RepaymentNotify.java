@@ -35,13 +35,12 @@ public class RepaymentNotify extends BaseNotification {
     }
 
     public RepaymentNotify(String platformNo,
-                                 BizType bizType, 
-                                 String code, 
-                                 String message, 
-                                 String requestNo, 
-                                 String orderNo,
-                                 String sign) {
-        super(platformNo, bizType, code, message,sign);
+                           BizType bizType, 
+                           String code, 
+                           String message, 
+                           String requestNo, 
+                           String orderNo) {
+        super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
         this.orderNo = orderNo;
     }
