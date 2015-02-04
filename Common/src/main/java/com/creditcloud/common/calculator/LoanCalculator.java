@@ -5,6 +5,8 @@
 package com.creditcloud.common.calculator;
 
 import com.creditcloud.common.utils.DateUtils;
+import com.creditcloud.common.utils.LoanValidateUtils;
+import com.creditcloud.common.utils.ValidateResult;
 import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
@@ -139,8 +141,144 @@ public final class LoanCalculator {
         if (!method.isExtensible()) {
             throw new IllegalArgumentException(method + "is not extensible repayment.");
         }
-        //TODO
-        return null;
+        if(!method.equals(BulletRepayment)){//一次性还款不需要验证
+            //period和RepaymentMethod的组合是否合规
+            ValidateResult validateResult = LoanValidateUtils.validatePeriodAndDuration(period, duration);
+            if(!validateResult.isSuccess()){
+                throw new IllegalArgumentException(validateResult.getMessage());
+            }
+        }
+
+        LoanDetail result = null;
+        //principal
+        BigDecimal principal = amount;
+        //now get rates
+        BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
+        BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
+        BigDecimal ratePeriod = rateMonth.multiply(new BigDecimal(period.getMonthsOfPeriod()));
+        //dealing with different methods
+        BigDecimal interest, amortizedInterest, amortizedPrincipal, outstandingPrincipal;
+        
+        int tenure;
+        switch (method) {
+            case BulletRepayment :
+                analyze(amount, duration, rate, method, asOfDate);
+                break;
+            case MonthlyInterest : //按period付息，到期还本
+                tenure = duration.getTotalMonths() / period.getMonthsOfPeriod();
+                amortizedInterest = principal.multiply(ratePeriod).setScale(2, NumberConstant.ROUNDING_MODE);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure));
+                //create result
+                result = new LoanDetail(principal, interest, duration, MonthlyInterest);
+                //add amortized items
+                for (int i = 0; i < tenure; i++) {
+                    if (i < duration.getTotalMonths() - 1) {    //only interest, no principal
+                        result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal,
+                                DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    } else {    //last ONE we pay off the principal as well as interest
+                        result.getRepayments().add(new Repayment(principal, amortizedInterest, ZERO,
+                                DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    }
+                }
+                break;
+            case EqualInstallment : //按period等额本息
+                //times of repayments in months
+                tenure = (duration.getYears() * 12 + duration.getMonths()) / period.getMonthsOfPeriod();
+                BigDecimal[] is = new BigDecimal[tenure + 1];
+                for (int i = 0; i <= tenure; i++) {
+                    is[i] = ratePeriod.add(ONE).pow(i);
+                }
+                BigDecimal baseInterest = principal.multiply(ratePeriod);
+                //calc installment
+                BigDecimal installment = baseInterest.multiply(is[tenure]).divide(is[tenure].subtract(ONE), mc);
+                installment = installment.setScale(2, NumberConstant.ROUNDING_MODE);
+                //reset total interest
+                interest = ZERO;
+                //create loanDetail
+                result = new LoanDetail(principal, interest, duration, EqualInstallment);
+                //deal with amortized items
+                outstandingPrincipal = principal;
+                for (int i = 0; i < tenure; i++) {
+                    amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                    amortizedPrincipal = installment.subtract(amortizedInterest);
+                    outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
+                    if (i == tenure - 1) {  //last ONE we need to fix the rounding error and let the oustanding principal be ZERO
+                        result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
+                                                                 amortizedInterest,
+                                                                 ZERO,
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    } else {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 amortizedInterest,
+                                                                 outstandingPrincipal,
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    }
+                    interest = interest.add(amortizedInterest);
+                }
+                //fix interest
+                result.setInterest(interest);
+                break;
+            case EqualPrincipal: //按period等额本金
+                //times of repayments in months
+                tenure = (duration.getYears() * 12 + duration.getMonths()) / period.getMonthsOfPeriod();
+                //calc amortized principal first
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                //calc by each month
+                BigDecimal[] interests = new BigDecimal[tenure];
+                BigDecimal[] outstandingPrincipals = new BigDecimal[tenure];
+                outstandingPrincipal = principal;
+                interest = ZERO;
+                for (int i = 0; i < tenure; i++) {
+                    interests[i] = outstandingPrincipal.multiply(ratePeriod, mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                    interest = interest.add(interests[i]);
+                    outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
+                    outstandingPrincipals[i] = outstandingPrincipal;
+                }
+                //create LoanDetail
+                result = new LoanDetail(principal, interest, duration, EqualInstallment);
+                //deal with amortized items
+                for (int i = 0; i < tenure; i++) {
+                    if (i == tenure - 1) {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipals[i]),
+                                                                 interests[i],
+                                                                 ZERO,
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    } else {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 interests[i],
+                                                                 outstandingPrincipals[i],
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    }
+                }
+                break;
+            case EqualInterest: //按period平息
+                //times of repayments in months
+                tenure = (duration.getYears() * 12 + duration.getMonths()) / period.getMonthsOfPeriod();
+                //calc amortized principal and interest
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedInterest = principal.multiply(ratePeriod).setScale(2, NumberConstant.ROUNDING_MODE);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                //create LoanDetail
+                result = new LoanDetail(principal, interest, duration, EqualInterest);
+                //deal with amortized items
+                outstandingPrincipal = principal;
+                for (int i = 0; i < tenure; i++) {
+                    outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
+                    if (i == tenure - 1) {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal.add(outstandingPrincipal),
+                                                                 amortizedInterest,
+                                                                 ZERO,
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    } else {
+                        result.getRepayments().add(new Repayment(amortizedPrincipal,
+                                                                 amortizedInterest,
+                                                                 outstandingPrincipal,
+                                                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
+                    }
+                }
+                break;
+        }
+        return result;
     }
 
     /**

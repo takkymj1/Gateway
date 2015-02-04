@@ -39,4 +39,21 @@ public enum RepaymentPeriod implements BaseEnum {
     public static RepaymentPeriod getDefaultPeriod() {
         return Monthly;
     }
+    
+    public int getMonthsOfPeriod(){
+        switch (this){
+            case Monthly :
+                return 1;
+            case BiMonthly :
+                return 2;
+            case Quarterly :
+                return 3;
+            case HalfYearly :
+                return 6;
+            case Yearly :
+                return 12;
+            default:
+                return 0;
+        }
+    }
 }
