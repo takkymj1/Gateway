@@ -57,4 +57,8 @@ public final class SMSConfig extends BaseConfig {
     @Getter
     private String ext;
 
+    //for chinacom DES加密key
+    @XmlElement(required = false)
+    @Getter
+    private String deskey;
 }
