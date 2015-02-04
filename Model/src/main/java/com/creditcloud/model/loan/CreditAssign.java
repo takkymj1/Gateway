@@ -142,6 +142,6 @@ public class CreditAssign extends BaseObject {
      * @return
      */
     public BigDecimal getBalance() {
-        return creditAmount.subtract(bidAmount);
+        return creditAmount != null ? creditAmount.subtract(bidAmount) : BigDecimal.ZERO;
     }
 }
