@@ -312,11 +312,8 @@ public final class LoanCalculator {
                 interest = principal.multiply(rateYear).multiply(new BigDecimal(duration.getYears()));
                 //add monthly interest
                 interest = interest.add(principal.multiply(rateMonth).multiply(new BigDecimal(duration.getMonths())));
-
-                //如果day不为空，则使用按天计算利息
-                if (duration.getDays() > 0) {
-                    interest = principal.multiply(rateDay).multiply(new BigDecimal(duration.getTotalDays()));
-                }
+                //add daily interest
+                interest = interest.add(principal.multiply(rateDay).multiply(new BigDecimal(duration.getDays())));
 
                 //ceilling the interest
                 interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
