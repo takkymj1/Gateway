@@ -12,6 +12,7 @@ import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.loan.CreditAssign;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -87,4 +88,36 @@ public interface CreditAssignQueryService {
      * @return
      */
     public PagedResult<Invest> listInvest(String creditAssignId, List<InvestStatus> statusList);
+    
+    /**
+     * list cretiral credit assign 
+     * @param pageInfo
+     * @param minRate
+     * @param maxRate
+     * @param minLeftMonth
+     * @param maxLeftMonth
+     * @param repayMethod
+     * @return 
+     */
+    public List<CreditAssign> listByCriteria(PageInfo pageInfo, int minRate, int maxRate, int minLeftMonth, int maxLeftMonth, String repayMethod);
+    
+    /**
+     * get by ids and status
+     *
+     * @author jiadong.cao@fengjr.com
+     * @param creditAssignIds
+     * @param statusList
+     * @return
+     */
+    public List<CreditAssign> listByIdsAndStatus(List<String> creditAssignIds, List<CreditAssignStatus> statusList);
+    
+   /**
+    * 
+    * @param investIdList
+    * @param statusList
+    * @return 
+    */ 
+    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
+    
+     public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
 }

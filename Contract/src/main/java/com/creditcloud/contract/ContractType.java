@@ -9,14 +9,12 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  * 合同类型
- *
+ * 新增债权转让合同类型@老叶
  * @author sobranie
  */
 public enum ContractType implements BaseEnum {
 
     /**
-     * 平台与借款人之间合同双方合同
-     *//**
      * 平台与借款人之间合同双方合同
      */
     LOAN_CLIENT("借款人与平台合同"),
@@ -24,18 +22,14 @@ public enum ContractType implements BaseEnum {
      * 借款人和投资人之间双方合同或包含平台的三方合同,是默认合同类型
      */
     LOAN("借款合同"),
+
     ADVANCE_REPAY("提前还款补充合同"),
 
-    /**
-     * 居间服务合同 by zaishu.ye@fengjr.com
-     */
     BROKERAGE("居间服务合同"),
     
+    FUNDING("众筹合同"),
     
-    /**
-     * 众筹合同
-     */
-    FUNDING("众筹合同");
+    CREDITASSIGN("债权转让合同");
     
     private final String key;
 

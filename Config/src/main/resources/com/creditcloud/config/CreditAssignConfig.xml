@@ -10,4 +10,31 @@
         <period>SINGLE</period>
         <scope>PRINCIPAL</scope>
     </fee>
+    
+    <lessSixMonthAssignServiceFee> <!--起息6个月内含6个月的转让平台服务费-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.5</rate>
+        <period>SINGLE</period>
+        <scope>ASSIGNAMOUNT</scope>
+    </lessSixMonthAssignServiceFee>
+    
+    <moreSixMonthAssignServiceFee> <!--起息6个月以上的转让平台服务费-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.25</rate>
+        <period>SINGLE</period>
+        <scope>ASSIGNAMOUNT</scope>
+    </moreSixMonthAssignServiceFee>
+    
+    <assignableMonthCarrayInterest>1</assignableMonthCarrayInterest> <!--起息后多长时间后可转让, 单位为月-->
+    <nonassignableBeforeDue>15</nonassignableBeforeDue>  <!--距离到期前一定期限内不可以转让, 单位为天--> 
+    
+    <startAssignableTime>08:10</startAssignableTime>  <!-- 可转让日每天哪个时刻以后可以申请转让 -->
+    <endAssignableTime>22:10</endAssignableTime>  <!-- 可转让日每天哪个时刻以后不可以再申请转让 -->
+    <assignApplyExpireTime>23:10</assignApplyExpireTime>  <!-- 转让申请的失效时间 -->
+    
+    <minDiscountRate>0.0</minDiscountRate>  <!-- 最低折让率 -->
+    <maxDiscountRate>0.20</maxDiscountRate>  <!-- 最高折让率 -->
+    
 </CreditAssignConfig>

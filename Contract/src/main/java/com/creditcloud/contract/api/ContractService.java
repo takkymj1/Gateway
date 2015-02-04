@@ -15,10 +15,8 @@ import com.creditcloud.model.client.Client;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
-import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
-import com.creditcloud.model.user.User;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -30,20 +28,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface ContractService {
-    
-    void testGenerateContract(Client client, Loan loan, String templateId, List<ContractSeal> seals);
-    
-    /**
-     * 生成私章（for user）
-     * @param client    平台        
-     * @param user      用户
-     * @param page      页码
-     * @param x         横坐标
-     * @param y         纵坐标
-     * @return 合同章
-     */
-    ContractSeal generatePersonalSeal(Client client, User user, int page, int x, int y);
-    
     /**
      * 生成一份普通的平台借款合同（电子签名和电子签章） for FMAX.
      *
@@ -99,31 +83,6 @@ public interface ContractService {
                               Map<String, Object> values,
                               List<ContractSeal> seals,
                               Claim claim);
-    
-    /**
-     * 生成一份普通的平台借款合同(平台和借款人签订的合同).
-     *
-     * 只是触发远程的生成过程，为异步调用
-     *
-     * 重复调用将生成新的合同，原有合同不删除
-     *
-     * 借款合同命名为 loan title + client + date，合同名称不是唯一的！
-     *
-     * @param client        平台
-     * @param loanRequest   借款对象
-     * @param repaymentList 还款列表
-     * @param feeConfig     费用配置
-     * @param templateId    合同模板id，为空则使用默认模板或LoanRequest指定的关联模板
-     * @param writing       签名
-     * @param page          签名页码
-     * @param percentX      签名横坐标
-     * @param percentY      签名纵坐标
-     */
-    public void generateLoanContract(Client client, LoanRequest loanRequest,
-                                     List<Repayment> repaymentList,
-                                     FeeConfig feeConfig,
-                                     String templateId,
-                                     byte[] writing, int page, float percentX, float percentY);
     
     /**
      * 生成一份普通的平台借款合同.
@@ -473,9 +432,15 @@ public interface ContractService {
      * 针对众筹项目ID生成所有众筹投资合同（如果项目设定要生成合同的话）
      * @param projectId
      * @param templateId
-     * @return 
      */
     public void generateCrowdFundingContracts(String projectId, String templateId);
+    
+    /**
+     * @author zaishu.ye@fengjr.com
+     * 生成债权转让合同
+     * @param investId 
+     */
+    public void generateCreditAssignContract(String investId);
     
     /**
      * 批量确认合同信息，将确认的合同的confirm属性设置为true
