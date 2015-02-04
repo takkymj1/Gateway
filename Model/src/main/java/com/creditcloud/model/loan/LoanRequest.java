@@ -221,7 +221,7 @@ public class LoanRequest extends BaseObject {
     private int comprehensiveRate;
 
     /**
-     * 目的
+     * 可转让属性
      */
     @NotNull
     @XmlElement(name = "assignable")
