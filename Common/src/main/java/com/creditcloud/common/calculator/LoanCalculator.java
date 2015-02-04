@@ -172,7 +172,7 @@ public final class LoanCalculator {
                 result = new LoanDetail(principal, interest, duration, MonthlyInterest);
                 //add amortized items
                 for (int i = 0; i < tenure; i++) {
-                    if (i < duration.getTotalMonths() - 1) {    //only interest, no principal
+                    if (i < tenure - 1) {    //only interest, no principal
                         result.getRepayments().add(new Repayment(ZERO, amortizedInterest, principal,
                                 DateUtils.offset(asOfDate, new Duration(0, (i + 1) * period.getMonthsOfPeriod(), 0))));
                     } else {    //last ONE we pay off the principal as well as interest
