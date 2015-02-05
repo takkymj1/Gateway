@@ -102,6 +102,15 @@ public interface CorporationUserService {
     CorporationUser getByOrgCode(String clientCode, String orgCode);
 
     /**
+     * 根据银行开户许可号获取
+     *
+     * @param clientCode
+     * @param bankLicense
+     * @return
+     */
+    CorporationUser getByBankLicense(String clientCode, String bankLicense);
+
+    /**
      *
      * @param clientCode
      * @param info
@@ -151,6 +160,7 @@ public interface CorporationUserService {
      * @return
      */
     boolean checkLegalPerson(String clientCode, String legalPersonId);
+
     /**
      * 列出是否属于合作企业信息列表
      *
@@ -160,4 +170,3 @@ public interface CorporationUserService {
      */
     List<CorporationUser> listByRtpo(String clientCode, Boolean rtpo);
 }
- 

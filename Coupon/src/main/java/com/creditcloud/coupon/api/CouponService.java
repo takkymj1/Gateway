@@ -15,17 +15,17 @@ import javax.ejb.Remote;
 
 /**
  * 奖券相关服务接口
- *
- * @author sobranie
+ * 
+* @author sobranie
  */
 @Remote
 public interface CouponService extends CouponQueryService {
 
     /**
      * 发行或修改一批优惠券.
-     *
+     *     
      * 保存coupon package到数据库
-     *
+     *     
      * @param clientCode
      * @param couponPackage
      * @return 是否成功发行并登记
@@ -34,7 +34,7 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 更新优惠券
-     *
+     *     
      * @param clientCode
      * @param couponPlacement
      * @return
@@ -43,9 +43,9 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 分配某个package中的一个具体奖券给owner.
-     *
+     *     
      * 比如分配某张现金券給特定个人在未来使用
-     *
+     *     
      * @param clientCode
      * @param packageId
      * @param owner
@@ -55,16 +55,16 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 根据Invest的基本信息，计算使用某张奖券时将为用户带来的额外收益.
-     * 
+     *     
      * 会考虑使用奖券的状态、使用条件（下线投资额）等
-     * 
+     *     
      * @param clientCode
-     * @param amount        投资金额
-     * @param duration      投资期限
-     * @param rate          投资收益率
-     * @param method        还款方式
-     * @param placementId   使用奖券的id
-     * @return 
+     * @param amount      投资金额
+     * @param duration    投资期限
+     * @param rate        投资收益率
+     * @param method      还款方式
+     * @param placementId 使用奖券的id
+     * @return
      */
     public BigDecimal calculateActualAmount(String clientCode,
                                             BigDecimal amount,
@@ -75,10 +75,10 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 兑现现金券.
-     *
+     *     
      * 对应的CouponPlacement状态改为USED <br/>
      * <b>只有现金券才有效，其他类型不能兑现</b>
-     *
+     *     
      * @param clientCode
      * @param placementId CouponPlacement.id
      * @return 是否成功提交兑现申请
@@ -87,12 +87,12 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 使用加息券或增值券增加某笔投资的收益.
-     *
+     *     
      * 对应的CouponPlacement状态改为USED <br/>
      * <p/>
      * 只有加息券或增值券才适用该方法 <br/>
      * <b>如果某一笔投资已经使用了任意券则不能成功</b>
-     *
+     *     
      * @param clientCode
      * @param placementId
      * @param investId
@@ -102,7 +102,7 @@ public interface CouponService extends CouponQueryService {
 
     /**
      * 审核人员接受并通过该张加息券兑现请求 placed->used, 更新前状态不是placed，则返回false
-     *
+     *     
      * @param clientCode
      * @param placementId
      * @return
@@ -112,29 +112,28 @@ public interface CouponService extends CouponQueryService {
     /**
      * 驳回某张奖券的redeem请求 placed->cancellled, 更新前状态不是placed，则返回false //TODO
      * 确认是否是如此变化
-     *
+     *     
      * @param clientCode
      * @param placementId
      * @return
      */
     public boolean rejectRedeem(String clientCode, String placementId);
-    
+
     /**
      * 当标的流标等情况下，取消奖券使用，重置为replaced状态
-     * 
+     *     
      * @param clientCode
      * @param placementId
-     * @return 
+     * @return
      */
     public boolean cancelRedeem(String clientCode, String placementId);
-    
+
     /**
      * 取消奖券分配，用于奖券发放错误等情况
-     * 
+     *     
      * @param clientCode
      * @param placementId
-     * @return 
+     * @return
      */
     public boolean cancelCouponPlace(String clientCode, String placementId);
-
 }
