@@ -14,6 +14,7 @@ import com.creditcloud.fund.model.record.FundRecord;
 import com.creditcloud.fund.model.record.FundTransfer;
 import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
@@ -191,6 +192,24 @@ public interface FundRecordService {
                          List<FundRecordOperation> operationList,
                          List<FundRecordType> typeList);
 
+    /**
+     * 统计用户资金记录金额总和
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param operationList
+     * @param typeList
+     * @param realmList
+     * @return
+     */
+    BigDecimal sumByUserAndRealm(String clientCode,
+                                 String userId,
+                                 List<FundRecordStatus> statusList,
+                                 List<FundRecordOperation> operationList,
+                                 List<FundRecordType> typeList,
+                                 List<Realm> realmList);
+    
     /**
      * 统计一段时间内用户资金记录数目
      *
