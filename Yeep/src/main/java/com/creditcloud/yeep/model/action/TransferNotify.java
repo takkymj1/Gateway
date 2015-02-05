@@ -26,12 +26,11 @@ public class TransferNotify extends BaseNotification {
     }
 
     public TransferNotify(String platformNo,
-                                BizType bizType,
-                                String code,
-                                String message,
-                                String requestNo,
-                                String sign) {
-        super(platformNo, bizType, code, message,sign);
+                          BizType bizType,
+                          String code,
+                          String message,
+                          String requestNo) {
+        super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 

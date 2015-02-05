@@ -29,12 +29,11 @@ public class CompensatoryNotify extends BaseNotification {
     }
 
     public CompensatoryNotify(String platformNo,
-                                    BizType bizType,
-                                    String code,
-                                    String message,
-                                    String requestNo,
-                                    String sign) {
-        super(platformNo, bizType, code, message,sign);
+                              BizType bizType,
+                              String code,
+                              String message,
+                              String requestNo) {
+        super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 
