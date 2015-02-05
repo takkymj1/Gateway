@@ -8,11 +8,13 @@ package com.creditcloud.common.calculator;
 import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.loan.RepaymentPeriod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import org.joda.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -189,5 +191,255 @@ public class LoanCalculatorTest {
         assertTrue(list.get(0).getDueDate().equals(new LocalDate(2014, 4, 15)));
         assertTrue(list.get(1).getDueDate().equals(new LocalDate(2014, 5, 15)));
         assertTrue(list.get(2).getDueDate().equals(new LocalDate(2014, 6, 15)));
+    }
+    
+    @Test
+    public void testAnalyzeMonthly(){
+        //MonthlyInterest
+        LoanDetail loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.MonthlyInterest, 
+                                            new LocalDate(2015, 01, 22));
+        LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.MonthlyInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Monthly);
+        for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail.getRepayments().get(i);
+            Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
+            assertTrue(repayment.getAmountInterest()
+                    .equals(repaymentWithPeriod.getAmountInterest()));
+        }
+        //EqualInstallment
+        loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInstallment, 
+                                            new LocalDate(2015, 01, 22));
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInstallment, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Monthly);
+        for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail.getRepayments().get(i);
+            Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
+            //period=Monthly时，计算结果应与旧方法一致
+            assertTrue(repayment.getAmountInterest()
+                    .equals(repaymentWithPeriod.getAmountInterest()));
+            assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                    .equals(repaymentWithPeriod.getAmount(RepayType.PrincipalAndInterest)));
+            //验证等额本息
+            if(i > 0 
+                    && i !=  loanDetail.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetail.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+                assertTrue(repaymentWithPeriod.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+            }
+        }
+        //EqualPrincipal
+        loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualPrincipal, 
+                                            new LocalDate(2015, 01, 22));
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualPrincipal, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Monthly);
+        for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail.getRepayments().get(i);
+            Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
+            assertTrue(repayment.getAmountInterest()
+                    .equals(repaymentWithPeriod.getAmountInterest()));
+            assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                    .equals(repaymentWithPeriod.getAmount(RepayType.PrincipalAndInterest)));
+            //验证等额本金
+            if(i > 0 
+                    && i !=  loanDetail.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountPrincipal()
+                        .equals(loanDetail.getRepayments().get(i-1).getAmountPrincipal()));
+                assertTrue(repaymentWithPeriod.getAmountPrincipal()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountPrincipal()));
+            }
+        }
+        //EqualInterest
+        loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2015, 01, 22));
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Monthly);
+        for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail.getRepayments().get(i);
+            Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
+            assertTrue(repayment.getAmountInterest()
+                    .equals(repaymentWithPeriod.getAmountInterest()));
+            assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                    .equals(repaymentWithPeriod.getAmount(RepayType.PrincipalAndInterest)));
+            //验证等额利息
+            if(i > 0 
+                    && i !=  loanDetail.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountInterest()
+                        .equals(loanDetail.getRepayments().get(i-1).getAmountInterest()));
+                assertTrue(repaymentWithPeriod.getAmountInterest()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+            }
+        }
+    }
+    
+    @Test
+    public void testAnalyzeBiMonthly(){
+        LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(0, 6, 0),
+                                            1200, RepaymentMethod.MonthlyInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.BiMonthly);
+        BigDecimal expectedAmortizedInterest = new BigDecimal(1000000 * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
+        BigDecimal expectedPrincipal = new BigDecimal(1000000);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            assertTrue(repayment.getAmountInterest().equals(expectedAmortizedInterest));
+            if(i == loanDetailWithPeriod.getRepayments().size() - 1){
+                assertTrue(repayment.getAmountPrincipal().equals(expectedPrincipal));
+            }
+        }
+        
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(900000), 
+                                            new Duration(0, 6, 0),
+                                            1200, RepaymentMethod.EqualPrincipal, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.BiMonthly);
+        BigDecimal expectedAmortizedPrincipal = new BigDecimal(300000).setScale(2, NumberConstant.ROUNDING_MODE);
+        BigDecimal[] interests = new BigDecimal[3];
+        interests[0] = new BigDecimal(900000 * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
+        interests[1] = new BigDecimal((900000 - 300000) * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
+        interests[2] = new BigDecimal((900000 - 300000 * 2)  * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            assertTrue(repayment.getAmountInterest().equals(interests[i]));
+            if(i == loanDetailWithPeriod.getRepayments().size() - 1){
+                assertTrue(repayment.getAmountPrincipal().equals(expectedAmortizedPrincipal));
+            }
+        }
+    }
+    
+    @Test
+    public void testAnalyzeQuarterly(){
+        LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(1, 0, 0),
+                                            1200, RepaymentMethod.EqualInstallment, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Quarterly);
+        BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            //验证等额本息
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(1, 0, 0),
+                                            1200, RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Quarterly);
+        expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountInterest()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    }
+    
+    @Test
+    public void testAnalyzeHalfYearly(){
+        LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInstallment, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.HalfYearly);
+        BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            //验证等额本息
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(1, 0, 0),
+                                            1200, RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.HalfYearly);
+        expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountInterest()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    }
+    
+    @Test
+    public void testAnalyzeYearly(){
+        LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(4, 0, 0),
+                                            1200, RepaymentMethod.EqualPrincipal, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Yearly);
+        BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            //验证等额本金
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountPrincipal()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountPrincipal()));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    
+        loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(4, 0, 0),
+                                            1200, RepaymentMethod.EqualInterest, 
+                                            new LocalDate(2015, 01, 22),
+                                            RepaymentPeriod.Yearly);
+        expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
+            Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            //验证等额利息
+            if(i > 0 
+                    && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmountInterest()
+                        .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+            }
+        }
+        assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
     }
 }
