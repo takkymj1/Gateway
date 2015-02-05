@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
  * @author rooseek
  */
 @Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 @XmlRootElement
 public class CreditAssign extends BaseObject {
@@ -77,7 +79,27 @@ public class CreditAssign extends BaseObject {
      */
     private int timeOut;
 
-    private Date timeFinished;
+    private Date timeFinished;    
+    
+    /**
+     * 转让标题
+     */
+    private String title;
+    
+    /**
+     * 剩余期限
+     */
+    private int leftMonths;
+    
+    /**
+     * 实际已投债权金额
+     */
+    private BigDecimal bidDealAmount;
+    
+    /**
+     * 平台服务费率
+     */
+    private BigDecimal platformServiceRate;
 
     /**
      * 该债权对应的未还还款
@@ -97,7 +119,11 @@ public class CreditAssign extends BaseObject {
                         BigDecimal creditDealAmount,
                         Date timeOpen,
                         int timeOut,
-                        Date timeFinished) {
+                        Date timeFinished,
+                        String title,
+                        int leftMonths,
+                        BigDecimal bidDealAmount,
+                        BigDecimal platformServiceRate) {
         this.id = id;
         this.loanId = loanId;
         this.investId = investId;
@@ -111,6 +137,10 @@ public class CreditAssign extends BaseObject {
         this.timeOpen = timeOpen;
         this.timeOut = timeOut;
         this.timeFinished = timeFinished;
+        this.title = title;
+        this.leftMonths = leftMonths;
+        this.bidDealAmount = bidDealAmount;
+        this.platformServiceRate = platformServiceRate;
     }
 
     /**
@@ -119,6 +149,6 @@ public class CreditAssign extends BaseObject {
      * @return
      */
     public BigDecimal getBalance() {
-        return creditAmount.subtract(bidAmount);
+        return creditAmount != null ? creditAmount.subtract(bidAmount) : BigDecimal.ZERO;
     }
 }

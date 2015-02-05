@@ -3,6 +3,8 @@ package com.creditcloud.common.utils;
 import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -109,5 +111,38 @@ public class NumberUtils {
         NumberFormat nt = NumberFormat.getPercentInstance();
         nt.setMinimumFractionDigits(rate % 10 == 0 ? 1 : 2);
         return nt.format(rate / 10000D);
+    }
+    
+    /**
+     * 债权转让: 计算当期应计利息
+     * @param rate 标的年利率
+     * @param lastRepayedDate 上一个利息支付日 （对应当前未到期的上个月的dueDate）
+     * @param unpayedPrincipal 剩余本金
+     * @return 
+     */
+    public static BigDecimal getCurrentPeriodInterest(int rate, LocalDate lastRepayedDate, BigDecimal unpayedPrincipal) {
+        if (lastRepayedDate == null || unpayedPrincipal == null) {
+            return BigDecimal.ZERO;
+        }
+        //月利率
+        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        //债权转让日与上一个利息支付日之间的天数
+        int interestCalculateTotalDays = Days.daysBetween(lastRepayedDate, LocalDate.now()).getDays();
+        //当期应计利息
+        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays/30)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+    }
+    
+    /**
+     * 债权转让： 根据购买的债权转让金额计算实际购买的本金(债权转让转出的本金)
+     * @param buyCreditDealAmount 购买的债权转让金额
+     * @param creditDealRate 债权转让折价率
+     * @param currentPeriodInterest 当期应计利息
+     * @return 
+     */
+    public static BigDecimal getCreditPrincipalAmount(BigDecimal buyCreditDealAmount, BigDecimal creditDealRate, BigDecimal currentPeriodInterest) {
+        if (buyCreditDealAmount == null || creditDealRate == null || currentPeriodInterest == null) {
+            return BigDecimal.ZERO;
+        }
+        return buyCreditDealAmount.divide(BigDecimal.ONE.subtract(creditDealRate), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE).subtract(currentPeriodInterest).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
 }

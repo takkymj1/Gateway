@@ -37,6 +37,13 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enablePartlyAssign = false;
+    
+    /**
+     * 承接的债权是否允许二次转让
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableReassign = false;
 
     /**
      * 债权转让最大手续费率
@@ -50,15 +57,79 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal maxCreditAssignDiscountRate = BigDecimal.ZERO;
+    private BigDecimal maxCreditAssignDiscountRate = new BigDecimal(2).divide(new BigDecimal(10));
 
     /**
-     * 债权转让费，给平台
+     * 债权转让费，给平台, 这个暂时不用了,
      */
     @Getter
     @XmlElement(required = false)
     private Fee fee;
 
+    /**
+     * 起息6个月内含6个月的债权转让平台服务费，给平台
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee lessSixMonthAssignServiceFee;
+    
+    
+    /**
+     * 起息6个月以上的债权转让平台服务费，给平台
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee moreSixMonthAssignServiceFee;
+    
+    /**
+     * 起息后可转让的时间期限, 单位为天
+     */
+    @Getter
+    @XmlElement(required = false)
+    private int assignableMonthCarrayInterest;
+    
+    /**
+     * 距离到期前一定期限内不可以转让, 单位为天
+     */
+    @Getter
+    @XmlElement(required = false)
+    private int nonassignableBeforeDue;
+    
+    /**
+     * 可转让日每天哪个时刻以后可以申请转让, 格式为:小时:分钟 hh:mm
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String startAssignableTime;
+    
+    /**
+     * 可转让日每天哪个时刻以后不可以再申请转让, 格式为:小时:分钟 hh:mm
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String endAssignableTime;
+    
+    /**
+     * 最低折让率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal minDiscountRate;
+    
+    /**
+     * 最高折让率
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal maxDiscountRate;
+    
+    /**
+     * 转让申请的失效时间
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String assignApplyExpireTime;
+    
     /**
      * 持有原始债权一定天数后才转让将免收债权转让费用
      */
@@ -81,7 +152,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int maxTimeOut = 72;
+    private int maxTimeOut = 23;
 
     /**
      * 发起债权转让的最小金额
