@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author kakaci
  */
 @XmlRootElement (name = "notify")
-public class EnterpiseRegisterNotify extends UserNotification {
+public class CorpRegisterNotify extends UserNotification {
 
     /**
      * 请求流水号
@@ -23,10 +23,10 @@ public class EnterpiseRegisterNotify extends UserNotification {
     @NotNull
     private String requestNo;
 
-    public EnterpiseRegisterNotify() {
+    public CorpRegisterNotify() {
     }
 
-    public EnterpiseRegisterNotify(String platformNo,
+    public CorpRegisterNotify(String platformNo,
                                    BizType bizType,
                                    String code,
                                    String message,
@@ -38,5 +38,10 @@ public class EnterpiseRegisterNotify extends UserNotification {
 
     public String getRequestNo() {
         return requestNo;
-    }  
+    } 
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
+    }
+    
 }
