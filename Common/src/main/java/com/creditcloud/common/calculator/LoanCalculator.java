@@ -323,7 +323,11 @@ public final class LoanCalculator {
                 //create result
                 result = new LoanDetail(principal, interest, duration, BulletRepayment);
                 //add single amortize item
-                result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration.getTotalDays())));
+                if (duration.getDays() > 0) {
+                    result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration.getTotalDays())));
+                } else {
+                    result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration)));
+                }
                 break;
             case MonthlyInterest:   //in this case we don't need to worry about duration.days since that must be 0
                 amortizedInterest = principal.multiply(rateMonth).setScale(2, NumberConstant.ROUNDING_MODE);
