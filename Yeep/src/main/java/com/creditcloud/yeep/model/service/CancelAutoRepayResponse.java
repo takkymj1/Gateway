@@ -6,17 +6,20 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class CancelAutoRepaymentResponse extends BaseResponse {
+@XmlRootElement(name = "response")
+public class CancelAutoRepayResponse extends BaseResponse {
+
+    public CancelAutoRepayResponse() {
+    }
     
-    public CancelAutoRepaymentResponse(String platformNo,
+    public CancelAutoRepayResponse(String platformNo,
                                        String code,
                                        String description) {
         super(platformNo,code,description);
