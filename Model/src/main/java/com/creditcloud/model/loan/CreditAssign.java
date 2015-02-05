@@ -95,6 +95,11 @@ public class CreditAssign extends BaseObject {
      * 实际已投债权金额
      */
     private BigDecimal bidDealAmount;
+    
+    /**
+     * 平台服务费率
+     */
+    private BigDecimal platformServiceRate;
 
     /**
      * 该债权对应的未还还款
@@ -117,7 +122,8 @@ public class CreditAssign extends BaseObject {
                         Date timeFinished,
                         String title,
                         int leftMonths,
-                        BigDecimal bidDealAmount) {
+                        BigDecimal bidDealAmount,
+                        BigDecimal platformServiceRate) {
         this.id = id;
         this.loanId = loanId;
         this.investId = investId;
@@ -134,6 +140,7 @@ public class CreditAssign extends BaseObject {
         this.title = title;
         this.leftMonths = leftMonths;
         this.bidDealAmount = bidDealAmount;
+        this.platformServiceRate = platformServiceRate;
     }
 
     /**
