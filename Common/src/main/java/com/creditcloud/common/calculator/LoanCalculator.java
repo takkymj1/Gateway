@@ -308,7 +308,7 @@ public final class LoanCalculator {
         int tenure;
         switch (method) {
             case BulletRepayment:
-                //天数不为0直接按照日息计算，自然年360天，自然月30天
+                //天数不为0直接按照日息计算,还款计划也按照日来累加，保证还款计划天数与计息天数一致
                 if (duration.getDays() > 0) {
                     interest = principal.multiply(rateDay).multiply(new BigDecimal(duration.getTotalDays()));
                 } else {
@@ -322,7 +322,7 @@ public final class LoanCalculator {
                 interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
                 //create result
                 result = new LoanDetail(principal, interest, duration, BulletRepayment);
-                //add single amortize item
+                //天数不为0直接按照日息计算,还款计划也按照日来累加，保证还款计划天数与计息天数一致
                 if (duration.getDays() > 0) {
                     result.getRepayments().add(new Repayment(principal, interest, ZERO, DateUtils.offset(asOfDate, duration.getTotalDays())));
                 } else {
