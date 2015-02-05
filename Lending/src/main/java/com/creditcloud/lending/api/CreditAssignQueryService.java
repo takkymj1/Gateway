@@ -79,6 +79,16 @@ public interface CreditAssignQueryService {
      */
     public int countByInvest(String investId,
                              List<CreditAssignStatus> statusList);
+    
+    /**
+     * count all credit assign from an original userId
+     *
+     * @param userId
+     * @param statusList
+     * @return
+     */
+    public int countByUser(String userId,
+                             List<CreditAssignStatus> statusList);
 
     /**
      * list invest on a credit assign
@@ -117,7 +127,18 @@ public interface CreditAssignQueryService {
     * @param statusList
     * @return 
     */ 
-    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
+    public PagedResult<CreditAssign> listByUserInvest(PageInfo pageInfo, List<String> investIdList, List<CreditAssignStatus> statusList);
+    
+    /**
+     * 获取某用户的所有债权信息
+     * 
+     * @param pageInfo
+     * @param userId
+     * @param statusList
+     * @return 
+     * @author xiongyong
+     */
+    public PagedResult<com.creditcloud.model.loan.CreditAssign> listByUser(PageInfo pageInfo, String userId, List<CreditAssignStatus> statusList);
     
      public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
 }
