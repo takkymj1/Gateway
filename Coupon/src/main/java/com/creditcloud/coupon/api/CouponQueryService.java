@@ -17,15 +17,15 @@ import javax.ejb.Remote;
 
 /**
  * 与奖券相关的只读查询接口
- *
- * @author sobranie
+ * 
+* @author sobranie
  */
 @Remote
 public interface CouponQueryService {
 
     /**
      * 根据Id获取奖券包
-     *
+     *     
      * @param clientCode
      * @param id
      * @return
@@ -34,7 +34,7 @@ public interface CouponQueryService {
 
     /**
      * 根据Id获取奖券
-     *
+     *     
      * @param clientCode
      * @param id
      * @return
@@ -43,29 +43,29 @@ public interface CouponQueryService {
 
     /**
      * 根据Subject Id获取奖券.
-     * 
+     *     
      * 比如根据某个Invest获取对应的奖券信息
-     *
+     *     
      * @param clientCode
      * @param subject
      * @return
      */
     public CouponPlacement findCouponPlacementbySubject(String clientCode, RealmEntity subject);
-    
+
     /**
      * 根据一组Subject Id获取对应奖券.
-     * 
+     *     
      * 比如根据某个Loan获取Invest列表，返回 Invest.id -> 奖券 的Map
-     * 
+     *     
      * @param clientCode
      * @param subjectIds
-     * @return 
+     * @return
      */
     public Map<String, CouponPlacement> listCouponPlacementBySubjectIds(String clientCode, String... subjectIds);
 
     /**
      * 分页列出所有的奖券包
-     *
+     *     
      * @param clientCode
      * @param pageInfo
      * @return
@@ -74,7 +74,7 @@ public interface CouponQueryService {
 
     /**
      * 分页列出某个奖券包的所有分配情况.
-     *
+     *     
      * @param clientCode
      * @param packageId
      * @param pageInfo
@@ -85,9 +85,9 @@ public interface CouponQueryService {
 
     /**
      * 分页列出某个人的所有奖券.
-     *
+     *     
      * 第一排序是状态，第二排序是获得时间
-     *
+     *     
      * @param clientCode
      * @param userId
      * @param pageInfo
@@ -97,9 +97,9 @@ public interface CouponQueryService {
 
     /**
      * 按照奖券种类分页列出用户的奖券.
-     *
+     *     
      * 第一排序是状态，第二排序是获得时间
-     *
+     *     
      * @param clientCode
      * @param userId
      * @param type
@@ -110,9 +110,9 @@ public interface CouponQueryService {
 
     /**
      * 按照给定状态分页列出某个人的奖券.
-     *
+     *     
      * 排序按照获得时间倒序
-     *
+     *     
      * @param clientCode
      * @param userId
      * @param statusList
@@ -123,7 +123,7 @@ public interface CouponQueryService {
 
     /**
      * 根据状态列出奖券
-     *
+     *     
      * @param clientCode
      * @param pageInfo
      * @param statusList
@@ -133,11 +133,11 @@ public interface CouponQueryService {
 
     /**
      * 获取某个package下可分配的奖券数量.
-     *
+     *     
      * 当package过期时，永远返回0<br/>
      *
      * 计数会排除掉状态为CANCELLED的Placement数量
-     *
+     *     
      * @param clientCode
      * @param packageId
      * @return
@@ -146,12 +146,11 @@ public interface CouponQueryService {
 
     /**
      * 根据状态和用户Id统计奖券数量
-     *
+     *     
      * @param clientCode
      * @param userId
      * @param statusList
      * @return
      */
     int countUserPlacementByStatus(String clientCode, String userId, CouponStatus... statusList);
-
 }
