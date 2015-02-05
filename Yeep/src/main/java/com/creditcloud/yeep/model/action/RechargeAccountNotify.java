@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.UserNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -26,13 +27,12 @@ public class RechargeAccountNotify extends UserNotification {
     }
 
     public RechargeAccountNotify(String platformNo,
-                                       String bizType,
-                                       String code,
-                                       String message,
-                                       String requestNo,
-                                       String platformUserNo,
-                                       String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+                                 BizType bizType,
+                                 String code,
+                                 String message,
+                                 String requestNo,
+                                 String platformUserNo) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 

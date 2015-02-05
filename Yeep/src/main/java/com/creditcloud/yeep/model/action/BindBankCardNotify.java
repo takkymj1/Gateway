@@ -9,6 +9,7 @@ import com.creditcloud.yeep.model.UserNotification;
 import com.creditcloud.yeep.enums.CardStatus;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.model.enums.misc.Bank;
+import com.creditcloud.yeep.enums.BizType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -51,16 +52,15 @@ public class BindBankCardNotify extends UserNotification {
     }
 
     public BindBankCardNotify(String platformNo,
-                                    String bizType,
-                                    String code,
-                                    String message,
-                                    String requestNo,
-                                    String platformUserNo,
-                                    String bankCardNo,
-                                    CardStatus cardStatus,
-                                    Bank bank,
-                                    String sign) {
-        super(platformUserNo, platformNo, bizType, code, message, sign);
+                              BizType bizType,
+                              String code,
+                              String message,
+                              String requestNo,
+                              String platformUserNo,
+                              String bankCardNo,
+                              CardStatus cardStatus,
+                              Bank bank) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
         this.bankCardNo = bankCardNo;
         this.cardStatus = cardStatus;

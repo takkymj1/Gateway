@@ -5,7 +5,10 @@
  */
 package com.creditcloud.yeep.model;
 
-import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.ActiveStatus;
+import com.creditcloud.yeep.enums.CardStatus;
+import com.creditcloud.yeep.enums.MemberType;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -16,50 +19,50 @@ import lombok.NoArgsConstructor;
  *
  * @author tinglany
  */
-
+@Data
 @XmlRootElement
 public class AccountDetail extends YeepResult {
 
     private static final long serialVersionUID = 20131115L;
-    
+
     @NotNull
     protected String platfromNo;
 
     @NotNull
-    protected String memberType;
+    protected MemberType memberType;
 
     @NotNull
-    protected String activeStatus;
-    
+    protected ActiveStatus activeStatus;
+
     @NotNull
-    protected String balance;
- 
+    protected BigDecimal balance;
+
     @NotNull
-    protected String availableAmount;
- 
+    protected BigDecimal availableAmount;
+
     @NotNull
-    protected String freezeAmount;
-    
+    protected BigDecimal freezeAmount;
+
     protected String cardNo;
-    
-    protected String cardStatus;   
-    
-    protected String bank; 
+
+    protected CardStatus cardStatus;
+
+    protected String bank;
 
     public AccountDetail() {
     }
-    
-   public AccountDetail(String platfromNo,
-                                String code,
-                                String description,
-                                String memberType,
-                                String activeStatus,
-                                String balance,
-                                String availableAmount,
-                                String freezeAmount,
-                                String cardNo,
-                                String cardStatus,
-                                String bank) {
+
+    public AccountDetail(String platfromNo,
+                         String code,
+                         String description,
+                         MemberType memberType,
+                         ActiveStatus activeStatus,
+                         BigDecimal balance,
+                         BigDecimal availableAmount,
+                         BigDecimal freezeAmount,
+                         String cardNo,
+                         CardStatus cardStatus,
+                         String bank) {
         super(code, description);
         this.memberType = memberType;
         this.activeStatus = activeStatus;
@@ -69,80 +72,5 @@ public class AccountDetail extends YeepResult {
         this.cardNo = cardNo;
         this.cardStatus = cardStatus;
         this.bank = bank;
-        
     }
-
-    public String getPlatfromNo() {
-        return platfromNo;
-    }
-
-    public String getMemberType() {
-        return memberType;
-    }
-
-    public String getActiveStatus() {
-        return activeStatus;
-    }
-
-    public String getBalance() {
-        return balance;
-    }
-
-    public String getAvailableAmount() {
-        return availableAmount;
-    }
-
-    public String getFreezeAmount() {
-        return freezeAmount;
-    }
-
-    public String getCardNo() {
-        return cardNo;
-    }
-
-    public String getCardStatus() {
-        return cardStatus;
-    }
-
-    public String getBank() {
-        return bank;
-    }
-
-    public void setMemberType(String memberType) {
-        this.memberType = memberType;
-    }
-
-    public void setActiveStatus(String activeStatus) {
-        this.activeStatus = activeStatus;
-    }
-
-    public void setBalance(String balance) {
-        this.balance = balance;
-    }
-
-    public void setAvailableAmount(String availableAmount) {
-        this.availableAmount = availableAmount;
-    }
-
-    public void setFreezeAmount(String freezeAmount) {
-        this.freezeAmount = freezeAmount;
-    }
-
-    public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
-    }
-
-    public void setCardStatus(String cardStatus) {
-        this.cardStatus = cardStatus;
-    }
-
-    public void setBank(String bank) {
-        this.bank = bank;
-    }   
-
-    public void setPlatfromNo(String platfromNo) {
-        this.platfromNo = platfromNo;
-    }
-
-
 }

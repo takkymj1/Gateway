@@ -5,12 +5,11 @@
  */
 package com.creditcloud.yeep.model.action;
 
-import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -24,7 +23,7 @@ public class CompensatoryResponse extends BaseResponse {
      * 固定值COMPENSATORY
      */
     @NotNull
-    private BizType service;
+    private ServiceType service;
 
     /**
      * 请求流水号
@@ -33,7 +32,7 @@ public class CompensatoryResponse extends BaseResponse {
     private String requestNo;
 
     public CompensatoryResponse(String platformNo,
-                                BizType service,
+                                ServiceType service,
                                 String requestNo,
                                 String code,
                                 String description) {

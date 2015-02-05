@@ -8,6 +8,7 @@ package com.creditcloud.yeep.model.action;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  *
@@ -19,7 +20,7 @@ public class ResetPasswordResponse extends BaseResponse{
      * 固定值：RESET_PASSWORD
      */
     @NotNull
-    private String service;
+    private ServiceType service;
     
    /**
     * 请求流水号
@@ -32,7 +33,7 @@ public class ResetPasswordResponse extends BaseResponse{
 
     public ResetPasswordResponse(String platformNo,
                                  String requestNo,
-                                 String service,
+                                 ServiceType service,
                                  String code,
                                  String description) {
         super(platformNo, code, description);
@@ -40,7 +41,7 @@ public class ResetPasswordResponse extends BaseResponse{
         this.requestNo=requestNo;
     }
 
-    public String getService() {
+    public ServiceType getService() {
         return service;
     }
 
@@ -48,7 +49,7 @@ public class ResetPasswordResponse extends BaseResponse{
         return requestNo;
     }
 
-    public void setService(String service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }
 

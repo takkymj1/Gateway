@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
@@ -29,7 +29,7 @@ public class RepaymentRecordResponse extends BaseResponse {
     private String targetUserNo;
     
     //还款时间
-    private LocalDate loanTime;
+    private String loanTime;
     
     //还款状态
     @NotNull
@@ -40,7 +40,7 @@ public class RepaymentRecordResponse extends BaseResponse {
         
     public RepaymentRecordResponse(String repaymentAmount,
                                    String targetUserNo,
-                                   LocalDate loanTime,
+                                   String loanTime,
                                    String status) {
         this.repaymentAmount = repaymentAmount;
         this.targetUserNo = targetUserNo;
@@ -56,7 +56,7 @@ public class RepaymentRecordResponse extends BaseResponse {
         return targetUserNo;
     }
 
-    public LocalDate getLoanTime() {
+    public String getLoanTime() {
         return loanTime;
     }
 
@@ -72,7 +72,7 @@ public class RepaymentRecordResponse extends BaseResponse {
         this.targetUserNo = targetUserNo;
     }
 
-    public void setLoanTime(LocalDate loanTime) {
+    public void setLoanTime(String loanTime) {
         this.loanTime = loanTime;
     }
 

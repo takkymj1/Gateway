@@ -5,6 +5,8 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,14 +25,14 @@ public class authorCpTransferResponse extends BaseResponse {
     
     //请求流水号
     @NotNull
-    private String service;
+    private ServiceType service;
     
     public authorCpTransferResponse() {
     }
 
     public authorCpTransferResponse(String platformNo, 
                                     String requestNo, 
-                                    String service, 
+                                    ServiceType service, 
                                     String code, 
                                     String description) {
         super(platformNo, code, description);
@@ -42,7 +44,7 @@ public class authorCpTransferResponse extends BaseResponse {
         return requestNo;
     }
 
-    public String getService() {
+    public ServiceType getService() {
         return service;
     }
 
@@ -50,7 +52,7 @@ public class authorCpTransferResponse extends BaseResponse {
         this.requestNo = requestNo;
     }
 
-    public void setService(String service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }  
        

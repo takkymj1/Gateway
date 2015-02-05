@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.ServiceType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlTransient;
@@ -28,7 +29,7 @@ public abstract class BaseRequest extends BaseObject {
      */
 //    @XmlElement
     @XmlTransient
-    private String service;
+    private ServiceType service;
 
 
     /**
@@ -49,7 +50,7 @@ public abstract class BaseRequest extends BaseObject {
     }
 
     public BaseRequest(String platformNo,
-                       String service,
+                       ServiceType service,
                        String callbackUrl,
                        String notifyUrl) {
         this.platformNo = platformNo;
@@ -74,7 +75,7 @@ public abstract class BaseRequest extends BaseObject {
     }
     
     @XmlTransient
-    public String getService() {
+    public ServiceType getService() {
         return service;
     }
     
@@ -82,7 +83,7 @@ public abstract class BaseRequest extends BaseObject {
         this.platformNo = platformNo;
     }
     
-    public void setService(String service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }
 

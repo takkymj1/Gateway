@@ -10,23 +10,23 @@ import com.creditcloud.model.enums.BaseEnum;
 /**
  * 服务名称
  *
- * @author rooseek
+ * @author tinglany
  */
 public enum BizType implements BaseEnum {
 
-    ACCOUNT_INFO("账户查询"),
-    FREEZE("资金冻结"),
-    UNFREEZE("解冻"),
-    AUTO_TRANSZFER("自动投标"),
-    AUTO_REPAYMENT("自动还款"),
-    LOAN("放款"),
-    REVOCATION_TRASNSFER("取消投标"),
-    PLATFORM_TRANSFER("平台划款"),
-    QUERY("单笔业务查询"),
-    RECONCILIATION("业务对账"),
-    CANCEDL_AUTHORIZE_AUTO_TRANSFER("取消自动投标授权"),
-    CANCEDL_AUTHORIZE_AUTO_REPAYMENT("取消自动还款授权"),
-    COMPLETE_TRANSACTION("通用转账确认");
+    REGISTER("注册"),
+    RECHARGE("充值"),
+    WITHDRAW("取现"),
+    BIND_BANK_CARD("绑卡"),
+    AUTHORIZE_AUTO_TRANSFER("自动投标授权"),
+    AUTHORIZE_AUTO_REPAYMENT("自动还款授权"),
+    TRANSFER("投标"),
+    REPAYMENT("还款"),
+    TRANSFER_CLAIMS("债权转让"),
+    UNBIND_BANK_CARD("取现绑卡"),
+    COMPENSATORY("担保公司代偿"),
+    TRANSACTION("转账"),
+    RESET_PASSWORD("重置密码");
     
 
     private final String key;

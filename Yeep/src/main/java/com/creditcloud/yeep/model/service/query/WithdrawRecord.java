@@ -3,66 +3,48 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.yeep.model.service;
+package com.creditcloud.yeep.model.service.query;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.yeep.enums.RemitStatus;
 import com.creditcloud.yeep.enums.Status;
-import com.creditcloud.yeep.model.BaseResponse;
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import org.apache.commons.lang3.StringUtils;
-import org.joda.time.LocalDate;
-
+import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author tinglany
  */
-@XmlRootElement (name = "response")
-public class WithdrawRecordResponse extends BaseResponse {
-    
-    //提现金额
+@XmlType
+public class WithdrawRecord extends BaseObject {
     @NotNull
-    private String amount;
+    private BigDecimal amount;
     
-    //提现用户
     @NotNull
     private String userNo;
     
-    //提现时间
     @NotNull
-    private LocalDate createTime;
+    private String createTime;
     
-    //充值状态
     @NotNull
-    private Status status;
+    private Status status; 
     
-    //REMIT_SUCCESS打款成功 REMIT_FAILURE打款失败 REMITING打款中
     private RemitStatus remitStatus;
-    
 
-    public WithdrawRecordResponse() {
+    public WithdrawRecord() {
     }
-    
-    public WithdrawRecordResponse(String platformNo,
-                                  String code,
-                                  String description,
-                                  String amount,
-                                  String userNo,
-                                  LocalDate createTime,
-                                  Status status,
-                                  RemitStatus remitStatus) {
-        super(platformNo,code,description);
+
+    public WithdrawRecord(BigDecimal amount, String userNo, String createTime, Status status, RemitStatus remitStatus) {
         this.amount = amount;
         this.userNo = userNo;
         this.createTime = createTime;
         this.status = status;
         this.remitStatus = remitStatus;
-    } 
+    }
 
-    
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
@@ -70,7 +52,7 @@ public class WithdrawRecordResponse extends BaseResponse {
         return userNo;
     }
 
-    public LocalDate getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
@@ -82,7 +64,7 @@ public class WithdrawRecordResponse extends BaseResponse {
         return remitStatus;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
@@ -90,7 +72,7 @@ public class WithdrawRecordResponse extends BaseResponse {
         this.userNo = userNo;
     }
 
-    public void setCreateTime(LocalDate createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
@@ -100,6 +82,5 @@ public class WithdrawRecordResponse extends BaseResponse {
 
     public void setRemitStatus(RemitStatus remitStatus) {
         this.remitStatus = remitStatus;
-    }
-      
+    }    
 }

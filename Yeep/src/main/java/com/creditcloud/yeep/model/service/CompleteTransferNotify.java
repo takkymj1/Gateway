@@ -5,6 +5,8 @@
  */
 package com.creditcloud.yeep.model.service;
 
+import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.Status;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,7 +22,7 @@ public class CompleteTransferNotify extends BaseNotification {
     
     //CONFIRM 或者 CANCEL
     @NotNull
-    private String status;
+    private Status status;
     
     //请求流水号
     @NotNull
@@ -30,18 +32,17 @@ public class CompleteTransferNotify extends BaseNotification {
     }
     
     public CompleteTransferNotify(String platformNo,
-                                  String bizType,
+                                  BizType bizType,
                                   String code,
                                   String message,
-                                  String status,
-                                  String requestNo,
-                                  String sign) {
-        super(platformNo,bizType,code,message,sign);
+                                  Status status,
+                                  String requestNo) {
+        super(platformNo,bizType,code,message);
         this.status =status;
         this.requestNo =requestNo;
     } 
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
@@ -49,7 +50,7 @@ public class CompleteTransferNotify extends BaseNotification {
         return requestNo;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
+import java.math.BigDecimal;
 
 /**
  * 自动投标
@@ -24,7 +25,7 @@ public class AutoTransferRequest extends UserRequest {
     
     //标的金额
     @NotNull
-    private String transferAmount;
+    private BigDecimal transferAmount;
     
     //借款人平台会员编号
     @NotNull
@@ -32,15 +33,15 @@ public class AutoTransferRequest extends UserRequest {
     
     //冻结金额
     @NotNull
-    private String paymentAmount;
+    private BigDecimal paymentAmount;
     
     public AutoTransferRequest(String platformNo,
                                String platformUserNo,
                                String requestNo,
                                String orderNo,
-                               String transferAmount,
+                               BigDecimal transferAmount,
                                String targetPlatformUserNo,
-                               String paymentAmount,
+                               BigDecimal paymentAmount,
                                String notifyUrl) {
         super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
         this.orderNo = orderNo;

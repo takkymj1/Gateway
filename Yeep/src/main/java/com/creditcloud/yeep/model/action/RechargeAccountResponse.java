@@ -6,12 +6,11 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import com.creditcloud.yeep.model.BaseResponse;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -23,7 +22,7 @@ public class RechargeAccountResponse extends BaseResponse {
      * 固定值RECHANGE
      */
     @NotNull
-    private String service;
+    private ServiceType service;
     
     /**
      * 请求流水号
@@ -35,7 +34,7 @@ public class RechargeAccountResponse extends BaseResponse {
     
     
     public RechargeAccountResponse(String platformNo,
-                                   String service,
+                                   ServiceType service,
                                    String requestNo,
                                    String code,
                                    String description) {
@@ -44,7 +43,8 @@ public class RechargeAccountResponse extends BaseResponse {
         this.requestNo=requestNo;
     }
 
-    public String getService() {
+    @XmlTransient
+    public ServiceType getService() {
         return service;
     }
 
@@ -52,7 +52,7 @@ public class RechargeAccountResponse extends BaseResponse {
         return requestNo;
     }
 
-    public void setService(String service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }
 

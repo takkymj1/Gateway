@@ -11,11 +11,11 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.IDCardType;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import org.apache.commons.lang3.StringUtils;
 
 
 /**
@@ -44,7 +44,7 @@ public class UserRegisterRequest extends UserRequest {
     
     @NotNull
     @XmlTransient
-    private String idCardType;
+    private IDCardType idCardType;
 
     /**
      * 身份证号
@@ -77,7 +77,7 @@ public class UserRegisterRequest extends UserRequest {
                                String requestNo,
                                String nickName,
                                String realName,
-                               String idCardType,
+                               IDCardType idCardType,
                                String idCardNo,
                                String mobile,
                                String email,
@@ -100,7 +100,7 @@ public class UserRegisterRequest extends UserRequest {
         return realName;
     }
 
-    public String getIdCardType() {
+    public IDCardType getIdCardType() {
         return idCardType;
     }
 
@@ -124,7 +124,7 @@ public class UserRegisterRequest extends UserRequest {
         this.realName = realName;
     }
 
-    public void setIdCardType(String idCardType) {
+    public void setIdCardType(IDCardType idCardType) {
         this.idCardType = idCardType;
     }
 

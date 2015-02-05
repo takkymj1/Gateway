@@ -6,6 +6,7 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.UserRequest;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 取消自动投标授权
@@ -13,9 +14,11 @@ import com.creditcloud.yeep.model.UserRequest;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
+@XmlRootElement(name = "request")
 public class CancelAutoTransferRequest extends UserRequest {
+
+    public CancelAutoTransferRequest() {
+    }
       
     public CancelAutoTransferRequest(String platformNo,
                                               String platformUserNo,

@@ -5,6 +5,7 @@
  */
 package com.creditcloud.yeep.model.action;
 
+import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -25,12 +26,11 @@ public class TransferNotify extends BaseNotification {
     }
 
     public TransferNotify(String platformNo,
-                                String bizType,
-                                String code,
-                                String message,
-                                String requestNo,
-                                String sign) {
-        super(platformNo, bizType, code, message,sign);
+                          BizType bizType,
+                          String code,
+                          String message,
+                          String requestNo) {
+        super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 

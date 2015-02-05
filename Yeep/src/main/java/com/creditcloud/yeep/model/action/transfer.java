@@ -6,6 +6,9 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.yeep.enums.MemberType;
+import com.creditcloud.yeep.enums.UserType;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
@@ -23,12 +26,12 @@ public class transfer extends BaseObject {
      */
     @NotNull
     @XmlTransient
-    private String amount;  
+    private BigDecimal amount;  
     
 
     @NotNull
     @XmlTransient
-    private String targetUserType;  
+    private UserType targetUserType;  
     
     @NotNull
     @XmlTransient
@@ -37,17 +40,17 @@ public class transfer extends BaseObject {
     public transfer() {
     }
 
-    public transfer(String amount, String targetUserType, String targetPlatformUserNo) {
+    public transfer(BigDecimal amount, UserType targetUserType, String targetPlatformUserNo) {
         this.amount = amount;
         this.targetUserType = targetUserType;
         this.targetPlatformUserNo = targetPlatformUserNo;
     }
 
-    public String getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public String getTargetUserType() {
+    public UserType getTargetUserType() {
         return targetUserType;
     }
 
@@ -55,11 +58,11 @@ public class transfer extends BaseObject {
         return targetPlatformUserNo;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public void setTargetUserType(String targetUserType) {
+    public void setTargetUserType(UserType targetUserType) {
         this.targetUserType = targetUserType;
     }
 

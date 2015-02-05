@@ -8,7 +8,6 @@ import com.creditcloud.yeep.enums.BizType;
 import com.creditcloud.yeep.model.BaseNotification;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  *
@@ -30,13 +29,12 @@ public class AutoRepaymentNotify extends BaseNotification {
     }
     
     public AutoRepaymentNotify(String platformNo,
-                                     String bizType,
-                                     String code,
-                                     String message,
-                                     String requestNo,
-                                     String orderNo,
-                                     String sign) {
-        super(platformNo,bizType,code,message,sign);    
+                               BizType bizType,
+                               String code,
+                               String message,
+                               String requestNo,
+                               String orderNo) {
+        super(platformNo,bizType,code,message);    
     } 
 
     public String getRequestNo() {

@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.BizType;
+import com.creditcloud.yeep.enums.ServiceType;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -23,7 +24,7 @@ public class AuthorizeAutoRepayResponse extends BaseResponse {
      * 固定值AUTHORIZE_AUTO_REPAYMENT
      */
     @NotNull
-    private BizType service;
+    private ServiceType service;
 
     /**
      * 请求流水号
@@ -35,7 +36,7 @@ public class AuthorizeAutoRepayResponse extends BaseResponse {
     }
 
     public AuthorizeAutoRepayResponse(String platformNo,
-                                          BizType service,
+                                          ServiceType service,
                                           String requestNo,
                                           String code,
                                           String description) {
@@ -44,7 +45,7 @@ public class AuthorizeAutoRepayResponse extends BaseResponse {
         this.requestNo = requestNo;
     }
 
-    public BizType getService() {
+    public ServiceType getService() {
         return service;
     }
 
@@ -52,7 +53,7 @@ public class AuthorizeAutoRepayResponse extends BaseResponse {
         return requestNo;
     }
 
-    public void setService(BizType service) {
+    public void setService(ServiceType service) {
         this.service = service;
     }
 

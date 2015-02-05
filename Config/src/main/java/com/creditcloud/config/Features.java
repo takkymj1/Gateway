@@ -128,7 +128,7 @@ public class Features extends BaseObject {
     @XmlElement
     @Getter
     private boolean enableRegistryReward = false;
-    
+
     /**
      * 是否打开奖券功能
      */
@@ -267,26 +267,33 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableBatch = false;
-    
+
     /**
      * 第三方登陆后功能显示控制
      */
     @Getter
     @XmlElement
     private boolean enableThirdParty = false;
-    
-    
+
     /**
      * 系统发标后，对去汇付进行标的录入的控制
      */
     @Getter
     @XmlElement
     private boolean enablePaymentTender = false;
-    
+
     /**
      * 限定标的投标人范围
      */
     @Getter
     @XmlElement
     private boolean enablePrivateLoanProduct = false;
+
+    /**
+     * 扩展还款方式，支持RepaymentMethod与RepaymentPeriod组合的还款方式
+     */
+    @Getter
+    @XmlElement
+    private boolean enableExtensibleRepayment = false;
+
 }
