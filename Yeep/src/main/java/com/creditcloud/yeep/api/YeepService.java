@@ -36,6 +36,12 @@ public interface YeepService extends YeepQueryService {
      */
     public AccountDetail queryAccount(String clientCode, String platformUserNo);
 
+    /**
+     * 
+     * @param clientCode
+     * @param userId
+     * @return 
+     */
     public AccountDetail queryAccountByUserId(String clientCode, String userId);
    
     /**
@@ -215,6 +221,16 @@ public interface YeepService extends YeepQueryService {
      * @return
      */
     public YeepAccount createUserYeepAccount(String clientCode, YeepAccount yeepAccount);
+    
+    /**
+     * 取消自动还款授权
+     * 
+     * @param userNo
+     * @param loanId
+     * @param reqNo
+     * @return 
+     */
+    public int cancelAuthorRepay(String userNo, String loanId,String reqNo);
 
     /**
      * 验证直连接口从三方支付返回的数据对象是否合法

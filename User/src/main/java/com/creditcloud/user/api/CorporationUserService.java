@@ -91,6 +91,15 @@ public interface CorporationUserService {
      * @return
      */
     CorporationUser getByTaxCode(String clientCode, String taxCode);
+    
+    /**
+     * 根据银行开户许可号获取
+     *
+     * @param clientCode
+     * @param bankLicense
+     * @return
+     */
+    CorporationUser getByBankLicense(String clientCode, String bankLicense);
 
     /**
      * 根据组织机构代码获取
