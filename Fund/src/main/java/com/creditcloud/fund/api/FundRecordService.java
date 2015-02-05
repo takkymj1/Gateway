@@ -754,4 +754,5 @@ public interface FundRecordService {
                               String loanUserId,
                               BigDecimal loanAmount,
                               String orderId);
+    
 }
