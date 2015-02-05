@@ -14,6 +14,7 @@ import com.creditcloud.fund.model.record.FundRecord;
 import com.creditcloud.fund.model.record.FundTransfer;
 import com.creditcloud.fund.model.record.FundWithdraw;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
@@ -30,15 +31,17 @@ import org.apache.commons.lang3.tuple.Pair;
  */
 @Remote
 public interface FundRecordService {
+
     /**
      * 根据FundRecord中的entity与typeList、statusList、operationList列出FundRecord
+     *
      * @param clientCode
      * @param pageInfo
      * @param entity
      * @param typeList
      * @param statusList
      * @param operationList
-     * @return 
+     * @return
      */
     PagedResult<FundRecord> listByEntity(String clientCode,
                                          PageInfo pageInfo,
@@ -47,38 +50,39 @@ public interface FundRecordService {
                                          List<FundRecordStatus> statusList,
                                          List<FundRecordOperation> operationList);
 
-    
     /**
      * 根据FundRecord中的typeList、statusList与operationList列出FundRecord
+     *
      * @param clientCode
      * @param pageInfo
      * @param typeList
      * @param statusList
      * @param operationList
-     * @return 
+     * @return
      */
     PagedResult<FundRecord> listByTypeAndStatusAndOperation(String clientCode,
                                                             PageInfo pageInfo,
                                                             List<FundRecordType> typeList,
                                                             List<FundRecordStatus> statusList,
                                                             List<FundRecordOperation> operationList);
-    
+
     /**
      * 根据FundRecord中的entity来列出所有FundRecord
+     *
      * @param clientCode
      * @param entity
-     * @return 
+     * @return
      */
-    
-    PagedResult<FundRecord> listByEntity(String clientCode,PageInfo pageInfo,RealmEntity entity); 
-    
+    PagedResult<FundRecord> listByEntity(String clientCode, PageInfo pageInfo, RealmEntity entity);
+
     /**
      * 根据OrderId来列出所有FundRecord
+     *
      * @param clientCode
      * @param orderId
-     * @return 
+     * @return
      */
-    PagedResult<FundRecord> listByOrderId(String clientCode,PageInfo pageInfo, String orderId); 
+    PagedResult<FundRecord> listByOrderId(String clientCode, PageInfo pageInfo, String orderId);
 
     /**
      *
@@ -735,4 +739,22 @@ public interface FundRecordService {
                               String loanUserId,
                               BigDecimal loanAmount,
                               String orderId);
+
+    /**
+     * 统计一段时间内用户资金记录金额总和
+     *
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param operationList
+     * @param typeList
+     * @param realmList
+     * @return
+     */
+    BigDecimal sumByUserAndRealm(String clientCode,
+                                 String userId,
+                                 List<FundRecordStatus> statusList,
+                                 List<FundRecordOperation> operationList,
+                                 List<FundRecordType> typeList,
+                                 List<Realm> realmList);
 }
