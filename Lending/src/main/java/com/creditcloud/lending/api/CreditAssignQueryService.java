@@ -117,7 +117,7 @@ public interface CreditAssignQueryService {
     * @param statusList
     * @return 
     */ 
-    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
+    public List<CreditAssign> listByUserInvest(PageInfo pageInfo, List<String> investIdList, List<CreditAssignStatus> statusList);
     
      public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
 }
