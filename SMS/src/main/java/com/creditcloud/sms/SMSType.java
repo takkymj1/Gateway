@@ -86,9 +86,9 @@ public enum SMSType {
     WITHOUT_TEMPLATE(""),
     
     /**
-     * CreditMarket 投资人购买债权转让时需要获取手机验证码
+     * 用户申请债权转让
      */
-    NOTIFICATION_CREDITMARKET_CREDIT_ASSIGN_BUY("notification.creditmarket.credit.assign.buy");
+    NOTIFICATION_CREDITMARKET_CREDITASSIGN("notification.creditmarket.creditassign");
 
     private final String key;
 
