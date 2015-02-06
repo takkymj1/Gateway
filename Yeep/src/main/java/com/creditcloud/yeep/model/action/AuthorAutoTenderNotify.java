@@ -14,12 +14,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author kakaci
  */
 @XmlRootElement(name = "notify")
-public class AuthorizeAutoTransferNotify extends UserNotification {
+public class AuthorAutoTenderNotify extends UserNotification {
 
-    public AuthorizeAutoTransferNotify() {
+    public AuthorAutoTenderNotify() {
     }
 
-    public AuthorizeAutoTransferNotify(String platformUserNo,
+    public AuthorAutoTenderNotify(String platformUserNo,
                                        String platformNo,
                                        BizType bizType,
                                        String code,

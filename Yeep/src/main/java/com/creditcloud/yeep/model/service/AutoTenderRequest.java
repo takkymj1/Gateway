@@ -7,6 +7,7 @@ package com.creditcloud.yeep.model.service;
 import javax.validation.constraints.NotNull;
 import com.creditcloud.yeep.model.UserRequest;
 import java.math.BigDecimal;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 自动投标
@@ -14,9 +15,8 @@ import java.math.BigDecimal;
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class AutoTransferRequest extends UserRequest {
+@XmlRootElement(name = "request")
+public class AutoTenderRequest extends UserRequest {
     
     
     //标的号
@@ -34,8 +34,11 @@ public class AutoTransferRequest extends UserRequest {
     //冻结金额
     @NotNull
     private BigDecimal paymentAmount;
+
+    public AutoTenderRequest() {
+    }
     
-    public AutoTransferRequest(String platformNo,
+    public AutoTenderRequest(String platformNo,
                                String platformUserNo,
                                String requestNo,
                                String orderNo,
@@ -48,6 +51,38 @@ public class AutoTransferRequest extends UserRequest {
         this.transferAmount = transferAmount;
         this.targetPlatformUserNo = targetPlatformUserNo;
         this.paymentAmount = paymentAmount;     
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public BigDecimal getTransferAmount() {
+        return transferAmount;
+    }
+
+    public String getTargetPlatformUserNo() {
+        return targetPlatformUserNo;
+    }
+
+    public BigDecimal getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setTransferAmount(BigDecimal transferAmount) {
+        this.transferAmount = transferAmount;
+    }
+
+    public void setTargetPlatformUserNo(String targetPlatformUserNo) {
+        this.targetPlatformUserNo = targetPlatformUserNo;
+    }
+
+    public void setPaymentAmount(BigDecimal paymentAmount) {
+        this.paymentAmount = paymentAmount;
     }
  
 }

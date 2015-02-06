@@ -15,16 +15,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name = "notify")
-public class AutoTransferNotify extends BaseNotification {
+public class AutoTenderNotify extends BaseNotification {
     
     //请求流水号
     @NotNull
     private String requestNo;
 
-    public AutoTransferNotify() {
+    public AutoTenderNotify() {
     }
     
-    public AutoTransferNotify(String platformNo,
+    public AutoTenderNotify(String platformNo,
                               BizType bizType,
                               String code,
                               String message,

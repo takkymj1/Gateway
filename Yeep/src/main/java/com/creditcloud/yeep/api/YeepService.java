@@ -230,7 +230,18 @@ public interface YeepService extends YeepQueryService {
      * @param reqNo
      * @return 
      */
-    public int cancelAuthorRepay(String userNo, String loanId,String reqNo);
+    public int cancelAuthorRepay(String clientCode, String userNo, String loanId,String reqNo);
+    
+    /**
+     * 自动投标
+     * 
+     * @param loanId
+     * @param bidAmount
+     * @param loanUserNo
+     * @param bidUserNo
+     * @return 
+     */
+    public String autoTender(String clientCode, String loanId,BigDecimal loanAmount,BigDecimal bidAmount,String loanUserNo,String bidUserNo,String reqNo,String notifyUrl);
 
     /**
      * 验证直连接口从三方支付返回的数据对象是否合法
