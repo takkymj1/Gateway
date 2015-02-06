@@ -303,4 +303,13 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      */
     @Deprecated
     List<UserProperty> validateAllUser(String clientCode);
+    
+    /**
+     * 根据用户组列出用户
+     * @param clientCode
+     * @param pageInfo
+     * @param groupId
+     * @return 
+     */
+    PagedResult<User> listByGroup(String clientCode, PageInfo pageInfo, String groupId);
 }
