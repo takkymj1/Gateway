@@ -81,6 +81,11 @@ public enum SMSType {
     POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind"),
     
     /**
+     * 用户申请债权转让
+     */
+    NOTIFICATION_CREDITMARKET_CREDITASSIGN("notification.creditmarket.creditassign"),
+    
+    /**
      * 不使用短信模板
      */
     WITHOUT_TEMPLATE("");
