@@ -8,16 +8,14 @@ package com.creditcloud.yeep.model.action;
 import com.creditcloud.yeep.model.BaseResponse;
 import com.creditcloud.yeep.enums.ServiceType;
 import javax.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author kakaci
  */
-@Data
-@NoArgsConstructor
-public class AuthorizeAutoTransferResponse extends BaseResponse {
+@XmlRootElement(name ="response")
+public class AuthorAutoTenderResponse extends BaseResponse {
     
     /**
      * 服务类型
@@ -30,7 +28,11 @@ public class AuthorizeAutoTransferResponse extends BaseResponse {
      */
     @NotNull
     private String requestNo;
-    public AuthorizeAutoTransferResponse(String platformNo,
+
+    public AuthorAutoTenderResponse() {
+    }
+    
+    public AuthorAutoTenderResponse(String platformNo,
                                          ServiceType service,
                                          String requestNo,
                                          String code,
@@ -38,6 +40,22 @@ public class AuthorizeAutoTransferResponse extends BaseResponse {
         super(platformNo,  code, description);
         this.service=service;
         this.requestNo=requestNo;
+    }
+
+    public ServiceType getService() {
+        return service;
+    }
+
+    public String getRequestNo() {
+        return requestNo;
+    }
+
+    public void setService(ServiceType service) {
+        this.service = service;
+    }
+
+    public void setRequestNo(String requestNo) {
+        this.requestNo = requestNo;
     }
     
 }

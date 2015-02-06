@@ -14,9 +14,7 @@ import com.creditcloud.yeep.model.ReconciliationResult;
 import com.creditcloud.yeep.model.UnFreezeResult;
 import com.creditcloud.yeep.model.YeepAccount;
 import com.creditcloud.yeep.model.YeepResult;
-import com.creditcloud.yeep.model.service.QueryRequest;
 import java.math.BigDecimal;
-import java.util.Date;
 import javax.ejb.Remote;
 import org.joda.time.LocalDate;
 
@@ -59,7 +57,6 @@ public interface YeepService extends YeepQueryService {
      * @param clientCode
      * @param reqNo
      * @param mode
-     * @param clazz
      * @return 
      */
     public BaseResponse querySingleTrans(String clientCode,String reqNo,QueryModel mode);
@@ -178,7 +175,6 @@ public interface YeepService extends YeepQueryService {
      * @param platformNo
      * @param targetUserNo
      * @param amount
-     * @param BgRetUrl
      * @return
      */
     public String transfer(String clientCode,
@@ -225,13 +221,37 @@ public interface YeepService extends YeepQueryService {
     /**
      * 取消自动还款授权
      * 
+     * @param clientCode
      * @param userNo
      * @param loanId
      * @param reqNo
      * @return 
      */
-    public int cancelAuthorRepay(String userNo, String loanId,String reqNo);
+    public int cancelAuthorRepay(String clientCode, String userNo, String loanId,String reqNo);
+    
+    /**
+     * 自动投标
+     * 
+     * @param clientCode
+     * @param loanId
+     * @param loanAmount
+     * @param bidAmount
+     * @param loanUserNo
+     * @param bidUserNo
+     * @param reqNo
+     * @param notifyUrl
+     * @return 
+     */
+    public String autoTender(String clientCode, String loanId,BigDecimal loanAmount,BigDecimal bidAmount,String loanUserNo,String bidUserNo,String reqNo,String notifyUrl);
 
+    /**
+     * 取消自动还款授权
+     * @param clientCode
+     * @param reqNo
+     * @param userNo
+     * @return 
+     */
+    public String CancelAuthorAutoTender(String clientCode, String reqNo, String userNo);
     /**
      * 验证直连接口从三方支付返回的数据对象是否合法
      *

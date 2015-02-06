@@ -73,6 +73,15 @@ public interface CorporationUserService {
      * @return
      */
     CorporationUser getByName(String clientCode, String name);
+    
+    /**
+     * 根据企业用户登录名称获取
+     *
+     * @param clientCode
+     * @param loginName
+     * @return
+     */
+    CorporationUser getByLoginName(String clientCode, String loginName);
 
     /**
      * 根据营业执照获取

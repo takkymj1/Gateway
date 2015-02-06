@@ -52,6 +52,11 @@ public class DisburseRecord extends BaseObject {
     private Date timeRecorded;
 
     /**
+     * 垫付金额
+     */
+    private BigDecimal disburseAmount;
+    
+    /**
      * 平台垫付后跟借款人收取的逾期费总和
      */
     @Transient
@@ -83,6 +88,24 @@ public class DisburseRecord extends BaseObject {
         this.type = type;
         this.disburseSource = disburseSource;
         this.description = description;
+    }
+    
+    public DisburseRecord(String id,
+                          String loanRepaymentId,
+                          String employeeId,
+                          DisburseStatus status,
+                          DisburseType type,
+                          RealmEntity disburseSource,
+                          String description,
+                          BigDecimal disburseAmount) {
+        this.id = id;
+        this.loanRepaymentId = loanRepaymentId;
+        this.employeeId = employeeId;
+        this.status = status;
+        this.type = type;
+        this.disburseSource = disburseSource;
+        this.description = description;
+        this.disburseAmount = disburseAmount;
     }
 
     /**

@@ -7,6 +7,7 @@ package com.creditcloud.service.model;
 
 import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.loan.LoanRepayment;
+import com.creditcloud.model.misc.RealmEntity;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,15 @@ public class DisburseInfo extends AbstractRepay {
     private DisburseType type;
 
     /**
+     * 操作人id
+     */
+    private String callerId;
+   
+    /**
+     * 垫付来源，平台或者担保户等
+     */
+    private RealmEntity disburseSource;
+    /**
      * 担保方垫付, false则为平台垫付
      */
     private boolean fromGuarantee = true;
@@ -39,5 +49,12 @@ public class DisburseInfo extends AbstractRepay {
     public DisburseInfo(LoanRepayment loanRepayment, DisburseType type, boolean fromGuarantee) {
         this(loanRepayment, type);
         this.fromGuarantee = fromGuarantee;
+    }
+    
+    public DisburseInfo(LoanRepayment loanRepayment, DisburseType type, boolean fromGuarantee, String callerId, RealmEntity disburseSource) {
+        this(loanRepayment, type);
+        this.fromGuarantee = fromGuarantee;
+        this.callerId = callerId;
+        this.disburseSource = disburseSource;
     }
 }
