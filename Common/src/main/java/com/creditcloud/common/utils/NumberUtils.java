@@ -129,7 +129,7 @@ public class NumberUtils {
         //债权转让日与上一个利息支付日之间的天数
         int interestCalculateTotalDays = Days.daysBetween(lastRepayedDate, LocalDate.now()).getDays();
         //当期应计利息
-        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays/30)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
     
     /**
