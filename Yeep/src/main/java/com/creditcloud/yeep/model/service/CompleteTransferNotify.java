@@ -36,9 +36,8 @@ public class CompleteTransferNotify extends BaseNotification {
                                   String code,
                                   String message,
                                   Status status,
-                                  String requestNo,
-                                  String sign) {
-        super(platformNo,bizType,code,message,sign);
+                                  String requestNo) {
+        super(platformNo,bizType,code,message);
         this.status =status;
         this.requestNo =requestNo;
     } 

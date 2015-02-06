@@ -30,9 +30,8 @@ public class authorCpTransferNotify extends BaseNotification {
                                   String platformNo, 
                                   BizType bizType, 
                                   String code, 
-                                  String message, 
-                                  String sign) {
-        super(platformNo, bizType, code, message, sign);
+                                  String message) {
+        super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
     }
 

@@ -52,16 +52,15 @@ public class BindBankCardNotify extends UserNotification {
     }
 
     public BindBankCardNotify(String platformNo,
-                                    BizType bizType,
-                                    String code,
-                                    String message,
-                                    String requestNo,
-                                    String platformUserNo,
-                                    String bankCardNo,
-                                    CardStatus cardStatus,
-                                    Bank bank,
-                                    String sign) {
-        super(platformUserNo, platformNo, bizType, code, message, sign);
+                              BizType bizType,
+                              String code,
+                              String message,
+                              String requestNo,
+                              String platformUserNo,
+                              String bankCardNo,
+                              CardStatus cardStatus,
+                              Bank bank) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
         this.bankCardNo = bankCardNo;
         this.cardStatus = cardStatus;

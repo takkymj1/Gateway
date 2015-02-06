@@ -40,15 +40,14 @@ public class WithdrawAccountNotify extends UserNotification {
     }
 
     public WithdrawAccountNotify(String platformNo,
-                                       BizType bizType,
-                                       String code,
-                                       String message,
-                                       String requestNo,
-                                       String platformUserNo,
-                                       String cardNo,
-                                       String bank,
-                                       String sign) {
-        super(platformUserNo, platformNo, bizType, code, message,sign);
+                                 BizType bizType,
+                                 String code,
+                                 String message,
+                                 String requestNo,
+                                 String platformUserNo,
+                                 String cardNo,
+                                 String bank) {
+        super(platformUserNo, platformNo, bizType, code, message);
         this.requestNo = requestNo;
         this.cardNo = cardNo;
         this.bank = bank;

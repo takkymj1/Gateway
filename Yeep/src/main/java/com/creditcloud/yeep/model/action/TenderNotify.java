@@ -12,51 +12,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author kakaci
+ * @author tinglany
  */
 @XmlRootElement(name = "notify")
-public class TransferClaimsNotify extends BaseNotification {
-
-    /**
-     * 请求流水号
-     */
+public class TenderNotify extends BaseNotification {
+    
     @NotNull
     private String requestNo;
 
-    /**
-     * 标的号
-     */
-    @NotNull
-    private String orderNo;
-
-    public TransferClaimsNotify() {
+    public TenderNotify() {
     }
 
-    public TransferClaimsNotify(String platformNo,
-                                BizType bizType,
-                                String code,
-                                String message,
-                                String requestNo,
-                                String orderNo) {
+    public TenderNotify(String requestNo, String platformNo, BizType bizType, String code, String message) {
         super(platformNo, bizType, code, message);
         this.requestNo = requestNo;
-        this.orderNo = orderNo;
     }
 
     public String getRequestNo() {
         return requestNo;
     }
 
-    public String getOrderNo() {
-        return orderNo;
-    }
-
     public void setRequestNo(String requestNo) {
         this.requestNo = requestNo;
     }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
+    
+    
 }
