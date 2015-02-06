@@ -6,26 +6,23 @@
 package com.creditcloud.yeep.model.action;
 
 import com.creditcloud.yeep.model.UserRequest;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
- * @author kakaci
+ * @author tinglany
  */
-@Data
-@NoArgsConstructor
 @XmlRootElement (name = "request")
-public class AuthorizeAutoTransferRequest extends UserRequest {
+public class AuthorAutoTenderRequest extends UserRequest {
 
+    public AuthorAutoTenderRequest() {
+    }
 
-    public AuthorizeAutoTransferRequest(String platformNo,
-                                        String callbackUrl,
+    public AuthorAutoTenderRequest(String platformNo,
+                                        String requestNo,
                                         String notifyUrl,
-                                        String platformUserNo,
-                                        String requestNo) {
+                                        String callbackUrl,
+                                        String platformUserNo) {
         super(platformUserNo, platformNo,null,requestNo, callbackUrl, notifyUrl);
     }
 

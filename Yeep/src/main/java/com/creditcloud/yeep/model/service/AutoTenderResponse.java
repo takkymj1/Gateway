@@ -6,17 +6,20 @@
 package com.creditcloud.yeep.model.service;
 
 import com.creditcloud.yeep.model.BaseResponse;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author tinglany
  */
 
-//@Data
-//@NoArgsConstructor
-public class AutoTransferResponse extends BaseResponse  {
+@XmlRootElement(name = "response")
+public class AutoTenderResponse extends BaseResponse  {
+
+    public AutoTenderResponse() {
+    }
     
-    public AutoTransferResponse(String platformNo,
+    public AutoTenderResponse(String platformNo,
                                 String code,
                                 String description) {
         super(platformNo,code,description);

@@ -14,14 +14,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name = "response")
-public class CancelAutoTransferResponse extends BaseResponse {
+public class CancelAutoTenderResponse extends BaseResponse {
 
-    public CancelAutoTransferResponse() {
+    public CancelAutoTenderResponse() {
     }
     
-    public CancelAutoTransferResponse(String platformNo,
-                                      String code,
-                                      String description) {
+    public CancelAutoTenderResponse(String platformNo,
+                                    String code,
+                                    String description) {
         super(platformNo,code,description);
     } 
   

@@ -15,14 +15,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name = "request")
-public class CancelAutoTransferRequest extends UserRequest {
+public class CancelAutoTenderRequest extends UserRequest {
 
-    public CancelAutoTransferRequest() {
+    public CancelAutoTenderRequest() {
     }
       
-    public CancelAutoTransferRequest(String platformNo,
-                                              String platformUserNo,
-                                              String requestNo) {
+    public CancelAutoTenderRequest(String platformNo,
+                                   String platformUserNo,
+                                   String requestNo) {
         super(platformUserNo,platformNo,null,requestNo,null,null);
     }
    
