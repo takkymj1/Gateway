@@ -46,7 +46,7 @@ public class AutoTenderRequest extends UserRequest {
                                String targetPlatformUserNo,
                                BigDecimal paymentAmount,
                                String notifyUrl) {
-        super(platformUserNo,platformNo,null,requestNo,notifyUrl,null);
+        super(platformUserNo,platformNo,null,requestNo,null,notifyUrl);
         this.orderNo = orderNo;
         this.transferAmount = transferAmount;
         this.targetPlatformUserNo = targetPlatformUserNo;
