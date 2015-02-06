@@ -98,5 +98,12 @@ public class UmpConfig extends BaseConfig {
     @XmlElement(name = "guaranteeAccount", required = false)
     @Getter
     private UmpSubAccount guaranteeAccount;
+    
+    /**
+     * 代偿专户 name为担保企业登录名
+     */
+    @XmlElement(name = "disburseAccount", required = false)
+    @Getter
+    private UmpSubAccount disburseAccount;
 
 }

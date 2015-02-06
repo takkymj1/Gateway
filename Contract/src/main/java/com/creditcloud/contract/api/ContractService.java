@@ -461,6 +461,6 @@ public interface ContractService {
      * @param loan
      * @return
      */
-    public String getContractCodeByLoan(String loanId, Date timeSettled, String serial);
+    public String getContractCodeByLoan(Loan loan);
     
 }
