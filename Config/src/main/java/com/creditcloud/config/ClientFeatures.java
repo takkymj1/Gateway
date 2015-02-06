@@ -100,7 +100,7 @@ public class ClientFeatures extends BaseObject {
      */
     @XmlElement
     @Getter
-    private boolean enableDisburseLoanControll = false;
+    private boolean enableDisburseLoanControl = false;
     
     /**
      * 是否支持LoanRequestDatail
