@@ -17,6 +17,8 @@ public enum SubmitCreditAssignResult implements BaseEnum {
     CREDIT_ASSIGN_DISABLED("没有开启债权转让功能"),
     REASSIGN_DISABLED("二次转让功能关闭"),
     INVEST_NOT_FOUND("原始投标找不到"),
+    INVEST_REPAYMENT_NOT_FOUND("原始投标回款计划找不到"),
+    LOAN_NOT_FOUND("原始标的找不到"),
     SUCCESSFUL("成功"),
     EXCEED_DISCOUNT_LIMIT("超过债权转让折让率允许范围"),
     REPEATED_ASSIGN_REQUEST("债权转让已存在,不能重复转让"),
