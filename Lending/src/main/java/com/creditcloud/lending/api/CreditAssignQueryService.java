@@ -127,7 +127,7 @@ public interface CreditAssignQueryService {
     * @param statusList
     * @return 
     */ 
-    public PagedResult<CreditAssign> listByUserInvest(PageInfo pageInfo, List<String> investIdList, List<CreditAssignStatus> statusList);
+    public List<CreditAssign> listByUserInvest(List<String> investIdList, List<CreditAssignStatus> statusList);
     
     /**
      * 获取某用户的所有债权信息
