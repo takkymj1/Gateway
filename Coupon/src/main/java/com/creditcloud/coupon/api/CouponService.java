@@ -55,17 +55,18 @@ public interface CouponService extends CouponQueryService {
     public CouponPlacement placeCoupon(String clientCode, String packageId, RealmEntity owner);
     
     /**
-     * 根据Type以及parValue，寻找合适的package，并将其中一张奖券分配给owner.
+     * 根据Code, Type以及parValue，寻找合适的package，并将其中一张奖券分配给owner.
      * 
-     * 条件是parValue和type都相符合，package没有过期并且有可分配的奖券数量
+     * 条件是Code, parValue和type都相符合，package没有过期并且有可分配的奖券数量
      * 
      * @param clientCode
+     * @param code
      * @param type
      * @param parValue
      * @param owner
      * @return null 表示没有合适的奖券包或者分配失败
      */
-    public CouponPlacement placeCoupon(String clientCode, CouponType type, int parValue, RealmEntity owner);
+    public CouponPlacement placeCoupon(String clientCode, String code, CouponType type, int parValue, RealmEntity owner);
 
     /**
      * 根据Invest的基本信息，计算使用某张奖券时将为用户带来的额外收益.
