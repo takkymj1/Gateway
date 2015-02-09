@@ -242,7 +242,7 @@ public interface YeepService extends YeepQueryService {
      * @param notifyUrl
      * @return 
      */
-    public String autoTender(String clientCode, String loanId,BigDecimal loanAmount,BigDecimal bidAmount,String loanUserNo,String bidUserNo,String reqNo,String notifyUrl);
+    public boolean autoTender(String clientCode, String loanId,BigDecimal loanAmount,BigDecimal bidAmount,String loanUserNo,String bidUserNo,String reqNo,String notifyUrl);
 
     /**
      * 取消自动还款授权
