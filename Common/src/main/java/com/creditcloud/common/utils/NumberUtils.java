@@ -128,6 +128,7 @@ public class NumberUtils {
         BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
         //债权转让日与上一个利息支付日之间的天数
         int interestCalculateTotalDays = Days.daysBetween(lastDueDate, LocalDate.now()).getDays();
+        interestCalculateTotalDays = interestCalculateTotalDays < 0 ? 0 : interestCalculateTotalDays;
         //当期应计利息
         return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
