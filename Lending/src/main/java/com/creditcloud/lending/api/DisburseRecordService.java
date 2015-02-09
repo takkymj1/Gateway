@@ -10,6 +10,7 @@ import com.creditcloud.lending.model.DisburseRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.DisburseType;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -43,7 +44,15 @@ public interface DisburseRecordService {
     public PagedResult<DisburseRecord> listByLoan(String loanId, PageInfo pageInfo, List<DisburseStatus> statusList);
 
     public int countByUser(String userId, List<DisburseStatus> statusList);
-
+    
+    /**
+     * 根据用户id，垫付状态查询垫付总额
+     * @param userId
+     * @param statusList
+     * @return 
+     */
+    public BigDecimal countDisburseAmtByUser(String userId, List<DisburseStatus> statusList);
+            
     public PagedResult<DisburseRecord> listByUser(String userId, PageInfo pageInfo, List<DisburseStatus> statusList);
 
     public List<DisburseRecord> listByLoanRepayment(String loanRepaymentId, List<DisburseStatus> statusList);

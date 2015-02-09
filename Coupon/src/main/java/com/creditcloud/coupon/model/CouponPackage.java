@@ -55,6 +55,14 @@ public class CouponPackage extends BaseObject {
     @FormParam("displayName")
     @NotNull
     private String displayName;
+    
+    /**
+     * 用于区分不同奖券组的编码，比如多种不同类型的奖券都属于“新手奖励”组.
+     * 
+     * 一般用字母缩写
+     */
+    @FormParam("code")
+    private String code;
 
     /**
      * 详情介绍

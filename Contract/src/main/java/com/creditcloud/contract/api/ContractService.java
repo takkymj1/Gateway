@@ -19,6 +19,7 @@ import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.Remote;

@@ -296,4 +296,10 @@ public class Features extends BaseObject {
     @XmlElement
     private boolean enableExtensibleRepayment = false;
 
+    /**
+     * 显示该组用户的所有评论
+     */
+    @Getter
+    @XmlElement
+    private boolean enableShowGroupComments = false;
 }
