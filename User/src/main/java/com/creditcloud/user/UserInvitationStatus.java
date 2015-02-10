@@ -11,7 +11,7 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author chai
  */
-public enum UserInvitedStatus implements BaseEnum {
+public enum UserInvitationStatus implements BaseEnum {
     
     ACTIVATED("已激活"),
     
@@ -21,7 +21,7 @@ public enum UserInvitedStatus implements BaseEnum {
     
     private final String key;
     
-    private UserInvitedStatus(String key){
+    private UserInvitationStatus(String key){
         this.key = key;
     }
 

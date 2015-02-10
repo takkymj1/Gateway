@@ -7,7 +7,7 @@ package com.creditcloud.user.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.misc.RealmEntity;
-import com.creditcloud.user.UserInvitedStatus;
+import com.creditcloud.user.UserInvitationStatus;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserInvited extends BaseObject {
+public class UserInvitation extends BaseObject {
     
     private static final long serialVersionUID = 20150210L;
 
@@ -36,7 +36,7 @@ public class UserInvited extends BaseObject {
     /**
      * 状态
      */
-    private UserInvitedStatus status;
+    private UserInvitationStatus status;
     
     private Date timeCreated;
     

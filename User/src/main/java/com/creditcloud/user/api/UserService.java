@@ -8,9 +8,7 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
-import com.creditcloud.user.model.UserInvited;
 import com.creditcloud.user.model.UserProperty;
 import com.creditcloud.user.social.SocialId;
 import java.util.Date;
@@ -23,7 +21,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface UserService extends UserSecurityService, UserRewardService, UserSocialService {
+public interface UserService extends UserSecurityService, UserRewardService, UserSocialService, UserInvitationService {
 
     /**
      * list all users for client
@@ -314,44 +312,4 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return 
      */
     PagedResult<User> listByGroup(String clientCode, PageInfo pageInfo, String groupId);
-    
-    /**
-     * 查看提供的信息是否为邀请信息
-     * @param clientCode
-     * @param invitedInfo
-     * @return 
-     */
-    boolean isInvited(String clientCode, RealmEntity invitedInfo);
-    
-    /**
-     * 根据邀请人userId，查找受邀列表
-     * @param clientCode
-     * @param pageInfo 
-     * @param inviter
-     * @return 
-     */
-    PagedResult<UserInvited> listInvitedByInviter(String clientCode, PageInfo pageInfo, String inviter);
-    
-    /**
-     * 根据ID查找邀请信息
-     * @param id
-     * @return 
-     */
-    UserInvited findInvitedById(String id);
-    
-    /**
-     * 创建新的邀请信息
-     * @param clientCode
-     * @param userInvited
-     * @return 
-     */
-    UserInvited creatNew(String clientCode, UserInvited userInvited);
-    
-    /**
-     * 修改邀请信息
-     * @param clientCode
-     * @param userInvited
-     * @return 
-     */
-    UserInvited updateUserInvited(String clientCode, UserInvited userInvited);
 }
