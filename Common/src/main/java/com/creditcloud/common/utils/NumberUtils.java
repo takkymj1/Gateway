@@ -116,20 +116,21 @@ public class NumberUtils {
     /**
      * 债权转让: 计算当期应计利息
      * @param rate 标的年利率
-     * @param lastRepayedDate 上一个利息支付日 （对应当前未到期的上个月的dueDate）
+     * @param lastDueDate 上一个利息支付日 （对应当前未到期的上个月的dueDate）
      * @param unpayedPrincipal 剩余本金
      * @return 
      */
-    public static BigDecimal getCurrentPeriodInterest(int rate, LocalDate lastRepayedDate, BigDecimal unpayedPrincipal) {
-        if (lastRepayedDate == null || unpayedPrincipal == null) {
+    public static BigDecimal getCurrentPeriodInterest(int rate, LocalDate lastDueDate, BigDecimal unpayedPrincipal) {
+        if (lastDueDate == null || unpayedPrincipal == null) {
             return BigDecimal.ZERO;
         }
         //月利率
         BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
         //债权转让日与上一个利息支付日之间的天数
-        int interestCalculateTotalDays = Days.daysBetween(lastRepayedDate, LocalDate.now()).getDays();
+        int interestCalculateTotalDays = Days.daysBetween(lastDueDate, LocalDate.now()).getDays();
+        interestCalculateTotalDays = interestCalculateTotalDays < 0 ? 0 : interestCalculateTotalDays;
         //当期应计利息
-        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays/30)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
     
     /**

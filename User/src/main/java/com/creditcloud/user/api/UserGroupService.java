@@ -33,4 +33,12 @@ public interface UserGroupService {
      * @return false if user not found
      */
     boolean changeGroup(String clientCode, String userId, String groupId);
+    
+    /**
+     * 根据groupCode查找用户组
+     * @param clientCode
+     * @param groupCode
+     * @return 
+     */
+    List<UserGroup> listByGroupCode(String clientCode, String groupCode);
 }
