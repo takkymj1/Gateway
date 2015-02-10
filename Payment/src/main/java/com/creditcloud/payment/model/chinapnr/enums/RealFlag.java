@@ -15,7 +15,7 @@ public enum RealFlag implements BaseEnum {
 
     R("实名"),//实名
     I("验证中"),//验证中
-    F("未实名");//未实名
+    N("未实名");//未实名
 
     private final String key;
 
@@ -26,5 +26,14 @@ public enum RealFlag implements BaseEnum {
     @Override
     public String getKey() {
         return key;
+    }
+
+    /**
+     * 卡是否通过验证
+     *
+     * @return
+     */
+    public boolean isValid() {
+        return this.equals(R);
     }
 }
