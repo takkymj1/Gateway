@@ -151,4 +151,15 @@ public class CreditAssign extends BaseObject {
     public BigDecimal getBalance() {
         return creditAmount != null ? creditAmount.subtract(bidAmount) : BigDecimal.ZERO;
     }
+    
+    /**
+     * 剩余可投债权金额
+     * @return 
+     */
+    public BigDecimal getLeftCreditDealAmount() {
+        if (bidDealAmount == null) {
+            bidDealAmount = BigDecimal.ZERO;
+        }
+        return creditDealAmount != null ? creditDealAmount.subtract(bidDealAmount) : BigDecimal.ZERO;
+    }
 }
