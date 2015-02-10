@@ -57,7 +57,7 @@ public class CardInfoResult extends BaseObject {
     private Province province;
 
     @NotNull
-    private City city;
+    private City area;
 
     @NotNull
     private IsDefault IsDefault;
