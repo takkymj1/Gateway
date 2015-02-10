@@ -41,4 +41,12 @@ public interface UserGroupService {
      * @return 
      */
     List<UserGroup> listByGroupCode(String clientCode, String groupCode);
+    
+    /**
+     * 根据email查找用户组
+     * @param clientCode
+     * @param emailPatten
+     * @return 
+     */
+    List<UserGroup> listByEmail(String clientCode, String emailPatten);
 }
