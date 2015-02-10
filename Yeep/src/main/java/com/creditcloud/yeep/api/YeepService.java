@@ -86,16 +86,12 @@ public interface YeepService extends YeepQueryService {
      * @param userId
      * @param orderId    此次操作的唯一订单号
      * @param amount
-     * @param BgRetUrl   后台返回的回调路径
-     * @param merPriv
      * @return 如果找不到userId对应的支付账号返回null
      */
     public FreezeResult userFreeze(String clientCode,
                                    String userId,
                                    BigDecimal amount,
-                                   String orderId,
-                                   String BgRetUrl,
-                                   String merPriv);
+                                   String orderId);
 
     /**
      * 解冻指定用户的资金
