@@ -36,6 +36,7 @@ import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.IsUnFreeze;
 import com.creditcloud.payment.model.chinapnr.enums.QueryTransType;
 import com.creditcloud.payment.model.chinapnr.query.AccountDetail;
+import com.creditcloud.payment.model.chinapnr.query.QueryCardResult;
 import com.creditcloud.payment.model.chinapnr.tender.BorrowerDetail;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignRequest;
 import com.creditcloud.payment.model.chinapnr.transfer.CreditAssignResponse;
@@ -80,6 +81,16 @@ public interface PaymentService {
                                                    QueryTransType type,
                                                    String OrdId,
                                                    String ReqExt);
+
+    /**
+     * 查询用户银行卡信息,默认返回所有银行卡信息
+     *
+     * @param clientCode
+     * @param usrCustId
+     * @return
+     */
+    public QueryCardResult queryCardInfo(String clientCode,
+                                         String usrCustId);
 
     /**
      * 记录商户的标的信息，既借款人在商户平台发起借款标的之后，需要调用此接口，将相应信息记录。
