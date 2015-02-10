@@ -53,7 +53,7 @@ public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
         EntityManager em = getEntityManager();
         em.merge(entity);
         em.flush();
-        em.refresh(entity, LockModeType.PESSIMISTIC_READ);
+        em.clear();
     }
 
     /**
@@ -65,7 +65,7 @@ public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
         EntityManager em = getEntityManager();
         em.remove(em.merge(entity));
         em.flush();
-        em.refresh(entity, LockModeType.PESSIMISTIC_READ);
+        em.clear();
     }
 
     /**
@@ -79,7 +79,7 @@ public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
         if (t != null) {
             em.remove(em.merge(t));
             em.flush();
-            em.refresh(t, LockModeType.PESSIMISTIC_READ);
+            em.clear();
         }
     }
 }
