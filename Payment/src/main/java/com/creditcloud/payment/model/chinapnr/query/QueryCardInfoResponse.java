@@ -22,10 +22,14 @@ public class QueryCardInfoResponse extends UserResponse {
 
     private String CardId;
     
-    private List<CardInfo> UsrCardInfoList;
+    private List<CardInfo> UsrCardInfolist;
 
     @Override
     public String chkString() {
         return baseChkString().concat(StringUtils.trimToEmpty(getCardId()));
+    }
+    
+    public List<CardInfo> getUsrCardInfoList(){
+        return UsrCardInfolist;
     }
 }
