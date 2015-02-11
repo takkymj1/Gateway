@@ -9,6 +9,7 @@ import com.creditcloud.comment.Comment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
