@@ -79,7 +79,7 @@ public interface CommentService {
      * @return
      */
     boolean markStatus(String clientCode, CommentStatus status, String... commentIds);
-
+    
     /**
      * 根据状态列出所有评论
      * @param clientCode
