@@ -24,4 +24,16 @@ public enum AccountType {
     public String getCode() {
         return code;
     }
+
+    public static AccountType getByCode(String code) {
+        switch (code) {
+            case "01":
+                return PERSONAL;
+            case "02":
+                return MERCHANT;
+            case "03":
+                return TENDER;
+        }
+        throw new IllegalArgumentException("code is illegal:" + code);
+    }
 }
