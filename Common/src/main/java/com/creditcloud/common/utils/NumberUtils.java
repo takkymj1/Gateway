@@ -136,14 +136,14 @@ public class NumberUtils {
     /**
      * 债权转让： 根据购买的债权转让金额计算实际购买的本金(债权转让转出的本金)
      * @param buyCreditDealAmount 购买的债权转让金额
-     * @param creditDealRate 债权转让折价率
-     * @param currentPeriodInterest 当期应计利息
+     * @param creditAmount 债权转让本金
+     * @param creditDealAmount 债权转让标价
      * @return 
      */
-    public static BigDecimal getCreditPrincipalAmount(BigDecimal buyCreditDealAmount, BigDecimal creditDealRate, BigDecimal currentPeriodInterest) {
-        if (buyCreditDealAmount == null || creditDealRate == null || currentPeriodInterest == null) {
+    public static BigDecimal getCreditPrincipalAmount(BigDecimal buyCreditDealAmount, BigDecimal creditAmount, BigDecimal creditDealAmount) {
+        if (buyCreditDealAmount == null || creditAmount == null || creditDealAmount == null) {
             return BigDecimal.ZERO;
         }
-        return buyCreditDealAmount.divide(BigDecimal.ONE.subtract(creditDealRate), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE).subtract(currentPeriodInterest).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        return creditAmount.multiply(buyCreditDealAmount.divide(creditDealAmount, NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
 }
