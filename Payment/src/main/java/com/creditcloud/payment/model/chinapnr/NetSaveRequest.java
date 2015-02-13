@@ -51,7 +51,7 @@ public class NetSaveRequest extends BaseRequest {
     private String OpenAcctId;
     
     /**
-     * 当 GateBusiId= QP--快捷支付,具体如下
+     * 当 GateBusiId= QP--快捷支付,支持快捷支付的银行具体如下：
      * 
      * 工商银行 ICBC
      * 农行 ABC
