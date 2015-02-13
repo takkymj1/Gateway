@@ -46,5 +46,6 @@
         <module>Lending</module>
         <module>Batch</module>
         <module>Feedback</module>
+        <module>FengMessage</module>
     </modules>
 </project>
