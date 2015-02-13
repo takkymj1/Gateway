@@ -5,6 +5,7 @@
  */
 package com.creditcloud.common.calculator;
 
+import com.creditcloud.common.utils.DateUtils;
 import com.creditcloud.model.constant.NumberConstant;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
@@ -14,7 +15,6 @@ import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
 import org.joda.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -30,6 +30,9 @@ import static org.junit.Assert.*;
  */
 public class LoanCalculatorTest {
 
+    //值为0时,调用没有repayDateOfMonth参数的方法
+    private final int repayDateOfMonth = 10;
+    
     public LoanCalculatorTest() {
     }
 
@@ -195,32 +198,48 @@ public class LoanCalculatorTest {
     
     @Test
     public void testAnalyzeMonthly(){
-        //MonthlyInterest
         LoanDetail loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.MonthlyInterest, 
                                             new LocalDate(2015, 01, 22));
+        //按周期付息，到期还本，每个月还款
         LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.MonthlyInterest, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Monthly);
+                                            RepaymentPeriod.Monthly, repayDateOfMonth);
+        //固定日期在起息日之前，需要把月份+1
+        int fixMonth = 0;
+        if(repayDateOfMonth - 22 < 0){
+            fixMonth = fixMonth + 1;
+        }
+        
         for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
             Repayment repayment = loanDetail.getRepayments().get(i);
             Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
             assertTrue(repayment.getAmountInterest()
                     .equals(repaymentWithPeriod.getAmountInterest()));
+            if(i !=  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
+            }
         }
         //EqualInstallment
         loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualInstallment, 
                                             new LocalDate(2015, 01, 22));
+        //按周期等额本息，每个月还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualInstallment, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Monthly);
+                                            RepaymentPeriod.Monthly, repayDateOfMonth);
         for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
             Repayment repayment = loanDetail.getRepayments().get(i);
             Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
@@ -236,6 +255,13 @@ public class LoanCalculatorTest {
                         .equals(loanDetail.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
                 assertTrue(repaymentWithPeriod.getAmount(RepayType.PrincipalAndInterest)
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
+            } else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         //EqualPrincipal
@@ -243,11 +269,12 @@ public class LoanCalculatorTest {
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualPrincipal, 
                                             new LocalDate(2015, 01, 22));
+        //按周期等额本金，每个月还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualPrincipal, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Monthly);
+                                            RepaymentPeriod.Monthly, repayDateOfMonth);
         for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
             Repayment repayment = loanDetail.getRepayments().get(i);
             Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
@@ -262,6 +289,13 @@ public class LoanCalculatorTest {
                         .equals(loanDetail.getRepayments().get(i-1).getAmountPrincipal()));
                 assertTrue(repaymentWithPeriod.getAmountPrincipal()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountPrincipal()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         //EqualInterest
@@ -269,11 +303,12 @@ public class LoanCalculatorTest {
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualInterest, 
                                             new LocalDate(2015, 01, 22));
+        //按周期平息，到期还本，每个月还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualInterest, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Monthly);
+                                            RepaymentPeriod.Monthly, repayDateOfMonth);
         for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
             Repayment repayment = loanDetail.getRepayments().get(i);
             Repayment repaymentWithPeriod = loanDetailWithPeriod.getRepayments().get(i);
@@ -288,32 +323,53 @@ public class LoanCalculatorTest {
                         .equals(loanDetail.getRepayments().get(i-1).getAmountInterest()));
                 assertTrue(repaymentWithPeriod.getAmountInterest()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repaymentWithPeriod.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Monthly.getMonthsOfPeriod(),0))));
+                }
             }
         }
     }
     
     @Test
     public void testAnalyzeBiMonthly(){
+        //按周期付息，到期还本，每两个月还款
         LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(0, 6, 0),
                                             1200, RepaymentMethod.MonthlyInterest, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.BiMonthly);
+                                            RepaymentPeriod.BiMonthly, repayDateOfMonth);
         BigDecimal expectedAmortizedInterest = new BigDecimal(1000000 * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
         BigDecimal expectedPrincipal = new BigDecimal(1000000);
+        int fixMonth = 0;
+        if(repayDateOfMonth - 22 < 0){
+            fixMonth = fixMonth + 1;
+        }
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
             assertTrue(repayment.getAmountInterest().equals(expectedAmortizedInterest));
+            if(i != loanDetailWithPeriod.getRepayments().size() - 1){
+                if (repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth+(i+1)*RepaymentPeriod.BiMonthly.getMonthsOfPeriod(),0))));
+                }
+            }
             if(i == loanDetailWithPeriod.getRepayments().size() - 1){
                 assertTrue(repayment.getAmountPrincipal().equals(expectedPrincipal));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0, (i+1)*RepaymentPeriod.BiMonthly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         
+        //按周期等额本金，每两个月还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(900000), 
                                             new Duration(0, 6, 0),
                                             1200, RepaymentMethod.EqualPrincipal, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.BiMonthly);
+                                            RepaymentPeriod.BiMonthly, repayDateOfMonth);
         BigDecimal expectedAmortizedPrincipal = new BigDecimal(300000).setScale(2, NumberConstant.ROUNDING_MODE);
         BigDecimal[] interests = new BigDecimal[3];
         interests[0] = new BigDecimal(900000 * 0.01 * 2).setScale(2, NumberConstant.ROUNDING_MODE);
@@ -322,19 +378,33 @@ public class LoanCalculatorTest {
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
             assertTrue(repayment.getAmountInterest().equals(interests[i]));
+            if(i != loanDetailWithPeriod.getRepayments().size() - 1){
+                if (repayDateOfMonth > 0){
+                assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0, fixMonth + (i+1)*RepaymentPeriod.BiMonthly.getMonthsOfPeriod(),0))));
+                }
+            }
             if(i == loanDetailWithPeriod.getRepayments().size() - 1){
                 assertTrue(repayment.getAmountPrincipal().equals(expectedAmortizedPrincipal));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0, (i+1)*RepaymentPeriod.BiMonthly.getMonthsOfPeriod(),0))));
+                }
             }
         }
     }
     
     @Test
     public void testAnalyzeQuarterly(){
+        //按周期等额本息，每个季度还款
         LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(1, 0, 0),
                                             1200, RepaymentMethod.EqualInstallment, 
-                                            new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Quarterly);
+                                            new LocalDate(2015, 02, 22),
+                                            RepaymentPeriod.Quarterly, repayDateOfMonth);
+        
+        int fixMonth = 0;
+        if(repayDateOfMonth - 22 < 0){
+            fixMonth = fixMonth + 1;
+        }
         BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -344,15 +414,23 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + 1+(i+1)*RepaymentPeriod.Quarterly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i == loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,1+(i+1)*RepaymentPeriod.Quarterly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
     
+        //按周期平息，到期还本，每个季度还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(1, 0, 0),
                                             1200, RepaymentMethod.EqualInterest, 
-                                            new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Quarterly);
+                                            new LocalDate(2015, 02, 22),
+                                            RepaymentPeriod.Quarterly, repayDateOfMonth);
         expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -361,6 +439,15 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmountInterest()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(
+                            DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),//2月没有31号，使用1月计算，之后再补回相差月份
+                                    new Duration(0,fixMonth + 1+(i+1)*RepaymentPeriod.Quarterly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i == loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,1+(i+1)*RepaymentPeriod.Quarterly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
@@ -368,11 +455,17 @@ public class LoanCalculatorTest {
     
     @Test
     public void testAnalyzeHalfYearly(){
+        //按周期等额本息，每半年还款
         LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(2, 0, 0),
                                             1200, RepaymentMethod.EqualInstallment, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.HalfYearly);
+                                            RepaymentPeriod.HalfYearly, repayDateOfMonth);
+        
+        int fixMonth = 0;
+        if(repayDateOfMonth - 22 < 0){
+            fixMonth = fixMonth + 1;
+        }
         BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -382,15 +475,23 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.HalfYearly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.HalfYearly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
     
+        //按周期平息，到期还本，每半年还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(1, 0, 0),
                                             1200, RepaymentMethod.EqualInterest, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.HalfYearly);
+                                            RepaymentPeriod.HalfYearly, repayDateOfMonth);
         expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -399,6 +500,13 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmountInterest()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.HalfYearly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.HalfYearly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
@@ -406,11 +514,16 @@ public class LoanCalculatorTest {
     
     @Test
     public void testAnalyzeYearly(){
+        //按周期等额本金，每年还款
         LoanDetail loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(4, 0, 0),
                                             1200, RepaymentMethod.EqualPrincipal, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Yearly);
+                                            RepaymentPeriod.Yearly, repayDateOfMonth);
+        int fixMonth = 0;
+        if(repayDateOfMonth - 22 < 0){
+            fixMonth = fixMonth + 1;
+        }
         BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -420,15 +533,23 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmountPrincipal()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountPrincipal()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Yearly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Yearly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
     
+        //按周期平息，到期还本，每年还款
         loanDetailWithPeriod = LoanCalculator.analyze(new BigDecimal(1000000), 
                                             new Duration(4, 0, 0),
                                             1200, RepaymentMethod.EqualInterest, 
                                             new LocalDate(2015, 01, 22),
-                                            RepaymentPeriod.Yearly);
+                                            RepaymentPeriod.Yearly, repayDateOfMonth);
         expectedPrincipal = new BigDecimal(BigInteger.ZERO);
         for (int i = 0; i < loanDetailWithPeriod.getRepayments().size(); i++) {
             Repayment repayment = loanDetailWithPeriod.getRepayments().get(i);
@@ -438,6 +559,13 @@ public class LoanCalculatorTest {
                     && i !=  loanDetailWithPeriod.getRepayments().size() - 1){//最后一次会修正四舍五入带来的误差，不会与之前相等
                 assertTrue(repayment.getAmountInterest()
                         .equals(loanDetailWithPeriod.getRepayments().get(i-1).getAmountInterest()));
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, repayDateOfMonth),new Duration(0,fixMonth + (i+1)*RepaymentPeriod.Yearly.getMonthsOfPeriod(),0))));
+                }
+            }else if(i ==  loanDetailWithPeriod.getRepayments().size() - 1){
+                if(repayDateOfMonth > 0){
+                    assertTrue(repayment.getDueDate().equals(DateUtils.offset(new LocalDate(2015, 01, 22),new Duration(0,(i+1)*RepaymentPeriod.Yearly.getMonthsOfPeriod(),0))));
+                }
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
