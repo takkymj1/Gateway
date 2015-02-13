@@ -15,7 +15,13 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- *
+ * 汇付天下充值请求参数
+ * 
+ * 注意： 
+ * 1.GateBusiId,OpenBankId,DcFlag 只有在同时都有值时才有作用
+ * 2.测试环境网银充值只能用兴业银行模拟充值,快捷充值支持的银行均可以做模拟充值
+ * 3.支付网关业务代号 GateBusiId 中 QP--快捷支付 需要商户申请开通权限
+ * 
  * @author sobranie
  */
 public class NetSaveRequest extends BaseRequest {
@@ -35,9 +41,39 @@ public class NetSaveRequest extends BaseRequest {
     @Size(max = 6)
     private String GateBusiId;
 
+    /**
+     * 当 GateBusiId =QP--快捷支付时有效
+     * 
+     * 若不为空,则快捷绑卡页面不需要再填银行卡号
+     * 若为空,则快捷绑卡页面需要填银行卡号银行
+     */
+    @Size(max = 32)
+    private String OpenAcctId;
+    
+    /**
+     * 当 GateBusiId= QP--快捷支付,支持快捷支付的银行具体如下：
+     * 
+     * 工商银行 ICBC
+     * 农行 ABC
+     * 建设银行 CCB
+     * 中国银行 BOC
+     * 光大银行 CEB
+     * 兴业银行 CIB
+     * 中信银行 CITIC
+     * 平安银行 PINGAN
+     * 上海银行 BOS
+     * 渤海银行 CBHB
+     * 邮储 PSBC
+     * 浦发 SPDB
+     */
     @Size(max = 8)
     private String OpenBankId;
 
+    /**
+     * D--借记,储蓄卡 C--贷记,信用卡
+     * 
+     * 定长 1 位
+     */
     @NotNull
     private String DcFlag;
 
@@ -83,6 +119,7 @@ public class NetSaveRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getOrdDate()))
                 .append(StringUtils.trimToEmpty(getGateBusiId()))
+                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getDcFlag()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
@@ -163,4 +200,14 @@ public class NetSaveRequest extends BaseRequest {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
+
+    public String getOpenAcctId() {
+        return OpenAcctId;
+    }
+
+    public void setOpenAcctId(String OpenAcctId) {
+        this.OpenAcctId = OpenAcctId;
+    }
+    
+    
 }
