@@ -2,6 +2,7 @@ package com.creditcloud.common.utils;
 
 import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.NumberFormat;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
@@ -16,6 +17,8 @@ import org.joda.time.LocalDate;
  * @author sobranie
  */
 public class NumberUtils {
+    
+    private static final MathContext mc = new MathContext(16, NumberConstant.ROUNDING_MODE);
 
     /**
      * 将数据字符串转为BigDecimal
@@ -125,12 +128,12 @@ public class NumberUtils {
             return BigDecimal.ZERO;
         }
         //月利率
-        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), mc);
         //债权转让日与上一个利息支付日之间的天数
         int interestCalculateTotalDays = Days.daysBetween(lastDueDate, LocalDate.now()).getDays();
         interestCalculateTotalDays = interestCalculateTotalDays < 0 ? 0 : interestCalculateTotalDays;
         //当期应计利息
-        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        return unpayedPrincipal.multiply(monthRate).multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), mc)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
     
     /**
@@ -144,6 +147,6 @@ public class NumberUtils {
         if (buyCreditDealAmount == null || creditAmount == null || creditDealAmount == null) {
             return BigDecimal.ZERO;
         }
-        return creditAmount.multiply(buyCreditDealAmount.divide(creditDealAmount, NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        return creditAmount.multiply(buyCreditDealAmount.divide(creditDealAmount, mc)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
     }
 }
