@@ -35,6 +35,15 @@ public class NetSaveRequest extends BaseRequest {
     @Size(max = 6)
     private String GateBusiId;
 
+    /**
+     * 当 GateBusiId =QP--快捷支付时有效
+     * 
+     * 若不为空,则快捷绑卡页面不需要再填银行卡号
+     * 若为空,则快捷绑卡页面需要填银行卡号银行
+     */
+    @Size(max = 32)
+    private String OpenAcctId;
+    
     @Size(max = 8)
     private String OpenBankId;
 
@@ -83,6 +92,7 @@ public class NetSaveRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getOrdDate()))
                 .append(StringUtils.trimToEmpty(getGateBusiId()))
+                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getDcFlag()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
@@ -163,4 +173,14 @@ public class NetSaveRequest extends BaseRequest {
     public void setBgRetUrl(String BgRetUrl) {
         this.BgRetUrl = BgRetUrl;
     }
+
+    public String getOpenAcctId() {
+        return OpenAcctId;
+    }
+
+    public void setOpenAcctId(String OpenAcctId) {
+        this.OpenAcctId = OpenAcctId;
+    }
+    
+    
 }
