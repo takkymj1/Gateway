@@ -42,7 +42,7 @@ public abstract class AbstractDAO<T> extends AbstractReadDAO<T> {
     }
 
     /**
-     * remote entity
+     * remove entity
      *
      * @param entity
      */

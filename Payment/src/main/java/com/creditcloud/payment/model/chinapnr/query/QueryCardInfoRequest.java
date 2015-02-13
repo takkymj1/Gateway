@@ -20,6 +20,10 @@ public class QueryCardInfoRequest extends UserRequest {
 
     private String CardId;
 
+    public QueryCardInfoRequest(String MerCustId, String UsrCustId) {
+        super(CmdIdType.QueryCardInfo, MerCustId, UsrCustId);
+    }
+
     public QueryCardInfoRequest(String MerCustId, String UsrCustId, String CardId) {
         super(CmdIdType.QueryCardInfo, MerCustId, UsrCustId);
         this.CardId = CardId;

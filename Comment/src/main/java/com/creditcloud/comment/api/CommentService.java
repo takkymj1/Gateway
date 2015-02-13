@@ -9,6 +9,7 @@ import com.creditcloud.comment.Comment;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -78,4 +79,31 @@ public interface CommentService {
      * @return
      */
     boolean markStatus(String clientCode, CommentStatus status, String... commentIds);
+    
+    /**
+     * 根据状态列出所有评论
+     * @param clientCode
+     * @param pageInfo
+     * @param status
+     * @return 
+     */
+    PagedResult<Comment> listAllByStatus(String clientCode, PageInfo pageInfo, CommentStatus... status);
+    
+    /**
+     * 根据senders和状态查找评论
+     * @param clientCode
+     * @param senders
+     * @param pageInfo
+     * @param status
+     * @return 
+     */
+    PagedResult<Comment> listBySenders(String clientCode, List<RealmEntity> senders, PageInfo pageInfo, CommentStatus... status);
+    
+    /**
+     * 根据ID查找评论
+     * @param clientCode
+     * @param id
+     * @return 
+     */
+    Comment findById(String clientCode, String id);
 }

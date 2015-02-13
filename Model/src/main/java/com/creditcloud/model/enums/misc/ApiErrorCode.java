@@ -93,7 +93,10 @@ public enum ApiErrorCode implements BaseEnum {
     PASSWORD_RESET_FAILURE("更改密码失败"),
     PASSWORD_ERROR("登录密码错误"),
    
-    CREDITASSIGN_ERROR("债权转让错误");
+    CREDITASSIGN_ERROR("债权转让错误"),
+    
+    GROUP_NOT_EXIST("没有对应的组存在"),
+    USER_NOT_INVITED("非受邀用户");
     
     private final String key;
     
