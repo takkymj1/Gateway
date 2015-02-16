@@ -119,7 +119,7 @@ public class NetSaveRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getOrdDate()))
                 .append(StringUtils.trimToEmpty(getGateBusiId()))
-                .append(StringUtils.trimToEmpty(getOpenAcctId()))
+//                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getDcFlag()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
