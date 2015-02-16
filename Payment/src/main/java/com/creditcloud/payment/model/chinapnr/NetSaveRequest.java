@@ -114,17 +114,35 @@ public class NetSaveRequest extends BaseRequest {
 
     @Override
     public String chkString() {
+        /**
+         * 加签验签顺序
+         * Version +
+         * CmdId + 
+         * MerCustId + 
+         * UsrCustId + 
+         * OrdId+ 
+         * OrdDate + 
+         * GateBusiId+ 
+         * OpenBankId+ 
+         * DcFlag +
+         * TransAmt+ 
+         * RetUrl+ 
+         * BgRetUrl+ 
+         * OpenAcctId+ 
+         * CertId+ 
+         * MerPriv
+         */
         StringBuilder sb = new StringBuilder(baseChkString());
         sb.append(StringUtils.trimToEmpty(getUsrCustId()))
                 .append(StringUtils.trimToEmpty(getOrdId()))
                 .append(StringUtils.trimToEmpty(getOrdDate()))
                 .append(StringUtils.trimToEmpty(getGateBusiId()))
-//                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getOpenBankId()))
                 .append(StringUtils.trimToEmpty(getDcFlag()))
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
+                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
