@@ -26,8 +26,6 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class NetSaveRequest extends BaseRequest {
 
-    private static final long serialVersionUID = 20150216L;
-    
     @NotNull
     @Size(max = 16)
     private String UsrCustId;
@@ -86,8 +84,8 @@ public class NetSaveRequest extends BaseRequest {
      * 若不为空,则快捷绑卡页面不需要再填银行卡号
      * 若为空,则快捷绑卡页面需要填银行卡号银行
      */
-    @Size(max = 32)
-    private String OpenAcctId;
+//    @Size(max = 32)
+//    private String OpenAcctId;
     
     public NetSaveRequest() {
     }
@@ -114,29 +112,29 @@ public class NetSaveRequest extends BaseRequest {
         this.BgRetUrl = BgRetUrl;
     }
 
-    public NetSaveRequest(String MerCustId,
-                          String UsrCustId,
-                          String OrdId,
-                          String OrdDate,
-                          String GateBusiId,
-                          String OpenBankId,
-                          String DcFlag,
-                          String TransAmt,
-                          String RetUrl,
-                          String BgRetUrl,
-                          String OpenAcctId) {
-        super(PnRConstant.Version, CmdIdType.NetSave, MerCustId);
-        this.UsrCustId = UsrCustId;
-        this.OrdId = OrdId;
-        this.OrdDate = OrdDate;
-        this.GateBusiId = GateBusiId;
-        this.OpenBankId = OpenBankId;
-        this.DcFlag = DcFlag;
-        this.TransAmt = TransAmt;
-        this.RetUrl = RetUrl;
-        this.BgRetUrl = BgRetUrl;
-        this.OpenAcctId = OpenAcctId;
-    }
+//    public NetSaveRequest(String MerCustId,
+//                          String UsrCustId,
+//                          String OrdId,
+//                          String OrdDate,
+//                          String GateBusiId,
+//                          String OpenBankId,
+//                          String DcFlag,
+//                          String TransAmt,
+//                          String RetUrl,
+//                          String BgRetUrl,
+//                          String OpenAcctId) {
+//        super(PnRConstant.Version, CmdIdType.NetSave, MerCustId);
+//        this.UsrCustId = UsrCustId;
+//        this.OrdId = OrdId;
+//        this.OrdDate = OrdDate;
+//        this.GateBusiId = GateBusiId;
+//        this.OpenBankId = OpenBankId;
+//        this.DcFlag = DcFlag;
+//        this.TransAmt = TransAmt;
+//        this.RetUrl = RetUrl;
+//        this.BgRetUrl = BgRetUrl;
+//        this.OpenAcctId = OpenAcctId;
+//    }
     
     @Override
     public String chkString() {
@@ -169,7 +167,7 @@ public class NetSaveRequest extends BaseRequest {
                 .append(StringUtils.trimToEmpty(getTransAmt()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
-                .append(StringUtils.trimToEmpty(getOpenAcctId()))
+//                .append(StringUtils.trimToEmpty(getOpenAcctId()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
@@ -246,13 +244,13 @@ public class NetSaveRequest extends BaseRequest {
         this.BgRetUrl = BgRetUrl;
     }
 
-    public String getOpenAcctId() {
-        return OpenAcctId;
-    }
+//    public String getOpenAcctId() {
+//        return OpenAcctId;
+//    }
 
-    public void setOpenAcctId(String OpenAcctId) {
-        this.OpenAcctId = OpenAcctId;
-    }
+//    public void setOpenAcctId(String OpenAcctId) {
+//        this.OpenAcctId = OpenAcctId;
+//    }
     
     
 }
