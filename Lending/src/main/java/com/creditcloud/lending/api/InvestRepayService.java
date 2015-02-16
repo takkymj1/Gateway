@@ -54,9 +54,10 @@ public interface InvestRepayService extends InvestRepayQueryService {
      * @param repayAmount
      * @param repaySource
      * @param status
+     * @param repayment
      * @return 
      */
-    public boolean creditAssignDeprecated(String id, BigDecimal repayAmount, RealmEntity repaySource, RepaymentStatus status);
+    public boolean creditAssignDeprecated(String id, BigDecimal repayAmount, RealmEntity repaySource, RepaymentStatus status, Repayment repayment);
 
     /**
      * get first invest repayment by invest and status with ascending duedate
