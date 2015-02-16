@@ -116,6 +116,7 @@ public class NetSaveRequest extends BaseRequest {
     public String chkString() {
         /**
          * 加签验签顺序
+         * 
          * Version +
          * CmdId + 
          * MerCustId + 
