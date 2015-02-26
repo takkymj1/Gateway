@@ -21,6 +21,7 @@ import com.creditcloud.model.user.ReferralUser;
 import com.creditcloud.service.MarketInvestService;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -151,6 +152,11 @@ public class AbstractMarketInvestService implements MarketInvestService {
 
     @Override
     public boolean cancelLoan(String clientCode, Loan loan) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public BigDecimal sumAmountByStatus(InvestStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
