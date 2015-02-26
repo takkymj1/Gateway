@@ -5,6 +5,7 @@
 package com.creditcloud.fengMessage.api;
 
 import com.creditcloud.fengMessage.model.TenderMailTemplateRequest;
+import com.creditcloud.fengMessage.model.TenderTitleRequest;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -23,5 +24,5 @@ public interface FengMessageService {
      * @param title
      * @return 
      */
-    public boolean sendByTemplate(String templateId, TenderMailTemplateRequest request, List<String> receiverIds,String title);
+    public boolean sendByTemplate(String templateId, TenderMailTemplateRequest request, List<String> receiverIds,TenderTitleRequest title);
 }
