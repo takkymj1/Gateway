@@ -27,5 +27,5 @@ public interface FengMessageService {
      */
     public boolean sendByTemplate(String templateId, TenderMailTemplateRequest request, List<String> receiverIds,String title);
     
-    public boolean sendByTemplate(BaseRequest request, List<String> receiverIds, TenderTitleRequest title title);
+    public boolean sendByTemplate(BaseRequest request, List<String> receiverIds, TenderTitleRequest title);
 }
