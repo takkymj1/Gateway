@@ -9,6 +9,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.user.model.UserInvitation;
+import java.util.List;
 
 /**
  *
@@ -54,4 +55,12 @@ public interface UserInvitationService {
      * @return 
      */
     UserInvitation updateUserInvitation(String clientCode, UserInvitation userInvitation);
+    
+    /**
+     * 根据受邀人信息，列出邀请信息
+     * @param clientCode
+     * @param invitedInfo
+     * @return 
+     */
+    List<UserInvitation> ListInvitationByInvitedInfo(String clientCode, RealmEntity invitedInfo);
 }
