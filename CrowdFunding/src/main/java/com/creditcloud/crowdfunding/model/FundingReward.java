@@ -5,6 +5,7 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.crowdfunding.enums.CrowdFundingRewardApplyAction;
 import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -97,6 +98,11 @@ public class FundingReward extends BaseObject {
      * 限定条件的判断结果
      */
     private String restrictionResult;
+    
+    /**
+     * 当有回报限定条件, 且不满足回报限定条件不能支持,即restrictionResult的值为UNSATISFYRISTRICTION时，在本接口读取一个要跳转的url链接
+     */
+    private String specialTopicUrl = CrowdFundingRewardApplyAction.DEFAULTSPECIALTOPIC.getKey();
     
     /**
      * 限定条件的判断结果信息
