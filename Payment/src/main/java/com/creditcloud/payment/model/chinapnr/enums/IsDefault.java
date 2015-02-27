@@ -19,4 +19,8 @@ public enum IsDefault {
      * 不是默认
      */
     N;
+
+    public boolean isDefault() {
+        return this.equals(Y);
+    }
 }
