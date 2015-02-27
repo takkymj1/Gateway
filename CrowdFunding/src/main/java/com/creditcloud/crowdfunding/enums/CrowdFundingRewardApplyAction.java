@@ -26,7 +26,12 @@ public enum CrowdFundingRewardApplyAction implements BaseEnum {
     /**
      * mobileSpecialTopic 
      */
-    MOBILESPECIALTOPIC("/specialTopic/mobileyhgj");
+    MOBILESPECIALTOPIC("/specialTopic/mobileyhgj"),
+    
+    /**
+     * default special topic url 
+     */
+    DEFAULTSPECIALTOPIC("/financing");
     
     private final String key;
 
