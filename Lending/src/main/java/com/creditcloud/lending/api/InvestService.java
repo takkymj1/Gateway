@@ -37,4 +37,11 @@ public interface InvestService extends InvestQueryService, InvestStatService {
     public boolean invest(String investId, int amount);
 
     public void notifyLoanStatus(String loanId, LoanStatus status, List<LoanStatus> currentStatus);
+    
+    /**
+     * 债权转让时使用
+     * @param investId
+     * @return 
+     */
+    public Invest getInvestById(String investId);
 }
