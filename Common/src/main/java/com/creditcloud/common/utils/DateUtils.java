@@ -197,7 +197,6 @@ public class DateUtils {
      * @return 
      */
     public static boolean isPublicHoliday(LocalDate currentDate) {
-        boolean isWeekend = isWeekend(currentDate);
         boolean isHoliday = false;
         //读取假日文件，判断假日文件中是否有当天
         File holidayFile = new File(GlobalConstant.CREDITCLOUD_HOME + File.separator + "holiday");
@@ -213,7 +212,7 @@ public class DateUtils {
                 logger.error("Can't use scanner on holiday file.");
             }
         }
-        return isWeekend || isHoliday;
+        return isHoliday;
     }
     
     /**
