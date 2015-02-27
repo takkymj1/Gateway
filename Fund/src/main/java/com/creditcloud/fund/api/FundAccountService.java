@@ -71,6 +71,15 @@ public interface FundAccountService {
                                boolean isDefault);
 
     /**
+     * 批量添加一组卡
+     *
+     * @param clientCode
+     * @param fundAccounts
+     * @return
+     */
+    public List<FundAccount> addBankCard(String clientCode, List<FundAccount> fundAccounts);
+
+    /**
      *
      * @param clientCode
      * @param userId
@@ -96,15 +105,15 @@ public interface FundAccountService {
     public FundAccount getByUserAndAccount(String clientCode,
                                            String userId,
                                            String account);
-    
+
     /**
      * 获取用户默认银行卡账户
-     * 
+     *
      * @param clientCode
      * @param userId
-     * @return 
+     * @return
      */
     public FundAccount getDefaultByUser(String clientCode,
                                         String userId);
-    
+
 }
