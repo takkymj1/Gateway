@@ -5,6 +5,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -54,7 +55,7 @@ public class LoanInvestStatistics extends BaseObject {
     /**
      * 总的结算过的投资额，满标没有结算地不在统计之列
      */
-    private long totalAmount;
+    private BigDecimal totalAmount;
 
     /**
      * 待还款总金额
@@ -75,7 +76,7 @@ public class LoanInvestStatistics extends BaseObject {
                                 int clearedInvests,
                                 int overdueInvests,
                                 int breachInvests,
-                                long totalAmount,
+                                BigDecimal totalAmount,
                                 RepayAmount dueAmount,
                                 RepayAmount overdueAmount) {
         this.userId = userId;
@@ -109,7 +110,7 @@ public class LoanInvestStatistics extends BaseObject {
         return overdueInvests;
     }
 
-    public long getTotalAmount() {
+    public BigDecimal getTotalAmount() {
         return totalAmount;
     }
 
@@ -141,7 +142,7 @@ public class LoanInvestStatistics extends BaseObject {
         this.overdueInvests = overdueInvests;
     }
 
-    public void setTotalAmount(long totalAmount) {
+    public void setTotalAmount(BigDecimal totalAmount) {
         this.totalAmount = totalAmount;
     }
 

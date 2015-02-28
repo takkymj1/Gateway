@@ -143,6 +143,15 @@ public interface InvestQueryService {
     public long sumLoanInvestByUser(String userId, List<InvestStatus> statusList);
 
     /**
+     * 统计用户已借出的借款总额, 返回类型使用 BigDecimal
+     *
+     * @param userId
+     * @param statusList
+     * @return
+     */
+    public BigDecimal sumLoanInvestByUser2BigDecimal(String userId, List<InvestStatus> statusList);
+    
+    /**
      * 列出所有投资某贷款的用户id,用于发送通知
      *
      * @param loanId
