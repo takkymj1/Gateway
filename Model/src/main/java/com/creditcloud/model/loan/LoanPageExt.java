@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.fengMessage.model;
+package com.creditcloud.model.loan;
 
-import java.io.Serializable;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,9 +15,12 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class TenderTitleRequest implements  Serializable{
-    public String assignTitle;
-    public TenderTitleRequest(String assignTitle){
-        this.assignTitle = assignTitle;
-    }
+public class LoanPageExt extends Loan{
+    
+    private String loanRequestSerial;
+    private String userId;
+    private String LoginName;
+    private String purposeKey;
+    private String methodKey;
+    
 }
