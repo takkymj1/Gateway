@@ -353,6 +353,18 @@ public interface UmpService extends UmpQueryService {
      */
     public boolean changeTenderStatus(String clientCode, String umpTenderId, UmpTenderStatus status);
 
+    
+    /**
+     * 增加标的担保人
+     *
+     * @param clientCode
+     * @param tenderId
+     * @param umpWarrantyUserId
+     * @param umpWarrantyAccountId
+     * @return
+     */
+    public boolean addTenderGuaranteeUser(String clientCode, String tenderId , String umpWarrantyUserId, String umpWarrantyAccountId);
+    
     /**
      * 开放投标
      *
