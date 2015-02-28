@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <CreditAssignConfig>
     <enablePartlyAssign>true</enablePartlyAssign>
+    <enableReassign>true</enableReassign>
     <maxCreditAssignRate>0.10</maxCreditAssignRate>
     <maxCreditAssignDiscountRate>0.10</maxCreditAssignDiscountRate>
     <fee>
