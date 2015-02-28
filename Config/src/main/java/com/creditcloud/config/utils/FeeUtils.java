@@ -207,6 +207,10 @@ public class FeeUtils {
             }
             switch (overdueFee.getPeriod()) {
                 case DAILY:
+                    //借款人或担保人在到期日X日内还款的，则免除逾期费用，如X日内未还款的，则计算逾期之日起的逾期费用
+                    if(days.compareTo(new BigDecimal(config.getOverDaysForCalculate()))<=0){
+                        days = BigDecimal.ZERO;
+                    }    
                     overdueAmount = FeeUtils.calculate(overdueFee, overdueAmount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 case SINGLE:
@@ -240,6 +244,10 @@ public class FeeUtils {
             }
             switch (penaltyFee.getPeriod()) {
                 case DAILY:
+                    //借款人或担保人在到期日X日内还款的，则免除逾期罚息，如X日内未还款的，则计算逾期之日起的逾期罚息
+                    if(days.compareTo(new BigDecimal(config.getOverDaysForCalculate()))<=0){
+                        days = BigDecimal.ZERO;
+                    }  
                     penaltyAmount = FeeUtils.calculate(penaltyFee, penaltyAmount).multiply(days).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
                     break;
                 case SINGLE:

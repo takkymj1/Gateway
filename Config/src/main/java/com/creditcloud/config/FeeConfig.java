@@ -112,6 +112,14 @@ public class FeeConfig extends BaseConfig {
     private int minDaysForAdvanceRepay = 0;
 
     /**
+     * 计算逾期费用及罚息放宽天数
+     * 借款人或担保人在到期日X日内还款的，则免除逾期费用，如X日内未还款的，则计算逾期之日起的逾期费用
+     */
+    @Min(0)
+    @XmlElement(required = false)
+    private int overDaysForCalculate = 0;
+    
+    /**
      * 逾期一定天数的还款将被转化为违约
      */
     @Min(1)
