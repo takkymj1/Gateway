@@ -576,6 +576,32 @@ public interface FundRecordService {
                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                String orderId,
                                int period);
+    
+    /**
+     * 联动支付, 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * 不同点在于, 不记录还款者的记录
+     * 
+     * 重载后，资金对应实体不再限于投资
+     * 
+     * @param clientCode
+     * @param investUserId
+     * @param entity
+     * @param repayAmount
+     * @param loanUserId
+     * @param loanId
+     * @param feeDetails
+     * @param orderId
+     * @param period
+     */
+    void repayInvestRecord2Ump(String clientCode,
+                               String investUserId,
+                               RealmEntity entity,
+                               BigDecimal repayAmount,
+                               String loanUserId,
+                               String loanId,
+                               Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
+                               String orderId,
+                               int period);
 
     /**
      * 垫付成功生成对应的record
@@ -642,6 +668,30 @@ public interface FundRecordService {
                                   String orderId,
                                   int period);
 
+    /**
+     * 联动支付, 垫付成功生成对应的record,并可以指定资金进入的商户子账户<p>
+     * 不同之处在于不记录商户的垫付记录
+     *
+     * 重载后，资金对应实体不再限于投资
+     * 
+     * @param clientCode
+     * @param investUserId
+     * @param entity
+     * @param repayAmount
+     * @param loanId
+     * @param investAmount
+     * @param orderId
+     * @param period
+     */
+    void disburseInvestRecord2Ump(String clientCode,
+                                  String investUserId,
+                                  RealmEntity entity,
+                                  ImmutablePair<String, BigDecimal> repayAmount,
+                                  String loanId,
+                                  ImmutablePair<String, BigDecimal> investAmount,
+                                  String orderId,
+                                  int period);
+    
     /**
      * 商户子账户之间转账
      *

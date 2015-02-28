@@ -13,6 +13,7 @@ import com.creditcloud.model.loan.LoanInvestStatistics;
 import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.ReferralUser;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -196,4 +197,11 @@ public interface MarketInvestService extends MarketInvestRepayService {
      * the local client
      */
     Invest getInvestByLoanAndUserId(String clientCode, String loanId, String userId,InvestStatus... status);
+    
+    /**
+     * 根据指定的状态，计算投资金额总和
+     * @param status
+     * @return 
+     */
+    BigDecimal sumAmountByStatus(InvestStatus... status);
 }

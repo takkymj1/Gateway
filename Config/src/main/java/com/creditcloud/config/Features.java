@@ -302,4 +302,12 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableShowGroupComments = false;
+    
+    /**
+     * 开启用户邀请功能
+     * 已注册用户通过此功能可录入受邀人手机号（或其他信息）
+     */
+    @Getter
+    @XmlElement
+    private boolean enableUserInvitation = false;
 }

@@ -35,6 +35,7 @@ public enum ApiErrorCode implements BaseEnum {
     
     CHINAPNR_AUTOTENDER_OPEN_FAILED("开通汇付自动投标失败"),
     CHINAPNR_AUTOTENDER_CLOSE_FAILED("关闭汇付自动投标失败"),
+    CHINAPNR_BANK_NOT_SUPPORT_FAST("汇付暂不支持此银行卡快捷"),
     
     PAYMENT_ACCOUNT_NOT_FOUND("未开通第三方托管账户"),
     
