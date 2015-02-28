@@ -140,5 +140,16 @@ public interface CreditAssignQueryService {
      */
     public PagedResult<com.creditcloud.model.loan.CreditAssign> listByUser(PageInfo pageInfo, String userId, List<CreditAssignStatus> statusList);
     
+    /**
+     * 获取某用户已发生转让的所有债权信息
+     * 
+     * @param pageInfo
+     * @param userId
+     * @param statusList
+     * @return 
+     * @author xiongyong
+     */
+    public PagedResult<com.creditcloud.model.loan.CreditAssign> listUserHasTransfer(PageInfo pageInfo, String userId, List<CreditAssignStatus> statusList);
+    
      public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
 }
