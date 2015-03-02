@@ -21,7 +21,6 @@ public interface FengMessageService {
      * @param request
      * @param receiverIds
      * @param title
-     * @return 
      */
-    public boolean sendByTemplate(BaseRequest request, List<String> receiverIds, TenderTitleRequest title);
+    public void sendByTemplate(BaseRequest request, List<String> receiverIds, TenderTitleRequest title);
 }
