@@ -15,8 +15,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ShareType implements BaseEnum {
 
-    FRONTEND("前收费"),
-    BACKEND("后收费");
+    FRONTEND("前端"),
+    BACKEND("后端");
     
     private final String key;
 

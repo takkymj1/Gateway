@@ -20,7 +20,8 @@ public enum FundType implements BaseEnum {
     HYBRID("混合型基金"),
     SPECIAL("专户基金"),
     INDEX("指数型基金"),
-    QDII("QDII基金");
+    QDII("QDII基金"),
+    OTHER("其他型基金");
     
     private final String key;
 

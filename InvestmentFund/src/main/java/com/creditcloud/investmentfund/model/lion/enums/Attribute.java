@@ -3,13 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.investmentfund.api;
+
+package com.creditcloud.investmentfund.model.lion.enums;
+
 
 /**
- * 基金产品查询接口
- * 
+ * 指令集
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public interface FundQueryService {
+public enum Attribute {
+
+    /**
+     * 基金产品查询
+     */
+    getfundinfo,
     
+    /**
+     * 基金开户
+     */
+    openacct;
+    
+
+    private Attribute() {}
+
 }

@@ -6,9 +6,11 @@
 
 package com.creditcloud.investmentfund.model;
 
+import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -63,6 +65,13 @@ public class FundProduct extends BaseObject {
     private Date navDate;
     
     /**
+     * 累计净值
+     * 
+     * @return
+     */
+    private BigDecimal totalNav;
+    
+    /**
      * 近一个月涨幅
      */
     private int oneMonthRate;
@@ -86,6 +95,34 @@ public class FundProduct extends BaseObject {
      */
     private String brand;
     
+    /**
+     * 赎回到账时间
+     * 
+     * 单位（工作日）
+     * 
+     */
+    private int redemptionDuration;
     
+    /**
+     * 收费方式
+     * 
+     * @return
+     */
+    private ShareType shareType;
+    
+    /**
+     * 成立日期
+     * 
+     * @return
+     */
+    private Date fundDate;
+    
+    /**
+     * 展示顺序
+     * 
+     * @return
+     */
+    @Min(1)
+    private int ordinal;
     
 }
