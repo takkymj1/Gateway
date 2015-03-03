@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.model.FundProduct;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
@@ -19,9 +20,10 @@ public interface FundProductQueryService {
     /**
      * 获取基金产品列表
      * 
+     * @param brand         基金品牌
      * @param pageInfo
      * @return 
      */
-    PagedResult<FundProduct> list(PageInfo pageInfo);
+    PagedResult<FundProduct> listByBrand(FundBrand brand, PageInfo pageInfo);
     
 }
