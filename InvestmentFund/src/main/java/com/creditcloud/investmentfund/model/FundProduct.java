@@ -87,6 +87,11 @@ public class FundProduct extends BaseObject {
     private int oneYearRate;
     
     /**
+     * 七日年化收益（货币型基金）
+     */
+    private int rate;
+    
+    /**
      * 品牌
      * 
      * 诺安 or other
