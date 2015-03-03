@@ -81,7 +81,11 @@ public class FundProduct extends BaseObject {
      * 品牌
      * 
      * 诺安 or other
+     * 
+     * @return
      */
     private String brand;
+    
+    
     
 }
