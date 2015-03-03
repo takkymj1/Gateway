@@ -33,6 +33,47 @@ public abstract class BaseRequest extends BaseObject {
      * 电商加密串，服务端要验证token
      */
     public String token;
-    
+
+    public BaseRequest() {
+    }
+
+    public BaseRequest(String attribute, String merid, long stamp, String token) {
+        this.attribute = attribute;
+        this.merid = merid;
+        this.stamp = stamp;
+        this.token = token;
+    }
+
+    public String getAttribute() {
+        return attribute;
+    }
+
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
+    }
+
+    public String getMerid() {
+        return merid;
+    }
+
+    public void setMerid(String merid) {
+        this.merid = merid;
+    }
+
+    public long getStamp() {
+        return stamp;
+    }
+
+    public void setStamp(long stamp) {
+        this.stamp = stamp;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
     
 }

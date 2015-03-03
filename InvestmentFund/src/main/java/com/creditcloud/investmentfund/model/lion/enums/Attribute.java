@@ -21,9 +21,43 @@ public enum Attribute {
     /**
      * 基金开户
      */
-    openacct;
+    openacct,
     
-
+    /**
+     * 客户持有份额查询
+     */
+    getshare,
+    
+    /**
+     * 基金买入
+     */
+    buy,
+    
+    /**
+     * 交易申请查询
+     */
+    gethisapps,
+    
+    /**
+     * 查询历史交易确认信息
+     */
+    gethiscontrades,
+    
+    /**
+     * 查询历史分红收益信息
+     */
+    gethisincome,
+    
+    /**
+     * 银行增卡
+     */
+    addbanksend,
+    
+    /**
+     * 赎回
+     */
+    sell;
+    
     private Attribute() {}
 
 }
