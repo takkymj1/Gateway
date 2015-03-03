@@ -130,10 +130,52 @@ public class CouponPackage extends BaseObject {
     /**
      * 最小投资门槛，当奖券与投资挂钩时要求的最小有效投资额.
      *
-     * 如果用户绑定的Invest金额不时无法使用该奖券
+     * 如果用户绑定的Invest金额不足时无法使用该奖券
      */
     @FormParam("minimumInvest")
     @Min(0)
     private int minimumInvest;
 
+    /**
+     * 最短投资时间，月数，含.
+     * 
+     * 用户绑定的Invest对应的duration不足该月数时无法使用该奖券
+     * 即redeem需要满足 duration.getTotalMonths >= minimumDuration
+     * 0表示没有限制
+     */
+    @FormParam("minimumDuration")
+    @Min(0)
+    private int minimumDuration;
+    
+    /**
+     * 最长投资时间，月数，含.
+     * 
+     * 用户绑定的Invest对应的duration超过该月数时无法使用该奖券
+     * 即redeem需要满足 duration.getTotalMonths <= minimumDuration
+     * 0表示没有限制
+     */
+    @FormParam("maximumDuration")
+    @Min(0)
+    private int maximumDuration;
+    
+    /**
+     * 根据minimumDuration以及maximumDuration生成的有好的期限表示字符串
+     * 
+     * @return 
+     */
+    public String getDurationRule() {
+        if (maximumDuration == 0) {
+            if (minimumDuration == 0) {
+                return "无限制";
+            } else {
+                return "最短" + minimumDuration + "个月";
+            }
+        } else {
+            if (minimumDuration == 0) {
+                return "最长" + maximumDuration + "个月";
+            } else {
+                return minimumDuration + "到" + maximumDuration + "个月";
+            }
+        }
+    }
 }
