@@ -77,4 +77,11 @@ public class FundProduct extends BaseObject {
      */
     private int oneYearRate;
     
+    /**
+     * 品牌
+     * 
+     * 诺安 or other
+     */
+    private String brand;
+    
 }
