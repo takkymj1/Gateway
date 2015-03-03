@@ -5,6 +5,10 @@
  */
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.model.FundProduct;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.misc.PagedResult;
+
 /**
  * 基金产品查询接口
  * 
@@ -12,5 +16,12 @@ package com.creditcloud.investmentfund.api;
  */
 public interface FundProductQueryService {
     
+    /**
+     * 获取基金产品列表
+     * 
+     * @param pageInfo
+     * @return 
+     */
+    PagedResult<FundProduct> list(PageInfo pageInfo);
     
 }

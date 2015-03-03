@@ -6,6 +6,7 @@
 
 package com.creditcloud.investmentfund.model;
 
+import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
@@ -92,13 +93,13 @@ public class FundProduct extends BaseObject {
     private int rate;
     
     /**
-     * 品牌
+     * 基金品牌
      * 
      * 诺安 or other
      * 
      * @return
      */
-    private String brand;
+    private FundBrand brand;
     
     /**
      * 赎回到账时间
