@@ -210,4 +210,6 @@ public interface InvestQueryService {
     public List<Invest> listByUserAndStatusAndLoans(String userId, PageInfo pageInfo, List<InvestStatus> statusList, List<Loan> loanList);
     
     public List<Invest> listByIdsAndStatus(List<String> investIds, List<InvestStatus> statusList);
+    
+    public PagedResult<Invest> listByUserAndStatusForCs(String id, PageInfo ALL, List<InvestStatus> asList);
 }
