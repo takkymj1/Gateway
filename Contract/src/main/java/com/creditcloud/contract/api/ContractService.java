@@ -447,4 +447,6 @@ public interface ContractService {
      * @param contractIdList 
      */
     public void confirmContract(List<String> contractIdList);
+    
+    public List<Contract> traceContractsOfCreditAssignInvest(String assignInvestId);
 }
