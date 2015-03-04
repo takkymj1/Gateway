@@ -65,21 +65,27 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private Fee fee;
-
+    
     /**
-     * 起息6个月内含6个月的债权转让平台服务费，给平台
+     * 投资成功后三个月以内（含）
      */
     @Getter
     @XmlElement(required = false)
-    private Fee lessSixMonthAssignServiceFee;
-    
+    private Fee lessThreeMonthAssignServiceFee;
     
     /**
-     * 起息6个月以上的债权转让平台服务费，给平台
+     * 投资成功后三个月以后十二个月以内（含）
      */
     @Getter
     @XmlElement(required = false)
-    private Fee moreSixMonthAssignServiceFee;
+    private Fee moreThreeLessTwelveMonthAssignServiceFee;
+    
+    /**
+     * 投资成功后十二个月以后
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee moreTwelveMonthAssignServiceFee;
     
     /**
      * 起息后可转让的时间期限, 单位为天
