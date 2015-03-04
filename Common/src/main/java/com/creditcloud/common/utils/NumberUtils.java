@@ -1,9 +1,12 @@
 package com.creditcloud.common.utils;
 
+import com.creditcloud.config.CreditAssignConfig;
 import com.creditcloud.model.constant.NumberConstant;
+import com.creditcloud.model.loan.Invest;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.text.NumberFormat;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 
@@ -148,5 +151,35 @@ public class NumberUtils {
             return BigDecimal.ZERO;
         }
         return creditAmount.multiply(buyCreditDealAmount.divide(creditDealAmount, mc)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+    }
+    
+    /**
+     * 获取债权转让时的平台服务费率
+     * @param invest 债权转让人的invest
+     * @param currentPeriod 债权转让人回款计划中第一个没有结算的currentPeriod
+     * @param assignConfig
+     * @return 
+     */
+    public static BigDecimal getPlatformServiceRate(Invest invest, int currentPeriod, CreditAssignConfig assignConfig) {
+        if (StringUtils.isNotBlank(invest.getCreditAssignId())) {
+            //二次转让
+            LocalDate currentDate = LocalDate.now();
+            LocalDate investDate = new LocalDate(invest.getSubmitTime());
+            if (!currentDate.minusMonths(3).isAfter(investDate)) {
+                return assignConfig.getLessThreeMonthAssignServiceFee().getRate();
+            } else if (!currentDate.minusMonths(12).isAfter(investDate)) {
+                return assignConfig.getMoreThreeLessTwelveMonthAssignServiceFee().getRate();
+            } else {
+                return assignConfig.getMoreTwelveMonthAssignServiceFee().getRate();
+            }
+        } else {
+            if (currentPeriod <= 3) {
+                return assignConfig.getLessThreeMonthAssignServiceFee().getRate();
+            } else if (currentPeriod <= 12) {
+                return assignConfig.getMoreThreeLessTwelveMonthAssignServiceFee().getRate();
+            } else {
+                return assignConfig.getMoreTwelveMonthAssignServiceFee().getRate();
+            }
+        }
     }
 }

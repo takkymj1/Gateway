@@ -438,13 +438,15 @@ public interface ContractService {
     /**
      * @author zaishu.ye@fengjr.com
      * 生成债权转让合同
-     * @param investId 
+     * @param assignInvest 
      */
-    public void generateCreditAssignContract(String investId);
+    public void generateCreditAssignContract(Invest assignInvest);
     
     /**
      * 批量确认合同信息，将确认的合同的confirm属性设置为true
      * @param contractIdList 
      */
     public void confirmContract(List<String> contractIdList);
+    
+    public List<Contract> traceContractsOfCreditAssignInvest(String assignInvestId);
 }

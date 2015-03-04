@@ -5,9 +5,6 @@
  */
 package com.creditcloud.config;
 
-import com.creditcloud.config.enums.FeePeriod;
-import com.creditcloud.config.enums.FeeScope;
-import com.creditcloud.config.enums.FeeType;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -44,42 +41,34 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enableReassign = false;
-
-    /**
-     * 债权转让最大手续费率
-     */
-    @Getter
-    @XmlElement(required = false)
-    private BigDecimal maxCreditAssignRate = BigDecimal.ZERO;
-
-    /**
-     * 债权转让最大折价率
-     */
-    @Getter
-    @XmlElement(required = false)
-    private BigDecimal maxCreditAssignDiscountRate = new BigDecimal(2).divide(new BigDecimal(10));
-
-    /**
-     * 债权转让费，给平台, 这个暂时不用了,
-     */
-    @Getter
-    @XmlElement(required = false)
-    private Fee fee;
-
-    /**
-     * 起息6个月内含6个月的债权转让平台服务费，给平台
-     */
-    @Getter
-    @XmlElement(required = false)
-    private Fee lessSixMonthAssignServiceFee;
-    
     
     /**
-     * 起息6个月以上的债权转让平台服务费，给平台
+     * 债权转让是否能够在公共节假日执行
      */
     @Getter
     @XmlElement(required = false)
-    private Fee moreSixMonthAssignServiceFee;
+    private boolean enableCreditAssignOnPublicHoliday = false;
+    
+    /**
+     * 投资成功后三个月以内（含）
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee lessThreeMonthAssignServiceFee;
+    
+    /**
+     * 投资成功后三个月以后十二个月以内（含）
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee moreThreeLessTwelveMonthAssignServiceFee;
+    
+    /**
+     * 投资成功后十二个月以后
+     */
+    @Getter
+    @XmlElement(required = false)
+    private Fee moreTwelveMonthAssignServiceFee;
     
     /**
      * 起息后可转让的时间期限, 单位为天
@@ -160,23 +149,5 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private BigDecimal minAmount = BigDecimal.ONE;
-
-    /**
-     * 每个用户每天发起的债权转让次数上限
-     */
-    @Getter
-    @Min(1)
-    @XmlElement(required = false)
-    private int dailyLimitPerUser = Integer.MAX_VALUE;
-
-    public Fee getFee() {
-        return fee != null
-               ? fee
-               : new Fee(FeeType.NONE,
-                         BigDecimal.ZERO,
-                         BigDecimal.ZERO,
-                         FeePeriod.SINGLE,
-                         FeeScope.PRINCIPAL);
-    }
 
 }
