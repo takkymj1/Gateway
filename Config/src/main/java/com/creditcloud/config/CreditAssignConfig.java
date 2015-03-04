@@ -47,7 +47,7 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private boolean enableCrediAssignOnPublicHoliday = false;
+    private boolean enableCreditAssignOnPublicHoliday = false;
     
     /**
      * 投资成功后三个月以内（含）
