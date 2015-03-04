@@ -214,6 +214,23 @@ public interface FundRecordService {
                                  List<Realm> realmList);
     
     /**
+     * 统计用户资金记录金额总和:债权转让时增加的功能接口
+     * @param clientCode
+     * @param userId
+     * @param statusList
+     * @param operationList
+     * @param typeList
+     * @param realmEntityList
+     * @return 
+     */
+    BigDecimal sumByUserAndRealmEntity(String clientCode,
+                                       String userId,
+                                       List<FundRecordStatus> statusList,
+                                       List<FundRecordOperation> operationList,
+                                       List<FundRecordType> typeList,
+                                       List<RealmEntity> realmEntityList);
+    
+    /**
      * 统计一段时间内用户资金记录数目
      *
      * @param clientCode
