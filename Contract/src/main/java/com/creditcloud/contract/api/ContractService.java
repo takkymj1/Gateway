@@ -437,13 +437,6 @@ public interface ContractService {
     
     /**
      * @author zaishu.ye@fengjr.com
-     * 根据investId生成债权转让合同，可能出现因JPA缓存导致的状态不符合问题
-     * @param investId 
-     */
-    public void generateCreditAssignContract(String investId);
-    
-    /**
-     * @author zaishu.ye@fengjr.com
      * 生成债权转让合同
      * @param assignInvest 
      */
