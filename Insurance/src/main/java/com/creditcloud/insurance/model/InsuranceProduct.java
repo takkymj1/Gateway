@@ -99,5 +99,13 @@ public class InsuranceProduct extends BaseObject {
      */
     private int discountPremium;
     
+    /**
+     * 建议持有时间（平台提供）
+     */
+    private int proposedHoldDuration;
     
+    /**
+     * 预期收益率（平台提供）
+     */
+    private int expectedRate;
 }

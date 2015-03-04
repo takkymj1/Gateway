@@ -5,7 +5,14 @@
  */
 package com.creditcloud.investmentfund.model.lion.request;
 
+import com.lionfund.exception.ApplicationException;
+import com.lionfund.security.Signature;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -43,15 +50,35 @@ public class BaseRequestTest {
      */
     @Test
     public void testSign() {
-        long stamp = System.currentTimeMillis();
-        BaseRequest instance = new BaseRequest("attributeSample", "meridSample", stamp, null);
-        Map result = instance.sign();
-        assertEquals(result.get("attribute"), instance.getAttribute());
-        assertEquals(result.get("merid"), instance.getMerid());
-        assertEquals(result.get("stamp"), String.valueOf(instance.getStamp()));
-        assertEquals(result.size(), 3);
-        System.err.println(new BaseRequest().sign().size());
-        assertEquals(new BaseRequest().sign().size(), 1);
+        try {
+            String attribute = "attributeSample";
+            String mertid = "meridSample";
+            long stamp = 1L;
+            String merchantKey = "123456789";
+            
+            BaseRequest instance = new BaseRequest(attribute, mertid, stamp);
+            instance.sign(merchantKey);
+            Map<String, String> map = new HashMap<>();
+            map.put("attribute", attribute);
+            map.put("merid", mertid);
+            map.put("stamp", String.valueOf(stamp));
+            
+            StringBuilder sequence = new StringBuilder();
+            Set set = map.keySet();
+            Object[] ObjectArr = set.toArray();
+            String[] keyArr = new String[ObjectArr.length];
+            for (int i = 0; i < ObjectArr.length; i++) {
+                keyArr[i] = (String) ObjectArr[i];
+            }
+            Arrays.sort(keyArr, String.CASE_INSENSITIVE_ORDER);
+            for (String key : keyArr) {
+                sequence.append(key.trim()).append(map.get(key).trim());
+            }
+            
+            assertEquals(instance.getToken(), new Signature().sign(merchantKey + sequence.toString() + merchantKey));
+        } catch (ApplicationException ex) {
+            Logger.getLogger(BaseRequestTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

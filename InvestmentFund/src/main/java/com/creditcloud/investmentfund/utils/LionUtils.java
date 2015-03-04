@@ -13,5 +13,4 @@ package com.creditcloud.investmentfund.utils;
  */
 public class LionUtils {
 
-    
 }
