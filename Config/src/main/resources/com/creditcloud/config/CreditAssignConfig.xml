@@ -12,21 +12,29 @@
         <scope>PRINCIPAL</scope>
     </fee>
     
-    <lessSixMonthAssignServiceFee> <!--起息6个月内含6个月的转让平台服务费-->
+    <lessThreeMonthAssignServiceFee> <!--投资成功后三个月以内（含）-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.7</rate>
+        <period>SINGLE</period>
+        <scope>ASSIGNAMOUNT</scope>
+    </lessThreeMonthAssignServiceFee>
+    
+    <moreThreeLessTwelveMonthAssignServiceFee> <!--投资成功后三个月以后十二个月以内（含）-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
         <rate>0.5</rate>
         <period>SINGLE</period>
         <scope>ASSIGNAMOUNT</scope>
-    </lessSixMonthAssignServiceFee>
+    </moreThreeLessTwelveMonthAssignServiceFee>
     
-    <moreSixMonthAssignServiceFee> <!--起息6个月以上的转让平台服务费-->
+    <moreTwelveMonthAssignServiceFee> <!--投资成功后十二个月以后-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
-        <rate>0.25</rate>
+        <rate>0.3</rate>
         <period>SINGLE</period>
         <scope>ASSIGNAMOUNT</scope>
-    </moreSixMonthAssignServiceFee>
+    </moreTwelveMonthAssignServiceFee>
     
     <assignableMonthCarrayInterest>1</assignableMonthCarrayInterest> <!--起息后多长时间后可转让, 单位为月-->
     <nonassignableBeforeDue>15</nonassignableBeforeDue>  <!--距离到期前一定期限内不可以转让, 单位为天--> 
