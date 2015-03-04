@@ -44,6 +44,13 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enableReassign = false;
+    
+    /**
+     * 债权转让是否能够在公共节假日执行
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableCrediAssignOnPublicHoliday = false;
 
     /**
      * 债权转让最大手续费率
