@@ -29,6 +29,7 @@ public enum SubmitCreditAssignResult implements BaseEnum {
     ILLEGAL_ASSIGN_TIME_FOUR("当前时间不可以申请转让"),
     ILLEGAL_ASSIGN_TIME_FIVE("周末及公共节假日不可以转"),
     ILLEGAL_ASSIGN_TIME_SIX("还款日遇到节假日,下一个工作日也不可以转让"),
+    ILLEGAL_REASSIGN_TIME("二次转让：持有不到一个月(含)的项目债权不能转让"),
     ILLEGAL_INVEST("投标状态不可转让"),
     ILLEGAL_INVEST_USER("只能转让自己的投标"),
     ILLEGAL_REPAYMENT("投标有逾期违约还款"),

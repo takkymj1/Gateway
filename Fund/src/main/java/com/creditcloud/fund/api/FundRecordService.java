@@ -814,5 +814,5 @@ public interface FundRecordService {
                                        List<FundRecordStatus> statusList,
                                        List<FundRecordOperation> operationList,
                                        List<FundRecordType> typeList,
-                                       List<RealmEntity> realmEntityList);
+                                       RealmEntity realmEntity);
 }
