@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.lion.request;
 
+import com.creditcloud.investmentfund.model.lion.enums.Attribute;
 import com.lionfund.exception.ApplicationException;
 import com.lionfund.security.Signature;
 import java.util.Arrays;
@@ -51,7 +52,7 @@ public class BaseRequestTest {
     @Test
     public void testSign() {
         try {
-            String attribute = "attributeSample";
+            Attribute attribute = Attribute.getfundinfo;
             String mertid = "meridSample";
             long stamp = 1L;
             String merchantKey = "123456789";
@@ -59,7 +60,7 @@ public class BaseRequestTest {
             BaseRequest instance = new BaseRequest(attribute, mertid, stamp);
             instance.sign(merchantKey);
             Map<String, String> map = new HashMap<>();
-            map.put("attribute", attribute);
+            map.put("attribute", attribute.name());
             map.put("merid", mertid);
             map.put("stamp", String.valueOf(stamp));
             

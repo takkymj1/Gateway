@@ -6,6 +6,7 @@
 
 package com.creditcloud.investmentfund.model.lion.request;
 
+import com.creditcloud.investmentfund.model.lion.enums.Attribute;
 import com.creditcloud.model.BaseObject;
 import com.lionfund.exception.ApplicationException;
 import com.lionfund.security.Signature;
@@ -29,37 +30,37 @@ public class BaseRequest extends BaseObject {
     /**
      * 接口名称
      */
-    public String attribute;
+    private Attribute attribute;
     
     /**
      * 商户ID，由诺安基金分配
      */
-    public String merid;
+    private String merid;
     
     /**
      * 时间串（long型的毫秒数）
      */
-    public long stamp;
+    private long stamp;
     
     /**
      * 电商加密串，服务端要验证token
      */
-    public String token;
+    private String token;
 
     public BaseRequest() {
     }
 
-    public BaseRequest(String attribute, String merid, long stamp) {
+    public BaseRequest(Attribute attribute, String merid, long stamp) {
         this.attribute = attribute;
         this.merid = merid;
         this.stamp = stamp;
     }
 
-    public String getAttribute() {
+    public Attribute getAttribute() {
         return attribute;
     }
 
-    public void setAttribute(String attribute) {
+    public void setAttribute(Attribute attribute) {
         this.attribute = attribute;
     }
 
