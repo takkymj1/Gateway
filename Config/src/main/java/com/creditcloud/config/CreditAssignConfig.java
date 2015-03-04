@@ -5,9 +5,6 @@
  */
 package com.creditcloud.config;
 
-import com.creditcloud.config.enums.FeePeriod;
-import com.creditcloud.config.enums.FeeScope;
-import com.creditcloud.config.enums.FeeType;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -51,27 +48,6 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enableCrediAssignOnPublicHoliday = false;
-
-    /**
-     * 债权转让最大手续费率
-     */
-    @Getter
-    @XmlElement(required = false)
-    private BigDecimal maxCreditAssignRate = BigDecimal.ZERO;
-
-    /**
-     * 债权转让最大折价率
-     */
-    @Getter
-    @XmlElement(required = false)
-    private BigDecimal maxCreditAssignDiscountRate = new BigDecimal(2).divide(new BigDecimal(10));
-
-    /**
-     * 债权转让费，给平台, 这个暂时不用了,
-     */
-    @Getter
-    @XmlElement(required = false)
-    private Fee fee;
     
     /**
      * 投资成功后三个月以内（含）
@@ -173,23 +149,5 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private BigDecimal minAmount = BigDecimal.ONE;
-
-    /**
-     * 每个用户每天发起的债权转让次数上限
-     */
-    @Getter
-    @Min(1)
-    @XmlElement(required = false)
-    private int dailyLimitPerUser = Integer.MAX_VALUE;
-
-    public Fee getFee() {
-        return fee != null
-               ? fee
-               : new Fee(FeeType.NONE,
-                         BigDecimal.ZERO,
-                         BigDecimal.ZERO,
-                         FeePeriod.SINGLE,
-                         FeeScope.PRINCIPAL);
-    }
 
 }

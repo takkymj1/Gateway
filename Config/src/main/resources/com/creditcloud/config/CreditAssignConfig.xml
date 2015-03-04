@@ -2,15 +2,6 @@
 <CreditAssignConfig>
     <enablePartlyAssign>true</enablePartlyAssign>
     <enableReassign>true</enableReassign>
-    <maxCreditAssignRate>0.10</maxCreditAssignRate>
-    <maxCreditAssignDiscountRate>0.10</maxCreditAssignDiscountRate>
-    <fee>
-        <type>FLOATING</type>
-        <fixed>0.00</fixed>
-        <rate>0.10</rate>
-        <period>SINGLE</period>
-        <scope>PRINCIPAL</scope>
-    </fee>
     
     <lessThreeMonthAssignServiceFee> <!--投资成功后三个月以内（含）-->
         <type>FLOATING</type>
@@ -39,11 +30,11 @@
     <assignableMonthCarrayInterest>1</assignableMonthCarrayInterest> <!--起息后多长时间后可转让, 单位为月-->
     <nonassignableBeforeDue>15</nonassignableBeforeDue>  <!--距离到期前一定期限内不可以转让, 单位为天--> 
     
-    <startAssignableTime>08:10</startAssignableTime>  <!-- 可转让日每天哪个时刻以后可以申请转让 -->
-    <endAssignableTime>22:10</endAssignableTime>  <!-- 可转让日每天哪个时刻以后不可以再申请转让 -->
-    <assignApplyExpireTime>23:10</assignApplyExpireTime>  <!-- 转让申请的失效时间 -->
+    <startAssignableTime>08:00</startAssignableTime>  <!-- 可转让日每天哪个时刻以后可以申请转让 -->
+    <endAssignableTime>22:00</endAssignableTime>  <!-- 可转让日每天哪个时刻以后不可以再申请转让 -->
+    <assignApplyExpireTime>23:00</assignApplyExpireTime>  <!-- 转让申请的失效时间 -->
     
     <minDiscountRate>0.0</minDiscountRate>  <!-- 最低折让率 -->
-    <maxDiscountRate>0.20</maxDiscountRate>  <!-- 最高折让率 -->
+    <maxDiscountRate>0.10</maxDiscountRate>  <!-- 最高折让率 -->
     
 </CreditAssignConfig>
