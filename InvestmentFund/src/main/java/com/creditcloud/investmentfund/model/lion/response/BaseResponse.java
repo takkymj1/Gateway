@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.investmentfund.model.lion.base;
+package com.creditcloud.investmentfund.model.lion.response;
 
 import com.creditcloud.model.BaseObject;
 

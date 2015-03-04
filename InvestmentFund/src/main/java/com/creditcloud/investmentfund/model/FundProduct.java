@@ -93,6 +93,11 @@ public class FundProduct extends BaseObject {
     private int rate;
     
     /**
+     * 预期收益率（平台提供）
+     */
+    private int expectedRate;
+    
+    /**
      * 基金品牌
      * 
      * 诺安 or other
@@ -130,5 +135,10 @@ public class FundProduct extends BaseObject {
      */
     @Min(1)
     private int ordinal;
+    
+    /**
+     * 建议持有时间（平台提供）
+     */
+    private int proposedHoldDuration;
     
 }

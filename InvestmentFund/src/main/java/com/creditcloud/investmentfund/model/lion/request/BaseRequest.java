@@ -4,15 +4,23 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.investmentfund.model.lion.base;
+package com.creditcloud.investmentfund.model.lion.request;
 
 import com.creditcloud.model.BaseObject;
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 诺安基金 请求参数封装
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public abstract class BaseRequest extends BaseObject {
+public class BaseRequest extends BaseObject {
 
     /**
      * 接口名称
@@ -76,4 +84,27 @@ public abstract class BaseRequest extends BaseObject {
         this.token = token;
     }
     
+    /**
+     * 签名信息
+     * 
+     * @return 
+     */
+    public Map sign() {
+        try {
+            Map<String, Object> objectAsMap = new HashMap<>();
+            BeanInfo info = Introspector.getBeanInfo(getClass());
+            for (PropertyDescriptor pd : info.getPropertyDescriptors()) {
+                Method reader = pd.getReadMethod();
+                if (!pd.getName().contentEquals("class") && reader != null) {
+                    Object obj = reader.invoke(this);
+                    if (obj != null)
+                        objectAsMap.put(pd.getName(),String.valueOf(reader.invoke(this)));
+                }
+            }
+            return objectAsMap;
+        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+            
+        }
+        return null;
+    }
 }
