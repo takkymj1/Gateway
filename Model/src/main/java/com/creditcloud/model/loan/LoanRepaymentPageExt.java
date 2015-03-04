@@ -42,6 +42,7 @@ public class LoanRepaymentPageExt extends LoanRepayment{
     private boolean enableThirdPartyCollect;
     private String collectRecord;
     private String corporationName;
+    private BigDecimal repayAmount;
     
     public LoanRepaymentPageExt(LoanRepayment loanRepayment,Loan loan,BigDecimal availableAmount,User user, boolean useUnionMobilePayment
                             ,BigDecimal umpTenderBalance,boolean enableLoanFastRepay,String statuskey,boolean enableThirdPartyCollect){
@@ -63,6 +64,7 @@ public class LoanRepaymentPageExt extends LoanRepayment{
         this.mobile = user.getMobile();
         this.enableLoanFastRepay = enableLoanFastRepay;
         this.enableThirdPartyCollect = enableThirdPartyCollect;
+        this.repayAmount = loanRepayment.getRepayAmount();
         if(loan.getLoanRequest().getCorporation() != null){
             this.corporationName = loan.getLoanRequest().getCorporation().getName();
         }else{
