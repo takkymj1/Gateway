@@ -36,6 +36,7 @@ public enum SubmitCreditAssignResult implements BaseEnum {
     ILLEGAL_MOBILE_CAPTCHA("手机验证码错误"),
     ILLEGAL_BUY_TIME("当前时间不可以再申请购买"),
     ILLEGAL_PLATFORM_SERVICE_FEE("平台服务费率为空"),
+    ILLEGAL_REPAYMENT_REPAYED("债权禁止转让：还款计划未按照期限的顺序还款"),
     NEED_CREDIT_ASSIGN_AGREEMENT("需要同意债权转让协议");
 
     private final String key;
