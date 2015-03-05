@@ -22,7 +22,17 @@ import java.util.Set;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public class LionUtils {
-
+    
+    /**
+     * 将类实体对象的相关字段与值转化为Map
+     * 
+     * @param object    类对象
+     * @return
+     * @throws IntrospectionException
+     * @throws IllegalAccessException
+     * @throws IllegalArgumentException
+     * @throws InvocationTargetException 
+     */
     public static Map convertObjToMap(Object object) throws IntrospectionException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Map<String, String> objectAsMap = new HashMap<>();
         BeanInfo info = Introspector.getBeanInfo(object.getClass());
@@ -38,6 +48,12 @@ public class LionUtils {
         return objectAsMap;
     }
     
+    /**
+     * 将Map按字母排序的除token字段的所有非空字段keyvalue组成的字符串
+     * 
+     * @param map
+     * @return 
+     */
     public static String convertMapToOrderedData(Map map){
         StringBuilder sequence = new StringBuilder();
         Set set = map.keySet();
