@@ -50,5 +50,6 @@
         <module>Order</module>
         <module>Lychee</module>
         <module>Coupon</module>
+        <module>ThirdParty</module>
     </modules>
 </project>

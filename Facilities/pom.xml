@@ -25,6 +25,14 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <!---->
+        <dependency>
+            <groupId>com.creditcloud.thirdparty</groupId>
+            <artifactId>ThirdPartyService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency> 
+        
         <dependency>
             <groupId>com.creditcloud.email</groupId>
             <artifactId>EmailService</artifactId>
@@ -175,7 +183,7 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
-<!--
+<!---->
         <dependency>
             <groupId>com.creditcloud.order</groupId>
             <artifactId>OrderService</artifactId>
@@ -190,7 +198,7 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
--->
+
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -205,7 +213,7 @@
             <version>1.7.5</version>
             <type>jar</type>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>         
     </dependencies>
     <build>
         <plugins>
@@ -228,6 +236,10 @@
                             <groupId>com.creditcloud.sms</groupId>
                             <artifactId>SMSService</artifactId>
                         </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.thirdparty</groupId>
+                            <artifactId>ThirdPartyService</artifactId>
+                        </ejbModule>                       
                         <ejbModule>
                             <groupId>com.creditcloud.email</groupId>
                             <artifactId>EmailService</artifactId>
@@ -324,7 +336,7 @@
                             <groupId>com.creditcloud.coupon</groupId>
                             <artifactId>CouponService</artifactId>
                         </ejbModule>
-<!--
+<!---->
                         <ejbModule>
                             <groupId>com.creditcloud.order</groupId>
                             <artifactId>OrderService</artifactId>
@@ -334,7 +346,7 @@
                                                   <groupId>com.creditcloud.yeep</groupId>
                                                   <artifactId>YeepService</artifactId>
                                               </ejbModule>
--->
+
                     </modules>
                 </configuration>
             </plugin>
