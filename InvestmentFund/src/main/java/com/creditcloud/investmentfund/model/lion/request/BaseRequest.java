@@ -14,6 +14,7 @@ import com.lionfund.exception.ApplicationException;
 import com.lionfund.security.Signature;
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Calendar;
 import java.util.Map;
 
 /**
@@ -43,12 +44,13 @@ public class BaseRequest extends BaseObject {
     private String token;
 
     public BaseRequest() {
+        this.stamp = Calendar.getInstance().getTimeInMillis();
     }
 
-    public BaseRequest(Attribute attribute, String merid, long stamp) {
+    public BaseRequest(Attribute attribute, String merid) {
         this.attribute = attribute;
         this.merid = merid;
-        this.stamp = stamp;
+        this.stamp = Calendar.getInstance().getTimeInMillis();
     }
 
     public Attribute getAttribute() {
@@ -97,6 +99,7 @@ public class BaseRequest extends BaseObject {
         try {
             Map map = LionUtils.convertObjToMap(this);
             String fragment = merchantKey + LionUtils.convertMapToOrderedData(map) + merchantKey;
+            System.err.println(fragment);
             token = new Signature().sign(fragment);
         } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException e) {
             throw new LionFundSignatureFailedException(e.getMessage());

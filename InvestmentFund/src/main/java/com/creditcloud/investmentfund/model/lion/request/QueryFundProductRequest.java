@@ -6,6 +6,8 @@
 
 package com.creditcloud.investmentfund.model.lion.request;
 
+import com.creditcloud.investmentfund.model.lion.enums.Attribute;
+
 /**
  * 每日基金产品(基金行情信息)查询
  * 
@@ -24,6 +26,23 @@ public class QueryFundProductRequest extends BaseRequest {
      * 如果不传，表示查询所有基金
      */
     private String fundcode;
-    
+
+    public QueryFundProductRequest(String fundcode, String merid) {
+        super(Attribute.getfundinfo, merid);
+        this.fundcode = fundcode;
+    }
+
+    public String getFundcode() {
+        return fundcode;
+    }
+
+    public void setFundcode(String fundcode) {
+        this.fundcode = fundcode;
+    }
+
+//    @Override
+//    public void sign(String merchantKey) {
+//        super.sign(merchantKey);
+//    }
     
 }

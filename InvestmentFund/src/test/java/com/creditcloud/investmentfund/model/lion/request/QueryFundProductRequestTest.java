@@ -5,15 +5,12 @@
  */
 package com.creditcloud.investmentfund.model.lion.request;
 
-import com.creditcloud.investmentfund.model.lion.enums.Attribute;
-import com.lionfund.exception.ApplicationException;
+import com.creditcloud.investmentfund.utils.LionUtils;
 import com.lionfund.security.Signature;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -25,9 +22,9 @@ import static org.junit.Assert.*;
  *
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public class BaseRequestTest {
+public class QueryFundProductRequestTest {
     
-    public BaseRequestTest() {
+    public QueryFundProductRequestTest() {
     }
     
     @BeforeClass
@@ -46,37 +43,36 @@ public class BaseRequestTest {
     public void tearDown() {
     }
 
+
     /**
-     * Test of sign method, of class BaseRequest.
+     * Test of setFundcode method, of class QueryFundProductRequest.
      */
     @Test
     public void testSign() {
         try {
-            Attribute attribute = Attribute.getfundinfo;
             String mertid = "meridSample";
             String merchantKey = "123456789";
+            String fundCode = "10000";
             
-            BaseRequest instance = new BaseRequest(attribute, mertid);
-            instance.sign(merchantKey);
+            QueryFundProductRequest instance = new QueryFundProductRequest(fundCode, mertid);
             Map<String, String> map = new HashMap<>();
-            map.put("attribute", attribute.name());
+            map.put("attribute", instance.getAttribute().name());
             map.put("merid", mertid);
             map.put("stamp", String.valueOf(instance.getStamp()));
+            map.put("fundCode", fundCode);
             
-            StringBuilder sequence = new StringBuilder();
-            Set set = map.keySet();
-            Object[] ObjectArr = set.toArray();
-            String[] keyArr = new String[ObjectArr.length];
-            for (int i = 0; i < ObjectArr.length; i++) {
-                keyArr[i] = (String) ObjectArr[i];
-            }
-            Arrays.sort(keyArr, String.CASE_INSENSITIVE_ORDER);
-            for (String key : keyArr) {
-                sequence.append(key.trim()).append(map.get(key).trim());
-            }
+            String data = LionUtils.convertMapToOrderedData(LionUtils.convertObjToMap(instance));
+            String token = new Signature().sign(merchantKey + data + merchantKey);
             
-            assertEquals(instance.getToken(), new Signature().sign(merchantKey + sequence.toString() + merchantKey));
-        } catch (ApplicationException ex) {
+            instance.sign(merchantKey);
+            System.err.println(merchantKey + data + merchantKey);
+            System.err.println("src:"+ instance.getToken());
+            System.err.println("dst:"+ token);
+            
+            assertTrue(instance.getToken().contentEquals(token));
+            
+        } catch (Exception ex) {
+            
         }
     }
     
