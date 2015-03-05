@@ -6,20 +6,15 @@
 
 package com.creditcloud.investmentfund.model.lion.request;
 
+import com.creditcloud.investmentfund.model.exception.LionFundSignatureFailedException;
 import com.creditcloud.investmentfund.model.lion.enums.Attribute;
+import com.creditcloud.investmentfund.utils.LionUtils;
 import com.creditcloud.model.BaseObject;
 import com.lionfund.exception.ApplicationException;
 import com.lionfund.security.Signature;
-import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 诺安基金 请求参数封装
@@ -84,10 +79,6 @@ public class BaseRequest extends BaseObject {
         return token;
     }
 
-    public void setToken(String token) {
-        this.token = token;
-    }
-    
     /**
      * 诺安签名信息
      * 
@@ -100,42 +91,15 @@ public class BaseRequest extends BaseObject {
      * 
      * 将上述数据传入诺安基金签名方法new Signature().sign(fragment)进行签名
      * 
-     * @param merchantKey 
-     * @throws com.lionfund.exception.ApplicationException
+     * @param merchantKey
      */
-    public void sign(String merchantKey) throws ApplicationException {
+    public void sign(String merchantKey) {
         try {
-            Map<String, String> objectAsMap = new HashMap<>();
-            BeanInfo info = Introspector.getBeanInfo(getClass());
-            for (PropertyDescriptor pd : info.getPropertyDescriptors()) {
-                Method reader = pd.getReadMethod();
-                if (!pd.getName().contentEquals("class") && reader != null) {
-                    Object obj = reader.invoke(this);
-                    if (obj != null)
-                        objectAsMap.put(pd.getName(),String.valueOf(reader.invoke(this)));
-                }
-            }
-            
-            String fragment = merchantKey + sort(objectAsMap) + merchantKey;
+            Map map = LionUtils.convertObjToMap(this);
+            String fragment = merchantKey + LionUtils.convertMapToOrderedData(map) + merchantKey;
             token = new Signature().sign(fragment);
-        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-            
+        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException e) {
+            throw new LionFundSignatureFailedException(e.getMessage());
         }
     }
-    
-    private String sort(Map map) {
-        StringBuilder sequence = new StringBuilder();
-        Set set = map.keySet();
-        Object[] ObjectArr = set.toArray();
-        String[] keyArr = new String[ObjectArr.length];
-        for (int i = 0; i < ObjectArr.length; i++) {
-            keyArr[i] = (String) ObjectArr[i];
-        }
-        Arrays.sort(keyArr, String.CASE_INSENSITIVE_ORDER);
-        for (String key : keyArr) {
-            sequence.append(key.trim()).append(map.get(key).toString().trim());
-        }
-        return sequence.toString();
-    }
-    
 }
