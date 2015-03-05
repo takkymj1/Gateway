@@ -24,12 +24,12 @@ public interface InsuranceConstant {
     int MAX_PRODUCT_NAME = 200;
  
     /**
-     * 最低折扣利率
+     * 最低利率
      */
     int MIN_RATE = 0;
 
     /**
-     * 最高折扣利率
+     * 最高利率
      */
     int MAX_RATE = 10000;
 }
