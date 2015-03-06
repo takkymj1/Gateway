@@ -15,7 +15,6 @@ import com.creditcloud.crowdfunding.model.FundingReward;
 import com.creditcloud.crowdfunding.model.FundingRewardRestriction;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.misc.PagedResult;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -33,7 +32,7 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public FundingProject addProject(String clientCode, FundingProject project);
-
+    
     /**
      *
      * @param clientCode

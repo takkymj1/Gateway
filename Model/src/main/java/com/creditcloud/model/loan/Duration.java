@@ -25,6 +25,13 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class Duration extends BaseObject implements Comparable<Duration> {
 
     private static final long serialVersionUID = 20130918L;
+    private static final String YEAR = "年";
+    
+    private static final String MONTH = "个月";
+    
+    private static final String DAY = "天";
+    
+    private static final String AND = "零";
 
     @FormParam("years")
     @IncrementalInteger(min = 0,
@@ -179,5 +186,30 @@ public class Duration extends BaseObject implements Comparable<Duration> {
         int days_ = days;
         return new Duration(years_, months_, days_);
     }
-
+    
+    public static String getChaDuration(Duration duration){
+        if (duration == null) {
+            return "";
+        }
+        int years = duration.getYears();
+        int months = duration.getMonths();
+        int days = duration.getDays();
+        StringBuilder sb = new StringBuilder();
+        if (years != 0) {
+            sb.append(years).append(YEAR);
+            if (months != 0 || days != 0) {
+                sb.append(AND);
+            }
+        }
+        if (months != 0) {
+            sb.append(months).append(MONTH);
+            if (days != 0) {
+                sb.append(AND);
+            }
+        }
+        if (days != 0) {
+            sb.append(days).append(DAY);
+        }
+        return sb.toString();
+    }
 }

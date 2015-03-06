@@ -6,14 +6,11 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.enums.loan.RepaymentStatus;
-import com.creditcloud.model.loan.InvestRepayment;
-import com.creditcloud.model.loan.RepayAmount;
-import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.InvestRepayment;
 import com.creditcloud.model.loan.RepayAmount;
+import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
