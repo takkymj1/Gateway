@@ -11,12 +11,14 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
 @NoArgsConstructor
 @XmlRootElement(name = "LionFundConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -56,4 +58,9 @@ public class LionFundConfig extends BaseConfig {
     @XmlElement(required = false)
     private String path;
     
+    /**
+     * 签名方式
+     */
+    @XmlElement(required = false)
+    private String signType;
 }
