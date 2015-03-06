@@ -5,6 +5,7 @@
  */
 package com.creditcloud.crowdfunding.model;
 
+import com.creditcloud.crowdfunding.enums.FundingDreamTag;
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -40,6 +41,8 @@ public class FundingDream extends BaseObject {
     
     private String detail;
     
+    private FundingDreamTag tag;
+    
     private String website;//网址
     
     private String contactName;
@@ -58,6 +61,7 @@ public class FundingDream extends BaseObject {
                           String purpose,
                           String detail,
                           String website,
+                          FundingDreamTag tag,
                           String contactName,
                           String contactMobile,
                           String selfDescription) {
@@ -68,6 +72,7 @@ public class FundingDream extends BaseObject {
         this.purpose = purpose;
         this.detail = detail;
         this.website = website;
+        this.tag = tag;
         this.contactName = contactName;
         this.contactMobile = contactMobile;
         this.selfDescription = selfDescription;
