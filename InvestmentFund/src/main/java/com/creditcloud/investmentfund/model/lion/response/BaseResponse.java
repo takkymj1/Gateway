@@ -75,14 +75,4 @@ public class BaseResponse extends BaseObject {
     public void setStamp(long stamp) {
         this.stamp = stamp;
     }
-    
-    public boolean isValid(String merchantKey) {
-//        try {
-//            Map map = LionUtils.convertObjToMap(this);
-//            new Signature().signValidate(map, merchantKey, token);
-//        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException ex) {
-//            return false;
-//        }
-        return true;
-    }
 }

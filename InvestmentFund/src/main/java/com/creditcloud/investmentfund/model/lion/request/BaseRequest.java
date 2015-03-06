@@ -73,29 +73,4 @@ public class BaseRequest extends BaseObject {
     public String getToken() {
         return token;
     }
-
-    /**
-     * 诺安签名信息
-     * 
-     * 加密规则：
-     * 若数据签名方式为MD5则加密字段为按字母排序的除token字段的所有非空字段
-     * keyvalue组成的字符串并在字符串头部和尾部加上商户密码组成的一个源串
-     * 例如：
-     * 传入参数为“fundacco=421000000 authcode=0000”，商户密码为“123456789”， 
-     * 则拼接后为“123456789authcode0000fundacco421000000123456789”
-     * 
-     * 将上述数据传入诺安基金签名方法new Signature().sign(fragment)进行签名
-     * 
-     * @param merchantKey
-     */
-    public void sign(String merchantKey) {
-//        try {
-//            Map map = LionUtils.convertObjToMap(this);
-//            String fragment = merchantKey + LionUtils.convertMapToOrderedData(map) + merchantKey;
-//            System.err.println(fragment);
-//            token = new Signature().sign(fragment);
-//        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException e) {
-//            throw new LionFundSignatureFailedException(e.getMessage());
-//        }
-    }
 }

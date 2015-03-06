@@ -40,9 +40,4 @@ public class QueryFundProductRequest extends BaseRequest {
         this.fundcode = fundcode;
     }
 
-//    @Override
-//    public void sign(String merchantKey) {
-//        super.sign(merchantKey);
-//    }
-    
 }
