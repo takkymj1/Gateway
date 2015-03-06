@@ -7,6 +7,7 @@ package com.creditcloud.crowdfunding.api;
 
 import com.creditcloud.crowdfunding.model.FundingDream;
 import com.creditcloud.crowdfunding.model.FundingDreamReward;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -31,4 +32,21 @@ public interface FundingDreamService {
      * @return
      */
     public FundingDreamReward addDreamReward(String clientCode, FundingDreamReward dreamReward);
+    
+    /**
+     *
+     * @param clientCode
+     * @param dreamId
+     * @return
+     */
+    public FundingDream getDreamById(String clientCode, String dreamId);
+    
+    /**
+     *
+     * @param clientCode
+     * @param dreamId
+     * @return
+     */
+    public List<FundingDreamReward> listDreamRewardByDream(String clientCode, String dreamId);
+    
 }
