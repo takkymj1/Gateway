@@ -50,5 +50,8 @@
         <module>Order</module>
         <module>Lychee</module>
         <module>Coupon</module>
-    </modules>
+        <module>Insurance</module>
+        <module>InvestmentFund</module>
+    <module>ChinaPay</module>
+  </modules>
 </project>

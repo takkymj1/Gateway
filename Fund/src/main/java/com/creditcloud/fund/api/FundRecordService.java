@@ -576,13 +576,13 @@ public interface FundRecordService {
                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                String orderId,
                                int period);
-    
+
     /**
      * 联动支付, 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
      * 不同点在于, 不记录还款者的记录
-     * 
+     *
      * 重载后，资金对应实体不再限于投资
-     * 
+     *
      * @param clientCode
      * @param investUserId
      * @param entity
@@ -673,7 +673,7 @@ public interface FundRecordService {
      * 不同之处在于不记录商户的垫付记录
      *
      * 重载后，资金对应实体不再限于投资
-     * 
+     *
      * @param clientCode
      * @param investUserId
      * @param entity
@@ -691,7 +691,7 @@ public interface FundRecordService {
                                   ImmutablePair<String, BigDecimal> investAmount,
                                   String orderId,
                                   int period);
-    
+
     /**
      * 商户子账户之间转账
      *
@@ -807,4 +807,11 @@ public interface FundRecordService {
                                  List<FundRecordOperation> operationList,
                                  List<FundRecordType> typeList,
                                  List<Realm> realmList);
+
+    BigDecimal sumByUserAndRealmEntity(String clientCode,
+                                       String userId,
+                                       List<FundRecordStatus> statusList,
+                                       List<FundRecordOperation> operationList,
+                                       List<FundRecordType> typeList,
+                                       RealmEntity realmEntity);
 }
