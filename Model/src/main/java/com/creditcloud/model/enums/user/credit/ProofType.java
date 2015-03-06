@@ -116,7 +116,9 @@ public enum ProofType implements BaseEnum {
     FUNDINGPROJECT_PROJECT("项目图片", CertificateType.CROWDFUNDING),
     FUNDINGPROJECT_MOBILE("移动端图片", CertificateType.CROWDFUNDING),
     FUNDINGDREAM_COVER("梦想项目封面图片", CertificateType.CROWDFUNDING),
-    FUNDINGDREAM_DETAIL("梦想项目详情图片", CertificateType.CROWDFUNDING);
+    FUNDINGDREAM_DETAIL("梦想项目详情图片", CertificateType.CROWDFUNDING),
+    FUNDINGDREAM_CORPORATION("梦想项目公司证件图片", CertificateType.CROWDFUNDING),
+    FUNDINGDREAM_PRODUCT("梦想项目产品证件图片", CertificateType.CROWDFUNDING);
 
     private final String key;
 

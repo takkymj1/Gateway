@@ -53,7 +53,6 @@ public class FundingDream extends BaseObject {
     private String selfDescription;//自我介绍
     
     private Date createTime;//创建时间
-
     
     //private List<FundingReward> fundingRewardList = null;
     
