@@ -86,6 +86,25 @@ public enum SMSType {
     NOTIFICATION_CREDITMARKET_CREDITASSIGN("notification.creditmarket.creditassign"),
     
     /**
+     * 投资成功提示
+     */
+    NOTIFICATION_CREDITMARKET_INVEST("notification.creditmarket.invest"),
+    
+    /**
+     * 结息日提示
+     */
+    NOTIFICATION_CREDITMARKET_SETTLEINTEREST("notification.creditmarket.settleinterest"),
+    
+    /**
+     * 用户邀请提示
+     */
+    NOTIFICATION_CREDITMARKET_USERINVITATION("notification.creditmarket.userinvitation"),
+    
+    /**
+     * 充值提示
+     */
+    NOTIFICATION_CREDITMARKET_CHARGE("notification.creditmarket.charge"),
+    /**
      * 不使用短信模板
      */
     WITHOUT_TEMPLATE("");
