@@ -6,10 +6,11 @@
 package com.creditcloud.insurance.api;
 
 /**
- * 保险产品查询接口
+ * 新华保险万能险产品查询接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public interface InsuranceQueryService {
+public interface EnciInsuranceService {
+    
     
 }
