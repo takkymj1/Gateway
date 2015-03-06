@@ -52,5 +52,6 @@
         <module>Coupon</module>
         <module>Insurance</module>
         <module>InvestmentFund</module>
-    </modules>
+    <module>ChinaPay</module>
+  </modules>
 </project>
