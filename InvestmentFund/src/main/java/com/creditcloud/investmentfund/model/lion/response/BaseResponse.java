@@ -6,13 +6,7 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
-import com.creditcloud.investmentfund.utils.LionUtils;
 import com.creditcloud.model.BaseObject;
-import com.lionfund.exception.ApplicationException;
-import com.lionfund.security.Signature;
-import java.beans.IntrospectionException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
 
 /**
  * 诺安基金 响应封装
@@ -83,12 +77,12 @@ public class BaseResponse extends BaseObject {
     }
     
     public boolean isValid(String merchantKey) {
-        try {
-            Map map = LionUtils.convertObjToMap(this);
-            new Signature().signValidate(map, merchantKey, token);
-        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException ex) {
-            return false;
-        }
+//        try {
+//            Map map = LionUtils.convertObjToMap(this);
+//            new Signature().signValidate(map, merchantKey, token);
+//        } catch (IntrospectionException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | ApplicationException ex) {
+//            return false;
+//        }
         return true;
     }
 }
