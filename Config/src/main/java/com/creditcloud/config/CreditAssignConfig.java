@@ -43,6 +43,13 @@ public class CreditAssignConfig extends BaseConfig {
     private boolean enableReassign = false;
     
     /**
+     * 承接的债权如果是二次转让，是否持有一个月（含）才可以转让
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableReassignWithOneMonthLimit = true;
+    
+    /**
      * 债权转让是否能够在公共节假日执行
      */
     @Getter
