@@ -26,4 +26,15 @@ public class FengMessageConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private String fengMessageURL;
+    
+    @Getter
+    @XmlElement(required = false)
+    private String fengMessageReceiveURL;
+    
+    public String getFengMessageReceiveURL(String userId, int pagetCount, int sizeCount){
+        String fengMessageReceiveURL = this.getFengMessageReceiveURL();
+        return fengMessageReceiveURL.replace("userId", userId)
+                                    .replace("pageCount", pagetCount+"")
+                                    .replace("sizeCount", sizeCount+"");
+    }
 }
