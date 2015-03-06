@@ -1,24 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.creditcloud.chinapay.api;
 
-import javax.ejb.Remote;
+import java.util.Map;
 
-/**
- *
- * @author rooseek
- */
-@Remote
+import com.creditcloud.chinapay.api.model.pojo.BankAccount;
+import com.creditcloud.chinapay.api.model.pojo.request.SingleCutPostParameters;
+import com.creditcloud.chinapay.api.model.pojo.request.SingleCutQueryParameters;
+import com.creditcloud.chinapay.api.model.pojo.request.SinglePayPostParameters;
+import com.creditcloud.chinapay.api.model.pojo.request.SinglePayQueryParameters;
+import com.creditcloud.chinapay.api.model.pojo.response.SingleCutPostResult;
+import com.creditcloud.chinapay.api.model.pojo.response.SingleCutQueryResult;
+import com.creditcloud.chinapay.api.model.pojo.response.SinglePayPostResult;
+import com.creditcloud.chinapay.api.model.pojo.response.SinglePayQueryResult;
+
 public interface ChinaPayService {
+	/**
+	 * do nothing
+	 *
+	 * @return "ChinaPay" always
+	 */
+	String ping();
 
-    /**
-     * do nothing
-     *
-     * @return "ChinaPay" always
-     */
-    String ping();
+	SinglePayPostResult singlePayTrans(SinglePayPostParameters parameters);
 
+	SinglePayQueryResult singlePayQuery(SinglePayQueryParameters parameters);
+
+	SingleCutPostResult singleCutTrans(SingleCutPostParameters parameters);
+
+	SingleCutQueryResult singleCutQuery(SingleCutQueryParameters parameters);
+
+	Map<String, String> validateBankAccount(BankAccount account);
 }
