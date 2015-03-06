@@ -2,6 +2,7 @@
 <CreditAssignConfig>
     <enablePartlyAssign>true</enablePartlyAssign>
     <enableReassign>true</enableReassign>
+    <enableReassignWithOneMonthLimit>true</enableReassignWithOneMonthLimit> <!--承接的债权如果是二次转让, 是否持有一个月（含）才可以转让-->
     
     <lessThreeMonthAssignServiceFee> <!--投资成功后三个月以内（含）-->
         <type>FLOATING</type>
