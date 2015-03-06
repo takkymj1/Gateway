@@ -73,5 +73,9 @@ public enum TransCode implements BaseEnum {
     public String getKey() {
         return key;
     }
+
+    public String getApi() {
+        return api;
+    }
     
 }

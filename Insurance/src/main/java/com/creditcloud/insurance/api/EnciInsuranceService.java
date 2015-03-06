@@ -5,11 +5,14 @@
  */
 package com.creditcloud.insurance.api;
 
+import javax.ejb.Remote;
+
 /**
  * 新华保险万能险产品查询接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Remote
 public interface EnciInsuranceService {
     
     
