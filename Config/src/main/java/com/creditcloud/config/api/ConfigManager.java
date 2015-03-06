@@ -17,6 +17,7 @@ import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.LionFundConfig;
 import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
@@ -153,4 +154,10 @@ public interface ConfigManager {
      * @return 
      */
     public FengMessageConfig getFengMessageConfig();
+    
+    /**
+     * 诺安基金相关配置
+     * @return 
+     */
+    public LionFundConfig getLionFundConfig();
 }
