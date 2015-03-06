@@ -81,6 +81,7 @@ public enum Realm implements BaseEnum {
      * Crowd funding
      */
     FUNDINGPROJECT("众筹项目"),
+    FUNDINGDREAM("众筹梦想"),
     FUNDINGINVEST("众筹投资"),
     PROJECTLOAN("众筹放款"),
     FUNDINGREWARD("众筹奖励"),
