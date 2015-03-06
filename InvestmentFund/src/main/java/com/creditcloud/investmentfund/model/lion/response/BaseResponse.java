@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.investmentfund.model.lion.base;
+package com.creditcloud.investmentfund.model.lion.response;
 
 import com.creditcloud.model.BaseObject;
 
@@ -75,6 +75,4 @@ public class BaseResponse extends BaseObject {
     public void setStamp(long stamp) {
         this.stamp = stamp;
     }
-    
-    
 }

@@ -11,7 +11,7 @@ package com.creditcloud.insurance.constant;
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public interface InsuranceFieldConstant {
+public interface InsuranceConstant {
 
     /**
      * SKU代码最大长度
@@ -24,12 +24,12 @@ public interface InsuranceFieldConstant {
     int MAX_PRODUCT_NAME = 200;
  
     /**
-     * 最低折扣利率
+     * 最低利率
      */
-    int MIN_DISCOUNT_RATE = 0;
+    int MIN_RATE = 0;
 
     /**
-     * 最高折扣利率
+     * 最高利率
      */
-    int MAX_DISCOUNT_RATE = 10000;
+    int MAX_RATE = 10000;
 }

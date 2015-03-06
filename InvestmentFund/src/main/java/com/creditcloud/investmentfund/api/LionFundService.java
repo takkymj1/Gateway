@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.investmentfund.api;
 
-import javax.ejb.Remote;
-
 /**
- *
+ * 诺安基金
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-@Remote
-public interface FundProductService extends FundProductQueryService {
-    
+public class LionFundService {
+
 }

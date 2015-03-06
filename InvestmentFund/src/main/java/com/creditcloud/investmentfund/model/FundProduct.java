@@ -6,13 +6,16 @@
 
 package com.creditcloud.investmentfund.model;
 
+import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.groups.Default;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -75,22 +78,47 @@ public class FundProduct extends BaseObject {
     /**
      * 近一个月涨幅
      */
+    @IncrementalInteger(min = FundConstant.MIN_RATE,
+                        increment = 1,
+                        max = FundConstant.MAX_RATE,
+                        groups = Default.class)
     private int oneMonthRate;
     
     /**
      * 近三个月涨幅
      */
+    @IncrementalInteger(min = FundConstant.MIN_RATE,
+                        increment = 1,
+                        max = FundConstant.MAX_RATE,
+                        groups = Default.class)
     private int threeMonthRate;
     
     /**
      * 今年以来涨幅
      */
+    @IncrementalInteger(min = FundConstant.MIN_RATE,
+                        increment = 1,
+                        max = FundConstant.MAX_RATE,
+                        groups = Default.class)
     private int oneYearRate;
     
     /**
      * 七日年化收益（货币型基金）
      */
+    @IncrementalInteger(min = FundConstant.MIN_RATE,
+                        increment = 1,
+                        max = FundConstant.MAX_RATE,
+                        groups = Default.class)
     private int rate;
+    
+    /**
+     * 预期收益率（平台提供）
+     */
+    @IncrementalInteger(min = FundConstant.MIN_RATE,
+                        increment = 1,
+                        max = FundConstant.MAX_RATE,
+                        groups = Default.class)
+    private int expectedRate;
     
     /**
      * 基金品牌
@@ -130,5 +158,12 @@ public class FundProduct extends BaseObject {
      */
     @Min(1)
     private int ordinal;
+    
+    /**
+     * 建议持有时间（平台提供）
+     * 
+     * 单位：月
+     */
+    private int proposedHoldDuration;
     
 }

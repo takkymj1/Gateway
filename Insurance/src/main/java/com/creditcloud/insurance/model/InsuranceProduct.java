@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.creditcloud.insurance.model;
 
-import com.creditcloud.insurance.constant.InsuranceFieldConstant;
+import com.creditcloud.insurance.constant.InsuranceConstant;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.validation.constraints.Min;
@@ -48,7 +42,7 @@ public class InsuranceProduct extends BaseObject {
      * 
      * @return
      */
-    @Size(max = InsuranceFieldConstant.MAX_PRODUCT_NAME)
+    @Size(max = InsuranceConstant.MAX_PRODUCT_NAME)
     private String name;
     
     /**
@@ -56,7 +50,7 @@ public class InsuranceProduct extends BaseObject {
      * 
      * @return
      */
-    @Size(max = InsuranceFieldConstant.MAX_SKU_CODE)
+    @Size(max = InsuranceConstant.MAX_SKU_CODE)
     private String skuCode;
     
     /**
@@ -86,9 +80,9 @@ public class InsuranceProduct extends BaseObject {
      * 折扣比率
      */
     @NotNull
-    @IncrementalInteger(min = InsuranceFieldConstant.MIN_DISCOUNT_RATE,
+    @IncrementalInteger(min = InsuranceConstant.MIN_RATE,
                         increment = 1,
-                        max = InsuranceFieldConstant.MAX_DISCOUNT_RATE,
+                        max = InsuranceConstant.MAX_RATE,
                         groups = Default.class)
     private int discountRate;
     
@@ -99,5 +93,13 @@ public class InsuranceProduct extends BaseObject {
      */
     private int discountPremium;
     
+    /**
+     * 建议持有时间（平台提供）
+     */
+    private int proposedHoldDuration;
     
+    /**
+     * 预期收益率（平台提供）
+     */
+    private int expectedRate;
 }
