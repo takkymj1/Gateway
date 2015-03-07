@@ -18,7 +18,7 @@ import com.creditcloud.insurance.model.enci.ProductDTO;
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public class ProposalApplyResquest extends BaseDTO {
+public class ProposalApplyRequest extends BaseDTO {
 
     /**
      * 订单信息
