@@ -160,4 +160,10 @@ public interface ConfigManager {
      * @return 
      */
     public LionFundConfig getLionFundConfig();
+    
+    /**
+     * 新华保险相关配置
+     * @return 
+     */
+    public EnciInsuranceConfig getEnciInsuranceConfig();
 }
