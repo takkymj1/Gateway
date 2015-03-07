@@ -310,25 +310,4 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableUserInvitation = false;
-    
-    /**
-     * 开启结息日短信提醒
-     */
-    @Getter
-    @XmlElement
-    private boolean enableSettleInterestNotification = false;
-    
-    /**
-     * 开启投资成功短信提醒
-     */
-    @Getter
-    @XmlElement
-    private boolean enableInvestSuccessNotification = false;
-    
-    /**
-     * 开启充值成功短信提醒
-     */
-    @Getter
-    @XmlElement
-    private boolean enableChargeNotification = false;
 }
