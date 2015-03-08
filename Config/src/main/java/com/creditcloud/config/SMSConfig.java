@@ -82,4 +82,11 @@ public final class SMSConfig extends BaseConfig {
     @Getter
     @XmlElement
     private boolean enableChargeNotification = false;
+    
+    /**
+     * 开启提现申请短信提醒
+     */
+    @Getter
+    @XmlElement
+    private boolean enableWithDrawApplyNotification = false;
 }
