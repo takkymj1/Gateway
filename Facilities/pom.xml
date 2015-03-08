@@ -25,6 +25,14 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <!---->
+        <dependency>
+            <groupId>com.creditcloud.thirdparty</groupId>
+            <artifactId>ThirdPartyService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency> 
+        
         <dependency>
             <groupId>com.creditcloud.email</groupId>
             <artifactId>EmailService</artifactId>
@@ -211,7 +219,7 @@
             <version>1.7.5</version>
             <type>jar</type>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>         
     </dependencies>
     <build>
         <plugins>
@@ -234,6 +242,10 @@
                             <groupId>com.creditcloud.sms</groupId>
                             <artifactId>SMSService</artifactId>
                         </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.thirdparty</groupId>
+                            <artifactId>ThirdPartyService</artifactId>
+                        </ejbModule>                       
                         <ejbModule>
                             <groupId>com.creditcloud.email</groupId>
                             <artifactId>EmailService</artifactId>
