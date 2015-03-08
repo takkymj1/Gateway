@@ -61,4 +61,25 @@ public final class SMSConfig extends BaseConfig {
     @XmlElement(required = false)
     @Getter
     private String deskey;
+    
+    /**
+     * 开启结息日短信提醒
+     */
+    @Getter
+    @XmlElement
+    private boolean enableSettleInterestNotification = false;
+    
+    /**
+     * 开启投资成功短信提醒
+     */
+    @Getter
+    @XmlElement
+    private boolean enableInvestSuccessNotification = false;
+    
+    /**
+     * 开启充值成功短信提醒
+     */
+    @Getter
+    @XmlElement
+    private boolean enableChargeNotification = false;
 }
