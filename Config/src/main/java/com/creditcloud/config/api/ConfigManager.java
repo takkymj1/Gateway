@@ -16,7 +16,6 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
-import com.creditcloud.config.IDMConfig;
 import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
@@ -40,8 +39,6 @@ public interface ConfigManager {
     public ClientConfig getClientConfig();
 
     public SMSConfig getSMSConfig();
-    
-    public IDMConfig getIDMConfig();
 
     public EmailConfig getEmailConfig();
 

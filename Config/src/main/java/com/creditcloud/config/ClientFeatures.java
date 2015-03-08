@@ -189,4 +189,8 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableInvestorListFieldInvisible = false;
     
+    @XmlElement
+    @Getter
+    private boolean enableIDM = false;
+    
 }

@@ -15,15 +15,7 @@ import javax.ejb.Remote;
 @Remote
 public interface IDMService {
 
-    public boolean createIDMUser(String uid,
-                                 String psw,
-                                 String snName,
-                                 String givenName,
-                                 String mobile,
-                                 String mail,
-                                 String userType,
-                                 String idType,
-                                 String idNumber);
+    public boolean createIDMUser(String uid,String password,String mobile,String userType);
     /**
      * 调用IDM查询用户
      * 
@@ -68,8 +60,9 @@ public interface IDMService {
      * @param uid
      * @return 
      */
-    public boolean disableUser(String uid);    
+    public boolean disableUser(String uid); 
     
-    public Map searchUser(String filter,
-                                 String modifyTimestamp);
+    public Map searchUser(String filter);
+    
+    
 }
