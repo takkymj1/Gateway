@@ -26,6 +26,8 @@ public class UserInvitation extends BaseObject {
 
     private String id;
     
+    private String invitedName;
+    
     private RealmEntity invitedInfo;
     
     /**

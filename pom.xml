@@ -51,5 +51,8 @@
         <module>Lychee</module>
         <module>Coupon</module>
         <module>ThirdParty</module>
-    </modules>
+        <module>Insurance</module>
+        <module>InvestmentFund</module>
+  </modules>
 </project>
+
