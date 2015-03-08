@@ -5,8 +5,6 @@
  */
 package com.creditcloud.insurance.model.enci;
 
-import com.creditcloud.model.BaseObject;
-
 /**
  * 投保人信息
  *
