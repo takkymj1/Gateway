@@ -8,7 +8,8 @@ package com.creditcloud.insurance.model.enci;
 import com.creditcloud.model.BaseObject;
 
 /**
- *
+ * 险种责任
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public class LiabilityDTO extends BaseObject {
@@ -117,5 +118,4 @@ public class LiabilityDTO extends BaseObject {
         this.deductible = deductible;
     }
 
-    
 }

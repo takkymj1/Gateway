@@ -9,6 +9,7 @@ package com.creditcloud.insurance.model.enci;
 import com.creditcloud.model.BaseObject;
 
 /**
+ * request & response
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */

@@ -8,7 +8,8 @@ package com.creditcloud.insurance.model.enci;
 import com.creditcloud.model.BaseObject;
 
 /**
- *
+ * 告知信息列表
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public class DeclarationListDTO extends BaseObject {

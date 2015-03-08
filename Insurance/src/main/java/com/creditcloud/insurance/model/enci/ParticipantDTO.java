@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  * 被保险人员基本信息
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public class ParticipantDTO extends BaseObject {
