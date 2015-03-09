@@ -7,6 +7,7 @@ package com.creditcloud.config.api;
 import com.creditcloud.config.AllWinConfig;
 import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
+import com.creditcloud.config.ChinaPayConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.ContractSealConfig;
 import com.creditcloud.config.CreditAssignConfig;
@@ -170,4 +171,10 @@ public interface ConfigManager {
      * @return 
      */
     public InsuranceConfig getInsuranceConfig();
+    
+    /**
+     * 银联相关配置
+     * @return 
+     */
+    public ChinaPayConfig getChinaPayConfig();
 }
