@@ -79,6 +79,26 @@ public enum SMSType {
      * 用户还款提前10天短信告知提示
      */
     POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind"),
+
+    /**
+     * 投资成功提示
+     */
+    NOTIFICATION_CREDITMARKET_INVEST("notification.creditmarket.invest"),
+    
+    /**
+     * 结息日提示
+     */
+    NOTIFICATION_CREDITMARKET_SETTLEINTEREST("notification.creditmarket.settleinterest"),
+    
+    /**
+     * 用户邀请提示
+     */
+    NOTIFICATION_CREDITMARKET_USERINVITATION("notification.creditmarket.userinvitation"),
+    
+    /**
+     * 充值提示
+     */
+    NOTIFICATION_CREDITMARKET_CHARGE("notification.creditmarket.charge"),
     
     /**
      * 不使用短信模板

@@ -8,8 +8,6 @@ package com.creditcloud.crowdfunding.api;
 import com.creditcloud.crowdfunding.enums.ProjectLoanStatus;
 import com.creditcloud.crowdfunding.enums.ProjectStatus;
 import com.creditcloud.crowdfunding.enums.RewardConfirmStatus;
-import com.creditcloud.crowdfunding.model.FundingDream;
-import com.creditcloud.crowdfunding.model.FundingDreamReward;
 import com.creditcloud.crowdfunding.model.FundingExperienceApply;
 import com.creditcloud.crowdfunding.model.FundingInvestInfo;
 import com.creditcloud.crowdfunding.model.FundingProject;
@@ -41,14 +39,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @param project
      * @return
      */
-    public FundingDream addDream(String clientCode, FundingDream dream);
-
-    /**
-     *
-     * @param clientCode
-     * @param project
-     * @return
-     */
     public FundingProject updateProject(String clientCode, FundingProject project);
 
     /**
@@ -58,14 +48,6 @@ public interface CrowdFundingService extends CrowdFundingQueryService, CrowdFund
      * @return
      */
     public FundingReward addReward(String clientCode, FundingReward reward);
-    
-    /**
-     *
-     * @param clientCode
-     * @param dreamReward
-     * @return
-     */
-    public FundingDreamReward addDreamReward(String clientCode, FundingDreamReward dreamReward);
     
     /**
      *
