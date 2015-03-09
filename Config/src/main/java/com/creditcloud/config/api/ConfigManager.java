@@ -16,18 +16,13 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.EnciInsuranceConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
-import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.LionFundConfig;
-import com.creditcloud.config.LycheePayConfig;
-import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
-import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
-import com.creditcloud.config.YeepConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
@@ -37,7 +32,7 @@ import javax.ejb.Remote;
  * @author sobranie
  */
 @Remote
-public interface ConfigManager {
+public interface ConfigManager extends PaymentConfigManager{
 
     public ClientConfig getClientConfig();
 
@@ -49,13 +44,11 @@ public interface ConfigManager {
 
     public DeviceManagerConfig getDeviceManagerConfig();
 
-    public PaymentConfig getPaymentConfig();
+ 
 
     public CreditManagerConfig getCreditManagerConfig();
 
     public CertificateConfig getCertificateConfig();
-
-    public YeepConfig getYeepConfig();
 
     /**
      *
@@ -102,27 +95,6 @@ public interface ConfigManager {
     public FeeConfig getFeeConfig(LoanRequestType type);
 
     public RewardConfig getRewardConfig();
-
-    /**
-     * 获取Fuiou代收付配置
-     *
-     * @return
-     */
-    public FuiouConfig getFuiouConfig();
-
-    /**
-     * 快付通配置
-     *
-     * @return
-     */
-    public LycheePayConfig getLycheePayConfig();
-
-    /**
-     * 获取联动优势(UMP)的配置
-     *
-     * @return
-     */
-    public UmpConfig getUmpConfig();
 
     /**
      * wealth product config
