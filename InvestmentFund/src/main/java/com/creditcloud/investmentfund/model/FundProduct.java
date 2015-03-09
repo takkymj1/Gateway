@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class FundProduct extends BaseObject {
+public class FundProduct extends BaseObject implements FundConstant{
 
     private static final long serialVersionUID = 20150303L;
     
@@ -78,45 +78,45 @@ public class FundProduct extends BaseObject {
     /**
      * 近一个月涨幅
      */
-    @IncrementalInteger(min = FundConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = FundConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int oneMonthRate;
     
     /**
      * 近三个月涨幅
      */
-    @IncrementalInteger(min = FundConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = FundConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int threeMonthRate;
     
     /**
      * 今年以来涨幅
      */
-    @IncrementalInteger(min = FundConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = FundConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int oneYearRate;
     
     /**
      * 七日年化收益（货币型基金）
      */
-    @IncrementalInteger(min = FundConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = FundConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int rate;
     
     /**
      * 预期收益率（平台提供）
      */
-    @IncrementalInteger(min = FundConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = FundConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int expectedRate;
     
