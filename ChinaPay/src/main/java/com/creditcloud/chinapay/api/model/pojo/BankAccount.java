@@ -16,6 +16,8 @@ public class BankAccount extends POJO {
 
 	protected String dcType = "0";
 
+	protected String cardPhone = "";
+
 	/**
 	 * 银行卡用户的真实姓名
 	 * 
@@ -141,5 +143,23 @@ public class BankAccount extends POJO {
 			return "12";
 		else
 			return "19";
+	}
+
+	/**
+	 * 卡关联手机号 , 银行预留手机
+	 * 
+	 * @return
+	 */
+	public String getCardPhone() {
+		return cardPhone;
+	}
+
+	/**
+	 * 卡关联手机号 , 银行预留手机
+	 * 
+	 * @param cardPhone
+	 */
+	public void setCardPhone(String cardPhone) {
+		this.cardPhone = cardPhone;
 	}
 }
