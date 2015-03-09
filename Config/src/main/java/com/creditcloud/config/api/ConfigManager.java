@@ -13,16 +13,16 @@ import com.creditcloud.config.CreditAssignConfig;
 import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
-import com.creditcloud.config.EnciInsuranceConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.GuaranteeConfig;
-import com.creditcloud.config.LionFundConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UpYunConfig;
+import com.creditcloud.config.fund.FundConfig;
+import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
@@ -129,16 +129,16 @@ public interface ConfigManager extends PaymentConfigManager{
     public FengMessageConfig getFengMessageConfig();
     
     /**
-     * 诺安基金相关配置
+     * 基金相关配置
      * 
      * @return 
      */
-    public LionFundConfig getLionFundConfig();
+    public FundConfig getFundConfig();
     
     /**
-     * 新华保险相关配置
+     * 保险相关配置
      * 
      * @return 
      */
-    public EnciInsuranceConfig getEnciInsuranceConfig();
+    public InsuranceConfig getInsuranceConfig();
 }

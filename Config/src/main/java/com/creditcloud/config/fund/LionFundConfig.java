@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.config;
+package com.creditcloud.config.fund;
 
+import com.creditcloud.model.BaseObject;
 import java.net.URL;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -15,36 +16,60 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 新华保险相关配置
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @NoArgsConstructor
-@XmlRootElement(name = "EnciInsuranceConfig")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class EnciInsuranceConfig extends BaseConfig {
+public class LionFundConfig extends BaseObject {
     
-    private static final long serialVersionUID = 20150307L;
+    private static final long serialVersionUID = 20150305L;
 
-    public static final String CONFIG_NAME = "EnciInsuranceConfig";
-    
     /**
-     * 接入方应用ID
+     * 客户ID，签名用
      * 
      * @return
      */
     @Getter
     @XmlElement(required = false)
-    public String appId;
+    private String merId;
     
     /**
-     * 接入方应用秘钥
+     * 客户私钥文件路径
      * 
      * @return
      */
     @Getter
     @XmlElement(required = false)
-    public String appSecret;
+    private String privateKeyPath;
+    
+    /**
+     * 公钥文件路径
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String publicKeyPath;
+    
+    /**
+     * 诺安基金服务器的URL
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private URL url;
+    
+    /**
+     * 诺安基金服务器的远程路径
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String path;
     
     /**
      * 签名方式
@@ -54,32 +79,4 @@ public class EnciInsuranceConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private String signType;
-    
-    /**
-     * 数据类型
-     * 
-     * @return
-     */
-    @Getter
-    @XmlElement(required = false)
-    private String format;
-    
-    /**
-     * 字符集
-     * 
-     * @return
-     */
-    @Getter
-    @XmlElement(required = false)
-    private String charset;
-    
-     /**
-     * 新华保险服务器的URL
-     * 
-     * @return
-     */
-    @Getter
-    @XmlElement(required = false)
-    private URL url;
-    
 }
