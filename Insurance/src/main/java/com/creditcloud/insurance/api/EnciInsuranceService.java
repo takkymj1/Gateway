@@ -5,8 +5,8 @@
  */
 package com.creditcloud.insurance.api;
 
+import com.creditcloud.insurance.model.InsuranceProduct;
 import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
@@ -19,12 +19,11 @@ import javax.ejb.Remote;
 public interface EnciInsuranceService {
     
     /**
-     * list by user id
+     * 查询所有保险产品
      *
-     * @param userId
      * @param pageInfo
      * @return
      */
-    public PagedResult<Loan> listByStatus(String userId, PageInfo pageInfo);
+    public PagedResult<InsuranceProduct> list(PageInfo pageInfo);
     
 }
