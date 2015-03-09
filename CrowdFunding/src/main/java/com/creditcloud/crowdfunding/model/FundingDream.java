@@ -25,12 +25,7 @@ public class FundingDream extends BaseObject {
     private static final long serialVersionUID = 20140922L;
 
     private String id;
-
     
-    
-    /*
-     * project proposer
-     */
     @NotNull
     private String userId;
     
@@ -44,7 +39,9 @@ public class FundingDream extends BaseObject {
     
     private FundingDreamTag tag;
     
-    private String website;//网址
+    private String website;
+    
+    private String videoUrl;
     
     private String contactName;
     
@@ -63,6 +60,7 @@ public class FundingDream extends BaseObject {
                           String purpose,
                           String detail,
                           String website,
+                          String videoUrl,
                           FundingDreamTag tag,
                           String contactName,
                           String contactMobile,
@@ -75,6 +73,7 @@ public class FundingDream extends BaseObject {
         this.purpose = purpose;
         this.detail = detail;
         this.website = website;
+        this.videoUrl = videoUrl;
         this.tag = tag;
         this.contactName = contactName;
         this.contactMobile = contactMobile;
