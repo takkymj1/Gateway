@@ -28,6 +28,23 @@ public class EnciInsuranceConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "EnciInsuranceConfig";
     
+    /**
+     * 接入方应用ID
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    public String appId;
+    
+    /**
+     * 接入方应用秘钥
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    public String appSecret;
     
     /**
      * 签名方式

@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class InsuranceProduct extends BaseObject {
+public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     
     private static final long serialVersionUID = 20150303L;
 
@@ -42,7 +42,7 @@ public class InsuranceProduct extends BaseObject {
      * 
      * @return
      */
-    @Size(max = InsuranceConstant.MAX_PRODUCT_NAME)
+    @Size(max = MAX_PRODUCT_NAME)
     private String name;
     
     /**
@@ -50,7 +50,7 @@ public class InsuranceProduct extends BaseObject {
      * 
      * @return
      */
-    @Size(max = InsuranceConstant.MAX_SKU_CODE)
+    @Size(max = MAX_SKU_CODE)
     private String skuCode;
     
     /**
@@ -80,9 +80,9 @@ public class InsuranceProduct extends BaseObject {
      * 折扣比率
      */
     @NotNull
-    @IncrementalInteger(min = InsuranceConstant.MIN_RATE,
+    @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
-                        max = InsuranceConstant.MAX_RATE,
+                        max = MAX_RATE,
                         groups = Default.class)
     private int discountRate;
     
