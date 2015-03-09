@@ -6,11 +6,15 @@
 
 package com.creditcloud.investmentfund.api;
 
+import javax.ejb.Remote;
+
 /**
  * 诺安基金
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Remote
 public class LionFundService {
 
+    
 }
