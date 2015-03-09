@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.config;
+package com.creditcloud.config.fund;
 
+import com.creditcloud.model.BaseObject;
 import java.net.URL;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,13 +21,11 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-@XmlRootElement(name = "LionFundConfig")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LionFundConfig extends BaseConfig {
+public class LionFundConfig extends BaseObject {
     
     private static final long serialVersionUID = 20150305L;
-
-    public static final String CONFIG_NAME = "LionFundConfig";
 
     /**
      * 客户ID，签名用

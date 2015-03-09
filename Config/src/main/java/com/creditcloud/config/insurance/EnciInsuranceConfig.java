@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package com.creditcloud.config;
+package com.creditcloud.config.insurance;
 
+import com.creditcloud.model.BaseObject;
 import java.net.URL;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -20,14 +21,29 @@ import lombok.NoArgsConstructor;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @NoArgsConstructor
-@XmlRootElement(name = "EnciInsuranceConfig")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class EnciInsuranceConfig extends BaseConfig {
+public class EnciInsuranceConfig extends BaseObject {
     
     private static final long serialVersionUID = 20150307L;
 
-    public static final String CONFIG_NAME = "EnciInsuranceConfig";
+    /**
+     * 接入方应用ID
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    public String appId;
     
+    /**
+     * 接入方应用秘钥
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    public String appSecret;
     
     /**
      * 签名方式
