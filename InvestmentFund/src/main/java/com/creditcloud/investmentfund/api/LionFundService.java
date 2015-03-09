@@ -28,5 +28,4 @@ public interface LionFundService {
     public PagedResult<FundProduct> list(PageInfo pageInfo);
     
     
-    
 }
