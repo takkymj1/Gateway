@@ -3,10 +3,12 @@ package com.creditcloud.chinapay.api;
 import java.util.Map;
 
 import com.creditcloud.chinapay.api.model.pojo.BankAccount;
+import com.creditcloud.chinapay.api.model.pojo.request.AccountBalanceQueryParameters;
 import com.creditcloud.chinapay.api.model.pojo.request.SingleCutPostParameters;
 import com.creditcloud.chinapay.api.model.pojo.request.SingleCutQueryParameters;
 import com.creditcloud.chinapay.api.model.pojo.request.SinglePayPostParameters;
 import com.creditcloud.chinapay.api.model.pojo.request.SinglePayQueryParameters;
+import com.creditcloud.chinapay.api.model.pojo.response.AccountBalanceQueryResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SingleCutPostResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SingleCutQueryResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SinglePayPostResult;
@@ -14,8 +16,8 @@ import com.creditcloud.chinapay.api.model.pojo.response.SinglePayQueryResult;
 
 /**
  * 银联接口,包含以下接口 :<br>
- * 1. 单笔代付:交易和查询;<br>
- * 2. 单笔代扣:交易和查询;<br>
+ * 1. 单笔代付:单笔代付交易,单笔代付查询,备付金余额查询;<br>
+ * 2. 单笔代扣:单笔代扣交易和单笔代扣查询;<br>
  * 3. 银行卡认证<br>
  * 
  * @author GuohuaZhang
@@ -50,6 +52,14 @@ public interface ChinaPayService {
 	 * @return
 	 */
 	SinglePayQueryResult singlePayQuery(SinglePayQueryParameters parameters);
+
+	/**
+	 * 银联备付金账号余额查询
+	 * 
+	 * @param parameters
+	 * @return
+	 */
+	AccountBalanceQueryResult queryAccountBalance(AccountBalanceQueryParameters parameters);
 
 	/**
 	 * 代笔代扣交易接口<br>
