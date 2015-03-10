@@ -14,8 +14,6 @@ import javax.ejb.Remote;
 @Remote
 public interface SAMLService {
     
-    public void loginRequest(String appName, String url);
-    
     public  String encoding(String originalString);
     
     public String validate(String responseString) throws Exception;
