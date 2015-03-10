@@ -6,7 +6,9 @@
 
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundProduct;
+import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
@@ -26,6 +28,20 @@ public interface LionFundService {
      * @return
      */
     public PagedResult<FundProduct> list(PageInfo pageInfo);
+    
+    /**
+     * 获取基金账户
+     * @param userId
+     * @return 
+     */
+    public FundAccount getFundAccount(String userId);
+    
+    /**
+     * 创建基金账户
+     * @param userId
+     * @return 
+     */
+    public FundResult<FundAccount> createFundAccount(String userId);
     
     
 }

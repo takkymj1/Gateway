@@ -10,7 +10,7 @@ import com.creditcloud.model.BaseObject;
 import lombok.Data;
 
 /**
- * 
+ * 封装数据返回
  * @author suetming <suetming.ma at creditcloud.com>
  * @param <T>
  */
