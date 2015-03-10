@@ -88,5 +88,4 @@ public interface LionFundService {
      */
     public FundResult assess(RiskAssessment assessment);
     
-    
 }
