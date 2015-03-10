@@ -43,5 +43,8 @@ public interface LionFundService {
      */
     public FundResult<FundAccount> createFundAccount(String userId);
     
-    
+    /**
+     * 申购基金
+     */
+//    public FundResult 
 }

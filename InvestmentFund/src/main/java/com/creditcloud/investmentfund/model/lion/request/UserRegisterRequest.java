@@ -13,7 +13,7 @@ import com.creditcloud.investmentfund.model.lion.enums.Attribute;
  * 基金开户
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public class CreateFundAccountRequest extends BaseRequest {
+public class UserRegisterRequest extends BaseRequest {
 
     /**
      * 手机号码
@@ -78,7 +78,7 @@ public class CreateFundAccountRequest extends BaseRequest {
      */
     private String answerlist;
     
-    public CreateFundAccountRequest(
+    public UserRegisterRequest(
             String merid,
             String name, 
             String idNumber, 

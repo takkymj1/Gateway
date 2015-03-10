@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class RedemptionFundRequest extends BaseRequest {
+public class TradeSellFundRequest extends BaseRequest {
 
     /**
      * 证件号码
@@ -46,7 +46,7 @@ public class RedemptionFundRequest extends BaseRequest {
      */
     private String sellshare;
     
-    public RedemptionFundRequest(
+    public TradeSellFundRequest(
             String merid,
             String idNumber, 
             String transactionaccountid,
