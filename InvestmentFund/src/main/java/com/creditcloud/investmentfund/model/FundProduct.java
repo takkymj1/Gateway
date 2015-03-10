@@ -9,7 +9,6 @@ package com.creditcloud.investmentfund.model;
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.ShareType;
-import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -28,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class FundProduct extends BaseObject implements FundConstant{
+public class FundProduct extends FundObject implements FundConstant{
 
     private static final long serialVersionUID = 20150303L;
     

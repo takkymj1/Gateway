@@ -7,11 +7,17 @@
 package com.creditcloud.investmentfund.model.lion.response;
 
 import com.creditcloud.model.BaseObject;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 诺安基金 响应封装
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BaseResponse extends BaseObject {
 
     /**
@@ -34,45 +40,4 @@ public class BaseResponse extends BaseObject {
      */
     private long stamp;
 
-    private BaseResponse() {
-    }
-
-    public BaseResponse(String returnCode, String returnmsg, String token, long stamp) {
-        this.returnCode = returnCode;
-        this.returnmsg = returnmsg;
-        this.token = token;
-        this.stamp = stamp;
-    }
-
-    public String getReturnCode() {
-        return returnCode;
-    }
-
-    public void setReturnCode(String returnCode) {
-        this.returnCode = returnCode;
-    }
-
-    public String getReturnmsg() {
-        return returnmsg;
-    }
-
-    public void setReturnmsg(String returnmsg) {
-        this.returnmsg = returnmsg;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public long getStamp() {
-        return stamp;
-    }
-
-    public void setStamp(long stamp) {
-        this.stamp = stamp;
-    }
 }
