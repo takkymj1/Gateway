@@ -25,7 +25,7 @@ public class ChinaPayConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "ChinaPayConfig";
 
-	// 银联属性
+    // 银联属性
     // 单笔代扣,单笔代付公用信息
     public static final String CHINAPAY_MERCHANT_ID = "999999999999999";
 
@@ -42,7 +42,7 @@ public class ChinaPayConfig extends BaseConfig {
     private String urlFrontendBankAccountValidating;
     private String urlBackendBankAccountValidating;
 
-	// 中民i投属性
+    // 中民i投属性
     // 单笔代扣所需配置
     private String pathSinglePayPrivateKey;
     private String pathSinglePayPublicKey;
