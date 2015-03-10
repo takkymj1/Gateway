@@ -26,6 +26,13 @@ import javax.ejb.Remote;
 public interface LionFundService {
 
     /**
+     * 
+     * @param id    基金产品
+     * @return 
+     */
+    public FundProduct find(String id);
+
+    /**
      * 查询所有诺安基金产品
      *
      * @param pageInfo  分页信息
