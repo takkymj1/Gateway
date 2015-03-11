@@ -310,4 +310,18 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableUserInvitation = false;
+    
+    /**
+     * 开启自动结算满标的标的
+     */
+    @Getter
+    @XmlElement
+    private boolean enbaleAutoSettleFinishedLoan = false;
+    
+    /**
+     * 开启自动结算流标的标的
+     */
+    @Getter
+    @XmlElement
+    private boolean enbaleAutoSettleFailedLoan = false;
 }
