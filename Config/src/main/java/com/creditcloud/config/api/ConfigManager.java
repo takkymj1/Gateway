@@ -19,6 +19,7 @@ import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.LycheePayConfig;
+import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
@@ -177,4 +178,11 @@ public interface ConfigManager {
      * @return 
      */
     public ChinaPayConfig getChinaPayConfig();
+    
+    /**
+     * 新希望相关配置
+     * 
+     * @return 
+     */
+    public NewHopeConfig getNewHopeConfig();
 }
