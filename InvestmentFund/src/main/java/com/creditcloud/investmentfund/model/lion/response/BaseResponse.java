@@ -6,10 +6,12 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
+import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.model.BaseObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 诺安基金 响应封装
@@ -40,4 +42,16 @@ public class BaseResponse extends BaseObject {
      */
     private long stamp;
 
+    /**
+     * 是否成功
+     * 
+     * @return 
+     */
+    public boolean success() {
+        if(StringUtils.isNotEmpty(returnCode)) {
+            return returnCode.contentEquals(FundConstant.SUCCESS_CODE);
+        }else{
+            return false;
+        }
+    }
 }

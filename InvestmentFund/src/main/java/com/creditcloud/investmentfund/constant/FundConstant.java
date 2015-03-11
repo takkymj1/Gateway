@@ -12,6 +12,8 @@ package com.creditcloud.investmentfund.constant;
  */
 public interface FundConstant {
 
+    String SUCCESS_CODE = "200";
+    
     /**
      * 最小利率
      */

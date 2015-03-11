@@ -7,6 +7,7 @@
 package com.creditcloud.investmentfund.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
+import lombok.Getter;
 
 /**
  * 风险等级

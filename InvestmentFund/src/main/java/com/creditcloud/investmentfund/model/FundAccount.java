@@ -11,6 +11,7 @@ import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.investmentfund.enums.FundType;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class FundAccount extends FundObject implements FundConstant {
 
     /**

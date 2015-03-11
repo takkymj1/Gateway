@@ -6,15 +6,16 @@
 
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.TradingRecordType;
 import com.creditcloud.investmentfund.model.FundAccount;
-import com.creditcloud.investmentfund.model.FundProduct;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.RiskAssessment;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.fund.BankAccount;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -26,46 +27,36 @@ import javax.ejb.Remote;
 public interface LionFundService {
 
     /**
-     * 
-     * @param id    基金产品
-     * @return 
-     */
-    public FundProduct find(String id);
-
-    /**
-     * 查询所有诺安基金产品
-     *
-     * @param pageInfo  分页信息
-     * @return
-     */
-    public PagedResult<FundProduct> list(PageInfo pageInfo);
-    
-    /**
      * 查询用户基金交易记录
      * 
      * @param userId    用户ID
-     * @param type      业务类型 可以为空
+     * @param type
+     * @param startDate 开始时间
+     * @param endDate   结束时间
      * @param pageInfo  分页信息
      * @return 
      */
-    public PagedResult<TradingRecord> listByUserId(String userId, TradingRecordType type, PageInfo pageInfo);
+    public PagedResult<TradingRecord> listTradingRecordByUserId(String userId, TradingRecordType type, Date startDate, Date endDate, PageInfo pageInfo);
     
     /**
      * 获取基金账户
      * 
      * @param userId    用户ID
+     * @param type      基金类型
      * @return 
      */
-    public FundAccount getFundAccount(String userId);
+    public FundAccount getFundAccount(String userId, FundType type);
     
     /**
      * 创建基金账户
      * 
-     * @param userId        用户ID
-     * @param bankAccount   银行账户
+     * @param userId            用户ID
+     * @param bankAccount       银行账户
+     * @param riskAssessment    风险评估
+     * @param fundType          基金账户类型
      * @return 
      */
-    public FundResult<FundAccount> createFundAccount(String userId, BankAccount bankAccount);
+    public FundResult<FundAccount> createFundAccount(String userId, BankAccount bankAccount, RiskAssessment riskAssessment, FundType fundType);
     
     /**
      * 申购基金
