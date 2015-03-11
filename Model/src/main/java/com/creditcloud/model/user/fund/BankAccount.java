@@ -10,6 +10,8 @@ import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 银行账号
@@ -49,6 +51,24 @@ public class BankAccount extends BaseObject {
     @BankAccountNumber
     private String account;
 
+    /**
+     * 账号所在省份
+     * 
+     * @return
+     */
+    @Getter
+    @Setter
+    private String province;
+    
+    /**
+     * 账号所在城市
+     * 
+     * @return
+     */
+    @Getter
+    @Setter
+    private String city;
+    
     public BankAccount() {
     }
     
@@ -60,6 +80,16 @@ public class BankAccount extends BaseObject {
         this.account = account;
     }
 
+    public BankAccount(String name, Bank bank, String location, String branch, String account, String province, String city) {
+        this.name = name;
+        this.bank = bank;
+        this.location = location;
+        this.branch = branch;
+        this.account = account;
+        this.province = province;
+        this.city = city;
+    }
+    
     public String getName() {
         return name;
     }

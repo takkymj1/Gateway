@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChinaPayConfig>
+    <!--银联属性-->
+    <!--单笔代扣所需配置-->
+    <urlSingleCut>http://sfj.chinapay.com/dac/SinCutServletGBK</urlSingleCut>
+    <urlSingleCutQuery>http://sfj.chinapay.com/dac/SinCutQueryServletGBK</urlSingleCutQuery>
+    
+    <!--单笔代付所需配置-->
+    <urlSinglePay>http://sfj.chinapay.com/dac/SinPayServletGBK</urlSinglePay>
+    <urlSingPayQuery>http://sfj.chinapay.com/dac/SinPayQueryServletGBK</urlSingPayQuery>
+    <urlSingPayAccountBalanceQuery>http://sfj.chinapay.com/dac/BalanceQueryGBK</urlSingPayAccountBalanceQuery>
+     
+    <!--客户银行卡认证所需配置-->
+    <urlFrontendBankAccountValidating>https://bianmin.chinapay.com/UMPWeb/NewCardBindService</urlFrontendBankAccountValidating>
+    <urlBackendBankAccountValidating>https://bianmin.chinapay.com/UMPWeb/service/param</urlBackendBankAccountValidating>
+    
+    <!--中民i投(ZMIT)属性-->
+    <!--单笔代扣所需配置-->
+    <pathSinglePayPrivateKey>/var/CreditCloud/ChinaPay_ZMIT/SinglePay/MerPrK_808080211389035_20150228173140.key</pathSinglePayPrivateKey>
+    <pathSinglePayPublicKey>/var/CreditCloud/ChinaPay_ZMIT/SinglePay/PgPubk.key</pathSinglePayPublicKey>
+    <singlePayMerchantId>808080211389035</singlePayMerchantId>
+    
+    <!--单笔代付所需配置-->
+    <pathSingleCutPrivateKey>/var/CreditCloud/ChinaPay_ZMIT/SingleCut/MerPrK_808080211389034_20150228173113.key</pathSingleCutPrivateKey>
+    <pathSingleCutPublicKey>/var/CreditCloud/ChinaPay_ZMIT/SingleCut/PgPubk.key</pathSingleCutPublicKey>
+    <singleCutMerchantId>808080211389034</singleCutMerchantId>
+    
+    <!--客户银行卡认证所需配置-->
+    <appSysIdForBankAccountValidating>???</appSysIdForBankAccountValidating>
+    <signKeyForBankAccountValidating>???</signKeyForBankAccountValidating>
+    
+</ChinaPayConfig>

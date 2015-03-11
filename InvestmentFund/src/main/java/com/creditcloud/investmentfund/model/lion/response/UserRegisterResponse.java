@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class CreateFundAccountResponse extends BaseResponse {
+public class UserRegisterResponse extends BaseResponse {
 
     /**
      * 申请单编号

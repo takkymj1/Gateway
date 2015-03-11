@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.creditcloud.investmentfund.model.lion.request;
 
 import com.creditcloud.investmentfund.model.lion.enums.Attribute;
@@ -17,7 +11,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class PurchaseFundRequest extends BaseRequest{
+public class TradeBuyFundRequest extends BaseRequest{
 
     /**
      * 证件号码
@@ -59,7 +53,7 @@ public class PurchaseFundRequest extends BaseRequest{
      */
     private String buymoney;
     
-    public PurchaseFundRequest(
+    public TradeBuyFundRequest(
             String merid,
             String idNumber, 
             String bankAccount, 

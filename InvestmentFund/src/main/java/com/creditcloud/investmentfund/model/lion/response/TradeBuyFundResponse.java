@@ -10,12 +10,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 基金赎回响应
+ * 基金申购响应结果
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @NoArgsConstructor
-public class RedemptionFundResponse extends BaseResponse {
+public class TradeBuyFundResponse extends BaseResponse {
 
     /**
      * 申请单编号
@@ -23,8 +23,18 @@ public class RedemptionFundResponse extends BaseResponse {
     private String appsheetserialno;
     
     /**
-     * 申请日期 YYYYDDMM
+     * 交易日期 YYYYDDMM
      */
     private String transactiondate;
+    
+    /**
+     * 银行返回代码
+     */
+    private String bankretcode;
+    
+    /**
+     * 银行返回信息
+     */
+    private String bankretmsg;
     
 }
