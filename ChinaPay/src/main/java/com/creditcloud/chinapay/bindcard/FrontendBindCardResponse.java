@@ -5,6 +5,7 @@
  */
 package com.creditcloud.chinapay.bindcard;
 
+import com.creditcloud.chinapay.ChinaPayConstant;
 import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
@@ -84,4 +85,12 @@ public class FrontendBindCardResponse extends BaseObject {
     @FormParam("respmsg")
     private String respmsg;
 
+    /**
+     * 是否成功返回
+     *
+     * @return
+     */
+    public boolean success() {
+        return ChinaPayConstant.SUCCESS_CODE.equals(respcode);
+    }
 }
