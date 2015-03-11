@@ -21,4 +21,19 @@ public interface FundConstant {
      * 最大利率
      */
     int MAX_RATE = 10000;
+    
+    /**
+     * 单笔投资最小金额
+     */
+    int MIN_INVEST_AMOUNT = 1;
+
+    /**
+     * 单笔投资递增
+     */
+    int INVEST_AMOUNT_INCREMENT = MIN_INVEST_AMOUNT;
+
+    /**
+     * 单笔投资最大金额 20万
+     */
+    int MAX_INVEST_AMOUNT = 200000;
 }

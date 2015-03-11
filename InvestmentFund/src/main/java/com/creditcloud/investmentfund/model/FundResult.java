@@ -11,8 +11,10 @@ import lombok.Data;
 
 /**
  * 封装数据返回
- * @author suetming <suetming.ma at creditcloud.com>
+ * 
  * @param <T>
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 public class FundResult<T extends FundObject> extends BaseObject {
