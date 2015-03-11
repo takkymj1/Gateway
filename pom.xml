@@ -53,6 +53,7 @@
         <module>ThirdParty</module>
         <module>Insurance</module>
         <module>InvestmentFund</module>
+        <module>ChinaPay</module>
   </modules>
 </project>
 

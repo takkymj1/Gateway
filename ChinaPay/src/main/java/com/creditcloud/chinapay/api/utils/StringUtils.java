@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public abstract class StringUtils {
 		final String NAME_VALUE_DELIMITER = splitterKeyValue;
 		final boolean trimToken = true;
 		List<String> namedValues = StringUtils.parseTokens(text, PAIR_DELIMITER, trimToken);
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		for (String namedValue : namedValues) {
 			List<String> nameAndValue = StringUtils.parseTokens(namedValue, NAME_VALUE_DELIMITER, trimToken);
 			String name = nameAndValue.get(0);
@@ -73,34 +72,6 @@ public abstract class StringUtils {
 			return labelText;
 
 		return labelText.substring(0, idx);
-	}
-
-	public static String valueOf(Object obj) {
-		if (obj == null)
-			return "null";
-		else if (obj.getClass().isArray()) {
-			return valueOfArray(obj);
-		} else
-			return String.valueOf(obj);
-	}
-
-	public static String valueOfArray(Object array) {
-		if (!array.getClass().isArray())
-			throw new RuntimeException("It is not an array : " + array);
-
-		StringBuilder sb = new StringBuilder();
-		sb.append("{");
-		final int length = Array.getLength(array);
-		for (int i = 0; i < length; i++) {
-			Object obj = Array.get(array, i);
-			String element = valueOf(obj);
-			sb.append("\"" + element + "\"");
-			if (i < length - 1)
-				sb.append(",");
-		}
-		sb.append("}");
-
-		return sb.toString();
 	}
 
 	public final static long toLong(String string) {
@@ -157,18 +128,6 @@ public abstract class StringUtils {
 		}
 
 		return list;
-	}
-
-	public final static boolean containsNullOrEmptyElement(List<String> list) {
-		for (int si = 0; si < list.size(); si++) {
-			String s = list.get(si);
-			if (s == null)
-				return true;
-			else if (s.isEmpty())
-				return true;
-		}
-
-		return false;
 	}
 
 	public final static double toDouble(String string, double defaultValue) {
@@ -235,7 +194,7 @@ public abstract class StringUtils {
 	}
 
 	public final static List<String> parseLines(String text) {
-		List<String> lines = new ArrayList<String>();
+		List<String> lines = new ArrayList<>();
 		if (text == null)
 			return lines;
 		try {
@@ -293,7 +252,7 @@ public abstract class StringUtils {
 
 	public final static List<String> parseTokens(String line, String splitter, boolean trimToken,
 			boolean discardEmptyToken) {
-		List<String> tokens = new ArrayList<String>();
+		List<String> tokens = new ArrayList<>();
 		if (line == null)
 			return tokens;
 
@@ -415,9 +374,9 @@ public abstract class StringUtils {
 
 	public static List<String> toStringList(String[] stringArray) {
 		if (stringArray == null)
-			return new ArrayList<String>();
+			return new ArrayList<>();
 
-		List<String> sl = new ArrayList<String>();
+		List<String> sl = new ArrayList<>();
 		for (int si = 0; si < stringArray.length; si++)
 			sl.add(stringArray[si]);
 		return sl;
@@ -425,9 +384,9 @@ public abstract class StringUtils {
 
 	public static List<String> toStringList(String string) {
 		if (string == null)
-			return new ArrayList<String>();
+			return new ArrayList<>();
 
-		List<String> sl = new ArrayList<String>();
+		List<String> sl = new ArrayList<>();
 		sl.add(string);
 		return sl;
 	}
@@ -459,7 +418,7 @@ public abstract class StringUtils {
 	 * @return
 	 */
 	public static List<Integer> findIntegers(String str) {
-		List<Integer> ints = new ArrayList<Integer>();
+		List<Integer> ints = new ArrayList<>();
 		Pattern pattern = Pattern.compile(INTEGER_FORMAT);
 		Matcher matcher = pattern.matcher(str);
 		while (matcher.find()) {
