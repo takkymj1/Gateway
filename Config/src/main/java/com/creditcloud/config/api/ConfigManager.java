@@ -16,6 +16,7 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
@@ -141,4 +142,11 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public InsuranceConfig getInsuranceConfig();
+    
+    /**
+     *  新希望相关配置文件
+     * 
+     * @return 
+     */
+    public NewHopeConfig getNewHopeConfig();
 }
