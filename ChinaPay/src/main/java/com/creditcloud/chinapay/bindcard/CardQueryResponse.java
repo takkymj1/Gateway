@@ -31,14 +31,14 @@ public class CardQueryResponse extends BaseObject {
 
     private String cardNo;
 
-    private final String cardSpec = "0001";
+    private String cardSpec = "0001";
 
     private String cardBin;
 
     private String cardLen;
 
     private String dcType;
-
+    
     private String cardIssuer;
 
     private String cardIssuerName;

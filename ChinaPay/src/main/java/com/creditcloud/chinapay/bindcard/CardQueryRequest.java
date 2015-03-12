@@ -29,5 +29,4 @@ public class CardQueryRequest extends BaseObject {
     private String signature;
 
     private String cardNo;
-
 }
