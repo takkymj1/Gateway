@@ -10,12 +10,14 @@ import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.TradingRecordType;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
+import com.creditcloud.investmentfund.model.lion.FundInvest;
 import com.creditcloud.investmentfund.model.lion.RiskAssessment;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.fund.BankAccount;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -36,7 +38,7 @@ public interface LionFundService {
      * @param pageInfo  分页信息
      * @return 
      */
-    public PagedResult<TradingRecord> listTradingRecordByUserId(String userId, TradingRecordType type, Date startDate, Date endDate, PageInfo pageInfo);
+    public PagedResult<TradingRecord> listTradingRecordByUserIdAndType(String userId, TradingRecordType type, Date startDate, Date endDate, PageInfo pageInfo);
     
     /**
      * 获取基金账户
@@ -87,4 +89,10 @@ public interface LionFundService {
      */
     public FundResult assess(RiskAssessment assessment);
     
+    /**
+     * 
+     * @param userId    用户ID
+     * @return 
+     */
+    public List<FundInvest> listFundInvestByUserId(String userId);
 }

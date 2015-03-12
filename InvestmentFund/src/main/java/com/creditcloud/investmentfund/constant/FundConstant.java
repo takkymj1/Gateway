@@ -22,7 +22,7 @@ public interface FundConstant {
     /**
      * 最大利率
      */
-    int MAX_RATE = 10000;
+    int MAX_RATE = 50000;
     
     /**
      * 单笔投资最小金额

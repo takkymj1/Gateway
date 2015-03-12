@@ -35,6 +35,13 @@ public class FundProduct extends FundObject implements FundConstant{
     private static final long serialVersionUID = 20150303L;
     
     /**
+     * UUID
+     * 
+     * @return
+     */
+    private String id;
+    
+    /**
      * 展示名称
      * 
      * @return
