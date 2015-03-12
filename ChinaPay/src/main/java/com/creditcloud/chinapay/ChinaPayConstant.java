@@ -11,6 +11,9 @@ package com.creditcloud.chinapay;
  */
 public interface ChinaPayConstant {
 
-    String SUCCESS_CODE  = "0000";
+    /**
+     * 成功应答代码
+     */
+    String SUCCESS_CODE = "0000";
 
 }
