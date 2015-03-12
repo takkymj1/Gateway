@@ -1,88 +1,89 @@
 package com.creditcloud.chinapay.api.model.pojo.request;
 
+import com.creditcloud.chinapay.api.model.pojo.POJO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.creditcloud.chinapay.api.model.pojo.POJO;
 import com.creditcloud.chinapay.api.utils.StringUtils;
 
 public abstract class SingleCutParameters extends POJO {
-	protected String merId = "";
-	protected String transType = "0003";
-	protected String orderNo = "";
-	protected String transDate = "";
-	protected String priv1 = "";
-	protected String version = "20100831";
-	protected String chkValue = "";
 
-	public String getMerId() {
-		return merId;
-	}
+    private static final long serialVersionUID = 20150311L;
 
-	public void setMerId(String merId) {
-		this.merId = merId;
-	}
+    protected String merId = "";
 
-	public String getUnicodePriv1() {
-		String text = StringUtils.toUnicode(priv1);
-		return text;
-	}
+    protected final String transType = "0003";
 
-	public void setTransDate(Date date) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		String dateStringYYYYMMDD = sdf.format(date);
-		setTransDate(dateStringYYYYMMDD);
-	}
+    protected String orderNo = "";
 
-	public String getVersion() {
-		return version;
-	}
+    protected String transDate = "";
 
-	public void setVersion(String version) {
-		this.version = version;
-	}
+    protected String priv1 = "";
 
-	public String getChkValue() {
-		return chkValue;
-	}
+    protected final String version = "20100831";
 
-	public void setChkValue(String chkValue) {
-		this.chkValue = chkValue;
-	}
+    protected String chkValue = "";
 
-	public String getTextToSign() {
-		return new StringBuffer(merId).append(transType).append(orderNo).append(transDate).append(version).toString();
-	}
+    public String getMerId() {
+        return merId;
+    }
 
-	public String getTransType() {
-		return transType;
-	}
+    public void setMerId(String merId) {
+        this.merId = merId;
+    }
 
-	public void setTransType(String transType) {
-		this.transType = transType;
-	}
+    public String getUnicodePriv1() {
+        String text = StringUtils.toUnicode(priv1);
+        return text;
+    }
 
-	public String getOrderNo() {
-		return orderNo;
-	}
+    public void setTransDate(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String dateStringYYYYMMDD = sdf.format(date);
+        setTransDate(dateStringYYYYMMDD);
+    }
 
-	public void setOrderNo(String orderNo) {
-		this.orderNo = orderNo;
-	}
+    public String getVersion() {
+        return version;
+    }
 
-	public String getTransDate() {
-		return transDate;
-	}
+    public String getChkValue() {
+        return chkValue;
+    }
 
-	public void setTransDate(String transDate) {
-		this.transDate = transDate;
-	}
+    public void setChkValue(String chkValue) {
+        this.chkValue = chkValue;
+    }
 
-	public String getPriv1() {
-		return priv1;
-	}
+    public String getTextToSign() {
+        return new StringBuffer(merId).append(transType).append(orderNo).append(transDate).append(version).toString();
+    }
 
-	public void setPriv1(String priv1) {
-		this.priv1 = priv1;
-	}
+    public String getTransType() {
+        return transType;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public String getTransDate() {
+        return transDate;
+    }
+
+    public void setTransDate(String transDate) {
+        this.transDate = transDate;
+    }
+
+    public String getPriv1() {
+        return priv1;
+    }
+
+    public void setPriv1(String priv1) {
+        this.priv1 = priv1;
+    }
 }

@@ -1,94 +1,99 @@
 package com.creditcloud.chinapay.api.model.pojo.request;
 
-
 public class SinglePayPostParameters extends SinglePayParameters {
 
-	private String cardNo = "";
-	private String usrName = "";
-	private String openBank = "";
-	private String prov = "";
-	private String city = "";
-	private String transAmt = "";
-	private String purpose = "";
-	private String subBank = "";
-	private String flag = "00";
+    private static final long serialVersionUID = 20150311L;
 
-	public String getCardNo() {
-		return cardNo;
-	}
+    private String cardNo = "";
 
-	public void setCardNo(String cardNo) {
-		this.cardNo = cardNo;
-	}
+    private String usrName = "";
 
-	public String getUsrName() {
-		return usrName;
-	}
+    private String openBank = "";
 
-	public void setUsrName(String usrName) {
-		this.usrName = usrName;
-	}
+    private String prov = "";
 
-	public String getOpenBank() {
-		return openBank;
-	}
+    private String city = "";
 
-	public void setOpenBank(String openBank) {
-		this.openBank = openBank;
-	}
+    private String transAmt = "";
 
-	public String getProv() {
-		return prov;
-	}
+    private String purpose = "";
 
-	public void setProv(String prov) {
-		this.prov = prov;
-	}
+    private String subBank = "";
 
-	public String getCity() {
-		return city;
-	}
+    private final String flag = "00";
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCardNo() {
+        return cardNo;
+    }
 
-	public String getTransAmt() {
-		return transAmt;
-	}
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
 
-	public void setTransAmt(String transAmt) {
-		this.transAmt = transAmt;
-	}
+    public String getUsrName() {
+        return usrName;
+    }
 
-	public String getPurpose() {
-		return purpose;
-	}
+    public void setUsrName(String usrName) {
+        this.usrName = usrName;
+    }
 
-	public void setPurpose(String purpose) {
-		this.purpose = purpose;
-	}
+    public String getOpenBank() {
+        return openBank;
+    }
 
-	public String getSubBank() {
-		return subBank;
-	}
+    public void setOpenBank(String openBank) {
+        this.openBank = openBank;
+    }
 
-	public void setSubBank(String subBank) {
-		this.subBank = subBank;
-	}
+    public String getProv() {
+        return prov;
+    }
 
-	public String getFlag() {
-		return flag;
-	}
+    public void setProv(String prov) {
+        this.prov = prov;
+    }
 
-	public void setFlag(String flag) {
-		this.flag = flag;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	@Override
-	public String getTextToSign() {
-		return new StringBuffer(merId).append(merDate).append(merSeqId).append(cardNo).append(usrName).append(openBank)
-				.append(prov).append(city).append(transAmt).append(purpose).append(subBank).append(flag)
-				.append(version).toString();
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getTransAmt() {
+        return transAmt;
+    }
+
+    public void setTransAmt(String transAmt) {
+        this.transAmt = transAmt;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getSubBank() {
+        return subBank;
+    }
+
+    public void setSubBank(String subBank) {
+        this.subBank = subBank;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    @Override
+    public String getTextToSign() {
+        return new StringBuffer(merId).append(merDate).append(merSeqId).append(cardNo).append(usrName).append(openBank)
+                .append(prov).append(city).append(transAmt).append(purpose).append(subBank).append(flag)
+                .append(version).toString();
+    }
 }
