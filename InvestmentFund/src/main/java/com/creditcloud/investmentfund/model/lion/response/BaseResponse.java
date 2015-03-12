@@ -7,7 +7,7 @@
 package com.creditcloud.investmentfund.model.lion.response;
 
 import com.creditcloud.investmentfund.constant.FundConstant;
-import com.creditcloud.model.BaseObject;
+import com.creditcloud.investmentfund.model.FundObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseResponse extends BaseObject {
+public class BaseResponse extends FundObject {
 
     /**
      * 错误码

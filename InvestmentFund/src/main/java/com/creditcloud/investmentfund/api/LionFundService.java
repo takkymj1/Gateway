@@ -62,21 +62,22 @@ public interface LionFundService {
      * 申购基金
      * 
      * @param userId        用户ID
-     * @param amount        申购金额
+     * @param fundCode      基金产品代码
      * @param bankAccount   银行账户
-     * @param fundProductId 基金产品
+     * @param amount        申购金额
      * @return 
      */
-    public FundResult buy(String userId, int amount, String fundProductId, BankAccount bankAccount);
+    public FundResult buy(String userId, String fundCode, BankAccount bankAccount, int amount);
     
     /**
      * 赎回金额
      * 
      * @param userId    用户ID
+     * @param fundCode  基金代码
      * @param share     份额
      * @return 
      */
-    public FundResult sell(String userId, int share);
+    public FundResult sell(String userId, String fundCode, int share);
 
     /**
      * 风险评测

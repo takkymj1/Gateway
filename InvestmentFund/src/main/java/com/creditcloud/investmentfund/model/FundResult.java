@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.model.BaseObject;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 封装数据返回
@@ -17,6 +18,7 @@ import lombok.Data;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
+@NoArgsConstructor
 public class FundResult<T extends FundObject> extends BaseObject {
 
     private T data;
@@ -37,5 +39,11 @@ public class FundResult<T extends FundObject> extends BaseObject {
     public FundResult(String error) {
         this.message = error;
         this.success = false;
+    }
+    
+    public FundResult addError(T data) {
+        this.data = data;
+        this.success = false;
+        return this;
     }
 }
