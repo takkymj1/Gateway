@@ -23,6 +23,14 @@ import javax.ejb.Remote;
 public interface FundProductService {
 
     /**
+     * 添加基金产品
+     * 
+     * @param fundProduct   基金产品
+     * @return 
+     */
+    public FundProduct addNew(FundProduct fundProduct);
+    
+    /**
      * 获取基金产品
      * 
      * @param id 基金产品ID
