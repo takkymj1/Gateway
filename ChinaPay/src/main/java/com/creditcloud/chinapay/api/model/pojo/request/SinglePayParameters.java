@@ -1,84 +1,85 @@
 package com.creditcloud.chinapay.api.model.pojo.request;
 
+import com.creditcloud.chinapay.api.model.pojo.POJO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public abstract class SinglePayParameters {
-	protected String merId = "";
-	protected String merDate = "";
-	protected String merSeqId = "";
-	protected String version = "20090501";
-	protected String signFlag = "1";
-	protected String chkValue = "";
+public abstract class SinglePayParameters extends POJO {
 
-	public String getMerId() {
-		return merId;
-	}
+    private static final long serialVersionUID = 20150311L;
 
-	public void setMerId(String merId) {
-		this.merId = merId;
-	}
+    protected String merId = "";
 
-	public String getMerDate() {
-		return merDate;
-	}
+    protected String merDate = "";
 
-	public void setMerDate(String merDate) {
-		this.merDate = merDate;
-	}
+    protected String merSeqId = "";
 
-	public void setMerDate(Date date) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		String dateStringYYYYMMDD = sdf.format(date);
-		setMerDate(dateStringYYYYMMDD);
-	}
+    protected final String version = "20090501";
 
-	public String getMerSeqId() {
-		return merSeqId;
-	}
+    protected final String signFlag = "1";
 
-	public void setMerSeqId(String merSeqId) {
-		this.merSeqId = merSeqId;
-	}
+    protected String chkValue = "";
 
-	public String getVersion() {
-		return version;
-	}
+    public String getMerId() {
+        return merId;
+    }
 
-	public void setVersion(String version) {
-		this.version = version;
-	}
+    public void setMerId(String merId) {
+        this.merId = merId;
+    }
 
-	public String getSignFlag() {
-		return signFlag;
-	}
+    public String getMerDate() {
+        return merDate;
+    }
 
-	public void setSignFlag(String signFlag) {
-		this.signFlag = signFlag;
-	}
+    public void setMerDate(String merDate) {
+        this.merDate = merDate;
+    }
 
-	public String getChkValue() {
-		return chkValue;
-	}
+    public void setMerDate(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String dateStringYYYYMMDD = sdf.format(date);
+        setMerDate(dateStringYYYYMMDD);
+    }
 
-	public void setChkValue(String chkValue) {
-		this.chkValue = chkValue;
-	}
-	
-	public abstract String getTextToSign();
-	
-	public String toJSON() {
-		try {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.writeValueAsString(this);
-		} catch (Exception e) {
-			return "{}";
-		}
-	}
+    public String getMerSeqId() {
+        return merSeqId;
+    }
 
-	public String toString() {
-		return toJSON();
-	}
+    public void setMerSeqId(String merSeqId) {
+        this.merSeqId = merSeqId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public String getSignFlag() {
+        return signFlag;
+    }
+
+    public String getChkValue() {
+        return chkValue;
+    }
+
+    public void setChkValue(String chkValue) {
+        this.chkValue = chkValue;
+    }
+
+    public abstract String getTextToSign();
+
+    public String toJSON() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(this);
+        } catch (Exception e) {
+            return "{}";
+        }
+    }
+
+    public String toString() {
+        return toJSON();
+    }
 }
