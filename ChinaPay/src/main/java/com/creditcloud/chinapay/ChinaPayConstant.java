@@ -16,4 +16,7 @@ public interface ChinaPayConstant {
      */
     String SUCCESS_CODE = "0000";
 
+    String SERVICE_TYPE_QUERY_CARD_BIN="1056";
+    
+    String ACCOUNT_VALIDATE_SIGN_METHOD="MD5";
 }

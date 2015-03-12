@@ -15,6 +15,7 @@ public class POJO extends BaseObject {
         }
     }
 
+    @Override
     public String toString() {
         return toJSON();
     }

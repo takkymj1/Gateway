@@ -9,12 +9,10 @@ public class PlainTextSignaturePair extends POJO {
 		if (pair == null || pair.plainText == null || pair.signature == null)
 			return true;
 
-		if (pair.plainText.isEmpty() && pair.signature.isEmpty())
-			return true;
-
-		return false;
+		return pair.plainText.isEmpty() && pair.signature.isEmpty();
 	}
 
+        @Override
 	public String toString() {
 		return plainText + "," + signature;
 	}
