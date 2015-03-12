@@ -13,6 +13,7 @@ import com.creditcloud.chinapay.api.model.pojo.response.SingleCutPostResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SingleCutQueryResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SinglePayPostResult;
 import com.creditcloud.chinapay.api.model.pojo.response.SinglePayQueryResult;
+import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
 
 /**
@@ -40,6 +41,15 @@ public interface ChinaPayService {
      * @return
      */
     boolean verifyResponse(FrontendBindCardResponse response);
+
+    /**
+     * 查询银行卡信息
+     *
+     * @param cardNo 银行卡号
+     *
+     * @return 
+     */
+    CardQueryResponse queryCardInfo(String cardNo);
 
     /**
      * 单笔代付交易接口<br>
