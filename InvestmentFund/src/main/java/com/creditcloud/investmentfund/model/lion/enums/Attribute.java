@@ -54,6 +54,10 @@ public enum Attribute {
     addbanksend,
     
     /**
+     * 风险承受能力再次评测
+     */
+    doriskpaper,
+    /**
      * 赎回
      */
     sell;

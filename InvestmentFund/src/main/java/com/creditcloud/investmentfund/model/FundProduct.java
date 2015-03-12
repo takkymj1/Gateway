@@ -27,12 +27,19 @@ import lombok.NoArgsConstructor;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class FundProduct extends FundObject implements FundConstant{
 
     private static final long serialVersionUID = 20150303L;
+    
+    /**
+     * UUID
+     * 
+     * @return
+     */
+    private String id;
     
     /**
      * 展示名称
@@ -174,4 +181,18 @@ public class FundProduct extends FundObject implements FundConstant{
     @Min(1)
     private int proposedHoldDuration;
 
+    /**
+     * 创建时间
+     * 
+     * @return
+     */
+    private Date timeCreated;
+    
+    /**
+     * 上次更新时间
+     * 
+     * @return
+     */
+    private Date timeLastModified;
+    
 }
