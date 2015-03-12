@@ -56,8 +56,13 @@ public enum FundRecordType implements BaseEnum {
     /**
      * 生利宝
      */
-    FSS("生利宝");
+    FSS("生利宝"),
 
+    /**
+     * 基金
+     */
+    INVESTMENT_FUND("基金");
+    
     private final String key;
 
     private FundRecordType(String key) {
