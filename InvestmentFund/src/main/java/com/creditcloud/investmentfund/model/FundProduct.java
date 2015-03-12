@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundStatus;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
@@ -15,6 +16,7 @@ import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -27,6 +29,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
+@AllArgsConstructor
 public class FundProduct extends FundObject implements FundConstant{
 
     private static final long serialVersionUID = 20150303L;
@@ -129,6 +132,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private FundBrand brand;
     
     /**
+     * 基金状态
+     */
+    private FundStatus status;
+    
+    /**
      * 赎回到账时间
      * 
      * 单位（工作日）
@@ -163,6 +171,7 @@ public class FundProduct extends FundObject implements FundConstant{
      * 
      * 单位：月
      */
+    @Min(1)
     private int proposedHoldDuration;
-    
+
 }

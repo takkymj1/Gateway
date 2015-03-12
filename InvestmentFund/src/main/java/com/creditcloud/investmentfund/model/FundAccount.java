@@ -11,6 +11,7 @@ import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.investmentfund.enums.FundType;
 import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,47 +22,62 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class FundAccount extends FundObject implements FundConstant {
 
     /**
      * 用户ID
+     * 
+     * @return
      */
     @NotNull
     private String userId;
     
     /**
      * 客户号
+     * 
+     * @return
      */
     @NotNull
-    public String custno;
+    private String custno;
     
     /**
      * 交易账号
+     * 
+     * @return
      */
     @NotNull
-    public String transactionaccountid;
+    private String transactionaccountid;
     
     /**
      * 资金账号
+     * 
+     * @return
      */
     @NotNull
-    public String moneyaccount;
+    private String moneyaccount;
     
     /**
      * 客户风险承受能力
+     * 
+     * @return
      */
     @NotNull
-    public RiskLevel riskLevel;
+    private RiskLevel riskLevel;
     
     /**
      * 接入商类型
+     * 
+     * @return
      */
     @NotNull
-    public FundBrand brand;
+    private FundBrand brand;
 
     /**
      * 基金账号类型
+     * 
+     * @return
      */
     @NotNull
-    public FundType type;
+    private FundType type;
 }
