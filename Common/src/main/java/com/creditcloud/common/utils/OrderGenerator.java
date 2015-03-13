@@ -27,7 +27,7 @@ public class OrderGenerator {
     }
 
     
-    private static String order(int length) {
+    public static String order(int length) {
         return RandomStringUtils.randomNumeric(length);
     }
 }

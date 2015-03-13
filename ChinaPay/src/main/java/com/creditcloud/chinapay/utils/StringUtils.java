@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.api.utils;
+package com.creditcloud.chinapay.utils;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;

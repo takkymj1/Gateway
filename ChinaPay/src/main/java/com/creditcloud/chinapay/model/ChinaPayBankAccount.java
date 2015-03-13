@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.api.model.pojo;
+package com.creditcloud.chinapay.model;
 
 import com.creditcloud.model.BaseObject;
 
@@ -8,7 +8,7 @@ import com.creditcloud.model.BaseObject;
  * @author GuohuaZhang
  *
  */
-public class BankAccount extends BaseObject {
+public class ChinaPayBankAccount extends BaseObject {
 
     private static final long serialVersionUID = 20150311L;
 
