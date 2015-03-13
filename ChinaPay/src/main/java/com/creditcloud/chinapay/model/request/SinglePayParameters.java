@@ -70,6 +70,7 @@ public abstract class SinglePayParameters extends POJO {
 
     public abstract String getTextToSign();
 
+    @Override
     public String toJSON() {
         try {
             ObjectMapper mapper = new ObjectMapper();
@@ -79,6 +80,7 @@ public abstract class SinglePayParameters extends POJO {
         }
     }
 
+    @Override
     public String toString() {
         return toJSON();
     }

@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.utils;
+package com.creditcloud.investmentfund.lionfund.api.moneyfund.utils;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
@@ -138,6 +138,18 @@ public abstract class StringUtils {
         return list;
     }
 
+    public final static boolean containsNullOrEmptyElement(List<String> list) {
+        for (String s : list) {
+            if (s == null) {
+                return true;
+            } else if (s.isEmpty()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public final static double toDouble(String string, double defaultValue) {
         try {
             string = string.trim();
@@ -180,9 +192,20 @@ public abstract class StringUtils {
         return toBoolean(string, false);
     }
 
-    public final static String fromDate(Date date) throws Exception {
+    /**
+     * using format yyyy-MM-dd HH:mm:ss.SSS
+     *
+     * @param date
+     * @return
+     */
+    public final static String fromDate(Date date) {
         String format = "yyyy-MM-dd HH:mm:ss.SSS";
-        DateFormat sf = new SimpleDateFormat(format, Locale.US);
+        DateFormat sf = new SimpleDateFormat(format);
+        return sf.format(date);
+    }
+
+    public final static String fromDate(Date date, String format) {
+        DateFormat sf = new SimpleDateFormat(format);
         return sf.format(date);
     }
 
@@ -310,8 +333,8 @@ public abstract class StringUtils {
             expected = new String[0];
         }
 
-        for (String expected1 : expected) {
-            boolean suc = contains(actual, expected1, caseSensitive);
+        for (String expectedItem : expected) {
+            boolean suc = contains(actual, expectedItem, caseSensitive);
             if (suc) {
                 return true;
             }
@@ -415,26 +438,6 @@ public abstract class StringUtils {
         List<String> sl = new ArrayList<>();
         sl.add(string);
         return sl;
-    }
-
-    public static String toPlainText(String[] stringArray, String separator) {
-        List<String> stringList = toStringList(stringArray);
-        return toPlainText(stringList, separator);
-    }
-
-    public static String toPlainText(List<String> stringList, String separator) {
-        if (stringList == null) {
-            return "";
-        }
-
-        final String sep = isEmpty(separator) ? "" : separator;
-        StringBuilder sb = new StringBuilder();
-        for (String element : stringList) {
-            String token = element + sep;
-            sb.append(token);
-        }
-
-        return sb.toString();
     }
 
     private final static String INTEGER_FORMAT = "-?\\d+";
