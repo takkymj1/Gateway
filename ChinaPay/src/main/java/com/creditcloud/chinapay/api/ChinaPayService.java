@@ -2,17 +2,17 @@ package com.creditcloud.chinapay.api;
 
 import java.util.Map;
 
-import com.creditcloud.chinapay.api.model.pojo.ChinaPayBankAccount;
-import com.creditcloud.chinapay.api.model.pojo.request.AccountBalanceQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SingleCutPostParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SingleCutQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SinglePayPostParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SinglePayQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.response.AccountBalanceQueryResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SingleCutPostResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SingleCutQueryResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SinglePayPostResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SinglePayQueryResult;
+import com.creditcloud.chinapay.model.ChinaPayBankAccount;
+import com.creditcloud.chinapay.model.request.AccountBalanceQueryParameters;
+import com.creditcloud.chinapay.model.request.SingleCutPostParameters;
+import com.creditcloud.chinapay.model.request.SingleCutQueryParameters;
+import com.creditcloud.chinapay.model.request.SinglePayPostParameters;
+import com.creditcloud.chinapay.model.request.SinglePayQueryParameters;
+import com.creditcloud.chinapay.model.response.AccountBalanceQueryResult;
+import com.creditcloud.chinapay.model.response.SingleCutPostResult;
+import com.creditcloud.chinapay.model.response.SingleCutQueryResult;
+import com.creditcloud.chinapay.model.response.SinglePayPostResult;
+import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
 import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
 

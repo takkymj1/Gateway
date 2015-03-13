@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.api.model.pojo;
+package com.creditcloud.chinapay.model;
 
 import com.creditcloud.model.BaseObject;
 import com.fasterxml.jackson.databind.ObjectMapper;

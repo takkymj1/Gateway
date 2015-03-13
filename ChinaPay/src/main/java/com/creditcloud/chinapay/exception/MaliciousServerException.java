@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.api.exception;
+package com.creditcloud.chinapay.exception;
 
 public class MaliciousServerException extends RuntimeException {
 

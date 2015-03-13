@@ -1,4 +1,4 @@
-package com.creditcloud.chinapay.api.model.pojo.request;
+package com.creditcloud.chinapay.model.request;
 
 public class SinglePayQueryParameters extends SinglePayParameters {
 

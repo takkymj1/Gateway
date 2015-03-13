@@ -1,11 +1,11 @@
-package com.creditcloud.chinapay.api.model.pojo.response;
+package com.creditcloud.chinapay.model.response;
 
 import com.creditcloud.chinapay.ChinaPayConstant;
 import java.util.List;
 import java.util.Properties;
 
-import com.creditcloud.chinapay.api.model.pojo.POJO;
-import com.creditcloud.chinapay.api.utils.StringUtils;
+import com.creditcloud.chinapay.model.POJO;
+import com.creditcloud.chinapay.utils.StringUtils;
 
 public class SingleCutQueryResult extends POJO {
 
