@@ -5,7 +5,9 @@
  */
 package com.creditcloud.idm.api;
 
-import java.util.Map;
+import com.creditcloud.idm.model.IDMResult;
+import com.creditcloud.idm.model.SearchUserResult;
+import com.creditcloud.idm.model.UserAttr;
 import javax.ejb.Remote;
 
 /**
@@ -16,7 +18,8 @@ import javax.ejb.Remote;
 @Remote
 public interface IDMService {
 
-    public boolean createIDMUser(String uid, String password, String mobile, String userType);
+    
+    public IDMResult createIDMUser(String uid, String userpassword, String mobile, String smart_type);
 
     /**
      * 调用IDM查询用户
@@ -26,17 +29,17 @@ public interface IDMService {
      */
 //    public boolean searchUser(String searchName);
 
-    /**
-     * 按用户账号查询接口
-     *
-     * @param uid
-     * @return
-     */
-    public boolean lookUpUser(String uid);
+//    /**
+//     * 按用户账号查询接口
+//     *
+//     * @param uid
+//     * @return
+//     */
+//    public boolean lookUpUser(String uid);
 
-    public boolean modifyUser(String uid, Map userAttr);
+    public IDMResult modifyUserIdNo(UserAttr userAttr);
 
-    public boolean resetPassword(String uid, String password);
+//    public boolean resetPassword(String uid, String password);
 
     /**
      * 修改密码
@@ -46,24 +49,26 @@ public interface IDMService {
      * @param newPassword
      * @return
      */
-    public boolean modifyPassword(String uid, String oldPassword, String newPassword);
+    public IDMResult modifyPassword(String uid, String oldPassword, String newPassword);
 
-    /**
-     * 启用用户
-     *
-     * @param uid
-     * @return
-     */
-    public boolean enableUser(String uid);
+//    /**
+//     * 启用用户
+//     *
+//     * @param uid
+//     * @return
+//     */
+//    public boolean enableUser(String uid);
+//
+//    /**
+//     * 禁用用户
+//     *
+//     * @param uid
+//     * @return
+//     */
+//    public boolean disableUser(String uid);
 
-    /**
-     * 禁用用户
-     *
-     * @param uid
-     * @return
-     */
-    public boolean disableUser(String uid);
-
-    public Map<Integer, Map<String, String>> searchUser(String filter);
+//    public Map<Integer, Map<String, String>> searchUser(String filter);
+    
+    public SearchUserResult searchUser(String filter);
 
 }
