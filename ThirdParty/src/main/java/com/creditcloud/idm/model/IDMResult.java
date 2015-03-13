@@ -5,6 +5,7 @@
  */
 package com.creditcloud.idm.model;
 
+import com.creditcloud.model.BaseObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IDMResult {
+public class IDMResult extends BaseObject {
     
     private String result;
     
