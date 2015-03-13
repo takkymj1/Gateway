@@ -19,6 +19,8 @@ public class SettleLoanResult extends BaseObject {
 
     public static final SettleLoanResult FAIL = new SettleLoanResult(false, new HashMap<Integer, Repayment>());
 
+    public static final SettleLoanResult SUCCESS = new SettleLoanResult(true, new HashMap<Integer, Repayment>());
+    
     private final boolean success;
 
     /**
