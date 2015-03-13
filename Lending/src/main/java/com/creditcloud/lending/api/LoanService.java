@@ -20,6 +20,9 @@ public interface LoanService extends LoanQueryService, LoanStatService {
 
     public Loan addNew(Loan loan);
     
+    @Deprecated
+    public Loan update(Loan loan);
+    
     public boolean markScheduled(String loanId, Date timeOpen, int timeOut);
 
     /**
