@@ -6,6 +6,7 @@
 package com.creditcloud.idm.model;
 
 import com.creditcloud.model.BaseObject;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class IDMResult extends BaseObject {
     
     private String result;

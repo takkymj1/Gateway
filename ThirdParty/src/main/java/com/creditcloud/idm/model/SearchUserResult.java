@@ -7,6 +7,7 @@ package com.creditcloud.idm.model;
 
 import com.creditcloud.model.BaseObject;
 import java.util.List;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@XmlRootElement
 public class SearchUserResult extends BaseObject {
     private List<wsUsersResult> data;
     
