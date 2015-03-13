@@ -29,4 +29,5 @@ public class wsUsersResult extends BaseObject {
     
     private  String cn;
 
+
 }
