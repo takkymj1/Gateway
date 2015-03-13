@@ -1,13 +1,13 @@
-package com.creditcloud.investmentfund.lionfund.api.moneyfund.model.request;
+package com.creditcloud.investmentfund.model.lion.moneyfund.request;
 
-import com.creditcloud.investmentfund.lionfund.api.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class SyncAuthenticateRequestMessage extends RequestMessageBase {
+public class SyncAuthenticateRequestMessage extends RequestApplyMessageBase {
 
     protected String woAcco;// 电商平台用户ID char (30) R
     protected String investorName;// 投资人姓名 char (120) R 投资人姓名
@@ -20,6 +20,10 @@ public class SyncAuthenticateRequestMessage extends RequestMessageBase {
     protected String payBankCode;// 支付工具类型 char(6) R 需诺安基金提供。 对应诺安内部系统“渠道编码”。
     protected String telNo;// 银行预留手机号 char (20) R
     protected String remark;// 备注 char(500) O
+
+    public SyncAuthenticateRequestMessage() {
+        this.transName = "2101";
+    }
 
     @Override
     public Map<String, String> toMap() {

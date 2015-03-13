@@ -1,13 +1,13 @@
-package com.creditcloud.investmentfund.lionfund.api.moneyfund.model.request;
+package com.creditcloud.investmentfund.model.lion.moneyfund.request;
 
-import com.creditcloud.investmentfund.lionfund.api.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class AsyncAuthenticateRequestMessage extends RequestMessageBase {
+public class AsyncAuthenticateRequestMessage extends RequestApplyMessageBase {
 
     protected String woAcco;// 电商平台用户ID char (30) R
     protected String investorName;// 投资人姓名 char (120) R 投资人姓名
@@ -21,6 +21,10 @@ public class AsyncAuthenticateRequestMessage extends RequestMessageBase {
     protected String telNo;// 银行预留手机号 char (20) R
     protected String returnUrl;//返回URL	char(500)	R	将结果返回到指定的URL上
 
+    public AsyncAuthenticateRequestMessage(){
+        transName="2010";
+    }
+    
     @Override
     public Map<String, String> toMap() {
         Map<String, String> parameters = super.toMap();

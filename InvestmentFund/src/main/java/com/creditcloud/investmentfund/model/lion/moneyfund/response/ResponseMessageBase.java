@@ -1,6 +1,6 @@
-package com.creditcloud.investmentfund.lionfund.api.moneyfund.model.response;
+package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
-import com.creditcloud.investmentfund.lionfund.api.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
