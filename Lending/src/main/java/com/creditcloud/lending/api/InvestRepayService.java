@@ -122,4 +122,12 @@ public interface InvestRepayService extends InvestRepayQueryService {
      * @return
      */
     RepayDetail getDisburseDetail(DisburseInfo disburseInfo);
+    
+    /**
+     * 计算投资人的本金总和
+     * @param investId
+     * @param statusList
+     * @return 
+     */
+    public BigDecimal sumPrincipalByInvest(String investId, List<RepaymentStatus> statusList);
 }
