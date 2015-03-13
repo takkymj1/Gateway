@@ -1,6 +1,6 @@
-package com.creditcloud.chinapay.api.model.pojo.request;
+package com.creditcloud.chinapay.model.request;
 
-import com.creditcloud.chinapay.api.utils.StringUtils;
+import com.creditcloud.chinapay.utils.StringUtils;
 
 public class SingleCutPostParameters extends SingleCutParameters {
 

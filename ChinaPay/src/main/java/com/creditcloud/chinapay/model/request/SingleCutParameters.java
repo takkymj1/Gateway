@@ -1,10 +1,10 @@
-package com.creditcloud.chinapay.api.model.pojo.request;
+package com.creditcloud.chinapay.model.request;
 
-import com.creditcloud.chinapay.api.model.pojo.POJO;
+import com.creditcloud.chinapay.model.POJO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.creditcloud.chinapay.api.utils.StringUtils;
+import com.creditcloud.chinapay.utils.StringUtils;
 
 public abstract class SingleCutParameters extends POJO {
 

@@ -1,6 +1,6 @@
-package com.creditcloud.chinapay.api.model.pojo.request;
+package com.creditcloud.chinapay.model.request;
 
-import com.creditcloud.chinapay.api.model.pojo.POJO;
+import com.creditcloud.chinapay.model.POJO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
