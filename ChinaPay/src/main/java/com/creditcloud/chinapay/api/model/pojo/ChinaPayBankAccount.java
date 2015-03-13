@@ -8,7 +8,7 @@ import com.creditcloud.model.BaseObject;
  * @author GuohuaZhang
  *
  */
-public class BankAccount extends BaseObject {
+public class ChinaPayBankAccount extends BaseObject {
 
     private static final long serialVersionUID = 20150311L;
 

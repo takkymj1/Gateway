@@ -1,5 +1,6 @@
 package com.creditcloud.chinapay.api.model.pojo.response;
 
+import com.creditcloud.chinapay.ChinaPayConstant;
 import java.util.List;
 import java.util.Properties;
 
@@ -57,5 +58,9 @@ public class SinglePayPostResult extends POJO {
         result.cardNo = prop.getProperty("cardNo", "");
 
         return result;
+    }
+
+    public boolean success() {
+        return ChinaPayConstant.SINGLE_PAY_SUCCESS.equals(responseCode);
     }
 }
