@@ -25,5 +25,5 @@ public class SearchUserResult extends BaseObject {
     
     private String errorMessage;
     
-    private boolean isSuccess;
+    private boolean success;
 }
