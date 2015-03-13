@@ -27,7 +27,7 @@ public class QueryFundProductRequest extends BaseRequest {
      */
     private String fundcode;
 
-    public QueryFundProductRequest(String fundcode, String merid) {
+    public QueryFundProductRequest(String merid, String fundcode) {
         super(Attribute.getfundinfo, merid);
         this.fundcode = fundcode;
     }
