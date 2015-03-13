@@ -8,10 +8,12 @@ package com.creditcloud.investmentfund.api;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.model.FundProduct;
+import com.creditcloud.investmentfund.model.FundProductNavRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -81,6 +83,13 @@ public interface FundProductService {
      * @param brandList 品牌
      * @return
      */
-    public PagedResult<FundProduct> listByBrand(PageInfo pageInfo, FundBrand... brandList);
+    public PagedResult<FundProduct> listByBrand(PageInfo pageInfo, List<FundBrand> brandList);
+    
+    /**
+     * 新增一条基金净值记录
+     * @param fundProductNavRecord    基金净值记录
+     * @return 
+     */
+    public FundProductNavRecord addNew(FundProductNavRecord fundProductNavRecord);
     
 }
