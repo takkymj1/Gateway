@@ -49,5 +49,5 @@ public interface LionMoneyFundService {
      * @param message
      * @return 
      */
-    public Map<String,String> syncRedemptFund(RedemptionRequestApplyMessage message);
+    public Map<String,String> syncRedeemFund(RedemptionRequestApplyMessage message);
 }

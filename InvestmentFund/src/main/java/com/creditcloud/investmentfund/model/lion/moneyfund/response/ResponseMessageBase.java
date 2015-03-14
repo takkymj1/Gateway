@@ -3,16 +3,21 @@ package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class ResponseMessageBase {
 
+    @NotNull
     protected String applicationNo = "";//请求流水号	char(50)	R	请求唯一标识
+    @NotNull
     protected String status = "";//处理状态 char(10)	R	0．成功，1.失败
+    @NotNull
     protected String errorCode = "";//错误代码	char(4)	R	成功 0000，失败9999 返回明细错误原因代码
     protected String errorMessage = "";//错误描述 char (256)	O	
 
+    @NotNull
     protected String sign = "";//签名 char(500)	R	
     protected String remark = "";//备注	char(500)	O	
 

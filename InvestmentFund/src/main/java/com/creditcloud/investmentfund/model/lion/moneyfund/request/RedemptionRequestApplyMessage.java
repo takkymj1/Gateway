@@ -1,29 +1,45 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.request;
 
+import com.creditcloud.investmentfund.api.lion.moneyfund.enums.TransName;
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * 诺安货币基金赎回请求报文<br>
+ * 定义参考 : 诺安基金直销平台接口方案-v2.0.27(清洁版).docx <br>
+ *
+ * @author GuohuaZhang
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RedemptionRequestApplyMessage extends RequestApplyMessageBase {
 
-    protected String fundCode;//	char(6)	R
-    protected String applicationVol;//	char(16)	R
-    protected String isForceDeal = "1";//char(1)	R
-    protected String bankProvinceCode;//char(10)	O
-    protected String bankCityCode;//	char(10)	O
-    protected String tradeacco;//	char(32)	R
-    protected String cardNo;//char(20)	R
-    protected String payBankCode;//	char(6)	R
-    protected String operatorTime;//	char(14)	R
-    protected String isQuickRedeem;//	char(1)	R
-    protected String clientIp;//	char(20)	O
-    protected String remark;//	char(500)	O
+    @NotNull
+    protected String fundCode;//基金代码	char(6)	R
+    @NotNull
+    protected String applicationVol;//申请赎回基金份数	char(16)	R 两位小数（客户申请赎回或货币支付的份数）
+    @NotNull
+    protected String isForceDeal = "1";//是否同意顺延至下一工作日 char(1)	R 0-	不同意,1-同意 目前要求强制同意。
+    protected String bankProvinceCode;//用户银行卡省 char(10)	O
+    protected String bankCityCode;//用户银行卡城市	char(10)	O
+    @NotNull
+    protected String tradeacco;//诺安交易账户	char(32)	R
+    @NotNull
+    protected String cardNo;//银行卡号码 char(20)	R
+    @NotNull
+    protected String payBankCode;//支付工具类型	char(6)	R
+    @NotNull
+    protected String operatorTime;//操作时间	char(14)	R
+    @NotNull
+    protected String isQuickRedeem;//是否是快速赎回	char(1)	R 1-是，0-否
+    protected String clientIp;//客户IP地址	char(20)	O
+    protected String remark;//备注	char(500)	O
 
     public RedemptionRequestApplyMessage() {
-        this.transName = "2241";
+        this.transName = TransName.REDEEM.getCode();
     }
 
     @Override
