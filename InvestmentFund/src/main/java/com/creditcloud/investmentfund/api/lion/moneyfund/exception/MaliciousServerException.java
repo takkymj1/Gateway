@@ -1,4 +1,4 @@
-package com.creditcloud.investmentfund.lionfund.api.moneyfund.exception;
+package com.creditcloud.investmentfund.api.lion.moneyfund.exception;
 
 public class MaliciousServerException extends RuntimeException {
 
