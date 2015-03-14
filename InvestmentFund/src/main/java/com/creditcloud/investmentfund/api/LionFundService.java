@@ -11,6 +11,7 @@ import com.creditcloud.investmentfund.enums.TradingRecordType;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundInvest;
+import com.creditcloud.investmentfund.model.lion.FundProduct;
 import com.creditcloud.investmentfund.model.lion.RiskAssessment;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
 import com.creditcloud.model.criteria.PageInfo;
@@ -95,4 +96,13 @@ public interface LionFundService {
      * @return 
      */
     public List<FundInvest> listFundInvestByUserId(String userId);
+    
+    /**
+     * 查询所有基金产品
+     * 
+     * @param fundCode 基金代码：为空返回所有基金产品
+     * @return 
+     */
+    public List<FundProduct> listFundProduct(String fundCode);
+    
 }

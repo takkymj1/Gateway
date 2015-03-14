@@ -38,4 +38,9 @@ public interface FundConstant {
      * 单笔投资最大金额 20万
      */
     int MAX_INVEST_AMOUNT = 200000;
+    
+    /**
+     * 最大投资次数
+     */
+    int MAX_INVEST_TIMES = 10000;
 }

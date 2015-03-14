@@ -44,5 +44,8 @@ public class NewHopeConfig extends BaseConfig {
     @Getter
     private String departNo;
     
+    @XmlElement
+    @Getter
+    private String restUrl;
     
 }
