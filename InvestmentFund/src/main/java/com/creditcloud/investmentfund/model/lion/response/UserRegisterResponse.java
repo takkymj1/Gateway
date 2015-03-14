@@ -6,6 +6,8 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
+import com.creditcloud.investmentfund.enums.RiskLevel;
+import com.creditcloud.model.util.Enums;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -46,4 +48,8 @@ public class UserRegisterResponse extends BaseResponse {
      * 风险评测失效日期
      */
     private String riskdate;
+    
+    public RiskLevel getRiskLevel() {
+        return Enums.getEnumByOrdinal(RiskLevel.class, Integer.valueOf(custrisk) - 1);
+    }
 }

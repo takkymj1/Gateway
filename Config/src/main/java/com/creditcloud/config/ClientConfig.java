@@ -48,6 +48,12 @@ public final class ClientConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private ClientFeatures clientFeatures;
+    
+    /**
+     * 三方支付
+     */
+    @XmlElement(required = false)
+    private PaymentFeatures paymentFeatures;
 
     public String getCode() {
         return code;
@@ -90,5 +96,12 @@ public final class ClientConfig extends BaseConfig {
             clientFeatures = new ClientFeatures();
         }
         return clientFeatures;
+    }
+    
+    public PaymentFeatures getPaymentFeatures() {
+        if (paymentFeatures == null) {
+            paymentFeatures = new PaymentFeatures();
+        }
+        return paymentFeatures;
     }
 }

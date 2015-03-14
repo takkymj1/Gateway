@@ -80,6 +80,13 @@ public class NetSaveResponse extends BaseResponse {
     @Size(max = 9)
     private String FeeAcctId;
 
+    /**
+     * 当 GateBusiId =QP--快捷支付时有效,即本次快捷
+     */
+    @FormParam("CardId")
+    @Size(max = 32)
+    private String CardId;
+    
     public NetSaveResponse() {
     }
 
@@ -93,6 +100,7 @@ public class NetSaveResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getTrxId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
+                .append(StringUtils.trimToEmpty(getCardId()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }

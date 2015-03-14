@@ -2,17 +2,18 @@ package com.creditcloud.chinapay.api;
 
 import java.util.Map;
 
-import com.creditcloud.chinapay.api.model.pojo.BankAccount;
-import com.creditcloud.chinapay.api.model.pojo.request.AccountBalanceQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SingleCutPostParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SingleCutQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SinglePayPostParameters;
-import com.creditcloud.chinapay.api.model.pojo.request.SinglePayQueryParameters;
-import com.creditcloud.chinapay.api.model.pojo.response.AccountBalanceQueryResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SingleCutPostResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SingleCutQueryResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SinglePayPostResult;
-import com.creditcloud.chinapay.api.model.pojo.response.SinglePayQueryResult;
+import com.creditcloud.chinapay.model.ChinaPayBankAccount;
+import com.creditcloud.chinapay.model.request.AccountBalanceQueryParameters;
+import com.creditcloud.chinapay.model.request.SingleCutPostParameters;
+import com.creditcloud.chinapay.model.request.SingleCutQueryParameters;
+import com.creditcloud.chinapay.model.request.SinglePayPostParameters;
+import com.creditcloud.chinapay.model.request.SinglePayQueryParameters;
+import com.creditcloud.chinapay.model.response.AccountBalanceQueryResult;
+import com.creditcloud.chinapay.model.response.SingleCutPostResult;
+import com.creditcloud.chinapay.model.response.SingleCutQueryResult;
+import com.creditcloud.chinapay.model.response.SinglePayPostResult;
+import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
+import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
 
 /**
@@ -40,6 +41,15 @@ public interface ChinaPayService {
      * @return
      */
     boolean verifyResponse(FrontendBindCardResponse response);
+
+    /**
+     * 查询银行卡信息
+     *
+     * @param cardNo 银行卡号
+     *
+     * @return 
+     */
+    CardQueryResponse queryCardInfo(String cardNo);
 
     /**
      * 单笔代付交易接口<br>
@@ -94,7 +104,7 @@ public interface ChinaPayService {
     SingleCutQueryResult singleCutQuery(SingleCutQueryParameters parameters);
 
     /**
-     * 后端模式客户银行卡验证接口,验证参数BankAccount account提供的信息是否对应一个真实存在的银行卡;<br>
+     * 后端模式客户银行卡验证接口,验证参数ChinaPayBankAccount account提供的信息是否对应一个真实存在的银行卡;<br>
      * 验证过程中如果遇到HTTP返回码不是200,会抛出异常HTTPException;<br>
      * 验证过程中如果来自服务器的返回不能通过密钥验证,则会抛出异常MaliciousServerException;<br>
      * 其他情况下返回服务器反馈的验证信息<br>
@@ -135,7 +145,7 @@ public interface ChinaPayService {
      * 9919 银行卡与姓名不符 <br>
      * 9920 银行卡与证件不符 <br>
      */
-    Map<String, String> backendValidateBankAccount(BankAccount account);
+    Map<String, String> backendValidateBankAccount(ChinaPayBankAccount account);
 
     /**
      * 根据提供的客户银行账号信息和验证成功后期望返回的地址构造一个银行卡号的银联前端验证地址,这个地址贴在浏览器地址栏中,应该出现一个需要输入用户银行卡密码的页面
@@ -144,5 +154,5 @@ public interface ChinaPayService {
      * @param returnURL
      * @return
      */
-    String buildFrontendBankAccountValidatingURL(BankAccount account, String returnURL);
+    String buildFrontendBankAccountValidatingURL(ChinaPayBankAccount account, String returnURL);
 }

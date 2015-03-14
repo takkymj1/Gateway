@@ -12,6 +12,8 @@ package com.creditcloud.investmentfund.constant;
  */
 public interface FundConstant {
 
+    String SUCCESS_CODE = "200";
+    
     /**
      * 最小利率
      */
@@ -20,5 +22,25 @@ public interface FundConstant {
     /**
      * 最大利率
      */
-    int MAX_RATE = 10000;
+    int MAX_RATE = 50000;
+    
+    /**
+     * 单笔投资最小金额
+     */
+    int MIN_INVEST_AMOUNT = 1;
+
+    /**
+     * 单笔投资递增
+     */
+    int INVEST_AMOUNT_INCREMENT = MIN_INVEST_AMOUNT;
+
+    /**
+     * 单笔投资最大金额 20万
+     */
+    int MAX_INVEST_AMOUNT = 200000;
+    
+    /**
+     * 最大投资次数
+     */
+    int MAX_INVEST_TIMES = 10000;
 }
