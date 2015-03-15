@@ -1,4 +1,4 @@
-package com.creditcloud.investmentfund.lionfund.api.moneyfund.model;
+package com.creditcloud.investmentfund.model.lion.moneyfund;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
