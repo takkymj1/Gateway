@@ -33,4 +33,8 @@ public class ResponseMessageBase {
 
         return parameters;
     }
+    
+    public boolean isSuccess() {
+        return !StringUtils.isEmpty(errorCode) && errorCode.contentEquals("0000");
+    }
 }

@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model.lion;
 
 import com.creditcloud.model.BaseObject;
 import java.util.Date;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
