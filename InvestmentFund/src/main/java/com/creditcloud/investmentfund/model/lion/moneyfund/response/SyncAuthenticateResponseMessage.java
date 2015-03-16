@@ -6,7 +6,10 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 import lombok.EqualsAndHashCode;
-
+/**
+ * 
+ * @author guohuazhang
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class SyncAuthenticateResponseMessage extends ResponseMessageBase {
