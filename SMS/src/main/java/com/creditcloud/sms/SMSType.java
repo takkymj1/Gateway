@@ -23,6 +23,18 @@ public enum SMSType {
      */
     CONFIRM_CREDITMARKET_CHANGE_LOGIN_PASSWORD("confirm.creditmarket.change.login.password"),
     /**
+     * CreditMarket中充值的短信确认码
+     */
+    CONFIRM_CREDITMARKET_DEPOSIT("confirm.creditmarket.deposit"),
+    /**
+     * CreditMarket中提现的短信确认码
+     */
+    CONFIRM_CREDITMARKET_WITHDRAW("confirm.creditmarket.withdraw"),
+    /**
+     * CreditMarket中投标的短信确认码
+     */
+    CONFIRM_CREDITMARKET_TENDER("confirm.creditmarket.tender"),
+    /**
      * CreditMarket中用户忘记密码时候重设密码
      */
     CREDITMARKET_RESET_PASSWORD("creditmarket.reset.password"),
@@ -36,7 +48,7 @@ public enum SMSType {
     CREDITMANAGER_MESSAGE("creditmanager.message"),
     /**
      * CreditManager 中给员工重置密码.
-     * 
+     *
      * 包含client.shortName, new password
      */
     CREDITMANAGER_RESET_PASSWORD("creditmanager.reset.password"),
@@ -60,41 +72,41 @@ public enum SMSType {
     NOTIFICATION_LOAN_STATUS("notification.loan.status"),
     /**
      * InvestRepay成功发生时发送给investor的提示信息.
-     * 
-     * 参数：loan.title, InvestRepayment.currentPeriod, InvestRepayment.repayAmount, client.name, client.helpPhone
+     *
+     * 参数：loan.title, InvestRepayment.currentPeriod,
+     * InvestRepayment.repayAmount, client.name, client.helpPhone
      */
     NOTIFICATION_LOAN_REPAY("notification.loan.repay"),
     /**
      * Loan还清时发送给investor的提示信息.
-     * 
+     *
      * 参数：loan.title, client.helpPhone
      */
     NOTIFICATION_LOAN_CLEARED("notification.loan.cleared"),
     /**
-    * 用户提交取现申请，参数为 client.shortName, user.name, amount, supportPhone
-    */
+     * 用户提交取现申请，参数为 client.shortName, user.name, amount, supportPhone
+     */
     NOTIFICATION_WITHDRAW_APPLY("notification.withdraw.apply"),
-    
     /**
      * 用户还款提前10天短信告知提示
      */
     POSTLOAN_REPAYMENT_BEFORETEN_REMIND("postloan.repayment.beforeten.remind"),
-
+    /**
+     * 用户申请债权转让
+     */
+    NOTIFICATION_CREDITMARKET_CREDITASSIGN("notification.creditmarket.creditassign"),
     /**
      * 投资成功提示
      */
     NOTIFICATION_CREDITMARKET_INVEST("notification.creditmarket.invest"),
-    
     /**
      * 结息日提示
      */
     NOTIFICATION_CREDITMARKET_SETTLEINTEREST("notification.creditmarket.settleinterest"),
-    
     /**
      * 用户邀请提示
      */
     NOTIFICATION_CREDITMARKET_USERINVITATION("notification.creditmarket.userinvitation"),
-    
     /**
      * 充值提示
      */
