@@ -6,6 +6,7 @@
 
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.TradingRecordType;
 import com.creditcloud.investmentfund.model.FundAccount;
@@ -45,10 +46,18 @@ public interface LionFundService {
      * 获取基金账户
      * 
      * @param userId    用户ID
-     * @param type      基金类型
      * @return 
      */
-    public FundAccount getFundAccount(String userId, FundType type);
+    public List<FundAccount> listFundAccountByUserId(String userId);
+    
+    /**
+     * 获取基金账户
+     * 
+     * @param userId    用户ID
+     * @param fundType  基金类型
+     * @return 
+     */
+    public FundAccount getFundAccount(String userId, FundType fundType);
     
     /**
      * 创建基金账户

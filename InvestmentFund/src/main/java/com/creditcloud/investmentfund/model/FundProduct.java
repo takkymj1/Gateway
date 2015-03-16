@@ -170,8 +170,7 @@ public class FundProduct extends FundObject implements FundConstant{
      * 
      * @return
      */
-    @Min(1)
-    private int ordinal;
+    private Integer ordinal;
     
     /**
      * 建议持有时间（平台提供）
