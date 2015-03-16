@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.config;
+package com.creditcloud.config.enums;
 
 /**
  * 系統运行环境
@@ -15,14 +15,14 @@ public enum Environment {
     /**
      * 生产环境
      */
-    Production,
+    PROD,
     /**
      * 测试环境
      */
-    Test,
+    TEST,
     /**
      * 开发环境
      */
-    Develop,
+    DEV,
 
 }
