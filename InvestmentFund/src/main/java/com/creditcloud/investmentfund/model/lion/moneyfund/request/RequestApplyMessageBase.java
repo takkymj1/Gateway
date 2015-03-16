@@ -15,7 +15,6 @@ import lombok.Setter;
  */
 @Getter
 public class RequestApplyMessageBase {
-
     @NotNull
     @Setter
     protected String applicationNo;// 请求流水号 char(50) R 请求唯一标识 以交易所属自然日”YYYYMMDD“ 开头。

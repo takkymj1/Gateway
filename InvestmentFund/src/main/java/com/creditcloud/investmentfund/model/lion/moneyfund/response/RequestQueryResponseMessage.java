@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.investmentfund.model.lion.moneyfund;
+package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
 /**
  *
  * @author guohuazhang
  */
-public enum EnumMoneyFundTransName {
-    
+public class RequestQueryResponseMessage {
+  
+
 }
