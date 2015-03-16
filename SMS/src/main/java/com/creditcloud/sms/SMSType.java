@@ -115,12 +115,7 @@ public enum SMSType {
     /**
      * 不使用短信模板
      */
-    WITHOUT_TEMPLATE(""),
-    
-    /**
-     * 用户申请债权转让
-     */
-    NOTIFICATION_CREDITMARKET_CREDITASSIGN("notification.creditmarket.creditassign");
+    WITHOUT_TEMPLATE("");
 
     private final String key;
 
