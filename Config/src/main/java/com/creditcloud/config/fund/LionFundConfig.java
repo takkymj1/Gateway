@@ -81,7 +81,7 @@ public class LionFundConfig extends BaseObject {
 
     /**
      *
-     * 机构ID
+     * 货币型基金机构ID
      *
      * @return
      */
@@ -90,7 +90,7 @@ public class LionFundConfig extends BaseObject {
     private String instId;
 
     /**
-     * 证书ID
+     * 货币型基金证书ID
      * @return
      */
     @Getter

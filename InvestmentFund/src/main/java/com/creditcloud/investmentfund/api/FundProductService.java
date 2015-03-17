@@ -41,6 +41,15 @@ public interface FundProductService {
     public FundProduct find(String id);
     
     /**
+     * 根据基金代码和基金品牌获取基金
+     * 
+     * @param fundCode  基金代码
+     * @param fundBrand 基金品牌
+     * @return 
+     */
+    public FundProduct findByCodeAndBrand(String fundCode, FundBrand fundBrand);
+    
+    /**
      * 更新产品信息
      * 
      * @param product 
