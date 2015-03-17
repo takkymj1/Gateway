@@ -478,15 +478,22 @@ public abstract class StringUtils {
         return num;
     }
 
-    public static String findFirstMatch(String str, String regex) {
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(str);
-        if (!matcher.find()) {
-            return "";
+    /**
+     * 查找all中所有匹配正则表达式regex的字符串并返回这些字符串的集合
+     *
+     * @param all
+     * @param regex
+     * @return
+     */
+    public static List<String> filter(List<String> all, String regex) {
+        List<String> filtered = new ArrayList<>();
+        for (String item : all) {
+            if (item.matches(regex)) {
+                filtered.add(item);
+            }
         }
 
-        String group = matcher.group();
-        return group;
+        return filtered;
     }
 
     public static String fromException(Throwable e) {
