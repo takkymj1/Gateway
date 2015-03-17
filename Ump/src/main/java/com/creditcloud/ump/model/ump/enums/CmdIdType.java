@@ -147,5 +147,9 @@ public enum CmdIdType {
    /**
     * 更换银行卡
     */
-   MER_REPLACE_CARD;
+   MER_REPLACE_CARD,
+    /**
+     * 更换银行卡结果通知
+     */
+   MER_REPLACE_CARD_NODIFY;
 }
