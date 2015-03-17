@@ -99,6 +99,6 @@ public interface FundProductService {
      * @param fundProductNavRecord    基金净值记录
      * @return 
      */
-    public FundProductNavRecord addNew(FundProductNavRecord fundProductNavRecord);
+    public FundProductNavRecord addNavRecord(FundProductNavRecord fundProductNavRecord);
     
 }
