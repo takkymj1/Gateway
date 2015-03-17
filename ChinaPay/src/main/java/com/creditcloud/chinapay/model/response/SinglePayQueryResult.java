@@ -236,6 +236,6 @@ public class SinglePayQueryResult extends POJO {
     }
 
     public boolean success() {
-        return ChinaPayConstant.SINGLE_PAY_QUERY_SUCCESS.equals(code);
+        return ChinaPayConstant.SINGLE_PAY_QUERY_SUCCESS_CODE.equals(code);
     }
 }
