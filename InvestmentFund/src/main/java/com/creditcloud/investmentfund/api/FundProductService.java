@@ -95,7 +95,9 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByBrand(PageInfo pageInfo, List<FundBrand> brandList);
     
     /**
-     * 新增一条基金净值记录
+     * 新增一条基金净值记录 <br>
+     * 如果为当天的记录只做更新操作 <br>
+     * 
      * @param fundProductNavRecord    基金净值记录
      * @return 
      */
