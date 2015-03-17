@@ -6,19 +6,21 @@
 
 package com.creditcloud.investmentfund.api;
 
-import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.AreaLevel;
 import com.creditcloud.investmentfund.enums.FundType;
-import com.creditcloud.investmentfund.enums.TradingRecordType;
+import com.creditcloud.investmentfund.model.Area;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundInvest;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
-import com.creditcloud.investmentfund.model.lion.RiskAssessment;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
-import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
+import com.creditcloud.investmentfund.model.lion.request.QueryTradeRecordRequest;
+import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
+import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
+import com.creditcloud.investmentfund.model.lion.request.UserRegisterRequest;
+import com.creditcloud.investmentfund.model.lion.request.UserRiskAssessmentRequest;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.model.user.fund.BankAccount;
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -34,13 +36,10 @@ public interface LionFundService {
      * 查询用户基金交易记录
      * 
      * @param userId    用户ID
-     * @param type
-     * @param startDate 开始时间
-     * @param endDate   结束时间
-     * @param pageInfo  分页信息
+     * @param request   基金交易记录请求信息
      * @return 
      */
-    public PagedResult<TradingRecord> listTradingRecordByUserIdAndType(String userId, TradingRecordType type, Date startDate, Date endDate, PageInfo pageInfo);
+    public PagedResult<TradingRecord> listTradingRecordByUserIdAndType(String userId, QueryTradeRecordRequest request);
     
     /**
      * 获取基金账户
@@ -60,51 +59,57 @@ public interface LionFundService {
     public FundAccount getFundAccount(String userId, FundType fundType);
     
     /**
-     * 创建基金账户
+     * 创建股票型基金账户
      * 
      * @param userId            用户ID
-     * @param bankAccount       银行账户
-     * @param riskAssessment    风险评估
-     * @param fundType          基金账户类型
+     * @param request           全基金开户请求
      * @return 
      */
-    public FundResult<FundAccount> createFundAccount(String userId, BankAccount bankAccount, RiskAssessment riskAssessment, FundType fundType);
+    FundResult<FundAccount> createStockFundAccount(String userId, UserRegisterRequest request);
+    
+    /**
+     * 创建货币型基金账户
+     * 
+     * @param userId                用户ID
+     * @param transactionaccountid  交易账号
+     * @return 
+     */
+    public FundResult<FundAccount> createMoneyFundAccount(String userId, String transactionaccountid);
     
     /**
      * 申购基金
      * 
      * @param userId        用户ID
-     * @param fundCode      基金产品代码
-     * @param bankAccount   银行账户
-     * @param amount        申购金额
+     * @param request       申购请求
      * @return 
      */
-    public FundResult buy(String userId, String fundCode, BankAccount bankAccount, int amount);
+    public FundResult buy(String userId, TradeBuyFundRequest request);
     
     /**
      * 赎回金额
      * 
      * @param userId    用户ID
-     * @param fundCode  基金代码
-     * @param share     份额
+     * @param request   赎回请求
      * @return 
      */
-    public FundResult sell(String userId, String fundCode, int share);
+    public FundResult sell(String userId, TradeSellFundRequest request);
 
     /**
      * 风险评测
      * 
-     * @param assessment 风险评测
+     * @param userId    用户ID
+     * @param request   风险评测
      * @return 
      */
-    public FundResult assess(RiskAssessment assessment);
+    public FundResult assess(String userId, UserRiskAssessmentRequest request);
     
     /**
+     * 基金投资列表
      * 
-     * @param userId    用户ID
+     * @param request   基金请求信息
      * @return 
      */
-    public List<FundInvest> listFundInvestByUserId(String userId);
+    public List<FundInvest> listFundInvestByUserId(QueryFundShareRequest request);
     
     /**
      * 查询所有基金产品
@@ -113,5 +118,33 @@ public interface LionFundService {
      * @return 
      */
     public List<FundProduct> listFundProduct(String fundCode);
+    
+    /**
+     * 新增银行网点区域
+     * 
+     * @param parentId  上级区域ID 可以为空表明没有上级
+     * @param name      区域
+     * @param code      区域代码
+     * @param areaLevel 区域类别
+     * @return 
+     */
+    public Area addBankBranchArea(String parentId, String name, String code, AreaLevel areaLevel);
+    
+    /**
+     * 获取银行网点列表
+     * 
+     * @param parentId
+     * @return 
+     */
+    public List<Area> listByParentId(String parentId);
+    
+    /**
+     * 获取银行网点区域
+     * 
+     * @param code      区域代码
+     * @param areaLevel 区域类别
+     * @return 
+     */
+    public Area getByCodeAndLevel(String code, AreaLevel areaLevel);
     
 }

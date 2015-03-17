@@ -9,26 +9,26 @@ package com.creditcloud.investmentfund.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 风险等级
+ * 地区层级
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum RiskLevel implements BaseEnum {
+public enum AreaLevel implements BaseEnum {
 
-    LOW("低风险"),
-    MEDIUMTOLOW("中低风险"),
-    MEDIUM("中等风险"),
-    HIGHTOMEDIUM("中高风险"),
-    HIGH("高风险");
-    
+    PROVINCE("省"),
+    CITY("市"),
+    COUNTY("县");
+
     private final String key;
-
-    private RiskLevel(String key) {
+    
+    AreaLevel(String key) {
         this.key = key;
     }
-
+    
     @Override
     public String getKey() {
         return key;
     }
+
+    
 }

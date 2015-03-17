@@ -181,6 +181,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private int proposedHoldDuration;
 
     /**
+     * 投资规则
+     */
+    private InvestRule investRule;
+    
+    /**
      * 创建时间
      * 
      * @return
@@ -193,5 +198,5 @@ public class FundProduct extends FundObject implements FundConstant{
      * @return
      */
     private Date timeLastModified;
-    
+ 
 }

@@ -20,12 +20,12 @@ import org.apache.commons.lang3.StringUtils;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseResponse extends FundObject {
+public abstract class BaseResponse extends FundObject {
 
     /**
      * 错误码
      */
-    private String returnCode;
+    private String returncode;
     
     /**
      * 错误描述，小于200字节
@@ -48,8 +48,8 @@ public class BaseResponse extends FundObject {
      * @return 
      */
     public boolean success() {
-        if(StringUtils.isNotEmpty(returnCode)) {
-            return returnCode.contentEquals(FundConstant.SUCCESS_CODE);
+        if(StringUtils.isNotEmpty(returncode)) {
+            return returncode.contentEquals(FundConstant.SUCCESS_CODE);
         }else{
             return false;
         }
