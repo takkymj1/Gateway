@@ -61,6 +61,6 @@ public class SinglePayPostResult extends POJO {
     }
 
     public boolean success() {
-        return ChinaPayConstant.SINGLE_PAY_SUCCESS.equals(responseCode);
+        return ChinaPayConstant.SINGLE_PAY_TRANS_SUCCESS_CODE.equals(responseCode);
     }
 }
