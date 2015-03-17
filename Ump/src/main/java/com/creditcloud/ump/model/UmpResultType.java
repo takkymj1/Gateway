@@ -54,6 +54,12 @@ public class UmpResultType extends BaseObject {
     public static final UmpResultType TENDER_NOT_FOUND = new UmpResultType("011", "标的账户不存在");
 
     public static final UmpResultType FAIL = new UmpResultType("999", "交易失败");
+    
+    public static final UmpResultType UMP_AGREEMENT_NOT_EXISTS = new UmpResultType("900", "Ump协议不存在");
+    
+    public static final UmpResultType UPDATE_UMP_AGREEMENT_FAILURE = new UmpResultType("901", "暂存更新失败");
+    
+    public static final UmpResultType UPDATE_USER_CARD_FAILURE = new UmpResultType("902", "用户更新银行卡失败");
 
     @NotNull
     private String retCode;
