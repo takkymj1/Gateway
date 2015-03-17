@@ -189,6 +189,15 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableInvestorListFieldInvisible = false;
     
+    /**
+     * 是否隐藏合同后面所有列表
+     * 
+     * 客户：无锡富盈（WXFY）
+     */
+    @XmlElement
+    @Getter
+    private boolean enableHideContractTables = false;
+    
     @XmlElement
     @Getter
     private boolean enableIDM = false;
