@@ -7,8 +7,10 @@ import java.util.Properties;
 import com.creditcloud.chinapay.model.POJO;
 import com.creditcloud.chinapay.utils.StringUtils;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class SinglePayPostResult extends POJO {
 
     protected String responseCode = "";// 4位 是 请求应答码，具体请见附录6.1.1
