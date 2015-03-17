@@ -213,7 +213,19 @@ public class SingleCutPostResult extends POJO {
         this.chkValue = chkValue;
     }
     
+    /**
+     * 返回成功
+     * @return 
+     */
     public boolean success(){
         return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode);
+    }
+    
+    /**
+     * 交易成功
+     * @return 
+     */
+    public boolean transSuccess(){
+        return success() && "S".equalsIgnoreCase(getTransStat());
     }
 }
