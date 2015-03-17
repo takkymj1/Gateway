@@ -7,8 +7,10 @@ import java.util.Properties;
 import com.creditcloud.chinapay.model.POJO;
 import com.creditcloud.chinapay.utils.StringUtils;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class SingleCutPostResult extends POJO {
 
     protected String responseCode = "";// 应答信息 数字 定长，2位 是 请求应答码，具体请见附录6.1
@@ -78,11 +80,21 @@ public class SingleCutPostResult extends POJO {
         result.message = StringUtils.fromUnicode(prop.getProperty("message", ""));
         return result;
     }
-    
+
+    /**
+     * 返回成功
+     *
+     * @return
+     */
     public boolean success() {
         return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode);
     }
 
+    /**
+     * 交易成功
+     *
+     * @return
+     */
     public boolean transSuccess() {
         return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode) && ChinaPayConstant.SINGLE_CUT_TRANS_STAT_SUCCESS.equals(transStat);
     }

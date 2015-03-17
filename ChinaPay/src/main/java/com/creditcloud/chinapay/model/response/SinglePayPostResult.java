@@ -62,7 +62,19 @@ public class SinglePayPostResult extends POJO {
         return result;
     }
 
+    /**
+     * 返回应答成功
+     * @return 
+     */
     public boolean success() {
         return ChinaPayConstant.SINGLE_PAY_TRANS_SUCCESS_CODE.equals(responseCode);
+    }
+    
+    /**
+     * 交易成功
+     * @return 
+     */
+    public boolean transSuccess(){
+        return success() && "S".equalsIgnoreCase(getStat());
     }
 }
