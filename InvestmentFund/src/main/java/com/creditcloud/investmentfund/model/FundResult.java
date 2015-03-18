@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class FundResult<T extends FundObject> extends BaseObject {
+public class FundResult<T> extends BaseObject {
 
     private T data;
     
