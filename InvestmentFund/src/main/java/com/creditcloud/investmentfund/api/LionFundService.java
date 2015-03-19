@@ -85,7 +85,7 @@ public interface LionFundService {
      * @param request       申购请求
      * @return 
      */
-    public TradeBuyFundResponse buy(String userId, TradeBuyFundRequest request);
+    public TradeBuyFundResponse purchase(String userId, TradeBuyFundRequest request);
     
     /**
      * 赎回金额
@@ -94,7 +94,7 @@ public interface LionFundService {
      * @param request   赎回请求
      * @return 
      */
-    public TradeSellFundResponse sell(String userId, TradeSellFundRequest request);
+    public TradeSellFundResponse redeem(String userId, TradeSellFundRequest request);
 
     /**
      * 风险评测
@@ -147,6 +147,6 @@ public interface LionFundService {
      * @param areaLevel 区域类别
      * @return 
      */
-    public Area getByCodeAndLevel(String code, AreaLevel areaLevel);
+    public Area getAreaByCodeAndLevel(String code, AreaLevel areaLevel);
     
 }

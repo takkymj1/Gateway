@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.config.fund;
 
 import com.creditcloud.model.BaseObject;
-import java.net.URL;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,24 +15,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LionFundConfig extends BaseObject {
+public class LionMoneyFundConfig extends BaseObject {
 
-    private static final long serialVersionUID = 20150305L;
-
-    /**
-     * 客户ID，签名用
-     *
-     * @return
-     */
-    @Getter
-    @XmlElement(required = false)
-    private String merId;
+    private static final long serialVersionUID = 20150319L;
 
     /**
      * 客户私钥文件路径
@@ -51,32 +42,47 @@ public class LionFundConfig extends BaseObject {
     @Getter
     @XmlElement(required = false)
     private String publicKeyPath;
-
+    
     /**
-     * 诺安基金服务器的URL
+     *
+     * 货币型基金机构ID
      *
      * @return
      */
     @Getter
-    @XmlElement(required = false)
-    private URL url;
+    @XmlElement(required = true)
+    private String instId;
 
     /**
-     * 诺安基金服务器的远程路径
-     *
+     * 货币型基金证书ID
      * @return
      */
     @Getter
-    @XmlElement(required = false)
-    private String path;
+    @XmlElement(required = true)
+    private String certId;
 
     /**
-     * 签名方式
-     *
+     * 诺安货币基金直连异步鉴权接口地址
      * @return
      */
     @Getter
-    @XmlElement(required = false)
-    private String signType;
-
+    @XmlElement(required = true)
+    private String urlAsyncAuthenticateAccount;
+    /**
+     *
+     * 诺安货币基金通用请求接口地址，可用于快捷同步鉴权，基金申购赎回等功能的
+     * @return
+     */
+    @Getter
+    @XmlElement(required = true)
+    private String urlLionMoneyFundCommonRequestApply;
+    /**
+     * 
+     * 诺安货币基金通用查询接口地址
+     * @return
+     */
+    @Getter
+    @XmlElement(required = true)
+    private String urlLionMoneyFundCommonRequestQuery;
+    
 }
