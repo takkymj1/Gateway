@@ -14,7 +14,8 @@ public enum Source implements BaseEnum {
     WEB("公共网络"),
     BACK("系统后台"),
     MOBILE("移动端"),
-    BATCH("批量导入");
+    BATCH("批量导入"),
+    XIAOHUAJIA("中网小画家");
 
     private final String key;
 
