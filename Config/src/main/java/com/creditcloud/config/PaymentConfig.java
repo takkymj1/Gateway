@@ -94,6 +94,12 @@ public class PaymentConfig extends BaseConfig {
     @XmlElement(required = false)
     private String maxBorrowerRate;
 
+    /**
+     * 默认走取现复核
+     */
+    @XmlElement(required = false)
+    private boolean enableWithdrawAudit = true;
+
     //下面配置的是商户子账户
     /**
      * 基本账户用于充值取现,类型:专属借记账户
