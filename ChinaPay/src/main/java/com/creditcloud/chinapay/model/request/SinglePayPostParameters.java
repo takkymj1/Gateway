@@ -1,5 +1,6 @@
 package com.creditcloud.chinapay.model.request;
 
+import com.creditcloud.chinapay.utils.StringUtils;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -44,7 +45,7 @@ public class SinglePayPostParameters extends SinglePayParameters {
     @Override
     public String getTextToSign() {
         return new StringBuffer(merId).append(merDate).append(merSeqId).append(cardNo).append(usrName).append(openBank)
-                .append(prov).append(city).append(transAmt).append(purpose).append(subBank).append(flag)
+                .append(StringUtils.nonNull(prov)).append(StringUtils.nonNull(city)).append(transAmt).append(StringUtils.nonNull(purpose)).append(subBank).append(flag)
                 .append(version).toString();
     }
 }
