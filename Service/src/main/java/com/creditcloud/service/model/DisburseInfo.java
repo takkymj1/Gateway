@@ -35,7 +35,7 @@ public class DisburseInfo extends AbstractRepay {
     /**
      * 垫付时的总金额（本金+利息）
      */
-    private BigDecimal totalAmount = BigDecimal.ZERO;
+    private BigDecimal totalAmount;
 
     public DisburseInfo(LoanRepayment loanRepayment, DisburseType type) {
         setLoanRepayment(loanRepayment);
