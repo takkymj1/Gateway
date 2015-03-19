@@ -5,7 +5,6 @@
  */
 package com.creditcloud.investmentfund.model.lion.moneyfund;
 
-import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,7 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class RedeemConfirmRecord extends BaseObject {
+public class RedeemConfirmRecord extends FileRecord {
 
     @NotNull
     private String tradeacco;//交易账号	String(32)		否
