@@ -12,6 +12,7 @@ import com.creditcloud.model.enums.loan.GuarantyStyle;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestAssignType;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
+import com.creditcloud.model.enums.loan.LoanType;
 import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.misc.RealmEntity;
@@ -228,6 +229,13 @@ public class LoanRequest extends BaseObject {
     private LoanRequestAssignType assignable;
     
     /**
+     * 标的的子产品类型
+     */
+    @NotNull
+    @XmlElement(name = "subProductType")
+    private LoanType subProductType;
+    
+    /**
      *
      * @param id          LoanRequest Id, nullable
      * @param user        用户
@@ -262,7 +270,8 @@ public class LoanRequest extends BaseObject {
                        String riskInfo,
                        String serial,
                        InvestRule investRule,
-                       LoanRequestAssignType assignable) {
+                       LoanRequestAssignType assignable,
+                       LoanType subProductType) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -285,6 +294,7 @@ public class LoanRequest extends BaseObject {
         this.serial = serial;
         this.investRule = investRule;
         this.assignable = assignable;
+        this.subProductType = subProductType;
     }
 
     public String getUserId() {

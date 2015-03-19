@@ -12,6 +12,8 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 银行账号
@@ -53,6 +55,16 @@ public class BankAccount extends BaseEntity {
     @BankAccountNumber
     @Column(nullable = false)
     private String account;
+
+    @Getter
+    @Setter
+    @Column(nullable = true)
+    private String province;
+
+    @Getter
+    @Setter
+    @Column(nullable = true)
+    private String city;
 
     public BankAccount() {
     }
