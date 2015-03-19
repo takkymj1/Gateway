@@ -781,4 +781,13 @@ public interface UmpService extends UmpQueryService {
                             BigDecimal amount,
                             String umpTenderId,
                             String umpTenderAccountId);
+    
+    /**
+     *
+     * @param clientCode
+     * @param ua
+     * @param type
+     * @return
+     */
+    public boolean updateUmpAgreementCardNo(String clientCode,UmpAgreement ua,String type);
 }
