@@ -218,11 +218,7 @@ public abstract class StringUtils {
     }
 
     public static String nonNull(String s) {
-        if (s == null) {
-            return "";
-        } else {
-            return s;
-        }
+        return s == null ? "" : s;
     }
 
     public final static List<String> parseLines(String text) {
