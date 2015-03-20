@@ -6,10 +6,13 @@
 
 package com.creditcloud.crowdfunding.api;
 
+import com.creditcloud.crowdfunding.enums.XiaohuajiaSignupStatus;
 import com.creditcloud.crowdfunding.model.Xiaohuajia;
 import com.creditcloud.crowdfunding.model.XiaohuajiaSchool;
 import com.creditcloud.model.criteria.CriteriaInfo;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -20,15 +23,19 @@ import javax.ejb.Remote;
 public interface XiaohuajiaService {
     public PagedResult<XiaohuajiaSchool> searchSchool(CriteriaInfo criteria);
     
-    public PagedResult<Xiaohuajia> searchXiaohuajia(CriteriaInfo criteria);
+    public PagedResult<Xiaohuajia> searchByKeyword(CriteriaInfo criteria);
     
-    public PagedResult<Xiaohuajia> findXiaohuajiaByParentIdAndAuthorName(String parentId, String authorName);
+    public PagedResult<Xiaohuajia> findByParentIdAndAuthorName(String parentId, String authorName);
     
-    public Xiaohuajia findXiaohuajiaById(String id);
+    public PagedResult<Xiaohuajia> findByStatus(List<XiaohuajiaSignupStatus> status, PageInfo pageInfo);
     
-    public PagedResult<Xiaohuajia> findXiaohuajiaByParentId(String parentId);
+    public Xiaohuajia findById(String id);
     
-    public boolean addXiaohuajia(Xiaohuajia x);
+    public PagedResult<Xiaohuajia> findByParentId(String parentId);
+    
+    public boolean add(Xiaohuajia x);
     
     public boolean upload(String id, String authorPhoto, String paintName, String paintIntroduction, String paintPicture);
+    
+    public boolean zcCreated(String id, String zcId);
 }
