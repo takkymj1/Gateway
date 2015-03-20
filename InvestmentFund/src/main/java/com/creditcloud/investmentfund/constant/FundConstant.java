@@ -25,6 +25,16 @@ public interface FundConstant {
     int MAX_RATE = 50000;
     
     /**
+     * 最小预期收益率
+     */
+    int MIN_EXPECTED_RATE = 0;
+    
+    /**
+     * 最大预期收益率
+     */
+    int MAX_EXPECTED_RATE = 50000;
+    
+    /**
      * 单笔投资最小金额
      */
     int MIN_INVEST_AMOUNT = 1;
