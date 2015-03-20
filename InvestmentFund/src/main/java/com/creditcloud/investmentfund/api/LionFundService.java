@@ -11,7 +11,6 @@ import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.model.Area;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
-import com.creditcloud.investmentfund.model.lion.FundInvest;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
@@ -20,6 +19,9 @@ import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRegisterRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRiskAssessmentRequest;
+import com.creditcloud.investmentfund.model.lion.response.QueryFundShareResponse;
+import com.creditcloud.investmentfund.model.lion.response.TradeBuyFundResponse;
+import com.creditcloud.investmentfund.model.lion.response.TradeSellFundResponse;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
@@ -83,7 +85,7 @@ public interface LionFundService {
      * @param request       申购请求
      * @return 
      */
-    public FundResult buy(String userId, TradeBuyFundRequest request);
+    public TradeBuyFundResponse purchase(String userId, TradeBuyFundRequest request);
     
     /**
      * 赎回金额
@@ -92,7 +94,7 @@ public interface LionFundService {
      * @param request   赎回请求
      * @return 
      */
-    public FundResult sell(String userId, TradeSellFundRequest request);
+    public TradeSellFundResponse redeem(String userId, TradeSellFundRequest request);
 
     /**
      * 风险评测
@@ -109,7 +111,7 @@ public interface LionFundService {
      * @param request   基金请求信息
      * @return 
      */
-    public List<FundInvest> listFundInvestByUserId(QueryFundShareRequest request);
+    public QueryFundShareResponse queryFundShareResponse(QueryFundShareRequest request);
     
     /**
      * 查询所有基金产品
@@ -145,6 +147,6 @@ public interface LionFundService {
      * @param areaLevel 区域类别
      * @return 
      */
-    public Area getByCodeAndLevel(String code, AreaLevel areaLevel);
+    public Area getAreaByCodeAndLevel(String code, AreaLevel areaLevel);
     
 }

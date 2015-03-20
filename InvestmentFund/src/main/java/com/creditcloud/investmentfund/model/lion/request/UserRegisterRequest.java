@@ -103,5 +103,6 @@ public class UserRegisterRequest extends BaseRequest {
         this.depositcity = depositcity;
         this.pointlist = pointlist;
         this.answerlist = answerlist;
+        this.mobileno = mobile;
     }
 }
