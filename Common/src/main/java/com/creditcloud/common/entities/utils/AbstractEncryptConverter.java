@@ -32,7 +32,7 @@ public abstract class AbstractEncryptConverter implements Converter {
             try {
                 return cipher.encrypt((String) objectValue);
             } catch (GeneralSecurityException ex) {
-                logger.error("Can't encrypt objectValue.[objectValue={}]", (String) objectValue, ex);
+                logger.error("Can't encrypt objectValue.[objectValue={}][fieldName={}]", (String) objectValue, fieldName(), ex);
             }
         }
         return objectValue;
@@ -44,10 +44,10 @@ public abstract class AbstractEncryptConverter implements Converter {
             try {
                 return cipher.decrypt((String) dataValue);
             } catch (GeneralSecurityException ex) {
-                logger.error("Can't decrypt dataValue.[dataValue={}]", (String) dataValue, ex);
+                logger.error("Can't decrypt dataValue.[dataValue={}][fieldName={}]", (String) dataValue, fieldName(), ex);
             }
         }
-        return dataValue;
+        return null;
     }
 
     @Override
@@ -61,6 +61,13 @@ public abstract class AbstractEncryptConverter implements Converter {
         cipher.init(salt);
         logger.debug("TC init.[salt={}]", salt);
     }
+    
+    /**
+     * 返回实例对应的field(列名)，便于发现问题
+     * 
+     * @return 
+     */
+    protected abstract String fieldName();
     
     /**
      * 判断是否需要转化对象值

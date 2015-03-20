@@ -28,4 +28,9 @@ public class IdNumberConverter extends AbstractEncryptConverter {
         String dbValue = (String) dataValue;
         return !dbValue.matches("\\d{18}|\\d{17}X|\\d{17}x");
     }
+
+    @Override
+    protected String fieldName() {
+        return "IdNumber";
+    }
 }
