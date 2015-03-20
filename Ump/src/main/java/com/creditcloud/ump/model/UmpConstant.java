@@ -65,6 +65,8 @@ public interface UmpConstant {
     
     BigDecimal FEE_BIND_CARD = new BigDecimal("0.01", new MathContext(2));
     
+    BigDecimal FEE_REPLACE_CARD = new BigDecimal("0.01", new MathContext(2));
+    
     String TENDER_NAME = "UMP_TENDER";
     
     BigDecimal TENDER_MAX_AMOUNT = new BigDecimal("99999999");
