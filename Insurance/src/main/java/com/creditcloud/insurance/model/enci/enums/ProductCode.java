@@ -13,8 +13,9 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ProductCode implements BaseEnum{
     
-    I_LICAI("00914000", "i理财两全保险（万能型）");
-    
+    I_LICAI("00914000", "i理财两全保险（万能型）"),
+    I_CAI("00916000", "i财两全保险（万能型）"),
+    I_TIANCAI("00892000", "i添财年金保险（投资连结型）");
     /**
      * 代码
      */

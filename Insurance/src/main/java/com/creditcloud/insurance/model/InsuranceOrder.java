@@ -7,12 +7,14 @@ package com.creditcloud.insurance.model;
 
 import com.creditcloud.insurance.constant.InsuranceConstant;
 import com.creditcloud.insurance.model.enci.enums.InsPeriodUnit;
+import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
 import com.creditcloud.insurance.model.enci.enums.PayMode;
 import com.creditcloud.insurance.model.enci.enums.PayPeriodUnit;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,10 +30,12 @@ import lombok.NoArgsConstructor;
 public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     
     @FormParam(value = "orderId")
+    @Size(max = 30)
     private String id;
     
     @FormParam(value = "userId")
     @NotNull
+    @Size(max = 30)
     private String userId;
     
     /**
@@ -86,6 +90,7 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
      */
     @FormParam(value = "productId")
     @NotNull
+    @Size(max = 30)
     private String productId;
     
     /**
@@ -108,7 +113,7 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     /**
      * 平台内状态
      */
-    private String status;
+    private InsuranceOrderStatus status;
     
     /**
      * 投保单号

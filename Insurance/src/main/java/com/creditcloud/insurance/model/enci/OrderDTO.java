@@ -126,4 +126,13 @@ public class OrderDTO extends BaseDTO {
      * 是否自动续保
      */
     private String isAutoRenewal;
+    
+    /**
+     * 需要在编码后添加00    CD17 + “00” 
+     * 如 深圳中心支公司86740000
+     * @param serviceOrgCode 
+     */
+    public void setServiceOrgCode(String serviceOrgCode){
+        this.serviceOrgCode = serviceOrgCode + "00";
+    }
 }

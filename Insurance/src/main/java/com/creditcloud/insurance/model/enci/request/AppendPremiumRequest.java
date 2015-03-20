@@ -57,6 +57,7 @@ public class AppendPremiumRequest extends BaseDTO{
     
     /**
      * 账务日期
+     * 新华对此字段不做业务逻辑处理，暂定传当前日期
      * yyyy-MM-dd
      */
     private String accountDate;

@@ -66,18 +66,18 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     /**
      * 保额
      * 
-     * 以分为单位
-     * 
+     * 以元为单位
      * @return
      */
-    private int amount;
+    private BigDecimal amount;
     
     /**
      * 保费
      * 
+     * 以元为单位
      * @return
      */
-    private int premium;
+    private BigDecimal premium;
     
     /**
      * 折扣比率

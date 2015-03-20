@@ -44,7 +44,9 @@ public class InsurancePolicy extends BaseObject implements InsuranceConstant {
     private BigDecimal payAmount;
     
     /**
-     * 账务日期
+     * 账务日期 
+     * 
+     * 新华不对此字段进行业务操作，经协商暂定传当前时间
      */
     @NotNull
     private Date accountDate;

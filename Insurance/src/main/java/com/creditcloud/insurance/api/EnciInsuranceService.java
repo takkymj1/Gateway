@@ -9,6 +9,7 @@ import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
 import com.creditcloud.insurance.model.InsuranceProduct;
 import com.creditcloud.insurance.model.enci.BaseDTO;
+import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
@@ -108,4 +109,29 @@ public interface EnciInsuranceService {
      * @return 
      */
     public InsuranceProduct findInsuranceProductById(String clientCode, String insuranceProductId);
+    
+    /**
+     * 根据投保单号查询InsuranceOrder
+     * @param clientCode
+     * @param proposalNo
+     * @return 
+     */
+    public InsuranceOrder findInsuranceOrderByProposalNo(String clientCode, String proposalNo);
+    
+    /**
+     * 修改保险订单的状态为指定状态
+     * @param clientCode
+     * @param OrderId
+     * @param status
+     * @return 
+     */
+    public boolean markStatus(String clientCode, String OrderId, InsuranceOrderStatus status);
+    
+    /**
+     * 加密
+     * 
+     * @param plainText
+     * @return 
+     */
+    public String EnciEncrypt(String plainText, String type);
 }
