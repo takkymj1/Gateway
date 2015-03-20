@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Matcher;
@@ -219,11 +218,7 @@ public abstract class StringUtils {
     }
 
     public static String nonNull(String s) {
-        if (s == null) {
-            return "";
-        } else {
-            return s;
-        }
+        return s == null ? "" : s;
     }
 
     public final static List<String> parseLines(String text) {
@@ -479,15 +474,22 @@ public abstract class StringUtils {
         return num;
     }
 
-    public static String findFirstMatch(String str, String regex) {
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(str);
-        if (!matcher.find()) {
-            return "";
+    /**
+     * 查找all中所有匹配正则表达式regex的字符串并返回这些字符串的集合
+     *
+     * @param all
+     * @param regex
+     * @return
+     */
+    public static List<String> filter(List<String> all, String regex) {
+        List<String> filtered = new ArrayList<>();
+        for (String item : all) {
+            if (item.matches(regex)) {
+                filtered.add(item);
+            }
         }
 
-        String group = matcher.group();
-        return group;
+        return filtered;
     }
 
     public static String fromException(Throwable e) {

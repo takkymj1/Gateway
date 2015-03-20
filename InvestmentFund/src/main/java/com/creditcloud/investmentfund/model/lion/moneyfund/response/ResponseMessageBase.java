@@ -1,13 +1,16 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.model.BaseObject;
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class ResponseMessageBase {
+@EqualsAndHashCode(callSuper = true)
+public class ResponseMessageBase  extends BaseObject{
 
     @NotNull
     protected String applicationNo = "";//请求流水号	char(50)	R	请求唯一标识
@@ -32,5 +35,9 @@ public class ResponseMessageBase {
         parameters.put("remark", StringUtils.nonNull(remark));
 
         return parameters;
+    }
+    
+    public boolean isSuccess() {
+        return !StringUtils.isEmpty(errorCode) && errorCode.contentEquals("0000");
     }
 }

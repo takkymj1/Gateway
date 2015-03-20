@@ -11,19 +11,24 @@ package com.creditcloud.chinapay;
  */
 public interface ChinaPayConstant {
 
-    /**
-     * 成功应答代码
-     */
-    String SUCCESS_CODE = "0000";
-
-    String SINGLE_CUT_SUCCESS = "00";
-
-    String SINGLE_PAY_SUCCESS = SUCCESS_CODE;
-
-    String SINGLE_PAY_QUERY_SUCCESS = "000";
+    // 银联接口或者通讯通道参数属性等
+    String CHINAPAY_PAY_CUT_DEFAULT_ENCODING = "GBK";
+    String CHINAPAY_ACCOUNT_VALIDATION_DEFAULT_ENCODING = "UTF-8";
+    String CHINAPAY_MERCHANT_ID = "999999999999999";// 银联虚拟商户号
 
     String SERVICE_TYPE_QUERY_CARD_BIN = "1056";
-
     String ACCOUNT_VALIDATE_SIGN_METHOD = "MD5";
+
+    /**
+     * 银联接口应答码等
+     */
+    String ACCOUNT_VALIDATION_SUCCESS_CODE = "0000";
+
+    String SINGLE_CUT_SUCCESS = "00";
+    String SINGLE_CUT_TRANS_STAT_SUCCESS = "1001";
+
+    String SINGLE_PAY_TRANS_SUCCESS_CODE = "0000";
+
+    String SINGLE_PAY_QUERY_SUCCESS_CODE = "000";
 
 }

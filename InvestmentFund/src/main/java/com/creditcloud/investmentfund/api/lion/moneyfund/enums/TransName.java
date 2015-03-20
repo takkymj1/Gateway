@@ -38,4 +38,7 @@ public enum TransName implements BaseEnum {
     public String getKey() {
         return key;
     }
+    
+    public String getName(){
+    return key;}
 }

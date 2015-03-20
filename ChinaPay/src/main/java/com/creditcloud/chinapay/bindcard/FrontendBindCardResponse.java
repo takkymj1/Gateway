@@ -91,6 +91,6 @@ public class FrontendBindCardResponse extends BaseObject {
      * @return
      */
     public boolean success() {
-        return ChinaPayConstant.SUCCESS_CODE.equals(respcode);
+        return ChinaPayConstant.ACCOUNT_VALIDATION_SUCCESS_CODE.equals(respcode);
     }
 }

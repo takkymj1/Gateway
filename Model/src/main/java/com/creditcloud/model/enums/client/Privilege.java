@@ -104,6 +104,7 @@ public enum Privilege implements BaseEnum {
     CLIENT_TRANSFER("商户调账", Realm.FUND, "资金相关权限"),
     USER_TRANSFER("商户向用户转账", Realm.FUND, "资金相关权限"),
     USER_TRANSFER_AUDIT("商户向用户转账审批", Realm.FUND, "资金相关权限"),
+    USER_FUND_RELEASE("用户资金解冻", Realm.FUND, "资金相关权限"),
     /**
      * 合同相关权限
      */
@@ -187,7 +188,7 @@ public enum Privilege implements BaseEnum {
      * 其他杂项权限
      */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
-    MESSAGE_SEND("短信发送",Realm.SYSTEM,"系统相关权限"),
+    MESSAGE_SEND("短信发送", Realm.SYSTEM, "系统相关权限"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
 
     private final String key;

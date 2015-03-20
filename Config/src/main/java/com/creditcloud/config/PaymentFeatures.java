@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PaymentFeatures extends BaseObject {
 
-    private static final long serialVersionUID = 20140729L;
+    private static final long serialVersionUID = 20150315L;
 
     /**
      * ChinaPay

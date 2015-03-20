@@ -48,6 +48,6 @@ public class CardQueryResponse extends BaseObject {
     private String respmsg;
 
     public boolean success() {
-        return ChinaPayConstant.SUCCESS_CODE.equals(respcode);
+        return ChinaPayConstant.ACCOUNT_VALIDATION_SUCCESS_CODE.equals(respcode);
     }
 }

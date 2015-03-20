@@ -5,10 +5,12 @@
  */
 package com.creditcloud.investmentfund.model.lion.moneyfund;
 
+import com.creditcloud.model.BaseObject;
+
 /**
  *
  * @author guohuazhang
  */
-public enum EnumMoneyFundTransName {
+public class FileRecord  extends BaseObject{
     
 }

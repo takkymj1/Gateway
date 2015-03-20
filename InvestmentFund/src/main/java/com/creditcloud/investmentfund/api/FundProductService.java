@@ -41,6 +41,15 @@ public interface FundProductService {
     public FundProduct find(String id);
     
     /**
+     * 根据基金代码和基金品牌获取基金
+     * 
+     * @param fundCode  基金代码
+     * @param fundBrand 基金品牌
+     * @return 
+     */
+    public FundProduct findByCodeAndBrand(String fundCode, FundBrand fundBrand);
+    
+    /**
      * 更新产品信息
      * 
      * @param product 
@@ -86,10 +95,12 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByBrand(PageInfo pageInfo, List<FundBrand> brandList);
     
     /**
-     * 新增一条基金净值记录
+     * 新增一条基金净值记录 <br>
+     * 如果为当天的记录只做更新操作 <br>
+     * 
      * @param fundProductNavRecord    基金净值记录
      * @return 
      */
-    public FundProductNavRecord addNew(FundProductNavRecord fundProductNavRecord);
+    public FundProductNavRecord addNavRecord(FundProductNavRecord fundProductNavRecord);
     
 }

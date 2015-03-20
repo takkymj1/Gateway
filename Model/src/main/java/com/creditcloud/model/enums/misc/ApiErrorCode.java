@@ -62,6 +62,7 @@ public enum ApiErrorCode implements BaseEnum {
     INVALID_MOBILE_CAPTCHA("无效的手机验证码"),    
     INVALID_UMP_TENDER_AMOUNT("无效的投标金额联动优势"),
     INVALID_AMOUNT("无效的金额"),
+    INVALID_IDNUMBER("无效的身份证号"),
     INVALID_SESSION("用户未登录或登录失效"),
     
     AGREEMENT_NOT_SIGNED("未签署相关协议"),
@@ -95,7 +96,13 @@ public enum ApiErrorCode implements BaseEnum {
     CREDITASSIGN_ERROR("债权转让错误"),
     
     GROUP_NOT_EXIST("没有对应的组存在"),
-    USER_NOT_INVITED("非受邀用户");
+    USER_NOT_INVITED("非受邀用户"),
+    
+    /*************************************************
+     * 基金
+     *************************************************/
+    INVESTMENT_FUND_MONETARY_ACCOUNT_NOT_FOUND("用户未开通货币型基金账户"),
+    INVESTMEN_FUND_STOCK_ACCOUNT_NOT_FOUND("用户未开通股票型基金账户");
     
     private final String key;
     

@@ -6,7 +6,11 @@ import java.util.Properties;
 
 import com.creditcloud.chinapay.model.POJO;
 import com.creditcloud.chinapay.utils.StringUtils;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class SingleCutQueryResult extends POJO {
 
     protected String responseCode = "";// 应答信息 数字 定长，2位 是 00表示成功，其它代表代扣失败或查询失败，具体参看6.1交易状态码表
@@ -80,143 +84,11 @@ public class SingleCutQueryResult extends POJO {
         return result;
     }
 
-    public String getResponseCode() {
-        return responseCode;
-    }
-
-    public void setResponseCode(String responseCode) {
-        this.responseCode = responseCode;
-    }
-
-    public String getMerId() {
-        return merId;
-    }
-
-    public void setMerId(String merId) {
-        this.merId = merId;
-    }
-
-    public String getOrderNo() {
-        return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
-    }
-
-    public String getTransAmt() {
-        return transAmt;
-    }
-
-    public void setTransAmt(String transAmt) {
-        this.transAmt = transAmt;
-    }
-
-    public String getCuryId() {
-        return curyId;
-    }
-
-    public void setCuryId(String curyId) {
-        this.curyId = curyId;
-    }
-
-    public String getTransDate() {
-        return transDate;
-    }
-
-    public void setTransDate(String transDate) {
-        this.transDate = transDate;
-    }
-
-    public String getTransType() {
-        return transType;
-    }
-
-    public void setTransType(String transType) {
-        this.transType = transType;
-    }
-
-    public String getTransStat() {
-        return transStat;
-    }
-
-    public void setTransStat(String transStat) {
-        this.transStat = transStat;
-    }
-
-    public String getPriv1() {
-        return priv1;
-    }
-
-    public void setPriv1(String priv1) {
-        this.priv1 = priv1;
-    }
-
-    public String getOpenBankId() {
-        return openBankId;
-    }
-
-    public void setOpenBankId(String openBankId) {
-        this.openBankId = openBankId;
-    }
-
-    public String getCardType() {
-        return cardType;
-    }
-
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
-    }
-
-    public String getCardNo() {
-        return cardNo;
-    }
-
-    public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
-    }
-
-    public String getUsrNme() {
-        return usrNme;
-    }
-
-    public void setUsrNme(String usrNme) {
-        this.usrNme = usrNme;
-    }
-
-    public String getCertType() {
-        return certType;
-    }
-
-    public void setCertType(String certType) {
-        this.certType = certType;
-    }
-
-    public String getCertId() {
-        return certId;
-    }
-
-    public void setCertId(String certId) {
-        this.certId = certId;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getChkValue() {
-        return chkValue;
-    }
-
-    public void setChkValue(String chkValue) {
-        this.chkValue = chkValue;
-    }
-
     public boolean success() {
         return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode);
+    }
+
+    public boolean transSuccess() {
+        return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode) && ChinaPayConstant.SINGLE_CUT_TRANS_STAT_SUCCESS.equals(transStat);
     }
 }
