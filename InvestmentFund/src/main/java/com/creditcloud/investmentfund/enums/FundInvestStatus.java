@@ -9,26 +9,24 @@ package com.creditcloud.investmentfund.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 风险等级
+ * 基金投资记录状态
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum RiskLevel implements BaseEnum {
+public enum FundInvestStatus implements BaseEnum {
 
-    LOW("低风险"),
-    MEDIUMTOLOW("中低风险"),
-    MEDIUM("中等风险"),
-    HIGHTOMEDIUM("中高风险"),
-    HIGH("高风险");
-    
+    HOLDING("持有中"),
+    REDEMPTIONED("已赎回");
+
     private final String key;
-
-    private RiskLevel(String key) {
+    
+    FundInvestStatus(String key) {
         this.key = key;
     }
-
+    
     @Override
     public String getKey() {
         return key;
     }
+
 }

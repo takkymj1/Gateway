@@ -7,7 +7,6 @@
 package com.creditcloud.config.fund;
 
 import com.creditcloud.config.BaseConfig;
-import com.creditcloud.config.ClientFeatures;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,7 +29,7 @@ public class FundConfig extends BaseConfig {
     public static final String CONFIG_NAME = "FundConfig";
     
     /**
-     * 诺安基金配置
+     * 诺安全基金配置
      * 
      * @return
      */
@@ -38,5 +37,13 @@ public class FundConfig extends BaseConfig {
     @XmlElement(required = false)
     private LionFundConfig lionFund;
     
+    /**
+     * 诺安货币型基金配置
+     * 
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private LionMoneyFundConfig lionMoneyFund;
     
 }

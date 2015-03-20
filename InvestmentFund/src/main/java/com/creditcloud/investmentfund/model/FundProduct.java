@@ -9,6 +9,7 @@ package com.creditcloud.investmentfund.model;
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.FundStatus;
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
@@ -159,6 +160,13 @@ public class FundProduct extends FundObject implements FundConstant{
     private ShareType shareType;
     
     /**
+     * 基金类型
+     * 
+     * @return
+     */
+    private FundType fundType;
+    
+    /**
      * 成立日期
      * 
      * @return
@@ -181,6 +189,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private int proposedHoldDuration;
 
     /**
+     * 投资规则
+     */
+    private InvestRule investRule;
+    
+    /**
      * 创建时间
      * 
      * @return
@@ -193,5 +206,5 @@ public class FundProduct extends FundObject implements FundConstant{
      * @return
      */
     private Date timeLastModified;
-    
+ 
 }

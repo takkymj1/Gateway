@@ -7,12 +7,14 @@
 package com.creditcloud.investmentfund.model.lion.request;
 
 import com.creditcloud.investmentfund.model.lion.enums.Attribute;
+import lombok.Data;
 
 
 /**
  * 基金开户
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
 public class UserRegisterRequest extends BaseRequest {
 
     /**
@@ -101,5 +103,6 @@ public class UserRegisterRequest extends BaseRequest {
         this.depositcity = depositcity;
         this.pointlist = pointlist;
         this.answerlist = answerlist;
+        this.mobileno = mobile;
     }
 }

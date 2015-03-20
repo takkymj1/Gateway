@@ -136,6 +136,8 @@ public class DTOUtils {
                                                                      bankAccount.getLocation(),
                                                                      bankAccount.getBranch(),
                                                                      bankAccount.getAccount());
+            result.setProvince(bankAccount.getProvince());
+            result.setCity(bankAccount.getCity());
         }
         return result;
     }
@@ -148,6 +150,8 @@ public class DTOUtils {
                                      bankAccount.getLocation(),
                                      bankAccount.getBranch(),
                                      bankAccount.getAccount());
+            result.setProvince(bankAccount.getProvince());
+            result.setCity(bankAccount.getCity());
         }
         return result;
     }

@@ -14,11 +14,13 @@ import com.creditcloud.investmentfund.model.lion.moneyfund.request.SyncAuthentic
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.AsyncAuthenticateResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.NotificationResponseMessage;
 import java.util.Map;
+import javax.ejb.Remote;
 
 /**
  *
  * @author guohuazhang
  */
+@Remote
 public interface LionMoneyFundService {
 
     /**
