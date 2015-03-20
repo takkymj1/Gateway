@@ -6,11 +6,19 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.model.lion.moneyfund.Constants;
 import com.creditcloud.model.BaseObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 /**
  * 诺安货币基金通用结果通知接口响应报文<br>
@@ -40,5 +48,35 @@ public class NotificationResponseMessage extends BaseObject {
         parameters.put("sign", StringUtils.nonNull(sign));
 
         return parameters;
+    }
+
+    /**
+     * 自动设置 status,errorCode为 0，0000
+     */
+    public void markAsSuccess() {
+        final String ERROR_CODE_SUCCESS = "0000";
+        setErrorCode(ERROR_CODE_SUCCESS);
+
+        final String STATUS_SUCCESS = "0";
+        setStatus(STATUS_SUCCESS);
+    }
+
+    /**
+     * 转换成可以直接传输的XML报文格式
+     *
+     * @return
+     * @throws JsonProcessingException
+     * @throws org.dom4j.DocumentException
+     */
+    public String toXMLMessage() throws JsonProcessingException, DocumentException {
+        final String rootXMLNodeName = "Message";
+        ObjectMapper xmlMapper = new XmlMapper();
+        String xml = xmlMapper.writeValueAsString(this);
+        Document doc = DocumentHelper.parseText(xml);
+        Element root = doc.getRootElement();
+        root.setName(rootXMLNodeName);
+        doc.setXMLEncoding(Constants.LION_MONEY_FUND_HTTP_ENCODING);
+        xml = doc.asXML();
+        return xml;
     }
 }
