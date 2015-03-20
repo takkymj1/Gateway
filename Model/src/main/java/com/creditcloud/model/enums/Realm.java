@@ -87,7 +87,7 @@ public enum Realm implements BaseEnum {
     FUNDINGREWARD("众筹奖励"),
     FUNDINGLIKE("众筹点赞"),
     FUNDINGSPACIALTOPIC("众筹专题页"),//一个众筹项目只允许属于一个专题
-    
+    FUNDINGXIAOHUAJIA("中网小画家"),
     /**
      * 其他
      */
