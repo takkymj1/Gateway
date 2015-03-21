@@ -363,6 +363,7 @@
                             <artifactId>InsuranceService</artifactId>
                         </ejbModule>-->
 <!--                        <ejbModule>
+                        <ejbModule>
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
                         </ejbModule>-->

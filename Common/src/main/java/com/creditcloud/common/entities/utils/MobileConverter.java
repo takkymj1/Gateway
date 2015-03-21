@@ -28,4 +28,9 @@ public class MobileConverter extends AbstractEncryptConverter {
         String dbValue = (String) dataValue;
         return !dbValue.matches("\\d{11}");
     }
+
+    @Override
+    protected String fieldName() {
+        return "Mobile";
+    }
 }

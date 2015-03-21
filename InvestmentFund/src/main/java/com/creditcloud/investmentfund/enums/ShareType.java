@@ -15,17 +15,25 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum ShareType implements BaseEnum {
 
-    FRONTEND("前端"),
-    BACKEND("后端");
+    FRONTEND("前端", "A"),
+    BACKEND("后端", "B");
     
     private final String key;
 
-    private ShareType(String key) {
+    private final String lionFundCode;
+    
+    private ShareType(String key, String code) {
         this.key = key;
+        this.lionFundCode = code;
     }
 
     @Override
     public String getKey() {
         return key;
     }
+    
+    public String getLionFundCode() {
+        return lionFundCode;
+    }
+    
 }
