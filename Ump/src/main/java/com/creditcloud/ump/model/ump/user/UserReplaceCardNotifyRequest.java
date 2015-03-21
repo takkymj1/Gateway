@@ -20,6 +20,9 @@ import lombok.ToString;
 @ToString(callSuper=true)
 public class UserReplaceCardNotifyRequest extends NotifyRequest {
     
+    @QueryParam("service")
+    private String realService;
+    
     @QueryParam("user_id")
     private String user_id;
     
