@@ -34,11 +34,15 @@ public class RefundCalcRequest extends BaseDTO {
     
     /**
      * 是否全部领取
+     * isWithdrawAll和isCancelPolicy同时为0：部分领取
+     * isWithdrawAll和isCancelPolicy同时为1：全部领取
      */
     private int isWithdrawAll;
     
     /**
      * 是否退保
+     * isWithdrawAll和isCancelPolicy同时为0：部分领取
+     * isWithdrawAll和isCancelPolicy同时为1：全部领取
      */
     private int isCancelPolicy;
     

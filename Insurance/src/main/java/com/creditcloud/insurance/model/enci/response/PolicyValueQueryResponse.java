@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.insurance.model.enci.response;
 
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
- * 
- * @author suetming <suetming.ma at creditcloud.com>
+ *
+ * @author chai
  */
 @Data
-@NoArgsConstructor
-public class ProposalApplyResponse extends BaseDTO {
+public class PolicyValueQueryResponse extends BaseDTO{
     
     /**
      * 合作商订单号
@@ -29,22 +26,32 @@ public class ProposalApplyResponse extends BaseDTO {
     private String proposalNo;
     
     /**
-     * 总保费
+     * 保单号
      */
-    private String totalPremium;
+    private String policyNo;
     
     /**
-     * 邮递费
+     * 是否允许部分支取
      */
-    private String postFee;
+    private String isPartWithdraw;
     
     /**
-     * 核保是否成功
+     * 全额情况下是否必须退保
      */
-    private String isSuccess;
+    private String isMustCancel;
     
     /**
-     * 核保结果说明
+     * 保单账户现金价值
      */
-    private String message;
+    private String policyValue;
+    
+    /**
+     * 是否可冲正
+     */
+    private String isReversal;
+    
+    /**
+     * 保单状态
+     */
+    private String policyStatus;
 }

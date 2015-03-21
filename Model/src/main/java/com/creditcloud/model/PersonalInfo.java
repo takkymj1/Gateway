@@ -75,6 +75,16 @@ public class PersonalInfo extends BaseObject {
     @XmlElement(name="houseStatus")
     private HouseStatus houseStatus;
 
+    //证件生效日期
+    @FormParam("cardValidDate")
+    @XmlElement(name="cardValidDate")
+    private Date cardValidDate;
+    
+    //证件过期日期
+    @FormParam("cardExpDate")
+    @XmlElement(name="cardExpDate")
+    private Date cardExpDate;
+    
     /**
      *
      * @param male          性别

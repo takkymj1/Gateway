@@ -89,4 +89,28 @@ public class DateUtilsTest {
         Date exp = calendar.getTime();
         assertEquals(result, exp);
     }
+    
+    @Test
+    public void testDateParse(){
+        String date = "2014-01-03";
+        Date result = DateUtils.parse(date, "yyyy-MM-dd");
+        assertNotNull(result);
+        
+        Date result2 = DateUtils.parse(date, "yyyy-MM-dd HH");
+        assertNull(result2);
+        
+        String date3 = "2014-01-03 22";
+        Date result3 = DateUtils.parse(date3, "yyyy-MM-dd HH");
+        assertNotNull(result3);
+    }
+    
+    @Test
+    public void testDateFormat(){
+        Date date1 = new Date();
+        String result1 = DateUtils.format(date1, "yyyy-MM-dd");
+        assertNotNull(result1);
+        
+        String result2 = DateUtils.format(date1, "yyyy-MM-dd HH:mm");
+        assertNotNull(result2);
+    }
 }

@@ -52,7 +52,17 @@ public enum TransCode implements BaseEnum {
     /**
      * 保费追加
      */
-    PolicyAppendPremium("100013", "/insurance/policy/appendPremium.rest");
+    PolicyAppendPremium("100013", "/insurance/policy/appendPremium.rest"),
+    
+    /**
+     * 保险产品收益查询
+     */
+    ProductProfitQuery("100017", "/insurance/product/profitQuery.raest"),
+    
+    /**
+     * 保单收益查询
+     */
+    PolicyProfitQuery("100018", "/insurance/policy/profitQuery.rest");
     
     /**
      * 交易码

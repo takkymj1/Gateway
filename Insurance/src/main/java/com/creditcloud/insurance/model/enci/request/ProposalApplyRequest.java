@@ -12,12 +12,15 @@ import com.creditcloud.insurance.model.enci.InsuredListDTO;
 import com.creditcloud.insurance.model.enci.OrderDTO;
 import com.creditcloud.insurance.model.enci.OtherInfoDTO;
 import com.creditcloud.insurance.model.enci.ProductDTO;
+import com.creditcloud.insurance.model.enci.RiskAssessmentListDTO;
+import lombok.Data;
 
 /**
  * 核保 100001
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
 public class ProposalApplyRequest extends BaseDTO {
 
     /**
@@ -41,50 +44,12 @@ public class ProposalApplyRequest extends BaseDTO {
     private InsuredListDTO insuredListDTO;
     
     /**
+     * 风险评测信息（只有I添财产品需要传入风险评测信息）
+     */
+    private RiskAssessmentListDTO riskAssessmentListDTO;
+    
+    /**
      * 其他
      */
     private OtherInfoDTO otherInfoDTO;
-
-    public OrderDTO getOrderDTO() {
-        return orderDTO;
-    }
-
-    public void setOrderDTO(OrderDTO orderDTO) {
-        this.orderDTO = orderDTO;
-    }
-
-    public ProductDTO getProductDTO() {
-        return productDTO;
-    }
-
-    public void setProductDTO(ProductDTO productDTO) {
-        this.productDTO = productDTO;
-    }
-
-    public HolderDTO getHolderDTO() {
-        return holderDTO;
-    }
-
-    public void setHolderDTO(HolderDTO holderDTO) {
-        this.holderDTO = holderDTO;
-    }
-
-    public InsuredListDTO getInsuredListDTO() {
-        return insuredListDTO;
-    }
-
-    public void setInsuredListDTO(InsuredListDTO insuredListDTO) {
-        this.insuredListDTO = insuredListDTO;
-    }
-
-    public OtherInfoDTO getOtherInfoDTO() {
-        return otherInfoDTO;
-    }
-
-    public void setOtherInfoDTO(OtherInfoDTO otherInfoDTO) {
-        this.otherInfoDTO = otherInfoDTO;
-    }
-    
-    
-    
 }
