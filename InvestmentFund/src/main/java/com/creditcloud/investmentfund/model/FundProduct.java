@@ -14,7 +14,6 @@ import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
 import lombok.AllArgsConstructor;
@@ -185,8 +184,7 @@ public class FundProduct extends FundObject implements FundConstant{
      * 
      * 单位：月
      */
-    @Min(1)
-    private int proposedHoldDuration;
+    private Integer proposedHoldDuration;
 
     /**
      * 投资规则

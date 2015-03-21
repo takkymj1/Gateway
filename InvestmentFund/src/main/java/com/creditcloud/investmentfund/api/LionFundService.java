@@ -13,15 +13,18 @@ import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
 import com.creditcloud.investmentfund.model.lion.TradingRecord;
+import com.creditcloud.investmentfund.model.lion.request.QueryFundFeeRateRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryTradeRecordRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRegisterRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRiskAssessmentRequest;
+import com.creditcloud.investmentfund.model.lion.response.QueryFundFeeRateResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryFundShareResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeBuyFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeSellFundResponse;
+import com.creditcloud.investmentfund.model.lion.response.UserRiskAssessmentResponse;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
@@ -67,7 +70,7 @@ public interface LionFundService {
      * @param request           全基金开户请求
      * @return 
      */
-    FundResult<FundAccount> createStockFundAccount(String userId, UserRegisterRequest request);
+    public FundResult<FundAccount> createStockFundAccount(String userId, UserRegisterRequest request);
     
     /**
      * 创建货币型基金账户
@@ -103,7 +106,7 @@ public interface LionFundService {
      * @param request   风险评测
      * @return 
      */
-    public FundResult assess(String userId, UserRiskAssessmentRequest request);
+    public UserRiskAssessmentResponse evaluate(String userId, UserRiskAssessmentRequest request);
     
     /**
      * 基金投资列表
@@ -112,6 +115,14 @@ public interface LionFundService {
      * @return 
      */
     public QueryFundShareResponse queryFundShareResponse(QueryFundShareRequest request);
+    
+    /**
+     * 查询基金费率
+     * 
+     * @param request 基金费率请求信息
+     * @return 
+     */
+    public QueryFundFeeRateResponse queryFundFeeRate(QueryFundFeeRateRequest request);
     
     /**
      * 查询所有基金产品

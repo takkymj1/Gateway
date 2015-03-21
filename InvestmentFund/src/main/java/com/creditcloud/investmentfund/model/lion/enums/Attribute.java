@@ -60,7 +60,12 @@ public enum Attribute {
     /**
      * 赎回
      */
-    sell;
+    sell,
+    
+    /**
+     * 查询费率
+     */
+    tradecancel;
     
     private Attribute() {}
 
