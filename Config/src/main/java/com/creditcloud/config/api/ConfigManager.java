@@ -7,6 +7,7 @@ package com.creditcloud.config.api;
 import com.creditcloud.config.AllWinConfig;
 import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
+import com.creditcloud.config.ChinaPayConfig;
 import com.creditcloud.config.ClientConfig;
 import com.creditcloud.config.ContractSealConfig;
 import com.creditcloud.config.CreditAssignConfig;
@@ -18,6 +19,7 @@ import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
 import com.creditcloud.config.LycheePayConfig;
+import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
@@ -26,6 +28,8 @@ import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.YeepConfig;
+import com.creditcloud.config.fund.FundConfig;
+import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
@@ -145,6 +149,7 @@ public interface ConfigManager {
 
     /**
      * 债权转让相关配置
+     * @return 
      */
     public CreditAssignConfig getCreditAssignConfig();
     
@@ -153,4 +158,31 @@ public interface ConfigManager {
      * @return 
      */
     public FengMessageConfig getFengMessageConfig();
+    
+    /**
+     * 基金相关配置
+     * 
+     * @return 
+     */
+    public FundConfig getFundConfig();
+    
+    /**
+     * 保险相关配置
+     * 
+     * @return 
+     */
+    public InsuranceConfig getInsuranceConfig();
+    
+    /**
+     * 银联相关配置
+     * @return 
+     */
+    public ChinaPayConfig getChinaPayConfig();
+    
+    /**
+     * 新希望相关配置
+     * 
+     * @return 
+     */
+    public NewHopeConfig getNewHopeConfig();
 }

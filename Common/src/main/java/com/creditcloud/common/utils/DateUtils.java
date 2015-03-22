@@ -121,6 +121,25 @@ public class DateUtils {
         calendar.set(year, month, day, 23, 59, 59);
         return calendar.getTime();
     }
+    
+    /**
+     * return the 0'clock time for a date, like 2013/8/1 22:59:59
+     *
+     * @param date
+     * @return
+     */
+    public static Date getCustomClock(Date date, int hourOfDay, int minute, int second) {
+        if (date == null) {
+            return null;
+        }
+
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        calendar.set(year, month, day, hourOfDay, minute, second);
+        return calendar.getTime();
+    }
 
     /**
      * 为使stock曲线平滑，填满遗漏的值

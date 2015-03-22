@@ -22,7 +22,7 @@ public interface UserFundService {
      * get user fund by user id
      *
      * @param clientCode
-     * @param userId 必须为有效uuid
+     * @param userId     必须为有效uuid
      * @return null if not found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
@@ -82,7 +82,7 @@ public interface UserFundService {
                                 BigDecimal outAmount,
                                 String loanUserId,
                                 BigDecimal inAmount);
-    
+
     /**
      * 联动支付: 结标操作.<p>
      * 不更改借款人的可用金额, 这个金额会在放款最后统一计算费用后再计算.<p>
@@ -110,15 +110,15 @@ public interface UserFundService {
      * 借款人可用金额+＝inAmount
      *
      * @param clientCode
-     * @param loanUserId   借款人
-     * @param inAmount     借款人实际到账金额(可能=总投标金额-总借款费用)，必须大于0
+     * @param loanUserId 借款人
+     * @param inAmount   借款人实际到账金额(可能=总投标金额-总借款费用)，必须大于0
      * @return
      * @see settleInvestUmp
      */
     public boolean settleInvestUmpRefund(String clientCode,
                                          String loanUserId,
                                          BigDecimal inAmount);
-    
+
     /**
      * 还款操作<p>
      * 借款人可用金额-=outAmount<p>
@@ -140,28 +140,28 @@ public interface UserFundService {
                                BigDecimal inAmount,
                                String loanUserId,
                                BigDecimal outAmount);
-    
+
     /**
      * 用于联动支付中，借款人还款至标的账户，但尚未返款给投资人
-     * 
+     *
      * @param clientCode
      * @param loanUserId
      * @param repayAmount 从借款人可用金额中扣除
-     * @return 
+     * @return
      */
     public boolean repayOnly(String clientCode,
                              String loanUserId,
                              BigDecimal repayAmount);
-    
+
     /**
      * 用于联动支付中，从标的账户返款给投资人
-     * 
+     *
      * @param clientCode
      * @param investUserId 投资人
      * @param repayAmount  还款金额，一般是约定待还金额，必须大于0
      * @param inAmount     投资人实际到账金额=还款金额扣除投资人费用，必须大于0
      * @param loanUserId   借款人
-     * @return 
+     * @return
      */
     public boolean repayInvestOnly(String clientCode,
                                    String investUserId,
@@ -255,7 +255,19 @@ public interface UserFundService {
     public boolean charge(String clientCode,
                           String userId,
                           BigDecimal amount);
-    
+
+    /**
+     * 方法同上
+     *
+     * @param clientCode
+     * @param userId
+     * @param feeAmount
+     * @return
+     */
+    public boolean chargeFee(String clientCode,
+                             String userId,
+                             BigDecimal feeAmount);
+
     /**
      * 用户获得费用收入，直接增加可用余额<p>
      * 如担保用户获得的担保金收入
