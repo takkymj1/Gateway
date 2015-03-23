@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundInvestStatus;
 import com.creditcloud.investmentfund.enums.FundStatus;
 import com.creditcloud.investmentfund.enums.FundType;
 import java.math.BigDecimal;
@@ -68,6 +69,11 @@ public class FundInvest extends FundObject implements FundConstant {
      */
     private BigDecimal frozenShare;
    
+    /**
+     * 基金投资状态
+     */
+    private FundInvestStatus investStatus;
+    
     /**
      * 基金分支代码
      */
