@@ -302,6 +302,7 @@ public class DTOUtils {
                                                          place.getHukouCity(),
                                                          place.getCurrentAddress(),
                                                          place.getCurrentPhone());
+            result.setCurrentZip(place.getCurrentZip());
         }
 
         return result;
@@ -340,6 +341,8 @@ public class DTOUtils {
                                                             personal.getAvatar());
             result.setHouseStatus(personal.getHouseStatus());
             result.setHukouType(personal.getHukouType());
+            result.setCardValidDate(personal.getCardValidDate());
+            result.setCardExpDate(personal.getCardExpDate());
         }
 
         return result;

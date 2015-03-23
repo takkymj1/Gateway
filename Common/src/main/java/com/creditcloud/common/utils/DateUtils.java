@@ -7,6 +7,7 @@ package com.creditcloud.common.utils;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.loan.Duration;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import static org.apache.commons.lang3.time.DateUtils.*;
 import org.joda.time.DateTimeConstants;
@@ -166,5 +168,29 @@ public class DateUtils {
         }
         int dayOfWeek = date.getDayOfWeek();
         return DateTimeConstants.SATURDAY == dayOfWeek || DateTimeConstants.SUNDAY == dayOfWeek;
+    }
+    
+    public static Date parse(final String str, final String pattern) {
+        if (StringUtils.isBlank(str)) {
+                return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+                return sdf.parse(str);
+        } catch (Exception e) {
+                return null;
+        }
+    }
+    
+    public static String format(final Date date, final String pattern) {
+        if(date == null){
+            return null;
+        }
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+            return sdf.format(date);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

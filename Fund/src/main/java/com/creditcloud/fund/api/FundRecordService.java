@@ -129,6 +129,16 @@ public interface FundRecordService {
     void update(String clientCode, FundRecord record);
 
     /**
+     * update exist fund record
+     *
+     * 无锡update方法异常，暂定新建改方法，以避免无锡update时，find()方法报出异常
+     * 
+     * @param clientCode
+     * @param record
+     */
+    void update2(String clientCode, FundRecord record);
+    
+    /**
      * 更新FundRecord状态
      *
      * @param clientCode

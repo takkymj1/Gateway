@@ -3,35 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.insurance.model.enci.response;
 
 import com.creditcloud.insurance.model.enci.BaseDTO;
+import java.math.BigDecimal;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
- * 退保 100007
- * @author suetming <suetming.ma at creditcloud.com>
+ * 
+ * @author chai
  */
 @Data
-public class RefundApplyResponse extends BaseDTO {
-
+public class AppendPremiumResponse extends BaseDTO{
+    
     /**
      * 合作商订单号
      */
     @NotNull
     private String partnerOrderId;
-    
-    /**
-     * 合作商退保订单号
-     */
-    private String partnerRefundId;
-    
-    /**
-     * 投保单号
-     */
-    private String proposalNo;
     
     /**
      * 保单号
@@ -40,46 +30,49 @@ public class RefundApplyResponse extends BaseDTO {
     private String policyNo;
     
     /**
-     * 退保金额
-     * 
-     * 以元为单位，两位小数
+     * 投保单号
      */
     @NotNull
-    private double withdrawAmount;
+    private String proposalNo;
     
     /**
-     * 实际可领取金额
-     * 
-     * 以元为单位，两位小数
+     * 电子保单URL
      */
     @NotNull
-    private double availableAmount;
- 
+    private String policyUrl;
+    
     /**
-     * 是否全部领取
+     * 总保费
      */
     @NotNull
-    private int isWithdrawAll;
+    private BigDecimal totalPremium;
     
     /**
-     * 是否退保
+     * 追加保费
      */
     @NotNull
-    private int isCancelPolicy;
+    private BigDecimal totalRaise;
     
     /**
-     * 保单密码
+     * 账务日期
      */
-    private String policyPassword;
+    @NotNull
+    private String accountDate;
     
     /**
-     * 退保是否成功 CD4
+     * 保全时间
      */
+    @NotNull
+    private String issuedTime;
+    
+    /**
+     * 保全是否成功
+     */
+    @NotNull
     private int isSuccess;
     
     /**
-     * 确认告知信息或失败的信息
+     * 保全结果说明
      */
     private String message;
-    
 }
