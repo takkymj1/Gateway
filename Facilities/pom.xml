@@ -209,7 +209,7 @@
             <type>ejb</type> 
         </dependency> 
               
- 
+
         <dependency>
             <groupId>com.creditcloud.yeep</groupId>
             <artifactId>YeepService</artifactId>
