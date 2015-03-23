@@ -131,7 +131,7 @@ public interface FundRecordService {
     /**
      * update exist fund record
      *
-     * 无锡update方法异常，暂定新建改方法，以避免无锡update时，find()方法报出异常
+     * 使用jpql的find查询，不直接用AbstractDAO中的find查询
      * 
      * @param clientCode
      * @param record
