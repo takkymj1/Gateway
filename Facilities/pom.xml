@@ -195,12 +195,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>-->
-<!--        <dependency>
+        <dependency>
             <groupId>com.creditcloud.investmentfund</groupId>
             <artifactId>InvestmentFundService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
-        </dependency>-->
+        </dependency>
 <!--
         <dependency>
             <groupId>com.creditcloud.order</groupId>
@@ -362,21 +362,20 @@
                             <groupId>com.creditcloud.insurance</groupId>
                             <artifactId>InsuranceService</artifactId>
                         </ejbModule>-->
-<!--                        <ejbModule>
                         <ejbModule>
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
-                        </ejbModule>-->
+                        </ejbModule>
 <!--
                         <ejbModule>
                             <groupId>com.creditcloud.order</groupId>
                             <artifactId>OrderService</artifactId>
                         </ejbModule> 
                                              
-                                                                      <ejbModule>
-                                                                          <groupId>com.creditcloud.yeep</groupId>
-                                                                          <artifactId>YeepService</artifactId>
-                                                                      </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.yeep</groupId>
+                            <artifactId>YeepService</artifactId>
+                        </ejbModule>
                         -->
                     </modules>
                 </configuration>
