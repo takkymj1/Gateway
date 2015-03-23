@@ -302,26 +302,33 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableShowGroupComments = false;
-    
+
     /**
-     * 开启用户邀请功能
-     * 已注册用户通过此功能可录入受邀人手机号（或其他信息）
+     * 开启用户邀请功能 已注册用户通过此功能可录入受邀人手机号（或其他信息）
      */
     @Getter
     @XmlElement
     private boolean enableUserInvitation = false;
-    
+
     /**
      * 开启自动结算满标的标的
      */
     @Getter
     @XmlElement
     private boolean enbaleAutoSettleFinishedLoan = false;
-    
+
     /**
      * 开启自动结算流标的标的
      */
     @Getter
     @XmlElement
     private boolean enbaleAutoSettleFailedLoan = false;
+
+    /**
+     * 标的可以设置单独的起息日，无视放款日期
+     */
+    @Getter
+    @XmlElement
+    private boolean enableLoanValueDate = false;
+
 }

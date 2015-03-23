@@ -214,6 +214,11 @@ public class LoanRequest extends BaseObject {
      * 控制标的是否对所有人可见
      */
     private boolean hidden;
+    
+    /**
+     * 起息日
+     */
+    private Date valueDate;
 
     /**
      *
