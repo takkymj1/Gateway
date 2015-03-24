@@ -6,9 +6,12 @@
 
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.enums.FundInvestStatus;
 import com.creditcloud.investmentfund.model.FundInvest;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -36,4 +39,12 @@ public interface FundInvestService {
      */
     public PagedResult<FundInvest> listByUserId(String userId, PageInfo pageInfo);
     
+    /**
+     * 获取用户资金
+     * 
+     * @param userId        用户ID
+     * @param statusList    投资状态列表
+     * @return 
+     */
+    public BigDecimal sumByUserIdAndInvestStatus(String userId, List<FundInvestStatus> statusList);
 }
