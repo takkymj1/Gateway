@@ -11,7 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 
+ * 用户基金持有份额
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data

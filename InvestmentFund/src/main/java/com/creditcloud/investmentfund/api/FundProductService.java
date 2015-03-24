@@ -88,17 +88,44 @@ public interface FundProductService {
     /**
      * 查询所有诺安基金产品
      *
-     * @param pageInfo  分页信息
      * @param brandList 品牌
+     * @param pageInfo  分页信息
+     * 
      * @return
      */
-    public PagedResult<FundProduct> listByBrand(PageInfo pageInfo, List<FundBrand> brandList);
+    public PagedResult<FundProduct> listByBrand(List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
-     * 新增一条基金净值记录
+     * 查询所有诺安基金产品
+     * 
+     * @param minRate           最小期望收益率
+     * @param maxRate           最大期望收益率
+     * @param minDuration       最小期望持有期限
+     * @param maxDuration       最大期望持有期限
+     * @param brandList         品牌
+     * @param pageInfo          分页信息
+     * @return 
+     */
+    public PagedResult<FundProduct> listByExpectedRateAndProposedHoldDurationAndBrand(int minRate, int maxRate, Integer minDuration, Integer maxDuration, List<FundBrand> brandList, PageInfo pageInfo);
+    
+    /**
+     * 查询所有诺安基金产品
+     * 
+     * @param minRate           最小期望收益率
+     * @param maxRate           最大期望收益率
+     * @param brandList         品牌
+     * @param pageInfo          分页信息
+     * @return 
+     */
+    public PagedResult<FundProduct> listDemandByExpectedRateAndBrand(int minRate, int maxRate, List<FundBrand> brandList, PageInfo pageInfo);
+            
+    /**
+     * 新增一条基金净值记录 <br>
+     * 如果为当天的记录只做更新操作 <br>
+     * 
      * @param fundProductNavRecord    基金净值记录
      * @return 
      */
-    public FundProductNavRecord addNew(FundProductNavRecord fundProductNavRecord);
+    public FundProductNavRecord addNavRecord(FundProductNavRecord fundProductNavRecord);
     
 }

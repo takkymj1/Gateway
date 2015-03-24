@@ -129,6 +129,16 @@ public interface FundRecordService {
     void update(String clientCode, FundRecord record);
 
     /**
+     * update exist fund record
+     *
+     * 使用jpql的find查询，不直接用AbstractDAO中的find查询
+     * 
+     * @param clientCode
+     * @param record
+     */
+    void update2(String clientCode, FundRecord record);
+    
+    /**
      * 更新FundRecord状态
      *
      * @param clientCode

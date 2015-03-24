@@ -96,7 +96,14 @@ public enum ApiErrorCode implements BaseEnum {
     CREDITASSIGN_ERROR("债权转让错误"),
     
     GROUP_NOT_EXIST("没有对应的组存在"),
-    USER_NOT_INVITED("非受邀用户");
+    USER_NOT_INVITED("非受邀用户"),
+    
+    /*************************************************
+     * 基金
+     *************************************************/
+    INVESTMENT_FUND_MONETARY_ACCOUNT_NOT_FOUND("用户未开通货币型基金账户"),
+    INVESTMENT_FUND_STOCK_ACCOUNT_NOT_FOUND("用户未开通股票型基金账户"),
+    INVESTMENT_FUND_SERVICE_REQUEST_FAILED("基金服务请求错误");
     
     private final String key;
     

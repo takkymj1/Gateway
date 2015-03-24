@@ -6,12 +6,14 @@ package com.creditcloud.common.entities.embedded;
 
 import com.creditcloud.common.entities.BaseEntity;
 import com.creditcloud.model.constraints.BankAccountNumber;
+import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,12 +22,15 @@ import lombok.Setter;
  *
  * @author rooseek
  */
+@AllArgsConstructor
 @Embeddable
 public class BankAccount extends BaseEntity {
 
     /**
      * 开户人
      */
+    @Getter
+    @Setter
     @RealName
     @Column(nullable = false)
     private String name;
@@ -33,6 +38,8 @@ public class BankAccount extends BaseEntity {
     /**
      * 开户银行:中国工商银行(ICBC)
      */
+    @Getter
+    @Setter
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Bank bank;
@@ -40,18 +47,24 @@ public class BankAccount extends BaseEntity {
     /**
      * 开户行所在地:北京市西城区长安街12号
      */
+    @Getter
+    @Setter
     @Column(nullable = true)
     private String location;
 
     /**
      * 开户支行:工行北京分行海淀支行
      */
+    @Getter
+    @Setter
     @Column(nullable = true)
     private String branch;
 
     /**
      * 账号
      */
+    @Getter
+    @Setter
     @BankAccountNumber
     @Column(nullable = false)
     private String account;
@@ -76,6 +89,15 @@ public class BankAccount extends BaseEntity {
     @Column(nullable = true)
     private String city;
     
+    /**
+     * 银行预留手机号
+     */
+    @Getter
+    @Setter
+    @MobileNumber
+    @Column(nullable = true)
+    private String bankMobile;
+    
     public BankAccount() {
     }
 
@@ -91,43 +113,4 @@ public class BankAccount extends BaseEntity {
         this.account = account;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getBranch() {
-        return branch;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public void setBranch(String branch) {
-        this.branch = branch;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
 }

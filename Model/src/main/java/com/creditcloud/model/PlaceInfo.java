@@ -51,6 +51,11 @@ public class PlaceInfo extends BaseObject {
     @XmlElement(name = "currentPhone")
     private String currentPhone;
 
+    //现居住地址邮编
+    @FormParam("currentZip")
+    @XmlElement(name = "currentZip")
+    private String currentZip;
+    
     /**
      *
      * @param nativeProvince 籍贯省

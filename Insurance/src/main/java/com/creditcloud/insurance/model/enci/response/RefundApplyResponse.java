@@ -8,11 +8,13 @@ package com.creditcloud.insurance.model.enci.response;
 
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  * 退保 100007
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
 public class RefundApplyResponse extends BaseDTO {
 
     /**
@@ -27,18 +29,15 @@ public class RefundApplyResponse extends BaseDTO {
     private String partnerRefundId;
     
     /**
+     * 投保单号
+     */
+    private String proposalNo;
+    
+    /**
      * 保单号
      */
     @NotNull
     private String policyNo;
-    
-    /**
-     * 保单账户现金价值
-     * 
-     * 以元为单位，两位小数
-     */
-    @NotNull
-    private double policyValue;
     
     /**
      * 退保金额
@@ -72,77 +71,15 @@ public class RefundApplyResponse extends BaseDTO {
      * 保单密码
      */
     private String policyPassword;
-
-    public String getPartnerOrderId() {
-        return partnerOrderId;
-    }
-
-    public void setPartnerOrderId(String partnerOrderId) {
-        this.partnerOrderId = partnerOrderId;
-    }
-
-    public String getPartnerRefundId() {
-        return partnerRefundId;
-    }
-
-    public void setPartnerRefundId(String partnerRefundId) {
-        this.partnerRefundId = partnerRefundId;
-    }
-
-    public String getPolicyNo() {
-        return policyNo;
-    }
-
-    public void setPolicyNo(String policyNo) {
-        this.policyNo = policyNo;
-    }
-
-    public double getPolicyValue() {
-        return policyValue;
-    }
-
-    public void setPolicyValue(double policyValue) {
-        this.policyValue = policyValue;
-    }
-
-    public double getWithdrawAmount() {
-        return withdrawAmount;
-    }
-
-    public void setWithdrawAmount(double withdrawAmount) {
-        this.withdrawAmount = withdrawAmount;
-    }
-
-    public double getAvailableAmount() {
-        return availableAmount;
-    }
-
-    public void setAvailableAmount(double availableAmount) {
-        this.availableAmount = availableAmount;
-    }
-
-    public int getIsWithdrawAll() {
-        return isWithdrawAll;
-    }
-
-    public void setIsWithdrawAll(int isWithdrawAll) {
-        this.isWithdrawAll = isWithdrawAll;
-    }
-
-    public int getIsCancelPolicy() {
-        return isCancelPolicy;
-    }
-
-    public void setIsCancelPolicy(int isCancelPolicy) {
-        this.isCancelPolicy = isCancelPolicy;
-    }
-
-    public String getPolicyPassword() {
-        return policyPassword;
-    }
-
-    public void setPolicyPassword(String policyPassword) {
-        this.policyPassword = policyPassword;
-    }
+    
+    /**
+     * 退保是否成功 CD4
+     */
+    private int isSuccess;
+    
+    /**
+     * 确认告知信息或失败的信息
+     */
+    private String message;
     
 }

@@ -85,6 +85,16 @@ public class PersonalInfo extends BaseEntity {
     @Column(name = "HOUSE_STATUS", nullable = true)
     private HouseStatus houseStatus;
 
+    //证件生效日期
+    @Column(name = "CARD_VALID_DATE", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date cardValidDate;
+    
+    //证件过期日期
+    @Column(name = "CARD_EXP_DATE", nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date cardExpDate;
+    
     /**
      *
      * @param male          性别

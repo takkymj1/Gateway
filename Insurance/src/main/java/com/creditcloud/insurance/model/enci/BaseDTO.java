@@ -6,13 +6,18 @@
 
 package com.creditcloud.insurance.model.enci;
 
+import com.creditcloud.common.utils.DateUtils;
 import com.creditcloud.model.BaseObject;
+import java.util.Date;
+import java.util.UUID;
+import lombok.Data;
 
 /**
  * request & response
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
 public class BaseDTO extends BaseObject {
 
     /**
@@ -60,6 +65,10 @@ public class BaseDTO extends BaseObject {
     
     /**
      * 响应码
+     *  
+     * 成功:  FI00000或 SI00000
+     * 处理中: FI00001或 SI00001
+     * 失败： 其他
      */
     private String rspCode;
     
@@ -68,76 +77,12 @@ public class BaseDTO extends BaseObject {
      */
     private String rspMsg;
 
-    public String getTransCode() {
-        return transCode;
-    }
-
-    public void setTransCode(String transCode) {
-        this.transCode = transCode;
-    }
-
-    public String getAppId() {
-        return appId;
-    }
-
-    public void setAppId(String appId) {
-        this.appId = appId;
-    }
-
-    public String getTransSn() {
-        return transSn;
-    }
-
-    public void setTransSn(String transSn) {
-        this.transSn = transSn;
-    }
-
-    public String getTransTime() {
-        return transTime;
-    }
-
-    public void setTransTime(String transTime) {
-        this.transTime = transTime;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getOriginTransSn() {
-        return originTransSn;
-    }
-
-    public void setOriginTransSn(String originTransSn) {
-        this.originTransSn = originTransSn;
-    }
-
-    public String getRspMode() {
-        return rspMode;
-    }
-
-    public void setRspMode(String rspMode) {
-        this.rspMode = rspMode;
-    }
-
-    public String getRspCode() {
-        return rspCode;
-    }
-
-    public void setRspCode(String rspCode) {
-        this.rspCode = rspCode;
-    }
-
-    public String getRspMsg() {
-        return rspMsg;
-    }
-
-    public void setRspMsg(String rspMsg) {
-        this.rspMsg = rspMsg;
-    }
     
+    public void initHeader(String appId, String transCode){
+        this.setTransCode(transCode);
+        this.setAppId(appId);
+        this.setRspCode("S");
+        this.setTransSn(UUID.randomUUID().toString());
+        this.setTransTime(DateUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
+    }
 }

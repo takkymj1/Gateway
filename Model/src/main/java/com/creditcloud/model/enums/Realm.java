@@ -135,7 +135,11 @@ public enum Realm implements BaseEnum {
     /**
      * 自定义产品，限制了投标人的范围
      */
-    PRIVATE_LOAN_PRODUCT("自定义产品"); 
+    PRIVATE_LOAN_PRODUCT("自定义产品"),
+    /**
+     * 保险
+     */
+    INSURANCE_ORDER("保险订单"); 
 
     private final String key;
 

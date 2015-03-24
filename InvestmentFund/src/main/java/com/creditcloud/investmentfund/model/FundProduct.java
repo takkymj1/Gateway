@@ -9,11 +9,11 @@ package com.creditcloud.investmentfund.model;
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.FundStatus;
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.Default;
 import lombok.AllArgsConstructor;
@@ -159,6 +159,13 @@ public class FundProduct extends FundObject implements FundConstant{
     private ShareType shareType;
     
     /**
+     * 基金类型
+     * 
+     * @return
+     */
+    private FundType fundType;
+    
+    /**
      * 成立日期
      * 
      * @return
@@ -177,9 +184,13 @@ public class FundProduct extends FundObject implements FundConstant{
      * 
      * 单位：月
      */
-    @Min(1)
-    private int proposedHoldDuration;
+    private Integer proposedHoldDuration;
 
+    /**
+     * 投资规则
+     */
+    private InvestRule investRule;
+    
     /**
      * 创建时间
      * 
@@ -193,5 +204,5 @@ public class FundProduct extends FundObject implements FundConstant{
      * @return
      */
     private Date timeLastModified;
-    
+ 
 }

@@ -79,45 +79,4 @@ public class LionFundConfig extends BaseObject {
     @XmlElement(required = false)
     private String signType;
 
-    /**
-     *
-     * 货币型基金机构ID
-     *
-     * @return
-     */
-    @Getter
-    @XmlElement(required = true)
-    private String instId;
-
-    /**
-     * 货币型基金证书ID
-     * @return
-     */
-    @Getter
-    @XmlElement(required = true)
-    private String certId;
-
-    /**
-     * 诺安货币基金直连异步鉴权接口地址
-     * @return
-     */
-    @Getter
-    @XmlElement(required = true)
-    private String urlAsyncAuthenticateAccount;
-    /**
-     *
-     * 诺安货币基金通用请求接口地址，可用于快捷同步鉴权，基金申购赎回等功能的
-     * @return
-     */
-    @Getter
-    @XmlElement(required = true)
-    private String urlLionMoneyFundCommonRequestApply;
-    /**
-     * 
-     * 诺安货币基金通用查询接口地址
-     * @return
-     */
-    @Getter
-    @XmlElement(required = true)
-    private String urlLionMoneyFundCommonRequestQuery;
 }
