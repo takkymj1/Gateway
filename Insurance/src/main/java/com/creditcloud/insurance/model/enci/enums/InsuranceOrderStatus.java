@@ -18,13 +18,9 @@ public enum InsuranceOrderStatus implements BaseEnum{
      */
     INIT("初始化"),
     /**
-     * 核保
+     * 待支付
      */
-    PROPOSAL("已核保"),
-    /**
-     * 支付中
-     */
-    PAYING("支付中"),
+    WAIT_PAYING("待支付"),
     /**
      * 支付失败
      */
@@ -36,7 +32,11 @@ public enum InsuranceOrderStatus implements BaseEnum{
     /**
      * 已承保
      */
-    POLICY("已承保");
+    POLICY("已承保"),
+    /**
+     * 已承保
+     */
+    REFUND("已退保"),;
     
     private final String key;
 

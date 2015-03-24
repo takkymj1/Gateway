@@ -110,7 +110,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     /**
      * 预期收益率（平台提供）
      */
-    private int expectedRate;
+    private BigDecimal expectedRate;
     
     /**
      * 平台内状态
