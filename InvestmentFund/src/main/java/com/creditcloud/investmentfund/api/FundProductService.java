@@ -128,4 +128,15 @@ public interface FundProductService {
      */
     public FundProductNavRecord addNavRecord(FundProductNavRecord fundProductNavRecord);
     
+    /**
+     * 列出特定净值日期内的基金产品净值记录
+     * 
+     * @param fundCode
+     * @param fundBrand
+     * @param startDate
+     * @param endDate
+     * @param info
+     * @return 
+     */
+    public PagedResult<FundProductNavRecord> listNavRecordByCodeAndBrandAndNavDate(String fundCode, FundBrand fundBrand, Date startDate, Date endDate, PageInfo info);
 }
