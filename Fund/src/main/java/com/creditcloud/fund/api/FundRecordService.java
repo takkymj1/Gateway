@@ -744,6 +744,21 @@ public interface FundRecordService {
                       String orderId,
                       String description);
 
+
+    /**
+     * 红包奖励--转账
+     * @param clientCode
+     * @param account
+     * @param amount
+     * @param userId
+     * @param transferIn
+     * @param orderId
+     * @param description
+     */
+
+    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description);
+
+
     /**
      *
      * @param clientCode
