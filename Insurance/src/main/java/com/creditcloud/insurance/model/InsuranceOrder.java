@@ -59,19 +59,6 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     private Date insEndDate;
     
     /**
-     * 保险期限
-     */
-    @FormParam(value = "insPeriod")
-    private Integer insPeriod;
-    
-    /**
-     * 保险期限单位
-     */
-    @FormParam(value = "insPeriod")
-    @NotNull
-    private InsPeriodUnit insPeriodUnit;
-    
-    /**
      * 总投保份数
      */
     @FormParam(value = "totalApplyNum")
@@ -94,23 +81,6 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     private String productId;
     
     /**
-     * 交费期限(交费期限单位为趸交时不填)
-     */
-    private Integer payPeriod;
-    
-    /**
-     * 交费期限单位 CD6
-     */
-    @NotNull
-    private PayPeriodUnit payPeriodUnit;
-    
-    /**
-     * 交费方式 CD19
-     */
-    @NotNull
-    private PayMode payMode;
-    
-    /**
      * 平台内状态
      */
     private InsuranceOrderStatus status;
@@ -128,7 +98,7 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     private String originOrderId;
     
     /**
-     * 纪录创建时间
+     * 记录创建时间
      */
     private Date timeCreated;
     

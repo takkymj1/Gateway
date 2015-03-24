@@ -7,11 +7,8 @@ package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
-import com.creditcloud.insurance.model.InsuranceProduct;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
-import com.creditcloud.model.criteria.PageInfo;
-import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
 /**
@@ -21,14 +18,6 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface EnciInsuranceService {
-    
-    /**
-     * 查询所有保险产品
-     *
-     * @param pageInfo
-     * @return
-     */
-    public PagedResult<InsuranceProduct> list(PageInfo pageInfo);
     
     /**
      * 调用远程接口并获取到响应
@@ -52,13 +41,6 @@ public interface EnciInsuranceService {
      * @return 
      */
     public InsurancePolicy createInsurancePolicy(InsurancePolicy policy);
-    
-    /**
-     * 创建保险产品
-     * @param product
-     * @return 
-     */
-    public InsuranceProduct createInsuranceProduct(InsuranceProduct product);
     
     /**
      * 更新InsuranceOrder的proposalNo信息
@@ -103,14 +85,6 @@ public interface EnciInsuranceService {
     public InsurancePolicy findInsurancePolicyById(String clientCode, String insurancePolicyId);
     
     /**
-     * 根据ID查询InsuranceProduct
-     * @param clientCode
-     * @param insuranceProductId
-     * @return 
-     */
-    public InsuranceProduct findInsuranceProductById(String clientCode, String insuranceProductId);
-    
-    /**
      * 根据投保单号查询InsuranceOrder
      * @param clientCode
      * @param proposalNo
@@ -131,6 +105,7 @@ public interface EnciInsuranceService {
      * 加密
      * 
      * @param plainText
+     * @param type 加密类型（MD5, AES）
      * @return 
      */
     public String EnciEncrypt(String plainText, String type);
