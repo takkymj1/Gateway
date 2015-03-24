@@ -100,7 +100,6 @@ public class NetSaveResponse extends BaseResponse {
                 .append(StringUtils.trimToEmpty(getTrxId()))
                 .append(StringUtils.trimToEmpty(getRetUrl()))
                 .append(StringUtils.trimToEmpty(getBgRetUrl()))
-                .append(StringUtils.trimToEmpty(getCardId()))
                 .append(StringUtils.trimToEmpty(getMerPriv()));
         return sb.toString();
     }
