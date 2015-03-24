@@ -139,4 +139,23 @@ public interface FundProductService {
      * @return 
      */
     public PagedResult<FundProductNavRecord> listNavRecordByCodeAndBrandAndNavDate(String fundCode, FundBrand fundBrand, Date startDate, Date endDate, PageInfo info);
+    
+    /**
+     * 设置产品的ordinal
+     *
+     * @param projectId
+     * @param ordinal
+     * @return true if change successful, false if project not found
+     */
+    public boolean changeOrdinal(String projectId, Integer ordinal);
+    
+    /**
+     * 列出下标区间的基金产品
+     *
+     * @param startOrdinal
+     * @param endOrdinal
+     * @return empty list if nothing found
+     */
+    public List<FundProduct> listProductByOrdinal(int startOrdinal, int endOrdinal);
+    
 }
