@@ -21,6 +21,7 @@ public enum FundRecordType implements BaseEnum {
     INVEST_REPAY("投资还款"),
     CREDIT_ASSIGN("债权转让"),
     TRANSFER("转账扣款"),//商户用
+    OFFLINE_DEPOSIT("线下充值"),//线下充值补录数据用
     /**
      * 奖励
      */
