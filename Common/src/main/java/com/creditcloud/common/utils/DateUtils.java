@@ -22,9 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 import static org.apache.commons.lang3.time.DateUtils.addDays;
 import static org.apache.commons.lang3.time.DateUtils.addMonths;
 import static org.apache.commons.lang3.time.DateUtils.addYears;
-import org.joda.time.DateTimeConstants;
-import org.joda.time.LocalDate;
-import org.joda.time.Years;
+
+import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -247,5 +246,21 @@ public class DateUtils {
             return nextWorkingDay(currentDate);
         }
         return currentDate;
+    }
+
+    /**
+     * 判断日期是否在区间内
+     * @param d1 开始日期
+     * @param d2 结束日期
+     * @param signDate 需要判断的日期
+     * @return
+     */
+    public static boolean whetherContained(Date d1,Date d2,Date signDate){
+        DateTime t1 = new DateTime(d1);
+        DateTime t2 = new DateTime(d2);
+        DateTime sd = new DateTime(signDate);
+
+        Interval i = new Interval(t1, t2);
+        return  i.contains(sd);
     }
 }

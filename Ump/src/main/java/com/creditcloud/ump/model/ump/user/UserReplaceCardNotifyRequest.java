@@ -20,6 +20,9 @@ import lombok.ToString;
 @ToString(callSuper=true)
 public class UserReplaceCardNotifyRequest extends NotifyRequest {
     
+    @QueryParam("service")
+    private String realService;
+    
     @QueryParam("user_id")
     private String user_id;
     
@@ -36,7 +39,7 @@ public class UserReplaceCardNotifyRequest extends NotifyRequest {
     private String user_bind_agreement_list;
     
     public UserReplaceCardNotifyRequest() {
-        super(CmdIdType.MER_REPLACE_CARD_NODIFY);
+        super(CmdIdType.MER_BIND_CARD_NOTIFY);
     }
     
     public UserReplaceCardNotifyRequest(String mer_id, 

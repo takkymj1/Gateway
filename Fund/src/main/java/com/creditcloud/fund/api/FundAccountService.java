@@ -4,7 +4,9 @@
  */
 package com.creditcloud.fund.api;
 
+import com.creditcloud.fund.model.CardRecord;
 import com.creditcloud.fund.model.FundAccount;
+import com.creditcloud.model.enums.fund.CardRecordStatus;
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.user.fund.BankAccount;
 import java.util.List;
@@ -141,5 +143,13 @@ public interface FundAccountService {
      */
     public FundAccount getDefaultByUser(String clientCode,
                                         String userId);
+    
+    public void create(CardRecord record);
+    
+    public boolean updateCardRecordStatusAndBank(String userId, String orderId, CardRecordStatus cardRecordStatus, Bank bank);
+    
+    public CardRecord getCardRecordByOrderId(String userId, String orderId);
+    
+    public boolean updateAccount(String id, String account, Bank bank, String name);
 
 }
