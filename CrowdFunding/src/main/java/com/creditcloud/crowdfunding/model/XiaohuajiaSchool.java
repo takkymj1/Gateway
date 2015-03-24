@@ -3,28 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.model.BaseObject;
-import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- *
- * @author rooseek
+ * 中网小画家需要的学校信息
+ * @author zaishu.ye@fengjr.com
  */
-@XmlRootElement
 @Data
 @EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
-public class ProjectLocation extends BaseObject {
-
-    private static final long serialVersionUID = 20140922L;
+@AllArgsConstructor
+@SuppressWarnings("serial")
+public class XiaohuajiaSchool extends BaseObject {
+    private String id;
     
-    private String province;
-
-    private String city;
-
+    private String district;
+    
+    private String pinyin;
+    
+    private String school;
 }

@@ -13,7 +13,6 @@ import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.loan.Invest;
-import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -207,7 +206,7 @@ public interface InvestQueryService {
                                                              List<LoanPurpose> purposeList,
                                                              PageInfo pageInfo);
 
-    public List<Invest> listByUserAndStatusAndLoans(String userId, PageInfo pageInfo, List<InvestStatus> statusList, List<Loan> loanList);
+    public List<Invest> listByUserAndStatusAndLoans(String userId, PageInfo pageInfo, List<InvestStatus> statusList, List<String> loanList);
     
     public List<Invest> listByIdsAndStatus(List<String> investIds, List<InvestStatus> statusList);
     
