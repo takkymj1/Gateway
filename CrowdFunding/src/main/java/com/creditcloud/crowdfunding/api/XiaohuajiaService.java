@@ -23,7 +23,7 @@ import javax.ejb.Remote;
 public interface XiaohuajiaService {
     public PagedResult<XiaohuajiaSchool> searchSchool(CriteriaInfo criteria);
     
-    public PagedResult<Xiaohuajia> searchByKeyword(CriteriaInfo criteria);
+    public PagedResult<Xiaohuajia> searchXiaohuajia(CriteriaInfo criteria);
     
     public PagedResult<Xiaohuajia> findByParentIdAndAuthorName(String parentId, String authorName);
     
