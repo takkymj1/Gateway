@@ -7,8 +7,10 @@ package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsuranceProduct;
 import com.creditcloud.insurance.model.InsuranceProductInfo;
+import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -54,6 +56,23 @@ public interface EnciInsuranceProductService {
      * @return
      */
     public PagedResult<InsuranceProduct> list(PageInfo pageInfo);
+    
+    /**
+     * 根据预期利率、持有时间和类型搜索保险产品
+     * @param pageInfo
+     * @param minRate
+     * @param maxRate
+     * @param minDuration
+     * @param maxDuration
+     * @param types
+     * @return 
+     */
+    public PagedResult<InsuranceProduct> listBySearch(PageInfo pageInfo,
+                                                        BigDecimal minRate,
+                                                        BigDecimal maxRate,
+                                                        Integer minDuration,
+                                                        Integer maxDuration,
+                                                        ProductType... types);
     
     /**
      * 根据ID查询InsuranceProduct
