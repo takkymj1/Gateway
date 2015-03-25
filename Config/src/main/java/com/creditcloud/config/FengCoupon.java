@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.creditcloud.fund.model.enums.CouponType;
+import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -22,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FengCoupon {
+public class FengCoupon extends BaseObject {
     
     private static final long serialVersionUID = 20150325L;
     

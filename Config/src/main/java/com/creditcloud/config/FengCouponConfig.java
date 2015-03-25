@@ -20,7 +20,7 @@ import lombok.Data;
 @NoArgsConstructor
 @XmlRootElement(name = "FengCouponConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FengCouponConfig {
+public class FengCouponConfig extends BaseConfig {
     private static final long serialVersionUID = 20150325L;
 
     public static final String CONFIG_NAME = "FengCouponConfig";
