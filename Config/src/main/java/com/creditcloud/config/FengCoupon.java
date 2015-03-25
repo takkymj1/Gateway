@@ -32,7 +32,10 @@ public class FengCoupon extends BaseObject {
     
     @XmlElement(required = false)
     private BigDecimal amount;
-        
+
+    @XmlElement(required = false)
+    private BigDecimal amountLimit;
+
     @XmlElement(required = false)
     private CouponType type;
     
@@ -44,4 +47,10 @@ public class FengCoupon extends BaseObject {
             
     @XmlElement(required = false)
     private Integer useLimit;
+
+    @XmlElement(required = false)
+    private String preStart;
+
+    @XmlElement(required = false)
+    private String preEnd;
 }

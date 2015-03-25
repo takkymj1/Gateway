@@ -77,4 +77,15 @@ public interface FengCouponRecordService {
      * @return
      */
     boolean updateCouponStatus(String id,CouponStatus status,CouponStatus oldStatus);
+
+    /**
+     * 预热期间 新添红包
+     * @param userId
+     * @param activeId
+     * @param signTime
+     * @param source
+     * @param channel
+     * @return
+     */
+    boolean insertPreNew(String userId, String activeId, Date signTime,Source source,Channel channel);
 }
