@@ -81,6 +81,20 @@ public class CouponRecord extends BaseObject{
                         Date startTime,
                         Date endTime,
                         Channel channel,
-                        Source source) {
+                        Source source,
+                        CouponStatus status) {
+        this.id = id;
+        this.eventId = eventId;
+        this.userId = userId;
+        this.couponType = couponType;
+        this.amount = amount;
+        this.useLimit = useLimit;
+        this.useDescription = useDescription;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.channel = channel;
+        this.source = source;
+        this.status = status;
+
     }
 }
