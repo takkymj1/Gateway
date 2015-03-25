@@ -6,7 +6,7 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
-import com.creditcloud.investmentfund.model.lion.TradingRecord;
+import com.creditcloud.investmentfund.model.lion.FundTradingRecord;
 import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +19,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class QueryTradeRecordResponse extends BaseResponse {
 
-    private List<TradingRecord> resultlist;
+    private List<FundTradingRecord> resultlist;
     
 }

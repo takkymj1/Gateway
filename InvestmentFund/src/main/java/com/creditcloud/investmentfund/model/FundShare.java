@@ -8,7 +8,6 @@ package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
-import com.creditcloud.investmentfund.enums.FundInvestStatus;
 import com.creditcloud.investmentfund.enums.FundStatus;
 import com.creditcloud.investmentfund.enums.FundType;
 import java.math.BigDecimal;
@@ -17,13 +16,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 基金投资记录
+ * 用户基金份额记录
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FundInvest extends FundObject implements FundConstant {
+public class FundShare extends FundObject implements FundConstant {
 
     private static final long serialVersionUID = 20150318L;
     
@@ -69,11 +68,6 @@ public class FundInvest extends FundObject implements FundConstant {
      */
     private BigDecimal frozenShare;
    
-    /**
-     * 基金投资状态
-     */
-    private FundInvestStatus investStatus;
-    
     /**
      * 基金分支代码
      */
