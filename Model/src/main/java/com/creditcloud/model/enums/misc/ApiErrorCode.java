@@ -70,6 +70,7 @@ public enum ApiErrorCode implements BaseEnum {
     MOBILE_AND_NAME_NOT_MATCH("手机号与真实姓名不匹配"),
     MOBILE_CAPTCHA_ALREADY_SENT("手机验证码已经发送"),
     MOBILE_CAPTCHA_EXPIRED("手机验证码已经过期"),
+    MOBILE_CAPTCHA_SEND_FAILED("手机验证码发送失败"),
     MOBILE_ALREADY_EXISTED("手机号已经存在"),
     
     LOGINNAME_ALREADY_EXISTED("登录名已经存在"),
