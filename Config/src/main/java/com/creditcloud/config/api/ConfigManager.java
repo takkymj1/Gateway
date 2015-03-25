@@ -4,30 +4,7 @@
  */
 package com.creditcloud.config.api;
 
-import com.creditcloud.config.AllWinConfig;
-import com.creditcloud.config.CacheConfig;
-import com.creditcloud.config.CertificateConfig;
-import com.creditcloud.config.ChinaPayConfig;
-import com.creditcloud.config.ClientConfig;
-import com.creditcloud.config.ContractSealConfig;
-import com.creditcloud.config.CreditAssignConfig;
-import com.creditcloud.config.CreditManagerConfig;
-import com.creditcloud.config.DeviceManagerConfig;
-import com.creditcloud.config.EmailConfig;
-import com.creditcloud.config.FeeConfig;
-import com.creditcloud.config.FengMessageConfig;
-import com.creditcloud.config.FuiouConfig;
-import com.creditcloud.config.GuaranteeConfig;
-import com.creditcloud.config.LycheePayConfig;
-import com.creditcloud.config.NewHopeConfig;
-import com.creditcloud.config.PaymentConfig;
-import com.creditcloud.config.RedisConfig;
-import com.creditcloud.config.RewardConfig;
-import com.creditcloud.config.SMSConfig;
-import com.creditcloud.config.SentinelConfig;
-import com.creditcloud.config.UmpConfig;
-import com.creditcloud.config.UpYunConfig;
-import com.creditcloud.config.YeepConfig;
+import com.creditcloud.config.*;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
@@ -59,6 +36,7 @@ public interface ConfigManager {
 
     public YeepConfig getYeepConfig();
 
+    public FengCouponConfig getFengCouponConfig();
     /**
      *
      * 获取 redis 配置
