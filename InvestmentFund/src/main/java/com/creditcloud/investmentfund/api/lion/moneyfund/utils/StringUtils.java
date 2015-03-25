@@ -8,7 +8,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,6 +111,45 @@ public abstract class StringUtils {
 
     public final static int toInt(String string) {
         return toInt(string, 0);
+    }
+
+    public final static String toYYYYMMDD(Date date) {
+        String format = "yyyyMMdd";
+        DateFormat sf = new SimpleDateFormat(format);
+        return sf.format(date);
+    }
+
+    public final static Date fromYYYYMMDD(String yyyymmdd) {
+        if (isEmpty(yyyymmdd)) {
+            return null;
+        }
+
+        if (yyyymmdd.length() != 8) {
+            return null;
+        }
+
+        String yyyy = yyyymmdd.substring(0, 4);
+        String mm = yyyymmdd.substring(4, 6);
+        String dd = yyyymmdd.substring(6);
+
+        int year = toInt(yyyy);
+        int month = toInt(mm) - 1;
+        int day = toInt(dd);
+
+        if (year <= 1970) {
+            return null;
+        }
+
+        if (month < 0 || month > 11) {
+            return null;
+        }
+
+        if (day < 0 || day > 31) {
+            return null;
+        }
+
+        Calendar calendar = new GregorianCalendar(year, month, day);
+        return calendar.getTime();
     }
 
     public final static List<String> trimElement(List<String> list) {

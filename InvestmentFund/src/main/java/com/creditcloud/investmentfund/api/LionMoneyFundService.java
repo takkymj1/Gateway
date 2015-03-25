@@ -13,6 +13,7 @@ import com.creditcloud.investmentfund.model.lion.moneyfund.request.SubscriptionR
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.SyncAuthenticateRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.AsyncAuthenticateResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.NotificationResponseMessage;
+import java.util.Date;
 import java.util.Map;
 import javax.ejb.Remote;
 
@@ -85,4 +86,12 @@ public interface LionMoneyFundService {
      * @param message
      */
     void signNotificationResponseMessage(NotificationResponseMessage message);
+    
+    /**
+     * 处理某天的货币基金交易数据文件
+     * @param date 
+     * @param recordProcessor 
+     * @return   如果所有记录处理成功，返回true;如果部分成功或者完全失败，返回false
+     */
+    boolean processDailyTransactionDataFile(Date date,LoinMoneyFundFileRecordProcessor recordProcessor);
 }
