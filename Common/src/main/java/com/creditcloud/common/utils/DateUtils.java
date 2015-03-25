@@ -25,6 +25,7 @@ import static org.apache.commons.lang3.time.DateUtils.addYears;
 
 import org.joda.time.*;
 import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,6 +41,8 @@ public class DateUtils {
     public static final Date FIRST_DATE = new Date(0);
     
     private static Logger logger = LoggerFactory.getLogger(DateUtils.class);
+
+    private static DateTimeFormatter format = DateTimeFormat.forPattern("yyyy-MM-dd");
 
     public static Date offset(final Date asOfDate, final Duration duration) {
         Date result = addYears(asOfDate, duration.getYears());
@@ -250,15 +253,15 @@ public class DateUtils {
 
     /**
      * 判断日期是否在区间内
-     * @param d1 开始日期
-     * @param d2 结束日期
+     * @param d1 开始日期 2015-03-24
+     * @param d2 结束日期 2015-06-23
      * @param signDate 需要判断的日期
      * @return
      */
     public static boolean whetherContained(Date d1,Date d2,Date signDate){
-        DateTime t1 = new DateTime(d1);
-        DateTime t2 = new DateTime(d2);
-        DateTime sd = new DateTime(signDate);
+        DateTime t1 = DateTime.parse(new DateTime(d1).toString("yyyy-MM-dd"),format);
+        DateTime t2 = DateTime.parse(new DateTime(d2).toString("yyyy-MM-dd"),format);
+        DateTime sd = DateTime.parse(new DateTime(signDate).toString("yyyy-MM-dd"),format);
 
         Interval i = new Interval(t1, t2);
         return  i.contains(sd);
