@@ -830,4 +830,7 @@ public interface FundRecordService {
                                        List<FundRecordOperation> operationList,
                                        List<FundRecordType> typeList,
                                        RealmEntity realmEntity);
+
+
+    List<FundRecord> listByUserAndTypeAndOperationAndStatusAndTime(String userId, Date from, Date to, List<FundRecordType> typeList, List<FundRecordOperation> operationList, List<FundRecordStatus> statusList);
 }

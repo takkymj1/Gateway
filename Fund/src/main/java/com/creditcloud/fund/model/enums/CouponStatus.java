@@ -12,7 +12,8 @@ import com.creditcloud.model.enums.BaseEnum;
  * @author caojiadong
  */
 public enum CouponStatus implements BaseEnum {
-    
+
+    ALL("所有"),
     INACTIVE("未使用"),
     WORKING("发放中"),
     ACTIVATED("已使用"),
