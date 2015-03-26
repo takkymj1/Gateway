@@ -63,9 +63,14 @@ public enum Attribute {
     sell,
     
     /**
+     * 交易撤单
+     */
+    tradecancel,
+    
+    /**
      * 查询费率
      */
-    tradecancel;
+    getfundfeerate;
     
     private Attribute() {}
 

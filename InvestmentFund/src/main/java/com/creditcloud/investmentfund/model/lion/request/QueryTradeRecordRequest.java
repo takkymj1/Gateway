@@ -76,17 +76,11 @@ public class QueryTradeRecordRequest extends BaseRequest {
      */
     private String fundcode;
     
-    /**
-     * 申请单编号
-     */
-    private String appsheetserialno;
-    
     public QueryTradeRecordRequest(String merid, 
             String certificateno, 
             String businesscode, 
             String status, 
             String fundcode,
-            String appsheetserialno,
             String begindate, String enddate) {
         super(Attribute.gethisapps, merid);
         this.certificateno = certificateno;
@@ -94,8 +88,6 @@ public class QueryTradeRecordRequest extends BaseRequest {
         this.businesscode = businesscode;
         this.status = status;
         this.fundcode = fundcode;
-        this.appsheetserialno = appsheetserialno;
-        
         this.begindate = begindate;
         this.enddate = enddate;
     }
