@@ -12,7 +12,8 @@ import com.creditcloud.investmentfund.model.Area;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
-import com.creditcloud.investmentfund.model.lion.FundTradingRecord;
+import com.creditcloud.investmentfund.model.lion.FundTradingRequestRecord;
+import com.creditcloud.investmentfund.model.lion.request.QueryFundDividendRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundFeeRateRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryTradeRecordRequest;
@@ -20,8 +21,10 @@ import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRegisterRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRiskAssessmentRequest;
+import com.creditcloud.investmentfund.model.lion.response.QueryFundDividendResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryFundFeeRateResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryFundShareResponse;
+import com.creditcloud.investmentfund.model.lion.response.QueryTradeConfirmRecordResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryTradeRecordResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeBuyFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeSellFundResponse;
@@ -158,5 +161,19 @@ public interface LionFundService {
      * @return 
      */
     public Area getAreaByCodeAndLevel(String code, AreaLevel areaLevel);
+    
+    /**
+     * 查询交易确认结果
+     * @param request
+     * @return 
+     */
+    public QueryTradeConfirmRecordResponse queryTradingConfirmRecord(QueryTradeRecordRequest request);
+    
+    /**
+     * 查询用户收益
+     * @param request
+     * @return 
+     */
+    public QueryFundDividendResponse queryFundDividendRecord(QueryFundDividendRequest request);
     
 }

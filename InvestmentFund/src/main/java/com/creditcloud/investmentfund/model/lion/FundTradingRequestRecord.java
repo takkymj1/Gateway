@@ -11,13 +11,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 基金交易记录
+ * 基金交易申请记录
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @NoArgsConstructor
-public class FundTradingRecord extends BaseObject {
+public class FundTradingRequestRecord extends BaseObject {
 
     /**
      * 申请单编号
