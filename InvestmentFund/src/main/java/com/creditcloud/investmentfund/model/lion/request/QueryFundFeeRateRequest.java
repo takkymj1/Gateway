@@ -68,7 +68,7 @@ public class QueryFundFeeRateRequest extends BaseRequest {
             String applicationvol,
             String applicationamount,
             String fundcode) {
-        super(Attribute.tradecancel, merid);
+        super(Attribute.getfundfeerate, merid);
         this.sharetype = shareType;
         this.channelid = channelid;
         this.tano = tano;
