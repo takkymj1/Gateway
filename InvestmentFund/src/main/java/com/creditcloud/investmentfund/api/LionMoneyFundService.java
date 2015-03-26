@@ -90,8 +90,7 @@ public interface LionMoneyFundService {
     /**
      * 处理某天的货币基金交易数据文件
      * @param date 
-     * @param recordProcessor 
      * @return   如果所有记录处理成功，返回true;如果部分成功或者完全失败，返回false
      */
-    boolean processDailyTransactionDataFile(Date date,LoinMoneyFundFileRecordProcessor recordProcessor);
+    LoinMoneyFundFileRecordProcessResult processDailyTransactionDataFile(Date date);
 }
