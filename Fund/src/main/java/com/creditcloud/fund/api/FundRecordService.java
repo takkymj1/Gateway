@@ -756,7 +756,7 @@ public interface FundRecordService {
      * @param description
      */
 
-    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description);
+    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description, com.creditcloud.model.misc.RealmEntity entity);
 
 
     /**
