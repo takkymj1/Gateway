@@ -7,6 +7,7 @@
 package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundType;
 import java.math.BigDecimal;
 import java.util.Date;
 import lombok.AllArgsConstructor;
@@ -37,6 +38,11 @@ public class FundIncomeRecord extends FundObject {
      * 基金品牌
      */
     private FundBrand fundBrand;
+    
+    /**
+     * 基金类型
+     */
+    private FundType fundType;
     
     /**
      * 客户当日收益 (货币)
