@@ -7,6 +7,9 @@
 package com.creditcloud.investmentfund.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.Getter;
 
 /**
@@ -33,7 +36,17 @@ public enum TradingRecordType implements BaseEnum {
     AGREEMENT_AUTOMATIC_REDEMING_AND_TRANSFER_OPENED("定赎、定转协议开通", "69"),
     AGREEMENT_AUTOMATIC_REDEMING_AND_TRANSFER_CANCELED("定赎、定转协议撤销", "70");
     
+    private static final Map<String, TradingRecordType> lionFundMap;
+
     private final String key;
+    
+    static {
+        Map<String, TradingRecordType> map = new HashMap<>(TradingRecordType.values().length);
+        for (TradingRecordType type : TradingRecordType.values()) {
+            map.put(type.getLionFundCode(), type);
+        }
+        lionFundMap = Collections.unmodifiableMap(map);
+    }
     
     @Getter
     private final String lionFundCode;
@@ -48,4 +61,14 @@ public enum TradingRecordType implements BaseEnum {
         return key;
     }
 
+    /**
+     * 从LionFund代码构造TradingRecordType对象
+     *
+     * @param lionFundCode
+     * @return 找不到code则返回NULL
+     */
+    public static TradingRecordType getEnumFromLionFundCode(String lionFundCode) {
+        return lionFundMap.containsKey(lionFundCode) ? lionFundMap.get(lionFundCode) : null;
+    }
+    
 }

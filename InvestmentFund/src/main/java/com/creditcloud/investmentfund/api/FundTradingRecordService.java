@@ -20,7 +20,8 @@ import javax.ejb.Remote;
 public interface FundTradingRecordService {
 
     /**
-     * 新增一条交易记录
+     * 新增一条交易记录 <br>
+     * 如果已经存在则更新当前记录
      * 
      * @param fundTradingRecord 交易记录
      * @return 
