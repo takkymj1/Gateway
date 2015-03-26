@@ -11,7 +11,7 @@ package com.creditcloud.model.enums;
  */
 public enum Channel implements BaseEnum {
     
-    WEBCHAT("微信");
+    WECHAT("微信");
     
     private final String key;
 

@@ -744,6 +744,21 @@ public interface FundRecordService {
                       String orderId,
                       String description);
 
+
+    /**
+     * 红包奖励--转账
+     * @param clientCode
+     * @param account
+     * @param amount
+     * @param userId
+     * @param transferIn
+     * @param orderId
+     * @param description
+     */
+
+    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description, com.creditcloud.model.misc.RealmEntity entity);
+
+
     /**
      *
      * @param clientCode
@@ -815,4 +830,7 @@ public interface FundRecordService {
                                        List<FundRecordOperation> operationList,
                                        List<FundRecordType> typeList,
                                        RealmEntity realmEntity);
+
+
+    List<FundRecord> listByUserAndTypeAndOperationAndStatusAndTime(String userId, Date from, Date to, List<FundRecordType> typeList, List<FundRecordOperation> operationList, List<FundRecordStatus> statusList);
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<FengCouponConfig>
+    <registerCoupon>
+        <eventId>REGISTERCOUPON-20150403-001</eventId>
+        <amount>50.00</amount>
+        <amountLimit>5000.00</amountLimit>
+        <type>REGISTER_COUPON</type>
+        <period>60</period> <!-- 天 -->
+        <description>投资金额超过5000元（含）</description> 
+        <useLimit>1</useLimit>
+        <preStart>2015-03-30</preStart>
+        <preEnd>2015-04-02</preEnd>
+    </registerCoupon>
+</FengCouponConfig>
