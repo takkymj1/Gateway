@@ -22,6 +22,15 @@ import lombok.NoArgsConstructor;
 public class QueryFundFeeRateRequest extends BaseRequest {
 
     /**
+     * 身份证号
+     */
+    private String certificateno;
+    
+    /**
+     * 证件号类型
+     */
+    private String certificatetype;
+    /**
      * 收费方式
      * 
      * A:前收费
@@ -61,6 +70,7 @@ public class QueryFundFeeRateRequest extends BaseRequest {
     private String fundcode;
     
     public QueryFundFeeRateRequest(String merid, 
+            String certificateno,
             String shareType,
             String channelid,
             String tano,
@@ -69,6 +79,8 @@ public class QueryFundFeeRateRequest extends BaseRequest {
             String applicationamount,
             String fundcode) {
         super(Attribute.getfundfeerate, merid);
+        this.certificateno = certificateno;
+        this.certificatetype = "0";
         this.sharetype = shareType;
         this.channelid = channelid;
         this.tano = tano;
