@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.TradingRecordPayStatus;
+import com.creditcloud.investmentfund.enums.TradingRecordResult;
 import com.creditcloud.investmentfund.enums.TradingRecordStatus;
 import com.creditcloud.investmentfund.enums.TradingRecordType;
 import java.math.BigDecimal;
@@ -42,7 +43,12 @@ public class FundTradingRecord extends FundObject {
     private String orderId;
     
     /**
-     * 交易申请日期(YYYYMMDD)
+     * 关联订单号（确认申请单编号）
+     */
+    private String parentOrderId;
+    
+    /**
+     * 交易申请日期或者交易确认日期(YYYYMMDD)
      */
     private Date transactionDate;
     
@@ -57,19 +63,19 @@ public class FundTradingRecord extends FundObject {
     private String fundCode;
     
     /**
-     * 基金名称
-     */
-    private String fundName;
-    
-    /**
-     * 申请金额(元)
+     * 申请或确认金额(元)
      */
     private BigDecimal amount;
     
     /**
-     * 申请份额
+     * 申请活确认份额
      */
     private BigDecimal share;
+    
+    /**
+     * 手续费
+     */
+    private BigDecimal procedureFee;
     
     /**
      * 处理状态
@@ -82,14 +88,19 @@ public class FundTradingRecord extends FundObject {
     private TradingRecordPayStatus payStatus;
     
     /**
-     * 银行卡号
-     */
-    private String bankAccount;
-    
-    /**
      * 操作日期
      */
     private Date operationTime;
+    
+    /**
+     * 备注
+     */
+    private String remark;
+    
+    /**
+     * 交易结果
+     */
+    private TradingRecordResult result;
     
     /**
      * 基金品牌

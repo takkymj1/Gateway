@@ -6,9 +6,13 @@
 
 package com.creditcloud.investmentfund.model;
 
+import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundType;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -18,7 +22,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class FundProductNavRecord extends FundObject {
+public class FundProductNavRecord extends FundObject implements FundConstant {
     
     /**
      * UUID
@@ -40,6 +44,11 @@ public class FundProductNavRecord extends FundObject {
     private FundBrand fundBrand;
     
     /**
+     * 基金类型
+     */
+    private FundType fundType;
+    
+    /**
      * 资产净值
      * 
      * @return
@@ -59,6 +68,52 @@ public class FundProductNavRecord extends FundObject {
      * @return
      */
     private BigDecimal totalNav;
+    
+    /**
+     * 万份收益 （货币型基金）
+     * 
+     * @return
+     */
+    @Column(nullable = false,
+            precision = 15,
+            scale = 4)
+    private BigDecimal netIncomePerMillion;
+    
+    /**
+     * 近一个月涨幅
+     */
+    @Column(nullable = true)
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = 1,
+                        max = MAX_RATE)
+    private int oneMonthRate;
+    
+    /**
+     * 近三个月涨幅
+     */
+    @Column(nullable = true)
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = 1,
+                        max = MAX_RATE)
+    private int threeMonthRate;
+    
+    /**
+     * 今年以来涨幅
+     */
+    @Column(nullable = true)
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = 1,
+                        max = MAX_RATE)
+    private int oneYearRate;
+    
+    /**
+     * 七日年化收益（货币型基金）
+     */
+    @Column(nullable = true)
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = 1,
+                        max = MAX_RATE)
+    private int rate;
     
     /**
      * 记录时间
