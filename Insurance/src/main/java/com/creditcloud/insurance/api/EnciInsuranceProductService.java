@@ -81,4 +81,20 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProduct findInsuranceProductById(String clientCode, String insuranceProductId);
+    
+    /**
+     * 根据保险产品ID查找保险产品详情
+     * @param clientCode
+     * @param insuranceProductId
+     * @return 
+     */
+    public InsuranceProductInfo findInsuranceProductInfoByProductId(String clientCode, String insuranceProductId);
+    
+    /**
+     * 根据ID查询保险产品详情
+     * @param clientCode
+     * @param infoId
+     * @return 
+     */
+    public InsuranceProductInfo findInsuranceProductInfoById(String clientCode, String infoId);
 }
