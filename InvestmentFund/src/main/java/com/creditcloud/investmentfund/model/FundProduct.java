@@ -85,6 +85,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private BigDecimal totalNav;
     
     /**
+     * 万份收益 （货币型基金）
+     */
+    private BigDecimal netIncomePerMillion;
+    
+    /**
      * 近一个月涨幅
      */
     @IncrementalInteger(min = MIN_RATE,
@@ -171,6 +176,7 @@ public class FundProduct extends FundObject implements FundConstant{
      * @return
      */
     private Date fundDate;
+    
     
     /**
      * 展示顺序
