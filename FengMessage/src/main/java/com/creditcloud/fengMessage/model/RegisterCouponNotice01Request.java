@@ -6,11 +6,15 @@
 package com.creditcloud.fengMessage.model;
 
 import com.creditcloud.fengMessage.model.base.BaseRequest;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author caojiadong
  */
+@Data
+@NoArgsConstructor
 public class RegisterCouponNotice01Request extends BaseRequest {
     
     public String date;
