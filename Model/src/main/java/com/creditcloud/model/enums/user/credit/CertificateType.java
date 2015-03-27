@@ -33,6 +33,7 @@ public enum CertificateType implements BaseEnum {
      * 跟基金相关
      */
     INVESTMENTFUND("基金相关"),
+    INSURANCE("保险相关"),
     OTHERS("其他认证");
 
     private final String key;
