@@ -23,11 +23,11 @@ import javax.ejb.Remote;
 public interface XiaohuajiaService {
     public PagedResult<XiaohuajiaSchool> searchSchool(CriteriaInfo criteria);
     
-    public PagedResult<Xiaohuajia> searchXiaohuajia(CriteriaInfo criteria);
-    
     public PagedResult<Xiaohuajia> findByParentIdAndAuthorName(String parentId, String authorName);
     
     public PagedResult<Xiaohuajia> findByStatus(List<XiaohuajiaSignupStatus> status, PageInfo pageInfo);
+    
+    public PagedResult<Xiaohuajia> findByQAndStatus(String q, List<XiaohuajiaSignupStatus> status, PageInfo pageInfo);
     
     public Xiaohuajia findById(String id);
     
@@ -36,6 +36,8 @@ public interface XiaohuajiaService {
     public boolean add(Xiaohuajia x);
     
     public boolean upload(String id, String authorPhoto, String paintName, String paintIntroduction, String paintPicture);
+    
+    public boolean updateStatus(String id, XiaohuajiaSignupStatus status);
     
     public boolean zcCreated(String id, String zcId);
 }
