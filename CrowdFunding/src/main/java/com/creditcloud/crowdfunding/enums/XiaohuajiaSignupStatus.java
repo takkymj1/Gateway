@@ -18,7 +18,10 @@ public enum XiaohuajiaSignupStatus implements BaseEnum {
     VERIFY_FAILED("审核失败"),
     VERIFY_SUCCESS("审核通过"),
     ZC_CREATED("众筹中"),
-    ZC_FINISHED("众筹完成");
+    ZC_FINISHED("众筹完成"),
+    ZC_FAILED("众筹失败"),
+    ZC_SETTLED("已结算"),
+    ZC_ACHIVED("已归档");
     
     private final String key;
 

@@ -37,5 +37,7 @@ public interface XiaohuajiaService {
     
     public boolean upload(String id, String authorPhoto, String paintName, String paintIntroduction, String paintPicture);
     
+    public boolean updateStatus(String id, XiaohuajiaSignupStatus status);
+    
     public boolean zcCreated(String id, String zcId);
 }
