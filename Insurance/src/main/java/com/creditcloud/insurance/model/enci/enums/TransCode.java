@@ -57,7 +57,7 @@ public enum TransCode implements BaseEnum {
     /**
      * 保险产品收益查询
      */
-    ProductProfitQuery("100017", "/insurance/product/profitQuery.raest"),
+    ProductProfitQuery("100017", "/insurance/product/profitQuery.rest"),
     
     /**
      * 保单收益查询

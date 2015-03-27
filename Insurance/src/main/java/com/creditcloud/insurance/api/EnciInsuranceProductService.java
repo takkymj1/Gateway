@@ -97,4 +97,14 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProductInfo findInsuranceProductInfoById(String clientCode, String infoId);
+    
+    /**
+     * 更新产品的净值和当日年化利率
+     * @param clientCode
+     * @param infoId
+     * @param nav
+     * @param dayRate
+     * @return 
+     */
+    public InsuranceProductInfo updateNavAndDayRate(String clientCode, String infoId, BigDecimal nav, BigDecimal dayRate);
 }
