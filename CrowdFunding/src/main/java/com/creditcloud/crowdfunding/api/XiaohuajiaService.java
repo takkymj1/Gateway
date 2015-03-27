@@ -23,11 +23,11 @@ import javax.ejb.Remote;
 public interface XiaohuajiaService {
     public PagedResult<XiaohuajiaSchool> searchSchool(CriteriaInfo criteria);
     
-    public PagedResult<Xiaohuajia> searchXiaohuajia(CriteriaInfo criteria);
-    
     public PagedResult<Xiaohuajia> findByParentIdAndAuthorName(String parentId, String authorName);
     
     public PagedResult<Xiaohuajia> findByStatus(List<XiaohuajiaSignupStatus> status, PageInfo pageInfo);
+    
+    public PagedResult<Xiaohuajia> findByQAndStatus(String q, List<XiaohuajiaSignupStatus> status, PageInfo pageInfo);
     
     public Xiaohuajia findById(String id);
     
