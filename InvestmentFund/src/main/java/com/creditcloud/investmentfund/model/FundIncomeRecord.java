@@ -45,6 +45,11 @@ public class FundIncomeRecord extends FundObject {
     private FundType fundType;
     
     /**
+     * 拥有该基金份额(元) 两位小数 （非货币型基金有效）
+     */
+    private BigDecimal share;
+    
+    /**
      * 客户当日收益 (货币)
      */
     private BigDecimal income;

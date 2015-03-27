@@ -33,7 +33,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * 诺安基金
+ * 诺安基金接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */

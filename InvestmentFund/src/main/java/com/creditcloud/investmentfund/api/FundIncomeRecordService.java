@@ -13,6 +13,7 @@ import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
 /**
+ * 用户基金收益记录（图表展示）
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */

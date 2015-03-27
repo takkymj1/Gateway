@@ -17,7 +17,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * 基金产品
+ * 基金产品接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */

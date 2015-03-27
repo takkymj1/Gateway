@@ -15,7 +15,8 @@ import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
 /**
- * 基金交易记录
+ * 基金交易记录接口
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Remote
