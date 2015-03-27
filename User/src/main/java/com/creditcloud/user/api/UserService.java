@@ -157,6 +157,20 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      */
     User setIdAndName(String clientCode, String userId, String name, String idNumber);
 
+    /**
+     * 为指定用户设置身份证号码、真实姓名和电子邮箱.
+     * 
+     * 不会做任何验证，直接update内容
+     * 
+     * @param clientCode
+     * @param userId
+     * @param name
+     * @param idNumber
+     * @param email
+     * @return 
+     */
+    User setIdAndNameAndEmail(String clientCode, String userId, String name, String idNumber, String email);
+    
     //find methods
     /**
      * find user by login name
