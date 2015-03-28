@@ -13,12 +13,11 @@ import javax.json.Json;
  * @author zaishu.ye@fengjr.com
  */
 public enum XiaohuajiaSignupStatus implements BaseEnum {
-    SIGNUP("可报名"),
-    UPLOAD("待上传作品"),
-    VERIFY("审核中"),
-    VERIFY_FAILED("审核未通过"),
+    UPLOAD("待上传"),
+    VERIFY("待审核"),
+    VERIFY_FAILED("审核失败"),
     VERIFY_SUCCESS("审核通过"),
-    ZC_CREATED("众筹已创建"),
+    ZC_CREATED("众筹中"),
     ZC_FINISHED("众筹完成");
     
     private final String key;
