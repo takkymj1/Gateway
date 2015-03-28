@@ -7,14 +7,23 @@
 package com.creditcloud.investmentfund.model.lion;
 
 import com.creditcloud.model.BaseObject;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 基金交易确认记录
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
+@NoArgsConstructor
 public class FundTradingConfirmRecord extends BaseObject {
 
+    /**
+     * 申请单编号
+     */
+    private String appsheetserialno;
+    
     /**
      * 申请日期(YYYYMMDD)
      */
