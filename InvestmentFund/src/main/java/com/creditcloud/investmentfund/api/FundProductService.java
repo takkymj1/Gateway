@@ -157,5 +157,24 @@ public interface FundProductService {
      * @return empty list if nothing found
      */
     public List<FundProduct> listProductByOrdinal(int startOrdinal, int endOrdinal);
+ 
+    /**
+     * 获取某天基金产品净值
+     * 
+     * @param fundCode
+     * @param fundBrand
+     * @param navDate
+     * @return 
+     */
+    public FundProductNavRecord getFundProductNavRecord(String fundCode, FundBrand fundBrand, Date navDate);
     
+    /**
+     * 获取某天之前的最近一次产品净值
+     * 
+     * @param fundCode
+     * @param fundBrand
+     * @param navDate
+     * @return 
+     */
+    public FundProductNavRecord getByCodeAndBrandAndRecentlyNavDate(String fundCode, FundBrand fundBrand, Date navDate);
 }

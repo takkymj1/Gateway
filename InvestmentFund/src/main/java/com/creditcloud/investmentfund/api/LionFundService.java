@@ -180,7 +180,6 @@ public interface LionFundService {
      * 查询基金产品并入库（基金产品&基金净值）
      * 
      * 异步
-     * @return 
      */
-    public boolean asyncUpdateFundProducts();
+    public void asyncUpdateFundProducts();
 }

@@ -7,9 +7,11 @@
 package com.creditcloud.investmentfund.api;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.model.FundIncomeRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -39,4 +41,14 @@ public interface FundIncomeRecordService {
      */
     public PagedResult<FundIncomeRecord> listByUserIdAndCodeAndBrand(String userId, String fundCode, FundBrand fundBrand, PageInfo pageInfo);
     
+    /**
+     * 获取某天的用户基金收益
+     * 
+     * @param userId        用户ID
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       净值日期
+     * @return 
+     */
+    public FundIncomeRecord getByUserAndProductAndDate(String userId, String fundCode, FundBrand fundBrand, Date navDate);
 }
