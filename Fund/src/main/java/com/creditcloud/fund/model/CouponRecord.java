@@ -70,6 +70,10 @@ public class CouponRecord extends BaseObject{
      */
     private CouponStatus status;
 
+    /**
+     * 已使用--->使用时间
+     */
+    private Date useTime;
 
     public CouponRecord(String id,
                         String eventId,
@@ -82,7 +86,8 @@ public class CouponRecord extends BaseObject{
                         Date endTime,
                         Channel channel,
                         Source source,
-                        CouponStatus status) {
+                        CouponStatus status,
+                        Date useTime) {
         this.id = id;
         this.eventId = eventId;
         this.userId = userId;
@@ -95,6 +100,6 @@ public class CouponRecord extends BaseObject{
         this.channel = channel;
         this.source = source;
         this.status = status;
-
+        this.useTime = useTime;
     }
 }
