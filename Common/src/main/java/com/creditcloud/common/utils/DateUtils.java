@@ -263,7 +263,11 @@ public class DateUtils {
         DateTime t2 = DateTime.parse(new DateTime(d2).toString("yyyy-MM-dd"),format);
         DateTime sd = DateTime.parse(new DateTime(signDate).toString("yyyy-MM-dd"),format);
 
-        Interval i = new Interval(t1, t2);
-        return  i.contains(sd);
+        if (t1.compareTo(sd)<=0 && t2.compareTo(sd)>=0){
+            return true;
+        }
+
+        return  false;
     }
+
 }
