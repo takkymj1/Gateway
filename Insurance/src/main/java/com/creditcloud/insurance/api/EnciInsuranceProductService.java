@@ -7,10 +7,12 @@ package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsuranceProduct;
 import com.creditcloud.insurance.model.InsuranceProductInfo;
+import com.creditcloud.insurance.model.InsuranceProductNavRecord;
 import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -107,4 +109,22 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProductInfo updateNavAndDayRate(String clientCode, String infoId, BigDecimal nav, BigDecimal dayRate);
+    
+    /**
+     * 添加新的保险净值记录
+     * @param clientCode
+     * @param record
+     * @return 
+     */
+    public InsuranceProductNavRecord createNavRecord(String clientCode, InsuranceProductNavRecord record);
+    
+    /**
+     * 根据净值、当日年化收益率和计价日查询保险净值记录
+     * @param clientCode
+     * @param nav
+     * @param dayRate
+     * @param valutionDate
+     * @return 
+     */
+    public InsuranceProductNavRecord getByNavAndDate(String clientCode, BigDecimal nav, BigDecimal dayRate, Date valutionDate);
 }
