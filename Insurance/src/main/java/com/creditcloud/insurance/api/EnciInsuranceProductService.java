@@ -127,4 +127,20 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProductNavRecord getByNavAndDate(String clientCode, BigDecimal nav, BigDecimal dayRate, Date valutionDate);
+    
+    /**
+     * 编辑保险产品信息
+     * @param clientCode
+     * @param product
+     * @return 
+     */
+    public InsuranceProduct editProduct(String clientCode, InsuranceProduct product);
+    
+    /**
+     * 编辑保险产品详情信息
+     * @param clientCode
+     * @param info
+     * @return 
+     */
+    public InsuranceProductInfo editProductInfo(String clientCode, InsuranceProductInfo info);
 }
