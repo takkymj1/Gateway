@@ -7,6 +7,7 @@
 package com.creditcloud.investmentfund.api;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.model.FundProduct;
 import com.creditcloud.investmentfund.model.FundProductNavRecord;
 import com.creditcloud.model.criteria.PageInfo;
@@ -86,14 +87,24 @@ public interface FundProductService {
     public boolean updateManualInputParameters(String productId, int expectedRate, int proposedHoldDuration);
     
     /**
-     * 查询所有诺安基金产品
+     * 查询所有基金产品
      *
-     * @param brandList 品牌
+     * @param brandList 基金品牌
      * @param pageInfo  分页信息
      * 
      * @return
      */
     public PagedResult<FundProduct> listByBrand(List<FundBrand> brandList, PageInfo pageInfo);
+    
+    /**
+     * 查询所有基金产品
+     * 
+     * @param typeList      基金类型
+     * @param brandList     基金品牌
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<FundProduct> listByTypeAndBrand(List<FundType> typeList, List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
      * 查询所有诺安基金产品
