@@ -13,7 +13,7 @@ import com.creditcloud.model.misc.PagedResult;
 import javax.ejb.Remote;
 
 /**
- * 用户基金份额记录（目前只有货币基金）
+ * 用户基金份额记录（目前只有非货币基金）
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
