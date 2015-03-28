@@ -45,4 +45,5 @@ public class Xiaohuajia extends BaseObject {
     private String reviewComments;//审核备注
     private Date reviewTime;//审核时间
     private String zcId;//创建为众筹后的众筹ID
+    private FundingProject project;//众筹项目
 }
