@@ -59,6 +59,17 @@ public interface UserCreditService {
      * @return
      */
     public Proof addProof(String clientCode, String userId, Proof proof);
+    
+    /**
+     * 为某一认证类型，添加Proof
+     * 
+     * 该认证与用户无关（如对保险、基金的认证），且此认证类型在平台内应只存在一个，此类Proof通过owner/proofType/contentType/content/ 保证唯一性</p>
+     * Proof的owner再针对具体的基金或保险产品
+     * @param clientCode
+     * @param proof
+     * @return 
+     */
+    public Proof addProof(String clientCode, Proof proof);
 
     /**
      * delete proof by id
@@ -180,6 +191,16 @@ public interface UserCreditService {
      * @return
      */
     public List<Proof> listProofByEntityAndType(String clientCode, String userId, RealmEntity entity, ProofContentType... contentType);
+    
+    /**
+     * 根据owner/contentType列出proof
+     *
+     * @param clientCode
+     * @param owner
+     * @param contentType
+     * @return
+     */
+    public List<Proof> listProofByOwnerAndType(String clientCode, RealmEntity owner, ProofContentType... contentType);
 
     /**
      * list all certificate for a user
