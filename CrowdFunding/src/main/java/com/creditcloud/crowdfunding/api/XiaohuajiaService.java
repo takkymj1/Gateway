@@ -31,6 +31,8 @@ public interface XiaohuajiaService {
     
     public Xiaohuajia findById(String id);
     
+    public Xiaohuajia findByZcId(String zcId);
+    
     public PagedResult<Xiaohuajia> findByParentId(String parentId);
     
     public boolean add(Xiaohuajia x);
