@@ -51,4 +51,9 @@ public interface StringLockPrefix {
      * 标的还款
      */
     String Loan_Repay_Lock = "loan.repay.lock";
+
+    /**
+     * 新人红包
+     */
+    String coupon_newUser_lock = "coupon.newUser.lock";
 }
