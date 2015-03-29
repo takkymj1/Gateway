@@ -45,6 +45,11 @@ public class FundIncomeRecord extends FundObject {
     private FundType fundType;
     
     /**
+     * 拥有该基金份额(元) 两位小数 （非货币型基金有效）
+     */
+    private BigDecimal share;
+    
+    /**
      * 客户当日收益 (货币)
      */
     private BigDecimal income;
@@ -60,4 +65,11 @@ public class FundIncomeRecord extends FundObject {
      * 货币基金： yyyyMMdd 表明是哪一天的收益数据 例如:周一下发周五,周六,周日三笔记录，对应的收益分配日分别为周五，周六，周日。	否
      */
     private Date paymentDate;
+    
+    /**
+     * 净值日期
+     * 
+     * @return
+     */
+    private Date navDate;
 }

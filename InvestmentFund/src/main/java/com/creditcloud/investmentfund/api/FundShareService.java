@@ -6,14 +6,14 @@
 
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.model.FundShare;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
- * 基金份额记录
+ * 用户基金份额记录（目前只有非货币基金）
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
@@ -29,7 +29,7 @@ public interface FundShareService {
     public FundShare addNew(FundShare fundShare);
             
     /**
-     * 获取基金投资列表
+     * 获取基金份额列表
      * 
      * @param userId        用户ID 
      * @param pageInfo      分页信息
@@ -38,10 +38,12 @@ public interface FundShareService {
     public PagedResult<FundShare> listByUserId(String userId, PageInfo pageInfo);
     
     /**
-     * 获取用户资金
+     * 获取基金份额
      * 
-     * @param userId        用户ID
+     * @param userId    用户ID
+     * @param fundCode  基金代码
+     * @param fundBrand 基金品牌
      * @return 
      */
-    public BigDecimal sumByUserId(String userId);
+    public FundShare getByUserIdAndCodeAndBrand(String userId, String fundCode, FundBrand fundBrand);
 }
