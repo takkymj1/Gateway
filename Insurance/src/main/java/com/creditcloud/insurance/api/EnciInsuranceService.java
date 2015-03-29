@@ -10,7 +10,6 @@ import com.creditcloud.insurance.model.InsurancePolicy;
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -21,7 +20,7 @@ import javax.ejb.Remote;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Remote
-public interface EnciInsuranceService {
+public interface EnciInsuranceService extends EnciInsuranceStatService{
     
     /**
      * 调用远程接口并获取到响应
