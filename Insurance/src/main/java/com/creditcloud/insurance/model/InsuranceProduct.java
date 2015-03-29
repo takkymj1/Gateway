@@ -4,6 +4,7 @@ import com.creditcloud.insurance.constant.InsuranceConstant;
 import com.creditcloud.insurance.model.enci.enums.InsPeriodUnit;
 import com.creditcloud.insurance.model.enci.enums.PayMode;
 import com.creditcloud.insurance.model.enci.enums.PayPeriodUnit;
+import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Min;
@@ -68,6 +69,11 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     private String code;
     
     /**
+     * 保险类型
+     */
+    private ProductType type;
+    
+    /**
      * 保额
      * 
      * 以元为单位
@@ -104,7 +110,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     /**
      * 预期收益率（平台提供）
      */
-    private int expectedRate;
+    private BigDecimal expectedRate;
     
     /**
      * 平台内状态

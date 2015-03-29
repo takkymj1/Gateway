@@ -10,26 +10,23 @@ import com.creditcloud.investmentfund.model.lion.moneyfund.PurchaseConfirmRecord
 import com.creditcloud.investmentfund.model.lion.moneyfund.RedeemConfirmRecord;
 import com.creditcloud.investmentfund.model.lion.moneyfund.UserIncomeRecord;
 import com.creditcloud.investmentfund.model.lion.moneyfund.DividendConfirmRecord;
-import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author guohuazhang
  */
-public interface LoinMoneyFundFileRecordProcessor extends LoinMoneyFundFileRecordProcessResult {
+public interface LoinMoneyFundFileRecordProcessResult {
 
-    void setDayOfDataToProcess(Date date);
+    List<PurchaseConfirmRecord> getNotProcessedPurchaseConfirmRecords();
 
-    void setPurchaseConfirmRecords(List<PurchaseConfirmRecord> records);
+    List<RedeemConfirmRecord> getNotProcessedRedeemConfirmRecords();
 
-    void setRedeemConfirmRecords(List<RedeemConfirmRecord> records);
+    List<FundNavRecord> getNotProcessedFundNavRecords();
 
-    void setFundNavRecords(List<FundNavRecord> records);
+    List<DividendConfirmRecord> getNotProcessedDividendConfirmRecords();
 
-    void setDividendConfirmRecords(List<DividendConfirmRecord> records);
+    List<UserIncomeRecord> getNotProcessedUserIncomeRecords();
 
-    void setUserIncomeRecords(List<UserIncomeRecord> records);
-
-    boolean process();
+    boolean isSuccess();
 }
