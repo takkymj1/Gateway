@@ -104,5 +104,6 @@ public class UserRegisterRequest extends BaseRequest {
         this.pointlist = pointlist;
         this.answerlist = answerlist;
         this.mobileno = mobile;
+        this.needidentify = "0";
     }
 }
