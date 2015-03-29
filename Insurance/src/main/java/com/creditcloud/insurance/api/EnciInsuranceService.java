@@ -7,8 +7,11 @@ package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
+import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,7 +20,7 @@ import javax.ejb.Remote;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Remote
-public interface EnciInsuranceService {
+public interface EnciInsuranceService extends EnciInsuranceStatService{
     
     /**
      * 调用远程接口并获取到响应
@@ -109,4 +112,39 @@ public interface EnciInsuranceService {
      * @return 
      */
     public String EnciEncrypt(String plainText, String type);
+    
+    /**
+     * 根据状态查询主保险订单
+     * 
+     * 即不包括追加订单
+     * @param clientCode
+     * @param status
+     * @return 
+     */
+    public List<InsuranceOrder> listByStatus(String clientCode, InsuranceOrderStatus... status);
+    
+    /**
+     * 创建新的保单收益记录
+     * @param clientCode
+     * @param profitRecord
+     * @return 
+     */
+    public InsurancePolicyProfitRecord createProfitRecord(String clientCode, InsurancePolicyProfitRecord profitRecord);
+    
+    /**
+     * 根据保单号和计价日查询保单收益记录
+     * @param clientCode
+     * @param policyNo
+     * @param valuationDate
+     * @return 
+     */
+    public InsurancePolicyProfitRecord getByPolicyNoAndDate(String clientCode, String policyNo, Date valuationDate);
+    
+    /**
+     * 修改保单收益记录的数据
+     * @param clientCode
+     * @param profitRecord
+     * @return 
+     */
+    public InsurancePolicyProfitRecord eidtProfitRecord(String clientCode, InsurancePolicyProfitRecord profitRecord);
 }
