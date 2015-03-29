@@ -12,6 +12,7 @@ import com.creditcloud.investmentfund.model.FundIncomeRecord;
 import com.creditcloud.investmentfund.model.UserIncomeRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.ejb.Remote;
 
@@ -63,4 +64,13 @@ public interface FundIncomeRecordService {
      * @return 
      */
     public PagedResult<UserIncomeRecord> listUserIncomeByUserAndDate(String userId, Date start, Date end, PageInfo pageInfo);
+    
+    /**
+     * 获取最新的用户收益记录
+     * 
+     * @param userId        用户ID
+     * @param navDate       <=当前净值日期
+     * @return 
+     */
+    public UserIncomeRecord getLatestUserIncome(String userId, Date navDate);
 }
