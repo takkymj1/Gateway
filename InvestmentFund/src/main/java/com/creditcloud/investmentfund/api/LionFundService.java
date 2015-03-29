@@ -12,7 +12,8 @@ import com.creditcloud.investmentfund.model.Area;
 import com.creditcloud.investmentfund.model.FundAccount;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
-import com.creditcloud.investmentfund.model.lion.TradingRecord;
+import com.creditcloud.investmentfund.model.lion.FundTradingRequestRecord;
+import com.creditcloud.investmentfund.model.lion.request.QueryFundDividendRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundFeeRateRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryTradeRecordRequest;
@@ -20,17 +21,19 @@ import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRegisterRequest;
 import com.creditcloud.investmentfund.model.lion.request.UserRiskAssessmentRequest;
+import com.creditcloud.investmentfund.model.lion.response.QueryFundDividendResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryFundFeeRateResponse;
 import com.creditcloud.investmentfund.model.lion.response.QueryFundShareResponse;
+import com.creditcloud.investmentfund.model.lion.response.QueryTradeConfirmRecordResponse;
+import com.creditcloud.investmentfund.model.lion.response.QueryTradeRecordResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeBuyFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeSellFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.UserRiskAssessmentResponse;
-import com.creditcloud.model.misc.PagedResult;
 import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * 诺安基金
+ * 诺安基金接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
@@ -40,11 +43,10 @@ public interface LionFundService {
     /**
      * 查询用户基金交易记录
      * 
-     * @param userId    用户ID
      * @param request   基金交易记录请求信息
      * @return 
      */
-    public PagedResult<TradingRecord> listTradingRecordByUserIdAndType(String userId, QueryTradeRecordRequest request);
+    public QueryTradeRecordResponse queryTradingRecord(QueryTradeRecordRequest request);
     
     /**
      * 获取基金账户
@@ -160,4 +162,24 @@ public interface LionFundService {
      */
     public Area getAreaByCodeAndLevel(String code, AreaLevel areaLevel);
     
+    /**
+     * 查询交易确认结果
+     * @param request
+     * @return 
+     */
+    public QueryTradeConfirmRecordResponse queryTradingConfirmRecord(QueryTradeRecordRequest request);
+    
+    /**
+     * 查询用户收益
+     * @param request
+     * @return 
+     */
+    public QueryFundDividendResponse queryFundDividendRecord(QueryFundDividendRequest request);
+    
+    /**
+     * 查询基金产品并入库（基金产品&基金净值）
+     * 
+     * 异步
+     */
+    public void asyncUpdateFundProducts();
 }

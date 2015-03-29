@@ -70,6 +70,7 @@ public enum ApiErrorCode implements BaseEnum {
     MOBILE_AND_NAME_NOT_MATCH("手机号与真实姓名不匹配"),
     MOBILE_CAPTCHA_ALREADY_SENT("手机验证码已经发送"),
     MOBILE_CAPTCHA_EXPIRED("手机验证码已经过期"),
+    MOBILE_CAPTCHA_SEND_FAILED("手机验证码发送失败"),
     MOBILE_ALREADY_EXISTED("手机号已经存在"),
     
     LOGINNAME_ALREADY_EXISTED("登录名已经存在"),
@@ -102,7 +103,10 @@ public enum ApiErrorCode implements BaseEnum {
      * 基金
      *************************************************/
     INVESTMENT_FUND_MONETARY_ACCOUNT_NOT_FOUND("用户未开通货币型基金账户"),
+    INVESTMENT_FUND_MONETARY_ACCOUNT_ALREADY_EXISTED("用户已经开通货币型基金账户"),
     INVESTMENT_FUND_STOCK_ACCOUNT_NOT_FOUND("用户未开通股票型基金账户"),
+    INVESTMENT_FUND_STOCK_ACCOUNT_ALREADY_EXISTED("用户已经开通股票型基金账户"),
+    
     INVESTMENT_FUND_SERVICE_REQUEST_FAILED("基金服务请求错误");
     
     private final String key;

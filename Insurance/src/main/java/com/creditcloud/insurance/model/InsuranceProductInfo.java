@@ -149,5 +149,5 @@ public class InsuranceProductInfo extends BaseObject {
     /**
      * 7日年化收益率
      */
-    private BigDecimal Days7AnnualBenifitRate;
+    private BigDecimal days7AnnualBenifitRate;
 }

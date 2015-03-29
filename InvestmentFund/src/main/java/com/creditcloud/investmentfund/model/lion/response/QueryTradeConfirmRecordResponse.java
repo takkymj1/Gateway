@@ -6,19 +6,20 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
-import com.creditcloud.investmentfund.model.lion.FundShare;
+import com.creditcloud.investmentfund.model.lion.FundTradingConfirmRecord;
 import java.util.List;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 客户持有份额查询
+ * 交易确认查询
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @NoArgsConstructor
-public class QueryFundShareResponse extends BaseResponse {
+public class QueryTradeConfirmRecordResponse extends BaseResponse {
 
-    private List<FundShare> resultlist;
+    private List<FundTradingConfirmRecord> resultlist;
     
 }

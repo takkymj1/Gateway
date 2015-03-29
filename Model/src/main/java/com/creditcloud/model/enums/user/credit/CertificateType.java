@@ -28,6 +28,12 @@ public enum CertificateType implements BaseEnum {
     GUARANTEE("担保认证"),//跟借款挂钩
     FACTORING("保理认证"),//跟借款挂钩
     CROWDFUNDING("众筹相关"),//跟众筹挂钩
+    
+    /**
+     * 跟基金相关
+     */
+    INVESTMENTFUND("基金相关"),
+    INSURANCE("保险相关"),
     OTHERS("其他认证");
 
     private final String key;

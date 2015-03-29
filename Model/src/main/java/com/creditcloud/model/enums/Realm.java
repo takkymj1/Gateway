@@ -139,7 +139,16 @@ public enum Realm implements BaseEnum {
     /**
      * 保险
      */
-    INSURANCE_ORDER("保险订单"); 
+    INSURANCE_ORDER("保险订单"),
+    
+    /**
+     * 保险
+     */
+    INSURANCE_PRODUCT("保险产品"),
+    /**
+     * 基金
+     */
+    INVESTMENT_FUND_PRODUCT("基金"); 
 
     private final String key;
 
