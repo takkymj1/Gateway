@@ -60,15 +60,9 @@ public class FundIncomeRecord extends FundObject {
     private BigDecimal totalIncome;
     
     /**
-     * 收益分配日
-     * 
-     * 货币基金： yyyyMMdd 表明是哪一天的收益数据 例如:周一下发周五,周六,周日三笔记录，对应的收益分配日分别为周五，周六，周日。	否
-     */
-    private Date paymentDate;
-    
-    /**
      * 净值日期
      * 
+     * 货币基金： 收益分配日 yyyyMMdd 表明是哪一天的收益数据 例如:周一下发周五,周六,周日三笔记录，对应的收益分配日分别为周五，周六，周日。	否
      * @return
      */
     private Date navDate;
