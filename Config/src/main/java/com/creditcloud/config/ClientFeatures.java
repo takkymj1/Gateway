@@ -202,4 +202,22 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableIDM = false;
     
+    /************************隐藏P2P相关菜单********************/
+     /**
+     * P2P平台特殊菜单 默认为打开
+     */
+    @XmlElement
+    @Getter
+    private boolean enableP2pSpecialMenu = true;
+
+    /**
+     * 基金保险类平台特殊菜单 
+     */
+    @XmlElement
+    @Getter
+    private boolean enableInsuranceFundSpecialMenu = false;
+
+
+    
+    
 }
