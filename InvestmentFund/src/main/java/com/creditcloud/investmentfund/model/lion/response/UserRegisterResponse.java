@@ -55,8 +55,8 @@ public class UserRegisterResponse extends BaseResponse {
     private String riskdate;
     
     
-    public RiskLevel getRiskLevel() {
-        if (StringUtils.isEmpty(custrisk)) return null;
-        return Enums.getEnumByOrdinal(RiskLevel.class, Integer.valueOf(custrisk) - 1);
+    public static RiskLevel getRiskLevel(UserRegisterResponse response) {
+        if (StringUtils.isEmpty(response.getCustrisk())) return null;
+        return Enums.getEnumByOrdinal(RiskLevel.class, Integer.valueOf(response.getCustrisk()) - 1);
     }
 }
