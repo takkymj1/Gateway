@@ -33,7 +33,7 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * 诺安基金
+ * 诺安基金接口
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
@@ -176,4 +176,10 @@ public interface LionFundService {
      */
     public QueryFundDividendResponse queryFundDividendRecord(QueryFundDividendRequest request);
     
+    /**
+     * 查询基金产品并入库（基金产品&基金净值）
+     * 
+     * 异步
+     */
+    public void asyncUpdateFundProducts();
 }
