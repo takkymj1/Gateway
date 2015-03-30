@@ -202,7 +202,6 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableIDM = false;
     
-    /************************客户：新华电商**********************/
     /************************隐藏P2P相关菜单********************/
      /**
      * P2P平台特殊菜单 默认为打开
