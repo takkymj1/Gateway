@@ -7,6 +7,7 @@
 package com.creditcloud.investmentfund.model;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
+import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.enums.TradingRecordPayStatus;
 import com.creditcloud.investmentfund.enums.TradingRecordResult;
 import com.creditcloud.investmentfund.enums.TradingRecordStatus;
@@ -106,4 +107,9 @@ public class FundTradingRecord extends FundObject {
      * 基金品牌
      */
     private FundBrand fundBrand;
+    
+    /**
+     * 基金类型
+     */
+    private FundType fundType;
 }
