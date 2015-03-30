@@ -17,7 +17,14 @@ public enum MonthlySalary implements BaseEnum {
     SALARY_5001_10000("5001﹣10000"),
     SALARY_10001_20000("10001﹣20000"),
     SALARY_20001_50000("20001﹣50000"),
-    SALARY_ABOVE_50001("50001以上");
+    SALARY_ABOVE_50001("50001以上"),
+    
+    //xhds 新增 ====================
+    SALARY_BELOW_50000("50000以下"),
+    SALARY_50001_100000("50001-100000"),
+    SALARY_100001_200000("100001-200000"),
+    SALARY_200001_500000("200001-500000"),
+    SALARY_ABOVE_500001("500001以上");
 
     private final String key;
 

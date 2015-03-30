@@ -6,6 +6,7 @@
 package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -22,4 +23,13 @@ public interface EnciInsuranceStatService {
      * @return 
      */
     public List<InsurancePolicyProfitRecord> getByLatestUserId(String clientCode, String userId);
+    
+    /**
+     * 统计最近若干天内的每日收益
+     * @param clientCode
+     * @param userId
+     * @param from
+     * @return 
+     */
+    public List<InsurancePolicyProfitRecord> recentProfitRecords(String clientCode, String userId, Date from);
 }
