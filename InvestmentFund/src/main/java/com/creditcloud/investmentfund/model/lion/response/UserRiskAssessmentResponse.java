@@ -9,7 +9,9 @@ package com.creditcloud.investmentfund.model.lion.response;
 import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.model.util.Enums;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 风险评测响应结果
@@ -17,6 +19,8 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper=true)
 public class UserRiskAssessmentResponse extends BaseResponse {
 
     /**

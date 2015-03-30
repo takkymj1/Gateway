@@ -7,7 +7,9 @@
 package com.creditcloud.investmentfund.model.lion.response;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 基金赎回响应
@@ -15,6 +17,8 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper=true)
 public class UserSellFundResponse extends BaseResponse {
 
     /**
