@@ -29,4 +29,6 @@ public interface LoinMoneyFundFileRecordProcessResult {
     List<UserIncomeRecord> getNotProcessedUserIncomeRecords();
 
     boolean isSuccess();
+    
+    public String getReferenceId();
 }

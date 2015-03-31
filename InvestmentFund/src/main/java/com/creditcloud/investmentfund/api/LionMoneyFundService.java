@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.api.lion.moneyfund.enums.DailyDataFileProcessStatus;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.AddNewCardRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.AsyncAuthenticateRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.NotificationRequestMessage;
@@ -104,4 +105,11 @@ public interface LionMoneyFundService {
      * @return 如果所有记录处理成功，返回true;如果部分成功或者完全失败，返回false
      */
     LoinMoneyFundFileRecordProcessResult processDailyTransactionDataFile(Date date);
+    
+    /**
+     * 获取某天的数据处理状况
+     * @param date
+     * @return 
+     */
+    DailyDataFileProcessStatus getDailyTransactionDataFileProcessStatus(Date date);
 }
