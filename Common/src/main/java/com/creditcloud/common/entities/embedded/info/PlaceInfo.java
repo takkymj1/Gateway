@@ -50,6 +50,10 @@ public class PlaceInfo extends BaseEntity {
     //现居住地址电话
     @Column(name = "CURRENT_PHONE")
     private String currentPhone;
+    
+    //现居住地址邮编
+    @Column(name = "CURRENT_ZIP", nullable = true)
+    private String currentZip;
 
     public PlaceInfo() {
     }
@@ -123,5 +127,13 @@ public class PlaceInfo extends BaseEntity {
 
     public String getCurrentPhone() {
         return currentPhone;
+    }
+    
+    public String getCurrentZip() {
+        return currentZip;
+    }
+
+    public void setCurrentZip(String currentZip) {
+        this.currentZip = currentZip;
     }
 }
