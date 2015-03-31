@@ -6,6 +6,7 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
+import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.model.util.Enums;
 import lombok.Data;
@@ -33,7 +34,8 @@ public class UserRiskAssessmentResponse extends BaseResponse {
      */
     private String custrisk;
     
-    public RiskLevel getRiskLevel() {
-        return Enums.getEnumByOrdinal(RiskLevel.class, Integer.valueOf(custrisk) - 1);
+    public static RiskLevel getRiskLevel(UserRiskAssessmentResponse response) {
+        if (StringUtils.isEmpty(response.getCustrisk())) return null;
+        return Enums.getEnumByOrdinal(RiskLevel.class, Integer.valueOf(response.getCustrisk()) - 1);
     }
 }
