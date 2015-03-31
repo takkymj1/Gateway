@@ -17,15 +17,13 @@ import javax.ejb.Remote;
 public interface MarketControlService {
 
     /**
-     * 取消一个前台投标.
-     *
-     * 将相应的loan从前台的缓存中撤出
+     * 取消一个前台OPEN开标状态标的，同时取消标的所有投标并将相应的loan从前台的缓存中撤出
      *
      * <b>在多节点的部署方案中可能会有问题!
      *
      * @param clientCode
      * @param loanId
-     * @return loan在缓存中且被成功撤出
+     * @return 
      */
     public boolean cancelLoan(String clientCode, String loanId);
 
