@@ -198,6 +198,13 @@ public class FundProduct extends FundObject implements FundConstant{
     private InvestRule investRule;
     
     /**
+     * 是否激活（显示是在前端）
+     * 
+     * @return
+     */
+    private Boolean enable;
+    
+    /**
      * 创建时间
      * 
      * @return

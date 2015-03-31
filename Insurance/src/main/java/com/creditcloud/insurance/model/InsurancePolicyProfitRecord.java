@@ -24,6 +24,8 @@ public class InsurancePolicyProfitRecord  extends BaseObject {
     
     private String id;
     
+    private String userId;
+    
     @NotNull
     private String policyNo;
     

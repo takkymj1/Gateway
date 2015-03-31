@@ -16,6 +16,7 @@ public enum Category implements BaseEnum {
     HOMEPAGE("首页大图", false),
     IMAGE("其他图片", false),
     INTRODUCTION("公司简介", true),
+    PRODUCT("产品信息",false),
     REPORT("业绩报表", true),
     RESPONSIBILTY("社会责任", false),
     COOPERATION("合作伙伴", true),

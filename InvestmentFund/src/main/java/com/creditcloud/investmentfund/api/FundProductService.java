@@ -107,7 +107,7 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByTypeAndBrand(List<FundType> typeList, List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
-     * 查询所有诺安基金产品
+     * 查询所有诺安基金产品 (前端） 不显示未激活产品
      * 
      * @param minRate           最小期望收益率
      * @param maxRate           最大期望收益率
@@ -120,7 +120,7 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByExpectedRateAndProposedHoldDurationAndBrand(int minRate, int maxRate, Integer minDuration, Integer maxDuration, List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
-     * 查询所有诺安基金产品
+     * 查询所有诺安基金产品 (前端） 不显示未激活产品
      * 
      * @param minRate           最小期望收益率
      * @param maxRate           最大期望收益率
