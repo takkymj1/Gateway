@@ -13,6 +13,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -143,4 +144,13 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProductInfo editProductInfo(String clientCode, InsuranceProductInfo info);
+    
+    /**
+     * 根据下标区间列出保险产品
+     * @param clientCode
+     * @param start
+     * @param end
+     * @return 
+     */
+    public List<InsuranceProduct> listByOrdinal(String clientCode, int start, int end);
 }
