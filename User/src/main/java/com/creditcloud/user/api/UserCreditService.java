@@ -245,5 +245,5 @@ public interface UserCreditService {
      * @param proofId
      * @return 
      */
-    public boolean deleteProofNoCertificate(String clientCode , String proofId);
+    public boolean deleteProofNotCertificate(String clientCode , String proofId);
 }
