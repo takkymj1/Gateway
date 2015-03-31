@@ -24,4 +24,14 @@ public interface SMSService {
      * @param content
      */
     void sendMessage(Client client, SMSType type, String mobile, String... content);
+    
+    /**
+     * 原则上只发送验证码和随机密码, 同步接口
+     * 
+     * @param client
+     * @param type
+     * @param mobile
+     * @param content
+     */
+    void sendMessageToNewUser(Client client, SMSType type, String mobile, String... content);
 }
