@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ *
+ * 基金净值<br>
  * 定义参考 : 诺安基金直销平台接口方案-v2.0.27(清洁版).docx <br>
  *
  * @author guohuazhang
