@@ -132,6 +132,11 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
     private String status;
     
     /**
+     * 是否激活
+     */
+    private boolean enable;
+    
+    /**
      * 保险期限
      */
     @FormParam("insPeriod")
