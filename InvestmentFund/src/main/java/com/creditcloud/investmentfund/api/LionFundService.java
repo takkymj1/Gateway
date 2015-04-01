@@ -79,9 +79,10 @@ public interface LionFundService {
      * 
      * @param userId                用户ID
      * @param transactionaccountid  交易账号
+     * @param orderId               订单号
      * @return 
      */
-    public FundResult<FundAccount> createMoneyFundAccount(String userId, String transactionaccountid);
+    public FundResult<FundAccount> createMoneyFundAccount(String userId, String transactionaccountid, String orderId);
     
     /**
      * 申购基金

@@ -80,4 +80,11 @@ public class FundAccount extends FundObject implements FundConstant {
      */
     @NotNull
     private FundType type;
+    
+    /**
+     * 订单号
+     * 
+     * @return
+     */
+    private String orderId;
 }
