@@ -61,7 +61,7 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
      * @param policyNo
      * @return 
      */
-    public boolean upatePolicyNo(String clientCode, String insurancePolicyId, String policyNo);
+    public boolean updatePolicyNo(String clientCode, String insurancePolicyId, String policyNo);
     
     /**
      * 更新InsurancePolicy的policyNo和url
@@ -71,7 +71,7 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
      * @param url
      * @return 
      */
-    public boolean upatePolicyNoAndUrl(String clientCode, String insurancePolicyId, String policyNo, String url);
+    public boolean updatePolicyNoAndUrl(String clientCode, String insurancePolicyId, String policyNo, String url);
     
     /**
      * 根据ID查找InsuranceOrder
