@@ -82,4 +82,9 @@ public class InsurancePolicy extends BaseObject implements InsuranceConstant {
      * 记录最近更新时间
      */
     private Date timeLastUpdated;
+    
+    /**
+     * 电子保单地址
+     */
+    private String policyUrl;
 }

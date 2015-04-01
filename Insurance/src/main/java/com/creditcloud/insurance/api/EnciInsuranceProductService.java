@@ -153,4 +153,15 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public List<InsuranceProduct> listByOrdinal(String clientCode, int start, int end);
+    
+    /**
+     * 激活保险产品
+     * 
+     * 激活后，产品可在前台购买
+     * @param clientCode
+     * @param productId
+     * @param enable
+     * @return 
+     */
+    public boolean enableProduct(String clientCode, String productId, boolean enable);
 }
