@@ -163,8 +163,9 @@ public interface FundProductService {
     /**
      * 列出下标区间的基金产品
      *
-     * @param startOrdinal
+     * @param startOrdinal  
      * @param endOrdinal
+     * 
      * @return empty list if nothing found
      */
     public List<FundProduct> listProductByOrdinal(int startOrdinal, int endOrdinal);
@@ -172,9 +173,9 @@ public interface FundProductService {
     /**
      * 获取某天基金产品净值
      * 
-     * @param fundCode
-     * @param fundBrand
-     * @param navDate
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       净值日期
      * @return 
      */
     public FundProductNavRecord getFundProductNavRecord(String fundCode, FundBrand fundBrand, Date navDate);
@@ -182,10 +183,45 @@ public interface FundProductService {
     /**
      * 获取某天之前的最近一次产品净值
      * 
-     * @param fundCode
-     * @param fundBrand
-     * @param navDate
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       净值日期
      * @return 
      */
     public FundProductNavRecord getByCodeAndBrandAndRecentlyNavDate(String fundCode, FundBrand fundBrand, Date navDate);
+    
+    /**
+     * 收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏数
+     * 
+     * @param productId     产品ID
+     * @return 
+     */
+    public int favoriteCountByProduct(String productId);
+
+    /**
+     * 获取用户收藏的产品
+     * 
+     * @param userId        用户ID
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }
