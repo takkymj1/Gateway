@@ -197,4 +197,15 @@ public interface UserInfoService {
      * @return
      */
     boolean markDefaultAddress(String clientCode, String userId, String addressId);
+    
+    /**
+     * 根据userId更新用户和职业的部分信息
+     * 性别、生日、身份证、证件有效期、职位、薪资等信息
+     * @param clientCode
+     * @param userId
+     * @param personal
+     * @param career
+     * @return 
+     */
+    boolean updatePersonalAndCareer(String clientCode, String userId, PersonalInfo personal, CareerInfo career);
 }

@@ -238,4 +238,12 @@ public interface UserCreditService {
      * @return
      */
     public boolean updateUserCredit(String clientCode, UserCredit credit);
+    
+    /**
+     * 删除proof，方法用于非认证信息删除关联图片或文档，删除认证类图片（文档）请调用deleteProof 
+     * @param clientCode
+     * @param proofId
+     * @return 
+    */
+    public boolean deleteProofNotCertificate(String clientCode , String proofId);
 }

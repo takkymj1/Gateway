@@ -50,7 +50,7 @@ public interface ConfigManager {
 
     public EmailConfig getEmailConfig();
 
-    public UpYunConfig getUpYunConfig();
+//    public UpYunConfig getUpYunConfig();
 
     public DeviceManagerConfig getDeviceManagerConfig();
 
