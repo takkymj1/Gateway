@@ -66,6 +66,7 @@ public class ContractTemplate extends BaseObject {
                                     includeContent ? original.getContent() : ArrayUtils.EMPTY_BYTE_ARRAY);
     }
     
+    @Override
     public String toString(){
         return ReflectionToStringBuilder.toStringExclude(this, "content");
     }

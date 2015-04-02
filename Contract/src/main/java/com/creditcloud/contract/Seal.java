@@ -44,6 +44,7 @@ public class Seal extends BaseObject {
     
     private CorporationUser corporationUser;
     
+    @Override
     public String toString(){
         return ReflectionToStringBuilder.toStringExclude(this, "content");
     }
