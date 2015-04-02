@@ -146,6 +146,10 @@ public enum Realm implements BaseEnum {
      */
     INSURANCE_PRODUCT("保险产品"),
     /**
+     * 保险
+     */
+    INSURANCE_PRODUCT_FAVORITE("保险产品收藏"),
+    /**
      * 基金
      */
     INVESTMENT_FUND_PRODUCT("基金"),

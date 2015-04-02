@@ -10,8 +10,11 @@ import com.creditcloud.insurance.model.InsuranceProductInfo;
 import com.creditcloud.insurance.model.InsuranceProductNavRecord;
 import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -164,4 +167,35 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public boolean enableProduct(String clientCode, String productId, boolean enable);
+    
+    /**
+     * 收藏保险产品
+     * @param productId
+     * @param userId
+     * @return 产品被收藏次数
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏保险产品
+     * @param productId
+     * @param userId
+     * @return 产品被收藏次数
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏次数
+     * @param productId
+     * @return 
+     */
+    public int favoriteCountByProduct(String productId);
+
+    /**
+     * 列出用户收藏的保险产品
+     * @param userId
+     * @param pageInfo
+     * @return 
+     */
+    public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }
