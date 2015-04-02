@@ -198,6 +198,14 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableHideContractTables = false;
     
+    /**
+     * TODO: 还款时候收取投资人本金一定比率管理费
+     * WXFY
+     */
+    @Getter
+    @XmlElement
+    private boolean feeFromInvestorWhenRepay = false;
+    
     @XmlElement
     @Getter
     private boolean enableIDM = false;
@@ -217,7 +225,5 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableInsuranceFundSpecialMenu = false;
 
-
-    
     
 }
