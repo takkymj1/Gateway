@@ -10,6 +10,7 @@ import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.model.FundShare;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import javax.ejb.Remote;
 
 /**
@@ -46,4 +47,14 @@ public interface FundShareService {
      * @return 
      */
     public FundShare getByUserIdAndCodeAndBrand(String userId, String fundCode, FundBrand fundBrand);
+    
+    /**
+     * 某基金总份额
+     * 
+     * @param fundCode  基金代码
+     * @param fundBrand 基金品牌
+     * @return 
+     */
+    public BigDecimal sumShareByFund(String fundCode, FundBrand fundBrand);
+    
 }

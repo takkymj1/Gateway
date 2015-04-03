@@ -195,7 +195,7 @@ public interface FundProductService {
      * 
      * @param productId     产品ID
      * @param userId        用户ID
-     * @return 
+     * @return 当前产品的收藏数
      */
     public int markFavorite(String productId, String userId);
 
@@ -204,7 +204,7 @@ public interface FundProductService {
      * 
      * @param productId     产品ID
      * @param userId        用户ID
-     * @return 
+     * @return 当前产品的收藏数
      */
     public int unmarkFavorite(String productId, String userId);
 
@@ -212,7 +212,7 @@ public interface FundProductService {
      * 产品被收藏数
      * 
      * @param productId     产品ID
-     * @return 
+     * @return 当前产品的收藏数
      */
     public int favoriteCountByProduct(String productId);
 
@@ -221,7 +221,7 @@ public interface FundProductService {
      * 
      * @param userId        用户ID
      * @param pageInfo      分页信息
-     * @return 
+     * @return 产品ID列表
      */
     public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }
