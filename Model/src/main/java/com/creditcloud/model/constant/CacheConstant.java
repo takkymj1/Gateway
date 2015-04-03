@@ -167,7 +167,7 @@ public interface CacheConstant {
     String KEY_PREFIX_CMS = "%1$s%2$s_CMS"; 
     
     /**
-     * define cache key for credit market
+     * define cache key for credit market (only for local call)
      */
     String KEY_PREFIX_LOCAL_CREDITMARKET = "CREDIT_MARKET_%1$s";
 }
