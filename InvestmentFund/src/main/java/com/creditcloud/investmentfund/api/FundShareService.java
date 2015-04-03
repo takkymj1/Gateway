@@ -53,8 +53,16 @@ public interface FundShareService {
      * 
      * @param fundCode  基金代码
      * @param fundBrand 基金品牌
-     * @return 
+     * @return 总份额
      */
     public BigDecimal sumShareByFund(String fundCode, FundBrand fundBrand);
     
+    /**
+     * 用户持有该基金人数
+     * 
+     * @param fundCode  基金代码
+     * @param fundBrand 基金品牌
+     * @return 用户持有该基金人数
+     */
+    public int countByFund(String fundCode, FundBrand fundBrand);
 }

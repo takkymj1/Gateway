@@ -68,4 +68,15 @@ public interface FundTradingRecordService {
      * @return 
      */
     public BigDecimal sumByUserAndTypeAndStatusAndResult(String userId, List<FundType> fundTypeList, List<TradingRecordType> typeList, List<TradingRecordStatus> status, TradingRecordResult result);
+    
+    /**
+     * 根据基金产品获取申购总数
+     * 
+     * @param fundCode
+     * @param fundBrand
+     * @param typeList
+     * @param status
+     * @return 申购总数
+     */
+    public int countByFundAndTypeAndStatus(String fundCode, FundBrand fundBrand, List<TradingRecordType> typeList, List<TradingRecordStatus> status);
 }
