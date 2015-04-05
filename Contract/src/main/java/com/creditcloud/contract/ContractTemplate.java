@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  *
@@ -63,5 +64,10 @@ public class ContractTemplate extends BaseObject {
                                     original.getTimeCreated(),
                                     original.isDefault(),
                                     includeContent ? original.getContent() : ArrayUtils.EMPTY_BYTE_ARRAY);
+    }
+    
+    @Override
+    public String toString(){
+        return ReflectionToStringBuilder.toStringExclude(this, "content");
     }
 }

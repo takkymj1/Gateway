@@ -12,6 +12,7 @@ import com.creditcloud.contract.ContractSeal;
 import com.creditcloud.contract.ContractType;
 import com.creditcloud.contract.Guarantor;
 import com.creditcloud.model.client.Client;
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanRepayment;
@@ -449,4 +450,11 @@ public interface ContractService {
     public void confirmContract(List<String> contractIdList);
     
     public List<Contract> traceContractsOfCreditAssignInvest(String assignInvestId);
+    
+    /**
+     * 分页获取合同列表
+     * @param pageinfo
+     * @return 
+     */
+    public List<Contract> contractlist(PageInfo pageinfo);
 }
