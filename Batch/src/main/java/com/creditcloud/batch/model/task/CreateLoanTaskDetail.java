@@ -10,6 +10,7 @@ import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.constraints.MobileNumber;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestAssignType;
+import com.creditcloud.model.enums.loan.PreRepaymentPenaltyInterestType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.InvestRule;
@@ -112,4 +113,9 @@ public class CreateLoanTaskDetail {
      * 可转让属性
      */
     private LoanRequestAssignType assignable;
+    
+    /**
+     * 提前还款罚息
+     */
+    private PreRepaymentPenaltyInterestType penaltyInterestType;
 }
