@@ -54,6 +54,12 @@ public final class ClientConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private PaymentFeatures paymentFeatures;
+    
+    /**
+     * 测试相关
+     */
+    @XmlElement(required = false)
+    private TestFeatures testFeatures;
 
     public String getCode() {
         return code;
@@ -103,5 +109,12 @@ public final class ClientConfig extends BaseConfig {
             paymentFeatures = new PaymentFeatures();
         }
         return paymentFeatures;
+    }
+    
+    public TestFeatures getTestFeatures() {
+        if (testFeatures == null) {
+            testFeatures = new TestFeatures();
+        }
+        return testFeatures;
     }
 }
