@@ -18,9 +18,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public  class CommonRequestMessage extends CommonMessage {
+public abstract class CommonRequestMessage extends CommonMessage {
 
     private final String vernum = "20140401";//	8位	版本号(20140401)
     
-    //public abstract Map<String,String> convertXMLPayloadParametersToMap();
+    public abstract Map<String,String> toMapFromXMLPayloadParameters();
 }
