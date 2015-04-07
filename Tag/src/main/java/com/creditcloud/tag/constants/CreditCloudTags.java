@@ -58,7 +58,7 @@ public interface CreditCloudTags {
      * 三方合同模板，一般标记在LoanRequest对象上，内容为ContractTemplate的ID
      */
     Tag CONTRACT_TEMPLATE = new Tag(Realm.CONTRACTTEMPLATE, "合同模板", "三方合同模板", "适用的三方合同模板");
-    
+
     /**
      * 居间合同模板，一般标记在LoanRequest对象上，内容为ContractTemplate的ID
      */
@@ -68,9 +68,14 @@ public interface CreditCloudTags {
      * 新手标
      */
     Tag NEWBIE_LOAN = new Tag(Realm.LOAN_TYPE, "新手标", "新手标", "借款类型");
-    
+
     /**
      * 云艺贷
      */
     Tag ART_LOAN = new Tag(Realm.LOAN_TYPE, "云艺贷", "云艺贷", "借款类型");
+
+    /**
+     * 首页推荐标
+     */
+    Tag RECOMMEND_LOAN = new Tag(Realm.LOAN_TYPE, "推荐标", "推荐标", "借款类型");
 }
