@@ -8,13 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.Source;
-import com.creditcloud.model.enums.loan.GuarantyStyle;
-import com.creditcloud.model.enums.loan.LoanPurpose;
-import com.creditcloud.model.enums.loan.LoanRequestAssignType;
-import com.creditcloud.model.enums.loan.LoanRequestStatus;
-import com.creditcloud.model.enums.loan.LoanType;
-import com.creditcloud.model.enums.loan.MortgageType;
-import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.enums.loan.*;
 import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.model.user.User;
 import com.creditcloud.model.user.corporation.CorporationUser;
@@ -234,6 +228,13 @@ public class LoanRequest extends BaseObject {
     @NotNull
     @XmlElement(name = "subProductType")
     private LoanType subProductType;
+
+    /**
+     * 罚息类型
+     */
+    @NotNull
+    @XmlElement(name = "penaltyType")
+    private PreRepaymentPenaltyInterestType penaltyType;
     
     /**
      *
