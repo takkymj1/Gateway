@@ -7,12 +7,10 @@
 package com.creditcloud.investmentfund.api;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
-import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.model.FundIncomeRecord;
 import com.creditcloud.investmentfund.model.UserIncomeRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.ejb.Remote;
 
@@ -73,4 +71,13 @@ public interface FundIncomeRecordService {
      * @return 
      */
     public UserIncomeRecord getLatestUserIncome(String userId, Date navDate);
+    
+    /**
+     * 获取收益列表
+     * 
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<FundIncomeRecord> list(PageInfo pageInfo);
+    
 }

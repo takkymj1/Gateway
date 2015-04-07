@@ -28,5 +28,9 @@ public class FundInvestStatistics {
      * 累计收益
      */
     private BigDecimal totalIncome;
-    
+ 
+    /**
+     * 昨日收益
+     */
+    private BigDecimal yesterdayIncome;
 }
