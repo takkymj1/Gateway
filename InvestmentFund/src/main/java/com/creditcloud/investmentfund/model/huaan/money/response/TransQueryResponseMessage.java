@@ -5,6 +5,9 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
+import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
+import java.util.Map;
+
 /**
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
  *
@@ -23,5 +26,22 @@ public class TransQueryResponseMessage extends CommonResponseMessage {
     private String RetCode;//	4位	返回码(0000为成功)
     private String RetMsg;//	200位	返回信息
     private String CommonReturn;//	200位	公共回传字段
+
+    @Override
+    public void resolveXMLPaylod(String decodedXML) {
+        Map<String, String> parameters = parseXMLPayload(decodedXML);
+
+        MerchantId = parameters.get("MerchantId");
+        OrgMerchantDate = parameters.get("OrgMerchantDate");
+        OrgOrderNo = parameters.get("OrgOrderNo");
+        OrgHaTradeDate = parameters.get("OrgHaTradeDate");
+        OrgTxCode = parameters.get("OrgTxCode");
+        OrgTotalAmt = parameters.get("OrgTotalAmt");
+        OrgRetCode = parameters.get("OrgRetCode");
+        OrgRetMsg = parameters.get("OrgRetMsg");
+        RetCode = parameters.get("RetCode");
+        RetMsg = parameters.get("RetMsg");
+        CommonReturn = parameters.get("CommonReturn");
+    }
 
 }

@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.request;
 
+import com.creditcloud.investmentfund.model.huaan.money.CommonRequestMessage;
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.HashMap;
 import java.util.Map;

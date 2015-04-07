@@ -5,6 +5,9 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
+import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
+import java.util.Map;
+
 /**
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
  *
@@ -25,5 +28,24 @@ public class FundNavQueryResponseMessage extends CommonResponseMessage {
     private String BonusBefRatio;//	9位	净值上一日7日年化收益率
     private String RetCode;//	4位	查询结果
     private String RetMsg;//	200位	返回信息
+
+    @Override
+    public void resolveXMLPaylod(String decodedXML) {
+        Map<String, String> parameters = parseXMLPayload(decodedXML);
+
+        MerchantId = parameters.get("MerchantId");
+        AllPageNo = parameters.get("AllPageNo");
+        CurPageNo = parameters.get("CurPageNo");
+        FundNo = parameters.get("FundNo");
+        FundName = parameters.get("FundName");
+        BonusCurrDate = parameters.get("BonusCurrDate");
+        BonusCurrAmt = parameters.get("BonusCurrAmt");
+        BonusCurrRatio = parameters.get("BonusCurrRatio");
+        BonusBefDate = parameters.get("BonusBefDate");
+        BonusBefAmt = parameters.get("BonusBefAmt");
+        BonusBefRatio = parameters.get("BonusBefRatio");
+        RetCode = parameters.get("RetCode");
+        RetMsg = parameters.get("RetMsg");
+    }
 
 }

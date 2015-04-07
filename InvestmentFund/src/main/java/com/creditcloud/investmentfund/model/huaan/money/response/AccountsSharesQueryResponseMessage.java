@@ -5,6 +5,9 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
+import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
+import java.util.Map;
+
 /**
  *
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
@@ -20,5 +23,18 @@ public class AccountsSharesQueryResponseMessage extends CommonResponseMessage {
     private String Content;//	对账单内容，详细内容见备注说明
     private String RetCode;//	4位	查询结果
     private String RetMsg;//	200位	返回信息
+
+    @Override
+    public void resolveXMLPaylod(String decodedXML) {
+        Map<String, String> parameters = parseXMLPayload(decodedXML);
+
+        MerchantId = parameters.get("MerchantId");
+        AllPageNo = parameters.get("AllPageNo");
+        CurPageNo = parameters.get("CurPageNo");
+        AllCount = parameters.get("AllCount");
+        Content = parameters.get("Content");
+        RetCode = parameters.get("RetCode");
+        RetMsg = parameters.get("RetMsg");
+    }
 
 }
