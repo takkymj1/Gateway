@@ -79,4 +79,12 @@ public interface FundTradingRecordService {
      * @return 申购总数
      */
     public int countByFundAndTypeAndStatus(String fundCode, FundBrand fundBrand, List<TradingRecordType> typeList, List<TradingRecordStatus> status);
+    
+    /**
+     * 获取交易记录列表
+     * 
+     * @param pageInfo  分页信息
+     * @return 
+     */
+    public PagedResult<FundTradingRecord> list(PageInfo pageInfo);
 }

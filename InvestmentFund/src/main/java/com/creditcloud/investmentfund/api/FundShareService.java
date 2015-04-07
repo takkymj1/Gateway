@@ -65,4 +65,12 @@ public interface FundShareService {
      * @return 用户持有该基金人数
      */
     public int countByFund(String fundCode, FundBrand fundBrand);
+    
+    /**
+     * 获取份额列表
+     * 
+     * @param pageInfo 分页信息
+     * @return 
+     */
+    public PagedResult<FundShare> list(PageInfo pageInfo);
 }
