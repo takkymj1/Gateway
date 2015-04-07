@@ -18,22 +18,23 @@ public class MessageSigner {
 
     public void encode(CommonRequestMessage request) {
         String xml = request.buildXMLPayload();
-        String signedXMLContent = encode(xml);
-        request.setContent(signedXMLContent);
+        String encodedXML = encode(xml);
+        request.setContentXMLPayload(encodedXML);
     }
 
     private String encode(String xml) {
         //TODO : 这里要使用华安提供的key信息加密XML内容
         return null;
     }
-    
-    public void decode (CommonResponseMessage response){
-        String decodedXML=response.getContent();
+
+    public void decode(CommonResponseMessage response) {
+        String encodedXML = response.getContentXMLPayload();
+        String decodedXML = decode(encodedXML);
         response.resolveXMLPaylod(decodedXML);
     }
-    
-    private String decode(String xml){
-         //TODO : 这里要使用华安提供的key信息解密XML内容
+
+    private String decode(String xml) {
+        //TODO : 这里要使用华安提供的key信息解密XML内容
         return null;
     }
 
