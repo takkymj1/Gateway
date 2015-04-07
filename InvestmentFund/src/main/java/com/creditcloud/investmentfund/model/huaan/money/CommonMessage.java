@@ -12,11 +12,14 @@ import lombok.EqualsAndHashCode;
 
 /**
  *
+ * 华安货币基金报文通用部分<br>
+ * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
+ *
  * @author guohuazhang
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CommonMessage extends BaseObject{
+public class CommonMessage extends BaseObject {
 
     private String vernum;//	8位	版本号(20140401)
     private String platformid;//	8位	云中信ID

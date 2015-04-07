@@ -6,6 +6,7 @@
 package com.creditcloud.investmentfund.model.huaan.money.request;
 
 import com.creditcloud.investmentfund.model.huaan.money.CommonMessage;
+import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,7 +18,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class CommonRequestMessage extends CommonMessage {
+public  class CommonRequestMessage extends CommonMessage {
 
     private final String vernum = "20140401";//	8位	版本号(20140401)
+    
+    //public abstract Map<String,String> convertXMLPayloadParametersToMap();
 }
