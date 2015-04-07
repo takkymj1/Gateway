@@ -48,16 +48,17 @@ public final class ClientConfig extends BaseConfig {
      */
     @XmlElement(required = false)
     private ClientFeatures clientFeatures;
-    
+
     /**
      * 三方支付
      */
     @XmlElement(required = false)
     private PaymentFeatures paymentFeatures;
-    
+
     /**
-     * 测试相关
+     * 测试相关,生产环境中不应该有此feature
      */
+    @Deprecated
     @XmlElement(required = false)
     private TestFeatures testFeatures;
 
@@ -103,14 +104,14 @@ public final class ClientConfig extends BaseConfig {
         }
         return clientFeatures;
     }
-    
+
     public PaymentFeatures getPaymentFeatures() {
         if (paymentFeatures == null) {
             paymentFeatures = new PaymentFeatures();
         }
         return paymentFeatures;
     }
-    
+
     public TestFeatures getTestFeatures() {
         if (testFeatures == null) {
             testFeatures = new TestFeatures();
