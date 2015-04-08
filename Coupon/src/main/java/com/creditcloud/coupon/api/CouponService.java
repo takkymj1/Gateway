@@ -150,5 +150,15 @@ public interface CouponService extends CouponQueryService {
      * @return 
      */
     public boolean cancelCouponPlace(String clientCode, String placementId);
+    
+    /**
+     * 由前端周期性调用.
+     * 
+     * 检查CouponPackage状态，如果过期则设置所有CouponPlacement的状态，INITIATED和PLACED -》EXPIRED
+     * 
+     * @param clientCode
+     * @return 被作废的奖券张数
+     */
+    public int expireCouponBySchedule(String clientCode);
 
 }
