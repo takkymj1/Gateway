@@ -43,12 +43,12 @@ public class FundCommission extends FundObject {
     /**
      * 基金当日尾随佣金
      */
-    private BigDecimal fundCurrCommission;
+    private BigDecimal amount;
     
     /**
      * 基金佣金日期
      */
-    private Date commDate;
+    private Date commissionDate;
    
     
     /**
