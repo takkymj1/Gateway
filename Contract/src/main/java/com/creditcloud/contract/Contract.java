@@ -15,6 +15,7 @@ import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * 合同对象
@@ -77,4 +78,8 @@ public class Contract extends BaseObject {
      * 合同是否已经被确认
      */
     private ContractConfirmStatus confirmStatus;
+    
+    public String toString(){
+        return ReflectionToStringBuilder.toStringExclude(this, "content");
+    }
 }
