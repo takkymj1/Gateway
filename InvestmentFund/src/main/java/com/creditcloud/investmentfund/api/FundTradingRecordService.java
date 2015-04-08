@@ -61,14 +61,14 @@ public interface FundTradingRecordService {
      * 获取基金交易记录
      * 
      * @param userId        用户ID
-     * @param type          基金类型
-     * @param status        基金状态
-     * @param result        基金返回状态
-     * @param fundBrand     基金品牌
+     * @param typeList      基金类型
+     * @param statusList    基金状态
+     * @param resultList    基金返回状态
+     * @param fundBrandList 基金品牌
      * @param pageInfo      分页信息
      * @return 
      */
-    public PagedResult<FundTradingRecord> listByUserIdAndTypeAndStatusAndResultAndBrand(String userId, TradingRecordType type, TradingRecordStatus status, TradingRecordResult result, FundBrand fundBrand, PageInfo pageInfo);
+    public PagedResult<FundTradingRecord> listByUserIdAndTypeAndStatusAndResultAndBrand(String userId, List<TradingRecordType> typeList, List<TradingRecordStatus> statusList, List<TradingRecordResult> resultList, List<FundBrand> fundBrandList, PageInfo pageInfo);
     
     /**
      * 根据用户和交易类型和状态
