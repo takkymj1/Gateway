@@ -2,37 +2,37 @@
 <LotteryRewardConfig>
     <fiveLotteryReward><!--5元红包-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0001</awardid>
-        <probability>9.97</probability>
+        <probability>997</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </fiveLotteryReward>
     <tenLotteryReward><!--10元红包-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0002</awardid>
-        <probability>10</probability>
+        <probability>1000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </tenLotteryReward>
     <twentyLotteryReward><!--20元红包-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0003</awardid>
-        <probability>30</probability>
+        <probability>3000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </twentyLotteryReward>
     <thirtyLotteryReward><!--30元红包-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0004</awardid>
-        <probability>50</probability>
+        <probability>5000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </thirtyLotteryReward>
     <tenTelChargeLotteryReward><!--10元电话费-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0005</awardid>
-        <probability>0.02</probability>
+        <probability>2</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </tenTelChargeLotteryReward>
     <twentyTelChargeLotteryReward><!--20元电话费-->
         <awardid>AWARD_WECHAT_LOTTERY_201504_0006</awardid>
-        <probability>0.01</probability>
+        <probability>1</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </twentyTelChargeLotteryReward>

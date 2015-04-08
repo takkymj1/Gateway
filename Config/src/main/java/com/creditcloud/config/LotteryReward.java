@@ -37,7 +37,7 @@ public class LotteryReward extends BaseObject{
       * 出现的概率 0表示不按概率进行计算
       */
      @XmlElement(required = true)
-     private BigDecimal probability;
+     private int probability;
      
      /**
       * 数量 -1表示无限制
