@@ -6,9 +6,10 @@
 package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
+import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
+import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Remote;
 
 /**
  *
@@ -32,4 +33,13 @@ public interface EnciInsuranceStatService {
      * @return 
      */
     public List<InsurancePolicyProfitRecord> recentProfitRecords(String clientCode, String userId, Date from);
+    
+    /**
+     * 统计产品的购买份数和人数
+     * @param clientCode
+     * @param productId
+     * @param status
+     * @return 
+     */
+    public InsuranceProductSaleInfo sumNumAndUsers(String clientCode, String productId, InsuranceOrderStatus... status);
 }
