@@ -14,7 +14,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 测试相关feature
+ * 测试相关feature<p>
+ * 只能在测试环境中使用!
  *
  * @author rooseek
  */
@@ -26,17 +27,10 @@ public class TestFeatures extends BaseObject {
     private static final long serialVersionUID = 20150409L;
 
     /**
-     * 跳过注册步骤验证码
+     * 统一略过所有短信验证码
      */
     @XmlElement(required = false)
     @Getter
-    private boolean skipRegistryCaptcha = false;
-
-    /**
-     * 跳过登陆步骤验证码
-     */
-    @XmlElement(required = false)
-    @Getter
-    private boolean skipLoginCaptcha = false;
+    private boolean skipSmsCaptcha = false;
 
 }
