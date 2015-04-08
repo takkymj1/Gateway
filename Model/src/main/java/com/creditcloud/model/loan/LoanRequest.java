@@ -272,7 +272,8 @@ public class LoanRequest extends BaseObject {
                        String serial,
                        InvestRule investRule,
                        LoanRequestAssignType assignable,
-                       LoanType subProductType) {
+                       LoanType subProductType,
+                       PreRepaymentPenaltyInterestType penaltyType) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -296,6 +297,7 @@ public class LoanRequest extends BaseObject {
         this.investRule = investRule;
         this.assignable = assignable;
         this.subProductType = subProductType;
+        this.penaltyType = penaltyType;
     }
 
     public String getUserId() {
