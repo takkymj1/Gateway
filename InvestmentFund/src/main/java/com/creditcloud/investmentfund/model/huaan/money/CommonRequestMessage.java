@@ -44,6 +44,7 @@ public abstract class CommonRequestMessage extends CommonMessage {
             root.setName(rootXMLNodeName);
             doc.setXMLEncoding(FundInterfaceConstants.HUA_AN_MONEY_FUND_HTTP_ENCODING);
             xml = doc.asXML();
+            setContentXMLPayloadPlainText(xml);
             return xml;
         } catch (JsonProcessingException | DocumentException e) {
             throw new RuntimeException(e);

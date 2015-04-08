@@ -5,7 +5,7 @@
  */
 package com.creditcloud.config.fund;
 
-import com.creditcloud.config.BaseConfig;
+import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -14,44 +14,51 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 基金相关配置
- *
- * @author suetming <suetming.ma at creditcloud.com>
+ * 
+ * @author guohuazhang
  */
 @NoArgsConstructor
-@XmlRootElement(name = "FundConfig")
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FundConfig extends BaseConfig {
+public class HuaAnMoneyFundConfig extends BaseObject {
 
-    private static final long serialVersionUID = 20150309L;
-
-    public static final String CONFIG_NAME = "FundConfig";
+    private static final long serialVersionUID = 20150408L;
 
     /**
-     * 诺安全基金配置
+     * AES加解密密钥,base64编码
      *
      * @return
      */
     @Getter
     @XmlElement(required = false)
-    private LionFundConfig lionFund;
+    private String privateKey;
 
     /**
-     * 诺安货币型基金配置
+     * 平台ID
      *
      * @return
      */
     @Getter
     @XmlElement(required = false)
-    private LionMoneyFundConfig lionMoneyFund;
+    private String platformID;
 
     /**
-     * 华安货币型基金配置
+     *
+     * 商户ID
      *
      * @return
      */
     @Getter
-    @XmlElement(required = false)
-    private HuaAnMoneyFundConfig huaAnMoneyFund;
+    @XmlElement(required = true)
+    private String merchantID;
 
+
+    /**
+     * 华安货币基金接口地址
+     *
+     * @return
+     */
+    @Getter
+    @XmlElement(required = true)
+    private String interfaceURL;
 }

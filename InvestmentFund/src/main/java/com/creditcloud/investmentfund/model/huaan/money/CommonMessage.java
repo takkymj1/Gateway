@@ -34,7 +34,8 @@ public class CommonMessage extends BaseObject {
     private String seqno;//	24位	云中信通讯流水号，与请求表单对应
     private String maccode;//	16位	校验串，对明文内容进行MD5
     private String contentXMLPayload;//	加密内容
-
+    private String contentXMLPayloadPlainText;//	XML Payload 的明文
+    
     public String buildPlainTextForMaccode() {
         StringBuilder sb = new StringBuilder();
 

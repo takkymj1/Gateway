@@ -35,7 +35,7 @@ public class PurchaseResponseMessage extends CommonResponseMessage {
 
     @Override
     public void resolveXMLPaylod() {
-        String decodedXML = this.getContentXMLPayloadDecoded();
+        String decodedXML = this.getContentXMLPayloadPlainText();
         Map<String, String> parameters = parseXMLPayload(decodedXML);
 
         MerchantId = parameters.get("MerchantId");
