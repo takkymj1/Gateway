@@ -21,6 +21,7 @@ import com.creditcloud.config.FengCouponConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.LotteryRewardConfig;
 import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.PaymentConfig;
@@ -195,4 +196,10 @@ public interface ConfigManager {
      * @return 
      */
     public EnciPayConfig getEnciPayConfig();
+    
+    /**
+     * 获取微信抽奖奖品出现概率配置
+     * @return 
+     */
+    public LotteryRewardConfig getLotteryRewardConfig();
 }
