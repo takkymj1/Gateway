@@ -8,6 +8,7 @@ package com.creditcloud.insurance.api;
 import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
+import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
 import java.util.Date;
