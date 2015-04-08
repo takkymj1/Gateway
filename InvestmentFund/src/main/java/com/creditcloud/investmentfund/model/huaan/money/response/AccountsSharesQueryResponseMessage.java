@@ -7,6 +7,7 @@ package com.creditcloud.investmentfund.model.huaan.money.response;
 
 import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
 import java.util.Map;
+import lombok.Data;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Map;
  *
  * @author guohuazhang
  */
+@Data
 public class AccountsSharesQueryResponseMessage extends CommonResponseMessage {
 
     private String MerchantId;//	8位	商家ID
@@ -25,7 +27,8 @@ public class AccountsSharesQueryResponseMessage extends CommonResponseMessage {
     private String RetMsg;//	200位	返回信息
 
     @Override
-    public void resolveXMLPaylod(String decodedXML) {
+    public void resolveXMLPaylod() {
+        String decodedXML = this.getContentXMLPayloadDecoded();
         Map<String, String> parameters = parseXMLPayload(decodedXML);
 
         MerchantId = parameters.get("MerchantId");

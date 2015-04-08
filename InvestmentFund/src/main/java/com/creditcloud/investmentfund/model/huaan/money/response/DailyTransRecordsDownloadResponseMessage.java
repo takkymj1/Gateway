@@ -7,12 +7,14 @@ package com.creditcloud.investmentfund.model.huaan.money.response;
 
 import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
 import java.util.Map;
+import lombok.Data;
 
 /**
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
  *
  * @author guohuazhang
  */
+@Data
 public class DailyTransRecordsDownloadResponseMessage extends CommonResponseMessage {
 
     private String MerchantId;//	8位	商家ID
@@ -25,7 +27,8 @@ public class DailyTransRecordsDownloadResponseMessage extends CommonResponseMess
     private String RetMsg;//	200位	返回信息
 
     @Override
-    public void resolveXMLPaylod(String decodedXML) {
+    public void resolveXMLPaylod() {
+        String decodedXML = this.getContentXMLPayloadDecoded();
         Map<String, String> parameters = parseXMLPayload(decodedXML);
 
         MerchantId = parameters.get("MerchantId");

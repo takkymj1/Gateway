@@ -7,8 +7,12 @@ package com.creditcloud.investmentfund.model.huaan.money;
 
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import com.creditcloud.model.BaseObject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -44,5 +48,35 @@ public class CommonMessage extends BaseObject {
         sb.append(StringUtils.nonNull(contentXMLPayload));
 
         return sb.toString();
+    }
+
+    protected static Map<String, String> parseResponseText(String responseText) {
+        List<String> lines = StringUtils.parseLines(responseText);
+        Map<String, String> parameters = new HashMap<>();
+        final String splitterKeyValue = "=";
+        for (String line : lines) {
+            Pair<String, String> kv = StringUtils.parseNamedValue(line, splitterKeyValue);
+            String k = kv.getKey();
+            String v = kv.getValue();
+            parameters.put(k, v);
+        }
+        return parameters;
+    }
+
+    public void parse(String responseText) {
+        Map<String, String> parameters = parseResponseText(responseText);
+        fromMap(parameters);
+    }
+
+    protected void fromMap(Map<String, String> items) {
+        vernum = StringUtils.nonNull(items.get("vernum"));
+        platformid = StringUtils.nonNull(items.get("platformid"));
+        merchantid = StringUtils.nonNull(items.get("merchantid"));
+        sysdate = StringUtils.nonNull(items.get("sysdate"));
+        systime = StringUtils.nonNull(items.get("systime"));
+        txcode = StringUtils.nonNull(items.get("txcode"));
+        seqno = StringUtils.nonNull(items.get("seqno"));
+        maccode = StringUtils.nonNull(items.get("maccode"));
+        contentXMLPayload = StringUtils.nonNull(items.get("content"));
     }
 }

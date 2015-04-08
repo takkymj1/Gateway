@@ -5,10 +5,12 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money;
 
-import com.creditcloud.investmentfund.model.lion.moneyfund.Constants;
+import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.constant.FundInterfaceConstants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -40,11 +42,27 @@ public abstract class CommonRequestMessage extends CommonMessage {
             Document doc = DocumentHelper.parseText(xml);
             Element root = doc.getRootElement();
             root.setName(rootXMLNodeName);
-            doc.setXMLEncoding(Constants.HUA_AN_MONEY_FUND_HTTP_ENCODING);
+            doc.setXMLEncoding(FundInterfaceConstants.HUA_AN_MONEY_FUND_HTTP_ENCODING);
             xml = doc.asXML();
             return xml;
         } catch (JsonProcessingException | DocumentException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Map<String, String> toMap() {
+        Map<String, String> map = new HashMap<>();
+
+        map.put("vernum", StringUtils.nonNull(getVernum()));
+        map.put("platformid", StringUtils.nonNull(this.getPlatformid()));
+        map.put("merchantid", StringUtils.nonNull(this.getMerchantid()));
+        map.put("sysdate", StringUtils.nonNull(this.getSysdate()));
+        map.put("systime", StringUtils.nonNull(this.getSystime()));
+        map.put("txcode", StringUtils.nonNull(this.getTxcode()));
+        map.put("seqno", StringUtils.nonNull(this.getSeqno()));
+        map.put("maccode", StringUtils.nonNull(this.getMaccode()));
+        map.put("content", StringUtils.nonNull(this.getContentXMLPayload()));
+
+        return map;
     }
 }
