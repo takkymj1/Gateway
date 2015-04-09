@@ -8,10 +8,9 @@ import com.creditcloud.model.enums.Channel;
 import com.creditcloud.model.enums.Source;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
-
-import javax.ejb.Remote;
 import java.util.Date;
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  * Created with IntelliJ IDEA.
@@ -56,7 +55,6 @@ public interface FengCouponRecordService {
      * @return
      */
     List<CouponRecord> getCouponRecordByCouponType(String userId,CouponType couponType);
-
 
     /**
      * 绑定标的ID及更新状态
