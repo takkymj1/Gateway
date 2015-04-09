@@ -53,6 +53,17 @@ public interface FundIncomeRecordService {
     public FundIncomeRecord getByUserAndProductAndDate(String userId, String fundCode, FundBrand fundBrand, Date navDate);
     
     /**
+     * 获取最新的用户某基金收益记录
+     * 
+     * @param userId        用户ID
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       <=当前净值日期
+     * @return 
+     */
+    public FundIncomeRecord getLatestFundIncome(String userId, String fundCode, FundBrand fundBrand, Date navDate);
+    
+    /**
      * 获取某段净值时间内某个用户所有基金收益合
      * 
      * @param userId        用户ID
@@ -64,7 +75,7 @@ public interface FundIncomeRecordService {
     public PagedResult<UserIncomeRecord> listUserIncomeByUserAndDate(String userId, Date start, Date end, PageInfo pageInfo);
     
     /**
-     * 获取最新的用户收益记录
+     * 获取最新的用户总收益记录
      * 
      * @param userId        用户ID
      * @param navDate       <=当前净值日期
