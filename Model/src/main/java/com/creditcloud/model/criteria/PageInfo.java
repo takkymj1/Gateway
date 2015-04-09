@@ -37,4 +37,15 @@ public class PageInfo extends BaseObject {
      */
     @FormParam("size")
     private int size;
+
+    /**
+     * 从页码、分页大小构建
+     * 
+     * @param page 页码，从1开始
+     * @param size
+     * @return 
+     */
+    public static PageInfo fromPageAndSize(int page, int size) {
+        return new PageInfo((page - 1) * size, size);
+    }
 }
