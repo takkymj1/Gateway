@@ -6,7 +6,7 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.request;
 
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
-import com.creditcloud.investmentfund.model.lion.moneyfund.Constants;
+import com.creditcloud.investmentfund.constant.FundInterfaceConstants;
 import com.creditcloud.model.BaseObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class RequestQueryMessage extends BaseObject {
 
-    protected final String version = Constants.LOIN_MONEY_FUND_INTERFACE_VERSION;//	版本号 char(7)	R	目前版本号：2.0
+    protected final String version = FundInterfaceConstants.LOIN_MONEY_FUND_INTERFACE_VERSION;//	版本号 char(7)	R	目前版本号：2.0
     protected String instId;//	机构标识 char(10)	R	报文发送方的机构标识。 电商平台用：dianshang01
     protected String certId;//	数字证书标识 char(16)	R	基金公司端证书标识码，对报文进行签名的数字证书标识. 电商平台用：dianshang0101
     protected String tradeacco;// 诺安交易账户	char(32)	R	

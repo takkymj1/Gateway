@@ -90,6 +90,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private BigDecimal netIncomePerMillion;
     
     /**
+     * 资金规模
+     */
+    private BigDecimal scale;
+    
+    /**
      * 近一个月涨幅
      */
     @IncrementalInteger(min = MIN_RATE,

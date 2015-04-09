@@ -17,6 +17,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -50,19 +52,51 @@ public abstract class StringUtils {
     }
 
     public static Map<String, String> parseNamedValues(String text, String splitterKeyValuePair, String splitterKeyValue) {
+        Map<String, String> map = new HashMap<>();
+        if (text == null) {
+            return map;
+        }
+
         final String PAIR_DELIMITER = splitterKeyValuePair;
         final String NAME_VALUE_DELIMITER = splitterKeyValue;
         final boolean trimToken = true;
         List<String> namedValues = StringUtils.parseTokens(text, PAIR_DELIMITER, trimToken);
-        Map<String, String> map = new HashMap<>();
         for (String namedValue : namedValues) {
-            List<String> nameAndValue = StringUtils.parseTokens(namedValue, NAME_VALUE_DELIMITER, trimToken);
-            String name = nameAndValue.get(0);
-            String value = nameAndValue.size() >= 2 ? nameAndValue.get(1) : "";
+            Pair<String, String> kv = parseNamedValue(namedValue, NAME_VALUE_DELIMITER);
+            if (kv == null) {
+                continue;
+            }
+
+            String name = kv.getKey();
+            String value = kv.getValue();
             map.put(name, value);
         }
 
         return map;
+    }
+
+    /**
+     * 假定文本 text 是一个格式类似于 keyA=valueA 的文本，此方法尝试从中分析出
+     * key和value，然后返回包含key和value的一个 Pair对象
+     *
+     * @param text
+     * @param splitterKeyValue key和value的分隔符，在keyA=valueA 的形势下，这个分隔符就是 =
+     * @return 包含key和value的一个 Pair对象
+     */
+    public static Pair<String, String> parseNamedValue(String text, String splitterKeyValue) {
+        if (text == null) {
+            return null;
+        }
+
+        final String NAME_VALUE_DELIMITER = splitterKeyValue;
+        final boolean trimToken = true;
+
+        List<String> nameAndValue = StringUtils.parseTokens(text, NAME_VALUE_DELIMITER, trimToken);
+        String name = nameAndValue.get(0);
+        String value = nameAndValue.size() >= 2 ? nameAndValue.get(1) : "";
+
+        Pair<String, String> kv = ImmutablePair.of(name, value);
+        return kv;
     }
 
     public static boolean isMultipleLines(Object text) {
@@ -286,7 +320,8 @@ public abstract class StringUtils {
     }
 
     public final static List<String> parseTokens(String line, String splitter, boolean trimToken) {
-        List<String> tokens = parseTokens(line, splitter, trimToken, false);
+        boolean discardEmptyToken = false;
+        List<String> tokens = parseTokens(line, splitter, trimToken, discardEmptyToken);
         return tokens;
     }
 
