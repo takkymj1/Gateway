@@ -108,14 +108,16 @@ public interface FengCouponRecordService {
     /**
      * 添加红包(addNew方法扩展)
      * @param userId 用户ID
-     * @param activeId 活动Id
+     * @param eventId 活动Id
+     * @param couponId 奖励Id
      * @param signTime 注册日期
      * @param source 来源
      * @param channel 来源
      * @return
      */
     public boolean addNewByLottery(String userId,
-                                   String activeId,
+                                   String eventId,
+                                   String couponId,
                                    Date signTime,
                                    Source source,
                                    Channel channel);
