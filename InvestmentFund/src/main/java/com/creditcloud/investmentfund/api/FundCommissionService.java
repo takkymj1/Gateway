@@ -62,4 +62,10 @@ public interface FundCommissionService {
      */
     public List<FundCommission> listAll();
     
+    /**
+     * 修改基金佣金记录
+     * @param fundCommission 
+     */
+    public void update(FundCommission fundCommission);
+    
 }
