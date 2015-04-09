@@ -219,6 +219,17 @@ public class LoanRequest extends BaseObject {
      * 起息日
      */
     private Date valueDate;
+    
+    /**
+     * 关联的借款申请
+     */
+    private String parentId;
+    
+    /**
+     * 用于页面显示的借款人id，默认为null<p>
+     * 例如用于影子标之类业务
+     */
+    private String displayUserId;
 
     /**
      *
