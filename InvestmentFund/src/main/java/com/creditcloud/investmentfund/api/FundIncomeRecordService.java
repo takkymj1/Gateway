@@ -42,6 +42,19 @@ public interface FundIncomeRecordService {
     public PagedResult<FundIncomeRecord> listByUserIdAndCodeAndBrand(String userId, String fundCode, FundBrand fundBrand, PageInfo pageInfo);
     
     /**
+     * 获取用户某个基金收益记录
+     * 
+     * @param userId        用户ID
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param startDate     开始日期
+     * @param endDate       结束日期
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<FundIncomeRecord> listFundIncomeByProductAndDate(String userId, String fundCode, FundBrand fundBrand, Date startDate, Date endDate, PageInfo pageInfo);
+    
+    /**
      * 获取某天的用户基金收益
      * 
      * @param userId        用户ID
@@ -51,6 +64,17 @@ public interface FundIncomeRecordService {
      * @return 
      */
     public FundIncomeRecord getByUserAndProductAndDate(String userId, String fundCode, FundBrand fundBrand, Date navDate);
+    
+    /**
+     * 获取最新的用户某基金收益记录
+     * 
+     * @param userId        用户ID
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       <=当前净值日期
+     * @return 
+     */
+    public FundIncomeRecord getLatestFundIncome(String userId, String fundCode, FundBrand fundBrand, Date navDate);
     
     /**
      * 获取某段净值时间内某个用户所有基金收益合
@@ -64,7 +88,7 @@ public interface FundIncomeRecordService {
     public PagedResult<UserIncomeRecord> listUserIncomeByUserAndDate(String userId, Date start, Date end, PageInfo pageInfo);
     
     /**
-     * 获取最新的用户收益记录
+     * 获取最新的用户总收益记录
      * 
      * @param userId        用户ID
      * @param navDate       <=当前净值日期

@@ -49,6 +49,17 @@ public interface FundTradingRecordService {
      * 获取基金交易记录
      * 
      * @param userId        用户ID
+     * @param fundCode      基金代码
+     * @param fudnBrand     基金品牌
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<FundTradingRecord> listByUserIdAndProduct(String userId, String fundCode, FundBrand fudnBrand, PageInfo pageInfo);
+    
+    /**
+     * 获取基金交易记录
+     * 
+     * @param userId        用户ID
      * @param type          基金类型
      * @param status        基金状态
      * @param fundBrand     基金品牌
