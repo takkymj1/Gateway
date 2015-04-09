@@ -26,13 +26,24 @@ public interface EnciInsuranceStatService {
     public List<InsurancePolicyProfitRecord> getByLatestUserId(String clientCode, String userId);
     
     /**
-     * 统计最近若干天内的每日收益
+     * 统计用户最近若干天内的每日收益
      * @param clientCode
      * @param userId
      * @param from
+     * @param to
      * @return 
      */
-    public List<InsurancePolicyProfitRecord> recentProfitRecords(String clientCode, String userId, Date from);
+    public List<InsurancePolicyProfitRecord> recentProfitRecords(String clientCode, String userId, Date from, Date to);
+    
+    /**
+     * 统计保单若干天内的每日收益
+     * @param clientCode
+     * @param policyNo
+     * @param from
+     * @param to
+     * @return 
+     */
+    public List<InsurancePolicyProfitRecord> recentPolicyProfitRecords(String clientCode, String policyNo, Date from, Date to);
     
     /**
      * 统计产品的购买份数和人数
