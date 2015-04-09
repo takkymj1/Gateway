@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <FengCouponConfig>
-<!--    <registerCoupon>
+<!--<registerCoupon>
         <eventId>REGISTERCOUPON-20150403-001</eventId>
         <amount>50.00</amount>
         <amountLimit>5000.00</amountLimit>
