@@ -13,19 +13,15 @@ import java.util.List;
 import javax.ejb.Remote;
 
 /**
- * Created with IntelliJ IDEA.
- * User: meichao
- * Date: 2015/3/23
- * Time: 16:01
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: meichao Date: 2015/3/23 Time: 16:01 To
+ * change this template use File | Settings | File Templates.
  */
 @Remote
 public interface FengCouponRecordService {
 
-
-
     /**
      * 添加红包
+     *
      * @param userId 用户ID
      * @param activeId 活动Id
      * @param signTime 注册日期
@@ -34,50 +30,54 @@ public interface FengCouponRecordService {
      * @return
      */
     public boolean addNew(String userId,
-                                   String activeId,
-                                   Date signTime,
-                                   Source source,
-                                   Channel channel);
+                          String activeId,
+                          Date signTime,
+                          Source source,
+                          Channel channel);
 
     /**
      * 券（红包）列表
+     *
      * @param userId 用户ID
      * @param info 分页
      * @param statusList CouponStatus
      * @return
      */
-    PagedResult<CouponRecord> listByStatus(String userId,PageInfo info,List<CouponStatus> statusList);
+    PagedResult<CouponRecord> listByStatus(String userId, PageInfo info, List<CouponStatus> statusList);
 
     /**
      * 根据用户ID，券类型查找券列表
+     *
      * @param userId
      * @param couponType
      * @return
      */
-    List<CouponRecord> getCouponRecordByCouponType(String userId,CouponType couponType);
+    List<CouponRecord> getCouponRecordByCouponType(String userId, CouponType couponType);
 
     /**
      * 绑定标的ID及更新状态
+     *
      * @param id
      * @param status
      * @param oldStatus
      * @param entity
      * @return
      */
-    boolean updateCouponStatusByEntity(String id,CouponStatus status,CouponStatus oldStatus, RealmEntity entity);
-
+    boolean updateCouponStatusByEntity(String id, CouponStatus status, CouponStatus oldStatus, RealmEntity entity);
 
     /**
      * 更新状态
+     *
      * @param id
      * @param status
      * @param oldStatus
      * @return
      */
-    boolean updateCouponStatus(String id,CouponStatus status,CouponStatus oldStatus);
+    boolean updateCouponStatus(String id, CouponStatus status, CouponStatus oldStatus);
 
     /**
      * 预热期间 新添红包
+     *
      * @param userId
      * @param activeId
      * @param signTime
@@ -85,5 +85,42 @@ public interface FengCouponRecordService {
      * @param channel
      * @return
      */
-    boolean insertPreNew(String userId, String activeId, Date signTime,Source source,Channel channel);
+    boolean insertPreNew(String userId, String activeId, Date signTime, Source source, Channel channel);
+
+    /**
+     * 查询用户参加活动获取的红包数量
+     *
+     * @param userId
+     * @param eventId
+     * @return
+     */
+    public int countCouponRecordByEventId(String userId, String eventId);
+
+    /**
+     * 查询用户参加活动获取的红包
+     *
+     * @param userId
+     * @param eventId
+     * @return
+     */
+    public List<CouponRecord> getCouponRecordByEventId(String userId, String eventId);
+
+    /**
+     * 添加红包(addNew方法扩展)
+     *
+     * @param userId 用户ID
+     * @param eventId 活动Id
+     * @param couponId 奖励Id
+     * @param signTime 注册日期
+     * @param source 来源
+     * @param channel 来源
+     * @return
+     */
+    public boolean addNewByLottery(String userId,
+                                   String eventId,
+                                   String couponId,
+                                   Date signTime,
+                                   Source source,
+                                   Channel channel);
+
 }
