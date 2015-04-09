@@ -15,11 +15,13 @@ import javax.ejb.Remote;
 public interface FundEventService {
 
     /**
-     * 活动是否有效
-     * @param eventId
-     * @return
+     * 活动当前状态
+     * 
+     * @return 
+     * 若活动有效，返回"ok"
+     * 否则，返回提示信息
      */
-    boolean isInActive(String eventId);
+    String eventActiveStatus(String eventId);
     
-    boolean isInActive(String eventId, Date date);
+    String eventActiveStatus(String eventId, Date date);
 }
