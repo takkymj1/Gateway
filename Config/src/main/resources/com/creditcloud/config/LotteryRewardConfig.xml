@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LotteryRewardConfig>
     <fiveLotteryReward><!--5元红包-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0001</awardid>
+        <awardid>REBATE-201504-0002</awardid>
         <probability>997</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </fiveLotteryReward>
     <tenLotteryReward><!--10元红包-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0002</awardid>
+        <awardid>REBATE-201504-0003</awardid>
         <probability>1000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </tenLotteryReward>
     <twentyLotteryReward><!--20元红包-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0003</awardid>
+        <awardid>REBATE-201504-0004</awardid>
         <probability>3000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </twentyLotteryReward>
     <thirtyLotteryReward><!--30元红包-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0004</awardid>
+        <awardid>REBATE-201504-0005</awardid>
         <probability>5000</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </thirtyLotteryReward>
     <tenTelChargeLotteryReward><!--10元电话费-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0005</awardid>
+        <awardid>VIRTUAL-201504-0001</awardid>
         <probability>2</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </tenTelChargeLotteryReward>
     <twentyTelChargeLotteryReward><!--20元电话费-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0006</awardid>
+        <awardid>VIRTUAL-201504-0002</awardid>
         <probability>1</probability>
         <quantity>-1</quantity>
         <appeardate>all</appeardate>
     </twentyTelChargeLotteryReward>
-    <iphoneLotteryReward><!--iphone-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0007</awardid>
-        <probability>0</probability>
-        <quantity>2</quantity>
-        <appeardate>2,5</appeardate>
-    </iphoneLotteryReward>
     <cameraLotteryReward><!--拍立得-->
-        <awardid>AWARD_WECHAT_LOTTERY_201504_0008</awardid>
+        <awardid>PHYSICAL-201504-0001</awardid>
         <probability>0</probability>
         <quantity>10</quantity>
         <appeardate>1,2,3,4,5,6,7,8,9,10</appeardate>
     </cameraLotteryReward>
+    <iphoneLotteryReward><!--iphone-->
+        <awardid>PHYSICAL-201504-0002</awardid>
+        <probability>0</probability>
+        <quantity>2</quantity>
+        <appeardate>2,5</appeardate>
+    </iphoneLotteryReward>
+    
 </LotteryRewardConfig>

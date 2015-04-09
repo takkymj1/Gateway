@@ -28,7 +28,7 @@ public class FengCoupon extends BaseObject {
     private static final long serialVersionUID = 20150325L;
     
     @XmlElement(required = false)
-    private String eventNumber;
+    private String eventId;
     
     @XmlElement(required = false)
     private String couponId;
