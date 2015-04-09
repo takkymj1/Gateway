@@ -5,12 +5,15 @@
  */
 package com.creditcloud.config;
 
+import com.creditcloud.fund.model.enums.CouponType;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import lombok.NoArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -26,5 +29,43 @@ public class FengCouponConfig extends BaseConfig {
     public static final String CONFIG_NAME = "FengCouponConfig";
 
     @XmlElement(required = false)
-    private FengCoupon registerCoupon;
+    private List<FengCoupon> couponList;
+    
+    public FengCoupon getRegisterCoupon(){
+        for(FengCoupon coupon : couponList){
+            if(coupon.getCouponType() == CouponType.REGISTER_COUPON){
+                return coupon;
+            }
+        }
+        return null;
+    }
+    
+    public List<FengCoupon> getCouponByEventId(String eventId){
+        List<FengCoupon> coupons = new ArrayList<>();
+        for(FengCoupon coupon : couponList){
+            if(coupon.getEventId().equals(eventId)){
+                coupons.add(coupon);
+            }
+        }
+        return coupons;
+    }
+    
+    public List<FengCoupon> getCouponByType(CouponType type){
+        List<FengCoupon> coupons = new ArrayList<>();
+        for(FengCoupon coupon : couponList){
+            if(coupon.getCouponType() == type){
+                coupons.add(coupon);
+            }
+        }
+        return coupons;
+    }
+    
+    public FengCoupon getCoupon(String couponId){
+        for(FengCoupon coupon : couponList){
+            if(coupon.getCouponId().equals(couponId)){
+                return coupon;
+            }
+        }
+        return null;
+    }
 }

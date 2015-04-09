@@ -24,8 +24,10 @@ import lombok.extern.slf4j.Slf4j;
 import static org.apache.commons.lang3.time.DateUtils.addDays;
 import static org.apache.commons.lang3.time.DateUtils.addMonths;
 import static org.apache.commons.lang3.time.DateUtils.addYears;
-
-import org.joda.time.*;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeConstants;
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
@@ -307,16 +309,16 @@ public class DateUtils {
 
     /**
      * 判断日期是否在区间内
-     * @param d1 开始日期 2015-03-24
-     * @param d2 结束日期 2015-06-23
+     * @param start 开始日期 2015-03-24
+     * @param end 结束日期 2015-06-23
      * @param signDate 需要判断的日期
      * @return
      */
-    public static boolean whetherContained(Date d1,Date d2,Date signDate){
-        DateTime t1 = DateTime.parse(new DateTime(d1).toString("yyyy-MM-dd"),format);
-        DateTime t2 = DateTime.parse(new DateTime(d2).toString("yyyy-MM-dd"),format);
+    public static boolean isDayBetween(Date start, Date end, Date signDate){
+        DateTime t1 = DateTime.parse(new DateTime(start).toString("yyyy-MM-dd"),format);
+        DateTime t2 = DateTime.parse(new DateTime(end).toString("yyyy-MM-dd"),format);
         DateTime sd = DateTime.parse(new DateTime(signDate).toString("yyyy-MM-dd"),format);
-
+        
         if (t1.compareTo(sd)<=0 && t2.compareTo(sd)>=0){
             return true;
         }

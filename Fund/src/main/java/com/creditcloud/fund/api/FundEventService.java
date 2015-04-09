@@ -1,5 +1,6 @@
 package com.creditcloud.fund.api;
 
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -14,9 +15,11 @@ import javax.ejb.Remote;
 public interface FundEventService {
 
     /**
-     * 是否在活动日期类
+     * 活动是否有效
      * @param eventId
      * @return
      */
-    boolean whetherInActiveDate(String eventId);
+    boolean isInActive(String eventId);
+    
+    boolean isInActive(String eventId, Date date);
 }

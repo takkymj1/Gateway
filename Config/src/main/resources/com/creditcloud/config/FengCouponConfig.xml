@@ -1,14 +1,128 @@
 <?xml version="1.0"?>
 <FengCouponConfig>
-    <registerCoupon>
+<!--    <registerCoupon>
         <eventId>REGISTERCOUPON-20150403-001</eventId>
         <amount>50.00</amount>
         <amountLimit>5000.00</amountLimit>
         <type>REGISTER_COUPON</type>
+        <period>60</period>  天 
+        <description>投资金额超过5000元（含）</description> 
+        <useLimit>1</useLimit>
+        <preStart>2015-03-30</preStart>
+        <preEnd>2015-04-02</preEnd>
+    </registerCoupon>-->
+    <!-- 新人红包 -->
+    <FengCoupon>
+        <eventId>REGISTERCOUPON-20150403-001</eventId>
+        <couponId>REBATE-201504-0001</couponId><!--奖励编号-->
+        <couponType>REGISTER_COUPON</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>50元新人红包</couponName>
+        <amount>50.00</amount>
+        <limitType>AMOUNT_LIMIT</limitType>
+        <amountLimit>5000.00</amountLimit>
         <period>60</period> <!-- 天 -->
         <description>投资金额超过5000元（含）</description> 
         <useLimit>1</useLimit>
         <preStart>2015-03-30</preStart>
         <preEnd>2015-04-02</preEnd>
-    </registerCoupon>
+    </FengCoupon>
+    
+    <!-- 微信抽奖 -->
+    <!-- 微信抽奖：红包 -->
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>REBATE-201504-0002</couponId><!--奖励编号-->
+        <couponType>REBATE</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>5元账户红包</couponName>
+        <amount>5.00</amount>
+        <limitType>RATE_LIMIT</limitType>
+        <rateLimit>0.01</rateLimit>
+        <period>60</period> <!-- 天 -->
+        <description>投资金额 * 百分比 – 红包金额 >= 0，取最接近0的红包使用，每次仅限使用一张，余额不退。</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>REBATE-201504-0003</couponId><!--奖励编号-->
+        <couponType>REBATE</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>10元账户红包</couponName>
+        <amount>10.00</amount>
+        <limitType>RATE_LIMIT</limitType>
+        <rateLimit>0.01</rateLimit>
+        <period>60</period> <!-- 天 -->
+        <description>投资金额 * 百分比 – 红包金额 >= 0，取最接近0的红包使用，每次仅限使用一张，余额不退。</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>REBATE-201504-0004</couponId><!--奖励编号-->
+        <couponType>REBATE</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>20元账户红包</couponName>
+        <amount>20.00</amount>
+        <limitType>RATE_LIMIT</limitType>
+        <rateLimit>0.01</rateLimit>
+        <period>60</period> <!-- 天 -->
+        <description>投资金额 * 百分比 – 红包金额 >= 0，取最接近0的红包使用，每次仅限使用一张，余额不退。</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>REBATE-201504-0005</couponId><!--奖励编号-->
+        <couponType>REBATE</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>30元账户红包</couponName>
+        <amount>30.00</amount>
+        <limitType>RATE_LIMIT</limitType>
+        <rateLimit>0.01</rateLimit>
+        <period>60</period> <!-- 天 -->
+        <description>投资金额 * 百分比 – 红包金额 >= 0，取最接近0的红包使用，每次仅限使用一张，余额不退。</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    
+    <!-- 微信抽奖：虚拟 -->
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>VIRTUAL-201504-0005</couponId><!--奖励编号-->
+        <couponType>VIRTUAL</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>10元手机话费</couponName>
+        <amount>10.00</amount>
+        <limitType>NONE</limitType>
+        <period>60</period> <!-- 天 -->
+        <description>由客服线下给中奖账户手机号充值</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>REBATE-201504-0005</couponId><!--奖励编号-->
+        <couponType>VIRTUAL</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>20元手机话费</couponName>
+        <amount>20.00</amount>
+        <limitType>NONE</limitType>
+        <period>60</period><!-- 天 -->
+        <description>由客服线下给中奖账户手机号充值</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    
+    <!-- 微信抽奖：实物 -->
+    <FengCoupon>
+        <eventId>LOTTERY-201504-001</eventId>
+        <couponId>PHYSICAL-201504-0001</couponId><!--奖励编号-->
+        <couponType>PHYSICAL</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>拍立得一部</couponName>
+        <amount>0</amount>
+        <limitType>NONE</limitType>
+        <period>60</period><!-- 天 -->
+        <description>由客服线下给中奖账户手机号充值</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
+    <FengCoupon>
+        <eventId>LOTTERY-201504-002</eventId>
+        <couponId>PHYSICAL-201504-0005</couponId><!--奖励编号-->
+        <couponType>PHYSICAL</couponType><!--<type>REGISTER_COUPON</type>-->
+        <couponName>iPhone6一部</couponName>
+        <amount>0</amount>
+        <limitType>NONE</limitType>
+        <period>60</period><!-- 天 -->
+        <description>由客服线下联系用户发货</description> 
+        <useLimit>1</useLimit>
+    </FengCoupon>
 </FengCouponConfig>
