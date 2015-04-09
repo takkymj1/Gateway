@@ -5,15 +5,15 @@
  */
 package com.creditcloud.config;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.creditcloud.fund.model.enums.CouponType;
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -31,13 +31,25 @@ public class FengCoupon extends BaseObject {
     private String eventId;
     
     @XmlElement(required = false)
+    private String couponId;
+    
+    @XmlElement(required = false)
+    private CouponType couponType;
+    
+    @XmlElement(required = false)
+    private String couponName;
+    
+    @XmlElement(required = false)
     private BigDecimal amount;
 
+    @XmlElement(required = true)
+    private String limitType;
+    
     @XmlElement(required = false)
     private BigDecimal amountLimit;
 
     @XmlElement(required = false)
-    private CouponType type;
+    private BigDecimal rateLimit;
     
     @XmlElement(required = false)
     private Integer period;
