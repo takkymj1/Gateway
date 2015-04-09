@@ -40,10 +40,10 @@ public class FengCouponConfig extends BaseConfig {
         return null;
     }
     
-    public List<FengCoupon> getCouponByEventId(String eventId){
+    public List<FengCoupon> getCouponByEventNumber(String eventNumber){
         List<FengCoupon> coupons = new ArrayList<>();
         for(FengCoupon coupon : couponList){
-            if(coupon.getEventId().equals(eventId)){
+            if(coupon.getEventNumber().equals(eventNumber)){
                 coupons.add(coupon);
             }
         }
