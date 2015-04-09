@@ -20,6 +20,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @XmlRootElement
 public class FundEvent extends BaseObject {
+    
+    private String id;
 
     private String description;
 
@@ -31,7 +33,8 @@ public class FundEvent extends BaseObject {
 
     private EventStatus status;
 
-    public FundEvent(String description, String name, Date startTime, Date endTime, EventStatus status) {
+    public FundEvent(String id,String description, String name, Date startTime, Date endTime, EventStatus status) {
+        this.id = id;
         this.description = description;
         this.name = name;
         this.startTime = startTime;
