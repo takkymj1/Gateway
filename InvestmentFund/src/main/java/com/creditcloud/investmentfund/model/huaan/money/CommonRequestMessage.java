@@ -31,8 +31,24 @@ public abstract class CommonRequestMessage extends CommonMessage {
 
     private final String vernum = "20140401";//	8位	版本号(20140401)
 
+    protected String MerchantId;//	8位	商家ID	是
+    protected String MerchantDate;//	8位	商户日期	是
+
+    protected String RetURL;//	100位	返回地址	是
+    protected String Memo;//	120位	定单描述	否
+
+    public void setMerchantId(String merchantId) {
+        MerchantId = merchantId;
+        setMerchantid(merchantId);
+    }
+
     public abstract Map<String, String> toMapFromXMLPayloadParameters();
 
+    /**
+     * 从用户提供的字段构造XML content明文
+     *
+     * @return
+     */
     public String buildXMLPayload() {
         try {
             Map<String, String> map = toMapFromXMLPayloadParameters();
