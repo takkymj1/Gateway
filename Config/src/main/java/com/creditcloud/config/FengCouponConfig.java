@@ -28,8 +28,8 @@ public class FengCouponConfig extends BaseConfig {
 
     public static final String CONFIG_NAME = "FengCouponConfig";
 
-    @XmlElement(required = false)
-    private List<FengCoupon> couponList;
+    @XmlElement(name="FengCoupon",required = false)
+    private FengCoupon[] couponList;
     
     public FengCoupon getRegisterCoupon(){
         for(FengCoupon coupon : couponList){

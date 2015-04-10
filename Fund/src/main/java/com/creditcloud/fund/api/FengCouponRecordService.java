@@ -6,6 +6,7 @@ import com.creditcloud.fund.model.enums.CouponType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -26,7 +27,7 @@ public interface FengCouponRecordService {
      * @param statusList CouponStatus
      * @return
      */
-    PagedResult<CouponRecord> listByStatus(String userId, PageInfo info, List<CouponStatus> statusList);
+    PagedResult<CouponRecord> listByStatus(String userId, PageInfo info, List<CouponStatus> status);
 
     /**
      * 根据用户ID，券类型查找券列表
@@ -75,5 +76,17 @@ public interface FengCouponRecordService {
      * @return
      */
     public List<CouponRecord> getCouponRecordByEventId(String userId, String eventId);
-   
+
+    /**
+     * 根据用户ID，券类型，当前时间，状态列表查找券列表
+     *
+     * @param userId
+     * @param couponType
+     * @param nowTime
+     * @return
+     */
+    public List<com.creditcloud.fund.model.CouponRecord> getCouponRecordByTypeDateStatus(String userId, 
+                                                                                         CouponType couponType, 
+                                                                                         Date nowTime, 
+                                                                                         List<CouponStatus> status);
 }
