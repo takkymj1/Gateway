@@ -49,7 +49,7 @@ public class TableData<T> extends BaseObject {
     public TableData() {
     }
 
-    public TableData(final PagedResult pr,
+    public TableData(final PagedResult<T> pr,
                      final int sEcho,
                      final boolean dim) {
         results = pr.getResults();

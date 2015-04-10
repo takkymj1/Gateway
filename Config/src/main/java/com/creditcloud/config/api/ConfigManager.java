@@ -1,3 +1,4 @@
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -14,7 +15,9 @@ import com.creditcloud.config.CreditAssignConfig;
 import com.creditcloud.config.CreditManagerConfig;
 import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
+import com.creditcloud.config.EnciPayConfig;
 import com.creditcloud.config.FeeConfig;
+import com.creditcloud.config.FengCouponConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
@@ -47,7 +50,7 @@ public interface ConfigManager {
 
     public EmailConfig getEmailConfig();
 
-    public UpYunConfig getUpYunConfig();
+//    public UpYunConfig getUpYunConfig();
 
     public DeviceManagerConfig getDeviceManagerConfig();
 
@@ -59,6 +62,7 @@ public interface ConfigManager {
 
     public YeepConfig getYeepConfig();
 
+    public FengCouponConfig getFengCouponConfig();
     /**
      *
      * 获取 redis 配置
@@ -185,4 +189,10 @@ public interface ConfigManager {
      * @return 
      */
     public NewHopeConfig getNewHopeConfig();
+    
+    /**
+     * 新华电商支付
+     * @return 
+     */
+    public EnciPayConfig getEnciPayConfig();
 }

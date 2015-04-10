@@ -16,7 +16,7 @@ public enum LoanType implements BaseEnum {
 
     //默认普通标
     NORMAL("无"),
-    BENEFITEASSIGN("收益权转让标的");
+    BENEFITEASSIGN("收益权转让");
 
     private final String key;
 

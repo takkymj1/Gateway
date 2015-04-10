@@ -8,6 +8,7 @@ package com.creditcloud.crowdfunding.model;
 import com.creditcloud.model.BaseObject;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
  */
 @XmlRootElement
 @Data
+@EqualsAndHashCode(callSuper=false)
 @NoArgsConstructor
 public class ProjectLocation extends BaseObject {
 

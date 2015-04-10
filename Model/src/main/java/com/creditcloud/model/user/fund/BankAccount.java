@@ -8,8 +8,11 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.BankAccountNumber;
 import com.creditcloud.model.constraints.RealName;
 import com.creditcloud.model.enums.misc.Bank;
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 银行账号
@@ -49,9 +52,17 @@ public class BankAccount extends BaseObject {
     @BankAccountNumber
     private String account;
 
+    @Getter
+    @Setter
+    private String province;
+
+    @Getter
+    @Setter
+    private String city;
+
     public BankAccount() {
     }
-    
+
     public BankAccount(String name, Bank bank, String location, String branch, String account) {
         this.name = name;
         this.bank = bank;

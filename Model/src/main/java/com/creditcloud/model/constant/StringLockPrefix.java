@@ -46,4 +46,14 @@ public interface StringLockPrefix {
      * 债权转让
      */
     String Credit_Assign_Lock = "credit.assign.lock";
+    
+    /**
+     * 标的还款
+     */
+    String Loan_Repay_Lock = "loan.repay.lock";
+
+    /**
+     * 新人红包
+     */
+    String coupon_newUser_lock = "coupon.newUser.lock";
 }

@@ -200,6 +200,39 @@ public interface UserFundService {
                                 BigDecimal inAmount,
                                 String outUserId,
                                 BigDecimal outAmount);
+    
+    
+    /**
+     * 债权转让:债权人
+     *
+     * @param clientCode
+     * @param dueAmount
+     * @param inUserId
+     * @param inAmount
+     * @param outUserId
+     * @param outAmount
+     * @return
+     */
+    public boolean creditAssignForSellUser(String clientCode,
+                                           BigDecimal dueAmount,
+                                           String inUserId,
+                                           BigDecimal inAmount);
+    
+    /**
+     * 债权转让:投资人
+     *
+     * @param clientCode
+     * @param dueAmount
+     * @param inUserId
+     * @param inAmount
+     * @param outUserId
+     * @param outAmount
+     * @return
+     */
+    public boolean creditAssignForBuyUser(String clientCode,
+                                          BigDecimal dueAmount,
+                                          String outUserId,
+                                          BigDecimal outAmount);
 
     /**
      * 充值<p>

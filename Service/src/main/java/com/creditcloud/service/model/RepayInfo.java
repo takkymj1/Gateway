@@ -8,6 +8,7 @@ package com.creditcloud.service.model;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.model.enums.loan.RepayType;
 import com.creditcloud.model.loan.LoanRepayment;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,11 @@ public class RepayInfo extends AbstractRepay {
      * 是否是一组还款中得首期还款
      */
     private boolean firstRepayment;
+    
+    /**
+     * 本期还款总额：本金+利息
+     */
+    private BigDecimal totalAmount;
 
     public RepayInfo(LoanRepayment loanRepayment) {
         setLoanRepayment(loanRepayment);
@@ -62,5 +68,19 @@ public class RepayInfo extends AbstractRepay {
         this.type = type;
         this.advanceRepayWhenUndue = advanceRepayWhenUndue;
         this.firstRepayment = firstRepayment;
+    }
+    
+    public RepayInfo(LoanRepayment loanRepayment,
+                     FeeConfig feeConfig,
+                     RepayType type,
+                     boolean advanceRepayWhenUndue,
+                     boolean firstRepayment,
+                     BigDecimal totalAmount) {
+        setLoanRepayment(loanRepayment);
+        setFeeConfig(feeConfig);
+        this.type = type;
+        this.advanceRepayWhenUndue = advanceRepayWhenUndue;
+        this.firstRepayment = firstRepayment;
+        this.totalAmount = totalAmount;
     }
 }

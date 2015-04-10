@@ -88,5 +88,10 @@
             <version>2.2.4</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
+        </dependency>
     </dependencies>
 </project>

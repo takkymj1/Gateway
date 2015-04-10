@@ -61,6 +61,8 @@ public class UmpResultType extends BaseObject {
     
     public static final UmpResultType UPDATE_USER_CARD_FAILURE = new UmpResultType("902", "用户更新银行卡失败");
 
+    public static final UmpResultType FUND_ACCOUNT_NOT_EXISTS = new UmpResultType("903", "从未绑定银行卡");
+    
     @NotNull
     private String retCode;
 

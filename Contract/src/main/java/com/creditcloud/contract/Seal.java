@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
  * 公章 for FMAX
@@ -42,5 +43,10 @@ public class Seal extends BaseObject {
     private User user;
     
     private CorporationUser corporationUser;
+    
+    @Override
+    public String toString(){
+        return ReflectionToStringBuilder.toStringExclude(this, "content");
+    }
     
 }

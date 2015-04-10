@@ -25,6 +25,7 @@ public enum FundRecordType implements BaseEnum {
      * 奖励
      */
     REWARD_REGISTER("注册奖励"),
+    REWARD_COUPON("红包奖励"),
     REWARD_REFERRAL("推荐奖励"),
     REWARD_INVEST("投标奖励"),
     REWARD_DEPOSIT("充值奖励"),
@@ -32,6 +33,8 @@ public enum FundRecordType implements BaseEnum {
     COUPON_INTEREST("加息券"),
     COUPON_PRINCIPAL("增值券"),
     COUPON_REBATE("返现券"),
+    
+    REWARD_COUPON_NEW_REGISTER("新注册红包奖励"),
     /**
      * 服务管理手续费
      */
@@ -52,6 +55,7 @@ public enum FundRecordType implements BaseEnum {
     FEE_ADVANCE_REPAY_INVEST("提前还款违约金(给投资人)"),//投资人收取
     FEE_CREDIT_ASSIGN("债权转让手续费"),
     FEE_BIND_CARD("用户绑卡手续费"), //联动在用户绑卡时需要从商户中扣除1分钱
+    FEE_REPLACE_CARD("用户换卡续费"), //联动在用户换卡时需要从商户中扣除1分钱
 
     /**
      * 生利宝

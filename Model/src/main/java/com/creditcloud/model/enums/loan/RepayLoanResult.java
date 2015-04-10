@@ -11,6 +11,7 @@ public enum RepayLoanResult implements BaseEnum {
 
     SUCCESS("成功"),
     FAIL("失败"),
+    ILLEGAL_AMOUNT("还款金额不能是负值"),
     INSUFFICIENT("余额不足"),
     GUARANTEE_NOT_FOUND("找不到担保账户"),
     LOAN_NOT_FOUND("找不到标的"),

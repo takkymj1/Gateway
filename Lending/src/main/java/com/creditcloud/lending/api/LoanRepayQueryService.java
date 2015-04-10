@@ -186,4 +186,6 @@ public interface LoanRepayQueryService {
      * @return
      */
     public int countPeriodByLoanAndStatus(String loanId, RepaymentStatus... status);
+    
+    public String getMinUndueDate();
 }

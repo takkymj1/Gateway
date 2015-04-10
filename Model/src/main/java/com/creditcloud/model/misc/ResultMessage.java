@@ -25,4 +25,11 @@ public class ResultMessage implements Serializable {
     
     private String message;
 
+    public static ResultMessage success(String message) {
+        return new ResultMessage(true, message);
+    }
+    
+    public static ResultMessage fail(String message) {
+        return new ResultMessage(false, message);
+    }
 }

@@ -199,7 +199,7 @@ public abstract class AbstractReadDAO<T> {
             totalSize = count();
         }
 
-        return new PagedResult(query.getResultList(), totalSize);
+        return new PagedResult<>(query.getResultList(), totalSize);
     }
 
     /**
@@ -368,7 +368,7 @@ public abstract class AbstractReadDAO<T> {
                 SortItem item = iterator.next();
                 orderBy.append("t.").append(item.getFieldName()).append(" ").append(item.isDescending()?"desc":"asc").append(",");   
             }
-            orderBy = new StringBuilder(orderBy.substring(0, orderBy.length()-1));;
+            orderBy = new StringBuilder(orderBy.substring(0, orderBy.length()-1));
         }
         
         String query = toSql(where,from,orderBy,false);
@@ -391,6 +391,6 @@ public abstract class AbstractReadDAO<T> {
             cq.setMaxResults(pageInfo.getSize());
         }
         
-        return new PagedResult(cq.getResultList(), countResult==null?0:countResult.intValue());
+        return new PagedResult<>(cq.getResultList(), countResult==null?0:countResult.intValue());
     }
 }
