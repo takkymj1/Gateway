@@ -56,5 +56,10 @@ public class FundCommission extends FundObject {
      * 
      * @return
      */
-    private Date timeRecorded;
+    private Date timeCreated;
+    
+    /**
+     * 记录修改时间
+     */
+    private Date timeLastUpdated;
 }

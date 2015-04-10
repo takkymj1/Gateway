@@ -156,18 +156,18 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return 更新后的用户，null表示没有找到
      */
     User setIdAndName(String clientCode, String userId, String name, String idNumber);
-    
+
     /**
      * 为指定用户设置身份证号码、真实姓名和电子邮箱.
-     * 
+     *
      * 不会做任何验证，直接update内容
-     * 
+     *
      * @param clientCode
      * @param userId
      * @param name
      * @param idNumber
      * @param email
-     * @return 
+     * @return
      */
     User setIdAndNameAndEmail(String clientCode, String userId, String name, String idNumber, String email);
 
@@ -317,13 +317,24 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      */
     @Deprecated
     List<UserProperty> validateAllUser(String clientCode);
-    
+
     /**
      * 根据用户组列出用户
+     *
      * @param clientCode
      * @param pageInfo
      * @param groupId
-     * @return 
+     * @return
      */
     PagedResult<User> listByGroup(String clientCode, PageInfo pageInfo, String groupId);
+
+    /**
+     * 根据用户组code列出用户
+     *
+     * @param clientCode
+     * @param pageInfo
+     * @param groupCode
+     * @return
+     */
+    PagedResult<User> listByGroupCode(String clientCode, PageInfo pageInfo, String groupCode);
 }

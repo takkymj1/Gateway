@@ -10,6 +10,7 @@ import com.creditcloud.investmentfund.constant.FundConstant;
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.FundStatus;
 import com.creditcloud.investmentfund.enums.FundType;
+import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.investmentfund.enums.ShareType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
@@ -176,6 +177,11 @@ public class FundProduct extends FundObject implements FundConstant{
     private FundType fundType;
     
     /**
+     * 风险等级
+     */
+    private RiskLevel riskLevel;
+    
+    /**
      * 成立日期
      * 
      * @return
@@ -210,9 +216,14 @@ public class FundProduct extends FundObject implements FundConstant{
     private Boolean enable;
     
     /**
+     * 平台与基金公司之间的管理费率
+     */
+    private BigDecimal platformManageFee;
+    
+    /**
      * 创建时间
      * 
-     * @return
+     * @returnD
      */
     private Date timeCreated;
     
