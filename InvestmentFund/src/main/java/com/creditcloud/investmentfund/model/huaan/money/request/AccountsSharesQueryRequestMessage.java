@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.request;
 
+import com.creditcloud.investmentfund.api.huaan.money.enums.TransactionCode;
 import com.creditcloud.investmentfund.model.huaan.money.CommonRequestMessage;
 import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
 import java.util.HashMap;
@@ -22,11 +23,12 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class AccountsSharesQueryRequestMessage extends CommonRequestMessage {
 
-    private String MerchantId;//	8位	商家ID	是
-    private String MerchantDate;//	8位	商户日期	是
-    private String PageNo="1";//	10位	当前请求页码（默认填1）	是
-    private String RetURL;//	100位	返回地址	是
-    private String Memo;//	120位	定单描述	否
+    private String PageNo = "1";//	10位	当前请求页码（默认填1）	是
+
+
+    public AccountsSharesQueryRequestMessage() {
+        setTxcode(TransactionCode.ACCOUNTS_SHARES_QUERY.getCode());
+    }
 
     @Override
     public Map<String, String> toMapFromXMLPayloadParameters() {
