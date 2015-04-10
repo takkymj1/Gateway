@@ -42,6 +42,15 @@ public class SinglePayPostParameters extends SinglePayParameters {
 
     private String flag = "00";//付款标志	字符	定长，2位	选填	对公对私标记。“00”对私，“01”对公。该字段可以不填，如不填则默认为对私。
 
+    /**
+     * 获取将要支付的金额，以分为单位，整数
+     * @return 
+     */
+    public long getLongTransAmount() {
+        long cents = StringUtils.toLong(transAmt, 0L);
+        return cents;
+    }
+
     @Override
     public String getTextToSign() {
         return new StringBuffer(merId).append(merDate).append(merSeqId).append(cardNo).append(usrName).append(openBank)

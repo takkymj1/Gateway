@@ -153,6 +153,12 @@ public abstract class StringUtils {
         return sf.format(date);
     }
 
+     public final static String toHHMMSS(Date date) {
+        String format = "hhmmss";
+        DateFormat sf = new SimpleDateFormat(format);
+        return sf.format(date);
+    }
+    
     public final static Date fromYYYYMMDD(String yyyymmdd) {
         if (isEmpty(yyyymmdd)) {
             return null;
