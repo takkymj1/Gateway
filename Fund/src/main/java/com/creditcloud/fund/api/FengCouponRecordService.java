@@ -123,4 +123,16 @@ public interface FengCouponRecordService {
                                    Source source,
                                    Channel channel);
 
+    /**
+     * 根据用户ID，券类型，当前时间，状态列表查找券列表
+     *
+     * @param userId
+     * @param couponType
+     * @param nowTime
+     * @return
+     */
+    public List<com.creditcloud.fund.model.CouponRecord> getCouponRecordByTypeDateStatus(String userId, 
+                                                                                         CouponType couponType, 
+                                                                                         Date nowTime, 
+                                                                                         List<CouponStatus> statusList);
 }
