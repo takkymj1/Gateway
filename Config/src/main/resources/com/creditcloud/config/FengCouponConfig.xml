@@ -80,13 +80,8 @@
     
     <!-- 微信抽奖：虚拟 -->
     <FengCoupon>
-<<<<<<< HEAD
         <eventId>LOTTERY-201504-001</eventId>
         <couponId>VIRTUAL-201504-0005</couponId><!--奖励编号-->
-=======
-        <eventId>LOTTERY-201504-001</eventId>
-        <couponId>VIRTUAL-201504-0001</couponId><!--奖励编号-->
->>>>>>> 765aff709ecbff13dd4a3e604dc0034d674818d8
         <couponType>VIRTUAL</couponType><!--<type>REGISTER_COUPON</type>-->
         <couponName>10元手机话费</couponName>
         <amount>10.00</amount>
@@ -96,13 +91,8 @@
         <useLimit>1</useLimit>
     </FengCoupon>
     <FengCoupon>
-<<<<<<< HEAD
         <eventId>LOTTERY-201504-001</eventId>
         <couponId>REBATE-201504-0005</couponId><!--奖励编号-->
-=======
-        <eventId>LOTTERY-201504-001</eventId>
-        <couponId>VIRTUAL-201504-0002</couponId><!--奖励编号-->
->>>>>>> 765aff709ecbff13dd4a3e604dc0034d674818d8
         <couponType>VIRTUAL</couponType><!--<type>REGISTER_COUPON</type>-->
         <couponName>20元手机话费</couponName>
         <amount>20.00</amount>
@@ -125,13 +115,8 @@
         <useLimit>1</useLimit>
     </FengCoupon>
     <FengCoupon>
-<<<<<<< HEAD
         <eventId>LOTTERY-201504-002</eventId>
         <couponId>PHYSICAL-201504-0005</couponId><!--奖励编号-->
-=======
-        <eventId>LOTTERY-201504-001</eventId>
-        <couponId>PHYSICAL-201504-0002</couponId><!--奖励编号-->
->>>>>>> 765aff709ecbff13dd4a3e604dc0034d674818d8
         <couponType>PHYSICAL</couponType><!--<type>REGISTER_COUPON</type>-->
         <couponName>iPhone6一部</couponName>
         <amount>0</amount>
