@@ -70,6 +70,7 @@ public interface EnciInsuranceProductService {
      * @param maxRate
      * @param minDuration
      * @param maxDuration
+     * @param enables
      * @param types
      * @return 
      */
@@ -78,6 +79,7 @@ public interface EnciInsuranceProductService {
                                                         BigDecimal maxRate,
                                                         Integer minDuration,
                                                         Integer maxDuration,
+                                                        List<Boolean> enables,
                                                         ProductType... types);
     
     /**
