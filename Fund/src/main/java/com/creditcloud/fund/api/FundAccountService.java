@@ -50,6 +50,32 @@ public interface FundAccountService {
     public List<FundAccount> listAccountByUser(String clientCode,
                                                String userId);
 
+
+    /**
+     * 添加银行卡到用户名下. <br>
+     *
+     * 重复添加也会返回true <br>
+     * 
+     * @param clientCode   商户简码
+     * @param userId       用户ID
+     * @param userName     开户姓名
+     * @param bank         所属银行
+     * @param account      银行卡号
+     * @param province     银行网点所属省份
+     * @param city         银行网点所属城市
+     * @param valid        是否有效
+     * @param isDefault    是否默认
+     * @return 
+     */
+    public boolean addBankCard(String clientCode, 
+            String userId, 
+            String userName, 
+            Bank bank, 
+            String account, 
+            String province, 
+            String city, 
+            boolean valid, 
+            boolean isDefault);
     
     /**
      * 添加银行卡到用户名下.
