@@ -156,8 +156,13 @@ public enum Realm implements BaseEnum {
     /**
      * 基金收藏
      */
-    INVESTMENT_FUND_PRODUCT_FAVORITE("基金收藏"); 
+    INVESTMENT_FUND_PRODUCT_FAVORITE("基金收藏"),
 
+    /**
+     * CMS文章收藏
+     */
+    CMS_ARTICLE_FAVORITE("文章收藏");
+    
     private final String key;
 
     private Realm(String key) {
