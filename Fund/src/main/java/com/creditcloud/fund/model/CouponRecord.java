@@ -11,15 +11,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Created with IntelliJ IDEA.
- * User: meichao
- * Date: 2015/3/23
- * Time: 19:03
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: meichao Date: 2015/3/23 Time: 19:03 To
+ * change this template use File | Settings | File Templates.
  */
 @Data
 @NoArgsConstructor
-public class CouponRecord extends BaseObject{
+public class CouponRecord extends BaseObject {
+
     private String id;
     private String userId;//用户ID
     private String eventId;//获取奖券的活动ID
@@ -37,7 +35,11 @@ public class CouponRecord extends BaseObject{
     private Channel channel;
     private Source source;
     private CouponStatus status;//券状态
+    private Date timeCreated;
+    private Date timeLastUpdated;
+
     private Date useTime;//已使用--->使用时间
+    private FundEvent event;
 
     public CouponRecord(String id,
                         String userId,
@@ -56,7 +58,8 @@ public class CouponRecord extends BaseObject{
                         Channel channel,
                         Source source,
                         CouponStatus status,
-                        Date useTime) {
+                        Date timeCreated,
+                        Date timeLastUpdated) {
         this.id = id;
         this.userId = userId;
         this.eventId = eventId;
@@ -74,6 +77,7 @@ public class CouponRecord extends BaseObject{
         this.channel = channel;
         this.source = source;
         this.status = status;
-        this.useTime = useTime;
+        this.timeCreated = timeCreated;
+        this.timeLastUpdated = timeLastUpdated;
     }
 }
