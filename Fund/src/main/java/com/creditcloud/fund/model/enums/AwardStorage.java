@@ -14,7 +14,7 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum AwardStorage implements BaseEnum{
     IPHONE("iphone"),
-    CAREMA("carema");
+    CAMERA("camera");
     
     private String key;
     

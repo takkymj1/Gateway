@@ -24,28 +24,31 @@ import lombok.NoArgsConstructor;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class LotteryRewardConfig extends BaseConfig{
     
-    @XmlElement(required = true)
+    private static final long serialVersionUID = 201504101154L;
+    public static final String CONFIG_NAME = "LotteryRewardConfig";
+    
+    @XmlElement(required = false)
     private LotteryReward fiveLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward tenLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward twentyLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward thirtyLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward tenTelChargeLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward twentyTelChargeLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward iphoneLotteryReward;
     
-    @XmlElement(required = true)
+    @XmlElement(required = false)
     private LotteryReward cameraLotteryReward;
     
     
