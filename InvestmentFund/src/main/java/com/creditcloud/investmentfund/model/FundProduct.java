@@ -210,9 +210,14 @@ public class FundProduct extends FundObject implements FundConstant{
     private Boolean enable;
     
     /**
+     * 平台与基金公司之间的管理费率
+     */
+    private BigDecimal platformManageFee;
+    
+    /**
      * 创建时间
      * 
-     * @return
+     * @returnD
      */
     private Date timeCreated;
     
