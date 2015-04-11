@@ -13,8 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum RechargeChannel implements BaseEnum {
 
-    SHORTCUT("快捷"),
-    UNIONPAY("银联");
+    DEBITCARD("快捷"),
+    UNIONPAY("网银");
 
     private final String key;
 
