@@ -1,7 +1,6 @@
 package com.creditcloud.fund.api;
 
 import com.creditcloud.fund.model.FundEvent;
-import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -24,7 +23,7 @@ public interface FundEventService {
      */
     String eventActiveStatus(String eventId);
     
-    String eventActiveStatus(String eventId, Date date);
+    String eventActiveStatus(FundEvent event);
     
     /**
      * 根据id获取FundEvent

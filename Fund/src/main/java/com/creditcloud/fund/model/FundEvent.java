@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @XmlRootElement
 public class FundEvent extends BaseObject {
+    public static final String EVENT_IN_ACTIVE = "OK";
     
     private String id;
 
@@ -31,14 +32,17 @@ public class FundEvent extends BaseObject {
 
     private Date endTime;
 
+    private int joinLimit;//参与次数限制
+    
     private EventStatus status;
-
-    public FundEvent(String id,String description, String name, Date startTime, Date endTime, EventStatus status) {
+    
+    public FundEvent(String id,String description, String name, Date startTime, Date endTime, int joinLimit, EventStatus status) {
         this.id = id;
         this.description = description;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.joinLimit = joinLimit;
         this.status = status;
     }
 }
