@@ -210,6 +210,13 @@ public class ClientFeatures extends BaseObject {
     @Getter
     private boolean enableIDM = false;
     
+    /**
+     * 用户资金账户是否存在于平台内
+     */
+    @XmlElement
+    @Getter
+    private boolean localUserFund = true;
+    
     /************************隐藏P2P相关菜单********************/
      /**
      * P2P平台特殊菜单 默认为打开
