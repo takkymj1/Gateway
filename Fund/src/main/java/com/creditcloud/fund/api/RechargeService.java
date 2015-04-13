@@ -1,5 +1,6 @@
 package com.creditcloud.fund.api;
 
+import com.creditcloud.fund.model.enums.RechargeStatus;
 import com.creditcloud.fund.model.record.RechargeRecord;
 
 import javax.ejb.Remote;
@@ -24,6 +25,6 @@ public interface RechargeService {
      */
     RechargeRecord addNew(RechargeRecord rechargeRecord);
 
-    RechargeRecord addNew(RechargeRecord rechargeRecord);
+    boolean finishRecharge(String userId, String fundRecordId, RechargeStatus rechargeStatus);
 
 }
