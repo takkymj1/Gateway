@@ -6,6 +6,7 @@
 package com.creditcloud.fengMessage.model;
 
 import com.creditcloud.fengMessage.model.base.BaseRequest;
+import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,15 +18,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WechatLotteryCouponNotice02Request extends BaseRequest {
     
-    public String date;
+    private String date;
     
-    public String couponAmount;
+    private String couponAmount;
     
-    public String rateLimit;
+    private String rateLimit;
     
-    public WechatLotteryCouponNotice02Request(String date, String couponAmount, String rateLimit){
+    public WechatLotteryCouponNotice02Request(Date date, String couponAmount, String rateLimit){
         this.template_id = "WECHAT_LOTTERY_COUPON_002";
-        this.date = date;
+        this.date = DATE_FORMATTER.format(date);
         this.couponAmount = couponAmount;
         this.rateLimit = rateLimit;
     } 

@@ -6,6 +6,7 @@
 package com.creditcloud.fengMessage.model;
 
 import com.creditcloud.fengMessage.model.base.BaseRequest;
+import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,15 +18,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterCouponNotice01Request extends BaseRequest {
     
-    public String date;
+    private String date;
     
-    public String couponAmount;
+    private String couponAmount;
     
-    public String investAmount;
+    private String investAmount;
     
-    public RegisterCouponNotice01Request(String date, String couponAmount, String investAmount){
+    public RegisterCouponNotice01Request(Date date, String couponAmount, String investAmount){
         this.template_id = "REGISTER_COUPON_001";
-        this.date = date;
+        this.date = DATE_FORMATTER.format(date);
         this.couponAmount = couponAmount;
         this.investAmount = investAmount;
     }    
