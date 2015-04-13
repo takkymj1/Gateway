@@ -5,9 +5,11 @@
 package com.creditcloud.model.enums.misc;
 
 import com.creditcloud.model.enums.BaseEnum;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -245,6 +247,9 @@ public enum Bank implements BaseEnum {
     private final boolean umpSupport;
     private final String pnrCode;
     private final String umpCode;
+    
+    private static final List<Bank> rapidBank = Collections.unmodifiableList(Arrays.asList(Bank.valueOf("ICBC"),Bank.valueOf("ABC"),Bank.valueOf("CCB"),Bank.valueOf("BOC"),
+                                                                                           Bank.valueOf("CEB"), Bank.valueOf("CIB"),Bank.valueOf("SDB")));
 
     static {
         Map<String, Bank> thePnrMap = new HashMap<>(Bank.values().length);
@@ -370,5 +375,14 @@ public enum Bank implements BaseEnum {
      */
     public static Collection<Bank> getPnrBanks() {
         return pnrMap.values();
+    }
+    
+    /**
+     * 获取支持开通快捷协议的银行（暂支持七家）
+     *
+     * @return
+     */
+    public static List<Bank> getRapidBank() {
+        return rapidBank;
     }
 }
