@@ -5,7 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import com.creditcloud.investmentfund.constant.FundInterfaceConstants;
 import com.creditcloud.model.BaseObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
