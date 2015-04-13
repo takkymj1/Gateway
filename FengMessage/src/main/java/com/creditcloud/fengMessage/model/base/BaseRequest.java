@@ -18,5 +18,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BaseRequest  extends BaseObject {
     
-   protected String template_id;
+   private String template_id;
 }

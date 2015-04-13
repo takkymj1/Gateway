@@ -12,14 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TenderNoticeAssign01Request extends BaseRequest{
     
-    public String userName;
-    public String assignTitle;
-    public String creditAmount;
-    public String bidDealAmount;
-    public String serviceFee;
+    private String userName;
+    private String assignTitle;
+    private String creditAmount;
+    private String bidDealAmount;
+    private String serviceFee;
     public TenderNoticeAssign01Request(String userName,String assignTitle,
             String creditAmount,String bidDealAmount,String serviceFee){
-        this.template_id = "NOTI_ASSIGN_000001";
+        this.setTemplate_id("NOTI_ASSIGN_000001");
         this.userName = userName;
         this.assignTitle = assignTitle;
         this.creditAmount = creditAmount;

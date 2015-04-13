@@ -24,7 +24,7 @@ public class RegisterCouponNotice01Request extends BaseRequest {
     public String investAmount;
     
     public RegisterCouponNotice01Request(String date, String couponAmount, String investAmount){
-        this.template_id = "REGISTER_COUPON_001";
+        this.setTemplate_id("REGISTER_COUPON_001");
         this.date = date;
         this.couponAmount = couponAmount;
         this.investAmount = investAmount;
