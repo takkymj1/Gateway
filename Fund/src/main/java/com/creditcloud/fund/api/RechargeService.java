@@ -27,4 +27,5 @@ public interface RechargeService {
 
     boolean finishRecharge(String userId, String fundRecordId, RechargeStatus rechargeStatus);
 
+    RechargeRecord getByRecordId(String userId, String recordId) throws Exception;
 }
