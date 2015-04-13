@@ -13,7 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum LoanProduct implements BaseEnum {
 
     FENG_CX("凤保宝"),
-    FENG_RT("凤锐通");
+    FENG_RT("凤锐通"),
+    FENG_YY("凤溢盈");
 
     private final String key;
 
