@@ -49,7 +49,7 @@ public class CloneUtilTest {
     public void testCloneObj() {
         // GIVEN
         User user = new User();
-        user.setName("test");
+        user.setName("testUserName");
         LoanRequest request = new LoanRequest();
         request.setUser(user);
         Loan loan = new Loan();
@@ -64,6 +64,6 @@ public class CloneUtilTest {
         assertFalse(loan.equals(clonedLoan));
         assertNull(clonedLoan.getLoanRequest().getUser());
         assertNotNull(loan.getLoanRequest().getUser());
-        assertEquals("test", loan.getLoanRequest().getUser().getName());
+        assertEquals("testUserName", loan.getLoanRequest().getUser().getName());
     }
 }
