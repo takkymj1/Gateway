@@ -30,7 +30,7 @@ public class RedeemRequestMessage extends CommonRequestMessage {
     private String CommonReturn;//200位	公共回传字段	否
 
     public RedeemRequestMessage() {
-        setTxcode(TransactionCode.MONEY_FUND_REDEEM_QUICK.getCode());
+        setTxcode(TransactionCode.MONEY_FUND_REDEEM_NORMAL.getCode());
     }
 
     public void setRedeemType(boolean quick) {
