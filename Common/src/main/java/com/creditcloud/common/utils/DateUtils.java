@@ -47,6 +47,8 @@ public class DateUtils {
     private static final Logger logger = LoggerFactory.getLogger(DateUtils.class);
     
     private static final  String DATE_FORMAT_TEMPLATE = "yyyy-MM-dd";
+    
+    private static final  String DATETIME_FORMAT_TEMPLATE = "yyyy-MM-dd HH:mm:ss";
 
     private static final DateTimeFormatter format = DateTimeFormat.forPattern(DATE_FORMAT_TEMPLATE);
     
@@ -98,6 +100,14 @@ public class DateUtils {
 
     public static Date parse(String dateStr) throws ParseException {
         return getSdf(DATE_FORMAT_TEMPLATE).parse(dateStr);
+    }
+    
+    public static String formatByDateTime(Date date) {
+        return getSdf(DATETIME_FORMAT_TEMPLATE).format(date);
+    }
+
+    public static Date parseByDateTime(String dateStr) throws ParseException {
+        return getSdf(DATETIME_FORMAT_TEMPLATE).parse(dateStr);
     }
 
     public static Date offset(final Date asOfDate, final Duration duration) {
