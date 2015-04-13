@@ -24,4 +24,6 @@ public interface RechargeService {
      */
     RechargeRecord addNew(RechargeRecord rechargeRecord);
 
+    RechargeRecord addNew(RechargeRecord rechargeRecord);
+
 }

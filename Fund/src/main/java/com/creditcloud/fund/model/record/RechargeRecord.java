@@ -2,6 +2,7 @@ package com.creditcloud.fund.model.record;
 
 import com.creditcloud.fund.model.enums.PlatformSource;
 import com.creditcloud.fund.model.enums.RechargeChannel;
+import com.creditcloud.fund.model.enums.RechargeStatus;
 import com.creditcloud.fund.model.enums.RechargeType;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
@@ -64,6 +65,11 @@ public class RechargeRecord extends BaseObject {
      * 充值渠道:快捷or网银
      */
     private RechargeChannel rechargeChannel;
+
+    /**
+     * 充值状态
+     */
+    private RechargeStatus rechargeStatus;
 
 
     /**
