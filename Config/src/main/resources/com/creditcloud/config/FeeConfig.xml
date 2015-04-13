@@ -68,6 +68,18 @@
         <rate>0.003</rate>
         <period>SINGLE</period>
     </depositFee>
+    <debitcardFee><!--快捷-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.003</rate>
+        <period>SINGLE</period>
+    </debitcardFee>
+    <unionpayFee><!--网银-->
+        <type>FLOATING</type>
+        <fixed>0.00</fixed>
+        <rate>0.024</rate>
+        <period>SINGLE</period>
+    </unionpayFee>
     <daysToBreach>
         30
     </daysToBreach>
