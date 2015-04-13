@@ -28,6 +28,6 @@ public class UmpBank extends BaseObject{
     
     private String bankName;
     
-    private String quota;
+    private Integer quota;
     
 }
