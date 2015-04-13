@@ -26,7 +26,7 @@ public class WechatLotteryCouponNotice02Request extends BaseRequest {
     
     public WechatLotteryCouponNotice02Request(Date date, String couponAmount, String rateLimit){
         this.template_id = "WECHAT_LOTTERY_COUPON_002";
-        this.date = DATE_FORMATTER.format(date);
+        this.date = DATETIME_FORMATTER.format(date);
         this.couponAmount = couponAmount;
         this.rateLimit = rateLimit;
     } 
