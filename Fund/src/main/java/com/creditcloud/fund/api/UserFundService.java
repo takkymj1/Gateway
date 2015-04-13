@@ -364,4 +364,12 @@ public interface UserFundService {
      * @return
      */
     public BigDecimal getTotalAvailable(String clientCode);
+
+
+    /**
+     * 增加更新投资人的免费提现额度
+     * @param userId
+     * @param dueAmount
+     */
+    void updateUserFreeWithdrawals(String userId,BigDecimal dueAmount);
 }

@@ -77,7 +77,7 @@
     <unionpayFee><!--网银-->
         <type>FLOATING</type>
         <fixed>0.00</fixed>
-        <rate>0.024</rate>
+        <rate>0.0024</rate>
         <period>SINGLE</period>
     </unionpayFee>
     <daysToBreach>
