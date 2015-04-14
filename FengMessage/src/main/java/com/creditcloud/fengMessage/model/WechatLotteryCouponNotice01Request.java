@@ -18,13 +18,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WechatLotteryCouponNotice01Request extends BaseRequest {
     
-    public String date;
+    private String date;
     
-    public String couponAmount;
+    private String couponAmount;
     
-    public String rateLimit;
+    private String rateLimit;
     
-    public String eventName;
+    private String eventName;
     
     public WechatLotteryCouponNotice01Request(Date date, String couponAmount, String rateLimit, String eventName){
         this.template_id = "REBATE_COMMON_COUPON_001";
