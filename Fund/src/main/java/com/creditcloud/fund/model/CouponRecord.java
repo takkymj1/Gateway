@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class CouponRecord extends BaseObject {
-
     private String id;
     private String userId;//用户ID
     private String eventId;//获取奖券的活动ID
@@ -37,7 +36,6 @@ public class CouponRecord extends BaseObject {
     private CouponStatus status;//券状态
     private Date timeCreated;
     private Date timeLastUpdated;
-
     private Date useTime;//已使用--->使用时间
     private FundEvent event;
 

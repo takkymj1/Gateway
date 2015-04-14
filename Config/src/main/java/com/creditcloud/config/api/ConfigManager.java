@@ -17,11 +17,10 @@ import com.creditcloud.config.DeviceManagerConfig;
 import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.EnciPayConfig;
 import com.creditcloud.config.FeeConfig;
-import com.creditcloud.config.FengCouponConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.FuiouConfig;
 import com.creditcloud.config.GuaranteeConfig;
-import com.creditcloud.config.LotteryRewardConfig;
+import com.creditcloud.config.LotteryEventPrizeConfig;
 import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.PaymentConfig;
@@ -30,7 +29,6 @@ import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UmpConfig;
-import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.YeepConfig;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
@@ -63,7 +61,6 @@ public interface ConfigManager {
 
     public YeepConfig getYeepConfig();
 
-    public FengCouponConfig getFengCouponConfig();
     /**
      *
      * 获取 redis 配置
@@ -201,5 +198,5 @@ public interface ConfigManager {
      * 获取微信抽奖奖品出现概率配置
      * @return 
      */
-    public LotteryRewardConfig getLotteryRewardConfig();
+    public LotteryEventPrizeConfig getLotteryEventPrizeConfig();
 }
