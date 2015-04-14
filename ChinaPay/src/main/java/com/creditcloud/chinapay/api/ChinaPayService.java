@@ -55,6 +55,7 @@ public interface ChinaPayService {
      * 单笔代付交易接口<br>
      * 验证过程中如果遇到HTTP返回码不是200,会抛出异常HTTPException;<br>
      * 验证过程中如果来自服务器的返回不能通过密钥验证,则会抛出异常MaliciousServerException;<br>
+     * 备付金不足抛异常NoEnoughMoneyForSinglePayException;<br>
      * 其他情况下返回服务器反馈的验证信息<br>
      *
      * @param parameters
