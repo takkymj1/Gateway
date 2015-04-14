@@ -59,6 +59,13 @@ public class DateUtils {
         }  
     };
     
+    private static final ThreadLocal<SimpleDateFormat> dateTimeFormatLocal = new ThreadLocal<SimpleDateFormat>() {  
+        @Override
+        public SimpleDateFormat initialValue() {  
+            return new SimpleDateFormat(DATETIME_FORMAT_TEMPLATE);  
+        }  
+    };
+    
      /**
      * @param date
      * @param pattern
@@ -73,11 +80,11 @@ public class DateUtils {
     }
     
     public static String formatByDateTime(Date date) {
-        return getSdf(DATETIME_FORMAT_TEMPLATE).format(date);
+        return dateTimeFormatLocal.get().format(date);
     }
 
     public static Date parseByDateTime(String dateStr) throws ParseException {
-        return getSdf(DATETIME_FORMAT_TEMPLATE).parse(dateStr);
+        return dateTimeFormatLocal.get().parse(dateStr);
     }
 
     public static Date offset(final Date asOfDate, final Duration duration) {
