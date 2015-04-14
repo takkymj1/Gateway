@@ -5,11 +5,14 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.xml.CDataXmlOutputFactoryImpl;
 import com.creditcloud.investmentfund.constant.FundInterfaceConstants;
+import com.fasterxml.aalto.stax.InputFactoryImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
@@ -53,7 +56,10 @@ public abstract class CommonRequestMessage extends CommonMessage {
         try {
             Map<String, String> map = toMapFromXMLPayloadParameters();
             final String rootXMLNodeName = "order";
-            ObjectMapper xmlMapper = new XmlMapper();
+            XmlFactory factory = new XmlFactory(new InputFactoryImpl(),
+                                                new CDataXmlOutputFactoryImpl());
+            XmlMapper xmlMapper = new XmlMapper(factory);
+            xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
             String xml = xmlMapper.writeValueAsString(map);
             Document doc = DocumentHelper.parseText(xml);
             Element root = doc.getRootElement();
