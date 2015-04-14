@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class WechatLotteryCouponNotice02Request extends BaseRequest {
+public class RebateCouponNotice01Request extends BaseRequest {
     
     private String date;
     
@@ -24,11 +24,15 @@ public class WechatLotteryCouponNotice02Request extends BaseRequest {
     
     private String rateLimit;
     
-    public WechatLotteryCouponNotice02Request(Date date, String couponAmount, String rateLimit){
-        this.template_id = "WECHAT_LOTTERY_COUPON_002";
+    private String eventName;
+    
+    public RebateCouponNotice01Request(Date date, String couponAmount, String rateLimit, String eventName){
+        this.template_id = "REBATE_COMMON_COUPON_001";
         this.date = DATETIME_FORMATTER.format(date);
         this.couponAmount = couponAmount;
         this.rateLimit = rateLimit;
-    } 
+        this.eventName = eventName;
+    }
 }    
+
 
