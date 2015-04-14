@@ -47,6 +47,5 @@
         <module>Batch</module>
         <module>Feedback</module>
         <module>FengMessage</module>
-        <module>Coupon</module>
     </modules>
 </project>
