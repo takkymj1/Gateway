@@ -30,9 +30,9 @@ public class EventPrize extends BaseObject {
     private CouponType prizeType;//奖品类型
     private BigDecimal amount;//金额
     private Integer inventory;//剩余库存
-    private boolean asDefault;
     private ExpireMode expireMode;//过期方式
     private String expireValue;//过期值
+    private boolean asDefault;
     private boolean valid;
 
     public EventPrize(String id,
@@ -42,9 +42,9 @@ public class EventPrize extends BaseObject {
                       CouponType prizeType,
                       BigDecimal amount,
                       Integer inventory,
-                      boolean asDefault,
                       ExpireMode expireMode,
                       String expireValue,
+                      boolean asDefault,
                       boolean valid) {
         this.id = id;
         this.eventNo = eventNo;
@@ -53,9 +53,9 @@ public class EventPrize extends BaseObject {
         this.prizeType = prizeType;
         this.amount = amount;
         this.inventory = inventory;
-        this.asDefault = asDefault;
         this.expireMode = expireMode;
         this.expireValue = expireValue;
+        this.asDefault = asDefault;
         this.valid = valid;
     }
 }
