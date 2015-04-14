@@ -2,51 +2,43 @@
 <LotteryRewardConfig>
     <fiveLotteryReward><!--5元红包-->
         <awardid>REBATE-201504-0002</awardid>
-        <probability>997</probability>
+        <probability>9.95</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </fiveLotteryReward>
     <tenLotteryReward><!--10元红包-->
         <awardid>REBATE-201504-0003</awardid>
-        <probability>1000</probability>
+        <probability>10</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </tenLotteryReward>
     <twentyLotteryReward><!--20元红包-->
         <awardid>REBATE-201504-0004</awardid>
-        <probability>3000</probability>
+        <probability>30</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </twentyLotteryReward>
     <thirtyLotteryReward><!--30元红包-->
         <awardid>REBATE-201504-0005</awardid>
-        <probability>5000</probability>
+        <probability>50</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </thirtyLotteryReward>
     <tenTelChargeLotteryReward><!--10元电话费-->
         <awardid>VIRTUAL-201504-0001</awardid>
-        <probability>2</probability>
+        <probability>0.02</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </tenTelChargeLotteryReward>
     <twentyTelChargeLotteryReward><!--20元电话费-->
         <awardid>VIRTUAL-201504-0002</awardid>
-        <probability>1</probability>
+        <probability>0.01</probability>
         <quantity>-1</quantity>
-        <appeardate>all</appeardate>
     </twentyTelChargeLotteryReward>
     <cameraLotteryReward><!--拍立得-->
         <awardid>PHYSICAL-201504-0001</awardid>
-        <probability>0</probability>
+        <probability>0.01</probability>
         <quantity>10</quantity>
-        <appeardate>1,2,3,4,5,6,7,8,9,10</appeardate>
     </cameraLotteryReward>
     <iphoneLotteryReward><!--iphone-->
         <awardid>PHYSICAL-201504-0002</awardid>
-        <probability>0</probability>
+        <probability>0.01</probability>
         <quantity>2</quantity>
-        <appeardate>2,5</appeardate>
     </iphoneLotteryReward>
     
 </LotteryRewardConfig>
