@@ -24,7 +24,8 @@ public enum InvestEventType implements BaseEnum {
     
     CREDITASSIGN("债权转让"),
     CREDITASSIGNINVEST("债权转让投资"),
-    REWARD_COUPON_NEW_REGISTER("新注册红包奖励");
+    REWARD_COUPON_NEW_REGISTER("新注册红包奖励"),
+    COUPON_REBATE("返现券");
 
     private final String key;
 

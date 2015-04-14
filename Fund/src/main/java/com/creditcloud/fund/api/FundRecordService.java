@@ -4,6 +4,7 @@
  */
 package com.creditcloud.fund.api;
 
+import com.creditcloud.fund.model.enums.CouponType;
 import com.creditcloud.fund.model.enums.FundRecordOperation;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
 import com.creditcloud.fund.model.enums.FundRecordType;
@@ -756,7 +757,7 @@ public interface FundRecordService {
      * @param description
      */
 
-    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description, com.creditcloud.model.misc.RealmEntity entity);
+    void couponTransfer(String clientCode, String account, BigDecimal amount, String userId, boolean transferIn, String orderId, String description, com.creditcloud.model.misc.RealmEntity entity, CouponType couponType);
 
 
     /**

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.creditcloud.fengMessage.model.base;
 
 import com.creditcloud.model.BaseObject;
+import java.text.SimpleDateFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,7 +16,8 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class BaseRequest  extends BaseObject {
-    
-   private String template_id;
+public class BaseRequest extends BaseObject {
+    public static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat("yyyy年MM月dd日");
+    public static final SimpleDateFormat DATETIME_FORMATTER =  new SimpleDateFormat("yyyy年MM月dd日 hh:mm");
+    protected String template_id;
 }

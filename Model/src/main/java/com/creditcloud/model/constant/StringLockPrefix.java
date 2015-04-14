@@ -56,4 +56,9 @@ public interface StringLockPrefix {
      * 新人红包
      */
     String coupon_newUser_lock = "coupon.newUser.lock";
+    
+    /**
+     * 微信抽奖
+     */
+    String wechart_lottery_lock = "wechart.lottery.lock";
 }

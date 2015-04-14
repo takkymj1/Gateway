@@ -12,22 +12,23 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author caojiadong
+ * @author jiaguangfu
  */
 @Data
 @NoArgsConstructor
-public class RegisterCouponNotice01Request extends BaseRequest {
+public class WechatLotteryCouponNotice02Request extends BaseRequest {
     
     private String date;
     
     private String couponAmount;
     
-    private String investAmount;
+    private String rateLimit;
     
-    public RegisterCouponNotice01Request(Date date, String couponAmount, String investAmount){
-        this.template_id = "REGISTER_COUPON_001";
-        this.date = DATE_FORMATTER.format(date);
+    public WechatLotteryCouponNotice02Request(Date date, String couponAmount, String rateLimit){
+        this.template_id = "WECHAT_LOTTERY_COUPON_002";
+        this.date = DATETIME_FORMATTER.format(date);
         this.couponAmount = couponAmount;
-        this.investAmount = investAmount;
-    }    
-}
+        this.rateLimit = rateLimit;
+    } 
+}    
+
