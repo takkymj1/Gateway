@@ -61,4 +61,12 @@ public class ContractSealConfig extends BaseConfig {
     @Getter
     private boolean enableContractSealLog = false;
     
+    /**
+     * 通过图片的方式PDF插入公章
+     * 
+     * @return
+     */
+    @XmlElement
+    @Getter
+    private boolean enableContractSealPictureMode = false;
 }
