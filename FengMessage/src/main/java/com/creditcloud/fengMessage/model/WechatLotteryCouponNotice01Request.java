@@ -24,11 +24,14 @@ public class WechatLotteryCouponNotice01Request extends BaseRequest {
     
     private String rateLimit;
     
-    public WechatLotteryCouponNotice01Request(Date date, String couponAmount, String rateLimit){
-        this.template_id = "WECHAT_LOTTERY_COUPON_001";
+    private String eventName;
+    
+    public WechatLotteryCouponNotice01Request(Date date, String couponAmount, String rateLimit, String eventName){
+        this.template_id = "REBATE_COMMON_COUPON_001";
         this.date = DATETIME_FORMATTER.format(date);
         this.couponAmount = couponAmount;
         this.rateLimit = rateLimit;
+        this.eventName = eventName;
     }
 }    
 
