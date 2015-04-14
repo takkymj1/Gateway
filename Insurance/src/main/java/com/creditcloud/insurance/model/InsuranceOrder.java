@@ -98,6 +98,23 @@ public class InsuranceOrder extends BaseObject implements InsuranceConstant{
     private String originOrderId;
     
     /**
+     * 银行账户
+     * 
+     * 退保时退款到该账户
+     */
+    private String bankAccount;
+    
+    /**
+     * 账户姓名
+     */
+    private String accountName;
+    
+    /**
+     * 银行卡编码
+     */
+    private String bankName;
+    
+    /**
      * 记录创建时间
      */
     private Date timeCreated;
