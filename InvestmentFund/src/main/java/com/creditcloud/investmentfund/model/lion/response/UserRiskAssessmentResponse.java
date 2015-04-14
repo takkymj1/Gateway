@@ -6,7 +6,7 @@
 
 package com.creditcloud.investmentfund.model.lion.response;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import com.creditcloud.investmentfund.enums.RiskLevel;
 import com.creditcloud.model.util.Enums;
 import lombok.Data;

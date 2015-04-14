@@ -52,6 +52,13 @@ public class ContractSeal extends BaseObject {
     private int y = 0;
     
     /**
+     * 放缩系数
+     */
+    @XmlElement
+    @Getter
+    private int scale = 100;
+    
+    /**
      * personal seal or public seal
      */
     @XmlElement

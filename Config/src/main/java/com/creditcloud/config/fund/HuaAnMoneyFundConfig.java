@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 
+ *
  * @author guohuazhang
  */
 @NoArgsConstructor
@@ -44,7 +44,7 @@ public class HuaAnMoneyFundConfig extends BaseObject {
 
     /**
      *
-     * 商户ID
+     * 商户ID，华安基金公司管理，商户在华安基金公司的基金账号
      *
      * @return
      */
@@ -52,6 +52,15 @@ public class HuaAnMoneyFundConfig extends BaseObject {
     @XmlElement(required = true)
     private String merchantID;
 
+    /**
+     *
+     * 云信管理的商户ID，对云信每个商户唯一
+     *
+     * @return
+     */
+    @Getter
+    @XmlElement(required = true)
+    private String merchantIDInCreditCloud;
 
     /**
      * 华安货币基金接口地址

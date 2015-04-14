@@ -7,7 +7,7 @@ package com.creditcloud.investmentfund.model.huaan.money.request;
 
 import com.creditcloud.investmentfund.api.huaan.money.enums.TransactionCode;
 import com.creditcloud.investmentfund.model.huaan.money.CommonRequestMessage;
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
@@ -30,7 +30,7 @@ public class RedeemRequestMessage extends CommonRequestMessage {
     private String CommonReturn;//200位	公共回传字段	否
 
     public RedeemRequestMessage() {
-        setTxcode(TransactionCode.MONEY_FUND_REDEEM_QUICK.getCode());
+        setTxcode(TransactionCode.MONEY_FUND_REDEEM_NORMAL.getCode());
     }
 
     public void setRedeemType(boolean quick) {

@@ -5,7 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

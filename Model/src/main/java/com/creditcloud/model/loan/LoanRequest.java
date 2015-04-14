@@ -230,6 +230,12 @@ public class LoanRequest extends BaseObject {
      * 例如用于影子标之类业务
      */
     private String displayUserId;
+    
+    /**
+     * 单纯的借款申请,不会产生后续标的等</p>
+     * 对于某些业务例如配资申请
+     */
+    private boolean pureRequest;
 
     /**
      *

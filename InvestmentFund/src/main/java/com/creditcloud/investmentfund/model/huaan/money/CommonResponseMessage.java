@@ -19,7 +19,6 @@ import java.util.Map;
  */
 public abstract class CommonResponseMessage extends CommonMessage {
 
-
     /**
      * 从解密后的XML payload contentXMLPayloadDecoded 里面把字段放到相应的对象成员变量里面
      */

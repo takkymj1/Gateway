@@ -14,7 +14,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum FundBrand implements BaseEnum {
 
-    LIONFUND("诺安基金");
+    LIONFUND("诺安基金"),
+    HUAANFUND("华安基金");
 
     private final String key;
 

@@ -1,4 +1,4 @@
-package com.creditcloud.investmentfund.api.lion.moneyfund.utils;
+package com.creditcloud.investmentfund.api.utils;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
