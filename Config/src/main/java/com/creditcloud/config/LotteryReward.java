@@ -34,10 +34,10 @@ public class LotteryReward extends BaseObject{
      private String awardid;
      
      /**
-      * 出现的概率 0表示不按概率进行计算
+      * 出现的概率
       */
      @XmlElement(required = false)
-     private int probability;
+     private BigDecimal probability;
      
      /**
       * 数量 -1表示无限制
@@ -45,9 +45,4 @@ public class LotteryReward extends BaseObject{
      @XmlElement(required = false)
      private int quantity;
      
-     /**
-      * 该奖品出现的时机 all表示活动期间每天都出现
-      */
-     @XmlElement(required = false)
-     private String appeardate;
 }
