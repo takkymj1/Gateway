@@ -134,7 +134,12 @@ public enum Realm implements BaseEnum {
     /**
      * 系统
      */
-    SYSTEM("系统"); 
+    SYSTEM("系统"),
+    
+    /**
+     * 文章收藏
+     */
+    CMS_ARTICLE_FAVORITE("文章收藏"); 
 
     private final String key;
 

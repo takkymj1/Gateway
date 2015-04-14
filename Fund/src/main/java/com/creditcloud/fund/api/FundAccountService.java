@@ -50,6 +50,7 @@ public interface FundAccountService {
     public List<FundAccount> listAccountByUser(String clientCode,
                                                String userId);
 
+
     /**
      * 添加银行卡到用户名下. <br>
      *
