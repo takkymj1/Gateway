@@ -32,6 +32,10 @@ public class EventPrize extends BaseObject {
     private Integer inventory;//剩余库存
     private ExpireMode expireMode;//过期方式
     private String expireValue;//过期值
+    private String limitType;
+    private BigDecimal amountLimit;
+    private BigDecimal rateLimit;
+    private int useLimit;
     private boolean asDefault;
     private boolean valid;
 
@@ -44,6 +48,10 @@ public class EventPrize extends BaseObject {
                       Integer inventory,
                       ExpireMode expireMode,
                       String expireValue,
+                      String limitType,
+                      BigDecimal amountLimit,
+                      BigDecimal rateLimit,
+                      int useLimit,
                       boolean asDefault,
                       boolean valid) {
         this.id = id;
@@ -55,6 +63,9 @@ public class EventPrize extends BaseObject {
         this.inventory = inventory;
         this.expireMode = expireMode;
         this.expireValue = expireValue;
+        this.limitType = limitType;
+        this.amountLimit = amountLimit;
+        this.rateLimit = rateLimit;
         this.asDefault = asDefault;
         this.valid = valid;
     }

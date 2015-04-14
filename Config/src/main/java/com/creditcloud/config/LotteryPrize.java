@@ -7,11 +7,11 @@
 package com.creditcloud.config;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.math.BigDecimal;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,15 +23,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LotteryReward extends BaseObject{
+public class LotteryPrize extends BaseObject{
     
      private static final long serialVersionUID = 20150408L;
+     
+     /**
+      * 活动编号
+      */
+     @XmlElement(required = true)
+     private String eventNo;
      
      /**
       * 奖励id
       */
      @XmlElement(required = false)
-     private String awardid;
+     private String prizeNo;
      
      /**
       * 出现的概率
@@ -44,5 +50,4 @@ public class LotteryReward extends BaseObject{
       */
      @XmlElement(required = false)
      private int quantity;
-     
 }
