@@ -77,15 +77,16 @@ public interface LoanRequestQueryService {
 
     
     /**
-     * 按LoanRequestStatus列出一定时间内提交的股票配资LoanRequest
+     * 按LoanRequestStatus和pureRequest列出一定时间内提交的LoanRequest
      *
+     * @param pureRequest 是否为单纯的借款申请，用于判断某些业务例如配资申请
      * @param from
      * @param to
      * @param info
      * @param status
      * @return
      */
-    public PagedResult<LoanRequest> listStockFinanceByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
+    public PagedResult<LoanRequest> listByStatusAndDate(boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
     
     
     
