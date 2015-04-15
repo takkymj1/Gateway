@@ -28,7 +28,7 @@ public class RebateCouponNotice01Request extends BaseRequest {
     
     public RebateCouponNotice01Request(Date date, String couponAmount, String rateLimit, String eventName){
         this.template_id = "REBATE_COMMON_COUPON_001";
-        this.date = DATETIME_FORMATTER.format(date);
+        this.date = format(date);
         this.couponAmount = couponAmount;
         this.rateLimit = rateLimit;
         this.eventName = eventName;
