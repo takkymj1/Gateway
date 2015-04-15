@@ -60,5 +60,5 @@ public interface StringLockPrefix {
     /**
      * 微信抽奖
      */
-    String wechart_lottery_lock = "wechart.lottery.lock";
+    String event_lottery_lock = "event.lottery.lock";
 }
