@@ -66,6 +66,7 @@ public class EventPrize extends BaseObject {
         this.limitType = limitType;
         this.amountLimit = amountLimit;
         this.rateLimit = rateLimit;
+        this.useLimit = useLimit;
         this.asDefault = asDefault;
         this.valid = valid;
     }
