@@ -32,7 +32,6 @@ import com.creditcloud.config.UmpConfig;
 import com.creditcloud.config.YeepConfig;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
-import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
 
@@ -128,12 +127,12 @@ public interface ConfigManager {
      */
     public UmpConfig getUmpConfig();
 
-    /**
-     * wealth product config
-     *
-     * @return
-     */
-    public WealthProductConfig getWealthProductConfig();
+//    /**
+//     * wealth product config
+//     *
+//     * @return
+//     */
+//    public WealthProductConfig getWealthProductConfig();
 
     /**
      * 缓存配置文件

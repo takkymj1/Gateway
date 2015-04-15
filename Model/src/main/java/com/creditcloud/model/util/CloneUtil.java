@@ -51,6 +51,7 @@ public class CloneUtil {
                 if(bin != null){
                     bin.close();
                 }
+                bos.close();
             } catch (IOException e) {
                 Logger.getLogger(CloneUtil.class.getName()).log(Level.SEVERE, null, e);
             }
