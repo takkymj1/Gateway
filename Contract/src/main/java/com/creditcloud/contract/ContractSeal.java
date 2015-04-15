@@ -123,4 +123,19 @@ public class ContractSeal extends BaseObject {
         Seal seal = new Seal(null, name, ContractSealType.ENTERPRISE, null, null, null, null);
         return new ContractSeal(null, true, name, 0, 0, 0, scale, seal, null);
     }
+    
+    /**
+     * 通过阈值关键字生成图片
+     * 
+     * @param name      公章图片名字
+     * @param keyword   合同表单关键字
+     * @param scale     放缩系数
+     * @return 
+     */
+    public static ContractSeal generateContractSeal(String name, String keyword, int scale){
+        Seal seal = new Seal(null, name, ContractSealType.ENTERPRISE, null, null, null, null);
+        return new ContractSeal(null, true, keyword, 0, 0, 0, scale, seal, null);
+    }
+    
+    
 }
