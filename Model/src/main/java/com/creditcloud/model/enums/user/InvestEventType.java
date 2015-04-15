@@ -21,11 +21,10 @@ public enum InvestEventType implements BaseEnum {
     WITHDRAW("提现"),
     //2015.01.09 兼容众筹投资类型，后续最好为众筹单独建立一套投资事件对象
     FUNDINGINVEST("众筹投资"),
-    
     CREDITASSIGN("债权转让"),
     CREDITASSIGNINVEST("债权转让投资"),
-    REWARD_COUPON_NEW_REGISTER("新注册红包奖励"),
-    COUPON_REBATE("返现券");
+    REWARD_COUPON_NEW_REGISTER("注册红包"),
+    COUPON_REBATE("红包返现");
 
     private final String key;
 
