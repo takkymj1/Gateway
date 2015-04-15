@@ -23,7 +23,7 @@ import lombok.EqualsAndHashCode;
 public class TransQueryRequestMessage extends CommonRequestMessage {
 
     private String OrgMerchantDate;//	8位	原定单商户日期	是
-    private String OrgOrderNO;//	24位	原定单号	是
+    private String OrgOrderNo;//	24位	原定单号	是
     private String OrgTxCode;//	4位	原交易类型	是
     private String CommonReturn;//	200位	公共回传字段	否
 
@@ -38,7 +38,7 @@ public class TransQueryRequestMessage extends CommonRequestMessage {
         map.put("MerchantId", StringUtils.nonNull(MerchantId));
         map.put("MerchantDate", StringUtils.nonNull(MerchantDate));
         map.put("OrgMerchantDate", StringUtils.nonNull(OrgMerchantDate));
-        map.put("OrgOrderNO", StringUtils.nonNull(OrgOrderNO));
+        map.put("OrgOrderNo", StringUtils.nonNull(OrgOrderNo));
         map.put("OrgTxCode", StringUtils.nonNull(OrgTxCode));
         map.put("CommonReturn", StringUtils.nonNull(CommonReturn));
         map.put("RetURL", StringUtils.nonNull(RetURL));
