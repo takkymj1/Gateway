@@ -27,7 +27,7 @@ public class Seal extends BaseObject {
     
     private String id;
     
-    // 公章特性码 or 私章证书ID
+    // 公章特性码 or 私章证书ID or 公章图片URL
     private String code;
     
     // 印章类型
