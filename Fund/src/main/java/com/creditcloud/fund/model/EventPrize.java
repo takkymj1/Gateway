@@ -28,7 +28,7 @@ public class EventPrize extends BaseObject {
     private String prizeNo;
     private String prizeName;
     private CouponType prizeType;//奖品类型
-    private String description;
+    private String useDescription;
     private BigDecimal amount;//金额
     private Integer inventory;//剩余库存
     private ExpireMode expireMode;//过期方式
@@ -45,7 +45,7 @@ public class EventPrize extends BaseObject {
                       String prizeNo,
                       String prizeName,
                       CouponType prizeType,
-                      String description,
+                      String useDescription,
                       BigDecimal amount,
                       Integer inventory,
                       ExpireMode expireMode,
@@ -61,7 +61,7 @@ public class EventPrize extends BaseObject {
         this.prizeNo = prizeNo;
         this.prizeName = prizeName;
         this.prizeType = prizeType;
-        this.description = description;
+        this.useDescription = useDescription;
         this.amount = amount;
         this.inventory = inventory;
         this.expireMode = expireMode;
