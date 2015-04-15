@@ -22,6 +22,7 @@ import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 import org.joda.time.LocalDate;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -297,6 +298,19 @@ public final class LoanCalculator {
                                      final int rate,
                                      final RepaymentMethod method,
                                      final LocalDate asOfDate) {
+        return analyze(amount, duration, rate, method, asOfDate, NumberConstant.ROUNDING_MODE);
+    }
+    public static LoanDetail analyze(final BigDecimal amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate,
+                                     final RoundingMode rm){
+        RoundingMode roundingMode = rm;
+        if(roundingMode == null){
+            roundingMode = NumberConstant.ROUNDING_MODE;
+        }
+        
         LoanDetail result = null;
         //principal
         BigDecimal principal = amount;
@@ -320,7 +334,7 @@ public final class LoanCalculator {
                 }
 
                 //ceilling the interest
-                interest = interest.setScale(2, NumberConstant.ROUNDING_MODE);
+                interest = interest.setScale(2, roundingMode);
                 //create result
                 result = new LoanDetail(principal, interest, duration, BulletRepayment);
                 //天数不为0直接按照日息计算,还款计划也按照日来累加，保证还款计划天数与计息天数一致
@@ -331,7 +345,7 @@ public final class LoanCalculator {
                 }
                 break;
             case MonthlyInterest:   //in this case we don't need to worry about duration.days since that must be 0
-                amortizedInterest = principal.multiply(rateMonth).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedInterest = principal.multiply(rateMonth).setScale(2, roundingMode);
                 interest = amortizedInterest.multiply(new BigDecimal(duration.getTotalMonths()));
                 //create result
                 result = new LoanDetail(principal, interest, duration, MonthlyInterest);
@@ -355,7 +369,7 @@ public final class LoanCalculator {
                 BigDecimal baseInterest = principal.multiply(rateMonth);
                 //calc installment
                 BigDecimal installment = baseInterest.multiply(is[tenure]).divide(is[tenure].subtract(ONE), mc);
-                installment = installment.setScale(2, NumberConstant.ROUNDING_MODE);
+                installment = installment.setScale(2, roundingMode);
                 //reset total interest
                 interest = ZERO;
                 //create loanDetail
@@ -363,7 +377,7 @@ public final class LoanCalculator {
                 //deal with amortized items
                 outstandingPrincipal = principal;
                 for (int i = 0; i < tenure; i++) {
-                    amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                    amortizedInterest = baseInterest.subtract(installment, mc).multiply(is[i]).add(installment, mc).setScale(2, roundingMode);
                     amortizedPrincipal = installment.subtract(amortizedInterest);
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
                     if (i == tenure - 1) {  //last ONE we need to fix the rounding error and let the oustanding principal be ZERO
@@ -386,14 +400,14 @@ public final class LoanCalculator {
                 //times of repayments in months
                 tenure = duration.getYears() * 12 + duration.getMonths();
                 //calc amortized principal first
-                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, roundingMode);
                 //calc by each month
                 BigDecimal[] interests = new BigDecimal[tenure];
                 BigDecimal[] outstandingPrincipals = new BigDecimal[tenure];
                 outstandingPrincipal = principal;
                 interest = ZERO;
                 for (int i = 0; i < tenure; i++) {
-                    interests[i] = outstandingPrincipal.multiply(rateMonth, mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                    interests[i] = outstandingPrincipal.multiply(rateMonth, mc).setScale(2, roundingMode);
                     interest = interest.add(interests[i]);
                     outstandingPrincipal = outstandingPrincipal.subtract(amortizedPrincipal);
                     outstandingPrincipals[i] = outstandingPrincipal;
@@ -419,9 +433,9 @@ public final class LoanCalculator {
                 //times of repayments in months
                 tenure = duration.getYears() * 12 + duration.getMonths();
                 //calc amortized principal and interest
-                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
-                amortizedInterest = principal.multiply(rateMonth).setScale(2, NumberConstant.ROUNDING_MODE);
-                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedPrincipal = principal.divide(new BigDecimal(tenure), mc).setScale(2, roundingMode);
+                amortizedInterest = principal.multiply(rateMonth).setScale(2, roundingMode);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, roundingMode);
                 //create LoanDetail
                 result = new LoanDetail(principal, interest, duration, EqualInterest);
                 //deal with amortized items
@@ -445,8 +459,8 @@ public final class LoanCalculator {
                 //times of repayments.
                 tenure = duration.getYears();
                 //calc amortized interest and interest
-                amortizedInterest = principal.multiply(rateYear).setScale(2, NumberConstant.ROUNDING_MODE);
-                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, NumberConstant.ROUNDING_MODE);
+                amortizedInterest = principal.multiply(rateYear).setScale(2, roundingMode);
+                interest = amortizedInterest.multiply(new BigDecimal(tenure), mc).setScale(2, roundingMode);
                 //create LoanDetail
                 result = new LoanDetail(principal, interest, duration, YearlyInterest);
                 //add amortized items
