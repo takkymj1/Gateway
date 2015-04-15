@@ -75,6 +75,20 @@ public interface LoanRequestQueryService {
      */
     public PagedResult<LoanRequest> listByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
 
+    
+    /**
+     * 按LoanRequestStatus列出一定时间内提交的股票配资LoanRequest
+     *
+     * @param from
+     * @param to
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listStockFinanceByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
+    
+    
+    
     public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
 
     public List<LoanRequest> listByRequestProviderAndStatus(RealmEntity provider, LoanRequestStatus... status);

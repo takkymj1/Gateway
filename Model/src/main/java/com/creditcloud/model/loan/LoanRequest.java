@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.enums.loan.AutoAble;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.MortgageType;
@@ -237,6 +238,11 @@ public class LoanRequest extends BaseObject {
      */
     private boolean pureRequest;
 
+    /**
+     * 是否自动标
+     */
+    private AutoAble autoAble;
+    
     /**
      *
      * @param id          LoanRequest Id, nullable
