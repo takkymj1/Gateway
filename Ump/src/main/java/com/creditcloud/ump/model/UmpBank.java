@@ -22,8 +22,6 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 public class UmpBank extends BaseObject{
     
-    private String account;
-    
     private String bankNo;
     
     private String bankName;
