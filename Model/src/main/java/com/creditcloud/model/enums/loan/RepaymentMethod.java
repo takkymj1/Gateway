@@ -20,6 +20,7 @@ public enum RepaymentMethod implements BaseEnum {
     EqualPrincipal("按月等额本金", "总利息最低", true, "等额本金"),
     BulletRepayment("一次性还本付息", "短期首选", true, "一次性还本付息"),
     EqualInterest("月平息", "实际利率最高", true, "平息"),
+    @Deprecated
     YearlyInterest("按年付息到期还本", "还款压力小", false, null);
 
     private final String key;

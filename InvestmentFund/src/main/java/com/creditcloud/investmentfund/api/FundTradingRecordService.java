@@ -36,6 +36,16 @@ public interface FundTradingRecordService {
     public FundTradingRecord addNew(FundTradingRecord fundTradingRecord);
     
     /**
+     * 获取交易记录
+     * 
+     * @param orderId   订单号
+     * @param status    基金状态
+     * @param fundBrand 基金品牌
+     * @return 
+     */
+    public FundTradingRecord getByOrderIdAndStatusAndBrand(String orderId, TradingRecordStatus status, FundBrand fundBrand);
+    
+    /**
      * 获取基金交易记录
      * 
      * @param userId        用户ID

@@ -23,6 +23,7 @@ import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.fund.FundConfig;
+import com.creditcloud.config.fund.RemoteUserFundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
@@ -149,4 +150,10 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public NewHopeConfig getNewHopeConfig();
+    
+    /**
+     * 远程用户资金账户配置
+     * @return 
+     */
+    public RemoteUserFundConfig getRemoteUserFundConfig();
 }
