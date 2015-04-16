@@ -201,12 +201,6 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
-        <dependency>
-            <groupId>com.creditcloud.lianlianpay</groupId>
-            <artifactId>LianLianPay</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>ejb</type> 
-        </dependency>
 <!--
         <dependency>
             <groupId>com.creditcloud.order</groupId>
@@ -372,10 +366,6 @@
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
                         </ejbModule>
-                        <ejbModule>
-                            <groupId>com.creditcloud.lianlianpay</groupId>
-                            <artifactId>LianLianPayService</artifactId>
-                        </ejbModule>                        
 <!--
                         <ejbModule>
                             <groupId>com.creditcloud.order</groupId>
