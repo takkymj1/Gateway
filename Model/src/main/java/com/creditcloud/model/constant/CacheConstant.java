@@ -170,4 +170,9 @@ public interface CacheConstant {
      * define cache key for credit market (only for local call)
      */
     String KEY_PREFIX_LOCAL_CREDITMARKET = "CREDIT_MARKET_%1$s";
+    
+    /**
+     * define cache key for task 
+     */
+    String KEY_PREFIX_TASK = "Quartz_%s" ;
 }
