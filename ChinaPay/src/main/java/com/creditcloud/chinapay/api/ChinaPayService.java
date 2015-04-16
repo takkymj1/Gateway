@@ -15,8 +15,6 @@ import com.creditcloud.chinapay.model.response.SinglePayPostResult;
 import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
 import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
-import com.creditcloud.chinapay.utils.StringUtils;
-import javax.ws.rs.FormParam;
 
 /**
  * 银联接口,包含以下接口 :<br>
@@ -183,4 +181,5 @@ public interface ChinaPayService {
      */
     boolean verify(String respCode, String cardNo, String cerNo, String cardMobile, String cpSign);
 
+    String getAppSysID();
 }
