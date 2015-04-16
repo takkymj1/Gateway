@@ -58,6 +58,11 @@ public class LianPayConfig extends BaseConfig {
     @XmlElement(required = true)
     @Getter
     private String busiPartner;
-
+    
+    
+    @XmlElement(required = false)
+    @Getter
+    private String name_goods;
+    
     
 }
