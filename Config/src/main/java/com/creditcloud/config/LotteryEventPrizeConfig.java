@@ -32,6 +32,10 @@ public class LotteryEventPrizeConfig extends BaseConfig{
     public static final String CONFIG_NAME = "LotteryEventPrizeConfig";
     
     @Getter
+    @XmlElement(name = "capacity")
+    private BigDecimal capacity;
+    
+    @Getter
     @XmlElement(name = "lotteryPrize")
     private LotteryPrize[] lotteryPrize;
     
