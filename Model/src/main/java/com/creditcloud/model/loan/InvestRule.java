@@ -112,4 +112,12 @@ public class InvestRule extends BaseObject {
         }
         return amount > 0 ? amount : 0;
     }
+    
+    public static boolean isEmpty(InvestRule investRule){
+        return investRule.getMaxAmount() == 0
+                && investRule.getMaxTimes() == 0
+                && investRule.getMaxTotalAmount() == 0
+                && investRule.getMinAmount() == 0
+                && investRule.getStepAmount() == 0;
+    }
 }
