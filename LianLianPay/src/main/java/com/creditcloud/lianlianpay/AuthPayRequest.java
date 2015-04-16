@@ -7,11 +7,13 @@ package com.creditcloud.lianlianpay;
 
 import com.creditcloud.lianlianpay.base.BaseRequest;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  *
  * @author tinglany
  */
+@Data
 public class AuthPayRequest extends BaseRequest {
 
     @NotNull
