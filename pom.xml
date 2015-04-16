@@ -54,6 +54,7 @@
         <module>Insurance</module>
         <module>InvestmentFund</module>
         <module>ChinaPay</module>
+        <module>LianLianPay</module>
   </modules>
 </project>
 
