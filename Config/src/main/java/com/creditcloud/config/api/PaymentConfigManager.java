@@ -8,6 +8,7 @@ package com.creditcloud.config.api;
 import com.creditcloud.config.ChinaPayConfig;
 import com.creditcloud.config.EnciPayConfig;
 import com.creditcloud.config.FuiouConfig;
+import com.creditcloud.config.LianPayConfig;
 import com.creditcloud.config.LycheePayConfig;
 import com.creditcloud.config.PaymentConfig;
 import com.creditcloud.config.UmpConfig;
@@ -55,6 +56,12 @@ public interface PaymentConfigManager {
      */
     public UmpConfig getUmpConfig();
 
+    /**
+     *  连连支付
+     * 
+     * @return 
+     */
+    public LianPayConfig getLianPayConfig();
     /**
      * 银联
      *
