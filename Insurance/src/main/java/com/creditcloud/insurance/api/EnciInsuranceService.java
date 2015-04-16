@@ -109,6 +109,14 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
     public InsuranceOrder findInsuranceOrderByProposalNo(String clientCode, String proposalNo);
     
     /**
+     * 根据保单号查询InsurancePolicy
+     * @param clientCode
+     * @param policyNo
+     * @return 
+     */
+    public InsurancePolicy findInsurancePolicyByPolicyNo(String clientCode, String policyNo);
+    
+    /**
      * 修改保险订单的状态为指定状态
      * @param clientCode
      * @param OrderId
