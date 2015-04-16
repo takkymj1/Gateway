@@ -27,8 +27,10 @@ public interface FengCouponRecordService {
      * @param statusList CouponStatus
      * @return
      */
-    PagedResult<CouponRecord> listByStatus(String userId, PageInfo info, List<CouponStatus> status);
+    //PagedResult<CouponRecord> listByStatus(String userId, List<CouponStatus> status, PageInfo info);
 
+    PagedResult<CouponRecord> listByTypeStatus(String userId, List<CouponType> type, List<CouponStatus> status, PageInfo info);
+    
     /**
      * 根据用户ID，券类型查找券列表
      *
