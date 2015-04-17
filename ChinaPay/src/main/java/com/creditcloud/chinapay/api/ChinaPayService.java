@@ -15,7 +15,6 @@ import com.creditcloud.chinapay.model.response.SinglePayPostResult;
 import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
 import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
-import com.creditcloud.chinapay.utils.StringUtils;
 
 /**
  * 银联接口,包含以下接口 :<br>
@@ -158,5 +157,29 @@ public interface ChinaPayService {
      */
     String buildFrontendBankAccountValidatingURL(ChinaPayBankAccount account, String returnURL);
 
+    /**
+     * 移动端向银联控件提交客户银行卡认证时候需要生成一个签名，这个方法用来完成这个功能
+     *
+     * @param cardNo
+     * @param cerType
+     * @param cerNo
+     * @param cerName
+     * @param cardMobile
+     * @return
+     */
     String sign(String cardNo, String cerType, String cerNo, String cerName, String cardMobile);
+
+    /**
+     * 移动端从银联控件获取客户银行卡认证结果时候需要验证签名，这个方法用来完成这个功能
+     *
+     * @param respCode
+     * @param cardNo
+     * @param cerNo
+     * @param cardMobile
+     * @param cpSign
+     * @return
+     */
+    boolean verify(String respCode, String cardNo, String cerNo, String cardMobile, String cpSign);
+
+    String getAppSysID();
 }
