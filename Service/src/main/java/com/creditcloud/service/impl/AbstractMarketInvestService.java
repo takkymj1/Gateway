@@ -43,6 +43,11 @@ public class AbstractMarketInvestService implements MarketInvestService {
     }
 
     @Override
+    public PagedResult<Invest> listInvestByCreditAssign(String clientCode, String creditAssignId, PageInfo info, InvestStatus... status){
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
     public int countInvestByLoan(String clientCode, String loanId, InvestStatus... status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
