@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
- * 支付渠道统一控制
+ * 支付渠道统一控制,用于控制通道类支付
  *
  * @author rooseek
  */
@@ -26,10 +26,24 @@ public class PaymentFeatures extends BaseObject {
     private static final long serialVersionUID = 20150315L;
 
     /**
-     * ChinaPay
+     * 银联支付
      */
     @XmlElement(required = false)
     @Getter
     private boolean enableChinaPay = false;
+
+    /**
+     * 连连支付
+     */
+    @XmlElement(required = false)
+    @Getter
+    private boolean enableLianLianPay = false;
+
+    /**
+     * 富友支付
+     */
+    @XmlElement(required = false)
+    @Getter
+    private boolean enableFuiouPay = false;
 
 }
