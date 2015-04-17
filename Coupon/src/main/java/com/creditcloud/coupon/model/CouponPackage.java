@@ -159,7 +159,7 @@ public class CouponPackage extends BaseObject {
     private int maximumDuration;
     
     /**
-     * 根据minimumDuration以及maximumDuration生成的有好的期限表示字符串
+     * 根据minimumDuration以及maximumDuration生成的友好的期限表示字符串
      * 
      * @return 
      */
