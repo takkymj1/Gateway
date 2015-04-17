@@ -81,7 +81,7 @@ public interface FengCouponRecordService {
 
     /**
      * 根据用户ID，券类型，当前时间，状态列表查找券列表
-     *
+     * 按时间、金额正排序
      * @param userId
      * @param couponType
      * @param nowTime
