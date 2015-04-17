@@ -165,4 +165,6 @@ public interface CacheConstant {
      * define cache key for CMS
      */
     String KEY_PREFIX_CMS = "%1$s%2$s_CMS"; 
+    
+    String KEY_PREFIX_COUPON_COUNT = "%1$s%2$s_COUPON_COUNT";
 }

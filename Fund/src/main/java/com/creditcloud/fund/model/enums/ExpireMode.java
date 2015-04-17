@@ -13,7 +13,7 @@ import com.creditcloud.model.enums.BaseEnum;
  * @author zaishu.ye@fengjr.com
  */
 public enum ExpireMode implements BaseEnum {
-    DAYS_AFTER("X天后"),
+    VALID_DAYS("有效天数"),
     FIXED_DATE("固定日期");
     
     private final String key;

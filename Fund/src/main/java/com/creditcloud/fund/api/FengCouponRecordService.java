@@ -3,6 +3,7 @@ package com.creditcloud.fund.api;
 import com.creditcloud.fund.model.CouponRecord;
 import com.creditcloud.fund.model.enums.CouponStatus;
 import com.creditcloud.fund.model.enums.CouponType;
+import com.creditcloud.model.ElementCount;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
@@ -17,6 +18,14 @@ import javax.ejb.Remote;
 @Remote
 public interface FengCouponRecordService {
 
+    /**
+     * 用户参加活动获取的红包数量
+     * @return 
+     */
+    List<ElementCount<String>> countGroupByUserEvent();
+    
+    int countByUserEvent(String userId, String eventNo);
+    
     CouponRecord saveCoupon(CouponRecord coupon);
     
     /**
@@ -27,8 +36,10 @@ public interface FengCouponRecordService {
      * @param statusList CouponStatus
      * @return
      */
-    PagedResult<CouponRecord> listByStatus(String userId, PageInfo info, List<CouponStatus> status);
+    //PagedResult<CouponRecord> listByStatus(String userId, List<CouponStatus> status, PageInfo info);
 
+    PagedResult<CouponRecord> listByTypeStatus(String userId, List<CouponType> type, List<CouponStatus> status, PageInfo info);
+    
     /**
      * 根据用户ID，券类型查找券列表
      *
@@ -58,15 +69,6 @@ public interface FengCouponRecordService {
      * @return
      */
     boolean updateCouponStatus(String id, CouponStatus status, CouponStatus oldStatus);
-
-    /**
-     * 查询用户参加活动获取的红包数量
-     *
-     * @param userId
-     * @param eventId
-     * @return
-     */
-    public int countCouponRecordByEventId(String userId, String eventId);
 
     /**
      * 查询用户参加活动获取的红包
