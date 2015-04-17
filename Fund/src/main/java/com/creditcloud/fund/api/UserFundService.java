@@ -372,7 +372,7 @@ public interface UserFundService {
      * @param userId
      * @param dueAmount
      */
-    void updateUserFreeWithdrawals(String userId,BigDecimal dueAmount);
+    void updateUserFreeWithdrawalsForAdd(String userId,BigDecimal dueAmount);
 
     /**
      * 获取所有用户id
