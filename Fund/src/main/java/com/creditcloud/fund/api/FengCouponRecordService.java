@@ -22,7 +22,9 @@ public interface FengCouponRecordService {
      * 用户参加活动获取的红包数量
      * @return 
      */
-    List<ElementCount<String>> countByUserEvent();
+    List<ElementCount<String>> countGroupByUserEvent();
+    
+    int countByUserEvent(String userId, String eventNo);
     
     CouponRecord saveCoupon(CouponRecord coupon);
     

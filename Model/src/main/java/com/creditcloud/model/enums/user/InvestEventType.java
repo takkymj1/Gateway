@@ -23,7 +23,7 @@ public enum InvestEventType implements BaseEnum {
     FUNDINGINVEST("众筹投资"),
     CREDITASSIGN("债权转让"),
     CREDITASSIGNINVEST("债权转让投资"),
-    REWARD_COUPON_NEW_REGISTER("注册红包"),
+    REWARD_COUPON_NEW_REGISTER("新人注册红包"),
     COUPON_REBATE("红包返现");
 
     private final String key;
