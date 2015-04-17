@@ -28,6 +28,8 @@ public class CreditAssign extends BaseObject {
 
     private String id;
 
+    private String title;
+
     /**
      * 对应借款id
      */
@@ -86,6 +88,7 @@ public class CreditAssign extends BaseObject {
     private List<Repayment> repayment;
 
     public CreditAssign(String id,
+                        String title,
                         String loanId,
                         String investId,
                         String userId,
@@ -99,6 +102,7 @@ public class CreditAssign extends BaseObject {
                         int timeOut,
                         Date timeFinished) {
         this.id = id;
+        this.title = title;
         this.loanId = loanId;
         this.investId = investId;
         this.userId = userId;
