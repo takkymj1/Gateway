@@ -9,18 +9,15 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  *
- * @author caojiadong
+ * @author zaishu.ye@fengjr.com
  */
-public enum CouponStatus implements BaseEnum {
+public enum EventType implements BaseEnum {
+    REGISTER("注册账户"),
+    LOTTERY("抽奖");
 
-    INACTIVE("未使用"),
-    WORKING("兑取中"),
-    ACTIVATED("已使用"),
-    EXPIRED("已过期");
-    
     private final String key;
 
-    private CouponStatus(String key) {
+    private EventType(String key) {
         this.key = key;
     }
 

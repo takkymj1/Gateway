@@ -3,24 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.fund.model.enums;
+package com.creditcloud.user.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 系统预定义的用户组code
  *
- * @author caojiadong
+ * @author rooseek
  */
-public enum CouponStatus implements BaseEnum {
+public enum UserGroupCode implements BaseEnum {
 
-    INACTIVE("未使用"),
-    WORKING("兑取中"),
-    ACTIVATED("已使用"),
-    EXPIRED("已过期");
-    
+    LOAN_AGENT("借款居间人");
+
     private final String key;
-
-    private CouponStatus(String key) {
+    
+    private UserGroupCode(String key) {
         this.key = key;
     }
 

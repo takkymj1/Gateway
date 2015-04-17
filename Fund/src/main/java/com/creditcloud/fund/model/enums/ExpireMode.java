@@ -8,19 +8,17 @@ package com.creditcloud.fund.model.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
- * @author caojiadong
+ * 过期方式
+ * 根据过期方式不同计算过期时间
+ * @author zaishu.ye@fengjr.com
  */
-public enum CouponStatus implements BaseEnum {
-
-    INACTIVE("未使用"),
-    WORKING("兑取中"),
-    ACTIVATED("已使用"),
-    EXPIRED("已过期");
+public enum ExpireMode implements BaseEnum {
+    DAYS_AFTER("X天后"),
+    FIXED_DATE("固定日期");
     
     private final String key;
 
-    private CouponStatus(String key) {
+    private ExpireMode(String key) {
         this.key = key;
     }
 
