@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.lianlianpay;
+package com.creditcloud.lianlianpay.request;
 
 import com.creditcloud.lianlianpay.base.BaseRequest;
 import javax.validation.constraints.NotNull;
