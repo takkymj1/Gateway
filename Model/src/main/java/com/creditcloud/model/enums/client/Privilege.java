@@ -83,9 +83,9 @@ public enum Privilege implements BaseEnum {
     /**
      * 债权转让相关
      */
-    CREDITASSIGN_LIST("债权转让", Realm.CREDITASSIGN, "债权转让相关权限"),
-    CREDITASSIGN_DETAIL("债权转让", Realm.CREDITASSIGN, "债权转让相关权限"),
-    CREDITASSIGN_ADMIN("债权转让", Realm.CREDITASSIGN, "债权转让相关权限"),
+    CREDITASSIGN_LIST("债权转让列表", Realm.CREDITASSIGN, "债权转让相关权限"),
+    CREDITASSIGN_DETAIL("债权转让详情", Realm.CREDITASSIGN, "债权转让相关权限"),
+    CREDITASSIGN_ADMIN("债权转让管理", Realm.CREDITASSIGN, "债权转让相关权限"),
     /**
      * 任务相关权限
      */
