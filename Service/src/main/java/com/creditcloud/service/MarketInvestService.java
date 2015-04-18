@@ -53,6 +53,19 @@ public interface MarketInvestService extends MarketInvestRepayService {
     PagedResult<Invest> listInvestByLoan(String clientCode, String loanId, PageInfo info, InvestStatus... status);
 
     /**
+     * list Invest by CreditAssign Id
+     *
+     * @param clientCode
+     * @param creditAssignId
+     * @param info
+     * @param status
+     * @return empty list if nothing found or status is null or empty
+     * @throw ClientCodeNotMatchException if incoming client code do not match
+     * the local client
+     */
+    PagedResult<Invest> listInvestByCreditAssign(String clientCode, String creditAssignId, PageInfo info, InvestStatus... status);
+    
+    /**
      * count Invest by loan id
      *
      * @param clientCode
