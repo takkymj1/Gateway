@@ -107,12 +107,12 @@ public class FundProductNavRecord extends FundObject implements FundConstant {
     private int oneYearRate;
     
     /**
-     * 七日年化收益（货币型基金）
+     * 七日年化收益（货币型基金） 例 45810 = 4.5810%
      */
     @Column(nullable = true)
-    @IncrementalInteger(min = MIN_RATE,
+    @IncrementalInteger(min = MIN_SEVEN_YEAR_RATE,
                         increment = 1,
-                        max = MAX_RATE)
+                        max = MAX_SEVEN_YEAR_RATE)
     private int rate;
     
     /**
