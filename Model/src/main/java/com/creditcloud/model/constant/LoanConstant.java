@@ -119,5 +119,12 @@ public interface LoanConstant {
      * 投标最大超时，单位秒
      */
     int MAX_BID_TIME_OUT = 300;
+    
+    /**
+     * 隐藏产品key值前缀.
+     * 
+     * 这类产品除非在查询中指明productKey，否则默认不会通过CollectionUtils.filter
+     */
+    String HIDDEN_PRODUCT_PREFIX = "HIDDEN_";
 
 }

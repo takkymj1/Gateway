@@ -9,6 +9,8 @@ package com.creditcloud.investmentfund.model.lion.request;
 import com.creditcloud.investmentfund.model.lion.enums.Attribute;
 import com.creditcloud.model.BaseObject;
 import java.util.Calendar;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 诺安基金 请求参数封装
@@ -19,7 +21,9 @@ public class BaseRequest extends BaseObject {
     /**
      * 接口名称
      */
-    private Attribute attribute;
+    @Getter
+    @Setter
+    private String attribute;
     
     /**
      * 商户ID，由诺安基金分配
@@ -41,17 +45,9 @@ public class BaseRequest extends BaseObject {
     }
 
     public BaseRequest(Attribute attribute, String merid) {
-        this.attribute = attribute;
+        this.attribute = attribute.name();
         this.merid = merid;
         this.stamp = Calendar.getInstance().getTimeInMillis();
-    }
-
-    public Attribute getAttribute() {
-        return attribute;
-    }
-
-    public void setAttribute(Attribute attribute) {
-        this.attribute = attribute;
     }
 
     public String getMerid() {

@@ -5,12 +5,15 @@
  */
 package com.creditcloud.investmentfund.api;
 
+import com.creditcloud.investmentfund.api.lion.moneyfund.enums.DailyDataFileProcessStatus;
+import com.creditcloud.investmentfund.model.lion.moneyfund.request.AddNewCardRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.AsyncAuthenticateRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.NotificationRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.OpenAccountAndBindCardRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.RedemptionRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.SubscriptionRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.SyncAuthenticateRequestMessage;
+import com.creditcloud.investmentfund.model.lion.moneyfund.response.AddNewCardResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.AsyncAuthenticateResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.NotificationResponseMessage;
 import java.util.Date;
@@ -57,6 +60,14 @@ public interface LionMoneyFundService {
     Map<String, String> syncOpenAccountAndBindCard(OpenAccountAndBindCardRequestApplyMessage message);
 
     /**
+     * 货币基金账户同步新增银行卡
+     *
+     * @param message
+     * @return
+     */
+    AddNewCardResponseMessage syncAddNewCard(AddNewCardRequestApplyMessage message);
+
+    /**
      * 同步货币基金申购
      *
      * @param message
@@ -86,11 +97,19 @@ public interface LionMoneyFundService {
      * @param message
      */
     void signNotificationResponseMessage(NotificationResponseMessage message);
-    
+
     /**
      * 处理某天的货币基金交易数据文件
-     * @param date 
-     * @return   如果所有记录处理成功，返回true;如果部分成功或者完全失败，返回false
+     *
+     * @param date
+     * @return 如果所有记录处理成功，返回true;如果部分成功或者完全失败，返回false
      */
     LoinMoneyFundFileRecordProcessResult processDailyTransactionDataFile(Date date);
+    
+    /**
+     * 获取某天的数据处理状况
+     * @param date
+     * @return 
+     */
+    DailyDataFileProcessStatus getDailyTransactionDataFileProcessStatus(Date date);
 }

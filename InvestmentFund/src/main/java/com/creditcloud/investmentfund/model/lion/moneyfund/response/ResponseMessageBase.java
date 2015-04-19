@@ -1,13 +1,16 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.response;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import com.creditcloud.model.BaseObject;
 import java.util.HashMap;
 import java.util.Map;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
+/**
+ * 
+ * @author guohuazhang
+ */
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ResponseMessageBase  extends BaseObject{

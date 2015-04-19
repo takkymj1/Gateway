@@ -45,6 +45,10 @@ public enum InvestStatus implements BaseEnum {
      */
     SETTLED("已结算"),
     /**
+     * 投标已被全部债权转让
+     */
+    ASSIGNED("已转让"),
+    /**
      * 收回所有本息
      */
     CLEARED("还款完成"),

@@ -10,9 +10,13 @@ import com.creditcloud.insurance.model.InsuranceProductInfo;
 import com.creditcloud.insurance.model.InsuranceProductNavRecord;
 import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
+import com.creditcloud.model.misc.RealmEntity;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -66,6 +70,7 @@ public interface EnciInsuranceProductService {
      * @param maxRate
      * @param minDuration
      * @param maxDuration
+     * @param enables
      * @param types
      * @return 
      */
@@ -74,6 +79,7 @@ public interface EnciInsuranceProductService {
                                                         BigDecimal maxRate,
                                                         Integer minDuration,
                                                         Integer maxDuration,
+                                                        List<Boolean> enables,
                                                         ProductType... types);
     
     /**
@@ -143,4 +149,55 @@ public interface EnciInsuranceProductService {
      * @return 
      */
     public InsuranceProductInfo editProductInfo(String clientCode, InsuranceProductInfo info);
+    
+    /**
+     * 根据下标区间列出保险产品
+     * @param clientCode
+     * @param start
+     * @param end
+     * @return 
+     */
+    public List<InsuranceProduct> listByOrdinal(String clientCode, int start, int end);
+    
+    /**
+     * 激活保险产品
+     * 
+     * 激活后，产品可在前台购买
+     * @param clientCode
+     * @param productId
+     * @param enable
+     * @return 
+     */
+    public boolean enableProduct(String clientCode, String productId, boolean enable);
+    
+    /**
+     * 收藏保险产品
+     * @param productId
+     * @param userId
+     * @return 产品被收藏次数
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏保险产品
+     * @param productId
+     * @param userId
+     * @return 产品被收藏次数
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏次数
+     * @param productId
+     * @return 
+     */
+    public int favoriteCountByProduct(String productId);
+
+    /**
+     * 列出用户收藏的保险产品
+     * @param userId
+     * @param pageInfo
+     * @return 
+     */
+    public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }

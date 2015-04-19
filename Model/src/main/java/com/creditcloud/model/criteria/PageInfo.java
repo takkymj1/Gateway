@@ -5,11 +5,18 @@
 package com.creditcloud.model.criteria;
 
 import com.creditcloud.model.BaseObject;
+import javax.ws.rs.FormParam;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  * @author sobranie
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PageInfo extends BaseObject {
 
     private static final long serialVersionUID = 20131015L;
@@ -22,24 +29,23 @@ public class PageInfo extends BaseObject {
     /**
      * offset x means start from number (x + 1)
      */
-    private final int offset;
+    @FormParam("offset")
+    private int offset;
 
     /**
      * page size
      */
-    private final int size;
+    @FormParam("size")
+    private int size;
 
-    public PageInfo(final int offset,
-                    final int size) {
-        this.offset = offset;
-        this.size = size;
-    }
-
-    public int getOffset() {
-        return offset;
-    }
-
-    public int getSize() {
-        return size;
+    /**
+     * 从页码、分页大小构建
+     * 
+     * @param page 页码，从1开始
+     * @param size
+     * @return 
+     */
+    public static PageInfo fromPageAndSize(int page, int size) {
+        return new PageInfo((page - 1) * size, size);
     }
 }

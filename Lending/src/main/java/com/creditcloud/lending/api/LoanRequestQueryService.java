@@ -63,7 +63,7 @@ public interface LoanRequestQueryService {
      * @return
      */
     public PagedResult<LoanRequest> listByEmployeeAndStatus(final String employeeId, final PageInfo pageInfo, final LoanRequestStatus... status);
-   
+
     /**
      * 按LoanRequestStatus列出一定时间内提交的LoanRequest
      *
@@ -75,7 +75,48 @@ public interface LoanRequestQueryService {
      */
     public PagedResult<LoanRequest> listByStatusAndDate(Date from, Date to, PageInfo info, LoanRequestStatus... status);
 
-    public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
     
+    /**
+     * 按LoanRequestStatus和pureRequest列出一定时间内提交的LoanRequest
+     *
+     * @param pureRequest 是否为单纯的借款申请，用于判断某些业务例如配资申请
+     * @param from
+     * @param to
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listByStatusAndDate(boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
+    
+    
+    
+    public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
+
     public List<LoanRequest> listByRequestProviderAndStatus(RealmEntity provider, LoanRequestStatus... status);
+
+    /**
+     * 列出关联到某借款申请的所有子借款申请
+     *
+     * @param parentId
+     * @return
+     */
+    public List<LoanRequest> listByParent(String parentId);
+
+    /**
+     * 获取关联到某借款申请的子借款申请，如果有多个则默认返回最新添加的<p>
+     * 如果业务规则可以关联到多个，使用listByParent
+     *
+     * @param parentId
+     * @return
+     */
+    public LoanRequest getByParent(String parentId);
+
+    /**
+     * 列出hidden为true的借款申请，此类借款申请应用场景视具体业务需求
+     *
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listHiddenByStatus(PageInfo info, LoanRequestStatus... status);
 }

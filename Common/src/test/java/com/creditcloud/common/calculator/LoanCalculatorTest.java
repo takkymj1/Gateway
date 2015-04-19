@@ -15,6 +15,7 @@ import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import org.joda.time.LocalDate;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -569,5 +570,46 @@ public class LoanCalculatorTest {
             }
         }
         assertTrue(expectedPrincipal.equals(new BigDecimal(1000000).setScale(2, NumberConstant.ROUNDING_MODE)));
+    }
+    
+    @Test
+    public void testAnalyzeRoundingAmount() {
+        LoanDetail loanDetail = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                            new Duration(2, 0, 0),
+                                            1200, RepaymentMethod.EqualInstallment, 
+                                            new LocalDate(2015, 01, 22));
+        
+        BigDecimal expectedPrincipal = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetail.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail.getRepayments().get(i);
+            expectedPrincipal = expectedPrincipal.add(repayment.getAmountPrincipal());
+            //验证等额本息
+            if(i > 0 
+                    && i !=  loanDetail.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetail.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+            }
+        }
+        
+        LoanDetail loanDetail2 = LoanCalculator.analyze(new BigDecimal(1000000), 
+                                                        new Duration(2, 0, 0),
+                                                        1200, RepaymentMethod.EqualInstallment, 
+                                                        new LocalDate(2015, 01, 22),
+                                                       RoundingMode.DOWN);
+        System.out.println(loanDetail2);
+        
+        BigDecimal expectedPrincipal2 = new BigDecimal(BigInteger.ZERO);
+        for (int i = 0; i < loanDetail2.getRepayments().size(); i++) {
+            Repayment repayment = loanDetail2.getRepayments().get(i);
+            expectedPrincipal2 = expectedPrincipal2.add(repayment.getAmountPrincipal());
+            //验证等额本息
+            if(i > 0 
+                    && i !=  loanDetail2.getRepayments().size() - 1){//最后一次修正四舍五入带来的误差，不会与之前相等
+                assertTrue(repayment.getAmount(RepayType.PrincipalAndInterest)
+                        .equals(loanDetail2.getRepayments().get(i-1).getAmount(RepayType.PrincipalAndInterest)));
+            }
+        }
+        //使用RoundingMode.DOWN进位方式的利息值会小
+        assertTrue(loanDetail.getInterest().compareTo(loanDetail2.getInterest()) >= 0);
     }
 }

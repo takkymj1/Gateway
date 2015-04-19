@@ -34,7 +34,7 @@ public enum InsuranceOrderStatus implements BaseEnum{
      */
     POLICY("已承保"),
     /**
-     * 已承保
+     * 已退保
      */
     REFUND("已退保"),;
     

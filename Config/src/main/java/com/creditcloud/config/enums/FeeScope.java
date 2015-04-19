@@ -30,6 +30,10 @@ public enum FeeScope {
     /**
      * 对借款/投资涉及的所有本金收费，暂时没用上
      */
-    ALLPRINCIPAL;
+    ALLPRINCIPAL,
+    /**
+     * 不收
+     */
+    NONE;
 
 }

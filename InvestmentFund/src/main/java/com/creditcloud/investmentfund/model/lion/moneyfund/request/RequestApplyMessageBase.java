@@ -1,7 +1,7 @@
 package com.creditcloud.investmentfund.model.lion.moneyfund.request;
 
-import com.creditcloud.investmentfund.api.lion.moneyfund.utils.StringUtils;
-import com.creditcloud.investmentfund.model.lion.moneyfund.Constants;
+import com.creditcloud.investmentfund.api.utils.StringUtils;
+import com.creditcloud.investmentfund.constant.FundInterfaceConstants;
 import com.creditcloud.model.BaseObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class RequestApplyMessageBase extends BaseObject{
     @Setter
     protected String applicationNo;// 请求流水号 char(50) R 请求唯一标识 以交易所属自然日”YYYYMMDD“ 开头。
     @NotNull
-    protected final String version = Constants.LOIN_MONEY_FUND_INTERFACE_VERSION;// 版本号 char(7) R 目前版本号：2.0
+    protected final String version = FundInterfaceConstants.LOIN_MONEY_FUND_INTERFACE_VERSION;// 版本号 char(7) R 目前版本号：2.0
     @NotNull
     @Setter
     protected String instId;// 机构标识 char(10) R 报文发送方的机构标识。

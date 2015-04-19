@@ -19,10 +19,10 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public Loan find(String id);
 
     public Loan addNew(Loan loan);
-    
+
     @Deprecated
     public Loan update(Loan loan);
-    
+
     public boolean markScheduled(String loanId, Date timeOpen, int timeOut);
 
     /**
@@ -32,6 +32,14 @@ public interface LoanService extends LoanQueryService, LoanStatService {
      * @return
      */
     public boolean markCleared(String id);
+
+    /**
+     * mark loan as canceled
+     *
+     * @param id
+     * @return
+     */
+    public boolean markCanceled(String id);
 
     /**
      * update loan status
@@ -70,12 +78,9 @@ public interface LoanService extends LoanQueryService, LoanStatService {
      * @return
      */
     public boolean markSettleTime(String loanId, Date timeSettled);
-    
-    public boolean changeTitle(String loanId, String title);
-    
-    public boolean changeTimeOut(String loanId, int timeOut);
-   
-    
 
+    public boolean changeTitle(String loanId, String title);
+
+    public boolean changeTimeOut(String loanId, int timeOut);
 
 }

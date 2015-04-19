@@ -6,7 +6,11 @@
 package com.creditcloud.config.fund;
 
 import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.net.URL;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -78,5 +82,49 @@ public class LionFundConfig extends BaseObject {
     @Getter
     @XmlElement(required = false)
     private String signType;
+    
+    /**
+     * 平台佣金分成比例
+     * 保有总金额<人民币2亿元
+     */
+    @Min(0)
+    @Max(1)
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal platformDividedIntoLevel1Fee ;
+    
+    /**
+     * 平台佣金分成比例
+     * 人民币2亿元≦保有总金额<人民币5亿元
+     */
+    @Min(0)
+    @Max(1)
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal platformDividedIntoLevel2Fee ;
+    
+    /**
+     * 平台佣金分成比例
+     * 保有总金额≧人民币5亿元
+     */
+    @Min(0)
+    @Max(1)
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal platformDividedIntoLevel3Fee ;
+    
+    /***
+     * 平台分成比例区间金额
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal platformDividedIntoLevel1Amount;
+    
+     /***
+     * 平台分成比例区间金额
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal platformDividedIntoLevel2Amount;
 
 }

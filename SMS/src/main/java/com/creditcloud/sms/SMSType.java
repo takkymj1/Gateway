@@ -112,6 +112,14 @@ public enum SMSType {
      */
     NOTIFICATION_CREDITMARKET_CHARGE("notification.creditmarket.charge"),
     /**
+     * 基金申购时提示
+     */
+    NOTIFICATION_CREDITMARKET_PURCHASE("notification.creditmarket.purchase"),
+    /**
+     * 基金赎回时提示
+     */
+    NOTIFICATION_CREDITMARKET_REDEEM("notification.creditmarket.redeem"),
+    /**
      * 不使用短信模板
      */
     WITHOUT_TEMPLATE("");

@@ -7,8 +7,14 @@ package com.creditcloud.insurance.api;
 
 import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
+import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
+import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.misc.PagedResult;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,7 +23,7 @@ import javax.ejb.Remote;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Remote
-public interface EnciInsuranceService {
+public interface EnciInsuranceService extends EnciInsuranceStatService{
     
     /**
      * 调用远程接口并获取到响应
@@ -58,7 +64,17 @@ public interface EnciInsuranceService {
      * @param policyNo
      * @return 
      */
-    public boolean upatePolicyNo(String clientCode, String insurancePolicyId, String policyNo);
+    public boolean updatePolicyNo(String clientCode, String insurancePolicyId, String policyNo);
+    
+    /**
+     * 更新InsurancePolicy的policyNo和url
+     * @param clientCode
+     * @param insurancePolicyId
+     * @param policyNo
+     * @param url
+     * @return 
+     */
+    public boolean updatePolicyNoAndUrl(String clientCode, String insurancePolicyId, String policyNo, String url);
     
     /**
      * 根据ID查找InsuranceOrder
@@ -93,6 +109,14 @@ public interface EnciInsuranceService {
     public InsuranceOrder findInsuranceOrderByProposalNo(String clientCode, String proposalNo);
     
     /**
+     * 根据保单号查询InsurancePolicy
+     * @param clientCode
+     * @param policyNo
+     * @return 
+     */
+    public InsurancePolicy findInsurancePolicyByPolicyNo(String clientCode, String policyNo);
+    
+    /**
      * 修改保险订单的状态为指定状态
      * @param clientCode
      * @param OrderId
@@ -109,4 +133,60 @@ public interface EnciInsuranceService {
      * @return 
      */
     public String EnciEncrypt(String plainText, String type);
+    
+    /**
+     * 根据状态查询主保险订单
+     * 
+     * 即不包括追加订单
+     * @param clientCode
+     * @param status
+     * @return 
+     */
+    public List<InsuranceOrder> listByStatus(String clientCode, InsuranceOrderStatus... status);
+    
+    /**
+     * 创建新的保单收益记录
+     * @param clientCode
+     * @param profitRecord
+     * @return 
+     */
+    public InsurancePolicyProfitRecord createProfitRecord(String clientCode, InsurancePolicyProfitRecord profitRecord);
+    
+    /**
+     * 根据保单号和计价日查询保单收益记录
+     * @param clientCode
+     * @param policyNo
+     * @param valuationDate
+     * @return 
+     */
+    public InsurancePolicyProfitRecord getByPolicyNoAndDate(String clientCode, String policyNo, Date valuationDate);
+    
+    /**
+     * 修改保单收益记录的数据
+     * @param clientCode
+     * @param profitRecord
+     * @return 
+     */
+    public InsurancePolicyProfitRecord eidtProfitRecord(String clientCode, InsurancePolicyProfitRecord profitRecord);
+    
+    /**
+     * 获取最近一条收益信息
+     * @param clientCode
+     * @param policyNo
+     * @return 
+     */
+    public InsurancePolicyProfitRecord getProfitRecordByLatest(String clientCode, String policyNo);
+    
+    /**
+     * 列出用户的订单
+     * 
+     * 按照sortString排序，目前支持timeCreated/totalPremium
+     * @param clientCode
+     * @param userId
+     * @param sortString
+     * @param asc
+     * @param status
+     * @return 
+     */
+    public PagedResult<InsuranceOrder> listByUserId(String clientCode, PageInfo pageInfo, String userId, String sortString, boolean asc, InsuranceOrderStatus... status);
 }

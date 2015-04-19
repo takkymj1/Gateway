@@ -37,5 +37,10 @@
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>	
+        <dependency>
+            <groupId>com.fasterxml</groupId>
+            <artifactId>aalto-xml</artifactId>
+            <version>0.9.11</version>
+        </dependency>
     </dependencies>
 </project>

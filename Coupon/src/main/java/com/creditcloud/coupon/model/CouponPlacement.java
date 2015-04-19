@@ -12,14 +12,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * 奖券的分配和使用信息
  *
- * 代表某一张具体的奖券德分配信息，属于何人、处于何种状态等.
+ * 代表某一张具体的奖券的分配信息，属于何人、处于何种状态等.
  *
  * @author sobranie
  */

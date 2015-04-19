@@ -7,11 +7,13 @@ package com.creditcloud.insurance.model.enci.response;
 
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import javax.validation.constraints.NotNull;
+import lombok.Data;
 
 /**
  *
  * @author chai
  */
+@Data
 public class PolicyProfitResponse extends BaseDTO{
     
     /**

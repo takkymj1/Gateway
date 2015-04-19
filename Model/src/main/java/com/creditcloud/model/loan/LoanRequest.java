@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constant.LoanConstant;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.Source;
+import com.creditcloud.model.enums.loan.AutoAble;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.enums.loan.MortgageType;
@@ -219,7 +220,29 @@ public class LoanRequest extends BaseObject {
      * 起息日
      */
     private Date valueDate;
+    
+    /**
+     * 关联的借款申请
+     */
+    private String parentId;
+    
+    /**
+     * 用于页面显示的借款人id，默认为null<p>
+     * 例如用于影子标之类业务
+     */
+    private String displayUserId;
+    
+    /**
+     * 单纯的借款申请,不会产生后续标的等</p>
+     * 对于某些业务例如配资申请
+     */
+    private boolean pureRequest;
 
+    /**
+     * 是否自动标
+     */
+    private AutoAble autoAble;
+    
     /**
      *
      * @param id          LoanRequest Id, nullable

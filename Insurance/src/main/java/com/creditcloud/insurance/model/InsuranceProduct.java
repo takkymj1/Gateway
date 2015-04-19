@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.util.Date;
+import javax.ws.rs.FormParam;
 
 /**
  * 保险
@@ -35,6 +36,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * @return
      */
     @NotNull
+    @FormParam("productId")
     private String id;
     
     /**
@@ -43,6 +45,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * @return
      */
     @Min(1)
+    @FormParam("ordinal")
     private int ordinal;
     
     /**
@@ -50,6 +53,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * 
      * @return
      */
+    @FormParam("name")
     @Size(max = MAX_PRODUCT_NAME)
     private String name;
     
@@ -59,6 +63,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * @return
      */
     @Size(max = MAX_SKU_CODE)
+    @FormParam("skuCode")
     private String skuCode;
     
     /**
@@ -66,11 +71,13 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * 
      * @return
      */
+    @FormParam("code")
     private String code;
     
     /**
      * 保险类型
      */
+    @FormParam("type")
     private ProductType type;
     
     /**
@@ -79,6 +86,7 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * 以元为单位
      * @return
      */
+    @FormParam("amount")
     private BigDecimal amount;
     
     /**
@@ -87,12 +95,14 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * 以元为单位
      * @return
      */
+    @FormParam("premium")
     private BigDecimal premium;
     
     /**
      * 折扣比率
      */
     @NotNull
+    @FormParam("discountRate")
     private BigDecimal discountRate;
     
     /**
@@ -100,47 +110,61 @@ public class InsuranceProduct extends BaseObject implements InsuranceConstant {
      * 
      * =保费×折扣率 以分为单位
      */
+    @FormParam("discountPremium")
     private BigDecimal discountPremium;
     
     /**
      * 建议持有时间（平台提供）
      */
+    @FormParam("proposedHoldDuration")
     private int proposedHoldDuration;
     
     /**
      * 预期收益率（平台提供）
      */
+    @FormParam("expectedRate")
     private BigDecimal expectedRate;
     
     /**
      * 平台内状态
      */
+    @FormParam("status")
     private String status;
+    
+    /**
+     * 是否激活
+     */
+    private boolean enable;
     
     /**
      * 保险期限
      */
+    @FormParam("insPeriod")
     private Integer insPeriod;
     
     /**
      * 保险期限单位 CD1
      */
+    @FormParam("insPeriodUnit")
     private InsPeriodUnit insPeriodUnit;
     
     /**
      * 交费期限(交费期限单位为趸交时不填)
      */
+    @FormParam("payPeriod")
     private Integer payPeriod;
     
     /**
      * 交费期限单位 CD6
      */
     @NotNull
+    @FormParam("payPeriodUnit")
     private PayPeriodUnit payPeriodUnit;
     
     /**
      * 交费方式 CD19
      */
+    @FormParam("payMode")
     private PayMode payMode;
     
     /**

@@ -47,7 +47,7 @@ public interface ChinaPayService {
      *
      * @param cardNo 银行卡号
      *
-     * @return 
+     * @return
      */
     CardQueryResponse queryCardInfo(String cardNo);
 
@@ -55,6 +55,7 @@ public interface ChinaPayService {
      * 单笔代付交易接口<br>
      * 验证过程中如果遇到HTTP返回码不是200,会抛出异常HTTPException;<br>
      * 验证过程中如果来自服务器的返回不能通过密钥验证,则会抛出异常MaliciousServerException;<br>
+     * 备付金不足抛异常NoEnoughMoneyForSinglePayException;<br>
      * 其他情况下返回服务器反馈的验证信息<br>
      *
      * @param parameters
@@ -155,4 +156,30 @@ public interface ChinaPayService {
      * @return
      */
     String buildFrontendBankAccountValidatingURL(ChinaPayBankAccount account, String returnURL);
+
+    /**
+     * 移动端向银联控件提交客户银行卡认证时候需要生成一个签名，这个方法用来完成这个功能
+     *
+     * @param cardNo
+     * @param cerType
+     * @param cerNo
+     * @param cerName
+     * @param cardMobile
+     * @return
+     */
+    String sign(String cardNo, String cerType, String cerNo, String cerName, String cardMobile);
+
+    /**
+     * 移动端从银联控件获取客户银行卡认证结果时候需要验证签名，这个方法用来完成这个功能
+     *
+     * @param respCode
+     * @param cardNo
+     * @param cerNo
+     * @param cardMobile
+     * @param cpSign
+     * @return
+     */
+    boolean verify(String respCode, String cardNo, String cerNo, String cardMobile, String cpSign);
+
+    String getAppSysID();
 }

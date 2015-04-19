@@ -21,6 +21,7 @@ public enum TransName implements BaseEnum {
     //同步接口
     AUTHEN_ACCOUNT("鉴权接口（同步申请验证码）", "2101"),
     OPEN_ACCOUNT_BIND_CARD("验证验证码，开户并绑卡（同步接口）", "2011"),
+    ADD_NEW_CARD("新增银行卡", "2022"),
     SUBSCRIBE("申购（异步接口）", "2220"),
     REDEEM("赎回", "2241");
 
@@ -38,7 +39,7 @@ public enum TransName implements BaseEnum {
     public String getKey() {
         return key;
     }
-    
+
     public String getName() {
         return key;
     }

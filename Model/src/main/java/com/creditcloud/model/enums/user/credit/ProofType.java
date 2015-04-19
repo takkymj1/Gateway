@@ -121,13 +121,14 @@ public enum ProofType implements BaseEnum {
      */
     INVESTMENT_FUND_OVERVIEW("基金概况", CertificateType.INVESTMENTFUND),
     INVESTMENT_FUND_CHART("基金图表", CertificateType.INVESTMENTFUND),
-    
+    INVESTMENT_FUND_ASSET_MANAGE("资产管理",CertificateType.INVESTMENTFUND),
+    INVESTMENT_FUND_FEES_LEVEL("费率水平",CertificateType.INVESTMENTFUND),
     /**
      * 保险
      */
     INSURANCE_OVERVIEW("保险概况", CertificateType.INSURANCE),
-    INSURANCE_CHART("保险图表", CertificateType.INSURANCE);
-    
+    INSURANCE_CHART("投资方向及资产配置", CertificateType.INSURANCE),
+    INSURANCE_CASE_DEMO("案例演示",CertificateType.INSURANCE);
     
     private final String key;
 

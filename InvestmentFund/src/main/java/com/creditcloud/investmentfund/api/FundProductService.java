@@ -107,7 +107,7 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByTypeAndBrand(List<FundType> typeList, List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
-     * 查询所有诺安基金产品
+     * 查询所有诺安基金产品 (前端） 不显示未激活产品
      * 
      * @param minRate           最小期望收益率
      * @param maxRate           最大期望收益率
@@ -120,7 +120,7 @@ public interface FundProductService {
     public PagedResult<FundProduct> listByExpectedRateAndProposedHoldDurationAndBrand(int minRate, int maxRate, Integer minDuration, Integer maxDuration, List<FundBrand> brandList, PageInfo pageInfo);
     
     /**
-     * 查询所有诺安基金产品
+     * 查询所有诺安基金产品 (前端） 不显示未激活产品
      * 
      * @param minRate           最小期望收益率
      * @param maxRate           最大期望收益率
@@ -163,8 +163,9 @@ public interface FundProductService {
     /**
      * 列出下标区间的基金产品
      *
-     * @param startOrdinal
+     * @param startOrdinal  
      * @param endOrdinal
+     * 
      * @return empty list if nothing found
      */
     public List<FundProduct> listProductByOrdinal(int startOrdinal, int endOrdinal);
@@ -172,9 +173,9 @@ public interface FundProductService {
     /**
      * 获取某天基金产品净值
      * 
-     * @param fundCode
-     * @param fundBrand
-     * @param navDate
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       净值日期
      * @return 
      */
     public FundProductNavRecord getFundProductNavRecord(String fundCode, FundBrand fundBrand, Date navDate);
@@ -182,10 +183,45 @@ public interface FundProductService {
     /**
      * 获取某天之前的最近一次产品净值
      * 
-     * @param fundCode
-     * @param fundBrand
-     * @param navDate
+     * @param fundCode      基金代码
+     * @param fundBrand     基金品牌
+     * @param navDate       净值日期
      * @return 
      */
     public FundProductNavRecord getByCodeAndBrandAndRecentlyNavDate(String fundCode, FundBrand fundBrand, Date navDate);
+    
+    /**
+     * 收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏数
+     * 
+     * @param productId     产品ID
+     * @return 当前产品的收藏数
+     */
+    public int favoriteCountByProduct(String productId);
+
+    /**
+     * 获取用户收藏的产品
+     * 
+     * @param userId        用户ID
+     * @param pageInfo      分页信息
+     * @return 产品ID列表
+     */
+    public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }
