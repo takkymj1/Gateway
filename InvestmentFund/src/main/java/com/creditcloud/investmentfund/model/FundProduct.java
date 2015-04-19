@@ -125,9 +125,9 @@ public class FundProduct extends FundObject implements FundConstant{
     /**
      * 七日年化收益（货币型基金）
      */
-    @IncrementalInteger(min = MIN_RATE,
+    @IncrementalInteger(min = MIN_SEVEN_YEAR_RATE,
                         increment = 1,
-                        max = MAX_RATE,
+                        max = MAX_SEVEN_YEAR_RATE,
                         groups = Default.class)
     private int rate;
     
