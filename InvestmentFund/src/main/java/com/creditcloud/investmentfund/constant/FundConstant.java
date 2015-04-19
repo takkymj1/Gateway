@@ -17,12 +17,12 @@ public interface FundConstant {
     /**
      * 最小利率
      */
-    int MIN_RATE = -50000;
+    int MIN_RATE = -5000000;
 
     /**
      * 最大利率
      */
-    int MAX_RATE = 50000;
+    int MAX_RATE = 5000000;
     
     /**
      * 最小预期收益率
@@ -32,7 +32,7 @@ public interface FundConstant {
     /**
      * 最大预期收益率
      */
-    int MAX_EXPECTED_RATE = 50000;
+    int MAX_EXPECTED_RATE = 5000000;
     
     /**
      * 单笔投资最小金额
