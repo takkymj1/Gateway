@@ -28,5 +28,6 @@
     <!--客户银行卡认证所需配置-->
     <appSysIdForBankAccountValidating>90000</appSysIdForBankAccountValidating>
     <signKeyForBankAccountValidating>88888888</signKeyForBankAccountValidating>
+    <pathChinaPayPublicKey>/var/CreditCloud/ChinaPay_ZMIT/SinglePay/PgPubk.key</pathChinaPayPublicKey>
     
 </ChinaPayConfig>
