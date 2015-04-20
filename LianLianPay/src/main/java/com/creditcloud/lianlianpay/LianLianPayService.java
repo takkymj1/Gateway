@@ -5,10 +5,14 @@
  */
 package com.creditcloud.lianlianpay;
 
+import javax.ejb.Remote;
+
 /**
  *
  * @author tinglany
  */
-public class LianLianPayService {
+@Remote
+public interface LianLianPayService {
     
+    public CardDetail  queryCard(String clientCode, String cardNo);
 }
