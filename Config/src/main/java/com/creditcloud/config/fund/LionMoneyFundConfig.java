@@ -95,13 +95,13 @@ public class LionMoneyFundConfig extends BaseObject {
     @XmlElement(required = true)
     private String sftpPort;
     @Getter
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String sftpUserName;
     @Getter
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String sftpPassword;
     @Getter
-    @XmlElement(required = false)
+    @XmlElement(required = true)
     private String sftpPrivateKey;
     @Getter
     @XmlElement(required = true)
