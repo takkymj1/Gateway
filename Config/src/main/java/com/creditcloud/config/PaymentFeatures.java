@@ -26,11 +26,18 @@ public class PaymentFeatures extends BaseObject {
     private static final long serialVersionUID = 20150315L;
 
     /**
-     * 银联支付
+     * 银联在线
      */
     @XmlElement(required = false)
     @Getter
     private boolean enableChinaPay = false;
+
+    /**
+     * 银联
+     */
+    @XmlElement(required = false)
+    @Getter
+    private boolean enableUnionPay = false;
 
     /**
      * 连连支付
