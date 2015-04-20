@@ -6,9 +6,10 @@
 package com.creditcloud.unionpay.api;
 
 /**
+ * 银联
  *
  * @author GuohuaZhang
  */
 public interface UnionPayService {
-    
+
 }
