@@ -72,4 +72,6 @@ public class ChinaPayConfig extends BaseConfig {
     private String appSysIdForBankAccountValidating;
     @XmlElement(required = true)
     private String signKeyForBankAccountValidating;
+    @XmlElement(required = true)
+    private String pathChinaPayPublicKey;
 }
