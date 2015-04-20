@@ -380,7 +380,7 @@ public interface UserFundService {
      */
     List<String> getAllUserFundId();
 
-    int countUserFund();
+    long countUserFund();
 
     /**
      * 分页获取userFund
@@ -390,4 +390,5 @@ public interface UserFundService {
      */
     List<UserFund> listUserFunds(int i, int pageRow);
 
+    void initUserFreeWithdrawals(String userId, BigDecimal freeWithDraw);
 }
