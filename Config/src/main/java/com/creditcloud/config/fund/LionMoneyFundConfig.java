@@ -102,6 +102,9 @@ public class LionMoneyFundConfig extends BaseObject {
     private String sftpPassword;
     @Getter
     @XmlElement(required = true)
+    private String sftpPrivateKey;
+    @Getter
+    @XmlElement(required = true)
     private String sftpServerRootDirectory;
     @Getter
     @XmlElement(required = true)
