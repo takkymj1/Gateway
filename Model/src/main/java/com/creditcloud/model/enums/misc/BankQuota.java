@@ -15,20 +15,22 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum BankQuota implements BaseEnum {
     
     
-    ICBC("中国工商银行", 50000),
-    ABC("中国农业银行", 50000),
-    CCB("建设银行", 50000),
-    BOC("中国银行", 50000),
-    CEB("光大银行", 50000),
-    CIB("兴业银行", 50000),
-    SDB("深发银行", 50000);
+    ICBC("中国工商银行", 50000, 50000),
+    ABC("中国农业银行", 20000, 20000),
+    CCB("建设银行", 5000, 10000),
+    BOC("中国银行", 10000, 10000),
+    CEB("光大银行", 500000, 500000),
+    CIB("兴业银行", 500000, 500000),
+    SDB("深发银行", 500000, 500000);
     
     private final String key;
-    private final Integer quota;
+    private final Integer singleQuota;
+    private final Integer dailyQuota;
     
-    BankQuota(String key, Integer quota) {
+    BankQuota(String key, Integer singleQuota, Integer dailyQuota) {
         this.key = key;
-        this.quota = quota;
+        this.singleQuota = singleQuota;
+        this.dailyQuota = dailyQuota;
     }
 
     @Override
@@ -36,8 +38,12 @@ public enum BankQuota implements BaseEnum {
         return key;
     }
     
-    public Integer getQuota() {
-        return quota;
+    public Integer getSingleQuota() {
+        return singleQuota;
+    }
+    
+    public Integer getDailyQuota() {
+        return dailyQuota;
     }
     
 }
