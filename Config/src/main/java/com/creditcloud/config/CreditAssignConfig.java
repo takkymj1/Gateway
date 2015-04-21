@@ -50,7 +50,7 @@ public class CreditAssignConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private boolean enableAssignAudit = false;
+    private boolean enableAssignCreateAudit = false;
 
     /**
      * 债权转让最大手续费率
