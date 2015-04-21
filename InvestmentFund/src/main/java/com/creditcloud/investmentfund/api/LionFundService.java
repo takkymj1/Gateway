@@ -10,6 +10,7 @@ import com.creditcloud.investmentfund.enums.AreaLevel;
 import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.investmentfund.model.Area;
 import com.creditcloud.investmentfund.model.FundAccount;
+import com.creditcloud.investmentfund.model.FundProductNavRecord;
 import com.creditcloud.investmentfund.model.FundResult;
 import com.creditcloud.investmentfund.model.lion.FundProduct;
 import com.creditcloud.investmentfund.model.lion.FundTradingRequestRecord;
@@ -29,6 +30,7 @@ import com.creditcloud.investmentfund.model.lion.response.QueryTradeRecordRespon
 import com.creditcloud.investmentfund.model.lion.response.TradeBuyFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.TradeSellFundResponse;
 import com.creditcloud.investmentfund.model.lion.response.UserRiskAssessmentResponse;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -40,6 +42,21 @@ import javax.ejb.Remote;
 @Remote
 public interface LionFundService {
 
+    /**
+     * 去诺安基金官网抓取净值记录
+     * 
+     * 抓取字段
+     * 非货币基金： 净值， 净值日期， 累计净值
+     * 货币基金： 万份收益，净值日期， 七日年化收益率
+     * 
+     * @param fundCode      基金代码
+     * @param fundType      基金类型
+     * @param startDate     开始时间
+     * @param endDate       结束时间
+     * @return 
+     */
+    public List<FundProductNavRecord> queryFundProductNavRecord(String fundCode, FundType fundType, Date startDate, Date endDate);
+    
     /**
      * 查询用户基金交易记录
      * 

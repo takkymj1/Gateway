@@ -14,14 +14,12 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum CreditAssignStatus implements BaseEnum {
 
-    /**
-     * TODO 暂时没用上,直接OPEN
-     */
+    PROPOSED("已申请"),
     SCHEDULED("已安排"),
     OPEN("转让中"),
     FINISHED("转让已满"),
     FAILED("转让未满"),
-//    SETTLED("转让成功"),
+    //    SETTLED("转让成功"),
     CANCELED("已取消");
 
     private final String key;
