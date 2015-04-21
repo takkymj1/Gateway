@@ -66,7 +66,7 @@ public class LionFundConfig extends BaseObject {
     private URL url;
 
     /**
-     * 诺安基金服务器的URL
+     * 诺安基金历史净值页面URL
      *
      * @return
      */
