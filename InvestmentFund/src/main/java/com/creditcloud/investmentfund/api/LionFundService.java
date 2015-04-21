@@ -45,6 +45,9 @@ public interface LionFundService {
     /**
      * 去诺安基金官网抓取净值记录
      * 
+     * 非货币基金： 净值， 净值日期， 累计净值
+     * 货币基金： 万份收益，净值日期， 七日年化收益率
+     * 
      * @param fundCode      基金代码
      * @param fundType      基金类型
      * @param startDate     开始时间
