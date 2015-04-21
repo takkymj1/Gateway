@@ -35,6 +35,16 @@ public interface FundConstant {
     int MAX_EXPECTED_RATE = 50000;
     
     /**
+     * 最小七日年化收益
+     */
+    int MIN_SEVEN_YEAR_RATE = 0;
+
+    /**
+     * 最大七日年化收益
+     */
+    int MAX_SEVEN_YEAR_RATE = 1000000;
+    
+    /**
      * 单笔投资最小金额
      */
     int MIN_INVEST_AMOUNT = 1;

@@ -17,7 +17,7 @@ import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
 
 /**
- * 银联接口,包含以下接口 :<br>
+ * 银联在线接口,包含以下接口 :<br>
  * 1. 单笔代付:单笔代付交易,单笔代付查询,备付金余额查询;<br>
  * 2. 单笔代扣:单笔代扣交易和单笔代扣查询;<br>
  * 3. 银行卡认证<br>

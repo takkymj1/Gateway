@@ -37,13 +37,20 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private boolean enablePartlyAssign = false;
-    
+
     /**
      * 承接的债权是否允许二次转让
      */
     @Getter
     @XmlElement(required = false)
     private boolean enableReassign = false;
+
+    /**
+     * 债权转让申请需要通过后台审批才能发出
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableAssignCreateAudit = false;
 
     /**
      * 债权转让最大手续费率
