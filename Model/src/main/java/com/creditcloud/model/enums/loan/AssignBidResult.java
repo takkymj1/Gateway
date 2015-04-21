@@ -15,6 +15,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum AssignBidResult implements BaseEnum {
 
     CREDIT_ASSIGN_DISABLED("没有开启债权转让功能"),
+    NOT_FOUND("债转不存在"),
     SUCCESSFUL("转让成功"),
     PARTLY_SUCCESSFUL("转让部分成功"),
     ASSIGN_NOT_OPEN("转让没有开始,或者已经结束"),
