@@ -7,6 +7,8 @@ package com.creditcloud.fund.api;
 
 import com.creditcloud.fund.model.TransferRequest;
 import com.creditcloud.fund.model.enums.FundRecordStatus;
+
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -45,4 +47,6 @@ public interface TransferRequestService {
      * @param requestId
      */
     public void deleteRequest(String requestId);
+
+    BigDecimal sumTransferByUser(String userId);
 }
