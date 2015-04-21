@@ -6,6 +6,7 @@ package com.creditcloud.model.user.corporation;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
@@ -102,6 +103,11 @@ public class CorporationInfo extends BaseObject {
      * 资本市场评级‍ 
      */
     private String creditRank;
+    
+    /**
+     * 成立时间，对应timeEstablished
+     */
+    private Date dateEstablished;
 
     public CorporationInfo(String userId,
                            String url,
