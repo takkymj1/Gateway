@@ -11,6 +11,7 @@ import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
 import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
+import com.creditcloud.insurance.model.enci.enums.ProductType;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
@@ -189,4 +190,16 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
      * @return 
      */
     public PagedResult<InsuranceOrder> listByUserId(String clientCode, PageInfo pageInfo, String userId, String sortString, boolean asc, InsuranceOrderStatus... status);
+    
+    /**
+     * 列出平台订单
+     * @param clientCode
+     * @param codeList
+     * @param typeList
+     * @param statusList
+     * @param startDate 
+     * @param endDate
+     * @return 
+     */
+    public PagedResult<InsuranceOrder> listByCodeTypOrderStatusTranDate(String clientCode,List<String> codeList,List<ProductType> typeList,List<InsuranceOrderStatus> statusList,Date startDate,Date endDate, PageInfo pageInfo);
 }
