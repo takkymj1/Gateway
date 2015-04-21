@@ -39,6 +39,16 @@ public class LianPayConfig extends BaseConfig {
     @Getter
     private String retUrl;
     
+    //同步查询基地址
+    @XmlElement(required = true)
+    @Getter
+    private String tradeUrl;    
+    
+    //连连支付基地址
+    @XmlElement(required = true)
+    @Getter
+    private String lianUrl;   
+    
     //商户编号
     @XmlElement(required = true)
     @Getter

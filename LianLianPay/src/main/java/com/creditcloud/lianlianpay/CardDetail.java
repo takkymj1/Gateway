@@ -32,7 +32,13 @@ public class CardDetail extends BaseObject {
     public CardDetail() {
     }
 
-    public CardDetail(String ret_code, String ret_msg, String sign_type, String sign, String bank_code, String bank_name, String card_type) {
+    public CardDetail(String ret_code, 
+                      String ret_msg, 
+                      String sign_type, 
+                      String sign, 
+                      String bank_code, 
+                      String bank_name, 
+                      String card_type) {
         this.ret_code = ret_code;
         this.ret_msg = ret_msg;
         this.sign_type = sign_type;

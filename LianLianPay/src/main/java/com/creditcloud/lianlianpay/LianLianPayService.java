@@ -15,4 +15,6 @@ import javax.ejb.Remote;
 public interface LianLianPayService {
     
     public CardDetail  queryCard(String clientCode, String cardNo);
+    
+    public PayResult queryPayResult(String clientCode, String orderId, String reqTime);
 }
