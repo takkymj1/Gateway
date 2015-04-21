@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.api;
 
 import com.creditcloud.investmentfund.enums.FundBrand;
 import com.creditcloud.investmentfund.enums.FundType;
+import com.creditcloud.investmentfund.enums.TradingRecordPayStatus;
 import com.creditcloud.investmentfund.enums.TradingRecordResult;
 import com.creditcloud.investmentfund.enums.TradingRecordStatus;
 import com.creditcloud.investmentfund.enums.TradingRecordType;
@@ -15,6 +16,7 @@ import com.creditcloud.investmentfund.model.FundTradingRecord;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -121,4 +123,17 @@ public interface FundTradingRecordService {
      * @return 
      */
     public PagedResult<FundTradingRecord> list(PageInfo pageInfo);
+    
+    /**
+     * 
+     * @param codeList 代码
+     * @param typeList 基金类型
+     * @param startDate 开始日期
+     * @param endDate 结束日期
+     * @param payStatusList 支付状态
+     * @param brandList 基金品牌 
+     * @param pageInfo 分页信息 
+     * @return 
+     */
+    public PagedResult<FundTradingRecord> listByCodeAndTypeAndTranDateAndPayStatus(List<String> codeList,List<FundType> typeList,Date startDate,Date endDate,List<TradingRecordPayStatus> payStatusList,List<FundBrand> brandList,PageInfo pageInfo);
 }
