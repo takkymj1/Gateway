@@ -66,6 +66,15 @@ public class LionFundConfig extends BaseObject {
     private URL url;
 
     /**
+     * 诺安基金服务器的URL
+     *
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private URL urlQueryFundNavRecord;
+            
+    /**
      * 诺安基金服务器的远程路径
      *
      * @return
