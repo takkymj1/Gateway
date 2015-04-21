@@ -11,6 +11,7 @@ import com.creditcloud.model.enums.loan.RepaymentMethod;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.BulletRepayment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInstallment;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualInterest;
+import static com.creditcloud.model.enums.loan.RepaymentMethod.EqualPrincipal;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.MonthlyInterest;
 import static com.creditcloud.model.enums.loan.RepaymentMethod.YearlyInterest;
 import com.creditcloud.model.loan.Duration;
@@ -227,7 +228,7 @@ public final class LoanCalculator {
                     outstandingPrincipals[i] = outstandingPrincipal;
                 }
                 //create LoanDetail
-                result = new LoanDetail(principal, interest, duration, EqualInstallment);
+                result = new LoanDetail(principal, interest, duration, EqualPrincipal);
                 //deal with amortized items
                 for (int i = 0; i < tenure; i++) {
                     if (i == tenure - 1) {
