@@ -9,6 +9,7 @@ import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -364,4 +365,30 @@ public interface UserFundService {
      * @return
      */
     public BigDecimal getTotalAvailable(String clientCode);
+
+
+    /**
+     * 增加更新投资人的免费提现额度
+     * @param userId
+     * @param dueAmount
+     */
+    void updateUserFreeWithdrawalsForAdd(String userId,BigDecimal dueAmount);
+
+    /**
+     * 获取所有用户id
+     * @return
+     */
+    List<String> getAllUserFundId();
+
+    long countUserFund();
+
+    /**
+     * 分页获取userFund
+     * @param i
+     * @param pageRow
+     * @return
+     */
+    List<UserFund> listUserFunds(int i, int pageRow);
+
+    void initUserFreeWithdrawals(String userId, BigDecimal freeWithDraw);
 }
