@@ -131,8 +131,8 @@ public interface FundTradingRecordService {
      * @param startDate 开始日期
      * @param endDate 结束日期
      * @param payStatusList 支付状态
-     * @param brandList 基金品牌
-     * @param pageInfo 分页信息
+     * @param brandList 基金品牌 
+     * @param pageInfo 分页信息 
      * @return 
      */
     public PagedResult<FundTradingRecord> listByCodeAndTypeAndTranDateAndPayStatus(List<String> codeList,List<FundType> typeList,Date startDate,Date endDate,List<TradingRecordPayStatus> payStatusList,List<FundBrand> brandList,PageInfo pageInfo);

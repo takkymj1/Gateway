@@ -192,12 +192,12 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
     public PagedResult<InsuranceOrder> listByUserId(String clientCode, PageInfo pageInfo, String userId, String sortString, boolean asc, InsuranceOrderStatus... status);
     
     /**
-     * 列车平台订单
+     * 列出平台订单
      * @param clientCode
      * @param codeList
      * @param typeList
      * @param statusList
-     * @param startDate
+     * @param startDate 
      * @param endDate
      * @return 
      */
