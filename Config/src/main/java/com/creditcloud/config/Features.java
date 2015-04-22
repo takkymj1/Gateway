@@ -207,13 +207,6 @@ public class Features extends BaseObject {
     private boolean enableCreditAssign = false;
 
     /**
-     * 自动债权转让承接
-     */
-    @XmlElement
-    @Getter
-    private boolean enableAutoCreditAssign = false;
-
-    /**
      * UMP支付对每日提现次数的限制, null=无限制, 0=不允许提现
      */
     @XmlElement
