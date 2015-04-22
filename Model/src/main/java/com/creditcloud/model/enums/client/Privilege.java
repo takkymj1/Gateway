@@ -27,7 +27,7 @@ public enum Privilege implements BaseEnum {
      * 用户相关权限
      */
     USER_LIST("列出用户", Realm.USER, "用户相关权限"),
-    USER_LIST_VIEW("列出用户列表数据", Realm.USER, "用户相关权限"),
+    USER_LIST_VIEW("禁止列出用户列表数据", Realm.USER, "用户相关权限"),
     USER_DETAIL("查看用户详情,包括用户的各种认证信息", Realm.USER, "用户相关权限"),
     USER_ALTER("添加更改用户信息,包括上传用户认证信息", Realm.USER, "用户相关权限"),
     USER_DELETE("禁用用户", Realm.USER, "用户相关权限"),
