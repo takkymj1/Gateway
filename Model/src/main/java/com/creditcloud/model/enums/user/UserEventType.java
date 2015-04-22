@@ -22,8 +22,23 @@ public enum UserEventType implements BaseEnum {
     PAYMENT_BINDCARD("绑定银行卡"),
     PAYMENT_DEPOSIT("用户充值"),
     PAYMENT_DEPOSIT_FIRST("用户首次充值"),
-    TENDER("用户投标"),
-    TENDER_FIRST("用户首次投标");
+    INVEST("用户投标"),
+    /**
+     * 某个用户，完成第一笔投标
+     */
+    INVEST_FIRST("用户首次投标"),
+    /**
+     * 对于某个标的，第一个完成投标操作
+     */
+    TENDER_FIRST("第一名投标"),
+    /**
+     * 对于某个标的，最后一个完成投标操作 
+     */
+    TENDER_LAST("最后一名投标"),
+    /**
+     * 对于某个标的，投标金额最高
+     */
+    TENDER_MOST("投标金额最高");
     
     private final String key;
 
