@@ -86,12 +86,22 @@ public interface LoanRequestQueryService {
      * @param status
      * @return
      */
-    public PagedResult<LoanRequest> listByStatusAndDate(boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
+    public PagedResult<LoanRequest> listByStatusAndDateAndPureRequest(boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
     
     
     
     public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
 
+    /**
+     * 按LoanRequestStatus和pureRequest列出LoanRequest
+     *
+     * @param pureRequest 是否为单纯的借款申请，用于判断某些业务例如配资申请
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listByStatusAndPureRequest(boolean pureRequest, PageInfo info, LoanRequestStatus... status);
+    
     public List<LoanRequest> listByRequestProviderAndStatus(RealmEntity provider, LoanRequestStatus... status);
 
     /**
