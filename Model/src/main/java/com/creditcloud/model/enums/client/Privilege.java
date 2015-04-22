@@ -27,11 +27,13 @@ public enum Privilege implements BaseEnum {
      * 用户相关权限
      */
     USER_LIST("列出用户", Realm.USER, "用户相关权限"),
+    USER_LIST_VIEW("列出用户列表数据", Realm.USER, "用户相关权限"),
     USER_DETAIL("查看用户详情,包括用户的各种认证信息", Realm.USER, "用户相关权限"),
     USER_ALTER("添加更改用户信息,包括上传用户认证信息", Realm.USER, "用户相关权限"),
     USER_DELETE("禁用用户", Realm.USER, "用户相关权限"),
     USER_DOWNLOAD("下载用户信息", Realm.USER, "用户相关权限"),
     USER_RESETPASSWORD("重置用户密码", Realm.USER, "用户相关权限"),
+    INSTEAD_WITHDRAW_VIEW("代提现视图", Realm.USER, "用户相关权限"),
     /**
      * 员工相关权限
      */
@@ -167,9 +169,11 @@ public enum Privilege implements BaseEnum {
      * 众筹相关权限
      */
     CROWDFUNDING_LIST("列出众筹", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_REQUEST_LIST("众筹申请列表", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_DETAIL("查看众筹详情", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_ARCHIVE("众筹项目列表存档", Realm.FUNDINGPROJECT, "众筹相关权限"),
     /**
      * 批量任务相关权限
      */
