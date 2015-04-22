@@ -8,6 +8,7 @@ package com.creditcloud.coupon.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.enums.user.UserEventType;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -63,6 +64,14 @@ public class CouponPackage extends BaseObject {
      */
     @FormParam("code")
     private String code;
+    
+    /**
+     * 触发奖券分配的用户事件类型.
+     * 
+     * 为空则不能根据事件触发，一般用于自动发券，如投资即送券等
+     */
+    @FormParam("userEventType")
+    private UserEventType userEventType;
 
     /**
      * 详情介绍
