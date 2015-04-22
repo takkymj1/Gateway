@@ -78,7 +78,7 @@ public class RechargeRecord extends BaseObject {
     private PlatformSource platformSource;
 
 
-    public RechargeRecord(String id, String userId, String fundRecordId, BigDecimal amount, Source source, BigDecimal ratio, RechargeType rechargeFrom, RechargeType rechargeTo, RechargeChannel rechargeChannel, PlatformSource platformSource) {
+    public RechargeRecord(String id, String userId, String fundRecordId, BigDecimal amount, Source source, BigDecimal ratio, RechargeType rechargeFrom, RechargeType rechargeTo, RechargeChannel rechargeChannel, PlatformSource platformSource, RechargeStatus rechargeStatus) {
         this.id = id;
         this.userId = userId;
         this.fundRecordId = fundRecordId;
@@ -89,5 +89,6 @@ public class RechargeRecord extends BaseObject {
         this.rechargeTo = rechargeTo;
         this.rechargeChannel = rechargeChannel;
         this.platformSource = platformSource;
+        this.rechargeStatus = rechargeStatus;
     }
 }
