@@ -77,6 +77,7 @@ public enum Realm implements BaseEnum {
      */
     CHANNEL("CMS栏目"),
     ARTICLE("CMS文章"),
+    STATISTICS("数据统计"),
     /**
      * Crowd funding
      */

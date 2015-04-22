@@ -38,6 +38,7 @@ public enum Privilege implements BaseEnum {
      * 员工相关权限
      */
     EMPLOYEE_LIST("列出员工", Realm.EMPLOYEE, "员工相关权限"),
+    USER_LIST_VIEW("列出用户列表", Realm.USER, "用户相关权限"),
     EMPLOYEE_DETAIL("查看员工详情", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_ADD("添加员工记录", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_ALTER("更改员工信息", Realm.EMPLOYEE, "员工相关权限"),
@@ -188,11 +189,17 @@ public enum Privilege implements BaseEnum {
     COUPON_PLACE("分配奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_APPROVE("奖券使用复核", Realm.COUPON, "奖券相关权限"),
     /**
+     * 数据统计相关权限
+     */
+    STATISTICS_USER("用户统计", Realm.STATISTICS, "数据统计相关权限"),
+    STATISTICS_FUND("资金统计", Realm.STATISTICS, "数据统计相关权限"),
+    /**
      * 其他杂项权限
      */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
     MESSAGE_SEND("短信发送",Realm.SYSTEM,"系统相关权限"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
+    
 
     private final String key;
 
