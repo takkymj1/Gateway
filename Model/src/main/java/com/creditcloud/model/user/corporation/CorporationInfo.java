@@ -108,6 +108,11 @@ public class CorporationInfo extends BaseObject {
      * 成立时间，对应timeEstablished
      */
     private Date dateEstablished;
+    
+    /**
+     * 借款企业名称
+     */
+    private String loanRequestCorporationName;
 
     public CorporationInfo(String userId,
                            String url,
