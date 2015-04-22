@@ -61,13 +61,6 @@ public class ClientFeatures extends BaseObject {
     private boolean enableServiceRedis = false;
 
     /**
-     * 是否支持原始债权
-     */
-    @XmlElement
-    @Getter
-    private boolean enableClaim = false;
-
-    /**
      * 远程认证地址
      */
     @XmlElement
