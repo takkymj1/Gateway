@@ -62,6 +62,14 @@ public final class SMSConfig extends BaseConfig {
     @Getter
     private String deskey;
     
+    @XmlElement(required = false)
+    @Getter
+    private String version;
+    
+    @XmlElement(required = false)
+    @Getter
+    private String propertiesPath;
+    
     /**
      * 开启结息日短信提醒
      */
