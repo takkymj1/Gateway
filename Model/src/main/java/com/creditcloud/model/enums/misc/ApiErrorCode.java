@@ -32,6 +32,7 @@ public enum ApiErrorCode implements BaseEnum {
     UMP_AGREEMENT_INSTANT_NOT_BIND("未绑定联动优势无密快捷协议"),
     UMP_AGREEMENT_DEBIT_NOT_BIND("未绑定联动优势借记卡快捷协议"),
     UMP_RET_MSG("请求联动优势返回错误信息"),
+    UMP_SENDPASSWORD_FAILED("联动优势重置密码操作失败"),
     
     CHINAPNR_AUTOTENDER_OPEN_FAILED("开通汇付自动投标失败"),
     CHINAPNR_AUTOTENDER_CLOSE_FAILED("关闭汇付自动投标失败"),
