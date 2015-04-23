@@ -38,7 +38,6 @@ public enum Privilege implements BaseEnum {
      * 员工相关权限
      */
     EMPLOYEE_LIST("列出员工", Realm.EMPLOYEE, "员工相关权限"),
-    USER_LIST_VIEW("列出用户列表", Realm.USER, "用户相关权限"),
     EMPLOYEE_DETAIL("查看员工详情", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_ADD("添加员工记录", Realm.EMPLOYEE, "员工相关权限"),
     EMPLOYEE_ALTER("更改员工信息", Realm.EMPLOYEE, "员工相关权限"),
@@ -175,6 +174,7 @@ public enum Privilege implements BaseEnum {
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ARCHIVE("众筹项目列表存档", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    XIAOHUAJIA_OPERATING("小画家操作权限", Realm.FUNDINGPROJECT, "众筹相关权限"),
     /**
      * 批量任务相关权限
      */
