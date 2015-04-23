@@ -439,6 +439,10 @@ public interface ContractService {
     /**
      * @author zaishu.ye@fengjr.com
      * 生成债权转让合同
+     * 若标的有担保，使用默认模板
+     * 若标的没担保，使用非默认代码。
+     * 
+     * 因此，债权转让合同模板对多仅能允许有2份
      * @param assignInvest 
      */
     public void generateCreditAssignContract(Invest assignInvest);
