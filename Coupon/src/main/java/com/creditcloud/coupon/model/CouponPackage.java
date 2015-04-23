@@ -70,8 +70,8 @@ public class CouponPackage extends BaseObject {
      * 
      * 为空则不能根据事件触发，一般用于自动发券，如投资即送券等
      */
-//    @FormParam("userEventType")
-//    private UserEventType userEventType;
+    @FormParam("userEventType")
+    private UserEventType userEventType;
 
     /**
      * 详情介绍
