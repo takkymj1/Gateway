@@ -16,7 +16,7 @@ import lombok.Data;
  */
 @Data
 public class UserEvent {
-    
+
     /**
      * 用户ID
      */
@@ -32,4 +32,18 @@ public class UserEvent {
      */
     private Date timeHappened;
     
+    /**
+     * 快速创建UserEvent对象
+     * 
+     * @param userEventType
+     * @param id
+     * @return 
+     */
+    public static UserEvent of(UserEventType userEventType, String id) {
+        UserEvent result = new UserEvent();
+        result.setEventType(userEventType);
+        result.setUserId(id);
+        result.setTimeHappened(new Date());
+        return result;
+    }
 }
