@@ -39,6 +39,13 @@ public class CreditAssignConfig extends BaseConfig {
     private boolean enablePartlyAssign = false;
 
     /**
+     * 自动转让
+     */
+    @Getter
+    @XmlElement(required = false)
+    private boolean enableAutoAssign = false;
+
+    /**
      * 承接的债权是否允许二次转让
      */
     @Getter
