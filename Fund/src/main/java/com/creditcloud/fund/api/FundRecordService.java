@@ -835,7 +835,7 @@ public interface FundRecordService {
 
     List<FundRecord> listByUserAndTypeAndOperationAndStatusAndTime(String userId, Date from, Date to, List<FundRecordType> typeList, List<FundRecordOperation> operationList, List<FundRecordStatus> statusList);
 
-    BigDecimal sumAmountByUser(String userId, FundRecordOperation f, FundRecordType rewardCouponNewRegister);
+    BigDecimal sumAmountByUser(String userId, FundRecordOperation f, FundRecordType... types);
 
     List<com.creditcloud.fund.model.record.FundRecord> listHistoryFeeByUser(String userId);
 }
