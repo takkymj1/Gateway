@@ -5,14 +5,13 @@
  */
 package com.creditcloud.unionpay.api;
 
-import com.creditcloud.unionpay.model.CustomerAccountInfo;
-
 /**
- * 银联
  *
- * @author GuohuaZhang
+ * @author guohuazhang
  */
-public interface UnionPayService {
+public interface UnionPayConstants {
 
-    boolean backendValidateCustomerAccountInfo(CustomerAccountInfo account);
+    String VERSION = "5.0.0";
+    String HTTP_CONTENT_ENCODING = "UTF-8";
+    String SIGN_METHOD_RSA="01";
 }
