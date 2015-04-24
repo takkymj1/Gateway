@@ -11,7 +11,6 @@ import com.creditcloud.model.loan.Duration;
 import com.creditcloud.wealthproduct.WealthProductConstant;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
 import com.creditcloud.wealthproduct.enums.WealthProductStatus;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -55,7 +54,12 @@ public class WealthProduct extends BaseObject {
 
     @Size(max = WealthProductConstant.MAX_DESCRIPTION_LENGTH)
     private String description;
-
+    
+    /**
+     * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
+     */
+    private boolean generateRepayment;
+    
     public WealthProduct(String id,
                          String title,
                          ReturnMethod returnMethod,

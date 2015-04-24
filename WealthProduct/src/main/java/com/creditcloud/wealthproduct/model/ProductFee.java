@@ -24,12 +24,16 @@ public class ProductFee extends BaseObject {
 
     private String productId;
 
+    //购买费率
     private BigDecimal purchaseFee;
 
+    //锁定期管理费
     private BigDecimal manageFee;
 
+    //赎回费率
     private BigDecimal redeemFee;
 
+    //提前赎回费率
     private BigDecimal advanceRedeemFee;
 
     public ProductFee(String productId,
