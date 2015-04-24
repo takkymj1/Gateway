@@ -164,6 +164,7 @@ public enum Privilege implements BaseEnum {
     TICKET_ASSIGN("分配工单任务", Realm.TICKET, "支持工单相关权限"),
     TICKET_REPLY("处理工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_REVIEW("评审工单", Realm.TICKET, "支持工单相关权限"),
+    TICKET_OPERATION_READ_ONLY("工单管理操作只读权限", Realm.TICKET, "支持工单相关权限"),
     TICKET_DOWNLOAD("下载工单", Realm.TICKET, "支持工单相关权限"),
     /**
      * 众筹相关权限
@@ -174,6 +175,7 @@ public enum Privilege implements BaseEnum {
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ARCHIVE("众筹项目列表存档", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_SERIAL_NUMBER("众筹序列号权限", Realm.FUNDINGPROJECT, "众筹相关权限"),
     XIAOHUAJIA_OPERATING("小画家操作权限", Realm.FUNDINGPROJECT, "众筹相关权限"),
     /**
      * 批量任务相关权限
