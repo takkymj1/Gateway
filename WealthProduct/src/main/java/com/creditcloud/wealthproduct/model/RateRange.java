@@ -6,6 +6,7 @@
 package com.creditcloud.wealthproduct.model;
 
 /**
+ * 浮动收益
  *
  * @author rooseek
  */
@@ -18,4 +19,5 @@ public class RateRange {
     private int expectedRate;
 
     private String description;
+
 }

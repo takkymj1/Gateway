@@ -20,14 +20,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @XmlRootElement
-public class Redeem extends BaseObject{
+public class Redeem extends BaseObject {
 
     private static final long serialVersionUID = 20140924L;
 
     private String id;
 
     private String userId;
-    
+
+    /**
+     * 提前赎回
+     */
     private boolean advance;
 
     private BigDecimal principal;
@@ -35,4 +38,5 @@ public class Redeem extends BaseObject{
     private BigDecimal interest;
 
     private Date redeemDate;
+
 }
