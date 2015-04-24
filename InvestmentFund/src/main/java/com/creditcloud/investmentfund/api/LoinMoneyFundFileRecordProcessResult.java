@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author guohuazhang
  */
-public interface LoinMoneyFundFileRecordProcessResult extends Serializable{
+public interface LoinMoneyFundFileRecordProcessResult extends Serializable {
 
     List<PurchaseConfirmRecord> getNotProcessedPurchaseConfirmRecords();
 
@@ -30,6 +30,6 @@ public interface LoinMoneyFundFileRecordProcessResult extends Serializable{
     List<UserIncomeRecord> getNotProcessedUserIncomeRecords();
 
     boolean isSuccess();
-    
+
     public String getReferenceId();
 }
