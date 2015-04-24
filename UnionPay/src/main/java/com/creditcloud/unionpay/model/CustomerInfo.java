@@ -27,35 +27,10 @@ public class CustomerInfo extends BaseObject {
     private String phoneNo;//手机号 N1..20
     private String smsCode;//短信验证码 N6
     //private String encryptData;//加密信息域 ANS1..512 , 2015-04-23, 和文档v1.4不一致,客服建议依据例子代码
-    private String cardType = CardType.DEBIT.getCode();//卡类型
-    private String cardNo;//卡号
-    private transient String pin;//持卡人密码
-    private transient String cvn2;//cvn2
-    private transient String expired;// 有效期 YYMM
 
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this,
-                                                  ToStringStyle.MULTI_LINE_STYLE, false, false);
-    }
-
-    public void setDebitCard(String cardNo, String pin) {
-        cardType = CardType.DEBIT.getCode();
-        this.cardNo = cardNo;
-        this.pin = pin;
-    }
-
-    public void setCreditCard(String cardNo, String cvn2, String expired) {
-        cardType = CardType.CREDIT.getCode();
-        this.cardNo = cardNo;
-        this.cvn2 = cvn2;
-        this.expired = expired;
-    }
-    
-    public boolean isUsingCreditCard(){
-        return CardType.CREDIT.getCode().equals(this.cardType);
-    }
-    public boolean isUsingDebitCard(){
-        return CardType.DEBIT.getCode().equals(this.cardType);
+                                                  ToStringStyle.SHORT_PREFIX_STYLE, false, false);
     }
 }
