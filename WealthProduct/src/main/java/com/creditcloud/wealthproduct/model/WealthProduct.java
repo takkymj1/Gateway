@@ -30,29 +30,21 @@ public class WealthProduct extends BaseObject {
 
     private String id;
 
-    @NotNull
     @Size(max = WealthProductConstant.MAX_TITLE_LENGHT)
     private String title;
 
-    @NotNull
     private ReturnMethod returnMethod;
 
-    @NotNull
     private RepaymentMethod repayMethod;
 
-    @NotNull
     private WealthProductStatus status;
 
-    @NotNull
     private String userId;
 
-    @NotNull
     private int rate;
 
-    @NotNull
     private Duration duration;
 
-    @NotNull
     private int amount;
 
     private int purchaseAmount;
