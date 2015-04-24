@@ -11,6 +11,7 @@ import com.creditcloud.coupon.model.CouponType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.misc.RealmEntity;
+import com.creditcloud.model.user.UserEvent;
 import java.math.BigDecimal;
 import javax.ejb.Remote;
 
@@ -66,6 +67,17 @@ public interface CouponService extends CouponQueryService {
      * @return null 表示没有合适的奖券包或者分配失败
      */
     public CouponPlacement placeCoupon(String clientCode, String code, CouponType type, RealmEntity owner);
+    
+    /**
+     * 根据UserEvent自动分配奖券.
+     * 
+     * 注意这里会把<strong>所有</strong>符合条件的奖券包都分配出去
+     * 
+     * @param clientCode
+     * @param userEvent
+     * @return 会返回所有分配的奖券或者Empty Array
+     */
+    public CouponPlacement[] placeCoupon(String clientCode, UserEvent userEvent);
 
     /**
      * 根据Invest的基本信息，计算使用某张奖券时将为用户带来的额外收益.
