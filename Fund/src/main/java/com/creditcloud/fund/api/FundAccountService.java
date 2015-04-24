@@ -153,4 +153,5 @@ public interface FundAccountService {
     
     public boolean updateAccount(String id, String account, Bank bank, String name);
 
+    public List<CardRecord> listByAccount(String account, CardRecordStatus cardRecordStatus);
 }
