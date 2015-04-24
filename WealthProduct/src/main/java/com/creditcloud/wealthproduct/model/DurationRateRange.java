@@ -20,12 +20,12 @@ public class DurationRateRange {
     private String productId;
 
     /**
-     * 最低投资额
+     * 最低持有期限
      */
     private Duration minDuration;
 
     /**
-     * 最高投资额
+     * 最高持有期限
      */
     private Duration maxDuration;
 
