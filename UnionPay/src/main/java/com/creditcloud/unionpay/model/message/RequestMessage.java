@@ -38,5 +38,4 @@ public class RequestMessage {
     protected String riskRateInfo;//风险信息域 O 格式如下： {子域名 1=值&子域名2=值&子域名 3=值}有风险级别要求的商户必填 风险级别 {riskLevel=XX}
     protected String encryptCertId;//加密证书 ID C 当使用银联公钥加密密码等信息时，需上送加密证书的 CertID
     protected String bindId;//绑定关系标识号 C 需做建立绑定关系交易时填写
-    protected String issInsCode;//发卡机构代码 O
 }
