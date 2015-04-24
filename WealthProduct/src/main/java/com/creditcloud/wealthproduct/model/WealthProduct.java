@@ -7,7 +7,6 @@ package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
-import com.creditcloud.model.loan.Duration;
 import com.creditcloud.wealthproduct.WealthProductConstant;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
 import com.creditcloud.wealthproduct.enums.WealthProductStatus;
@@ -39,13 +38,20 @@ public class WealthProduct extends BaseObject {
     private WealthProductStatus status;
 
     private String userId;
+    
+    /**
+     * 最低募集额度
+     */
+    private int minQuota;
+    
+    /**
+     * 最高募集额度
+     */
+    private int maxQuota;
 
-    private int rate;
-
-    private Duration duration;
-
-    private int amount;
-
+    /**
+     * 实际募集金额
+     */
     private int purchaseAmount;
 
     private int purchaseNumber;
@@ -59,38 +65,4 @@ public class WealthProduct extends BaseObject {
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
      */
     private boolean generateRepayment;
-    
-    public WealthProduct(String id,
-                         String title,
-                         ReturnMethod returnMethod,
-                         RepaymentMethod repayMethod,
-                         WealthProductStatus status,
-                         String userId,
-                         int rate,
-                         Duration duration,
-                         int amount,
-                         ProductSchedule schedule,
-                         String description) {
-        this.id = id;
-        this.title = title;
-        this.returnMethod = returnMethod;
-        this.repayMethod = repayMethod;
-        this.status = status;
-        this.userId = userId;
-        this.rate = rate;
-        this.duration = duration;
-        this.amount = amount;
-        this.schedule = schedule;
-        this.description = description;
-    }
-
-    public int getLeftAmount() {
-        return amount - purchaseAmount;
-//      BigDecimal result = amount.subtract(purchaseAmount);
-//      return result.signum() == -1 ? BigDecimal.ZERO : result;
-    }
-
-//    private InvestRule investRule;
-//
-//    private boolean allowAdvanceRedeem;
 }

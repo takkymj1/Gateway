@@ -6,9 +6,7 @@
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.loan.Duration;
 import com.creditcloud.wealthproduct.enums.PurchaseStatus;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -44,10 +42,6 @@ public class Purchase extends BaseObject {
     @NotNull
     private Date submitTime;
 
-    private int rate;
-    
-    private Duration duration;
-    
     public Purchase(String id,
                     String productId,
                     String userId, 
