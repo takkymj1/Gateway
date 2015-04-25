@@ -23,21 +23,21 @@ public class ProductSchedule extends BaseObject {
     private static final long serialVersionUID = 20140924L;
 
     /**
-     * appoint stage
+     * appoint stage 预约期
      */
     private Date appointStartTime;
 
     private Date appointEndTime;
 
     /**
-     * purchase stage
+     * purchase stage 募集期
      */
     private Date purchaseStartTime;
 
     private Date purchaseEndTime;
 
     /**
-     * wealth management stage
+     * wealth management stage 锁定期
      */
     private Date manageStartTime;
 
