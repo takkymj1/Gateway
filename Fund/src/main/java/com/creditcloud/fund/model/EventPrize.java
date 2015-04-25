@@ -26,8 +26,9 @@ public class EventPrize extends BaseObject {
     private String id;
     private String eventNo;
     private String prizeNo;
-    private String prizeName;
     private CouponType prizeType;//奖品类型
+    private String prizeTypeDisplay;//奖品类型在前端显示名称
+    private String prizeName;
     private String useDescription;
     private BigDecimal amount;//金额
     private Integer inventory;//剩余库存
@@ -42,9 +43,10 @@ public class EventPrize extends BaseObject {
 
     public EventPrize(String id,
                       String eventNo,
+                      CouponType prizeType,
+                      String prizeTypeDisplay,
                       String prizeNo,
                       String prizeName,
-                      CouponType prizeType,
                       String useDescription,
                       BigDecimal amount,
                       Integer inventory,
@@ -58,9 +60,10 @@ public class EventPrize extends BaseObject {
                       boolean valid) {
         this.id = id;
         this.eventNo = eventNo;
+        this.prizeType = prizeType;
+        this.prizeTypeDisplay = prizeTypeDisplay;
         this.prizeNo = prizeNo;
         this.prizeName = prizeName;
-        this.prizeType = prizeType;
         this.useDescription = useDescription;
         this.amount = amount;
         this.inventory = inventory;
