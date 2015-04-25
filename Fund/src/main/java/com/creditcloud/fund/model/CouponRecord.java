@@ -21,8 +21,9 @@ public class CouponRecord extends BaseObject {
     private String userId;//用户ID
     private String eventId;//获取奖券的活动ID
     private String couponId;
-    private String couponName;
     private CouponType couponType;//券类型
+    private String couponTypeDisplay;//奖券类型前端显示名称
+    private String couponName;
     private BigDecimal amount;//金额
     private String limitType;//奖券使用限制方式
     private BigDecimal amountLimit;
