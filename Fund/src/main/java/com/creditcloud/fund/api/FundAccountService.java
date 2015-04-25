@@ -9,6 +9,7 @@ import com.creditcloud.fund.model.FundAccount;
 import com.creditcloud.model.enums.fund.CardRecordStatus;
 import com.creditcloud.model.enums.misc.Bank;
 import com.creditcloud.model.user.fund.BankAccount;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
 
@@ -154,4 +155,6 @@ public interface FundAccountService {
     public boolean updateAccount(String id, String account, Bank bank, String name);
 
     public List<CardRecord> listByAccount(String account, CardRecordStatus cardRecordStatus);
+    
+    public Date getFundAccountLatestTime(com.creditcloud.fund.model.FundAccount fundAccount, CardRecordStatus cardRecordStatus);
 }
