@@ -46,6 +46,7 @@ public class CouponRecord extends BaseObject {
                         String couponId,
                         String couponName,
                         CouponType couponType,
+                        String couponTypeDisplay,
                         BigDecimal amount,
                         String limitType,
                         BigDecimal amountLimit,
@@ -65,6 +66,7 @@ public class CouponRecord extends BaseObject {
         this.couponId = couponId;
         this.couponName = couponName;
         this.couponType = couponType;
+        this.couponTypeDisplay = couponTypeDisplay;
         this.amount = amount;
         this.limitType = limitType;
         this.amountLimit = amountLimit;
