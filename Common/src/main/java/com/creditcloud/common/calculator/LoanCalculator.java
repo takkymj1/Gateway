@@ -21,6 +21,7 @@ import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.LoanDetail;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.Repayment;
+import com.creditcloud.model.loan.RepaymentRule;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
@@ -300,11 +301,30 @@ public final class LoanCalculator {
                                      final LocalDate asOfDate) {
         return analyze(amount, duration, rate, method, asOfDate, NumberConstant.ROUNDING_MODE);
     }
+    
+    public static LoanDetail analyze(final BigDecimal amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final RepaymentRule repaymentRule,
+                                     final LocalDate asOfDate) {
+        return analyze(amount, duration, rate, method, repaymentRule, asOfDate, NumberConstant.ROUNDING_MODE);
+    }
+    
+    public static LoanDetail analyze(final BigDecimal amount,
+                                     final Duration duration,
+                                     final int rate,
+                                     final RepaymentMethod method,
+                                     final LocalDate asOfDate,
+                                     final RoundingMode rm) {
+        return analyze(amount, duration, rate, method, RepaymentRule.DEFAULT, asOfDate, NumberConstant.ROUNDING_MODE);
+    }
 
     public static LoanDetail analyze(final BigDecimal amount,
                                      final Duration duration,
                                      final int rate,
                                      final RepaymentMethod method,
+                                     final RepaymentRule repaymentRule,
                                      final LocalDate asOfDate,
                                      final RoundingMode rm) {
         RoundingMode roundingMode = rm;
@@ -318,7 +338,7 @@ public final class LoanCalculator {
         //now get rates
         BigDecimal rateYear = new BigDecimal(rate).divide(rateScale, mc);
         BigDecimal rateMonth = rateYear.divide(monthsPerYear, mc);
-        BigDecimal rateDay = rateYear.divide(daysPerYear, mc);
+        BigDecimal rateDay = rateYear.divide(new BigDecimal(repaymentRule.getDaysOfYear()), mc);
         //dealing with different methods
         BigDecimal interest, amortizedInterest, amortizedPrincipal, outstandingPrincipal;
         int tenure;
@@ -484,10 +504,11 @@ public final class LoanCalculator {
      * @return
      */
     public static LoanDetail analyze(LoanRequest request, LocalDate asOfDate) {
-        return analyze(request.getAmount(),
+        return analyze(new BigDecimal(request.getAmount()),
                        request.getDuration(),
                        request.getRate(),
                        request.getMethod(),
+                       request.getRepaymentRule(),
                        asOfDate);
     }
 
@@ -509,7 +530,7 @@ public final class LoanCalculator {
                                      final RepaymentMethod method,
                                      final LocalDate asOfDate,
                                      final RepaymentPeriod period,
-                                     final int repayDateOfMonth) {
+                                     final int repayDateOfMonth) { 
         if (period == null) {
             return analyze(amount, duration, rate, method, asOfDate);
         }
