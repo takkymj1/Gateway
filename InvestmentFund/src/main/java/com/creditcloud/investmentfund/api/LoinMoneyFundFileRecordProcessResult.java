@@ -10,13 +10,14 @@ import com.creditcloud.investmentfund.model.lion.moneyfund.PurchaseConfirmRecord
 import com.creditcloud.investmentfund.model.lion.moneyfund.RedeemConfirmRecord;
 import com.creditcloud.investmentfund.model.lion.moneyfund.UserIncomeRecord;
 import com.creditcloud.investmentfund.model.lion.moneyfund.DividendConfirmRecord;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author guohuazhang
  */
-public interface LoinMoneyFundFileRecordProcessResult {
+public interface LoinMoneyFundFileRecordProcessResult extends Serializable {
 
     List<PurchaseConfirmRecord> getNotProcessedPurchaseConfirmRecords();
 
@@ -29,6 +30,6 @@ public interface LoinMoneyFundFileRecordProcessResult {
     List<UserIncomeRecord> getNotProcessedUserIncomeRecords();
 
     boolean isSuccess();
-    
+
     public String getReferenceId();
 }
