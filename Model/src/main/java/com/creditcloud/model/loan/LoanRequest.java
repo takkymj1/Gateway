@@ -315,4 +315,13 @@ public class LoanRequest extends BaseObject {
         }
         return userId;
     }
+    
+    /**
+     * 使用默认值
+     * 
+     * @return 
+     */
+    public RepaymentRule getRepaymentRule() {
+        return repaymentRule == null ? RepaymentRule.DEFAULT : repaymentRule;
+    }
 }
