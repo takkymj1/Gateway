@@ -337,4 +337,12 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return
      */
     PagedResult<User> listByGroupCode(String clientCode, PageInfo pageInfo, String groupCode);
+    /**
+     * 设置用户渠道
+     * @param clientCode
+     * @param userId
+     * @param channel
+     * @return 
+     */
+    public com.creditcloud.model.user.User setChannel(String clientCode, String userId, String channel) ;
 }
