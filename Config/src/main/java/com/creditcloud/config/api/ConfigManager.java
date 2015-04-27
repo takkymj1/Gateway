@@ -16,6 +16,7 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.LianPayConfig;
 import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
@@ -45,8 +46,6 @@ public interface ConfigManager extends PaymentConfigManager{
     public UpYunConfig getUpYunConfig();
 
     public DeviceManagerConfig getDeviceManagerConfig();
-
- 
 
     public CreditManagerConfig getCreditManagerConfig();
 
@@ -156,4 +155,5 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public RemoteUserFundConfig getRemoteUserFundConfig();
+    
 }

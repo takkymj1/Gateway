@@ -75,9 +75,6 @@ public class AuthPayRequest extends BaseRequest {
     @NotNull
     private String card_no;
  
-    @NotNull
-    private String sign;  
-
     public AuthPayRequest() {
     }
 
@@ -125,7 +122,6 @@ public class AuthPayRequest extends BaseRequest {
         this.shareing_data = shareing_data;
         this.risk_item = risk_item;
         this.card_no = card_no;
-        this.sign = sign;
     }   
 }
 
