@@ -17,6 +17,7 @@ import com.creditcloud.investmentfund.model.lion.FundTradingRequestRecord;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundDividendRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundFeeRateRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryFundShareRequest;
+import com.creditcloud.investmentfund.model.lion.request.QueryTradeConfirmRecordRequest;
 import com.creditcloud.investmentfund.model.lion.request.QueryTradeRecordRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeBuyFundRequest;
 import com.creditcloud.investmentfund.model.lion.request.TradeSellFundRequest;
@@ -185,7 +186,7 @@ public interface LionFundService {
      * @param request
      * @return 
      */
-    public QueryTradeConfirmRecordResponse queryTradingConfirmRecord(QueryTradeRecordRequest request);
+    public QueryTradeConfirmRecordResponse queryTradingConfirmRecord(QueryTradeConfirmRecordRequest request);
     
     /**
      * 查询用户收益
