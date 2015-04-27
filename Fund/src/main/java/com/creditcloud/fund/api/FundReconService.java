@@ -23,4 +23,20 @@ public interface FundReconService {
      * @return
      */
     BigDecimal checkTotalDue();
+
+    /**
+     * 检查用户提现总额与资金记录是否一致
+     *
+     * @param userId
+     * @return
+     */
+    BigDecimal checkUserWithdraw(String userId);
+
+    /**
+     * 检查用户充值总额与资金记录是否一致
+     *
+     * @param userId
+     * @return
+     */
+    BigDecimal checkUserDeposit(String userId);
 }
