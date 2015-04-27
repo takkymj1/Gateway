@@ -71,6 +71,13 @@ public interface FengCouponRecordService {
     boolean updateCouponStatus(String id, CouponStatus status, CouponStatus oldStatus);
 
     /**
+     * 置红包为已兑换
+     * @param coupon
+     * @return 
+     */
+    boolean updateCouponExchanged(CouponRecord coupon);
+    
+    /**
      * 查询用户参加活动获取的红包
      *
      * @param userId

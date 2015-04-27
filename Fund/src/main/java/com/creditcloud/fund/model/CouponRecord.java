@@ -39,6 +39,8 @@ public class CouponRecord extends BaseObject {
     private Date timeLastUpdated;
     private Date useTime;//已使用--->使用时间
     private FundEvent event;
+    private int exchangePriority;//兑换优先级
+    private BigDecimal exchangedAmount;//已兑换金额
 
     public CouponRecord(String id,
                         String userId,
@@ -59,7 +61,9 @@ public class CouponRecord extends BaseObject {
                         Source source,
                         CouponStatus status,
                         Date timeCreated,
-                        Date timeLastUpdated) {
+                        Date timeLastUpdated,
+                        int exchangePriority,
+                        BigDecimal exchangedAmount) {
         this.id = id;
         this.userId = userId;
         this.eventId = eventId;
@@ -80,5 +84,7 @@ public class CouponRecord extends BaseObject {
         this.status = status;
         this.timeCreated = timeCreated;
         this.timeLastUpdated = timeLastUpdated;
+        this.exchangePriority = exchangePriority;
+        this.exchangedAmount = exchangedAmount;
     }
 }
