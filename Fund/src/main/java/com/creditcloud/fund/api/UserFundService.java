@@ -374,6 +374,10 @@ public interface UserFundService {
      */
     void updateUserFreeWithdrawalsForAdd(String userId,BigDecimal dueAmount);
 
+
+
+    void updateUserFreeWithdrawalsForSubtract(String userId,BigDecimal dueAmount);
+
     /**
      * 获取所有用户id
      * @return
