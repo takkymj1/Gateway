@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author guohuazhang
  */
-public interface LoinMoneyFundFileRecordProcessor extends LoinMoneyFundFileRecordProcessResult {
+public interface LoinMoneyFundFileRecordProcessor {
 
     void setDayOfDataToProcess(Date date);
 
