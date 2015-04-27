@@ -88,6 +88,17 @@ public interface LoanQueryService {
     public PagedResult<Loan> listByStatus(PageInfo pageInfo, List<Boolean> hiddenList, LoanStatus... statusList);
 
     /**
+     * list by loan status and pureRequest
+     *
+     * @param pureRequest
+     * @param statusList
+     * @param pageInfo
+     * @param hiddenList
+     * @return
+     */
+    public PagedResult<Loan> listByStatusAndPureRequest(boolean pureRequest, PageInfo pageInfo, List<Boolean> hiddenList, LoanStatus... statusList);
+    
+    /**
      * manager默认都可见
      *
      * @param pageInfo
