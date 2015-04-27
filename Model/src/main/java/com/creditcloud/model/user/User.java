@@ -89,7 +89,8 @@ public class User extends BaseObject {
     private String lastModifiedBy;
 
     /**
-     * 渠道来源
+     * 渠道来源，主要与Source区别<p>
+     * source是预定义的来源终端如浏览器、手机，channel是外部用户导入渠道如百度推广
      */
     @FormParam("channel")
     private String channel;
