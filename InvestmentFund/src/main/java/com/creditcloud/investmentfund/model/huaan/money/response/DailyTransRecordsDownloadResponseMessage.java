@@ -5,9 +5,13 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
+import com.creditcloud.investmentfund.api.utils.StringUtils;
 import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
@@ -15,6 +19,7 @@ import lombok.Data;
  * @author guohuazhang
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class DailyTransRecordsDownloadResponseMessage extends CommonResponseMessage {
 
     private String MerchantId;//	8位	商家ID
@@ -38,5 +43,22 @@ public class DailyTransRecordsDownloadResponseMessage extends CommonResponseMess
         Content = parameters.get("Content");
         RetCode = parameters.get("RetCode");
         RetMsg = parameters.get("RetMsg");
+    }
+
+    private List<TransactionReconciliationRecord> listTransactionReconciliationRecords;
+
+    public List<TransactionReconciliationRecord> resolveTransactionReconciliationRecords() {
+        listTransactionReconciliationRecords = new ArrayList<>();
+        if (StringUtils.isEmpty(Content)) {
+            return listTransactionReconciliationRecords;
+        }
+
+        List<String> lines = StringUtils.parseLines(Content);
+        for (String line : lines) {
+            TransactionReconciliationRecord record = TransactionReconciliationRecord.parse(line);
+            listTransactionReconciliationRecords.add(record);
+        }
+
+        return listTransactionReconciliationRecords;
     }
 }
