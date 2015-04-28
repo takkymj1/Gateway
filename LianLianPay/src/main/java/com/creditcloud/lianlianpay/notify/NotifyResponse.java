@@ -15,8 +15,10 @@ import lombok.Data;
 @Data
 public class NotifyResponse extends BaseObject {
     
+    //交易结果代码
     private String ret_code;
     
+    //交易结果描述
     private String ret_msg;
 
     public NotifyResponse() {

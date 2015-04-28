@@ -16,47 +16,64 @@ import lombok.Data;
 @Data
 public class AuthPayNotify extends BaseObject {
     
+    //商户编号
     @NotNull
     private String oid_partner;
     
+    //签名方式
     @NotNull
     private String sign_type;
     
+    //签名
     @NotNull
     private String sign;
     
+    //商户订单时间
     @NotNull
     private String dt_order;
     
+    //商户唯一订单号
     @NotNull
     private String no_order;
     
+    //连连支付支付单号
     @NotNull
     private String oid_paybill;
  
+    //交易金额
     @NotNull
     private String money_order;
     
+    //支付结果
     @NotNull
     private String result_pay;
     
+    //清算日期
     private String settle_date;
     
+    //订单描述
     private String info_order;
     
+    //支付方式
     @NotNull
     private String pay_type;
     
+    //银行编号
     private String bank_code;
     
+    //签约协议号
     private String no_agree;
     
+    //证件类型
     private String id_type;
     
+    //证件号码
     private String id_no;
     
+    //银行账号姓名
     private String acct_name;
     
+    //银行卡号
     private String card_no;
 
     public AuthPayNotify() {

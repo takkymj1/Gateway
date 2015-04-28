@@ -15,18 +15,25 @@ import lombok.Data;
 @Data
 public class CardDetail extends BaseObject {
     
+    //交易结果代码
     private String ret_code;
     
+    //交易结果描述
     private String ret_msg;
     
+    //签名方式
     private String sign_type;
     
+    //签名
     private String sign;
     
+    //所属银行编号
     private String bank_code;
     
+    //所属银行名称
     private String bank_name;
     
+    //银行卡
     private String card_type;
 
     public CardDetail() {

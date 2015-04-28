@@ -15,12 +15,16 @@ import lombok.Data;
 @Data
 public class PayResultRequest extends BaseRequest {
 
+    //商户唯一订单号
     private String no_order;
 
+    //商户订单时间
     private String dt_order;
 
+    //商户编号
     private String oid_paybill;
 
+    //查询版本号
     private String query_version;
 
     public PayResultRequest() {

@@ -13,6 +13,7 @@ import com.creditcloud.lianlianpay.base.BaseRequest;
  */
 public class CardDetailRequest extends BaseRequest {
     
+    //银行卡号
     private String card_no;
 
     public CardDetailRequest() {
