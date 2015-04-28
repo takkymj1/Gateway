@@ -44,6 +44,14 @@ public interface FengCouponRecordService {
      * 根据用户ID，券类型查找券列表
      *
      * @param userId
+     * @return
+     */
+    List<CouponRecord> getCouponRecordByUserId(String userId);
+    
+    /**
+     * 根据用户ID，券类型查找券列表
+     *
+     * @param userId
      * @param couponType
      * @return
      */
