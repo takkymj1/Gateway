@@ -5,6 +5,7 @@
 package com.creditcloud.sms.api;
 
 import com.creditcloud.model.client.Client;
+import com.creditcloud.sms.CaptchaType;
 import com.creditcloud.sms.SMSType;
 import javax.ejb.Remote;
 
@@ -26,15 +27,14 @@ public interface SMSService {
     void sendMessage(Client client, SMSType type, String mobile, String... content);
     
     /**
-     * 发送语音验证码 for emay
-     * 
-     * emay语音号码限制：最多不要超过6个字符，最少不要小于4个字符;字符必须为0至9的全英文半角数字字符
+     * 发送多种类型验证码 for emay
      * 
      * @param client
      * @param type
+     * @param captchaType
      * @param mobile
      * @param content
      */
-    void sendVoice(Client client, SMSType type, String mobile, String... content);
+    void sendMessage(Client client, CaptchaType captchaType, SMSType type, String mobile, String... content);
 
 }
