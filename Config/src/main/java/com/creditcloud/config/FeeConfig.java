@@ -81,6 +81,20 @@ public class FeeConfig extends BaseConfig {
     private Fee depositFee;
 
     /**
+     * 快捷充值费率
+     */
+    private Fee debitcardFee;
+
+
+    /**
+     * 网银充值费率
+     */
+    private Fee unionpayFee;
+
+
+
+
+    /**
      * 逾期罚息，默认给投资人
      */
     @XmlElement(required = true)

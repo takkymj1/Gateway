@@ -106,6 +106,12 @@ public interface InvestRepayQueryService {
      */
     public RepayAmount sumDueRepay(LocalDate from, LocalDate to, List<RepaymentStatus> statusList);
 
+
+
+    public RepayAmount sumDueRepay(String userId,List<RepaymentStatus> statusList);
+
+    public BigDecimal sumAlreadyAmount(String userId,List<RepaymentStatus> statusList);
+
     /**
      * 按照userId和实际repayDate来list
      *
