@@ -89,13 +89,6 @@ public class ClientFeatures extends BaseObject {
     private boolean enableLoanFastRepay = false;
 
     /**
-     * 垫付是否使用标的账户、托管账户资金
-     */
-    @XmlElement
-    @Getter
-    private boolean enableDisburseLoanControl = false;
-
-    /**
      * 是否支持LoanRequestDatail
      */
     @XmlElement
