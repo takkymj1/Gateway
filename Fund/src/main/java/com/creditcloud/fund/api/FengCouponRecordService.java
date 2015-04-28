@@ -20,14 +20,24 @@ public interface FengCouponRecordService {
 
     /**
      * 用户参加活动获取的红包数量
-     * @return 
+     *
+     * @return
      */
     List<ElementCount<String>> countGroupByUserEvent();
-    
+
     int countByUserEvent(String userId, String eventNo);
-    
+
     CouponRecord saveCoupon(CouponRecord coupon);
-    
+
+    /**
+     * 根据用户ID，券类型查找券列表
+     *
+     * @param userId
+     * @param couponType
+     * @return
+     */
+    List<CouponRecord> listByType(String userId, CouponType couponType);
+
     /**
      * 券（红包）列表
      *
@@ -36,18 +46,29 @@ public interface FengCouponRecordService {
      * @param statusList CouponStatus
      * @return
      */
-    //PagedResult<CouponRecord> listByStatus(String userId, List<CouponStatus> status, PageInfo info);
-
     PagedResult<CouponRecord> listByTypeStatus(String userId, List<CouponType> type, List<CouponStatus> status, PageInfo info);
-    
+
     /**
-     * 根据用户ID，券类型查找券列表
+     * 根据用户ID，券类型，当前时间，状态列表查找券列表 按时间、金额正排序
      *
      * @param userId
      * @param couponType
+     * @param nowTime
      * @return
      */
-    List<CouponRecord> getCouponRecordByCouponType(String userId, CouponType couponType);
+    List<com.creditcloud.fund.model.CouponRecord> listByTypeDateStatus(String userId,
+                                                                              List<CouponType> types,
+                                                                              Date nowTime,
+                                                                              List<CouponStatus> status);
+
+    /**
+     * 查询用户参加活动获取的红包
+     *
+     * @param userId
+     * @param eventId
+     * @return
+     */
+    List<CouponRecord> listByEventId(String userId, String eventId);
 
     /**
      * 绑定标的ID及更新状态
@@ -58,44 +79,14 @@ public interface FengCouponRecordService {
      * @param entity
      * @return
      */
-    boolean updateCouponStatusByEntity(String id, CouponStatus status, CouponStatus oldStatus, RealmEntity entity);
-
-    /**
-     * 更新状态
-     *
-     * @param id
-     * @param status
-     * @param oldStatus
-     * @return
-     */
-    boolean updateCouponStatus(String id, CouponStatus status, CouponStatus oldStatus);
+    boolean working(CouponRecord coupon, RealmEntity entity);
 
     /**
      * 置红包为已兑换
-     * @param coupon
-     * @return 
-     */
-    boolean updateCouponExchanged(CouponRecord coupon);
-    
-    /**
-     * 查询用户参加活动获取的红包
      *
-     * @param userId
-     * @param eventId
+     * @param coupon
      * @return
      */
-    public List<CouponRecord> getCouponRecordByEventId(String userId, String eventId);
+    boolean exchanged(CouponRecord coupon);
 
-    /**
-     * 根据用户ID，券类型，当前时间，状态列表查找券列表
-     * 按时间、金额正排序
-     * @param userId
-     * @param couponType
-     * @param nowTime
-     * @return
-     */
-    public List<com.creditcloud.fund.model.CouponRecord> getCouponRecordByTypeDateStatus(String userId, 
-                                                                                         CouponType couponType, 
-                                                                                         Date nowTime, 
-                                                                                         List<CouponStatus> status);
 }
