@@ -28,7 +28,7 @@ public interface FundReconService {
      * 检查用户提现总额与资金记录是否一致
      *
      * @param userId
-     * @return
+     * @return 返回UserFund中记录与FundRecord中记录差值
      */
     BigDecimal checkUserWithdraw(String userId);
 
@@ -36,7 +36,7 @@ public interface FundReconService {
      * 检查用户充值总额与资金记录是否一致
      *
      * @param userId
-     * @return
+     * @return 返回UserFund中记录与FundRecord中记录差值
      */
     BigDecimal checkUserDeposit(String userId);
 }
