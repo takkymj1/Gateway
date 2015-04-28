@@ -15,30 +15,43 @@ import lombok.Data;
 @Data
 public class PayResultResponse extends BaseResponse {
 
+    //支付结果
     private String result_pay;
 
+    //商户编号
     private String oid_partner;
 
+    //商户订单时间
     private String dt_order;
     
+    //商户唯一订单号
     private String no_order;
     
+    //连连支付支付单号
     private String oid_paybill;
     
+    //交易金额
     private String money_order;
     
+    //清算日期
     private String settle_date;
     
+    //订单描述
     private String info_order;
     
+    //支付方式  
     private String pay_type;
     
+    //银行编号
     private String bank_code;
     
+    //银行名称
     private String bank_name;
     
+    //支付备注
     private String memo;
     
+    //银行卡号
     private String card_no;
 
     public PayResultResponse() {

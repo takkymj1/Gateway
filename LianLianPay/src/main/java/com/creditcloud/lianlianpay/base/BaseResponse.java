@@ -15,12 +15,16 @@ import lombok.Data;
 @Data
 public class BaseResponse extends BaseObject {
     
+    //交易结果代码
     private String ret_code;
     
+    //交易结果描述
     private String ret_msg;
     
+    //签名方式
     private String sign_type;
     
+    //签名
     private String sign;
 
     public BaseResponse() {

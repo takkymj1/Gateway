@@ -15,10 +15,13 @@ import lombok.Data;
 @Data
 public class CardDetailResponse extends BaseResponse {
     
+    //所属银行编号
     private String bank_code;
     
+    //所属银行名称
     private String bank_name;
     
+    //银行卡类型
     private String card_type;
 
     public CardDetailResponse() {

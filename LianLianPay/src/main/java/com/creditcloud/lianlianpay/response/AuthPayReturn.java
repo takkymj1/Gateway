@@ -15,8 +15,10 @@ import lombok.Data;
 @Data
 public class AuthPayReturn extends BaseObject {
     
+    //签名方式
     private String sign_type;
     
+    //签名
     private String sign;
     
     //商户编号
