@@ -44,6 +44,14 @@ public interface FengCouponRecordService {
      * 根据用户ID，券类型查找券列表
      *
      * @param userId
+     * @return
+     */
+    List<CouponRecord> getCouponRecordByUserId(String userId);
+    
+    /**
+     * 根据用户ID，券类型查找券列表
+     *
+     * @param userId
      * @param couponType
      * @return
      */
@@ -70,6 +78,13 @@ public interface FengCouponRecordService {
      */
     boolean updateCouponStatus(String id, CouponStatus status, CouponStatus oldStatus);
 
+    /**
+     * 置红包为已兑换
+     * @param coupon
+     * @return 
+     */
+    boolean updateCouponExchanged(CouponRecord coupon);
+    
     /**
      * 查询用户参加活动获取的红包
      *

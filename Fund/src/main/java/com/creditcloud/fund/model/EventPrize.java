@@ -26,11 +26,12 @@ public class EventPrize extends BaseObject {
     private String id;
     private String eventNo;
     private String prizeNo;
-    private String prizeName;
     private CouponType prizeType;//奖品类型
+    private String prizeTypeDisplay;//奖品类型在前端显示名称
+    private String prizeName;
     private String useDescription;
     private BigDecimal amount;//金额
-    private Integer inventory;//剩余库存
+    private int inventory;//剩余库存
     private ExpireMode expireMode;//过期方式
     private String expireValue;//过期值
     private String limitType;
@@ -39,12 +40,14 @@ public class EventPrize extends BaseObject {
     private int useLimit;
     private boolean asDefault;
     private boolean valid;
-
+    private int exchangePriority;//兑换优先级
+    
     public EventPrize(String id,
                       String eventNo,
+                      CouponType prizeType,
+                      String prizeTypeDisplay,
                       String prizeNo,
                       String prizeName,
-                      CouponType prizeType,
                       String useDescription,
                       BigDecimal amount,
                       Integer inventory,
@@ -55,12 +58,14 @@ public class EventPrize extends BaseObject {
                       BigDecimal rateLimit,
                       int useLimit,
                       boolean asDefault,
-                      boolean valid) {
+                      boolean valid,
+                      int exchangePriority) {
         this.id = id;
         this.eventNo = eventNo;
+        this.prizeType = prizeType;
+        this.prizeTypeDisplay = prizeTypeDisplay;
         this.prizeNo = prizeNo;
         this.prizeName = prizeName;
-        this.prizeType = prizeType;
         this.useDescription = useDescription;
         this.amount = amount;
         this.inventory = inventory;
@@ -72,5 +77,6 @@ public class EventPrize extends BaseObject {
         this.useLimit = useLimit;
         this.asDefault = asDefault;
         this.valid = valid;
+        this.exchangePriority = exchangePriority;
     }
 }
