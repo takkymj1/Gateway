@@ -10,7 +10,9 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  *
- * @author sobranie
+ * 七家支持快捷的银行每日充值限额和单笔充值限额
+ * 
+ * @author xiongyong
  */
 public enum BankQuota implements BaseEnum {
     
