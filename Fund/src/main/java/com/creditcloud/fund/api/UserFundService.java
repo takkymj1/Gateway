@@ -395,4 +395,6 @@ public interface UserFundService {
     List<UserFund> listUserFunds(int i, int pageRow);
 
     void initUserFreeWithdrawals(String userId, BigDecimal freeWithDraw);
+
+    boolean transferDisbur(String clientCode, String userId, BigDecimal amount, boolean b);
 }
