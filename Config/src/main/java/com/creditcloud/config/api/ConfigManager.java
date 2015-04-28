@@ -21,12 +21,14 @@ import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
+import com.creditcloud.config.StockfinanceConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.fund.RemoteUserFundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -156,4 +158,19 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public RemoteUserFundConfig getRemoteUserFundConfig();
+    
+    /**
+     * 股票配资配置
+     * 
+     * @return 
+     */
+    public StockfinanceConfig getStockfinanceConfig();
+    
+    /**
+     * 对股票配资的配置进行更新
+     * 
+     * @param map
+     * @return 
+     */
+    public StockfinanceConfig updateStockfinanceConfig(Map<String,String> map);
 }
