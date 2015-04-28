@@ -46,8 +46,6 @@ public interface ConfigManager extends PaymentConfigManager{
 
     public DeviceManagerConfig getDeviceManagerConfig();
 
- 
-
     public CreditManagerConfig getCreditManagerConfig();
 
     public CertificateConfig getCertificateConfig();
@@ -156,4 +154,5 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public RemoteUserFundConfig getRemoteUserFundConfig();
+    
 }

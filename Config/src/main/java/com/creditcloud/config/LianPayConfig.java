@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
  *
  * @author tinglany
  */
+@Data
 @NoArgsConstructor
 @XmlRootElement(name = "LianPayConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -38,6 +40,16 @@ public class LianPayConfig extends BaseConfig {
     @XmlElement(required = true)
     @Getter
     private String retUrl;
+    
+    //同步查询基地址
+    @XmlElement(required = true)
+    @Getter
+    private String tradeUrl;    
+    
+    //连连支付基地址
+    @XmlElement(required = true)
+    @Getter
+    private String lianUrl;   
     
     //商户编号
     @XmlElement(required = true)
