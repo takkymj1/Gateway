@@ -63,6 +63,16 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return
      */
     PagedResult<User> listByEmployee(String clientCode, String employeeId, PageInfo info, Source... source);
+    
+    /**
+     * 精确查询用户列表
+     *
+     * @param loginName
+     * @param name
+     * @param mobile
+     * @return
+     */
+    PagedResult<User> listByUser(String loginName, String name, String mobile, PageInfo info);
 
     /**
      * list all users with criteria for client
