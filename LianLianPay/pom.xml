@@ -6,12 +6,11 @@
         <artifactId>Parent</artifactId>
         <version>1.0.0</version>
     </parent>
+    <name>LianLianPay</name>
     <groupId>com.creditcloud.lianlianpay</groupId>
     <artifactId>LianLianPay</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>LianLianPay</name>
-    <url>http://maven.apache.org</url> 
-    
+
     <dependencies>
         <dependency>
             <groupId>com.creditcloud.model</groupId>

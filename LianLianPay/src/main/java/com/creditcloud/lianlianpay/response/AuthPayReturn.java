@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.lianlianpay;
+package com.creditcloud.lianlianpay.response;
 
 import com.creditcloud.model.BaseObject;
 import lombok.Data;
@@ -15,8 +15,10 @@ import lombok.Data;
 @Data
 public class AuthPayReturn extends BaseObject {
     
+    //签名方式
     private String sign_type;
     
+    //签名
     private String sign;
     
     //商户编号
