@@ -337,4 +337,12 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @return
      */
     PagedResult<User> listByGroupCode(String clientCode, PageInfo pageInfo, String groupCode);
+    
+    /**
+     * 根据注册时间分页列出用户
+     * @param pageInfo
+     * @param registerDate
+     * @return 
+     */
+    List<User> listByRegisterDate(PageInfo pageInfo, Date registerDate);
 }
