@@ -8,13 +8,29 @@ import com.creditcloud.wealthproduct.enums.ProductStatus;
 import javax.enterprise.inject.Default;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
- *
+ * 理财产品
+ * 
  * @author rooseek
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class WealthProduct extends BaseObject implements WealthProductConstant {
 
+    /**
+     * 产品ID
+     * 
+     * @return
+     */
+    private String id;
+    
     /**
      * 产品代码 (其他形式编码)
      * 
@@ -66,6 +82,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     
     /**
      * 成立规模/募集金额
+     * 
+     * @return
      */
     @IncrementalInteger(min = MIN_RAISE_AMOUNT,
                         increment = AMOUNT_INCREMENT,
@@ -76,6 +94,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
 
     /**
      * 最小成立规模/最小募集金额
+     * 
+     * @return
      */
     @IncrementalInteger(min = MIN_RAISE_AMOUNT,
                         increment = AMOUNT_INCREMENT,
@@ -86,6 +106,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     
     /**
      * 实际认购金额
+     * 
+     * @return
      */
     @IncrementalInteger(min = MIN_RAISE_AMOUNT,
                         increment = AMOUNT_INCREMENT,
@@ -96,6 +118,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     
     /**
      * 实际认购数
+     * 
+     * @return
      */
     @NotNull
     private Integer subscribeNumber;
@@ -109,24 +133,32 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
 
     /**
      * 投资策略、投资目标、投资范围
+     * 
+     * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
     private String strategy;
     
     /**
      * 描述
+     * 
+     * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
     
     /**
      * 创建人
+     * 
+     * @return
      */
     @NotNull
     private String employeeId;
  
     /**
      * 开放募集时长 单位：天
+     * 
+     * @return
      */
     @IncrementalInteger(min = MIN_TRANSFER_TIME_OUT,
                         increment = TIME_OUT_INCREMENT,
@@ -137,6 +169,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     
     /**
      * 打款时长 单位：天
+     * 
+     * @return
      */
     @IncrementalInteger(min = MIN_TIME_OUT,
                         increment = TIME_OUT_INCREMENT,
