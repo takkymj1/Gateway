@@ -57,12 +57,6 @@ public interface PaymentConfigManager {
     public UmpConfig getUmpConfig();
 
     /**
-     *  连连支付
-     * 
-     * @return 
-     */
-    public LianPayConfig getLianPayConfig();
-    /**
      * 银联
      *
      * @return
@@ -74,4 +68,11 @@ public interface PaymentConfigManager {
      * @return 
      */
     public EnciPayConfig getEnciPayConfig();
+    
+    /**
+     *  连连支付
+     * 
+     * @return 
+     */
+    public LianPayConfig getLianPayConfig();
 }

@@ -6,7 +6,6 @@
 package com.creditcloud.lianlianpay.base;
 
 import com.creditcloud.model.BaseObject;
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -14,27 +13,28 @@ import lombok.Data;
  * @author tinglany
  */
 @Data
-public abstract class BaseRequest extends BaseObject {
+public class BaseResponse extends BaseObject {
     
-    //商户编号
-    @NotNull
-    private String oid_partner;
+    //交易结果代码
+    private String ret_code;
+    
+    //交易结果描述
+    private String ret_msg;
     
     //签名方式
-    @NotNull
     private String sign_type;
     
     //签名
-    @NotNull
     private String sign;
 
-    public BaseRequest() {
+    public BaseResponse() {
     }
 
-    public BaseRequest(String oid_partner, String sign_type, String sign) {
-        this.oid_partner = oid_partner;
+    public BaseResponse(String ret_code, String ret_msg, String sign_type, String sign) {
+        this.ret_code = ret_code;
+        this.ret_msg = ret_msg;
         this.sign_type = sign_type;
         this.sign = sign;
-    }   
+    }
     
 }
