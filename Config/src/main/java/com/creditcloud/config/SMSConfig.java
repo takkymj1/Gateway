@@ -97,4 +97,48 @@ public final class SMSConfig extends BaseConfig {
     @Getter
     @XmlElement
     private boolean enableWithDrawApplyNotification = false;
+    
+    /**
+     * 开启标的审核结果短信提醒
+     * 
+     * NOTIFICATION_LOAN_OPEN
+     * NOTIFICATION_LOAN_REJECT
+     */
+    @Getter
+    @XmlElement
+    private boolean enableLoanAuditNotification = false;
+    
+    /**
+     * 开启标的募集结果短信提醒
+     * 
+     * NOTIFICATION_LOAN_SETTLE
+     * NOTIFICATION_LOAN_FAILED
+     * 
+     * NOTIFICATION_LOAN_SETTLE_INVESTER
+     * NOTIFICATION_LOAN_FAILED_INVESTER
+     */
+    @Getter
+    @XmlElement
+    private boolean enableLoanSettleNotification = false;
+    
+    /**
+     * 开启标的还款短信提醒
+     * 
+     * NOTIFICATION_LOAN_REPAY_REMIND
+     * NOTIFICATION_LOAN_REPAY_SUCCESS
+     * NOTIFICATION_LOAN_REPAY_OVDERDUE
+     * 
+     * NOTIFICATION_LOAN_REPAY
+     * NOTIFICATION_LOAN_REPAY_OVERDUE_INVESTER
+     */
+    @Getter
+    @XmlElement
+    private boolean enableRepayNotification = false;
+    
+    /**
+     * 开启注册成功短信提醒
+     */
+    @Getter
+    @XmlElement
+    private boolean enableRegistSuccessNotification = false;
 }
