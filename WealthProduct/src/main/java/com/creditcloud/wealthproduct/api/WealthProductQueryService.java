@@ -7,14 +7,13 @@ package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
-import com.creditcloud.wealthproduct.enums.PurchaseStatus;
-import com.creditcloud.wealthproduct.enums.WealthProductStatus;
-import com.creditcloud.wealthproduct.model.Purchase;
+import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import java.util.List;
 
 /**
- *
+ * 查询产品
+ * 
  * @author rooseek
  */
 public interface WealthProductQueryService {
@@ -27,7 +26,7 @@ public interface WealthProductQueryService {
      * @return
      */
     public PagedResult<WealthProduct> listByStatus(String clientCode,
-                                                   List<WealthProductStatus> statusList,
+                                                   List<ProductStatus> statusList,
                                                    PageInfo pageInfo);
 
     /**
@@ -38,8 +37,8 @@ public interface WealthProductQueryService {
      * @param pageInfo
      * @return
      */
-    public PagedResult<Purchase> listPurchaseByProduct(String clientCode,
-                                                       String productId,
-                                                       List<PurchaseStatus> statusList,
-                                                       PageInfo pageInfo);
+//    public PagedResult<Purchase> listPurchaseByProduct(String clientCode,
+//                                                       String productId,
+//                                                       List<TradingType> statusList,
+//                                                       PageInfo pageInfo);
 }

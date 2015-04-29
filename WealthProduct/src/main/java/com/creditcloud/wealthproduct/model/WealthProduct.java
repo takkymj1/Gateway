@@ -1,28 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.wealthproduct.WealthProductConstant;
+import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
-import com.creditcloud.wealthproduct.enums.WealthProductStatus;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
  * @author rooseek
  */
-@Data
-@NoArgsConstructor
-@XmlRootElement
-public class WealthProduct extends BaseObject {
+public class WealthProduct extends BaseObject implements WealthProductConstant {
 
     private static final long serialVersionUID = 20140924L;
 
@@ -35,7 +24,7 @@ public class WealthProduct extends BaseObject {
 
     private RepaymentMethod repayMethod;
 
-    private WealthProductStatus status;
+    private ProductStatus status;
 
     private String userId;
     
@@ -58,7 +47,7 @@ public class WealthProduct extends BaseObject {
 
     private ProductSchedule schedule;
 
-    @Size(max = WealthProductConstant.MAX_DESCRIPTION_LENGTH)
+    @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
     
     /**
