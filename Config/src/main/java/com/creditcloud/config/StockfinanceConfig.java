@@ -78,4 +78,12 @@ public class StockfinanceConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private int dailyCoverTimePerUser = Integer.valueOf(3);
+    
+    
+    /**
+     * 配资杠杆的数组
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String leverage = "1,2,3,4,5,6";
 }

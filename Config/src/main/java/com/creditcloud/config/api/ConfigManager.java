@@ -5,6 +5,7 @@
 package com.creditcloud.config.api;
 
 import com.creditcloud.config.AllWinConfig;
+import com.creditcloud.config.BaseConfig;
 import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
 import com.creditcloud.config.ClientConfig;
@@ -173,4 +174,44 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public StockfinanceConfig updateStockfinanceConfig(Map<String,String> map);
+    
+    /**
+     * 对配置进行更新
+     * 
+     * @param configClazz
+     * @param map
+     * @return 
+     */
+    public BaseConfig updateConfig(Class configClazz,Map<String,String> map);
+    
+    
+    /**
+     * 如market还未重新加载config，返回false
+     * @param configName
+     * @return 
+     */
+    public boolean marketHasNotReload(String configName);
+    
+    /**
+     * 如manager还未重新加载config，返回false
+     * @param configName
+     * @return 
+     */
+    public boolean managerHasNotReload(String configName);
+    
+    /**
+     * market重新加载配置文件，从待加载map中移除此项
+     * 
+     * @param configName
+     * @return 
+     */
+    public boolean marketReloadConfig(String configName);
+    
+    /**
+     * manager重新加载配置文件，从待加载map中移除此项
+     * 
+     * @param configName
+     * @return 
+     */
+    public boolean managerReloadConfig(String configName);
 }
