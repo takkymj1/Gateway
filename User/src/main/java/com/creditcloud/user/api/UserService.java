@@ -339,10 +339,10 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
     PagedResult<User> listByGroupCode(String clientCode, PageInfo pageInfo, String groupCode);
     
     /**
-     * 根据注册时间分页列出用户
+     * 查询注册时间在某个时间之前的用户
      * @param pageInfo
      * @param registerDate
      * @return 
      */
-    List<User> listByRegDate(PageInfo pageInfo, Date registerDate);
+    List<User> listBeforeRegDate(PageInfo pageInfo, Date registerDate);
 }
