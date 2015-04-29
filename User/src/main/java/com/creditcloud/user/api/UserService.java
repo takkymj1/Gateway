@@ -344,5 +344,5 @@ public interface UserService extends UserSecurityService, UserRewardService, Use
      * @param registerDate
      * @return 
      */
-    List<User> listByRegisterDate(PageInfo pageInfo, Date registerDate);
+    List<User> listByRegDate(PageInfo pageInfo, Date registerDate);
 }
