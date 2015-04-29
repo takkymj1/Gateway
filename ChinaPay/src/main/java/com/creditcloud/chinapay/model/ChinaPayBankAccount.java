@@ -1,6 +1,7 @@
 package com.creditcloud.chinapay.model;
 
 import com.creditcloud.model.BaseObject;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 客户银行卡信息
@@ -41,7 +42,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param userName
      */
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = StringUtils.trim(userName);
     }
 
     /**
@@ -59,7 +60,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param bankName
      */
     public void setBankName(String bankName) {
-        this.bankName = bankName;
+        this.bankName = StringUtils.trim(bankName);
     }
 
     public String getCertType() {
@@ -79,7 +80,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param certType
      */
     public void setCertType(String certType) {
-        this.certType = certType;
+        this.certType = StringUtils.trim(certType);
     }
 
     /**
@@ -97,7 +98,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param cardNo
      */
     public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
+        this.cardNo = StringUtils.trim(cardNo);
     }
 
     public String getDcType() {
@@ -111,7 +112,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param dcType
      */
     public void setDcType(String dcType) {
-        this.dcType = dcType;
+        this.dcType = StringUtils.trim(dcType);
     }
 
     /**
@@ -129,7 +130,7 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param certNo
      */
     public void setCertNo(String certNo) {
-        this.certNo = certNo;
+        this.certNo = StringUtils.trim(certNo);
     }
 
     /**
@@ -169,6 +170,6 @@ public class ChinaPayBankAccount extends BaseObject {
      * @param cardPhone
      */
     public void setCardPhone(String cardPhone) {
-        this.cardPhone = cardPhone;
+        this.cardPhone = StringUtils.trim(cardPhone);
     }
 }
