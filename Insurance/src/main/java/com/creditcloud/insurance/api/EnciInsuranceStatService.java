@@ -8,6 +8,7 @@ package com.creditcloud.insurance.api;
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
 import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -53,4 +54,13 @@ public interface EnciInsuranceStatService {
      * @return 
      */
     public InsuranceProductSaleInfo sumNumAndUsers(String clientCode, String productId, InsuranceOrderStatus... status);
+    
+    /**
+     * 保单追加金额
+     * @param clientCode
+     * @param originOrderId
+     * @param status
+     * @return 
+     */
+    public BigDecimal appendPremium(String clientCode, String originOrderId, InsuranceOrderStatus... status);
 }

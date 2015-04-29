@@ -8,7 +8,6 @@ package com.creditcloud.insurance.api;
 import com.creditcloud.insurance.model.InsuranceOrder;
 import com.creditcloud.insurance.model.InsurancePolicy;
 import com.creditcloud.insurance.model.InsurancePolicyProfitRecord;
-import com.creditcloud.insurance.model.InsuranceProductSaleInfo;
 import com.creditcloud.insurance.model.enci.BaseDTO;
 import com.creditcloud.insurance.model.enci.enums.InsuranceOrderStatus;
 import com.creditcloud.insurance.model.enci.enums.ProductType;
@@ -202,4 +201,13 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
      * @return 
      */
     public PagedResult<InsuranceOrder> listByCodeTypOrderStatusTranDate(String clientCode,List<String> codeList,List<ProductType> typeList,List<InsuranceOrderStatus> statusList,Date startDate,Date endDate, PageInfo pageInfo);
+    
+    /**
+     * 列出追加保单
+     * @param clientCode
+     * @param originOrderId
+     * @param status
+     * @return 
+     */
+    public List<InsuranceOrder> listAppendOrder(String clientCode, String originOrderId, InsuranceOrderStatus... status);
 }
