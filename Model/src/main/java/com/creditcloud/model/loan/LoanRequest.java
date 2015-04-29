@@ -112,6 +112,14 @@ public class LoanRequest extends BaseObject {
     @NotNull
     @XmlElement(name = "method")
     private RepaymentMethod method;
+    
+    /**
+     * 还款详细规则.
+     * 
+     * null表示默认
+     */
+    @Valid
+    private RepaymentRule repaymentRule;
 
     /**
      * 描述
@@ -184,7 +192,7 @@ public class LoanRequest extends BaseObject {
      */
     @Valid
     private InvestRule investRule;
-
+    
     @Size(max = LoanConstant.MAX_LOAN_DESCRIPTION)
     @XmlElement(name = "reviewComment")
     private String reviewComment;
@@ -306,5 +314,14 @@ public class LoanRequest extends BaseObject {
             return user == null ? null : user.getId();
         }
         return userId;
+    }
+    
+    /**
+     * 使用默认值
+     * 
+     * @return 
+     */
+    public RepaymentRule getRepaymentRule() {
+        return repaymentRule == null ? RepaymentRule.DEFAULT : repaymentRule;
     }
 }

@@ -6,7 +6,6 @@
 package com.creditcloud.unionpay.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.unionpay.api.enums.CardType;
 import com.creditcloud.unionpay.api.enums.CertificationType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
