@@ -10,12 +10,20 @@ import com.creditcloud.model.BaseObject;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 产品周期
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class WealthProductSchedule extends BaseObject {
     
     private static final long serialVersionUID = 20150428L;
