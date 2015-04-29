@@ -36,12 +36,12 @@ public class StockfinanceConfig extends BaseConfig {
     private boolean enableStockfinance = true;
 
     /**
-     * 平台每日可受理的配资额度，单位：万元
+     * 平台每日可受理的配资额度，单位：元，默认1亿元
      */
     @Getter
     @Setter
     @XmlElement(required = false)
-    private BigDecimal stockLimitAmout = BigDecimal.valueOf(100);
+    private BigDecimal stockLimitAmout = BigDecimal.valueOf(100000000);
     
     /**
      * 每个用户每天发起的股票配资次数上限
@@ -66,7 +66,7 @@ public class StockfinanceConfig extends BaseConfig {
     private BigDecimal maxStockGuaranteeAmout = BigDecimal.valueOf(1000000);
     
     /**
-     * 最低补仓率（每次补仓金额不得低于交易账户初始总操盘金额的比率）
+     * 最低补仓率（每次补仓金额不得低于交易账户初始总操盘金额的比率），单位%
      */
     @Getter
     @XmlElement(required = false)
@@ -77,13 +77,14 @@ public class StockfinanceConfig extends BaseConfig {
      */
     @Getter
     @XmlElement(required = false)
-    private int dailyCoverTimePerUser = Integer.valueOf(3);
+    private int dailyCoverTimePerUser = 3;
     
     
     /**
-     * 配资杠杆的数组
+     * 配资杠杆
      */
     @Getter
+    @Setter
     @XmlElement(required = false)
     private String leverage = "1,2,3,4,5,6";
 }
