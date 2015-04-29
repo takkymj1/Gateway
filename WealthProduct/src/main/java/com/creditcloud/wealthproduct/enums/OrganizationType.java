@@ -3,28 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 收益返还方式
+ * 产品的组织形式
  * 
- * @author rooseek
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum ReturnMethod implements BaseEnum {
+public enum OrganizationType implements BaseEnum {
 
-    RE("收益复投"),
-    BACK("收益返还");
+    CONTRACT("契约型"),
+    COMPANY("公司型");
 
     private final String key;
-
-    private ReturnMethod(String key) {
+    
+    OrganizationType(String key) {
         this.key = key;
     }
-
+    
     @Override
     public String getKey() {
         return key;
     }
+    
 }

@@ -3,31 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
- * @author rooseek
+ * 产品募集设立的方式
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum PurchaseStatus implements BaseEnum {
+public enum PlacementType implements BaseEnum {
 
-    INITIALIZED("初始"),
-    APPOINTED("已预约"),
-    PAYED("已支付"),
-    SETTLED("已锁定"),
-    DUE("已到期"),
-    REDEEMED("已赎回");
-
+    PRIVATE_PLACEMENT("私募"),
+    PUBLIC_PLACEMENT("公募");
+    
     private final String key;
-
-    private PurchaseStatus(String key) {
+    
+    PlacementType(String key) {
         this.key = key;
     }
-
+    
     @Override
     public String getKey() {
         return key;
     }
+
+    
 }

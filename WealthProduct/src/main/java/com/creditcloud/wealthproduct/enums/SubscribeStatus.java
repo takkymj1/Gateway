@@ -3,28 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 收益返还方式
+ * 认购状态
  * 
- * @author rooseek
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum ReturnMethod implements BaseEnum {
+public enum SubscribeStatus implements BaseEnum {
 
-    RE("收益复投"),
-    BACK("收益返还");
+    INITIALIZED("初始"),
+    APPOINTED("已预约"),
+    PAYED("已支付"),
+    SETTLED("已锁定"),
+    DUE("已到期"),
+    REDEEMED("已赎回");
 
     private final String key;
-
-    private ReturnMethod(String key) {
+    
+    SubscribeStatus(String key) {
         this.key = key;
     }
-
+        
     @Override
     public String getKey() {
         return key;
     }
+
 }

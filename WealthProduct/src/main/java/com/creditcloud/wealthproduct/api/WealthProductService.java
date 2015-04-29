@@ -5,7 +5,7 @@
  */
 package com.creditcloud.wealthproduct.api;
 
-import com.creditcloud.wealthproduct.enums.WealthProductStatus;
+import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import javax.ejb.Remote;
 
@@ -50,6 +50,6 @@ public interface WealthProductService extends WealthProductQueryService {
      * @param status
      * @return
      */
-    public boolean markStatus(String clientCode, String productId, WealthProductStatus status);
+    public boolean markStatus(String clientCode, String productId, ProductStatus status);
 
 }
