@@ -19,37 +19,33 @@ public interface WealthProductService extends WealthProductQueryService {
     /**
      * create new wealth product
      *
-     * @param clientCode
      * @param product
      * @return
      */
-    public WealthProduct create(String clientCode, WealthProduct product);
+    public WealthProduct create(WealthProduct product);
 
     /**
      * update exist wealth product, only certain field fields can be updated by
      * this method
      *
-     * @param clientCode
      * @param product
      * @return
      */
-    public WealthProduct update(String clientCode, WealthProduct product);
+    public WealthProduct update(WealthProduct product);
     
     /**
      * 
-     * @param clientCode
      * @param productId
      * @return 
      */
-    public WealthProduct getById(String clientCode, String productId);
+    public WealthProduct getById(String productId);
 
     /**
      *
-     * @param clientCode
      * @param productId
      * @param status
      * @return
      */
-    public boolean markStatus(String clientCode, String productId, ProductStatus status);
+    public boolean markStatus(String productId, ProductStatus status);
 
 }

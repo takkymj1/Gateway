@@ -19,58 +19,52 @@ public interface WealthProductTradeService {
     /**
      * appoint certain share in wealth product
      *
-     * @param clientCode
      * @param productId
      * @param amount
      * @param userId
      * @return
      */
-    AppointResult appoint(String clientCode, String productId, int amount, String userId);
+    AppointResult appoint(String productId, int amount, String userId);
 
     /**
      * purchase wealth product
      *
-     * @param clientCode
      * @param productId
      * @param amount
      * @param userId
      * @return
      */
-    PurchaseResult purchase(String clientCode, String productId, int amount, String userId);
+    PurchaseResult purchase(String productId, int amount, String userId);
 
     /**
      * settle a wealth product
      *
-     * @param clientCode
      * @param productId
      * @return
      */
-    boolean settle(String clientCode, String productId);
+    boolean settle(String productId);
 
     /**
      *
-     * @param clientCode
      * @param productId
      * @param purchaseId
      * @return
      */
-    boolean cancelPurchase(String clientCode, String productId, String purchaseId);
+    boolean cancelPurchase(String productId, String purchaseId);
 
     /**
      *
-     * @param clientCode
      * @param productId
      * @return
      */
-    boolean repay(String clientCode, String productId);
+    boolean repay(String productId);
 
     /**
      * redeem a certain purchase from wealth product
      *
-     * @param clientCode
      * @param productId
      * @param purchaseId
      * @return
      */
-    boolean redeem(String clientCode, String productId, String purchaseId);
+    boolean redeem(String productId, String purchaseId);
 }
