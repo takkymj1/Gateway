@@ -8,23 +8,24 @@ package com.creditcloud.wealthproduct.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 收益返还方式
+ * 收益类型
  * 
- * @author rooseek
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum ReturnMethod implements BaseEnum {
+public enum IncomeType implements BaseEnum {
 
-    RE("收益复投"),
-    BACK("收益返还");
-
+    FIXED("固定型"),
+    FLOAT("浮动型");
+    
     private final String key;
-
-    private ReturnMethod(String key) {
+    
+    IncomeType(String key) {
         this.key = key;
     }
-
+    
     @Override
     public String getKey() {
         return key;
     }
+    
 }

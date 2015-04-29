@@ -13,6 +13,6 @@ public interface WealthProductConstant {
 
     int MAX_TITLE_LENGHT = 100;
 
-    int MAX_DESCRIPTION_LENGTH = 2000;
+    int MAX_DESCRIPTION_LENGTH = 5000;
 
 }
