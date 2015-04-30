@@ -8,6 +8,7 @@ package com.creditcloud.investmentfund.model.huaan.money.response;
 import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
 import java.util.Map;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 定义参考 : 华安云中信通讯接口说明_new.doc <br>
@@ -15,6 +16,7 @@ import lombok.Data;
  * @author guohuazhang
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class TransQueryResponseMessage extends CommonResponseMessage {
 
     private String MerchantId;//	8位	商家ID

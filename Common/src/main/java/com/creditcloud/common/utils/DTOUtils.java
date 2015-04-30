@@ -10,6 +10,7 @@ import com.creditcloud.common.entities.embedded.InvestRule;
 import com.creditcloud.common.entities.embedded.Location;
 import com.creditcloud.common.entities.embedded.RealmEntity;
 import com.creditcloud.common.entities.embedded.Repayment;
+import com.creditcloud.common.entities.embedded.RepaymentRule;
 import com.creditcloud.common.entities.embedded.Reward;
 import com.creditcloud.common.entities.embedded.info.Contact;
 import com.creditcloud.common.entities.embedded.info.ContactInfo;
@@ -85,6 +86,32 @@ public class DTOUtils {
                                    repayment.getAmountInterest(),
                                    repayment.getAmountOutstanding(),
                                    repayment.getDueDate());
+        }
+        return result;
+    }
+
+    /**
+     * handle RepaymentRule
+     *
+     * @param repaymentRule
+     * @return
+     */
+    public static com.creditcloud.model.loan.RepaymentRule getRepaymentRuleDTO(RepaymentRule repaymentRule) {
+        com.creditcloud.model.loan.RepaymentRule result = null;
+        if (repaymentRule != null) {
+            result = new com.creditcloud.model.loan.RepaymentRule(repaymentRule.getDaysOfYear(),
+                                                                  repaymentRule.getRepaymentPeriod(),
+                                                                  repaymentRule.getDayOfRepayment());
+        }
+        return result;
+    }
+
+    public static RepaymentRule convertRepaymentRuleDTO(com.creditcloud.model.loan.RepaymentRule repaymentRule) {
+        RepaymentRule result = null;
+        if (repaymentRule != null) {
+            result = new RepaymentRule(repaymentRule.getDaysOfYear(),
+                                       repaymentRule.getRepaymentPeriod(),
+                                       repaymentRule.getDayOfRepayment());
         }
         return result;
     }

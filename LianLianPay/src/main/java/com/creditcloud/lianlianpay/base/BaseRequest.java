@@ -20,10 +20,11 @@ public abstract class BaseRequest extends BaseObject {
     @NotNull
     private String oid_partner;
     
-    //
+    //签名方式
     @NotNull
     private String sign_type;
     
+    //签名
     @NotNull
     private String sign;
 

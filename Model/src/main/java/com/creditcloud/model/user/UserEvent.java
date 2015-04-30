@@ -6,6 +6,7 @@
 package com.creditcloud.model.user;
 
 import com.creditcloud.model.enums.user.UserEventType;
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
@@ -15,7 +16,9 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
-public class UserEvent {
+public class UserEvent implements Serializable {
+    
+    private static final long serialVersionUID = 20150428L;
 
     /**
      * 用户ID

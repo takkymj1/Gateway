@@ -68,7 +68,8 @@ public enum FundRecordType implements BaseEnum {
      * 保险
      */
     INSURANCE_PREMIUM("保费"),
-    INSURANCE_APPEND_PREMIUM("保费追加");
+    INSURANCE_APPEND_PREMIUM("保费追加"),
+    INSURANCE_REFUND("退保");
     
     private final String key;
 

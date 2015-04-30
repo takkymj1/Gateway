@@ -5,6 +5,8 @@
  */
 package com.creditcloud.unionpay.api;
 
+import com.creditcloud.unionpay.model.CustomerAccountInfo;
+
 /**
  * 银联
  *
@@ -12,4 +14,5 @@ package com.creditcloud.unionpay.api;
  */
 public interface UnionPayService {
 
+    boolean backendValidateCustomerAccountInfo(CustomerAccountInfo account);
 }
