@@ -8,6 +8,7 @@ package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.wealthproduct.enums.RateLevelType;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -57,4 +58,11 @@ public class WealthProductFixed extends BaseObject {
     @NotNull
     private ReturnMethod returnMethod;
     
+    /**
+     * 利率档位类型
+     * 
+     * @return
+     */
+    @NotNull
+    private RateLevelType rateLevelType;
 }

@@ -11,6 +11,7 @@ import static com.creditcloud.wealthproduct.WealthProductConstant.AMOUNT_INCREME
 import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_RAISE_AMOUNT;
 import static com.creditcloud.wealthproduct.WealthProductConstant.MIN_RAISE_AMOUNT;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.validation.groups.Default;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,6 +41,7 @@ public class AmountRateRange implements WealthProductConstant {
      * @return
      */
     @NotNull
+    @Size(max = MAX_TITLE_LENGTH)
     private String title;
     
     /**
@@ -79,5 +81,6 @@ public class AmountRateRange implements WealthProductConstant {
      * 
      * @return
      */
+    @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
 }

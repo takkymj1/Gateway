@@ -30,7 +30,7 @@ public interface WealthProductConstant {
     /**
      * 最小募集金额
      */
-    int MIN_RAISE_AMOUNT = 10000;
+    int MIN_RAISE_AMOUNT = 0;
     
     /**
      * 最大募集金额 10亿
