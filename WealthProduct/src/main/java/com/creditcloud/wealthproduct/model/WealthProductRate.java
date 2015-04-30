@@ -7,27 +7,31 @@
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.loan.Duration;
-import static com.creditcloud.wealthproduct.WealthProductConstant.AMOUNT_INCREMENT;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_DESCRIPTION_LENGTH;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_RAISE_AMOUNT;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_RATE;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_TITLE_LENGTH;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MIN_RAISE_AMOUNT;
-import static com.creditcloud.wealthproduct.WealthProductConstant.MIN_RATE;
-import static com.creditcloud.wealthproduct.WealthProductConstant.RATE_INCREMENT;
-import com.creditcloud.wealthproduct.enums.RateLevelType;
+import com.creditcloud.wealthproduct.WealthProductConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.validation.groups.Default;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
+ * 产品利率
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public class WealthProductRate extends BaseObject {
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class WealthProductRate extends BaseObject implements WealthProductConstant {
 
+    /**
+     * 产品ID
+     * 
+     * @return
+     */
     private String productId;
     
     /**
@@ -42,8 +46,8 @@ public class WealthProductRate extends BaseObject {
      * 
      * @return
      */
-    @Size(max = MAX_TITLE_LENGTH)
     @NotNull
+    @Size(max = MAX_TITLE_LENGTH)
     private String title;
     
     /**
@@ -87,18 +91,11 @@ public class WealthProductRate extends BaseObject {
     private Duration maxDuration;
     
     /**
-     * 利率类型
-     * 
-     * @return
-     */
-    @NotNull
-    private RateLevelType type;
-    
-    /**
      * 档位描述
      * 
      * @return
      */
     @NotNull
+    @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
 }
