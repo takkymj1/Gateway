@@ -136,4 +136,14 @@ public interface FundTradingRecordService {
      * @return 
      */
     public PagedResult<FundTradingRecord> listByCodeAndTypeAndTranDateAndPayStatus(List<String> codeList,List<FundType> typeList,Date startDate,Date endDate,List<TradingRecordPayStatus> payStatusList,List<FundBrand> brandList,PageInfo pageInfo);
+    
+    /**
+     * 查询交易记录
+     * @param brandList
+     * @param statusList
+     * @param typeList
+     * @param resultList
+     * @return 
+     */
+    public List<FundTradingRecord> listByBrandAndStatusAndType(List<FundBrand> brandList,List<TradingRecordStatus> statusList,List<FundType> typeList,List<TradingRecordResult> resultList);
 }
