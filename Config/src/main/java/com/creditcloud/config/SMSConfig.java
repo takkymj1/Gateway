@@ -71,6 +71,13 @@ public final class SMSConfig extends BaseConfig {
     private String propertiesPath;
     
     /**
+     * 还款短信提醒，提前提醒天数配置
+     */
+    @XmlElement(required = false)
+    @Getter
+    private String remindDays;
+    
+    /**
      * 开启结息日短信提醒
      */
     @Getter
