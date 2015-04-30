@@ -12,7 +12,6 @@ import com.creditcloud.investmentfund.enums.FundType;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import java.math.BigDecimal;
 import java.util.Date;
-import javax.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -74,15 +73,11 @@ public class FundProductNavRecord extends FundObject implements FundConstant {
      * 
      * @return
      */
-    @Column(nullable = false,
-            precision = 15,
-            scale = 4)
     private BigDecimal netIncomePerMillion;
     
     /**
      * 近一个月涨幅
      */
-    @Column(nullable = true)
     @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
                         max = MAX_RATE)
@@ -91,7 +86,6 @@ public class FundProductNavRecord extends FundObject implements FundConstant {
     /**
      * 近三个月涨幅
      */
-    @Column(nullable = true)
     @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
                         max = MAX_RATE)
@@ -100,7 +94,6 @@ public class FundProductNavRecord extends FundObject implements FundConstant {
     /**
      * 今年以来涨幅
      */
-    @Column(nullable = true)
     @IncrementalInteger(min = MIN_RATE,
                         increment = 1,
                         max = MAX_RATE)
@@ -109,7 +102,6 @@ public class FundProductNavRecord extends FundObject implements FundConstant {
     /**
      * 七日年化收益（货币型基金） 例 45810 = 4.5810%
      */
-    @Column(nullable = true)
     @IncrementalInteger(min = MIN_SEVEN_YEAR_RATE,
                         increment = 1,
                         max = MAX_SEVEN_YEAR_RATE)
