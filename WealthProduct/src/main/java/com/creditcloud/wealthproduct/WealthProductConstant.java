@@ -53,14 +53,14 @@ public interface WealthProductConstant {
     int AMOUNT_INCREMENT = 1;
     
     /**
-     * 最低贷款金额
+     * 最低年化利率 3%
      */
-    int MIN_RATE = 0;
+    int MIN_RATE = 30000;
     
     /**
      * 最高贷款利率
      */
-    int MAX_RATE = 2400;
+    int MAX_RATE = 240000;
     
     /**
      * 利率步长

@@ -7,6 +7,7 @@ package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import javax.ejb.Remote;
 
 /**
@@ -17,12 +18,12 @@ import javax.ejb.Remote;
 public interface WealthProductService extends WealthProductQueryService {
 
     /**
-     * create new wealth product
+     * 新建固定收益类产品
      *
      * @param product
      * @return
      */
-    public WealthProduct create(WealthProduct product);
+    public WealthProductFixed create(WealthProductFixed product);
 
     /**
      * update exist wealth product, only certain field fields can be updated by
