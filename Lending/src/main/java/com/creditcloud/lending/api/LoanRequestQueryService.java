@@ -46,6 +46,18 @@ public interface LoanRequestQueryService {
     public PagedResult<LoanRequest> listByUserAndStatus(final String userId, final PageInfo pageInfo, final LoanRequestStatus... status);
 
     /**
+     * list by userId、LoanRequestStatus、pureRequest、isCover
+     *
+     * @param isCover
+     * @param pureRequest
+     * @param userId
+     * @param pageInfo
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listByUserStatusPureRequestCover(final boolean isCover,final boolean pureRequest,final String userId, final PageInfo pageInfo, final LoanRequestStatus... status);
+    
+    /**
      * count loan request by employee and status
      *
      * @param employeeId
