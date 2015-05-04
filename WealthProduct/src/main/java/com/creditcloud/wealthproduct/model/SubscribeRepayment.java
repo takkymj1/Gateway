@@ -15,40 +15,45 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * 认购还款（固定收益类产品）
+ * 
  * @author rooseek
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchaseRepayment extends BaseObject {
+public class SubscribeRepayment extends BaseObject {
 
     private static final long serialVersionUID = 20140924L;
 
-    private String purchaseId;
+    /**
+     * 认购记录ID
+     */
+    private String subscribeId;
 
+    /**
+     * 期数
+     */
     private int period;
     
+    /**
+     * 还款状态
+     */
     private RepaymentStatus status;
 
+    /**
+     * 还款详情
+     */
     private Repayment repayment;
 
+    /**
+     * 实际回款金额
+     */
     private BigDecimal repayAmount;
 
+    /**
+     * 回款日期
+     */
     private Date repayDate;
-
-
-    public PurchaseRepayment(String purchaseId,
-                             int period,
-                             Repayment repayment,
-                             BigDecimal repayAmount,
-                             Date repayDate,
-                             RepaymentStatus status) {
-        this.purchaseId = purchaseId;
-        this.period = period;
-        this.repayment = repayment;
-        this.repayAmount = repayAmount;
-        this.repayDate = repayDate;
-        this.status = status;
-    }
+    
 }
