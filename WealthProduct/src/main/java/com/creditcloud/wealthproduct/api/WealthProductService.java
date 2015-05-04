@@ -7,6 +7,9 @@ package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductFixed;
+import com.creditcloud.wealthproduct.model.WealthProductRate;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -17,39 +20,48 @@ import javax.ejb.Remote;
 public interface WealthProductService extends WealthProductQueryService {
 
     /**
-     * create new wealth product
+     * 新建固定收益类产品
      *
-     * @param clientCode
      * @param product
      * @return
      */
-    public WealthProduct create(String clientCode, WealthProduct product);
+    public WealthProductFixed create(WealthProductFixed product);
 
     /**
      * update exist wealth product, only certain field fields can be updated by
      * this method
      *
-     * @param clientCode
      * @param product
      * @return
      */
-    public WealthProduct update(String clientCode, WealthProduct product);
+    public WealthProduct update(WealthProduct product);
     
     /**
      * 
-     * @param clientCode
      * @param productId
      * @return 
      */
-    public WealthProduct getById(String clientCode, String productId);
+    public WealthProduct getById(String productId);
 
     /**
      *
-     * @param clientCode
      * @param productId
      * @param status
      * @return
      */
-    public boolean markStatus(String clientCode, String productId, ProductStatus status);
+    public boolean markStatus(String productId, ProductStatus status);
 
+    /**
+     * 添加收益档位
+     * 
+     * 1. 档位区间必须闭合
+     * 2. 档位前闭后开
+     * 3. 暂时只支持按照金额或者期限划分
+     * 
+     * @param productId 产品ID
+     * @param rates
+     * @return 
+     */
+    public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
+    
 }

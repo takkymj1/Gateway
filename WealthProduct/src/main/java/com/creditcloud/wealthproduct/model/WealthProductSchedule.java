@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.creditcloud.wealthproduct.model;
+
+import com.creditcloud.model.BaseObject;
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+/**
+ * 产品周期
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class WealthProductSchedule extends BaseObject {
+    
+    private static final long serialVersionUID = 20150428L;
+    
+    /**
+     * 预约成立时间
+     */
+    private Date appointEstablishedime;
+    
+    /**
+     * 预约开始时间
+     */
+    private Date appointStartTime;
+
+    /**
+     * 预约结束时间
+     */
+    private Date appointEndTime;
+
+    /**
+     * 认购开始时间
+     */
+    private Date subscribeStartTime;
+    
+    /**
+     * 认购结束时间
+     */
+    private Date subscribeEndTime;
+
+    /**
+     * 计息日
+     */
+    private Date valueStartTime;
+}
