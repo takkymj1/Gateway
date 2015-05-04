@@ -130,4 +130,6 @@ public interface InvestRepayService extends InvestRepayQueryService {
      * @return 
      */
     public BigDecimal sumPrincipalByInvest(String investId, List<RepaymentStatus> statusList);
+
+    public boolean preRepay(String investId, BigDecimal repayAmount, RealmEntity repaySource);
 }

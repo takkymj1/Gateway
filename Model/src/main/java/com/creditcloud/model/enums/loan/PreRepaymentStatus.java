@@ -29,5 +29,5 @@ public enum PreRepaymentStatus implements BaseEnum {
     public String getKey() {
         return key;
     }
-    
+
 }

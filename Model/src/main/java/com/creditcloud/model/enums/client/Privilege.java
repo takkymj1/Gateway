@@ -81,6 +81,8 @@ public enum Privilege implements BaseEnum {
     LOAN_DOWNLOAD("借款下载", Realm.LOAN, "借款相关权限"),
     LOAN_CANCEL("取消借款标", Realm.LOAN, "借款相关权限"), //在后台取消前台正在OPEN或者SCHEDULED状态的loan
     LOAN_ARCHIVE("归档借款标", Realm.LOAN, "借款相关权限"), //将已还清的借款标进行归档/隐藏
+    //huang.liu added 20150430 提前还款
+    LOAN_PREREPAYMENT("提前还款", Realm.LOAN, "借款相关权限"),
     /**
      * 任务相关权限
      */

@@ -132,4 +132,43 @@ public interface CMSService {
      * @return
      */
     public Article saveArticle(String clientCode, Article article);
+    
+    /**
+     * 收藏
+     * 
+     * @param clientCode    平台代码
+     * @param articleId     文章ID
+     * @param userId        用户ID
+     * @return 
+     */
+    public int markFavorite(String clientCode, String articleId, String userId);
+
+    /**
+     * 取消收藏
+     * 
+     * @param clientCode    平台代码
+     * @param articleId     文章ID
+     * @param userId        用户ID
+     * @return 
+     */
+    public int unmarkFavorite(String clientCode, String articleId, String userId);
+
+    /**
+     * 文章收藏数
+     * 
+     * @param clientCode
+     * @param articleId
+     * @return 
+     */
+    public int favoriteCountByArticle(String clientCode, String articleId);
+    
+    /**
+     * 用户收藏文章ID
+     * 
+     * @param clientCode    平台代码
+     * @param userId        用户ID
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<String> listFavoriteByUser(String clientCode, String userId, PageInfo pageInfo);
 }

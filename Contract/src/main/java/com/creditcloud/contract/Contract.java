@@ -79,6 +79,7 @@ public class Contract extends BaseObject {
      */
     private ContractConfirmStatus confirmStatus;
     
+    @Override
     public String toString(){
         return ReflectionToStringBuilder.toStringExclude(this, "content");
     }

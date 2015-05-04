@@ -2,28 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.common.utils;
+package com.creditcloud.model.util;
 
 import com.creditcloud.model.constant.GlobalConstant;
 import com.creditcloud.model.constant.TimeConstant;
 import com.creditcloud.model.loan.Duration;
-import java.io.File;
-import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Scanner;
 import lombok.extern.slf4j.Slf4j;
-import static org.apache.commons.lang3.time.DateUtils.addDays;
-import static org.apache.commons.lang3.time.DateUtils.addMonths;
-import static org.apache.commons.lang3.time.DateUtils.addYears;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.joda.time.LocalDate;
@@ -32,6 +16,15 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Map.Entry;
+
+import static org.apache.commons.lang3.time.DateUtils.*;
 
 /**
  *
@@ -304,7 +297,7 @@ public class DateUtils {
     public static boolean isDayBetween(Date start, Date end, Date signDate){
         DateTime t1 = DateTime.parse(new DateTime(start).toString("yyyy-MM-dd"),format);
         DateTime t2 = DateTime.parse(new DateTime(end).toString("yyyy-MM-dd"),format);
-        DateTime sd = DateTime.parse(new DateTime(signDate).toString("yyyy-MM-dd"),format);
+        DateTime sd = DateTime.parse(new DateTime(signDate).toString("yyyy-MM-dd"), format);
         
         if (t1.compareTo(sd)<=0 && t2.compareTo(sd)>=0){
             return true;
@@ -312,5 +305,11 @@ public class DateUtils {
 
         return  false;
     }
+
+//    public static void main(String args[]){
+////        System.out.println("当前日期：" + new DateTime(new Date()).toString("yyyy-MM-dd"));
+//        System.out.println("当前的日期：" + Arrays.asList(true, false));
+//
+//    }
 
 }

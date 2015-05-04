@@ -4,6 +4,7 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.misc.PagedResult;
@@ -78,5 +79,14 @@ public interface LoanService extends LoanQueryService, LoanStatService {
     public List<Loan> loanByNameAndTitle(String title, String name, String loginName);
     
     public PagedResult<com.creditcloud.model.loan.Loan> loanByTitle(String title);
+
+
+    /**
+     * hugang.liu 20150424 added
+     * 获取提前还款的Loan信息
+     * @param pageInfo
+     * @return
+     */
+    public PagedResult<Loan> listByPreRepaymentStatus(PageInfo pageInfo);
 
 }

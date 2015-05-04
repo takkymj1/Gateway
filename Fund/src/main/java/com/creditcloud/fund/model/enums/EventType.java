@@ -3,25 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loan;
+package com.creditcloud.fund.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 标的类型,分普通还是收益权转让
  *
- * @author admin
+ * @author zaishu.ye@fengjr.com
  */
-public enum LoanType implements BaseEnum {
-
-    //默认普通标
-    NORMAL("无"),
-    BENEFITEASSIGN("收益权转让"),
-    EXCHANGETRADEDPRODUCT("交易所产品");
+public enum EventType implements BaseEnum {
+    REGISTER("注册账户"),
+    LOTTERY("抽奖");
 
     private final String key;
 
-    private LoanType(final String key) {
+    private EventType(String key) {
         this.key = key;
     }
 
@@ -29,5 +25,4 @@ public enum LoanType implements BaseEnum {
     public String getKey() {
         return key;
     }
-
 }

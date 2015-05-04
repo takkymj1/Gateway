@@ -8,7 +8,6 @@ package com.creditcloud.config.api;
 import com.creditcloud.config.*;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
-import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
 import javax.ejb.Remote;
 
@@ -36,9 +35,6 @@ public interface ConfigManager {
     public CertificateConfig getCertificateConfig();
 
     public YeepConfig getYeepConfig();
-
-    public FengCouponConfig getFengCouponConfig();
-
 
     public RepaymentConfig getRepaymentConfig();
     /**
@@ -108,12 +104,12 @@ public interface ConfigManager {
      */
     public UmpConfig getUmpConfig();
 
-    /**
-     * wealth product config
-     *
-     * @return
-     */
-    public WealthProductConfig getWealthProductConfig();
+//    /**
+//     * wealth product config
+//     *
+//     * @return
+//     */
+//    public WealthProductConfig getWealthProductConfig();
 
     /**
      * 缓存配置文件
@@ -173,4 +169,10 @@ public interface ConfigManager {
      * @return 
      */
     public EnciPayConfig getEnciPayConfig();
+    
+    /**
+     * 获取微信抽奖奖品出现概率配置
+     * @return 
+     */
+    public LotteryEventPrizeConfig getLotteryEventPrizeConfig();
 }

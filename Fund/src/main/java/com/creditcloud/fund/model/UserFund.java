@@ -6,6 +6,7 @@ package com.creditcloud.fund.model;
 
 import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -72,6 +73,15 @@ public class UserFund extends BaseObject {
     @NotNull
     private BigDecimal transferAmount;
 
+
+
+    /**
+     * 免费提现总额
+     */
+    @Min(0)
+    @NotNull
+    private BigDecimal freeWithdrawAmount;
+
     public UserFund(String userId,
                     BigDecimal availableAmount,
                     BigDecimal frozenAmount,
@@ -79,7 +89,8 @@ public class UserFund extends BaseObject {
                     BigDecimal dueOutAmount,
                     BigDecimal depositAmount,
                     BigDecimal withdrawAmount,
-                    BigDecimal transferAmount) {
+                    BigDecimal transferAmount,
+                    BigDecimal freeWithdrawAmount) {
         this.userId = userId;
         this.availableAmount = availableAmount;
         this.frozenAmount = frozenAmount;
@@ -88,6 +99,7 @@ public class UserFund extends BaseObject {
         this.depositAmount = depositAmount;
         this.withdrawAmount = withdrawAmount;
         this.transferAmount = transferAmount;
+        this.freeWithdrawAmount = freeWithdrawAmount;
     }
 
     //TODO for backward compatibility in jsp

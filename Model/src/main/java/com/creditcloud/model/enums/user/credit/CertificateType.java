@@ -35,6 +35,10 @@ public enum CertificateType implements BaseEnum {
     OWNERSHIPREGIST("权属登记认证"),
     FINANCIERIDENTITY("融资人身份认证"),
     GRANTERIDENTITY("出让方身份认证"),
+    //交易所产品认证
+    ISSUEAGENCY("发行机构认证"),
+    PRODUCTRELEASE("产品发行备案认证"),
+    OFFLINEASSETS("线下资产认证"),
     //企业认证
     GRANTERIDFIELD("保障机构实地认证"),
     BUSINESSLICENCE("营业执照"),

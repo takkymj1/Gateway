@@ -33,4 +33,12 @@ public interface LoanPreRepayStatusService {
      * @return
      */
     public LoanPreRepaymentStatus find(String id);
+
+    /**
+     * hugang.liu added 20150427
+     * 根据loanId和状态查询记录
+     * @param id
+     * @return
+     */
+    public LoanPreRepaymentStatus findByIdAndStatus(Object id, PreRepaymentStatus status);
 }

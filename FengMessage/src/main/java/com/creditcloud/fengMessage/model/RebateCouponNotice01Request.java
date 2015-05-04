@@ -12,22 +12,27 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author caojiadong
+ * @author jiaguangfu
  */
 @Data
 @NoArgsConstructor
-public class RegisterCouponNotice01Request extends BaseRequest {
+public class RebateCouponNotice01Request extends BaseRequest {
     
     private String date;
     
     private String couponAmount;
     
-    private String investAmount;
+    private String rateLimit;
     
-    public RegisterCouponNotice01Request(Date date, String couponAmount, String investAmount){
-        this.template_id = "REGISTER_COUPON_001";
+    private String eventName;
+    
+    public RebateCouponNotice01Request(Date date, String couponAmount, String rateLimit, String eventName){
+        this.template_id = "REBATE_COMMON_COUPON_001";
         this.date = format(date);
         this.couponAmount = couponAmount;
-        this.investAmount = investAmount;
-    }    
-}
+        this.rateLimit = rateLimit;
+        this.eventName = eventName;
+    }
+}    
+
+

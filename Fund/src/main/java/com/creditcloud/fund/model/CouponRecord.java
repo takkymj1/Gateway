@@ -5,81 +5,50 @@ import com.creditcloud.fund.model.enums.CouponType;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Channel;
 import com.creditcloud.model.enums.Source;
+import java.math.BigDecimal;
+import java.util.Date;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 /**
- * Created with IntelliJ IDEA.
- * User: meichao
- * Date: 2015/3/23
- * Time: 19:03
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: meichao Date: 2015/3/23 Time: 19:03 To
+ * change this template use File | Settings | File Templates.
  */
 @Data
 @NoArgsConstructor
-public class CouponRecord extends BaseObject{
-
+public class CouponRecord extends BaseObject {
     private String id;
-
-    private String eventId;
-
-    /**
-     * 用户ID
-     */
-    private String userId;
-
-    /**
-     * 券类型
-     */
-    private CouponType couponType;
-
-    /**
-     * 金额
-     */
-    private BigDecimal amount;
-
-    /**
-     * 使用次数
-     */
-    private int useLimit;
-
-    /**
-     * 使用说明
-     */
-    private String useDescription;
-
-    /**
-     * 开始日期
-     */
-    private Date startTime;
-
-    /**
-     * 结束日期
-     */
-    private Date endTime;
-
+    private String userId;//用户ID
+    private String eventId;//获取奖券的活动ID
+    private String couponId;
+    private String couponName;
+    private CouponType couponType;//券类型
+    private BigDecimal amount;//金额
+    private String limitType;//奖券使用限制方式
+    private BigDecimal amountLimit;
+    private BigDecimal rateLimit;
+    private int useLimit;//使用次数
+    private String useDescription;//使用说明
+    private Date startTime;//生效日
+    private Date endTime;//到期日
     private Channel channel;
-
     private Source source;
-
-    /**
-     * 券状态
-     */
-    private CouponStatus status;
-
-    /**
-     * 已使用--->使用时间
-     */
-    private Date useTime;
+    private CouponStatus status;//券状态
+    private Date timeCreated;
+    private Date timeLastUpdated;
+    private Date useTime;//已使用--->使用时间
+    private FundEvent event;
 
     public CouponRecord(String id,
-                        String eventId,
                         String userId,
+                        String eventId,
+                        String couponId,
+                        String couponName,
                         CouponType couponType,
                         BigDecimal amount,
+                        String limitType,
+                        BigDecimal amountLimit,
+                        BigDecimal rateLimit,
                         int useLimit,
                         String useDescription,
                         Date startTime,
@@ -87,12 +56,18 @@ public class CouponRecord extends BaseObject{
                         Channel channel,
                         Source source,
                         CouponStatus status,
-                        Date useTime) {
+                        Date timeCreated,
+                        Date timeLastUpdated) {
         this.id = id;
-        this.eventId = eventId;
         this.userId = userId;
+        this.eventId = eventId;
+        this.couponId = couponId;
+        this.couponName = couponName;
         this.couponType = couponType;
         this.amount = amount;
+        this.limitType = limitType;
+        this.amountLimit = amountLimit;
+        this.rateLimit = rateLimit;
         this.useLimit = useLimit;
         this.useDescription = useDescription;
         this.startTime = startTime;
@@ -100,6 +75,7 @@ public class CouponRecord extends BaseObject{
         this.channel = channel;
         this.source = source;
         this.status = status;
-        this.useTime = useTime;
+        this.timeCreated = timeCreated;
+        this.timeLastUpdated = timeLastUpdated;
     }
 }

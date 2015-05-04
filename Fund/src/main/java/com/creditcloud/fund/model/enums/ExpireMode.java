@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loan;
+package com.creditcloud.fund.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 标的类型,分普通还是收益权转让
- *
- * @author admin
+ * 过期方式
+ * 根据过期方式不同计算过期时间
+ * @author zaishu.ye@fengjr.com
  */
-public enum LoanType implements BaseEnum {
-
-    //默认普通标
-    NORMAL("无"),
-    BENEFITEASSIGN("收益权转让"),
-    EXCHANGETRADEDPRODUCT("交易所产品");
-
+public enum ExpireMode implements BaseEnum {
+    VALID_DAYS("有效天数"),
+    FIXED_DATE("固定日期");
+    
     private final String key;
 
-    private LoanType(final String key) {
+    private ExpireMode(String key) {
         this.key = key;
     }
 
@@ -29,5 +26,4 @@ public enum LoanType implements BaseEnum {
     public String getKey() {
         return key;
     }
-
 }

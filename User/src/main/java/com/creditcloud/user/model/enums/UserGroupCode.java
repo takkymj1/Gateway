@@ -3,25 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.model.enums.loan;
+package com.creditcloud.user.model.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 标的类型,分普通还是收益权转让
+ * 系统预定义的用户组code
  *
- * @author admin
+ * @author rooseek
  */
-public enum LoanType implements BaseEnum {
+public enum UserGroupCode implements BaseEnum {
 
-    //默认普通标
-    NORMAL("无"),
-    BENEFITEASSIGN("收益权转让"),
-    EXCHANGETRADEDPRODUCT("交易所产品");
+    LOAN_AGENT("借款居间人");
 
     private final String key;
-
-    private LoanType(final String key) {
+    
+    private UserGroupCode(String key) {
         this.key = key;
     }
 
@@ -29,5 +26,4 @@ public enum LoanType implements BaseEnum {
     public String getKey() {
         return key;
     }
-
 }

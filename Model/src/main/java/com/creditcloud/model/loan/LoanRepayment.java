@@ -72,7 +72,13 @@ public class LoanRepayment extends BaseObject {
     
     //for ui
     private String loanTitle;
-    
+
+    /**
+     * 是否提前还款
+     * 用于 借款列表-还款列表-偿还状态 页面展示
+     */
+    private boolean izPreRepay = false;
+
     public LoanRepayment(String id,
                          String loanId,
                          String userId,

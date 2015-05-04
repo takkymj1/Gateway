@@ -50,6 +50,7 @@ public interface FundAccountService {
     public List<FundAccount> listAccountByUser(String clientCode,
                                                String userId);
 
+
     /**
      * 添加银行卡到用户名下. <br>
      *
@@ -152,4 +153,5 @@ public interface FundAccountService {
     
     public boolean updateAccount(String id, String account, Bank bank, String name);
 
+    public List<CardRecord> listByAccount(String account, CardRecordStatus cardRecordStatus);
 }
