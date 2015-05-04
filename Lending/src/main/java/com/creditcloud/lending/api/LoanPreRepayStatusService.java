@@ -18,13 +18,13 @@ import javax.ejb.Remote;
 public interface LoanPreRepayStatusService {
     
     /**
-     * mark loanPreRepayment status
+     * mark loanPreRepayment status and timeScheduled
      *
      * @param status
      * @param id
      * @return 
      */
-    public boolean markStatus(PreRepaymentStatus status, String id);
+    public boolean markStatusAndTimeScheduled(PreRepaymentStatus status, String id);
 
     /**
      * get LoanPreRepaymentStatus by id
@@ -33,4 +33,13 @@ public interface LoanPreRepayStatusService {
      * @return
      */
     public LoanPreRepaymentStatus find(String id);
+    
+    /**
+     * mark loanPreRepayment status and timePreRepayed
+     *
+     * @param status
+     * @param id
+     * @return 
+     */
+    public boolean markStatusAndTimePreRepayed(PreRepaymentStatus status, String id);
 }
