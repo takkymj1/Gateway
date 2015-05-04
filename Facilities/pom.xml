@@ -388,6 +388,7 @@
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
                         </ejbModule>
+                        
                         <ejbModule>
                             <groupId>com.creditcloud.interestbearing</groupId>
                             <artifactId>InterestBearingService</artifactId>
@@ -396,7 +397,6 @@
                             <groupId>com.creditcloud.unionpay</groupId>
                             <artifactId>UnionPayService</artifactId>
                         </ejbModule>                        
-                        <!--  
 
                         <ejbModule>
                             <groupId>com.creditcloud.lianlianpay</groupId>
@@ -406,7 +406,7 @@
                             <groupId>com.creditcloud.order</groupId>
                             <artifactId>OrderService</artifactId>
                         </ejbModule> 
-                                                                         
+  <!--                                                                           
                         <ejbModule>
                             <groupId>com.creditcloud.yeep</groupId>
                             <artifactId>YeepService</artifactId>
