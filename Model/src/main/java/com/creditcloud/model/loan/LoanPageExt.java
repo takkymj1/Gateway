@@ -71,11 +71,13 @@ public class LoanPageExt extends Loan{
         //不是节假日则继续判断当天是否处于还款日当天
         if(isHoliday == false){
 
-            if(isDueDate == false){
-                preRepaymentUseable = "false";
-            }else if(isDueDate == true){
-                preRepaymentUseable = "true";
-            }
+            preRepaymentUseable = "true";//经产品经理确认，还款日当天也可以
+
+//            if(isDueDate == false){
+//                preRepaymentUseable = "false";
+//            }else if(isDueDate == true){
+//                preRepaymentUseable = "true";
+//            }
 
         }else{
             preRepaymentUseable = "false";
