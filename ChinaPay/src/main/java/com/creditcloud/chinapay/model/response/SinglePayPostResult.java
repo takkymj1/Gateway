@@ -1,6 +1,7 @@
 package com.creditcloud.chinapay.model.response;
 
 import com.creditcloud.chinapay.ChinaPayConstant;
+import com.creditcloud.chinapay.enums.SinglePayStatCode;
 import java.util.List;
 import java.util.Properties;
 
@@ -86,7 +87,7 @@ public class SinglePayPostResult extends POJO {
      * @return
      */
     public boolean transSuccess() {
-        return success() && "S".equalsIgnoreCase(getStat());
+        return success() && SinglePayStatCode.SUCCESS.isSameAs(getStat());
     }
 
     /**
@@ -99,16 +100,27 @@ public class SinglePayPostResult extends POJO {
         if (!processOK) {
             return true;
         }
-        
-        // respCode=0000,但是 stat 不为s的情况
-        if ("6".equalsIgnoreCase(getStat())) {
+
+        // respCode=0000,但是 stat 不为s的情况也许存在真正的失败
+        if (SinglePayStatCode.FAIL_6.isSameAs(getStat())) {
             //6	失败	银行已退单	银行退单，交易失败。
             return true;
-        } else if ("9".equalsIgnoreCase(getStat())) {
+        } else if (SinglePayStatCode.FAIL_9.isSameAs(getStat())) {
             //9	失败	重汇已退单	银行对重汇的代付交易退单，交易失败。
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * 业务处于不确定状态，需要再次查询获取最终结果
+     * @return 
+     */
+    public boolean transPending() {
+        boolean isTransSuccess = transSuccess();
+        boolean isTransFail = transFail();
+        boolean isPending = !(isTransSuccess || isTransFail);
+        return isPending;
     }
 }
