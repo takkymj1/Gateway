@@ -8,7 +8,7 @@ package com.creditcloud.wealthproduct.api;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
-import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import java.util.List;
 
 /**
@@ -19,15 +19,14 @@ import java.util.List;
 public interface WealthProductQueryService {
 
     /**
-     *
-     * @param clientCode
-     * @param statusList
-     * @param pageInfo
+     * 根据状态获取产品列表
+     * 
+     * @param offline       线下or线上
+     * @param statusList    产品状态
+     * @param pageInfo      分页信息
      * @return
      */
-    public PagedResult<WealthProduct> listByStatus(String clientCode,
-                                                   List<ProductStatus> statusList,
-                                                   PageInfo pageInfo);
+    public PagedResult<WealthProductFixed> listFixedByStatus(boolean offline, List<ProductStatus> statusList, PageInfo pageInfo);
 
     /**
      *

@@ -180,12 +180,12 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private Integer transferTimeOut;
     
     /**
-     * 是否是线上资金流动的产品
+     * 是否是线下的产品
      * 
      * @return
      */
     @NotNull
-    private Boolean online;
+    private Boolean offline;
     
     /**
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
