@@ -46,6 +46,18 @@ public interface LoanRequestQueryService {
     public PagedResult<LoanRequest> listByUserAndStatus(final String userId, final PageInfo pageInfo, final LoanRequestStatus... status);
 
     /**
+     * list by userId、LoanRequestStatus、pureRequest、isCover
+     *
+     * @param isCover
+     * @param pureRequest
+     * @param userId
+     * @param pageInfo
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listByUserStatusPureRequestCover(final boolean isCover,final boolean pureRequest,final String userId, final PageInfo pageInfo, final LoanRequestStatus... status);
+    
+    /**
      * count loan request by employee and status
      *
      * @param employeeId
@@ -88,7 +100,18 @@ public interface LoanRequestQueryService {
      */
     public PagedResult<LoanRequest> listByStatusAndDateAndPureRequest(boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
     
-    
+    /**
+     * 按LoanRequestStatus、pureRequest、isCover列出一定时间内提交的LoanRequest
+     *
+     * @param isCover
+     * @param pureRequest 是否为单纯的借款申请，用于判断某些业务例如配资申请
+     * @param from
+     * @param to
+     * @param info
+     * @param status
+     * @return
+     */
+    public PagedResult<LoanRequest> listByStatusAndDateAndPureRequest(boolean isCover,boolean pureRequest, Date from, Date to, PageInfo info, LoanRequestStatus... status);
     
     public PagedResult<LoanRequest> listByStatus(PageInfo info, LoanRequestStatus... status);
 

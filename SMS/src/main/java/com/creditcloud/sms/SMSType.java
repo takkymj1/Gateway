@@ -124,6 +124,10 @@ public enum SMSType {
      */
     NOTIFICATION_CREDITMARKET_REDEEM("notification.creditmarket.redeem"),
     /**
+     * 货币基金支付失败提示
+     */
+    NOTIFICATION_CREDITMARKET_PAY_FAILED("notification.creditmarket.payfailed"),
+    /**
      * 募集成功，通知投资人
      */
     NOTIFICATION_LOAN_SETTLE_INVESTER("notification.loan.settle.invester"),

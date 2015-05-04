@@ -11,11 +11,13 @@ import com.creditcloud.investmentfund.model.lion.moneyfund.request.AsyncAuthenti
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.NotificationRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.OpenAccountAndBindCardRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.RedemptionRequestApplyMessage;
+import com.creditcloud.investmentfund.model.lion.moneyfund.request.RequestQueryMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.SubscriptionRequestApplyMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.request.SyncAuthenticateRequestMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.AddNewCardResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.AsyncAuthenticateResponseMessage;
 import com.creditcloud.investmentfund.model.lion.moneyfund.response.NotificationResponseMessage;
+import com.creditcloud.investmentfund.model.lion.moneyfund.response.RequestQueryResponseMessage;
 import java.util.Date;
 import java.util.Map;
 import javax.ejb.Remote;
@@ -82,6 +84,13 @@ public interface LionMoneyFundService {
      * @return
      */
     Map<String, String> syncRedeemFund(RedemptionRequestApplyMessage message);
+    
+    /**
+     * 货币基金通用查询接口
+     * @param message
+     * @return 
+     */
+    RequestQueryResponseMessage queryRequest(RequestQueryMessage message);
 
     /**
      * 验证通用结果通知接口的请求报文的签名正确与否
