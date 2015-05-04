@@ -1,7 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.service;
 
 import com.creditcloud.model.loan.AdvanceRepayDetail;
@@ -14,10 +16,10 @@ import java.util.List;
 
 /**
  *
- * @author rooseek
+ * @author peili
  */
-interface MarketInvestRepayService {
-
+interface ManagerInvestRepayService {
+    
     /**
      * list InvestRepayment by invest id
      *

@@ -185,7 +185,7 @@ public class NumberUtils {
     
     /**
      * 提前还款：计算当期应计利息
-     * @param lastDueDate 提前还款时上一个还款日 对应当前未到期的上个月的dueDate
+     * @param lastDueDate 提前还款时上一个还款日 对应当前未到期的上个月的dueDate,如果没有上一个还款日，则取起息日（firstDueDate-1个月-1天）
      * @param preRepayedDate 提前还款日
      * @param unpayedPrincipal 剩余的所有本金
      * @param rate 标的年利率
