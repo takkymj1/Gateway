@@ -17,4 +17,5 @@
     <jdbc-resource enabled="true" jndi-name="FundDS" object-type="user" pool-name="BizPool"/>
     <jdbc-resource enabled="true" jndi-name="BizDS" object-type="user" pool-name="BizPool"/>
     <jdbc-resource enabled="true" jndi-name="InfoDS" object-type="user" pool-name="InfoPool"/>
+    <jdbc-resource enabled="true" jndi-name="VADS" object-type="user" pool-name="InfoPool"/>
 </resources>

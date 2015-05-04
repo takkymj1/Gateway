@@ -15,4 +15,6 @@ import com.creditcloud.unionpay.model.CustomerAccountInfo;
 public interface UnionPayService {
 
     boolean backendValidateCustomerAccountInfo(CustomerAccountInfo account);
+    
+    String ping();
 }

@@ -201,6 +201,18 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
+        <dependency>
+            <groupId>com.creditcloud.interestbearing</groupId>
+            <artifactId>InterestBearingService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>             
+        </dependency>        
+        <dependency>
+            <groupId>com.creditcloud.unionpay</groupId>
+            <artifactId>UnionPayService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>             
+        </dependency>        
  <!-- 
         <dependency>
             <groupId>com.creditcloud.lianlianpay</groupId>
@@ -372,7 +384,15 @@
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
                         </ejbModule>
-  <!--  
+                        <ejbModule>
+                            <groupId>com.creditcloud.interestbearing</groupId>
+                            <artifactId>InterestBearingService</artifactId>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>com.creditcloud.unionpay</groupId>
+                            <artifactId>UnionPayService</artifactId>
+                        </ejbModule>                        
+                        <!--  
                         <ejbModule>
                             <groupId>com.creditcloud.lianlianpay</groupId>
                             <artifactId>LianLianPayService</artifactId>
