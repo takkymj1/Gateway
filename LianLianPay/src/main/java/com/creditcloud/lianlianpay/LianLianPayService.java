@@ -5,6 +5,7 @@
  */
 package com.creditcloud.lianlianpay;
 
+import java.io.UnsupportedEncodingException;
 import javax.ejb.Remote;
 
 /**
@@ -32,4 +33,13 @@ public interface LianLianPayService {
      * @return 
      */
     public PayResult queryPayResult(String clientCode, String orderId, String reqTime);
+    
+    /**
+     * 获取连连支付参数签名
+     * 
+     * @param signSrc
+     * @return
+     * @throws UnsupportedEncodingException 
+     */
+    public String getLianPayMD5String(String signSrc) throws UnsupportedEncodingException;    
 }

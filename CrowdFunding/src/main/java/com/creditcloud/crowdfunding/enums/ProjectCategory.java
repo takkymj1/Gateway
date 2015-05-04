@@ -8,17 +8,14 @@ package com.creditcloud.crowdfunding.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
+ * 推荐使用FundingProduct
  *
  * @author rooseek
  */
+@Deprecated
 public enum ProjectCategory implements BaseEnum {
 
-    OTHER("其他", true),
-    /**
-     * FENG
-     */
-    FENG_SF("梦想首发", false),
-    FENG_CZ("梦想创造", false);
+    OTHER("其他", true);
 
     private final String key;
 

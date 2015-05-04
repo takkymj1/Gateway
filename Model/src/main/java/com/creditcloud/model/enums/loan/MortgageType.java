@@ -31,6 +31,8 @@ public enum MortgageType implements BaseEnum {
     BOND("债券"),
     STOCK("股票"),
     DEPOSIT_RECEIPT("银行存单"),
+    FUND("基金"),
+    EQUITY("股权"),
     /**
      * 其他
      */

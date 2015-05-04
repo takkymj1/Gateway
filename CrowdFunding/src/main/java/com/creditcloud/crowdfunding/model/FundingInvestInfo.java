@@ -7,7 +7,6 @@ package com.creditcloud.crowdfunding.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.EmailAddress;
-import com.creditcloud.model.constraints.LoginName;
 import com.creditcloud.model.constraints.RealName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,8 +30,7 @@ public class FundingInvestInfo extends BaseObject {
 
     private FundingInvest invest;
 
-//    @RealName
-    @LoginName // for feng 
+    @RealName
     private String realName;
 
     /**
@@ -40,7 +38,7 @@ public class FundingInvestInfo extends BaseObject {
      */
     private String contact;
 
-//    @EmailAddress // for feng
+    @EmailAddress
     private String email;
 
     /**

@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
+ * 众筹产品
  *
  * @author rooseek
  */

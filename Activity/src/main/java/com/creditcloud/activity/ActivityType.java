@@ -70,6 +70,8 @@ public enum ActivityType implements BaseEnum {
      * 资金类活动
      */
     FUND_TRANSER_DIRECT("直接转账", Realm.FUND),
+    CASH_RECON_RECORD("现金对账记录", Realm.FUND),
+    CASH_RECON_APPROVE("现金对账审批", Realm.FUND),
     /**
      * 众筹类
      */
