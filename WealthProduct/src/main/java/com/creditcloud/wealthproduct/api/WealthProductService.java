@@ -9,6 +9,7 @@ import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import com.creditcloud.wealthproduct.model.WealthProductRate;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -50,4 +51,17 @@ public interface WealthProductService extends WealthProductQueryService {
      */
     public boolean markStatus(String productId, ProductStatus status);
 
+    /**
+     * 添加收益档位
+     * 
+     * 1. 档位区间必须闭合
+     * 2. 档位前闭后开
+     * 3. 暂时只支持按照金额或者期限划分
+     * 
+     * @param productId 产品ID
+     * @param rates
+     * @return 
+     */
+    public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
+    
 }
