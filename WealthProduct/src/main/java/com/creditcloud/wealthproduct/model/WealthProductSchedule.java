@@ -8,8 +8,6 @@ package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
 import java.util.Date;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

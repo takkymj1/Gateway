@@ -28,10 +28,18 @@ import lombok.NoArgsConstructor;
 public class WealthProductRate extends BaseObject implements WealthProductConstant {
 
     /**
+     * ID
+     * 
+     * @return
+     */
+    private String id;
+    
+    /**
      * 产品ID
      * 
      * @return
      */
+    @NotNull
     private String productId;
     
     /**

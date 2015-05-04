@@ -8,6 +8,7 @@ package com.creditcloud.wealthproduct.api;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
+import com.creditcloud.wealthproduct.model.WealthProductRate;
 import javax.ejb.Remote;
 
 /**
