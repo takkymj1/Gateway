@@ -48,8 +48,6 @@ public interface InvestRepayService extends InvestRepayQueryService {
 
     public boolean repay(String id, BigDecimal repayAmount, RealmEntity repaySource);
     
-    public boolean preRepay(String investId, BigDecimal repayAmount, RealmEntity repaySource);
-    
     /**
      * 债权转让全部转出后，更新债权人还款计划时使用
      * @param id
@@ -133,5 +131,12 @@ public interface InvestRepayService extends InvestRepayQueryService {
      */
     public BigDecimal sumPrincipalByInvest(String investId, List<RepaymentStatus> statusList);
 
+    /**
+     * 提前还款接口
+     * @param investId
+     * @param repayAmount
+     * @param repaySource
+     * @return
+     */
     public boolean preRepay(String investId, BigDecimal repayAmount, RealmEntity repaySource);
 }
