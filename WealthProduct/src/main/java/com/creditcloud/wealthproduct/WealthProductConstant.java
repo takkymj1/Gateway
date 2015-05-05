@@ -91,4 +91,14 @@ public interface WealthProductConstant {
      * 最大打款时间 单位：天
      */
     int MAX_TRANSFER_TIME_OUT = 10;
+    
+    /**
+     * 贷款最短期限,单位月
+     */
+    int MIN_DURATION = 1;
+    
+    /**
+     * 贷款最长期限，单位月
+     */
+    int MAX_DURATION = 48;
 }
