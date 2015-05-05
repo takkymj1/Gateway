@@ -68,16 +68,6 @@ public interface WealthProductConstant {
     int RATE_INCREMENT = 1;
     
     /**
-     * 贷款最短期限,单位月
-     */
-    int MIN_DURATION = 1;
-
-    /**
-     * 贷款最长期限，单位月
-     */
-    int MAX_DURATION = 48;
-    
-    /**
      * 时间步长 单位：天
      */
     int TIME_OUT_INCREMENT = 1;

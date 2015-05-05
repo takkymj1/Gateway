@@ -7,7 +7,6 @@
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.loan.Duration;
 import com.creditcloud.wealthproduct.WealthProductConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -88,7 +87,7 @@ public class WealthProductRate extends BaseObject implements WealthProductConsta
      * @return
      */
     @NotNull
-    private Duration minDuration;
+    private Numeric minDuration;
     
     /**
      * 最大投资期限
@@ -96,7 +95,7 @@ public class WealthProductRate extends BaseObject implements WealthProductConsta
      * @return
      */
     @NotNull
-    private Duration maxDuration;
+    private Numeric maxDuration;
     
     /**
      * 档位描述
