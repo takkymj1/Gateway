@@ -5,8 +5,8 @@
  */
 package com.creditcloud.wealthproduct.api;
 
-import com.creditcloud.wealthproduct.enums.AppointResult;
 import com.creditcloud.wealthproduct.enums.PurchaseResult;
+import com.creditcloud.wealthproduct.model.Subscribe;
 import javax.ejb.Remote;
 
 /**
@@ -24,7 +24,7 @@ public interface WealthProductTradeService {
      * @param userId
      * @return
      */
-    AppointResult appoint(String productId, int amount, String userId);
+    Subscribe appoint(String productId, int amount, String userId);
 
     /**
      * purchase wealth product
