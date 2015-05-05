@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.lianlianpay;
+
+package com.creditcloud.wealthproduct.model;
 
 /**
- *
- * @author tinglany
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public class AuthPayNotify {
-    
+public class WealthProductPoint {
+
 }

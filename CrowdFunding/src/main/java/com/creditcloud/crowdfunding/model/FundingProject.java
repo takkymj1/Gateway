@@ -125,6 +125,11 @@ public class FundingProject extends BaseObject {
     
     //众筹项目的序号,平台可以自定义,允许重复，对于历史数据则为null
     private Integer ordinal;
+    
+    /**
+     * 只有项目，没有后续放款等
+     */
+    private boolean pureRequest;
 
     public FundingProject(String id,
                           String title,

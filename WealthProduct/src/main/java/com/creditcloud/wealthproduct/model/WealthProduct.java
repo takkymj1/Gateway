@@ -1,68 +1,194 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.wealthproduct.WealthProductConstant;
-import com.creditcloud.wealthproduct.enums.ReturnMethod;
-import com.creditcloud.wealthproduct.enums.WealthProductStatus;
+import com.creditcloud.wealthproduct.enums.IncomeType;
+import com.creditcloud.wealthproduct.enums.ProductStatus;
+import javax.enterprise.inject.Default;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * 理财产品
+ * 
  * @author rooseek
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-@XmlRootElement
-public class WealthProduct extends BaseObject {
+@AllArgsConstructor
+public class WealthProduct extends BaseObject implements WealthProductConstant {
 
-    private static final long serialVersionUID = 20140924L;
-
+    /**
+     * 产品ID
+     * 
+     * @return
+     */
     private String id;
-
-    @Size(max = WealthProductConstant.MAX_TITLE_LENGHT)
+    
+    /**
+     * 产品代码 (其他形式编码)
+     * 
+     * @return
+     */
+    @Size(max = MAX_SERIAL_LENGTH)
+    private String serial;
+    
+    /**
+     * 产品名称
+     * 
+     * @return
+     */
+    @Size(max = MAX_TITLE_LENGTH)
+    @NotNull
     private String title;
 
-    private ReturnMethod returnMethod;
-
-    private RepaymentMethod repayMethod;
-
-    private WealthProductStatus status;
-
-    private String userId;
+    /**
+     * 产品简称
+     * 
+     * @return
+     */
+    @Size(max = MAX_TITLE_LENGTH)
+    private String shortTitle;
     
     /**
-     * 最低募集额度
+     * 显示名称
+     * 
+     * @return
      */
-    private int minQuota;
+    @Size(max = MAX_TITLE_LENGTH)
+    private String displayTitle;
     
     /**
-     * 最高募集额度
+     * 产品状态
+     * 
+     * @return
      */
-    private int maxQuota;
+    @NotNull
+    private ProductStatus status;
+    
+    /**
+     * 收益类型
+     * 
+     * @return
+     */
+    @NotNull
+    private IncomeType incomeType;
+    
+    /**
+     * 成立规模/募集金额
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_RAISE_AMOUNT,
+                        increment = AMOUNT_INCREMENT,
+                        max = MAX_RAISE_AMOUNT,
+                        groups = Default.class)
+    @NotNull
+    private Integer amount;
 
     /**
-     * 实际募集金额
+     * 最小成立规模/最小募集金额
+     * 
+     * @return
      */
-    private int purchaseAmount;
+    @IncrementalInteger(min = MIN_RAISE_AMOUNT,
+                        increment = AMOUNT_INCREMENT,
+                        max = MAX_RAISE_AMOUNT,
+                        groups = Default.class)
+    @NotNull
+    private Integer minAmount;
+    
+    /**
+     * 实际认购金额
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_RAISE_AMOUNT,
+                        increment = AMOUNT_INCREMENT,
+                        max = MAX_RAISE_AMOUNT,
+                        groups = Default.class)
+    @NotNull
+    private Integer subscribeAmount;
+    
+    /**
+     * 实际认购数
+     * 
+     * @return
+     */
+    @NotNull
+    private Integer subscribeNumber;
+    
+    /**
+     * 产品周期
+     * 
+     * @return
+     */
+    private WealthProductSchedule schedule;
 
-    private int purchaseNumber;
-
-    private ProductSchedule schedule;
-
-    @Size(max = WealthProductConstant.MAX_DESCRIPTION_LENGTH)
+    /**
+     * 投资策略、投资目标、投资范围
+     * 
+     * @return
+     */
+    @Size(max = MAX_DESCRIPTION_LENGTH)
+    private String strategy;
+    
+    /**
+     * 描述
+     * 
+     * @return
+     */
+    @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
+    
+    /**
+     * 创建人
+     * 
+     * @return
+     */
+    @NotNull
+    private String employeeId;
+ 
+    /**
+     * 开放募集时长 单位：天
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_TRANSFER_TIME_OUT,
+                        increment = TIME_OUT_INCREMENT,
+                        max = MAX_TRANSFER_TIME_OUT,
+                        groups = Default.class)
+    @NotNull
+    private Integer timeOut;
+    
+    /**
+     * 打款时长 单位：天
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_TIME_OUT,
+                        increment = TIME_OUT_INCREMENT,
+                        max = MAX_TIME_OUT,
+                        groups = Default.class)
+    @NotNull
+    private Integer transferTimeOut;
+    
+    /**
+     * 是否是线上资金流动的产品
+     * 
+     * @return
+     */
+    @NotNull
+    private Boolean online;
     
     /**
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
      */
-    private boolean generateRepayment;
+//    private boolean generateRepayment;
 }

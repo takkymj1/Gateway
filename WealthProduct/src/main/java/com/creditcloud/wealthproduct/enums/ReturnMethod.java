@@ -8,7 +8,8 @@ package com.creditcloud.wealthproduct.enums;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
+ * 收益返还方式
+ * 
  * @author rooseek
  */
 public enum ReturnMethod implements BaseEnum {

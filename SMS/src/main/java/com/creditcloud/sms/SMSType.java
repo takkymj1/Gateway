@@ -15,6 +15,10 @@ public enum SMSType {
      */
     CONFIRM_CREDITMARKET_REGISTER("confirm.creditmarket.register"),
     /**
+     * 注册 CreditMarket 成功
+     */
+    NOTIFICATION_CREDITMARKET_REGIST_SUCCESS("notification.creditmarket.regist.success"),
+    /**
      * CreditMarket用户账号绑定手机
      */
     CONFIRM_CREDITMARKET_AUTHENTICATE_MOBILE("confirm.creditmarket.authenticate.mobile"),
@@ -119,6 +123,50 @@ public enum SMSType {
      * 基金赎回时提示
      */
     NOTIFICATION_CREDITMARKET_REDEEM("notification.creditmarket.redeem"),
+    /**
+     * 货币基金支付失败提示
+     */
+    NOTIFICATION_CREDITMARKET_PAY_FAILED("notification.creditmarket.payfailed"),
+    /**
+     * 募集成功，通知投资人
+     */
+    NOTIFICATION_LOAN_SETTLE_INVESTER("notification.loan.settle.invester"),
+    /**
+     * 募集失败，通知投资人
+     */
+    NOTIFICATION_LOAN_FAILED_INVESTER("notification.loan.failed.invester"),
+    /**
+     * 还款逾期，通知投资人
+     */
+    NOTIFICATION_LOAN_REPAY_OVERDUE_INVESTER("notification.loan.repay.overdue.invester"),
+    /**
+     * 标的开标，通知融资人
+     */
+    NOTIFICATION_LOAN_OPEN("notification.loan.open"),
+    /**
+     * 标的审核驳回，通知融资人
+     */
+    NOTIFICATION_LOAN_REJECT("notification.loan.reject"),
+    /**
+     * 募集成功，通知融资人
+     */
+    NOTIFICATION_LOAN_SETTLE("notification.loan.settle"),
+    /**
+     * 募集失败，通知融资人
+     */
+    NOTIFICATION_LOAN_FAILED("notification.loan.failed"),
+    /**
+     * 还款提醒
+     */
+    NOTIFICATION_LOAN_REPAY_REMIND("notification.loan.repay.remind"),
+    /**
+     * 还款成功通知
+     */
+    NOTIFICATION_LOAN_REPAY_SUCCESS("notification.loan.repay.success"),
+    /**
+     * 还款逾期通知
+     */
+    NOTIFICATION_LOAN_REPAY_OVDERDUE("notification.loan.repay.overdue"),
     /**
      * 不使用短信模板
      */

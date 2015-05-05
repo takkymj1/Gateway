@@ -113,6 +113,8 @@ public enum Privilege implements BaseEnum {
     USER_FUND_RELEASE("用户资金解冻", Realm.FUND, "资金相关权限"),
     OFFLINE_DEPOSIT("线下充值补录", Realm.FUND, "资金相关权限"),
     OFFLINE_DEPOSIT_AUDIT("线下补录审核", Realm.FUND, "资金相关权限"),
+    CASH_RECON_RECORD("现金对账录入", Realm.FUND, "资金相关权限"),
+    CASH_RECON_APPROVE("现金对账审批", Realm.FUND, "资金相关权限"),
     /**
      * 合同相关权限
      */

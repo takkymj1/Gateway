@@ -3,31 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
- * @author rooseek
+ * 利率档位划分方式
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
  */
-public enum PurchaseStatus implements BaseEnum {
+public enum RateLevelType implements BaseEnum {
 
-    INITIALIZED("初始"),
-    APPOINTED("已预约"),
-    PAYED("已支付"),
-    SETTLED("已锁定"),
-    DUE("已到期"),
-    REDEEMED("已赎回");
+    AMOUNT("按照金额划分"),
+    DURATION("按照期限划分"),
+    
+    // NOTICE 暂不支持此种
+    BOTH("按照金额和期限划分");
 
-    private final String key;
-
-    private PurchaseStatus(String key) {
+    private final String key ;
+    
+    RateLevelType(String key) {
         this.key = key;
     }
-
+        
     @Override
     public String getKey() {
         return key;
     }
+
 }
