@@ -16,15 +16,6 @@ import javax.ejb.Remote;
 @Remote
 public interface WealthProductTradeService {
 
-    /**
-     * appoint certain share in wealth product
-     *
-     * @param productId
-     * @param amount
-     * @param userId
-     * @return
-     */
-    Subscribe appoint(String productId, int amount, String userId);
 
     /**
      * purchase wealth product
