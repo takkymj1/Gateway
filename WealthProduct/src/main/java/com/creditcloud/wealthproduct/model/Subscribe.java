@@ -3,6 +3,7 @@ package com.creditcloud.wealthproduct.model;
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.wealthproduct.enums.SubscribeStatus;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
@@ -40,5 +41,19 @@ public class Subscribe extends BaseObject {
     
     @NotNull
     private SubscribeStatus status;
+    
+    /**
+     * 预约时间
+     * 
+     * @return
+     */
+    protected Date timeAppointed;
+    
+    /**
+     * 打款时间
+     * 
+     * @return
+     */
+    protected Date timePaid;
 
 }
