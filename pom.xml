@@ -55,7 +55,8 @@
         <module>InvestmentFund</module>
         <module>ChinaPay</module>
         <module>LianLianPay</module>
-		<module>InterestBearing</module>
-  </modules>
+        <module>InterestBearing</module>
+        <module>UnionPay</module>
+    </modules>
 </project>
 
