@@ -98,9 +98,10 @@ public class SinglePayPostResult extends POJO {
     public boolean transFail() {
         boolean processOK = success();
         if (!processOK) {
+            // 处理不成功，一定是失败
             return true;
         }
-
+        // 处理成功了，也有可能失败，参考 stat
         // respCode=0000,但是 stat 不为s的情况也许存在真正的失败
         if (SinglePayStatCode.FAIL_6.isSameAs(getStat())) {
             //6	失败	银行已退单	银行退单，交易失败。
