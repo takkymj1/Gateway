@@ -65,7 +65,7 @@ public enum CmdIdType {
     SaveReconciliation(CmdIdGroup.Reconciliation),
     QueryReturnDzFee,
     /**
-     * 2014.1.17新加汇付3.0接口
+     * 2014.1.17新加汇付接口
      */
     CorpRegister,
     UsrTransfer,
@@ -92,7 +92,11 @@ public enum CmdIdType {
      */
     AddBidInfo,
     QueryUsrInfo,
-    QueryTransDetail;
+    QueryTransDetail,
+    /**
+     * 2015.01.23 批量还款
+     */
+    BatchRepayment;
     
     private final CmdIdGroup group;
 
