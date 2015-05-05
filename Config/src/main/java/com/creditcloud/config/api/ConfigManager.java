@@ -5,6 +5,7 @@
 package com.creditcloud.config.api;
 
 import com.creditcloud.config.AllWinConfig;
+import com.creditcloud.config.BaseConfig;
 import com.creditcloud.config.CacheConfig;
 import com.creditcloud.config.CertificateConfig;
 import com.creditcloud.config.ClientConfig;
@@ -21,12 +22,14 @@ import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
+import com.creditcloud.config.StockfinanceConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.fund.RemoteUserFundConfig;
 import com.creditcloud.config.insurance.InsuranceConfig;
 import com.creditcloud.config.wealthproduct.WealthProductConfig;
 import com.creditcloud.model.enums.loan.LoanRequestType;
+import java.util.Map;
 import javax.ejb.Remote;
 
 /**
@@ -45,6 +48,8 @@ public interface ConfigManager extends PaymentConfigManager{
     public UpYunConfig getUpYunConfig();
 
     public DeviceManagerConfig getDeviceManagerConfig();
+
+ 
 
     public CreditManagerConfig getCreditManagerConfig();
 
@@ -155,4 +160,58 @@ public interface ConfigManager extends PaymentConfigManager{
      */
     public RemoteUserFundConfig getRemoteUserFundConfig();
     
+    /**
+     * 股票配资配置
+     * 
+     * @return 
+     */
+    public StockfinanceConfig getStockfinanceConfig();
+    
+    /**
+     * 对股票配资的配置进行更新
+     * 
+     * @param map
+     * @return 
+     */
+    public StockfinanceConfig updateStockfinanceConfig(Map<String,String> map);
+    
+    /**
+     * 对配置进行更新
+     * 
+     * @param configClazz
+     * @param map
+     * @return 
+     */
+    public BaseConfig updateConfig(Class configClazz,Map<String,String> map);
+    
+    
+    /**
+     * 如market还未重新加载config，返回false
+     * @param configName
+     * @return 
+     */
+    public boolean marketHasNotReload(String configName);
+    
+    /**
+     * 如manager还未重新加载config，返回false
+     * @param configName
+     * @return 
+     */
+    public boolean managerHasNotReload(String configName);
+    
+    /**
+     * market重新加载配置文件，从待加载map中移除此项
+     * 
+     * @param configName
+     * @return 
+     */
+    public boolean marketReloadConfig(String configName);
+    
+    /**
+     * manager重新加载配置文件，从待加载map中移除此项
+     * 
+     * @param configName
+     * @return 
+     */
+    public boolean managerReloadConfig(String configName);
 }

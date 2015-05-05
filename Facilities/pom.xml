@@ -201,7 +201,7 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
- <!-- 
+   
         <dependency>
             <groupId>com.creditcloud.lianlianpay</groupId>
             <artifactId>LianLianPayService</artifactId>
@@ -214,15 +214,28 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency> 
-              
-     
+
         <dependency>
-            <groupId>com.creditcloud.yeep</groupId>
-            <artifactId>YeepService</artifactId>
+            <groupId>com.creditcloud.interestbearing</groupId>
+            <artifactId>InterestBearingService</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <type>ejb</type> 
-        </dependency>
---> 
+            <type>ejb</type>             
+        </dependency>        
+        <dependency>
+            <groupId>com.creditcloud.unionpay</groupId>
+            <artifactId>UnionPayService</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>             
+        </dependency>     
+                                    
+        <!--      
+                <dependency>
+                    <groupId>com.creditcloud.yeep</groupId>
+                    <artifactId>YeepService</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                    <type>ejb</type> 
+                </dependency>
+        -->
         <!-- add log4j and bridge here -->
         <dependency>
             <groupId>log4j</groupId>
@@ -356,11 +369,11 @@
                             <groupId>com.creditcloud.batch</groupId>
                             <artifactId>BatchService</artifactId>
                         </ejbModule>
-                         <ejbModule>
+                        <ejbModule>
                             <groupId>com.creditcloud.coupon</groupId>
                             <artifactId>CouponService</artifactId>
                         </ejbModule>
-                         <ejbModule>
+                        <ejbModule>
                             <groupId>com.creditcloud.chinapay</groupId>
                             <artifactId>ChinaPayService</artifactId>
                         </ejbModule>
@@ -372,7 +385,7 @@
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
                         </ejbModule>
-  <!--  
+  
                         <ejbModule>
                             <groupId>com.creditcloud.lianlianpay</groupId>
                             <artifactId>LianLianPayService</artifactId>
@@ -381,12 +394,22 @@
                             <groupId>com.creditcloud.order</groupId>
                             <artifactId>OrderService</artifactId>
                         </ejbModule> 
-                                                                                  
+                        
                         <ejbModule>
-                            <groupId>com.creditcloud.yeep</groupId>
-                            <artifactId>YeepService</artifactId>
-                        </ejbModule>
-  -->     
+                            <groupId>com.creditcloud.unionpay</groupId>
+                            <artifactId>UnionPayService</artifactId>
+                        </ejbModule>                       
+                        <ejbModule>
+                            <groupId>com.creditcloud.interestbearing</groupId>
+                            <artifactId>InterestBearingService</artifactId>
+                        </ejbModule>                         
+                        
+                        <!--                                                                                
+                                             <ejbModule>
+                                                 <groupId>com.creditcloud.yeep</groupId>
+                                                 <artifactId>YeepService</artifactId>
+                                             </ejbModule>
+                        -->     
                     </modules>
                 </configuration>
             </plugin>
