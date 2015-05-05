@@ -5,7 +5,6 @@
  */
 package com.creditcloud.chinapay.exception;
 
-import com.creditcloud.chinapay.enums.SinglePayStatCode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
