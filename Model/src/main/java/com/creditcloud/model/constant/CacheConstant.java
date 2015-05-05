@@ -175,4 +175,9 @@ public interface CacheConstant {
      * define cache key for task 
      */
     String KEY_PREFIX_TASK = "Quartz_%s" ;
+    
+    /**
+     * define ceche key for fund nav
+     */
+    String KEY_PREFIX_FUND_NAV = "FUND_NAV_%1$s_%2$s";
 }
