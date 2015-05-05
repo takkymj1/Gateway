@@ -16,14 +16,14 @@ import java.util.List;
 public enum CertificateType implements BaseEnum {
     //个人认证
     ID("身份认证"),//身份证,户口本,驾照,结婚证等个人身份信息
-    CREDITREPORT("信用报告"),//个人信用报告
+    CREDITREPORT("征信认证"),//个人信用报告
     FAMILY("家庭情况认证"),//家庭情况  可以上传家庭人员身份证明信息
     EDUCATION("学历认证"),//最高学历证明
     INCOME("收入认证"),
-    CAREER("企业认证"),//对于个人是工作认证，对于企业是企业认证
+    CAREER("工作认证"),//对于个人是工作认证，对于企业是企业认证
     REALESTATE("房产认证"),
     LOCATION("居住地认证"),
-    VEHICLE("购车认证"),
+    VEHICLE("车产认证"),
     LOANPURPOSE("借款用途认证"),//跟借款挂钩
     GUARANTEE("担保认证"),//跟借款挂钩
     FACTORING("保理认证"),//跟借款挂钩
