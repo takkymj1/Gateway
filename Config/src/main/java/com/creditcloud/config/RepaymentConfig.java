@@ -20,9 +20,9 @@ import java.math.BigDecimal;
  */
 @Data
 @NoArgsConstructor
-@XmlRootElement
+@XmlRootElement(name = "RepaymentConfig")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RepaymentConfig extends BaseConfig implements Serializable{
+public class RepaymentConfig extends BaseConfig{
 
 
     private static final long serialVersionUID = -7945339860855083328L;
