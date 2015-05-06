@@ -157,5 +157,5 @@ public interface FundTradingRecordService {
      * @param pageInfo
      * @return 
      */
-    public PagedResult<FundTradingRecord> listByUserIdAndCodeAndTypeAndStatusAndBrand(String userId,String fundCode, TradingRecordType type, TradingRecordStatus status, FundBrand fundBrand, PageInfo pageInfo);
+    public PagedResult<FundTradingRecord> listByUserIdCodeAndTypeAndStatusAndBrand(String userId,String fundCode, TradingRecordType type, TradingRecordStatus status, FundBrand fundBrand, PageInfo pageInfo);
 }
