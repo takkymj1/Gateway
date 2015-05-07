@@ -13,6 +13,11 @@ package com.creditcloud.wealthproduct;
 public interface WealthProductConstant {
 
     /**
+     * 标志长度
+     */
+    int MAX_KEY_LENGTH = 16;
+    
+    /**
      * 标题长度
      */
     int MAX_TITLE_LENGTH = 100;

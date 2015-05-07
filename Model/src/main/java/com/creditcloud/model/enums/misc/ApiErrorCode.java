@@ -107,7 +107,12 @@ public enum ApiErrorCode implements BaseEnum {
     INVESTMENT_FUND_STOCK_ACCOUNT_NOT_FOUND("用户未开通股票型基金账户"),
     INVESTMENT_FUND_STOCK_ACCOUNT_ALREADY_EXISTED("用户已经开通股票型基金账户"),
     
-    INVESTMENT_FUND_SERVICE_REQUEST_FAILED("基金服务请求错误");
+    INVESTMENT_FUND_SERVICE_REQUEST_FAILED("基金服务请求错误"),
+    
+    /*************************************************
+     * 理财产品
+     *************************************************/
+    WEALTHPRODUCT_NOT_FOUND("未找到理财产品");
     
     private final String key;
     
