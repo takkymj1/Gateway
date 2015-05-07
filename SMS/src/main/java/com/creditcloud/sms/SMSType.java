@@ -15,6 +15,10 @@ public enum SMSType {
      */
     CONFIRM_CREDITMARKET_REGISTER("confirm.creditmarket.register"),
     /**
+     * 提前还款提示
+     */
+    CONFIRM_CREDITMARKET_PRE_REPAYMENT("confirm.creditmarket.prerepayment"),
+    /**
      * CreditMarket用户账号绑定手机
      */
     CONFIRM_CREDITMARKET_AUTHENTICATE_MOBILE("confirm.creditmarket.authenticate.mobile"),
