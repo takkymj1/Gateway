@@ -7,6 +7,7 @@
 package com.creditcloud.lending.api;
 
 import com.creditcloud.model.enums.loan.PreRepaymentStatus;
+import com.creditcloud.model.loan.Loan;
 import com.creditcloud.model.loan.LoanPreRepaymentStatus;
 import javax.ejb.Remote;
 
@@ -50,4 +51,6 @@ public interface LoanPreRepayStatusService {
      * @return 
      */
     public boolean markStatusAndTimePreRepayed(PreRepaymentStatus status, String id);
+
+    LoanPreRepaymentStatus addNew(LoanPreRepaymentStatus loanPreRepaymentStatus);
 }

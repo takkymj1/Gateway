@@ -62,4 +62,5 @@ public interface LoanRepayService extends LoanRepayQueryService, LoanRepayStatSe
 
     public com.creditcloud.model.loan.LoanRepayment getLastByLoanAndStatus(String loanId, RepaymentStatus status);
 
+    int countOverdDueByLoanAndStatus(String loanId);
 }

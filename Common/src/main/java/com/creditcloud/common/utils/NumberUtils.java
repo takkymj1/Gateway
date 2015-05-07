@@ -198,7 +198,7 @@ public class NumberUtils {
         //月利率
         BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), mc);
         //提前还款日与上一个还款日dueDate之间的天数
-        int interestCalculateTotalDays = Days.daysBetween(lastDueDate, LocalDate.now()).getDays();
+        int interestCalculateTotalDays = Days.daysBetween(lastDueDate, preRepayedDate).getDays();
         interestCalculateTotalDays = interestCalculateTotalDays < 0 ? 0 : interestCalculateTotalDays;
         //提前还款当期应计利息
         return unpayedPrincipal.multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), mc)).multiply(monthRate).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
