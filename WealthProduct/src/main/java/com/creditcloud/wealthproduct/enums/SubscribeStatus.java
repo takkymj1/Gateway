@@ -17,7 +17,7 @@ public enum SubscribeStatus implements BaseEnum {
 
     INITIALIZED("初始"),
     APPOINTED("已预约"),
-    PAYED("已支付"),
+    PAID("已支付"),
     SETTLED("已锁定"),
     DUE("已到期"),
     REDEEMED("已赎回");
