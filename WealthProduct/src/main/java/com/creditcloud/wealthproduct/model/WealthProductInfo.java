@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 public class WealthProductInfo extends BaseObject {
 
     /**
-     * 担保实体，可以为用户个人、商户、企业
+     * 担保实体信息
      * 
      * @return
      */
