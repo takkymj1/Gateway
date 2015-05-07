@@ -47,7 +47,7 @@ public class WealthProductRate extends BaseObject implements WealthProductConsta
      * 
      * @return
      */
-    private WealthProduct product;
+    private WealthProductFixed product;
     
     /**
      * 档位

@@ -6,10 +6,35 @@
 
 package com.creditcloud.wealthproduct.model;
 
+import com.creditcloud.model.BaseObject;
+import java.math.BigDecimal;
+import java.util.Date;
+import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 /**
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
-public class WealthProductFloat {
+@Data
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+public class WealthProductFloat extends BaseObject {
 
+    private String productId;
+
+    private WealthProduct product;
+    
+    private String description;
+    
+    @NotNull
+    private BigDecimal nav;
+    
+    @NotNull
+    private Date navDate;
+    
+    private BigDecimal totalNav;
+    
 }

@@ -8,6 +8,7 @@ package com.creditcloud.wealthproduct.api;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
+import com.creditcloud.wealthproduct.model.WealthProductFloat;
 import com.creditcloud.wealthproduct.model.WealthProductRate;
 import java.util.List;
 import javax.ejb.Remote;
@@ -43,6 +44,22 @@ public interface WealthProductService extends WealthProductQueryService {
      */
     public WealthProduct getById(String productId);
 
+    /**
+     * 获取固定收益类产品
+     * 
+     * @param productId
+     * @return 
+     */
+    public WealthProductFixed getFixedById(String productId);
+    
+    /**
+     * 获取浮动收益类产品
+     * 
+     * @param productId
+     * @return 
+     */
+    public WealthProductFloat getFloatById(String productId);
+    
     /**
      *
      * @param productId
