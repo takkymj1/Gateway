@@ -33,6 +33,11 @@ public enum FundRecordType implements BaseEnum {
     COUPON_INTEREST("加息券"),
     COUPON_PRINCIPAL("增值券"),
     COUPON_REBATE("返现券"),
+    
+    /**
+     * 余额生息
+     */
+    INTEREST_BEARING_INCOME("余额生息收益"),
     /**
      * 服务管理手续费
      */
