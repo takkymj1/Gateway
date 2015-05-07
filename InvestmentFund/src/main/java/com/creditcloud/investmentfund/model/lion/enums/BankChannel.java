@@ -17,7 +17,7 @@ public enum BankChannel implements BaseEnum {
 
     ICBC("工商银行", "001002"),
     ABC("农业银行", "001003"),
-    CCB("建设银行", "003005"),
+    CCB("建设银行", "001005"),
     CITIC("中信银行", "001008"),
     CEB("光大银行", "001012"),
     CIB("兴业银行", "001011"),
@@ -30,7 +30,7 @@ public enum BankChannel implements BaseEnum {
     CMB("招商银行", "002007"),
     CMBC("民生银行", "002014");
     
-    
+
             
     private final String key;
     
