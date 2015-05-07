@@ -209,6 +209,13 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private boolean enable;
     
     /**
+     * 是否投资
+     * 
+     * @return
+     */
+    private WealthProductInvestRule investRule;
+    
+    /**
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
      */
 //    private boolean generateRepayment;

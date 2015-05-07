@@ -62,7 +62,7 @@ public interface WealthProductQueryService {
      * @param pageInfo
      * @return 
      */
-    public PagedResult<WealthProduct> listFixedBySearch(String categoryKey, int minRate, int maxRate, List<ProductStatus> statusList, PageInfo pageInfo);
+    public PagedResult<WealthProductFixed> listFixedBySearch(String categoryKey, int minRate, int maxRate, List<ProductStatus> statusList, PageInfo pageInfo);
     
     /**
      *
