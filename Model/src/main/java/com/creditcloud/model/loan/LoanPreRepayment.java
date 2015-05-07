@@ -7,6 +7,7 @@
 package com.creditcloud.model.loan;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
@@ -29,13 +30,13 @@ public class LoanPreRepayment extends BaseObject {
     private int currentPeriod;
     
     //当期应计利息
-    private BigDecimal currentPeriodInterest;
+    private BigDecimal currentPeriodInterest = BigDecimal.ZERO;
     
     //提前还款罚息
-    private BigDecimal amountPenaltyInterest;
+    private BigDecimal amountPenaltyInterest = BigDecimal.ZERO;
     
     //应还的剩余所有本金
-    private BigDecimal amountUnpayedPrincipal;
+    private BigDecimal amountUnpayedPrincipal = BigDecimal.ZERO;
     
     public LoanPreRepayment (String loanId,
                              int currentPeriod,
@@ -44,9 +45,25 @@ public class LoanPreRepayment extends BaseObject {
                              BigDecimal amountUnpayedPrincipal) {
         this.loanId = loanId;
         this.currentPeriod = currentPeriod;
-        this.currentPeriodInterest = currentPeriodInterest;
-        this.amountPenaltyInterest = amountPenaltyInterest;
-        this.amountUnpayedPrincipal = amountUnpayedPrincipal;
+        if (currentPeriodInterest != null) {
+            this.currentPeriodInterest = currentPeriodInterest;            
+        }
+        if (amountPenaltyInterest != null) {
+            this.amountPenaltyInterest = amountPenaltyInterest;
+        }
+        if (amountUnpayedPrincipal != null) {
+            this.amountUnpayedPrincipal = amountUnpayedPrincipal;    
+        }
     }
     
+    public BigDecimal getTotalAmount() {
+        if (amountUnpayedPrincipal == null) {
+            amountUnpayedPrincipal = BigDecimal.ZERO;
+        } else if (currentPeriodInterest == null) {
+            currentPeriodInterest = BigDecimal.ZERO;
+        } else if (amountPenaltyInterest == null) {
+            amountPenaltyInterest = BigDecimal.ZERO;
+        }
+        return amountUnpayedPrincipal.add(currentPeriodInterest).add(amountPenaltyInterest).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+    }
 }

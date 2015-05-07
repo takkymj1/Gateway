@@ -15,10 +15,6 @@ public enum SMSType {
      */
     CONFIRM_CREDITMARKET_REGISTER("confirm.creditmarket.register"),
     /**
-     * 提前还款提示
-     */
-    CONFIRM_CREDITMARKET_PRE_REPAYMENT("confirm.creditmarket.prerepayment"),
-    /**
      * CreditMarket用户账号绑定手机
      */
     CONFIRM_CREDITMARKET_AUTHENTICATE_MOBILE("confirm.creditmarket.authenticate.mobile"),
@@ -81,6 +77,12 @@ public enum SMSType {
      * InvestRepayment.repayAmount, client.name, client.helpPhone
      */
     NOTIFICATION_LOAN_REPAY("notification.loan.repay"),
+    /**
+     * 提前还款给投资人发送的短信
+     * 
+     * 参数：loan.title, InvestRepayment.repayAmount
+     */
+    NOTIFICATION_LOAN_PRE_REPAYMENT("notification.loan.prerepayment"),
     /**
      * Loan还清时发送给investor的提示信息.
      *
