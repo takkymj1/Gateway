@@ -27,8 +27,6 @@ public class WealthProductFloat extends BaseObject {
 
     private WealthProduct product;
     
-    private String description;
-    
     @NotNull
     private BigDecimal nav;
     

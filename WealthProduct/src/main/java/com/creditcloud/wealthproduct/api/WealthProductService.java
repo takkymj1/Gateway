@@ -76,9 +76,18 @@ public interface WealthProductService extends WealthProductQueryService {
      * 3. 暂时只支持按照金额或者期限划分
      * 
      * @param productId 产品ID
-     * @param rates
+     * @param rates     产品利率
      * @return 
      */
     public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
+    
+    /**
+     * 修改产品展示序号
+     * 
+     * @param productId 产品ID
+     * @param ordinal   产品序号
+     * @return 
+     */
+    public boolean changeOrdinal(String productId, Integer ordinal);
     
 }

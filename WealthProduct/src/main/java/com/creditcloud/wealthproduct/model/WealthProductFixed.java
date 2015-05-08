@@ -7,7 +7,9 @@
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.wealthproduct.WealthProductConstant;
 import com.creditcloud.wealthproduct.enums.RateLevelType;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
 import javax.validation.constraints.NotNull;
@@ -25,7 +27,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class WealthProductFixed extends BaseObject {
+public class WealthProductFixed extends BaseObject implements WealthProductConstant {
 
     /**
      * 产品ID
@@ -66,4 +68,23 @@ public class WealthProductFixed extends BaseObject {
     @NotNull
     private RateLevelType rateLevelType;
     
+    /**
+     * 产品最小利率
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = RATE_INCREMENT,
+                        max = MAX_RATE)
+    private Integer minRate;
+    
+    /**
+     * 产品最大利率
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_RATE,
+                        increment = RATE_INCREMENT,
+                        max = MAX_RATE)
+    private Integer maxRate;
 }
