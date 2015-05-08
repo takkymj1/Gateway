@@ -25,8 +25,14 @@ public class Subscribe extends BaseObject {
 
     private static final long serialVersionUID = 20140924L;
 
+    /**
+     * ID
+     */
     private String id;
 
+    /**
+     * 
+     */
     @NotNull
     private String productId;
 
@@ -41,6 +47,16 @@ public class Subscribe extends BaseObject {
     
     @NotNull
     private SubscribeStatus status;
+    
+    /**
+     * 备注
+     */
+    private String remark;
+    
+    /**
+     * 额外信息
+     */
+    private String priv;
     
     /**
      * 预约时间

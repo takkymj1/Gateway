@@ -7,6 +7,7 @@ package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductCategory;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import com.creditcloud.wealthproduct.model.WealthProductFloat;
 import com.creditcloud.wealthproduct.model.WealthProductRate;
@@ -76,9 +77,61 @@ public interface WealthProductService extends WealthProductQueryService {
      * 3. 暂时只支持按照金额或者期限划分
      * 
      * @param productId 产品ID
-     * @param rates
+     * @param rates     产品利率
      * @return 
      */
     public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
     
+    /**
+     * 修改产品展示序号
+     * 
+     * @param productId 产品ID
+     * @param ordinal   产品序号
+     * @return 
+     */
+    public boolean changeOrdinal(String productId, Integer ordinal);
+    
+    /**
+     * 创建产品归类（如信托、私募债等）
+     * 
+     * @param category 
+     * @return 
+     */
+    public WealthProductCategory createCategory(WealthProductCategory category);
+    
+    /**
+     * 创建产品归类（如信托、私募债等）
+     * 
+     * @param category  
+     * @return 
+     */
+    public WealthProductCategory updateCategory(WealthProductCategory category);
+    
+    
+    /**
+     * 收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏数
+     * 
+     * @param productId     产品ID
+     * @return 当前产品的收藏数
+     */
+    public int favoriteCountByProduct(String productId);
+
 }

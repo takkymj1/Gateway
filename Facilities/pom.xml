@@ -232,7 +232,7 @@
             <artifactId>WealthProductService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
-        </dependency>    
+        </dependency> 
         <dependency>
             <groupId>com.creditcloud.appoint</groupId>
             <artifactId>AppointService</artifactId>
@@ -422,12 +422,6 @@
                             <groupId>com.creditcloud.appoint</groupId>
                             <artifactId>AppointService</artifactId>
                         </ejbModule>
-                        <!--                                                                                
-                                             <ejbModule>
-                                                 <groupId>com.creditcloud.yeep</groupId>
-                                                 <artifactId>YeepService</artifactId>
-                                             </ejbModule>
-                        -->     
                     </modules>
                 </configuration>
             </plugin>

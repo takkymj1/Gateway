@@ -7,14 +7,16 @@
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import java.util.Date;
+import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_DESCRIPTION_LENGTH;
+import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_KEY_LENGTH;
+import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_TITLE_LENGTH;
+import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 产品周期
  * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
@@ -22,40 +24,36 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class WealthProductSchedule extends BaseObject {
-    
-    private static final long serialVersionUID = 20150428L;
-    
-    /**
-     * 认购开始时间
-     */
-    private Date timeSubscribeStart;
-    
-    /**
-     * 认购结束时间 (预约结束时间)
-     * 
-     * @return
-     */
-    private Date timeSubscribeEnd;
+public class WealthProductCategory extends BaseObject {
 
     /**
-     * 成立时间
-     * 
+     * ID
      * @return
      */
-    private Date timeEstablish;
+    public String id;
     
     /**
-     * 兑付时间
+     * 类别名称
      * 
      * @return
      */
-    private Date timePayment;
+    @Size(max=MAX_TITLE_LENGTH)
+    private String title;
     
     /**
-     * 结束时间
+     * 英文缩写
      * 
      * @return
      */
-    private Date timeCleared;
+    @Size(max=MAX_KEY_LENGTH)
+    private String key;
+    
+    /**
+     * 类别描述
+     * 
+     * @return
+     */
+    @Size(max=MAX_DESCRIPTION_LENGTH)
+    private String description;
+    
 }

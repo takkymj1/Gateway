@@ -13,6 +13,11 @@ package com.creditcloud.wealthproduct;
 public interface WealthProductConstant {
 
     /**
+     * 标志长度
+     */
+    int MAX_KEY_LENGTH = 16;
+    
+    /**
      * 标题长度
      */
     int MAX_TITLE_LENGTH = 100;
@@ -30,7 +35,7 @@ public interface WealthProductConstant {
     /**
      * 最小募集金额
      */
-    int MIN_RAISE_AMOUNT = 0;
+    int MIN_RAISE_AMOUNT = 1;
     
     /**
      * 最大募集金额 10亿
@@ -55,12 +60,12 @@ public interface WealthProductConstant {
     /**
      * 最低年化利率 3%
      */
-    int MIN_RATE = 30000;
+    int MIN_RATE = 300;
     
     /**
      * 最高贷款利率
      */
-    int MAX_RATE = 240000;
+    int MAX_RATE = 2400;
     
     /**
      * 利率步长
@@ -101,4 +106,26 @@ public interface WealthProductConstant {
      * 贷款最长期限，单位月
      */
     int MAX_DURATION = 48;
+    
+    /**
+     * 单笔投资最小金额
+     */
+    int MIN_INVEST_AMOUNT = 1;
+    
+    /**
+     * 单笔投资最大金额
+     */
+    int MAX_INVEST_AMOUNT = MAX_RAISE_AMOUNT;
+    
+    /**
+     * 最大投资次数
+     */
+    int MAX_INVEST_TIMES = 10000;
+    
+    /**
+     * 单笔投资递增
+     */
+    int INVEST_INCREMENT = 1;
+    
+    
 }

@@ -132,22 +132,6 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private WealthProductSchedule schedule;
 
     /**
-     * 投资策略、投资目标、投资范围
-     * 
-     * @return
-     */
-    @Size(max = MAX_DESCRIPTION_LENGTH)
-    private String strategy;
-    
-    /**
-     * 描述
-     * 
-     * @return
-     */
-    @Size(max = MAX_DESCRIPTION_LENGTH)
-    private String description;
-    
-    /**
      * 创建人
      * 
      * @return
@@ -180,12 +164,63 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private Integer transferTimeOut;
     
     /**
-     * 是否是线下的产品
+     * 成立日后多长时间后开始计息 单位：天
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_TIME_OUT,
+                        increment = TIME_OUT_INCREMENT,
+                        max = MAX_TIME_OUT,
+                        groups = Default.class)
+    private Integer establishTimeOut;
+    
+    /**
+     * 是否只能认购
      * 
      * @return
      */
     @NotNull
     private boolean subscribeOnly;
+    
+    /**
+     * 归属类别
+     * 
+     * @return
+     */
+    private String categoryKey;
+    
+    /**
+     * 展示序号 （首页热门）
+     * 
+     * @return
+     */
+    private Integer ordinal;
+    
+    /**
+     * 是否激活（显示是在前端）
+     * 
+     * @return
+     */
+    private boolean enable;
+    
+    /**
+     * 是否按照排期 or 可能提前到期
+     * 
+     * @return
+     */
+    private boolean scheduleOnly;
+    
+    /**
+     * 是否投资
+     * 
+     * @return
+     */
+    private WealthProductInvestRule investRule;
+    
+    /**
+     * 相关信息
+     */
+    private WealthProductInfo info; 
     
     /**
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
