@@ -16,7 +16,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum SubscribeStatus implements BaseEnum {
 
     INITIALIZED("初始"),
-    APPOINTED("已预约"),
+    SUBSCRIBED("已认购"),
     PAID("已支付"),
     SETTLED("已锁定"),
     DUE("已到期"),
