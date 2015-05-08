@@ -17,7 +17,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 @Data
 public class PlatformMetadata {
     
-    private String guid;
+    private String tenantId;
     private String name;
     private String description;
     private String url;

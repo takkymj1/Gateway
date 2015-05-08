@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.creditcloud.interestbearing.ta.message.product;
+package com.creditcloud.interestbearing.ta.message.asset;
 
-import com.creditcloud.interestbearing.ta.message.RequestMessage;
+import com.creditcloud.interestbearing.ta.message.ResponseMessage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,9 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ProductPlatformQueryAllFundsRequestMessage extends RequestMessage {
+public class UserRedeemResponseMessage extends ResponseMessage {
 
-    private String tenantId;
-    private int page = -1;
-    private int pageSize = 20;
+    private boolean result;
 }

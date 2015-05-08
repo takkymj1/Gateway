@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
@@ -33,4 +35,10 @@ public class UserRegistrationInfo {
     // 注册后查询时会返回的信息
     // 余额生息签约记录ID
     private String recordId;
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this,
+                                                  ToStringStyle.SHORT_PREFIX_STYLE, false, false);
+    }
 }

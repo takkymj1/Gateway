@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 用户余额生息资金变动
@@ -56,4 +58,9 @@ public class InterestBearingUserFundChange {
         return changeAmount.abs();
     }
 
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this,
+                                                  ToStringStyle.SHORT_PREFIX_STYLE, false, false);
+    }
 }
