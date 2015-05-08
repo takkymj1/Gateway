@@ -69,7 +69,12 @@ public enum FundRecordType implements BaseEnum {
      */
     INSURANCE_PREMIUM("保费"),
     INSURANCE_APPEND_PREMIUM("保费追加"),
-    INSURANCE_REFUND("退保");
+    INSURANCE_REFUND("退保"),
+    
+    /**
+     * 股票配资
+     */
+    STOCK_PROFIT("提取盈利");
     
     private final String key;
 
