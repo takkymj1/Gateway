@@ -13,7 +13,8 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum EventType implements BaseEnum {
     REGISTER("注册账户"),
-    LOTTERY("抽奖");
+    LOTTERY("抽奖"),
+    INCLUSIVE("普惠计划");//即每人一份
 
     private final String key;
 

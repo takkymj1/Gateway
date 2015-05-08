@@ -10,7 +10,9 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  *
- * @author sobranie
+ * 七家支持快捷的银行每日充值限额和单笔充值限额
+ * 
+ * @author xiongyong
  */
 public enum BankQuota implements BaseEnum {
     
@@ -21,7 +23,7 @@ public enum BankQuota implements BaseEnum {
     BOC("中国银行", 10000, 10000),
     CEB("光大银行", 500000, 500000),
     CIB("兴业银行", 500000, 500000),
-    SDB("深发银行", 500000, 500000);
+    SDB("深圳发展银行", 500000, 500000);
     
     private final String key;
     private final Integer singleQuota;

@@ -20,9 +20,11 @@ public class CouponRecord extends BaseObject {
     private String id;
     private String userId;//用户ID
     private String eventId;//获取奖券的活动ID
+    private FundEvent event;
     private String couponId;
-    private String couponName;
     private CouponType couponType;//券类型
+    private String couponTypeDisplay;//奖券类型前端显示名称
+    private String couponName;
     private BigDecimal amount;//金额
     private String limitType;//奖券使用限制方式
     private BigDecimal amountLimit;
@@ -37,14 +39,17 @@ public class CouponRecord extends BaseObject {
     private Date timeCreated;
     private Date timeLastUpdated;
     private Date useTime;//已使用--->使用时间
-    private FundEvent event;
+    private int exchangePriority;//兑换优先级
+    private BigDecimal exchangedAmount;//已兑换金额
 
     public CouponRecord(String id,
                         String userId,
                         String eventId,
+                        FundEvent event,
                         String couponId,
                         String couponName,
                         CouponType couponType,
+                        String couponTypeDisplay,
                         BigDecimal amount,
                         String limitType,
                         BigDecimal amountLimit,
@@ -57,13 +62,17 @@ public class CouponRecord extends BaseObject {
                         Source source,
                         CouponStatus status,
                         Date timeCreated,
-                        Date timeLastUpdated) {
+                        Date timeLastUpdated,
+                        int exchangePriority,
+                        BigDecimal exchangedAmount) {
         this.id = id;
         this.userId = userId;
         this.eventId = eventId;
+        this.event = event;
         this.couponId = couponId;
         this.couponName = couponName;
         this.couponType = couponType;
+        this.couponTypeDisplay = couponTypeDisplay;
         this.amount = amount;
         this.limitType = limitType;
         this.amountLimit = amountLimit;
@@ -77,5 +86,7 @@ public class CouponRecord extends BaseObject {
         this.status = status;
         this.timeCreated = timeCreated;
         this.timeLastUpdated = timeLastUpdated;
+        this.exchangePriority = exchangePriority;
+        this.exchangedAmount = exchangedAmount;
     }
 }

@@ -39,6 +39,10 @@ public enum SMSType {
      */
     CREDITMARKET_RESET_PASSWORD("creditmarket.reset.password"),
      /**
+     * CreditMarket中用户重设密码时短信确认码
+     */
+    CONFIRM_CREDITMARKET_RESET_PASSWORD("confirm.creditmarket.reset.password"),
+     /**
      * CreditMarket中仅发送验证码
      */
     CREDITMARKET_CAPTCHA("creditmarket.captcha"),

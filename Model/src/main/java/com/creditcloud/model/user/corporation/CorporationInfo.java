@@ -113,6 +113,11 @@ public class CorporationInfo extends BaseObject {
      * 借款企业名称
      */
     private String loanRequestCorporationName;
+    
+    /**
+     * 担保机构名称
+     */
+    private String guaranteeCorporationName;
 
     public CorporationInfo(String userId,
                            String url,

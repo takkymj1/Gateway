@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.Source;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.creditcloud.model.enums.misc.Bank;
 
 import java.math.BigDecimal;
 
@@ -76,9 +77,19 @@ public class RechargeRecord extends BaseObject {
      * 平台
      */
     private PlatformSource platformSource;
+    
+    /**
+     * 银行
+     */
+    private Bank bank;
+    
+    /**
+     * 银行卡号
+     */
+    private String account;
 
 
-    public RechargeRecord(String id, String userId, String fundRecordId, BigDecimal amount, Source source, BigDecimal ratio, RechargeType rechargeFrom, RechargeType rechargeTo, RechargeChannel rechargeChannel, PlatformSource platformSource, RechargeStatus rechargeStatus) {
+    public RechargeRecord(String id, String userId, String fundRecordId, BigDecimal amount, Source source, BigDecimal ratio, RechargeType rechargeFrom, RechargeType rechargeTo, RechargeChannel rechargeChannel, PlatformSource platformSource, RechargeStatus rechargeStatus, Bank bank, String account) {
         this.id = id;
         this.userId = userId;
         this.fundRecordId = fundRecordId;
@@ -90,5 +101,7 @@ public class RechargeRecord extends BaseObject {
         this.rechargeChannel = rechargeChannel;
         this.platformSource = platformSource;
         this.rechargeStatus = rechargeStatus;
+        this.bank = bank;
+        this.account = account;
     }
 }

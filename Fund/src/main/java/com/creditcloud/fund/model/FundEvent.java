@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @XmlRootElement
 public class FundEvent extends BaseObject {
 
-    public static final String EVENT_IN_ACTIVE = "OK";
+    public static final String CHECK_EVENT_IN_ACTIVE = "OK";
 
     private String id;
 
