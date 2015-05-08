@@ -19,6 +19,7 @@ public enum FundRecordType implements BaseEnum {
     LOAN_REPAY("贷款还款"),
     DISBURSE("垫付还款"),
     INVEST_REPAY("投资还款"),
+    INVEST_PRE_REPAY("提前还款"),
     CREDIT_ASSIGN("债权转让"),
     TRANSFER("转账扣款"),//商户用
     /**
