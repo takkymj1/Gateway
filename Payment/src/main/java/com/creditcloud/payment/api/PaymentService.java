@@ -710,7 +710,7 @@ public interface PaymentService {
                                   String feeAcctId);
 
     /**
-     * 前台用户之间转账接口，必须是企业用户和个人用户之间，TODO测试用
+     * 前台用户之间转账接口，必须是企业用户和个人用户之间
      *
      * @param clientCode
      * @param outUserId
