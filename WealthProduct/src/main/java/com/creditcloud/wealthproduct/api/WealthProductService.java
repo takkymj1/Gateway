@@ -107,4 +107,31 @@ public interface WealthProductService extends WealthProductQueryService {
      */
     public WealthProductCategory updateCategory(WealthProductCategory category);
     
+    
+    /**
+     * 收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int markFavorite(String productId, String userId);
+
+    /**
+     * 取消收藏产品
+     * 
+     * @param productId     产品ID
+     * @param userId        用户ID
+     * @return 当前产品的收藏数
+     */
+    public int unmarkFavorite(String productId, String userId);
+
+    /**
+     * 产品被收藏数
+     * 
+     * @param productId     产品ID
+     * @return 当前产品的收藏数
+     */
+    public int favoriteCountByProduct(String productId);
+
 }

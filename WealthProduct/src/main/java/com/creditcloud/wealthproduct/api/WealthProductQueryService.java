@@ -74,4 +74,12 @@ public interface WealthProductQueryService {
      */
     public PagedResult<WealthProductCategory> listCategory(CriteriaInfo info);
     
+    /**
+     * 获取用户收藏的产品
+     * 
+     * @param userId        用户ID
+     * @param pageInfo      分页信息
+     * @return 产品ID列表
+     */
+    public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
 }
