@@ -95,4 +95,20 @@ public class WealthProductInfo extends BaseObject {
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
     private String description;
+    
+    /**
+     * 备注
+     * 
+     * @return
+     */
+    @Size(max = MAX_DESCRIPTION_LENGTH)
+    private String remark;
+    
+    /**
+     * 额外附加
+     * 
+     * @return
+     */
+    @Size(max = MAX_DESCRIPTION_LENGTH)
+    protected String priv;
 }

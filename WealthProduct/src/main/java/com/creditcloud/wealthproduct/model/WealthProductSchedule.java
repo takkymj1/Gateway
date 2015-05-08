@@ -43,7 +43,7 @@ public class WealthProductSchedule extends BaseObject {
      * 
      * @return
      */
-    private Date timeSettled;
+    private Date timeEstablish;
     
     /**
      * 兑付时间
