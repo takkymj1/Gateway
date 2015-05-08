@@ -8,10 +8,12 @@ package com.creditcloud.interestbearing.api;
 import com.creditcloud.interestbearing.model.UserRegistrationInfo;
 
 /**
+ * 余额生息用户签约登记接口<br>
+ * 供 CreditMarket 使用
  *
  * @author guohuazhang
  */
-public interface InterestBearingRegistrationService {
+public interface InterestBearingUserRegistrationService {
 
     /**
      * 登记一个新用户
