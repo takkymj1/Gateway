@@ -127,10 +127,12 @@ public interface EnciInsuranceService extends EnciInsuranceStatService{
     
     /**
      * 修改保险订单的状态为指定状态
+     * 
+     * markStatus不能及时更新缓存中的数据
+     * 
      * @param clientCode
      * @param orderId
      * @param status
-     * @return 
      */
     public void editStatus(String clientCode, String orderId, InsuranceOrderStatus status);
     
