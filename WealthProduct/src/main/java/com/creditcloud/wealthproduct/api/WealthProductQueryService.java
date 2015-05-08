@@ -5,11 +5,13 @@
  */
 package com.creditcloud.wealthproduct.api;
 
+import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.wealthproduct.enums.IncomeType;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductCategory;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import java.util.List;
 
@@ -65,15 +67,11 @@ public interface WealthProductQueryService {
     public PagedResult<WealthProductFixed> listFixedBySearch(String categoryKey, int minRate, int maxRate, List<ProductStatus> statusList, PageInfo pageInfo);
     
     /**
-     *
-     * @param clientCode
-     * @param productId
-     * @param statusList
-     * @param pageInfo
-     * @return
+     * 理财产品类别列表
+     * 
+     * @param info  检索信息
+     * @return 
      */
-//    public PagedResult<Purchase> listPurchaseByProduct(String clientCode,
-//                                                       String productId,
-//                                                       List<TradingType> statusList,
-//                                                       PageInfo pageInfo);
+    public PagedResult<WealthProductCategory> listCategory(CriteriaInfo info);
+    
 }

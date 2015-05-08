@@ -7,6 +7,7 @@ package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
+import com.creditcloud.wealthproduct.model.WealthProductCategory;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import com.creditcloud.wealthproduct.model.WealthProductFloat;
 import com.creditcloud.wealthproduct.model.WealthProductRate;
@@ -89,5 +90,21 @@ public interface WealthProductService extends WealthProductQueryService {
      * @return 
      */
     public boolean changeOrdinal(String productId, Integer ordinal);
+    
+    /**
+     * 创建产品归类（如信托、私募债等）
+     * 
+     * @param category 
+     * @return 
+     */
+    public WealthProductCategory createCategory(WealthProductCategory category);
+    
+    /**
+     * 创建产品归类（如信托、私募债等）
+     * 
+     * @param category  
+     * @return 
+     */
+    public WealthProductCategory updateCategory(WealthProductCategory category);
     
 }
