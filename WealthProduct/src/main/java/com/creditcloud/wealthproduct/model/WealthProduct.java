@@ -183,7 +183,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private boolean subscribeOnly;
     
     /**
-     * 归属类别
+     * 归属类别 (WealthProductCategory->key)
      * 
      * @return
      */
