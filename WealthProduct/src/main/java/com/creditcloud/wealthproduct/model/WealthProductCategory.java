@@ -46,7 +46,7 @@ public class WealthProductCategory extends BaseObject {
      * @return
      */
     @Size(max=MAX_KEY_LENGTH)
-    private String key;
+    private String category;
     
     /**
      * 类别描述
