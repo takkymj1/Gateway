@@ -437,6 +437,17 @@ public interface FundRecordService {
      * @return
      */
     boolean checkInvestRepay(String clientCode, String userId, String investId, int period);
+    
+    /**
+     * 查看投标的第几期还款是否已经提前还清
+     *
+     * @param clientCode
+     * @param userId
+     * @param investId
+     * @param period
+     * @return
+     */
+    boolean checkInvestPreRepay(String clientCode, String userId, String investId, int period);
 
     /**
      * 结标成功生成对应的record
@@ -585,6 +596,7 @@ public interface FundRecordService {
      * @param feeDetails
      * @param orderId
      * @param period
+     * @param isPreRepay
      */
     void repayInvestRecord2Ump(String clientCode,
                                String investUserId,
@@ -594,7 +606,8 @@ public interface FundRecordService {
                                String loanId,
                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                String orderId,
-                               int period);
+                               int period,
+                               boolean isPreRepay);
 
     /**
      * 联动支付, 还款成功生成对应的record,并可以指定资金进入的商户子账户<p>
@@ -611,6 +624,7 @@ public interface FundRecordService {
      * @param feeDetails
      * @param orderId
      * @param period
+     * @param isPreRepay
      */
     void repayInvestRecord2Ump(String clientCode,
                                String investUserId,
@@ -620,7 +634,8 @@ public interface FundRecordService {
                                String loanId,
                                Map<FundRecordType, ImmutablePair<String, BigDecimal>> feeDetails,
                                String orderId,
-                               int period);
+                               int period,
+                               boolean isPreRepay);
 
     /**
      * 垫付成功生成对应的record
