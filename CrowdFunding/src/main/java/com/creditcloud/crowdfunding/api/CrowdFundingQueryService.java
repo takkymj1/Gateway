@@ -415,7 +415,7 @@ public interface CrowdFundingQueryService {
                                                                     PageInfo pageInfo);
     
      /**
-     * 根据众筹分类id集合查询包含oridinal下标的众筹项目，
+     * 根据众筹分类id集合查询包含ordinal下标的众筹项目，
      * @param clientCode
      * @param productIdList
      * @param size
