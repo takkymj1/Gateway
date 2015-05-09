@@ -415,13 +415,13 @@ public interface CrowdFundingQueryService {
                                                                     PageInfo pageInfo);
     
      /**
-     * 根据众筹分类id集合查询包含ordinal下标的众筹项目，
+     * 根据众筹分类id集合查询包含ordinal下标的众筹项目。
      * @param clientCode
-     * @param productIdList
-     * @param size
+     * @param productIdList  众筹分类id集合
+     * @param size 查询结果条数
      * @return 
      */
-    public PagedResult<FundingProject> listByProductIds(String clientCode,
+    public PagedResult<FundingProject> listByProduct(String clientCode,
                                                         List<String> productIdList,
                                                         int  size
                                                         );
