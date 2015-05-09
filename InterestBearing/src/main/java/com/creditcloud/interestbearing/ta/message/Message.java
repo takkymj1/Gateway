@@ -22,7 +22,7 @@ public class Message implements Serializable {
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this,
-                                                  ToStringStyle.SHORT_PREFIX_STYLE, false, false);
+                ToStringStyle.SHORT_PREFIX_STYLE, false, false);
     }
 
     public String toJSON() {
@@ -36,6 +36,18 @@ public class Message implements Serializable {
             log.error("将当前对象{}转换为JSON文本遇到异常", this, ex);
             return "{}";
         }
+    }
 
+    public static String toJSON(Object obj) {
+        ObjectMapper mapper = new ObjectMapper();
+
+        String json;
+        try {
+            json = mapper.writeValueAsString(obj); //返回字符串
+            return json;
+        } catch (JsonProcessingException ex) {
+            log.error("将指定对象{}转换为JSON文本遇到异常", obj, ex);
+            return "{}";
+        }
     }
 }

@@ -7,6 +7,8 @@ package com.creditcloud.interestbearing.ta.message.asset;
 
 import com.creditcloud.interestbearing.ta.message.RequestMessage;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,4 +25,11 @@ public class UserSubscribeRequestMessage extends RequestMessage {
 
     //金额，两位小数
     private BigDecimal amount;
+
+    @Override
+    public String toRequestJSON() {
+        Map<String, String> parameters = new HashMap<>();
+        parameters.put("amount", String.valueOf(amount));
+        return toJSON(parameters);
+    }
 }
