@@ -414,15 +414,15 @@ public interface CrowdFundingQueryService {
                                                                     List<InvestStatus> statusList,
                                                                     PageInfo pageInfo);
     
-    /**
-     * 根据产品ID列表查询被推荐众筹项目
+     /**
+     * 根据众筹分类id集合查询包含oridinal下标的众筹项目，
      * @param clientCode
      * @param productIdList
      * @param size
      * @return 
      */
-    public PagedResult<FundingProject> listByProductIdsAndWithOrdinal(String clientCode,
-                                                                    List<String> productIdList,
-                                                                    int  size
-                                                                    );
+    public PagedResult<FundingProject> listByProductIds(String clientCode,
+                                                        List<String> productIdList,
+                                                        int  size
+                                                        );
 }
