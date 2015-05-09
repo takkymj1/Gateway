@@ -17,5 +17,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class UserRedeemResponseMessage extends ResponseMessage {
 
-    private boolean result;
+    private String result;
 }

@@ -6,11 +6,16 @@
 package com.creditcloud.interestbearing.ta.message.asset;
 
 import com.creditcloud.interestbearing.ta.message.ResponseMessage;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  *
  * @author guohuazhang
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class ReportPlatformSubscribeResponseMessage extends ResponseMessage {
 
+    private String result;
 }

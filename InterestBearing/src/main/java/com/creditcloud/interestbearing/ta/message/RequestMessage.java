@@ -15,5 +15,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RequestMessage extends Message {
-    
+
+    public String toRequestJSON() {
+        return super.toJSON();
+    }
 }
