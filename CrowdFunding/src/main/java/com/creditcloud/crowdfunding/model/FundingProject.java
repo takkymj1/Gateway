@@ -120,7 +120,6 @@ public class FundingProject extends BaseObject {
 
     private String acknowledgement;//感谢信
     
-    //TODO not used now
     private String productId;
     
     //众筹项目的序号,平台可以自定义,允许重复，对于历史数据则为null
