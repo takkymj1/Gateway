@@ -33,10 +33,10 @@ public class InvestPreRepayment extends BaseObject {
     private BigDecimal currentPeriodInterest = BigDecimal.ZERO;
     
     //提前还款罚息
-    private BigDecimal amountPenaltyInterest = BigDecimal.ZERO;;
+    private BigDecimal amountPenaltyInterest = BigDecimal.ZERO;
     
     //应还的剩余所有本金
-    private BigDecimal amountUnpayedPrincipal = BigDecimal.ZERO;;
+    private BigDecimal amountUnpayedPrincipal = BigDecimal.ZERO;
     
     public InvestPreRepayment (String investId,
                                int currentPeriod,
