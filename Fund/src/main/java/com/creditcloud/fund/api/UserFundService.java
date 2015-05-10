@@ -374,6 +374,10 @@ public interface UserFundService {
      */
     void updateUserFreeWithdrawalsForAdd(String userId,BigDecimal dueAmount);
 
+
+
+    void updateUserFreeWithdrawalsForSubtract(String userId,BigDecimal dueAmount);
+
     /**
      * 获取所有用户id
      * @return
@@ -391,4 +395,6 @@ public interface UserFundService {
     List<UserFund> listUserFunds(int i, int pageRow);
 
     void initUserFreeWithdrawals(String userId, BigDecimal freeWithDraw);
+
+    boolean transferDisbur(String clientCode, String userId, BigDecimal amount, boolean b);
 }
