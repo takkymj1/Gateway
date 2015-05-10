@@ -17,12 +17,14 @@ import com.creditcloud.config.EmailConfig;
 import com.creditcloud.config.FeeConfig;
 import com.creditcloud.config.FengMessageConfig;
 import com.creditcloud.config.GuaranteeConfig;
+import com.creditcloud.config.InterestBearingConfig;
 import com.creditcloud.config.NewHopeConfig;
 import com.creditcloud.config.RedisConfig;
 import com.creditcloud.config.RewardConfig;
 import com.creditcloud.config.SMSConfig;
 import com.creditcloud.config.SentinelConfig;
 import com.creditcloud.config.StockfinanceConfig;
+import com.creditcloud.config.UnionPayACPConfig;
 import com.creditcloud.config.UpYunConfig;
 import com.creditcloud.config.fund.FundConfig;
 import com.creditcloud.config.fund.RemoteUserFundConfig;
@@ -160,6 +162,9 @@ public interface ConfigManager extends PaymentConfigManager{
      */
     public RemoteUserFundConfig getRemoteUserFundConfig();
     
+    public UnionPayACPConfig getUnionPayACPConfig();
+    public InterestBearingConfig getInterestBearingConfig();
+    
     /**
      * 股票配资配置
      * 
@@ -214,4 +219,5 @@ public interface ConfigManager extends PaymentConfigManager{
      * @return 
      */
     public boolean managerReloadConfig(String configName);
+      
 }

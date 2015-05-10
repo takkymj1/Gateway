@@ -323,17 +323,25 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableLoanValueDate = false;
-    
+
     /**
      * 直接生成标的还款信息
-     * 
-     * false：由投资人还款信息加总得到标的还款信息
-     * true：由LoanCalculator计算得出标的还款信息
-     * 
+     *
+     * false：由投资人还款信息加总得到标的还款信息 true：由LoanCalculator计算得出标的还款信息
+     *
      * 为true时，会出现投资人还款与借款人还款金额不一致的情况。所以需同时设定RoundingMode.DOWN，来保证投资人还款利息总额会小于借款人的利息
      */
     @Getter
     @XmlElement
     private boolean generateLoanRepayment = false;
 
+    /**
+     * 针对 资金池 pool 分支的一个参数，缺省为false, 不启用 UnionPayACP,而是使用ChinaPay
+     * NetClient;如果设置为true, 使用UnionPayACP，不使用ChinaPay NetPay Client. UnionPayACP
+     * 和 ChinaPay NetPayClient 是 银联公司提供的两个产品，都能完成 :
+     * 银行卡认证，代收，代付功能。但是云信的不同客户可能会选择二者中的任何一个.
+     */
+    @Getter
+    @XmlElement
+    private boolean enableUnionPayACP = false;
 }
