@@ -334,14 +334,4 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean generateLoanRepayment = false;
-
-    /**
-     * 针对 资金池 pool 分支的一个参数，缺省为false, 不启用 UnionPayACP,而是使用ChinaPay
-     * NetClient;如果设置为true, 使用UnionPayACP，不使用ChinaPay NetPay Client. UnionPayACP
-     * 和 ChinaPay NetPayClient 是 银联公司提供的两个产品，都能完成 :
-     * 银行卡认证，代收，代付功能。但是云信的不同客户可能会选择二者中的任何一个.
-     */
-    @Getter
-    @XmlElement
-    private boolean enableUnionPayACP = false;
 }

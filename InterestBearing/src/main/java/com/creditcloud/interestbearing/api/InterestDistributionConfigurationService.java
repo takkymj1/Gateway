@@ -27,4 +27,7 @@ public interface InterestDistributionConfigurationService {
      * @return
      */
     InterestDistributionPolicy loadDistributionPolicy();
+    
+    // 平台是否已经在华安基金开户注册：华安基金账号
+    // 平台是否已经从华金基金获得交易密钥 : 交易密钥
 }
