@@ -127,6 +127,7 @@ public class User extends BaseObject {
     /**
      * 用戶组
      */
+    @FormParam("groupId")
     private String groupId;
 
     public User(String Id,
