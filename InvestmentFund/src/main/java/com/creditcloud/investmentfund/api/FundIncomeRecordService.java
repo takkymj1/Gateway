@@ -13,6 +13,8 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import java.util.Date;
 import javax.ejb.Remote;
+import com.creditcloud.investmentfund.enums.FundType;
+import java.util.List;
 
 /**
  * 用户基金收益记录（图表展示）
@@ -95,7 +97,13 @@ public interface FundIncomeRecordService {
      * @return 
      */
     public UserIncomeRecord getLatestUserIncome(String userId, Date navDate);
-    
+    /**
+     * 
+     * @param userId
+     * @param navDate
+     * @return 
+     */
+    public UserIncomeRecord getLatestUserIncomeByFundTYpe(String userId,List<FundType> typeList, Date navDate);
     /**
      * 获取收益列表
      * 
