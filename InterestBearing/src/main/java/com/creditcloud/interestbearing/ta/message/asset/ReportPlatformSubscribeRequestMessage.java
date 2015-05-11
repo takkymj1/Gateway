@@ -5,11 +5,10 @@
  */
 package com.creditcloud.interestbearing.ta.message.asset;
 
-import static com.creditcloud.interestbearing.ta.message.Message.toJSON;
 import com.creditcloud.interestbearing.ta.message.RequestMessage;
+import com.creditcloud.interestbearing.ta.utils.CustomLocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.joda.time.LocalDateTime;
@@ -28,9 +27,6 @@ public class ReportPlatformSubscribeRequestMessage extends RequestMessage {
     private BigDecimal hold_amount_inc = BigDecimal.ZERO;// 增持价值总金额
     private BigDecimal hold_num_dec = BigDecimal.ZERO;// 减持份数
     private BigDecimal hold_amount_dec = BigDecimal.ZERO;// 减持价值总金额
-    private String act_time;// 增持或减持成功时间
-
-    public void setAct_time(LocalDateTime actTime) {
-        act_time = actTime == null ? "" : actTime.toString();
-    }
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+    private LocalDateTime act_time;// 增持或减持成功时间
 }

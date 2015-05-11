@@ -6,6 +6,8 @@
 package com.creditcloud.interestbearing.ta.message.asset;
 
 import com.creditcloud.interestbearing.ta.message.RequestMessage;
+import com.creditcloud.interestbearing.ta.utils.CustomLocalDateTimeSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -25,9 +27,6 @@ public class ReportPlatformRedeemRequestMessage extends RequestMessage {
     private BigDecimal hold_amount_inc;// 增持价值总金额
     private BigDecimal hold_num_dec;// 减持份数
     private BigDecimal hold_amount_dec;// 减持价值总金额
-    private String act_time;// 增持或减持成功时间
-
-    public void setAct_time(LocalDateTime actTime) {
-        act_time = actTime == null ? "" : actTime.toString();
-    }
+    @JsonSerialize(using = CustomLocalDateTimeSerializer.class)
+    private LocalDateTime act_time;// 增持或减持成功时间
 }
