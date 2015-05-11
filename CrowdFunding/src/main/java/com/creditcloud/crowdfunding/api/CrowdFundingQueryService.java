@@ -425,4 +425,17 @@ public interface CrowdFundingQueryService {
                                                         List<String> productIdList,
                                                         int  size
                                                         );
+    
+     /**
+     * 查询众筹项目
+     * @param clientCode
+     * @param fromDate  上线时间范围开始时间
+     * @param toDate    上线时间范围截止时间
+     * @param location  项目地址
+     * @param minAmount  最小融资金额
+     * @param maxAmount  最大融资金额
+     * @param pageInfo   查询限制 开始位置和查询数量
+     * @return 
+     */
+    public PagedResult<FundingProject> listProjects(String clientCode,Date fromDate ,Date toDate,String location,BigDecimal minAmount,BigDecimal maxAmount, PageInfo pageInfo);
 }
