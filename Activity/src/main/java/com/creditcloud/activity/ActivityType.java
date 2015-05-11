@@ -76,6 +76,9 @@ public enum ActivityType implements BaseEnum {
      * 众筹类
      */
     FUNDING_PROJECT_OPEN("众筹开放",Realm.FUNDINGPROJECT),
+    FUNDING_PROJECT_APPROVE("众筹审核通过",Realm.FUNDINGPROJECT),
+    FUNDING_PROJECT_REJECT("众筹审核驳回",Realm.FUNDINGPROJECT),
+    FUNDING_PROJECT_SCHEDULE("众筹调度",Realm.FUNDINGPROJECT),
     FUNDING_PROJECT_LOAN("众筹放款",Realm.PROJECTLOAN);
 
     private final String key;
