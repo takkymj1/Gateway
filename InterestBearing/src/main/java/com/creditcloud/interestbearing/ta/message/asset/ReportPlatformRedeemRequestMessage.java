@@ -17,7 +17,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ReportPlatformRedeemRequestMessage extends RequestMessage {
-    private String tenantId;
     private String product_type;// 增持或减持的产品类型，如：基金fund
     private String ori_id;// 产品原有代码，如：基金代码
     private BigDecimal hold_num_inc;// 增持份数
