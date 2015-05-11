@@ -8,7 +8,6 @@ package com.creditcloud.interestbearing.ta.message.asset;
 import static com.creditcloud.interestbearing.ta.message.Message.toJSON;
 import com.creditcloud.interestbearing.ta.message.RequestMessage;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;

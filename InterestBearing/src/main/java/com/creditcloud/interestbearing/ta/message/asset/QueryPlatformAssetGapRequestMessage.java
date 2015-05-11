@@ -8,6 +8,7 @@ package com.creditcloud.interestbearing.ta.message.asset;
 import com.creditcloud.interestbearing.ta.message.RequestMessage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.joda.time.LocalDateTime;
 
 /**
  *
@@ -21,5 +22,5 @@ public class QueryPlatformAssetGapRequestMessage extends RequestMessage {
     /**
      * 2015-05-04T17:40:42
      */
-    private String checkDate;
+    private LocalDateTime checkDate;
 }

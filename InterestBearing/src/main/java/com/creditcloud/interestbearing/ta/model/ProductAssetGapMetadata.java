@@ -21,5 +21,5 @@ public class ProductAssetGapMetadata {
     // 当前差额, -为缺口 需要外部购买, + 为节余 ,可能需要赎回
     private String gap;
     // 检查时间
-    private String checkDate;
+    private String check_date;
 }
