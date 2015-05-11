@@ -28,8 +28,8 @@ public class UserSubscribeRequestMessage extends RequestMessage {
 
     @Override
     public String toRequestJSON() {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("amount", String.valueOf(amount));
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("amount", amount == null ? BigDecimal.ZERO : amount);
         return toJSON(parameters);
     }
 }

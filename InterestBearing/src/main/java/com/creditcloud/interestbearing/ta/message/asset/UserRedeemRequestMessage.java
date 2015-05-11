@@ -28,11 +28,11 @@ public class UserRedeemRequestMessage extends RequestMessage {
      * 金额，两位小数
      */
     private BigDecimal amount;
-    
+
     @Override
     public String toRequestJSON() {
-        Map<String, String> parameters = new HashMap<>();
-        parameters.put("amount", amount.toString());
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("amount", amount == null ? BigDecimal.ZERO : amount);
         return toJSON(parameters);
     }
 }
