@@ -14,6 +14,8 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum ProjectStatus implements BaseEnum {
 
     INITIATED("初始"),
+    APPROVED("审核通过"),
+    REJECTED("审核驳回"),
     SCHEDULED("待发布"),
     OPENED("众筹中"),
     FINISHED("筹款成功"),
