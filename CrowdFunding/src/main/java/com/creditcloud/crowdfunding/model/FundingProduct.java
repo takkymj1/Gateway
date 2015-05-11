@@ -27,6 +27,9 @@ public class FundingProduct extends BaseObject {
 
     @NotNull
     private String name;
+    
+    @NotNull
+    private String productKey;
 
     private String description;
 

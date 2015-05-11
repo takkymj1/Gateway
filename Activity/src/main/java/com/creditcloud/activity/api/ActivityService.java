@@ -8,6 +8,8 @@ import com.creditcloud.activity.Activity;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -37,6 +39,7 @@ public interface ActivityService {
      *
      * @param clientCode
      * @param target
+     * @param pageInfo
      * @return
      */
     PagedResult<Activity> listByTarget(String clientCode, RealmEntity target, PageInfo pageInfo);
@@ -46,7 +49,19 @@ public interface ActivityService {
      *
      * @param clientCode
      * @param performer
+     * @param pageInfo
      * @return
      */
     PagedResult<Activity> listByPerformer(String clientCode, RealmEntity performer, PageInfo pageInfo);
+    
+    /**
+     * 按活动发起者列出活动，限定日期时间范围
+     *
+     * @param clientCode
+     * @param performer
+     * @param timeBegin 开始时间（包含）
+     * @param timeEnd 结束时间（不包含
+     * @return
+     */
+    List<Activity> listByPerformer(String clientCode, RealmEntity performer, Date timeBegin, Date timeEnd);
 }
