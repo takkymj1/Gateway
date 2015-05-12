@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<FengCouponConfig>
+        <underSixMonthsRatio>0.2</underSixMonthsRatio>
+        <overSixMonthsRatio>0.15</overSixMonthsRatio>
+</FengCouponConfig>
