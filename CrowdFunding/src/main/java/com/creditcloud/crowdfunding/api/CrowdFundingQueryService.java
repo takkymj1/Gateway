@@ -445,4 +445,13 @@ public interface CrowdFundingQueryService {
      * @return 
      */
     public BigDecimal countGoalAmountByStatus(String clientCode,List<ProjectStatus> statusList);
+    
+     /**
+     * 根据创建时间和项目状态统计项目数量
+     * @param from 开始时间
+     * @param to   截止时间
+     * @param statusList   项目状态列表
+     * @return 
+     */
+     public long countProject(String clientCode,Date from,Date to,List<ProjectStatus> statusList);
 }
