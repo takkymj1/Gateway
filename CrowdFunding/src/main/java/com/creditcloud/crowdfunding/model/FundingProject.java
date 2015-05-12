@@ -174,7 +174,7 @@ public class FundingProject extends BaseObject {
                           String detail,
                           String location,
                           Date timeCreated) {
-       this();
+       this(id,title,status,userId,goalAmount,timeOut,openTime,finishTime,videoUrl,introduction,detail,location);
        this.timeCreated = timeCreated;
     }
     /**
