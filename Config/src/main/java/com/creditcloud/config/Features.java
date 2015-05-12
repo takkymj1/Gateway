@@ -323,17 +323,15 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableLoanValueDate = false;
-    
+
     /**
      * 直接生成标的还款信息
-     * 
-     * false：由投资人还款信息加总得到标的还款信息
-     * true：由LoanCalculator计算得出标的还款信息
-     * 
+     *
+     * false：由投资人还款信息加总得到标的还款信息 true：由LoanCalculator计算得出标的还款信息
+     *
      * 为true时，会出现投资人还款与借款人还款金额不一致的情况。所以需同时设定RoundingMode.DOWN，来保证投资人还款利息总额会小于借款人的利息
      */
     @Getter
     @XmlElement
     private boolean generateLoanRepayment = false;
-
 }
