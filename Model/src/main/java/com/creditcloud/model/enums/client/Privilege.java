@@ -27,11 +27,14 @@ public enum Privilege implements BaseEnum {
      * 用户相关权限
      */
     USER_LIST("列出用户", Realm.USER, "用户相关权限"),
+    USER_LIST_VIEW_FORBIDDEN("禁止列出用户列表数据", Realm.USER, "用户相关权限"),
+    USER_LIST_PRICISE("精确查询用户列表数据", Realm.USER, "用户相关权限"),
     USER_DETAIL("查看用户详情,包括用户的各种认证信息", Realm.USER, "用户相关权限"),
     USER_ALTER("添加更改用户信息,包括上传用户认证信息", Realm.USER, "用户相关权限"),
     USER_DELETE("禁用用户", Realm.USER, "用户相关权限"),
     USER_DOWNLOAD("下载用户信息", Realm.USER, "用户相关权限"),
     USER_RESETPASSWORD("重置用户密码", Realm.USER, "用户相关权限"),
+    INSTEAD_WITHDRAW_VIEW("代提现视图", Realm.USER, "用户相关权限"),
     /**
      * 员工相关权限
      */
@@ -162,14 +165,19 @@ public enum Privilege implements BaseEnum {
     TICKET_ASSIGN("分配工单任务", Realm.TICKET, "支持工单相关权限"),
     TICKET_REPLY("处理工单", Realm.TICKET, "支持工单相关权限"),
     TICKET_REVIEW("评审工单", Realm.TICKET, "支持工单相关权限"),
+    TICKET_OPERATION_READ_ONLY("工单管理操作只读权限", Realm.TICKET, "支持工单相关权限"),
     TICKET_DOWNLOAD("下载工单", Realm.TICKET, "支持工单相关权限"),
     /**
      * 众筹相关权限
      */
     CROWDFUNDING_LIST("列出众筹", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_REQUEST_LIST("众筹申请列表", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_DETAIL("查看众筹详情", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_ALTER("众筹添加/修改", Realm.FUNDINGPROJECT, "众筹相关权限"),
     CROWDFUNDING_SETTLE("众筹结算", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_ARCHIVE("众筹项目列表存档", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    CROWDFUNDING_SERIAL_NUMBER("众筹序列号权限", Realm.FUNDINGPROJECT, "众筹相关权限"),
+    XIAOHUAJIA_OPERATING("小画家操作权限", Realm.FUNDINGPROJECT, "众筹相关权限"),
     /**
      * 批量任务相关权限
      */
@@ -184,11 +192,17 @@ public enum Privilege implements BaseEnum {
     COUPON_PLACE("分配奖券", Realm.COUPON, "奖券相关权限"),
     COUPON_APPROVE("奖券使用复核", Realm.COUPON, "奖券相关权限"),
     /**
+     * 数据统计相关权限
+     */
+    STATISTICS_USER("用户统计", Realm.STATISTICS, "数据统计相关权限"),
+    STATISTICS_FUND("资金统计", Realm.STATISTICS, "数据统计相关权限"),
+    /**
      * 其他杂项权限
      */
     VIEW_DASHBOARD("首页查看", Realm.PAGES, "是否可以查看首页"),
     MESSAGE_SEND("短信发送",Realm.SYSTEM,"系统相关权限"),
     MARKET_CONTROL("Market系统控制", Realm.SYSTEM, "系统相关权限");
+    
 
     private final String key;
 
