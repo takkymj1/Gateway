@@ -81,6 +81,7 @@ public enum LoanStatus implements BaseEnum {
             case SCHEDULED:
             case FAILED:
             case CANCELED:
+            case FINISHED:  //满标未结算也可以取消
                 return true;
         }
 
