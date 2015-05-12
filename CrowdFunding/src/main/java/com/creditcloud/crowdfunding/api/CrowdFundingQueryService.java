@@ -438,4 +438,11 @@ public interface CrowdFundingQueryService {
      * @return 
      */
     public PagedResult<FundingProject> listProjects(String clientCode,Date fromDate ,Date toDate,String location,BigDecimal minAmount,BigDecimal maxAmount, PageInfo pageInfo);
+    /**
+     * 根据项目状态统计募集金额
+     * @param clientCode
+     * @param statusList 项目状态
+     * @return 
+     */
+    public BigDecimal countGoalAmountByStatus(String clientCode,List<ProjectStatus> statusList);
 }
