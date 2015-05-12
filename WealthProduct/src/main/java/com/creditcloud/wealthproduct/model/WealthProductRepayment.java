@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
@@ -10,61 +11,78 @@ import com.creditcloud.model.enums.loan.RepaymentStatus;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 认购还款（固定收益类产品）
  * 
- * @author rooseek
+ * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
 @NoArgsConstructor
-public class SubscribeRepayment extends BaseObject {
-
-    private static final long serialVersionUID = 20140924L;
+@AllArgsConstructor
+public class WealthProductRepayment extends BaseObject {
 
     /**
-     * 认购记录ID
+     * 还款ID
      * 
      * @return
      */
-    private String subscribeId;
+    @NotNull
+    private String id;
+    
+    /**
+     * 产品ID
+     * 
+     * @return
+     */
+    @NotNull
+    private String productId;
 
     /**
-     * 期数
+     * 产品
+     * 
+     * @return
+     */
+    private WealthProductFixed product;
+    
+    /**
+     * 当前还款期数
      * 
      * @return
      */
     private int currentPeriod;
-    
+
+    /**
+     * 当期还款
+     * 
+     * @return
+     */
+    @NotNull
+    private Repayment repayment;
+
     /**
      * 还款状态
      * 
      * @return
      */
+    @NotNull
     private RepaymentStatus status;
 
     /**
-     * 还款详情
+     * 实际还款
      * 
      * @return
      */
-    private Repayment repayment;
-
-    /**
-     * 实际回款金额
-     * 
-     * @return
-     */
+    @NotNull
     private BigDecimal repayAmount;
 
     /**
-     * 回款日期
+     * 实际还款日期
      * 
      * @return
      */

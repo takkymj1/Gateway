@@ -415,13 +415,16 @@
                         <ejbModule>
                             <groupId>com.creditcloud.interestbearing</groupId>
                             <artifactId>InterestBearingService</artifactId>
-                        </ejbModule>      
+                        </ejbModule>                         
                         <!--
                         <ejbModule>
                             <groupId>com.creditcloud.wealthproduct</groupId>
                             <artifactId>WealthProductService</artifactId>
                         </ejbModule>
-                        -->
+                        <ejbModule>
+                            <groupId>com.creditcloud.yeep</groupId>
+                            <artifactId>YeepService</artifactId>
+                        </ejbModule>-->
                         <ejbModule>
                             <groupId>com.creditcloud.appoint</groupId>
                             <artifactId>AppointService</artifactId>

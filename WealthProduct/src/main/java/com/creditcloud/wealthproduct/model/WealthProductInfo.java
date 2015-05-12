@@ -89,6 +89,11 @@ public class WealthProductInfo extends BaseObject {
     private String strategyInfo;
     
     /**
+     * 产品合同
+     */
+    private String contractInfo;
+    
+    /**
      * 描述
      * 
      * @return
