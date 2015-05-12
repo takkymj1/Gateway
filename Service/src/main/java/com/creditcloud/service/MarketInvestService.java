@@ -108,7 +108,7 @@ public interface MarketInvestService extends MarketInvestRepayService {
     void postSettle(String clientCode, Loan loan);
 
     /**
-     * cancel failed loan , release related invest
+     * cancel failed/finished loan , release related invest
      *
      * @param clientCode
      * @param loan
