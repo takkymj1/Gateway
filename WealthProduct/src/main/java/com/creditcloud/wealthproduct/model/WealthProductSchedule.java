@@ -28,6 +28,8 @@ public class WealthProductSchedule extends BaseObject {
     
     /**
      * 认购开始时间
+     * 
+     * @return
      */
     private Date timeSubscribeStart;
     
@@ -38,6 +40,20 @@ public class WealthProductSchedule extends BaseObject {
      */
     private Date timeSubscribeEnd;
 
+    /**
+     * 申购开始时间
+     * 
+     * @return
+     */
+    private Date timePurchaseStart;
+    
+    /**
+     * 申购结束时间
+     * 
+     * @return
+     */
+    private Date timePurchaseEnd;
+    
     /**
      * 成立时间
      * 
