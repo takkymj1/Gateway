@@ -36,6 +36,8 @@ public class UserRegistrationInfo {
     // 余额生息签约记录ID
     private String recordId;
 
+    private String remark;
+
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this,
