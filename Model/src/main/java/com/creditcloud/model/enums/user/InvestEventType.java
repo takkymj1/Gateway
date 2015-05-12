@@ -11,7 +11,7 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum InvestEventType implements BaseEnum {
+public enum  InvestEventType implements BaseEnum {
 
     INVEST("投资"),
     INVEST_REPAY("投资回款"),
@@ -24,7 +24,8 @@ public enum InvestEventType implements BaseEnum {
     CREDITASSIGN("债权转让"),
     CREDITASSIGNINVEST("债权转让投资"),
     REWARD_COUPON_NEW_REGISTER("新人注册红包"),
-    COUPON_REBATE("红包返现");
+    COUPON_REBATE("红包返现"),
+    PRE_REPAYMENT("提前还款");
 
     private final String key;
 

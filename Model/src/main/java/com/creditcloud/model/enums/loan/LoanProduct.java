@@ -16,6 +16,7 @@ public enum LoanProduct implements BaseEnum {
     FENG_RT("凤锐通"),
     FENG_YY("凤溢盈");
 
+
     private final String key;
 
     private LoanProduct(String key) {

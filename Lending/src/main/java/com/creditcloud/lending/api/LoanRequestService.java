@@ -4,6 +4,7 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.enums.loan.LoanRequestAssignType;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
@@ -25,4 +26,6 @@ public interface LoanRequestService extends LoanRequestQueryService, LoanRequest
     public boolean markStatus(LoanRequestStatus status, String id);
     
     public LoanRequest getBySerial(String serial);
+    
+    public boolean updateAssignType(LoanRequestAssignType assignType, String id);
 }
