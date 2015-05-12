@@ -8,6 +8,9 @@ package com.creditcloud.interestbearing.ta.message.asset;
 import com.creditcloud.interestbearing.ta.message.ResponseMessage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  *
@@ -18,4 +21,18 @@ import lombok.EqualsAndHashCode;
 public class UserSubscribeResponseMessage extends ResponseMessage {
 
     private String result;
+
+    public boolean isSuccess() {
+        return "true".equalsIgnoreCase(StringUtils.trim(result));
+    }
+
+    @Override
+    public String toString() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        builder.setAppendStatics(false);
+        builder.setAppendTransients(false);
+
+        builder.append("isSuccess", isSuccess());
+        return builder.build();
+    }
 }
