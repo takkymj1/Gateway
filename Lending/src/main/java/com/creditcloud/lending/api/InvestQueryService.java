@@ -43,6 +43,16 @@ public interface InvestQueryService {
      * @return
      */
     public PagedResult<Invest> listByUserAndStatus(String userId, PageInfo pageInfo, List<InvestStatus> statusList);
+    
+    /**
+     * list creditassign invest by user
+     *
+     * @param userId
+     * @param pageInfo
+     * @param statusList
+     * @return
+     */
+    public PagedResult<Invest> listCaByUserAndStatus(String userId, PageInfo pageInfo, List<InvestStatus> statusList);
 
     /**
      * count invest by loan

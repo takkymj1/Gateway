@@ -151,5 +151,15 @@ public interface CreditAssignQueryService {
      */
     public PagedResult<com.creditcloud.model.loan.CreditAssign> listUserHasTransfer(PageInfo pageInfo, String userId, List<CreditAssignStatus> statusList);
     
-     public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
+    public BigDecimal getFundAmount(com.creditcloud.model.loan.Invest invest);
+    
+    /**
+     * 债权转让列表模糊查询（根据转让标题、转让金额）
+     * 
+     * @param search
+     * @param statusList
+     * @param pageInfo
+     * @return 
+     */
+    public PagedResult<CreditAssign> listByLikeQuery(String search, List<CreditAssignStatus> statusList, PageInfo pageInfo);
 }
