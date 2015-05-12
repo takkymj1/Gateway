@@ -13,17 +13,13 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  *
  * @author GuohuaZhang
  */
-//@Data
-public class HuaAnFundAccountConfig {
+@Data
+public class CreditCloudTAConfig {
 
     /**
-     * 平台在华安的交易账号
+     * 平台在云信TA的租户账号
      */
-    private String platformTradingAccount;
-    /**
-     * 交易秘钥
-     */
-    private String platformTradingPrivateKey;
+    private String tenantId;
 
     @Override
     public String toString() {
