@@ -7,6 +7,7 @@ package com.creditcloud.lending.api;
 import com.creditcloud.model.enums.loan.LoanRequestStatus;
 import com.creditcloud.model.loan.LoanRequest;
 import com.creditcloud.model.loan.SubmitRequestResult;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -25,4 +26,6 @@ public interface LoanRequestService extends LoanRequestQueryService, LoanRequest
     public boolean markStatus(LoanRequestStatus status, String id);
     
     public LoanRequest getBySerial(String serial);
+    
+    public long getSumAmountByDate(boolean pureRequest,Date from,Date to);
 }
