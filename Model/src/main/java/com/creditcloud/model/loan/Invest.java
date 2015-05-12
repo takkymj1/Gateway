@@ -12,7 +12,9 @@ import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanPurpose;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -156,4 +158,5 @@ public class Invest extends BaseObject {
     public BigDecimal getInvestAmount() {
         return originalAmount == null ? amount : originalAmount;
     }
+
 }

@@ -9,19 +9,17 @@ package com.creditcloud.model.enums.loan;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- * 提前还款状态
+ * 标的提前还款罚息类型
  * @author peili
  */
-public enum PreRepaymentStatus implements BaseEnum {
-    
-    //标的提前还款使用的状态
-    PREREPAYING("预备提前还款"),
-    NORMALREPAYING("正常还款"),
-    PREREPAYED("已还清（提前还款）");
+public enum PreRepaymentPenaltyInterestType implements BaseEnum {
+
+    EXIST_PENALTYINTEREST("有罚息"),
+    NONE_PENALTYINTEREST("无罚息");
     
     private final String key;
 
-    private PreRepaymentStatus(String key) {
+    private PreRepaymentPenaltyInterestType(String key) {
         this.key = key;
     }
 
@@ -29,5 +27,4 @@ public enum PreRepaymentStatus implements BaseEnum {
     public String getKey() {
         return key;
     }
-
 }

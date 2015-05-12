@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.service.impl;
 
 import com.creditcloud.model.criteria.PageInfo;
@@ -18,7 +19,7 @@ import com.creditcloud.model.loan.RepayDetail;
 import com.creditcloud.model.loan.SettleLoanResult;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.user.ReferralUser;
-import com.creditcloud.service.MarketInvestService;
+import com.creditcloud.service.ManagerInvestService;
 import com.creditcloud.service.model.DisburseInfo;
 import com.creditcloud.service.model.RepayInfo;
 import java.util.Date;
@@ -27,9 +28,9 @@ import java.util.Map;
 
 /**
  *
- * @author rooseek
+ * @author peili
  */
-public class AbstractMarketInvestService implements MarketInvestService {
+public class AbstractManagerInvestService implements ManagerInvestService {
 
     @Override
     public PagedResult<Invest> listInvestbyUser(String clientCode, String userId, PageInfo info, InvestStatus... status) {
@@ -76,15 +77,15 @@ public class AbstractMarketInvestService implements MarketInvestService {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Map<String, Integer> getOpenLoanBidNumber(String clientCode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Map<String, Integer> getOpenLoanBalance(String clientCode) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public Map<String, Integer> getOpenLoanBidNumber(String clientCode) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public Map<String, Integer> getOpenLoanBalance(String clientCode) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     @Override
     public Loan getOpenLoanById(String clientCode, String loanId) {
@@ -160,3 +161,4 @@ public class AbstractMarketInvestService implements MarketInvestService {
     }
 
 }
+

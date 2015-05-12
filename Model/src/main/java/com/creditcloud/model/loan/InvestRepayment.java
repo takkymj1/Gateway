@@ -66,6 +66,8 @@ public class InvestRepayment extends BaseObject {
     //TODO replace with <FundRecordType, BigDecimal>
     private Map<String, BigDecimal> feeDetail;
 
+    private boolean izPreRepayment;
+
     public InvestRepayment(String id,
                            Invest invest,
                            int currentPeriod,
