@@ -182,4 +182,41 @@ public class NumberUtils {
             }
         }
     }
+    
+    /**
+     * 提前还款：计算当期应计利息
+     * @param lastDueDate 提前还款时上一个还款日 对应当前未到期的上个月的dueDate,如果没有上一个还款日，则取起息日（firstDueDate-1个月-1天）
+     * @param preRepayedDate 提前还款日
+     * @param unpayedPrincipal 剩余的所有本金
+     * @param rate 标的年利率
+     * @return 
+     */
+    public static BigDecimal getPreRepayedAccruedInterest(LocalDate lastDueDate, LocalDate preRepayedDate, BigDecimal unpayedPrincipal, int rate) {
+        if (lastDueDate == null || unpayedPrincipal == null) {
+            return BigDecimal.ZERO;
+        }
+        //月利率
+        BigDecimal monthRate = new BigDecimal(rate).divide(new BigDecimal(10000*12), mc);
+        //提前还款日与上一个还款日dueDate之间的天数
+        int interestCalculateTotalDays = Days.daysBetween(lastDueDate, preRepayedDate).getDays();
+        interestCalculateTotalDays = interestCalculateTotalDays < 0 ? 0 : interestCalculateTotalDays;
+        //提前还款当期应计利息
+        return unpayedPrincipal.multiply(new BigDecimal(interestCalculateTotalDays).divide(new BigDecimal(30), mc)).multiply(monthRate).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+    }
+    
+    /**
+     * 提前还款：罚息接口 ((当期全部利息-应计利息)+当期之后每期的利息之和)*罚息比例
+     * @param amountInterest 当期全部利息
+     * @param accruedInterest 当期应计利息
+     * @param totalInterestAfterCurrentPeriod 当期之后每期的利息之和
+     * @param penaltyRate 罚息比列
+     * @return 
+     */
+    public static BigDecimal getPreRepayedPenaltyInterest(BigDecimal amountInterest, BigDecimal accruedInterest, BigDecimal totalInterestAfterCurrentPeriod, BigDecimal penaltyRate) {
+        if (penaltyRate.signum() == 0) {
+            return BigDecimal.ZERO;
+        }
+        return penaltyRate.multiply(amountInterest.subtract(accruedInterest).add(totalInterestAfterCurrentPeriod)).setScale(NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+    }
+       
 }

@@ -18,7 +18,12 @@ import com.creditcloud.common.entities.embedded.info.PersonalInfo;
 import com.creditcloud.common.entities.embedded.info.PlaceInfo;
 import com.creditcloud.common.entities.embedded.info.SocialInfo;
 import com.creditcloud.model.enums.loan.InvestStatus;
+import com.creditcloud.model.enums.loan.LoanRequestAssignType;
 import com.creditcloud.model.enums.loan.LoanStatus;
+import com.creditcloud.model.enums.loan.PreRepaymentStatus;
+import com.creditcloud.model.loan.LoanPreRepayment;
+import com.creditcloud.model.loan.LoanPreRepaymentStatus;
+
 import static com.creditcloud.model.enums.loan.LoanStatus.BREACH;
 import static com.creditcloud.model.enums.loan.LoanStatus.CANCELED;
 import static com.creditcloud.model.enums.loan.LoanStatus.CLEARED;
@@ -26,7 +31,10 @@ import static com.creditcloud.model.enums.loan.LoanStatus.FAILED;
 import static com.creditcloud.model.enums.loan.LoanStatus.FINISHED;
 import static com.creditcloud.model.enums.loan.LoanStatus.OVERDUE;
 import static com.creditcloud.model.enums.loan.LoanStatus.SETTLED;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -453,4 +461,13 @@ public class DTOUtils {
         return result;
     }
 
+
+    public static LoanPreRepaymentStatus convertPreRepaymentStatus(String loanId,LoanRequestAssignType type,int currentPeriod) {
+
+
+        LoanPreRepaymentStatus loanPreRepaymentStatus
+                = new LoanPreRepaymentStatus(loanId, PreRepaymentStatus.PREREPAYING,new Date(),type,currentPeriod,null,BigDecimal.ZERO);
+
+        return loanPreRepaymentStatus;
+    }
 }

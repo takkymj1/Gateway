@@ -82,6 +82,12 @@ public enum SMSType {
      */
     NOTIFICATION_LOAN_REPAY("notification.loan.repay"),
     /**
+     * 提前还款给投资人发送的短信
+     * 
+     * 参数：loan.title, InvestRepayment.repayAmount
+     */
+    NOTIFICATION_LOAN_PRE_REPAYMENT("notification.loan.prerepayment"),
+    /**
      * Loan还清时发送给investor的提示信息.
      *
      * 参数：loan.title, client.helpPhone
