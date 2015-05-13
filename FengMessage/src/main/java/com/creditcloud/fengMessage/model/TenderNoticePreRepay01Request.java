@@ -44,7 +44,7 @@ public class TenderNoticePreRepay01Request extends BaseRequest{
     private String interestCompensation;
 
     public TenderNoticePreRepay01Request(String investProjectTitle, String repayAmount, String principal, String interest, String interestCompensation){
-        this.setTemplate_id("NOTICE_PREREPAYMENT_000001");
+        this.setTemplate_id("NOTI_PREPAYMENT_001");
         this.investProjectTitle = investProjectTitle;
         this.repayAmount = repayAmount;
         this.principal = principal;
