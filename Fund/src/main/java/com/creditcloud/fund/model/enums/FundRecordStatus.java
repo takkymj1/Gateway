@@ -16,6 +16,7 @@ public enum FundRecordStatus implements BaseEnum {
     PROCESSING("处理中"),
     AUDITING("审核中"),//目前主要用于取现申请复核
     PAY_PENDING("支付结果待查"),// 目前用于银联单笔代付没有实时返回最终成功或者失败结果的情况
+    CUT_PENDING("代扣结果待查"),// 目前用于银联单笔代扣没有实时返回最终成功或者失败结果的情况
     SUCCESSFUL("成功"),
     FAILED("失败"),
     REJECTED("拒绝"),

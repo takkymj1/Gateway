@@ -132,12 +132,12 @@ public interface FundRecordService {
      * update exist fund record
      *
      * 使用jpql的find查询，不直接用AbstractDAO中的find查询
-     * 
+     *
      * @param clientCode
      * @param record
      */
     void update2(String clientCode, FundRecord record);
-    
+
     /**
      * 更新FundRecord状态
      *
@@ -261,7 +261,7 @@ public interface FundRecordService {
      * 返回所有待处理的提现申请记录.
      *
      * @param clientCode
-     * @param status     如果为空默认返回Auditing状态取现申请
+     * @param status 如果为空默认返回Auditing状态取现申请
      * @return
      */
     List<FundWithdraw> listWithdrawRequest(String clientCode, FundRecordStatus... status);
@@ -293,6 +293,19 @@ public interface FundRecordService {
                                   Date startDate,
                                   Date endDate,
                                   PageInfo pageInfo);
+
+    /**
+     *列出一段时间内所有充值交易在途的充值记录
+     * @param clientCode
+     * @param startDate
+     * @param endDate
+     * @param pageInfo
+     * @return
+     */
+    List<FundDeposit> listPendingDeposit(String clientCode,
+                                         Date startDate,
+                                         Date endDate,
+                                         PageInfo pageInfo);
 
     /**
      * 根据orderId查找FundInvest
@@ -501,9 +514,9 @@ public interface FundRecordService {
      * @param loanId
      * @param refundAmount
      * @param refundOrderId
-     * @param account               商户账号
-     * @param feeToMerchantDetails  进入商户账号的手续费
-     * @param userId                担保用户id
+     * @param account 商户账号
+     * @param feeToMerchantDetails 进入商户账号的手续费
+     * @param userId 担保用户id
      * @param feeToGuaranteeDetails 进入担保账户的手续费
      */
     void settleInvestRecord2UmpRefund(String clientCode,
@@ -706,7 +719,7 @@ public interface FundRecordService {
      * 商户子账户之间转账
      *
      * @param clientCode
-     * @param inAccount  入账子账户
+     * @param inAccount 入账子账户
      * @param outAccount 出账子账户
      * @param amount
      * @param orderId
@@ -721,10 +734,10 @@ public interface FundRecordService {
      * 商户和用户之间转账
      *
      * @param clientCode
-     * @param account     商户子账户
+     * @param account 商户子账户
      * @param amount
-     * @param userId      用户
-     * @param transferIn  true for transfer from client to user
+     * @param userId 用户
+     * @param transferIn true for transfer from client to user
      * @param orderId
      * @param description
      */
@@ -739,11 +752,11 @@ public interface FundRecordService {
     /**
      *
      * @param clientCode
-     * @param account    商户子账户，一般默认是base账户
-     * @param amount     奖励金额
+     * @param account 商户子账户，一般默认是base账户
+     * @param amount 奖励金额
      * @param userId
      * @param rewardType 奖励类型
-     * @param target     奖励相关entity,例如对于投标类奖励则记录InvestId
+     * @param target 奖励相关entity,例如对于投标类奖励则记录InvestId
      * @param orderId
      */
     void userReward(String clientCode,

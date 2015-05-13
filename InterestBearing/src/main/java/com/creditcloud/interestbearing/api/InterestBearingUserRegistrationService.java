@@ -6,6 +6,7 @@
 package com.creditcloud.interestbearing.api;
 
 import com.creditcloud.interestbearing.model.UserRegistrationInfo;
+import java.util.List;
 
 /**
  * 余额生息用户签约登记接口<br>
@@ -38,4 +39,11 @@ public interface InterestBearingUserRegistrationService {
      * @return 如果已经开通，返回相关信息，如果尚未开通，返回null
      */
     UserRegistrationInfo queryUserRegistration(String userId);
+
+    /**
+     * 查询所有签约的用户签约信息
+     *
+     * @return
+     */
+    List<UserRegistrationInfo> queryAllUserRegistrations();
 }

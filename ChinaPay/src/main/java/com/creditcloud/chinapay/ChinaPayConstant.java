@@ -24,11 +24,11 @@ public interface ChinaPayConstant {
      */
     String ACCOUNT_VALIDATION_SUCCESS_CODE = "0000";
 
+    /**
+     * 单笔代扣交易和查询成功时的返回码都是00
+     */
     String SINGLE_CUT_SUCCESS = "00";
-    String SINGLE_CUT_TRANS_STAT_SUCCESS = "1001";
-
     String SINGLE_PAY_TRANS_SUCCESS_CODE = "0000";
-
     String SINGLE_PAY_QUERY_SUCCESS_CODE = "000";
 
 }

@@ -5,6 +5,8 @@
  */
 package com.creditcloud.interestbearing.api;
 
+import com.creditcloud.interestbearing.model.CreditCloudTAConfig;
+import com.creditcloud.interestbearing.model.HuaAnFundAccountConfig;
 import com.creditcloud.interestbearing.model.InterestDistributionPolicy;
 
 /**
@@ -27,7 +29,33 @@ public interface InterestDistributionConfigurationService {
      * @return
      */
     InterestDistributionPolicy loadDistributionPolicy();
-    
-    // 平台是否已经在华安基金开户注册：华安基金账号
-    // 平台是否已经从华金基金获得交易密钥 : 交易密钥
+
+    /**
+     * 平台在华安的动态配置信息
+     *
+     * @param config
+     */
+    void setHuaAnFundAccountConfig(HuaAnFundAccountConfig config);
+
+    /**
+     * 平台在华安的动态配置信息
+     *
+     * @return
+     */
+    HuaAnFundAccountConfig loadHuaAnFundAccountConfig();
+
+    /**
+     * 获取保存的平台在云信TA动态参数，比如租户ID
+     *
+     * @return
+     */
+    CreditCloudTAConfig loadCreditCloudTAConfig();
+
+    /**
+     * 保存的平台在云信TA动态参数，比如租户ID
+     *
+     * @param config
+     */
+    void setCreditCloudTAConfig(CreditCloudTAConfig config);
+
 }

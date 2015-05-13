@@ -1,6 +1,7 @@
 package com.creditcloud.chinapay.model.response;
 
 import com.creditcloud.chinapay.ChinaPayConstant;
+import com.creditcloud.chinapay.enums.SingleCutStatCode;
 import java.util.List;
 import java.util.Properties;
 
@@ -96,6 +97,42 @@ public class SingleCutPostResult extends POJO {
      * @return
      */
     public boolean transSuccess() {
-        return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode) && ChinaPayConstant.SINGLE_CUT_TRANS_STAT_SUCCESS.equals(transStat);
+        return ChinaPayConstant.SINGLE_CUT_SUCCESS.equals(responseCode) && SingleCutStatCode.SUCCESS.isSameAs(transStat);
+    }
+
+    /**
+     * 业务处于不确定状态，需要再次查询获取最终结果
+     *
+     * @return true-表示在途，false-表示其它状态，成功或者失败
+     */
+    public boolean transPending() {
+        boolean processOK = success();
+        if (processOK) {
+            // 处理成功，不是在途，直接返回false
+            return false;
+        }
+        // 处理没成功，可能是在途，也有可能失败，参考 stat
+        // respCode<>00 ,下面判断是在途的状态字的话返回true
+        if (SingleCutStatCode.PENDING_INITIALIZED.isSameAs(transStat)) {
+            return true;
+        } else if (SingleCutStatCode.PENDING_TIMEOUT.isSameAs(transStat)) {
+            return true;
+        } else if (SingleCutStatCode.PENDING_UNKNOWN.isSameAs(transStat)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 交易失败
+     *
+     * @return
+     */
+    public boolean transFail() {
+        boolean isTransSuccess = transSuccess();
+        boolean isTransPending = transPending();
+        boolean isFail = !(isTransSuccess || isTransPending);
+        return isFail;
     }
 }
