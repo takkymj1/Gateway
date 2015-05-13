@@ -104,7 +104,7 @@ public class SingleCutPostResult extends POJO {
     /**
      * 业务处于不确定状态，需要再次查询获取最终结果
      *
-     * @return
+     * @return true-表示在途，false-表示其它状态，成功或者失败
      */
     public boolean transPending() {
         boolean processOK = success();
