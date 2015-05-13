@@ -25,8 +25,8 @@ public interface WealthProductQueryService {
     /**
      * 列出下标区间的基金产品
      *
-     * @param start 
-     * @param end
+     * @param start          开始索引
+     * @param end            结束索引
      * 
      * @return empty list if nothing found
      */
@@ -35,36 +35,38 @@ public interface WealthProductQueryService {
     /**
      * 搜索产品列表
      * 
-     * @param categoryKey
-     * @param incomeType
-     * @param statusList
-     * @param pageInfo
+     * @param category          产品大类  
+     * @param incomeType        收益类型
+     * @param statusList        产品状态
+     * @param subscribeOnly     是否只是认购产品
+     * @param pageInfo          分页信息
      * @return 
      */
-    public PagedResult<WealthProduct> listBySearch(String categoryKey, IncomeType incomeType, List<ProductStatus> statusList, PageInfo pageInfo);
+    public PagedResult<WealthProduct> listBySearch(String category, IncomeType incomeType, List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
     
     
     /**
      * 根据状态获取固收类产品列表
      * 
-     * @param subscribeOnly 只能认购
-     * @param statusList    产品状态
-     * @param pageInfo      分页信息
+     * @param statusList        产品状态
+     * @param pageInfo          分页信息
+     * @param subscribeOnly     是否只是认购产品
      * @return
      */
-    public PagedResult<WealthProductFixed> listFixedByStatus(boolean subscribeOnly, List<ProductStatus> statusList, PageInfo pageInfo);
+    public PagedResult<WealthProductFixed> listFixedByStatus(List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
 
     /**
      * 搜索固收益类产品列表
      * 
-     * @param categoryKey
-     * @param minRate
-     * @param maxRate
-     * @param statusList
-     * @param pageInfo
+     * @param category          产品大类 
+     * @param minRate           最小利率
+     * @param maxRate           最大利率
+     * @param statusList        产品状态列表
+     * @param subscribeOnly     是否只是认购产品
+     * @param pageInfo          分页信息
      * @return 
      */
-    public PagedResult<WealthProductFixed> listFixedBySearch(String categoryKey, int minRate, int maxRate, List<ProductStatus> statusList, PageInfo pageInfo);
+    public PagedResult<WealthProductFixed> listFixedBySearch(String category, int minRate, int maxRate, List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
     
     /**
      * 理财产品类别列表
