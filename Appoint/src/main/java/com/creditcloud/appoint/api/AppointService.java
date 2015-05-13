@@ -82,4 +82,12 @@ public interface AppointService {
                                                            RealmEntity targe,
                                                            PageInfo pageInfo,
                                                            AppointRequestStatus... status);
+    
+    /**
+     * 根据状态列出预约
+     * @param pageInfo
+     * @param status
+     * @return 
+     */
+    PagedResult<AppointRequest> listByStatus(PageInfo pageInfo, AppointRequestStatus... status);
 }
