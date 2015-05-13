@@ -104,18 +104,18 @@ public class StockfinanceConfig extends BaseConfig {
     private BigDecimal monthPeriodServiceFeeRate = BigDecimal.valueOf(0.2);
     
     /**
-     * 天天利每期的利率（单位%）：天天利每期利息=借款金额*dayPeriodInterestRate%
+     * 天天利每期的利率（单位 万分之一）：天天利每期利息=借款金额*dayPeriodInterestRate/10000
      */
     @Getter
     @Setter
-    private BigDecimal dayPeriodInterestRate = BigDecimal.valueOf(0.05);
+    private int dayPeriodInterestRate = 5;
     
     /**
-     * 月满盈每期的利率（单位%）：月满盈每期利息=借款金额*monthPeriodInterestRate%
+     * 月满盈每期的利率（单位 万分之一）：月满盈每期利息=借款金额*monthPeriodInterestRate/10000
      */
     @Getter
     @Setter
-    private BigDecimal monthPeriodInterestRate = BigDecimal.valueOf(1);
+    private int monthPeriodInterestRate = 100;
     
     //补仓相关配置==========================
     /**

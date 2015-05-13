@@ -15,10 +15,12 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum ProductStatus implements BaseEnum {
     
     INITIALIZED("初始"),
-    APPOINT_START("开放预约"),
-    APPOINT_END("预约结束"),
+//    APPOINT_START("开放预约"),
+//    APPOINT_END("预约结束"),
     SUBSCRIBE_START("开放认购"),
     SUBSCRIBE_END("认购结束"),
+    PURCHASE_START("开放申购"),
+    PURCHASE_END("申购结束"),
     SETTLED("已结算锁定期"),
     DUE("产品到期"),
     CLEARED("产品结束"), //all invest cleared

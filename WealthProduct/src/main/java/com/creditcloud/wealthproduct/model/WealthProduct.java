@@ -164,6 +164,17 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private Integer transferTimeOut;
     
     /**
+     * 成立日后多长时间后开始计息 单位：天
+     * 
+     * @return
+     */
+    @IncrementalInteger(min = MIN_TIME_OUT,
+                        increment = TIME_OUT_INCREMENT,
+                        max = MAX_TIME_OUT,
+                        groups = Default.class)
+    private Integer establishTimeOut;
+    
+    /**
      * 是否只能认购
      * 
      * @return
@@ -172,7 +183,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     private boolean subscribeOnly;
     
     /**
-     * 归属类别
+     * 归属类别 (WealthProductCategory->key)
      * 
      * @return
      */
@@ -191,6 +202,13 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * @return
      */
     private boolean enable;
+    
+    /**
+     * 是否按照排期 or 可能提前到期
+     * 
+     * @return
+     */
+    private boolean scheduleOnly;
     
     /**
      * 是否投资

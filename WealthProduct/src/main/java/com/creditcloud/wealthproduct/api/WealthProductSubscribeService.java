@@ -24,6 +24,6 @@ public interface WealthProductSubscribeService extends WealthProductSubscribeQue
      * @param userId    用户ID
      * @return
      */
-    Subscribe appoint(String productId, int amount, String userId);
+    Subscribe subscribe(String productId, int amount, String userId);
     
 }

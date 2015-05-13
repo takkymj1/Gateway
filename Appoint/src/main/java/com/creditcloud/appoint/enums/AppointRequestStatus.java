@@ -14,6 +14,7 @@ import com.creditcloud.model.enums.BaseEnum;
 public enum AppointRequestStatus implements BaseEnum {
 
     APPOINTED("已认购"),
+    PAYED("已支付"),
     CANCELED("已撤销"),
     SETTLED("已结算");
 

@@ -3,71 +3,68 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.model.enums.loan.RepaymentStatus;
+import com.creditcloud.model.enums.loan.RepaymentMethod;
+import com.creditcloud.model.loan.Duration;
 import com.creditcloud.model.loan.Repayment;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 认购还款（固定收益类产品）
+ * 固定收益类理财产品收益明细
  * 
- * @author rooseek
+ * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@AllArgsConstructor
 @NoArgsConstructor
-public class SubscribeRepayment extends BaseObject {
+@AllArgsConstructor
+public class WealthProductRepaymentDetail extends BaseObject {
 
-    private static final long serialVersionUID = 20140924L;
+    private static final long serialVersionUID = 20150508L;
 
     /**
-     * 认购记录ID
+     * 本金
      * 
      * @return
      */
-    private String subscribeId;
+    private BigDecimal principal;
 
     /**
-     * 期数
+     * 利息
      * 
      * @return
      */
-    private int currentPeriod;
-    
-    /**
-     * 还款状态
-     * 
-     * @return
-     */
-    private RepaymentStatus status;
+    private BigDecimal interest;
 
     /**
-     * 还款详情
+     * 借款时间
      * 
      * @return
      */
-    private Repayment repayment;
+    private Duration duration;
 
     /**
-     * 实际回款金额
+     * 还款方式
      * 
      * @return
      */
-    private BigDecimal repayAmount;
+    private RepaymentMethod method;
 
     /**
-     * 回款日期
+     * 还款明细，包含期数
      * 
      * @return
      */
-    private Date repayDate;
+    private List<Repayment> repayments;
     
 }

@@ -6,6 +6,7 @@ package com.creditcloud.appoint.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.appoint.enums.AppointRequestStatus;
+import com.creditcloud.model.misc.RealmEntity;
 import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -27,9 +28,9 @@ public class AppointRequest extends BaseObject {
     private String id;
 
     /**
-     * 预约产品id
+     * 认购对象，可以是基金，标的，众筹等产品
      */
-    private String appointmentId;
+    private RealmEntity target;
 
     /**
      * 投资者userId
@@ -46,10 +47,6 @@ public class AppointRequest extends BaseObject {
     @Min(0)
     private int amount;
     
-    /**
-     * 认购人对应的branchId
-     */
-    private String branchId;
 
     /**
      * 认购时间
@@ -61,15 +58,13 @@ public class AppointRequest extends BaseObject {
 
     public AppointRequest(String id,
                           String userId,
-                          String appointmentId,
+                          RealmEntity target,
                           AppointRequestStatus status,
-                          int amount,
-                          String branchId) {
+                          int amount) {
         this.id = id;
-        this.appointmentId = appointmentId;
+        this.target = target;
         this.userId = userId;
         this.status = status;
         this.amount = amount;
-        this.branchId = branchId;
     }
 }

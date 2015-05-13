@@ -413,4 +413,45 @@ public interface CrowdFundingQueryService {
                                                                     Date to,
                                                                     List<InvestStatus> statusList,
                                                                     PageInfo pageInfo);
+    
+     /**
+     * 根据众筹分类id集合查询包含ordinal下标的众筹项目。
+     * @param clientCode
+     * @param productIdList  众筹分类id集合
+     * @param size 查询结果条数
+     * @return 
+     */
+    public PagedResult<FundingProject> listByProduct(String clientCode,
+                                                        List<String> productIdList,
+                                                        int  size
+                                                        );
+    
+     /**
+     * 查询众筹项目
+     * @param clientCode
+     * @param fromDate  上线时间范围开始时间
+     * @param toDate    上线时间范围截止时间
+     * @param location  项目地址
+     * @param minAmount  最小融资金额
+     * @param maxAmount  最大融资金额
+     * @param pageInfo   查询限制 开始位置和查询数量
+     * @return 
+     */
+    public PagedResult<FundingProject> listProjects(String clientCode,Date fromDate ,Date toDate,String location,BigDecimal minAmount,BigDecimal maxAmount, PageInfo pageInfo);
+    /**
+     * 根据项目状态统计募集金额
+     * @param clientCode
+     * @param statusList 项目状态
+     * @return 
+     */
+    public BigDecimal countGoalAmountByStatus(String clientCode,List<ProjectStatus> statusList);
+    
+     /**
+     * 根据创建时间和项目状态统计项目数量
+     * @param from 开始时间
+     * @param to   截止时间
+     * @param statusList   项目状态列表
+     * @return 
+     */
+     public long countProject(String clientCode,Date from,Date to,List<ProjectStatus> statusList);
 }

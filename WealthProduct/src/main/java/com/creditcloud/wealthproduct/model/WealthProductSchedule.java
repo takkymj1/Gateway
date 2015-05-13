@@ -27,32 +27,51 @@ public class WealthProductSchedule extends BaseObject {
     private static final long serialVersionUID = 20150428L;
     
     /**
-     * 预约成立时间
-     */
-    private Date appointEstablishedime;
-    
-    /**
-     * 预约开始时间
-     */
-    private Date appointStartTime;
-
-    /**
-     * 预约结束时间
-     */
-    private Date appointEndTime;
-
-    /**
      * 认购开始时间
+     * 
+     * @return
      */
-    private Date subscribeStartTime;
+    private Date timeSubscribeStart;
     
     /**
-     * 认购结束时间
+     * 认购结束时间 (预约结束时间)
+     * 
+     * @return
      */
-    private Date subscribeEndTime;
+    private Date timeSubscribeEnd;
 
     /**
-     * 计息日
+     * 申购开始时间
+     * 
+     * @return
      */
-    private Date valueStartTime;
+    private Date timePurchaseStart;
+    
+    /**
+     * 申购结束时间
+     * 
+     * @return
+     */
+    private Date timePurchaseEnd;
+    
+    /**
+     * 成立时间
+     * 
+     * @return
+     */
+    private Date timeEstablish;
+    
+    /**
+     * 兑付时间
+     * 
+     * @return
+     */
+    private Date timePayment;
+    
+    /**
+     * 结束时间
+     * 
+     * @return
+     */
+    private Date timeCleared;
 }

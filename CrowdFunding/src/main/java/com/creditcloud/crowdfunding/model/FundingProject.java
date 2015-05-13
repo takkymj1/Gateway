@@ -120,7 +120,6 @@ public class FundingProject extends BaseObject {
 
     private String acknowledgement;//感谢信
     
-    //TODO not used now
     private String productId;
     
     //众筹项目的序号,平台可以自定义,允许重复，对于历史数据则为null
@@ -130,7 +129,11 @@ public class FundingProject extends BaseObject {
      * 只有项目，没有后续放款等
      */
     private boolean pureRequest;
-
+    /**
+     * 项目创建时间 
+     */
+    private Date timeCreated;
+   
     public FundingProject(String id,
                           String title,
                           ProjectStatus status,
@@ -157,6 +160,23 @@ public class FundingProject extends BaseObject {
         this.location = location;
     }
 
+    
+    public FundingProject(String id,
+                          String title,
+                          ProjectStatus status,
+                          String userId,
+                          BigDecimal goalAmount,
+                          int timeOut,
+                          Date openTime,
+                          Date finishTime,
+                          String videoUrl,
+                          String introduction,
+                          String detail,
+                          String location,
+                          Date timeCreated) {
+       this(id,title,status,userId,goalAmount,timeOut,openTime,finishTime,videoUrl,introduction,detail,location);
+       this.timeCreated = timeCreated;
+    }
     /**
      * TODO legacy dirty code. to be removed
      *
