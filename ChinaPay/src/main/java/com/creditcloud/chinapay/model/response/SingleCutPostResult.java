@@ -2,7 +2,6 @@ package com.creditcloud.chinapay.model.response;
 
 import com.creditcloud.chinapay.ChinaPayConstant;
 import com.creditcloud.chinapay.enums.SingleCutStatCode;
-import com.creditcloud.chinapay.enums.SinglePayStatCode;
 import java.util.List;
 import java.util.Properties;
 
