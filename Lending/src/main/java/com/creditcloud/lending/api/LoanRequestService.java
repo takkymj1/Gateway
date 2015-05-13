@@ -27,5 +27,5 @@ public interface LoanRequestService extends LoanRequestQueryService, LoanRequest
     
     public LoanRequest getBySerial(String serial);
     
-    public long getSumAmountByDate(boolean pureRequest,Date from,Date to);
+    public long getSumAmountByDate(boolean pureRequest, Date from, Date to);
 }
