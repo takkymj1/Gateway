@@ -14,7 +14,13 @@ import com.creditcloud.model.enums.BaseEnum;
  */
 public enum StockfinanceType implements BaseEnum {
 
+    /**
+     * 按日配资
+     */
     DAY("按日配资"),
+    /**
+     * 按月配资
+     */
     MONTH("按月配资");
 
     private final String key;
