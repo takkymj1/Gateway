@@ -33,6 +33,16 @@ public interface WealthProductQueryService {
     public List<WealthProduct> listByOrdinal(int start, int end);
     
     /**
+     * 根据产品目录查找产品
+     * 
+     * @param category      产品目录/类型 如私募、信托
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<WealthProduct> listByCategory(String category, PageInfo pageInfo);
+    
+    
+    /**
      * 搜索产品列表
      * 
      * @param category          产品大类  
@@ -55,6 +65,15 @@ public interface WealthProductQueryService {
      */
     public PagedResult<WealthProductFixed> listFixedByStatus(List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
 
+    /**
+     * 根据产品目录查找固收类产品
+     * 
+     * @param category      产品目录/类型 如私募、信托
+     * @param pageInfo      分页信息
+     * @return 
+     */
+    public PagedResult<WealthProductFixed> listFixedByCategory(String category, PageInfo pageInfo);
+    
     /**
      * 搜索固收益类产品列表
      * 
