@@ -68,12 +68,20 @@ public class StockfinanceConfig extends BaseConfig {
     private BigDecimal maxStockGuaranteeAmout = BigDecimal.valueOf(1000000);
     
     /**
-     * 配资杠杆
+     * 配资杠杆--按日
      */
     @Getter
     @Setter
     @XmlElement(required = false)
-    private String leverage = "1,2,3,4,5,6";
+    private String dayLeverage = "1,2,3,4,5,6";
+    
+    /**
+     * 配资杠杆--按月
+     */
+    @Getter
+    @Setter
+    @XmlElement(required = false)
+    private String monthLeverage = "1,2,3,4";
     
     /**
      * 预警线所占借款金额的比率（预警线=借款金额*alarmRate）

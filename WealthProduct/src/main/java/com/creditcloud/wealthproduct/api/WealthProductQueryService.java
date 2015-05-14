@@ -40,6 +40,14 @@ public interface WealthProductQueryService {
      * @return 
      */
     public PagedResult<WealthProduct> listByCategory(String category, PageInfo pageInfo);
+    /**
+     * 根据产品目录和产品状态查询产品
+     * @param category 产品目录/类型 如私募、信托
+     * @param pageInfo 分页信息
+     * @param statusList 产品状态
+     * @return 
+     */
+    public PagedResult<WealthProduct> listByCategoryAndStatus(String category, PageInfo pageInfo,List<ProductStatus> statusList);
     
     
     /**
@@ -94,6 +102,7 @@ public interface WealthProductQueryService {
      * @return 
      */
     public PagedResult<WealthProductCategory> listCategory(CriteriaInfo info);
+    
     
     /**
      * 获取用户收藏的产品
