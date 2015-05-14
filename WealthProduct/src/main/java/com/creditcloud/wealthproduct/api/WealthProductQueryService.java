@@ -96,15 +96,6 @@ public interface WealthProductQueryService {
     public PagedResult<WealthProductFixed> listFixedBySearch(String category, int minRate, int maxRate, List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
     
     /**
-     * 理财产品类别列表
-     * 
-     * @param info  检索信息
-     * @return 
-     */
-    public PagedResult<WealthProductCategory> listCategory(CriteriaInfo info);
-    
-    
-    /**
      * 获取用户收藏的产品
      * 
      * @param userId        用户ID
