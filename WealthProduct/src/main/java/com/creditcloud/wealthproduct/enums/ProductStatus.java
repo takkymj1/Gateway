@@ -20,10 +20,27 @@ public enum ProductStatus implements BaseEnum {
     PENDING_APPORVE("待批准"),
     APPROVED("已批准"),
     REJECTED("已驳回"),
+    
+    /**
+     * 认购中、募集中（资金走线下）
+     */
     SUBSCRIBE_START("开放认购"),
+    
+    /**
+     * 认购结束、募集结束 （资金走线下）
+     */
     SUBSCRIBE_END("认购结束"),
+    
+    /**
+     * 申购开始、开放购买中（资金走线上）
+     */
     PURCHASE_START("开放申购"),
+    
+    /**
+     * 申购结束（资金走线上）
+     */
     PURCHASE_END("申购结束"),
+    
     SETTLED("已结算锁定期"),
     DUE("产品到期"),
     CLEARED("产品结束"), //all invest cleared

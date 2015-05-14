@@ -1,29 +1,29 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
-import com.creditcloud.wealthproduct.enums.SubscribeStatus;
+import com.creditcloud.wealthproduct.enums.PurchaseStatus;
 import java.math.BigDecimal;
-import java.util.Date;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 认购
- *
- * @author rooseek
+ * 申购记录
+ * 
+ * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@XmlRootElement
-public class Subscribe extends BaseObject {
-
-    private static final long serialVersionUID = 20140924L;
+public class Purchase extends BaseObject {
 
     /**
      * ID
@@ -31,13 +31,12 @@ public class Subscribe extends BaseObject {
      * @return
      */
     private String id;
-
+    
     /**
      * 产品ID
      * 
      * @return
      */
-    @NotNull
     private String productId;
 
     /**
@@ -45,7 +44,6 @@ public class Subscribe extends BaseObject {
      * 
      * @return
      */
-    @NotNull
     private String userId;
 
     /**
@@ -53,15 +51,13 @@ public class Subscribe extends BaseObject {
      * 
      * @return
      */
-    @NotNull
     private BigDecimal amount;
 
     /**
-     * 产品利率
+     * 年化利率
      * 
      * @return
      */
-    @NotNull
     private WealthProductRate rate;
     
     /**
@@ -69,9 +65,8 @@ public class Subscribe extends BaseObject {
      * 
      * @return
      */
-    @NotNull
-    private SubscribeStatus status;
-    
+    private PurchaseStatus status;
+
     /**
      * 备注
      * 
@@ -86,18 +81,4 @@ public class Subscribe extends BaseObject {
      */
     private String priv;
     
-    /**
-     * 预约时间
-     * 
-     * @return
-     */
-    protected Date timeAppointed;
-    
-    /**
-     * 打款时间
-     * 
-     * @return
-     */
-    protected Date timePaid;
-
 }
