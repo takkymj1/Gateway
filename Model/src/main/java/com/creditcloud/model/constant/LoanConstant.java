@@ -13,7 +13,7 @@ public interface LoanConstant {
     /**
      * 每个user每天提交的loan request上限
      */
-    int DAILY_LOAN_REQUEST_LIMIT = 10;
+    int DAILY_LOAN_REQUEST_LIMIT = 50;
 
     /**
      * 最低贷款利率
