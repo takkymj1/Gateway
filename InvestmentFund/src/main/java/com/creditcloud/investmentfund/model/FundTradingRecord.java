@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
@@ -24,6 +25,7 @@ import lombok.NoArgsConstructor;
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class FundTradingRecord extends FundObject {
@@ -112,4 +114,10 @@ public class FundTradingRecord extends FundObject {
      * 基金类型
      */
     private FundType fundType;
+    
+    /**
+     * 额外的附属信息
+     */
+    private String priv;
+    
 }

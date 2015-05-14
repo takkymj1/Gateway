@@ -6,7 +6,6 @@
 package com.creditcloud.wealthproduct.api;
 
 import com.creditcloud.wealthproduct.enums.PurchaseResult;
-import com.creditcloud.wealthproduct.model.Subscribe;
 import javax.ejb.Remote;
 
 /**

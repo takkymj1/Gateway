@@ -8,10 +8,13 @@ package com.creditcloud.wealthproduct.model;
 
 import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IncrementalInteger;
+import com.creditcloud.model.enums.loan.MortgageType;
 import com.creditcloud.model.enums.loan.RepaymentMethod;
 import com.creditcloud.wealthproduct.WealthProductConstant;
+import com.creditcloud.wealthproduct.enums.ProductFixedType;
 import com.creditcloud.wealthproduct.enums.RateLevelType;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
+import java.util.Collection;
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -69,6 +72,28 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
     private RateLevelType rateLevelType;
     
     /**
+     * 固收类产品类型
+     * 
+     * @return
+     */
+    @NotNull
+    private ProductFixedType type;
+    
+    /**
+     * 贷款类产品抵押物类型
+     * 
+     * @return
+     */
+    private Collection<MortgageType> mortgagedType;
+    
+    /**
+     * 抵押率
+     * 
+     * @return
+     */
+    private Integer mortgageRate;
+    
+    /**
      * 产品最小利率
      * 
      * @return
@@ -87,4 +112,24 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
                         increment = RATE_INCREMENT,
                         max = MAX_RATE)
     private Integer maxRate;
+    
+    public WealthProductFixed(
+            String productId, 
+            WealthProduct product,
+            RepaymentMethod repayMethod,
+            ReturnMethod returnMethod,
+            RateLevelType rateLevelType,
+            int minRate,
+            int maxRate) {
+        this.productId = productId;
+        this.product = product;
+        this.repayMethod = repayMethod;
+        this.returnMethod = returnMethod;
+        this.rateLevelType = rateLevelType;
+        this.minRate = minRate;
+        this.maxRate = maxRate;
+        
+        this.type = ProductFixedType.OTHER;
+    }
+    
 }
