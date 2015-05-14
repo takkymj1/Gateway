@@ -5,6 +5,7 @@
  */
 package com.creditcloud.wealthproduct.api;
 
+import com.creditcloud.wealthproduct.model.ProductResult;
 import com.creditcloud.wealthproduct.model.Subscribe;
 import javax.ejb.Remote;
 
@@ -24,6 +25,6 @@ public interface WealthProductSubscribeService extends WealthProductSubscribeQue
      * @param userId    用户ID
      * @return
      */
-    Subscribe subscribe(String productId, int amount, String userId);
+    ProductResult subscribe(String productId, int amount, String userId);
     
 }

@@ -11,16 +11,16 @@ import com.creditcloud.model.enums.BaseEnum;
  *
  * @author rooseek
  */
-public enum AppointResult implements BaseEnum {
+public enum SubscribeResult implements BaseEnum {
 
-    SUCCESSFUL("预约成功"),
-    EXCEED_TIMES_LIMIT("预约次数超过上限"),
-    NO_BALANCE("预约已满"),
-    FAIL("预约失败");
+    SUCCESSFUL("申购成功"),
+    EXCEED_TIMES_LIMIT("申购次数超过上限"),
+    NO_BALANCE("申购已满"),
+    FAIL("申购失败");
 
     private final String key;
 
-    private AppointResult(String key) {
+    private SubscribeResult(String key) {
         this.key = key;
     }
 
