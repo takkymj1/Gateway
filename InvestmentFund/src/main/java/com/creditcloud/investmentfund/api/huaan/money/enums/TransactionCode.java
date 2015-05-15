@@ -14,6 +14,7 @@ package com.creditcloud.investmentfund.api.huaan.money.enums;
 public enum TransactionCode {
 
     EXCHANGE_KEY("1000", "交换密钥"),
+    MERCHANT_EXCHANGE_KEY("1001", "商户密钥交换"),
     MONEY_FUND_NEW_ACCOUNT("1101", "货币基金开户(云中信)"),
     MONEY_FUND_PURCHASE("2101", "货币基金申购"),
     MONEY_FUND_REDEEM_QUICK("2098", "货币基金赎回(快速,2小时内资金到账)"),
