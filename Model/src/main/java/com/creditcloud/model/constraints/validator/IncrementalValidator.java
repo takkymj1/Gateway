@@ -5,9 +5,10 @@
 package com.creditcloud.model.constraints.validator;
 
 import com.creditcloud.model.constraints.IncrementalInteger;
+import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
+import org.slf4j.Logger;
 /**
  *
  * @author rooseek
@@ -16,6 +17,9 @@ public class IncrementalValidator implements ConstraintValidator<IncrementalInte
 
     private IncrementalInteger constraintAnnotation;
 
+    @Inject
+    Logger Logger;
+    
     @Override
     public void initialize(IncrementalInteger constraintAnnotation) {
         this.constraintAnnotation = constraintAnnotation;
@@ -26,6 +30,7 @@ public class IncrementalValidator implements ConstraintValidator<IncrementalInte
         int min = constraintAnnotation.min();
         int increment = constraintAnnotation.increment();
         int max = constraintAnnotation.max();
+        Logger.info("######## valid error, \n constraint={}, \n value={}", constraintAnnotation, value);
         if (value < min) {
             return false;
         }

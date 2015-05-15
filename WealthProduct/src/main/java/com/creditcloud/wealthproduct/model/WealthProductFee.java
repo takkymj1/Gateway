@@ -10,6 +10,7 @@ import com.creditcloud.model.BaseObject;
 import java.math.BigDecimal;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,6 +32,7 @@ public class WealthProductFee extends BaseObject {
      * 
      * @return
      */
+     @FormParam("productId")
     private String productId;
 
     /**
@@ -40,6 +42,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("subscribeFee")
     private BigDecimal subscribeFee;
     
     /**
@@ -49,6 +52,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("purchaseFee")
     private BigDecimal purchaseFee;
 
     /**
@@ -58,6 +62,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("manageFee")
     private BigDecimal manageFee;
 
     /**
@@ -67,6 +72,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("redeemFee")
     private BigDecimal redeemFee;
 
     /**
@@ -76,6 +82,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("custodyFee")
     private BigDecimal custodyFee;
     
     /**
@@ -85,6 +92,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("serviceFee")
     private BigDecimal serviceFee;
     
     /**
@@ -94,6 +102,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("directSalesFee")
     private BigDecimal directSalesFee;
     
     /**
@@ -103,6 +112,7 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("channelSalesFee")
     private BigDecimal channelSalesFee;
     
     /**
@@ -112,5 +122,6 @@ public class WealthProductFee extends BaseObject {
      */
     @Min(0)
     @Max(1)
+     @FormParam("bonusFee")
     private BigDecimal bonusFee;
 }
