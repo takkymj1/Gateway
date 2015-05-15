@@ -9,6 +9,8 @@ import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
 import java.util.Map;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * 定义参考 : 华安云中信通讯接口说明_机构.doc <br>
@@ -42,5 +44,14 @@ public class NewFundTransKeyResponseMessage extends CommonResponseMessage {
         RetCode = parameters.get("RetCode");
         RetMsg = parameters.get("RetMsg");
         CommonReturn = parameters.get("CommonReturn");
+    }
+
+    @Override
+    public String toString() {
+        ReflectionToStringBuilder builder = new ReflectionToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE);
+        builder.setAppendStatics(false);
+        builder.setAppendTransients(false);
+
+        return builder.build();
     }
 }
