@@ -70,5 +70,9 @@ public interface IDMService {
 //    public Map<Integer, Map<String, String>> searchUser(String filter);
     
     public SearchUserResult searchUser(String filter);
+    
+    
+    //wap端登陆接口
+    public IDMResult wapLogin (String uid, String userpassword);
 
 }
