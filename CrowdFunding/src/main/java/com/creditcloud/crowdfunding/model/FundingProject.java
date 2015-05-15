@@ -27,11 +27,25 @@ public class FundingProject extends BaseObject {
 
     private static final long serialVersionUID = 20140922L;
 
+    @FormParam("id")
     private String id;
-
+    
+    /**
+     * 编号
+     */
+    @FormParam("code")
+    private String code;
+    
     @NotNull
+    @FormParam("title")
     private String title;
-
+    
+    /**
+     * 简称
+     */
+    @FormParam("shortTitle")
+    private String shortTitle;
+    
     private ProjectStatus status;
 
     /**
@@ -104,21 +118,34 @@ public class FundingProject extends BaseObject {
     /**
      * 发起人信息
      */
+    @FormParam("qualification")
     private String qualification;//资质
 
+    @FormParam("blog")
     private String blog;//博客
 
+    @FormParam("website")
     private String website;//网址
 
+    @FormParam("email")
     private String email;//联系邮箱
 
+    @FormParam("mobile")
     private String mobile;//联系电话
 
+    @FormParam("selfDescription")
     private String selfDescription;//自我介绍
 
+    @FormParam("detailDescription")
     private String detailDescription;//详细介绍
 
+    @FormParam("acknowledgement")
     private String acknowledgement;//感谢信
+    /**
+     * 发起人全称
+     */
+    @FormParam("publisherTitle")
+    private String publisherTitle;
     
     private String productId;
     
@@ -134,6 +161,17 @@ public class FundingProject extends BaseObject {
      */
     private Date timeCreated;
    
+    /**
+     * 企业
+     */
+    private String corporationId;
+    
+    /**
+     * 产品风险等级
+     */
+    @FormParam("riskLevel")
+    private String riskLevel;
+    
     public FundingProject(String id,
                           String title,
                           ProjectStatus status,
