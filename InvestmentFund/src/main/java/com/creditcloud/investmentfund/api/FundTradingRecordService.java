@@ -38,6 +38,16 @@ public interface FundTradingRecordService {
     public FundTradingRecord addNew(FundTradingRecord fundTradingRecord);
     
     /**
+     * 更新一条记录
+     * 
+     * 部分字段更新
+     * 
+     * @param fundTradingRecord
+     * @return 
+     */
+    public boolean update(FundTradingRecord fundTradingRecord);
+    
+    /**
      * 获取交易记录
      * 
      * @param orderId   订单号
