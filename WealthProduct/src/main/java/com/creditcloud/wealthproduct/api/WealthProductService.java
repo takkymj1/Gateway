@@ -79,7 +79,7 @@ public interface WealthProductService extends WealthProductQueryService {
      * @param rates     产品利率
      * @return 
      */
-    public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
+//    public boolean addFixedRates(String productId,  List<WealthProductRate> rates);
     
     /**
      * 修改产品展示序号
@@ -116,4 +116,18 @@ public interface WealthProductService extends WealthProductQueryService {
      */
     public int favoriteCountByProduct(String productId);
 
+    /**
+     * 产品前台显示
+     * 
+     * @param productId 
+     */
+    public void enable(String productId);
+    
+    /**
+     * 产品前台隐藏
+     * 
+     * @param productId 
+     */
+    public void disable(String productId);
+    
 }
