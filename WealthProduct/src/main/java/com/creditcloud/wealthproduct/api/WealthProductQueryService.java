@@ -5,13 +5,11 @@
  */
 package com.creditcloud.wealthproduct.api;
 
-import com.creditcloud.model.criteria.CriteriaInfo;
 import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.wealthproduct.enums.IncomeType;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
-import com.creditcloud.wealthproduct.model.WealthProductCategory;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
 import java.util.List;
 
@@ -32,14 +30,6 @@ public interface WealthProductQueryService {
      */
     public List<WealthProduct> listByOrdinal(int start, int end);
     
-    /**
-     * 根据产品目录查找产品
-     * 
-     * @param category      产品目录/类型 如私募、信托
-     * @param pageInfo      分页信息
-     * @return 
-     */
-    public PagedResult<WealthProduct> listByCategory(String category, PageInfo pageInfo);
     /**
      * 根据产品目录和产品状态查询产品
      * @param category 产品目录/类型 如私募、信托

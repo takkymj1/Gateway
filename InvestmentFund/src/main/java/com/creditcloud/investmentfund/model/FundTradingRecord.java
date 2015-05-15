@@ -120,4 +120,18 @@ public class FundTradingRecord extends FundObject {
      */
     private String priv;
     
+    /**
+     * 创建时间
+     * 
+     * @return
+     */
+    private Date timeCreated;
+
+    /**
+     * 更新时间
+     * 
+     * @return
+     */
+    private Date timeLastUpdated;
+    
 }
