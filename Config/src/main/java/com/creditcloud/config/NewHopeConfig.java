@@ -48,4 +48,11 @@ public class NewHopeConfig extends BaseConfig {
     @Getter
     private String restUrl;
     
+    @XmlElement
+    @Getter
+    private String ldapUrl;
+    
+    @XmlElement
+    @Getter
+    private String ldapBaseDn;
 }
