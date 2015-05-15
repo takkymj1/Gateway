@@ -65,12 +65,12 @@ public class FundingCorporation extends Corporation {
      * 经营业务收入情况
      */
     @FormParam("businessIncome")
-    private BigDecimal businessIncome;
+    private String businessIncome;
     
     /**
      * 核心产品
      */
-    @FormParam("businessIncome")
+    @FormParam("coreProduct")
     private String coreProduct;
     
     /**
@@ -95,6 +95,6 @@ public class FundingCorporation extends Corporation {
     /**
      * 信息披露方式
      */
-    @FormParam("InfoShowMethod")
+    @FormParam("infoShowMethod")
     private String infoShowMethod;
 }
