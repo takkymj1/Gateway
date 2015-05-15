@@ -4,7 +4,9 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.IncrementalInteger;
 import com.creditcloud.wealthproduct.WealthProductConstant;
 import com.creditcloud.wealthproduct.enums.IncomeType;
+import com.creditcloud.wealthproduct.enums.InvestmentArea;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
+import java.util.Collection;
 import javax.enterprise.inject.Default;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -79,6 +81,13 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      */
     @NotNull
     private IncomeType incomeType;
+    
+    /**
+     * 投资领域
+     * 
+     * @return
+     */
+    private Collection<InvestmentArea> investmentArea;
     
     /**
      * 成立规模/募集金额
@@ -219,6 +228,8 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
     
     /**
      * 相关信息
+     * 
+     * @return
      */
     private WealthProductInfo info; 
     
