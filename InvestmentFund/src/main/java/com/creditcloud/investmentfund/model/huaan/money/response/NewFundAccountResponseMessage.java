@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class NewFundAccountResponseMessage extends CommonResponseMessage {
 
-    private String RetCode;
+    private String responseHTML;
 
     @Override
     public void resolveXMLPaylod() {

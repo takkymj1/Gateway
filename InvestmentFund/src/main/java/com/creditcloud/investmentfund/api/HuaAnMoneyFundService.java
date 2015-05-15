@@ -104,4 +104,13 @@ public interface HuaAnMoneyFundService {
      */
     public NewFundTransKeyResponseMessage newTransKey(NewFundTransKeyRequestMessage request);
 
+    /**
+     * 使用配置的参数准备一个HTML,包含华安基金开户请求表单以及相应的参数
+     *
+     * @param seqNo
+     * @param merchantBusinessLicenceNo
+     * @return
+     */
+    public String buildHTMLNewAccountAutoSubmitForm(String seqNo, String merchantBusinessLicenceNo);
+
 }
