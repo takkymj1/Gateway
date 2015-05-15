@@ -31,7 +31,15 @@ public class HuaAnMoneyFundConfig extends BaseObject {
      */
     @Getter
     @XmlElement(required = false)
-    private String privateKey;
+    private String merchantPrivateKey;
+    /**
+     * AES加解密密钥,base64编码
+     *
+     * @return
+     */
+    @Getter
+    @XmlElement(required = false)
+    private String platformPrivateKey;
 
     /**
      * 平台ID
