@@ -8,6 +8,7 @@ import com.creditcloud.model.constraints.IncrementalInteger;
 import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
 /**
  *
  * @author rooseek
@@ -16,8 +17,6 @@ public class IncrementalValidator implements ConstraintValidator<IncrementalInte
 
     private IncrementalInteger constraintAnnotation;
 
-  
-    
     @Override
     public void initialize(IncrementalInteger constraintAnnotation) {
         this.constraintAnnotation = constraintAnnotation;
