@@ -5,7 +5,6 @@
 package com.creditcloud.model.constraints.validator;
 
 import com.creditcloud.model.constraints.IncrementalInteger;
-import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
