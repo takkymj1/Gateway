@@ -22,7 +22,7 @@ public interface UserFundService {
      * get user fund by user id
      *
      * @param clientCode
-     * @param userId     必须为有效uuid
+     * @param userId 必须为有效uuid
      * @return null if not found
      * @throw ClientCodeNotMatchException if incoming client code do not match
      * the local client
@@ -44,7 +44,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     必须大于0
+     * @param amount 必须大于0
      * @return true if successful
      */
     public boolean freeze(String clientCode, String userId, BigDecimal amount);
@@ -56,7 +56,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     必须大于0
+     * @param amount 必须大于0
      * @return true if successful
      */
     public boolean release(String clientCode, String userId, BigDecimal amount);
@@ -69,11 +69,11 @@ public interface UserFundService {
      * 投资人待还金额+=repayAmount
      *
      * @param clientCode
-     * @param repayAmount  待还款金额，包含本金和利息，必须大于0
+     * @param repayAmount 待还款金额，包含本金和利息，必须大于0
      * @param investUserId 投资人
-     * @param outAmount    投资人投标金额，必须大于0
-     * @param loanUserId   借款人
-     * @param inAmount     借款人实际到账金额(可能=投标金额-借款费用)，必须大于0
+     * @param outAmount 投资人投标金额，必须大于0
+     * @param loanUserId 借款人
+     * @param inAmount 借款人实际到账金额(可能=投标金额-借款费用)，必须大于0
      * @return
      */
     public boolean settleInvest(String clientCode,
@@ -91,10 +91,10 @@ public interface UserFundService {
      * 投资人待收金额+=repayAmount
      *
      * @param clientCode
-     * @param repayAmount  待还款金额，包含本金和利息，必须大于0
+     * @param repayAmount 待还款金额，包含本金和利息，必须大于0
      * @param investUserId 投资人
-     * @param outAmount    投资人投标金额，必须大于0
-     * @param loanUserId   借款人
+     * @param outAmount 投资人投标金额，必须大于0
+     * @param loanUserId 借款人
      * @return
      * @see settleInvestUmpRefund
      */
@@ -111,7 +111,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param loanUserId 借款人
-     * @param inAmount   借款人实际到账金额(可能=总投标金额-总借款费用)，必须大于0
+     * @param inAmount 借款人实际到账金额(可能=总投标金额-总借款费用)，必须大于0
      * @return
      * @see settleInvestUmp
      */
@@ -128,10 +128,10 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param investUserId 投资人
-     * @param repayAmount  还款金额，一般是约定待还金额(TODO 支持部分还款？)，必须大于0
-     * @param inAmount     投资人实际到账金额=还款金额扣除投资人费用，必须大于0
-     * @param loanUserId   借款人
-     * @param outAmount    借款人实际出账金额＝还款金额加上借款人费用，必须大于0
+     * @param repayAmount 还款金额，一般是约定待还金额(TODO 支持部分还款？)，必须大于0
+     * @param inAmount 投资人实际到账金额=还款金额扣除投资人费用，必须大于0
+     * @param loanUserId 借款人
+     * @param outAmount 借款人实际出账金额＝还款金额加上借款人费用，必须大于0
      * @return
      */
     public boolean repayInvest(String clientCode,
@@ -158,9 +158,9 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param investUserId 投资人
-     * @param repayAmount  还款金额，一般是约定待还金额，必须大于0
-     * @param inAmount     投资人实际到账金额=还款金额扣除投资人费用，必须大于0
-     * @param loanUserId   借款人
+     * @param repayAmount 还款金额，一般是约定待还金额，必须大于0
+     * @param inAmount 投资人实际到账金额=还款金额扣除投资人费用，必须大于0
+     * @param loanUserId 借款人
      * @return
      */
     public boolean repayInvestOnly(String clientCode,
@@ -174,8 +174,8 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param investUserId
-     * @param repayAmount  还款金额，一般是约定待还金额(TODO 支持部分还款？)，必须大于0
-     * @param inAmount     投资人实际到账金额=还款金额扣除投资人费用，必须大于0
+     * @param repayAmount 还款金额，一般是约定待还金额(TODO 支持部分还款？)，必须大于0
+     * @param inAmount 投资人实际到账金额=还款金额扣除投资人费用，必须大于0
      * @return
      */
     public boolean disburseInvest(String clientCode,
@@ -208,7 +208,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     充值后实际到账金额，充值金额减去可能的充值费用，必须大于0
+     * @param amount 充值后实际到账金额，充值金额减去可能的充值费用，必须大于0
      * @return
      */
     public boolean deposit(String clientCode, String userId, BigDecimal amount);
@@ -221,7 +221,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param outAmount      实际出账金额,包含取现费用和实际到卡金额，必须大于0
+     * @param outAmount 实际出账金额,包含取现费用和实际到卡金额，必须大于0
      * @param withdrawAmount 实际到卡金额，必须大于0
      * @return
      */
@@ -238,8 +238,8 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     必须大于0
-     * @param income     true for income, false for expense
+     * @param amount 必须大于0
+     * @param income true for income, false for expense
      * @return
      */
     public boolean transfer(String clientCode, String userId, BigDecimal amount, boolean income);
@@ -249,7 +249,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     必须大于0
+     * @param amount 必须大于0
      * @return
      */
     public boolean charge(String clientCode,
@@ -274,10 +274,23 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     必须大于0
+     * @param amount 必须大于0
      * @return
      */
     public boolean incomeFee(String clientCode,
+                             String userId,
+                             BigDecimal amount);
+
+    /**
+     * 用户余额生息利息收入，直接增加可用余额<p>
+     * 如担保用户获得的担保金收入
+     *
+     * @param clientCode
+     * @param userId
+     * @param amount 必须大于0
+     * @return
+     */
+    public boolean incomeInterest(String clientCode,
                              String userId,
                              BigDecimal amount);
 
@@ -289,7 +302,7 @@ public interface UserFundService {
      * @param clientCode
      * @param userId
      * @param diffAvailable 可用金额增量
-     * @param diffFreeze    冻结金额增量
+     * @param diffFreeze 冻结金额增量
      * @return
      */
     public boolean calibrate(String clientCode, String userId, BigDecimal diffAvailable, BigDecimal diffFreeze);
@@ -299,7 +312,7 @@ public interface UserFundService {
      *
      * @param clientCode
      * @param userId
-     * @param amount     金额
+     * @param amount 金额
      * @param transferIn true for 从fss转入到可用余额,false for 转出
      * @return
      */

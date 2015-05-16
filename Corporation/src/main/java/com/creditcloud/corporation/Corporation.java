@@ -9,6 +9,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.user.corporation.CorporationConstant;
 import java.util.Date;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Corporation extends BaseObject {
 
     //企业全称
     @Size(max = CorporationConstant.MAX_CORP_NAME)
+    @FormParam("name")
     private String name;
 
     //企业名简称
@@ -36,6 +38,7 @@ public class Corporation extends BaseObject {
 
     //组织结构代码
     @Size(max = CorporationConstant.ORG_CODE_LEN)
+    @FormParam("orgCode")
     private String orgCode;
 
     //营业执照编号
