@@ -109,6 +109,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("description")
     private String description;
     
     /**
