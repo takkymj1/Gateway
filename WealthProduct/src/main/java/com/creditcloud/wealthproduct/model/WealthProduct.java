@@ -10,6 +10,7 @@ import java.util.Collection;
 import javax.enterprise.inject.Default;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -48,6 +49,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      */
     @Size(max = MAX_TITLE_LENGTH)
     @NotNull
+     @FormParam("title")
     private String title;
 
     /**
@@ -99,6 +101,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
                         max = MAX_RAISE_AMOUNT,
                         groups = Default.class)
     @NotNull
+    @FormParam("amount")
     private Integer amount;
 
     /**
@@ -123,6 +126,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
                         max = MAX_RAISE_AMOUNT,
                         groups = Default.class)
     @NotNull
+    @FormParam("subscribeAmount")
     private Integer subscribeAmount;
     
     /**
