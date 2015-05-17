@@ -39,7 +39,15 @@ public interface WealthProductQueryService {
      */
     public PagedResult<WealthProduct> listByCategoryAndStatus(String category, PageInfo pageInfo,List<ProductStatus> statusList);
     
-    
+    /**
+     * 查询理财产品
+     * @param category 产品目录/类型 如私募、信托
+     * @param pageInfo 分页信息
+     * @param statusList 产品状态
+     * @param employeeId 创建人ID
+     * @return 
+     */
+    public PagedResult<WealthProduct> listBySearch(String category, PageInfo pageInfo,List<ProductStatus> statusList,String employeeId);
     /**
      * 搜索产品列表
      * 
