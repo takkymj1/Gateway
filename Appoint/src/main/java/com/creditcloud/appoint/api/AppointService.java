@@ -8,6 +8,7 @@ import com.creditcloud.appoint.enums.AppointRequestStatus;
 import com.creditcloud.appoint.model.AppointRequest;
 import com.creditcloud.appoint.model.AppointResult;
 import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.Realm;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.misc.RealmEntity;
 import javax.ejb.Remote;
@@ -90,4 +91,13 @@ public interface AppointService {
      * @return 
      */
     PagedResult<AppointRequest> listByStatus(PageInfo pageInfo, AppointRequestStatus... status);
+    
+    /**
+     * 根据预约主体的类型列出预约
+     * @param pageInfo
+     * @param realm
+     * @param status
+     * @return 
+     */
+    PagedResult<AppointRequest> listRequestByTargetRealm(PageInfo pageInfo, Realm realm, AppointRequestStatus... status);
 }
