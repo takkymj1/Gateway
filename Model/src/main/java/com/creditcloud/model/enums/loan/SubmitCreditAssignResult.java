@@ -23,7 +23,12 @@ public enum SubmitCreditAssignResult implements BaseEnum {
     INSUFFICIENT("没有本金可转让"),
     ILLEGAL_INVEST("投标状态不可转让"),
     ILLEGAL_INVEST_USER("只能转让自己的投标"),
-    ILLEGAL_REPAYMENT("投标有逾期违约还款");
+    ILLEGAL_REPAYMENT("投标有逾期违约还款"),
+    ILLEGAL_DATE("不在可转让时间范围"),
+    NEXT_REPAY_DATE_LIMIT("下次回款到期日前一定天数内不允许转让"),
+    INVEST_DATE_LIMIT("投资持有一定天数后才允许转让"),
+    DAILY_LIMIT("超过每日债权转让次数上限"),
+    ASSIGN_AMOUNT_LIMIT("低于最低转让金额限制");
 
     private final String key;
 

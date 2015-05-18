@@ -86,7 +86,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int maxDaysBeforeFee = Integer.MAX_VALUE;
+    private int maxDaysBeforeAssign = Integer.MAX_VALUE;
 
     /**
      * 债权转让提交的发生时间离下次还款前最低天数
@@ -94,7 +94,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int minDaysBeforeNextRepay = 10;
+    private int minDaysBeforeNextRepay = 5;
 
     /**
      * 债权转让开放承接最大时间，单位小时
@@ -102,21 +102,21 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int maxTimeOut = 72;
+    private int maxTimeOut = 48;
 
     /**
      * 发起债权转让的最小金额
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal minAmount = BigDecimal.ONE;
+    private BigDecimal minAmount = BigDecimal.valueOf(100);
     
     /**
      * 债权承接最小金额
      */
     @Getter
     @XmlElement(required = false)
-    private BigDecimal minAssignAmount = BigDecimal.ONE;
+    private BigDecimal minAssignAmount = minAmount;
 
     /**
      * 每个用户每天发起的债权转让次数上限
@@ -124,7 +124,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int dailyLimitPerUser = Integer.MAX_VALUE;
+    private int dailyLimitPerUser = 3;
 
     public Fee getFee() {
         return fee != null
