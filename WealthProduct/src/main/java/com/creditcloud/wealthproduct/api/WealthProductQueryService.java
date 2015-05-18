@@ -21,7 +21,7 @@ import java.util.List;
 public interface WealthProductQueryService {
 
     /**
-     * 列出下标区间的基金产品
+     * 列出下标区间的基金产品 (前端)
      *
      * @param start 开始索引
      * @param end 结束索引
@@ -52,14 +52,14 @@ public interface WealthProductQueryService {
     public PagedResult<WealthProduct> listBySearch(String category, PageInfo pageInfo, List<ProductStatus> statusList, String employeeId);
 
     /**
-     * 搜索产品列表
-     *
-     * @param category 产品大类
-     * @param incomeType 收益类型
-     * @param statusList 产品状态
-     * @param subscribeOnly 是否只是认购产品
-     * @param pageInfo 分页信息
-     * @return
+     * 搜索产品列表 (前端)
+     * 
+     * @param category          产品大类  
+     * @param incomeType        收益类型
+     * @param statusList        产品状态
+     * @param subscribeOnly     是否只是认购产品
+     * @param pageInfo          分页信息
+     * @return 
      */
     public PagedResult<WealthProduct> listBySearch(String category, IncomeType incomeType, List<ProductStatus> statusList, boolean subscribeOnly, PageInfo pageInfo);
 
