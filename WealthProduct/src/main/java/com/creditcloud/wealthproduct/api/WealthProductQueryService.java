@@ -32,9 +32,6 @@ public interface WealthProductQueryService {
 
     /**
      * 根据产品目录和产品状态查询产品
-<<<<<<< HEAD
-     * 
-=======
      *
      * @param category 产品目录/类型 如私募、信托
      * @param pageInfo 分页信息
@@ -46,7 +43,6 @@ public interface WealthProductQueryService {
     /**
      * 查询理财产品
      *
->>>>>>> upstream/master
      * @param category 产品目录/类型 如私募、信托
      * @param pageInfo 分页信息
      * @param statusList 产品状态
