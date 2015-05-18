@@ -13,6 +13,7 @@ import com.creditcloud.model.loan.CreditAssign;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.service.MarketCreditAssignService;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -54,6 +55,11 @@ public class AbstractMarketCreditAssignService implements MarketCreditAssignServ
 
     @Override
     public PagedResult<Invest> listInvest(String clientCode, String creditAssignId, InvestStatus... status) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean markStatus(String clientCode, String creditAssignId, CreditAssignStatus status, int bidNumber, BigDecimal bidAmount) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
