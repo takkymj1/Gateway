@@ -12,6 +12,7 @@ import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.loan.CreditAssign;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Remote;
@@ -30,7 +31,19 @@ public interface MarketCreditAssignService {
      * @param status
      * @param creditAssignIds
      */
+    @Deprecated
     public void markStatus(String clientCode, CreditAssignStatus status, String... creditAssignIds);
+
+    /**
+     *
+     * @param clientCode
+     * @param creditAssignId
+     * @param status
+     * @param bidNumber
+     * @param bidAmount
+     * @return
+     */
+    public boolean markStatus(String clientCode, String creditAssignId, CreditAssignStatus status, int bidNumber, BigDecimal bidAmount);
 
     /**
      * get by id
