@@ -34,6 +34,7 @@ public enum CertificateType implements BaseEnum {
      */
     INVESTMENTFUND("基金相关"),
     INSURANCE("保险相关"),
+    WEALTHPRODUCT("理财产品"),
     OTHERS("其他认证");
 
     private final String key;
