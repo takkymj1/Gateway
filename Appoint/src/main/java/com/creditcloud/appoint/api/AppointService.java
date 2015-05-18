@@ -59,6 +59,15 @@ public interface AppointService {
                                                     AppointRequestStatus... status);
 
     /**
+     * 计算某产品的预约次数
+     * @param target
+     * @param status
+     * @return 
+     */
+    int countRequestByTarget(RealmEntity target,
+                             AppointRequestStatus... status);
+    
+    /**
      * 根据认购人列出所有认购
      *
      * @param userId
