@@ -81,7 +81,7 @@ public class CreditAssignConfig extends BaseConfig {
     private Fee fee;
 
     /**
-     * 持有原始债权一定天数后才转让将免收债权转让费用
+     * 持有原始债权一定天数后才允许转让
      */
     @Getter
     @Min(1)
@@ -110,6 +110,13 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @XmlElement(required = false)
     private BigDecimal minAmount = BigDecimal.ONE;
+    
+    /**
+     * 债权承接最小金额
+     */
+    @Getter
+    @XmlElement(required = false)
+    private BigDecimal minAssignAmount = BigDecimal.ONE;
 
     /**
      * 每个用户每天发起的债权转让次数上限

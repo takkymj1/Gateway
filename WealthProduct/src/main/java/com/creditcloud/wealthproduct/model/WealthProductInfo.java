@@ -9,6 +9,7 @@ package com.creditcloud.wealthproduct.model;
 import com.creditcloud.model.BaseObject;
 import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_DESCRIPTION_LENGTH;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -30,6 +31,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+      @FormParam("guaranteeInfo")
     private String guaranteeInfo;
     
     /**
@@ -38,6 +40,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+    @FormParam("financingInfo")
     private String financingInfo;
     
     /**
@@ -46,6 +49,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("assetManageInfo")
     private String assetManageInfo;
     
     /**
@@ -54,6 +58,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("underwriterInfo")
     private String underwriterInfo;
     
     /**
@@ -62,6 +67,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("consultantInfo")
     private String consultantInfo;
     
     /**
@@ -70,6 +76,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("riskInfo")
     private String riskInfo;
     
     /**
@@ -78,6 +85,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("repaymentInfo")
     private String repaymentInfo;
     
     /**
@@ -86,11 +94,13 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+    @FormParam("strategyInfo")
     private String strategyInfo;
     
     /**
      * 产品合同
      */
+    @FormParam("contractInfo")
     private String contractInfo;
     
     /**
@@ -99,6 +109,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
+     @FormParam("description")
     private String description;
     
     /**
