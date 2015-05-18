@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -14,7 +15,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author GuohuaZhang
  */
 @Data
-public class CreditCloudTAConfig {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CreditCloudTAConfig extends ConfigObjBase {
 
     /**
      * 平台在云信TA的租户账号
@@ -26,4 +28,6 @@ public class CreditCloudTAConfig {
         return ReflectionToStringBuilder.toString(this,
                                                   ToStringStyle.SHORT_PREFIX_STYLE, false, false);
     }
+
+
 }

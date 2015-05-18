@@ -5,15 +5,16 @@
  */
 package com.creditcloud.interestbearing.api;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author guohuazhang
  */
-public interface InterestingBearingPlatformTradingService {
-    // 是否已经注册开户 ？
-    // 是否已经获得交易密钥 ?
-    // 获取交易密钥保存到本地
-    // 获取正在使用的交易密钥的路径
+public interface InterestingBearingPlatformFundTradingService {
     // 申购
+    void purchase(BigDecimal amount);
     // 赎回
+
+    void redeem(BigDecimal amount);
 }

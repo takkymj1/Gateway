@@ -58,4 +58,32 @@ public interface InterestDistributionConfigurationService {
      */
     void setCreditCloudTAConfig(CreditCloudTAConfig config);
 
+    /**
+     * 是否已经注册开户 ？
+     *
+     * @return
+     */
+    boolean isPlatformHuaAnFundAccountReady();
+
+    /**
+     * 是否已经获得交易密钥 ?
+     *
+     * @return
+     */
+    boolean isPlatformHuaAnFundTradingKeyReady();
+
+    /**
+     * 获取交易密钥保存到本地
+     *
+     * @return
+     */
+    String downloadAndKeepPlatformHuaAnFundTradingKey();
+
+    /**
+     * 获取正在使用的交易密钥的路径
+     *
+     * @return
+     */
+    String pathOfPlatformHuaAnFundTradingKey();
+
 }
