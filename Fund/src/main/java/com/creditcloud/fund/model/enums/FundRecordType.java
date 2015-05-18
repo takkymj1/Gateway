@@ -79,8 +79,11 @@ public enum FundRecordType implements BaseEnum {
     /**
      * 股票配资
      */
+    STOCK_PAY("配资付款"),
     STOCK_PROFIT("提取盈利"),
-    STOCK_AMOUNT_ADD("追加保证金");
+    STOCK_AMOUNT_ADD("追加保证金"),
+    STOCK_EXTENSION("配资续期"),
+    STOCk_SETTLE("配资结算");
     
     private final String key;
 
