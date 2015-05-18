@@ -8,12 +8,14 @@ package com.creditcloud.interestbearing.api;
 import com.creditcloud.interestbearing.model.CreditCloudTAConfig;
 import com.creditcloud.interestbearing.model.HuaAnFundAccountConfig;
 import com.creditcloud.interestbearing.model.InterestDistributionPolicy;
+import javax.ejb.Remote;
 
 /**
  * 生息余额分配策略配置服务
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestDistributionConfigurationService {
 
     /**

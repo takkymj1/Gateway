@@ -27,9 +27,6 @@ public class NewFundTransKeyResponseMessage extends CommonResponseMessage {
 
     private String NewAESCode;//25位	密钥
 
-    private String RetCode;//4位	返回码(0000为成功)
-
-    private String RetMsg;//200位	返回信息
 
     private String CommonReturn;//200位	公共回传字段
 

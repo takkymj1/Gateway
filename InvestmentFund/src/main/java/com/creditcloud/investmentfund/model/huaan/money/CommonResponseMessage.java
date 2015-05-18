@@ -5,11 +5,13 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money;
 
+import com.creditcloud.investmentfund.api.huaan.money.enums.HuaAnFundReturnCode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import lombok.Data;
 
 /**
  * 华安货币基金响应报文通用部分<br>
@@ -17,7 +19,17 @@ import java.util.Map;
  *
  * @author guohuazhang
  */
+@Data
 public abstract class CommonResponseMessage extends CommonMessage {
+
+    protected String RetCode;//4位	返回码(0000为成功)
+
+    protected String RetMsg;//200位	返回信息
+
+    public boolean isSuccess() {
+        boolean isSuccess = HuaAnFundReturnCode.SUCCESS.getCode().equalsIgnoreCase(RetCode);
+        return isSuccess;
+    }
 
     /**
      * 从解密后的XML payload contentXMLPayloadDecoded 里面把字段放到相应的对象成员变量里面

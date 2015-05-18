@@ -28,8 +28,6 @@ public class DailyTransRecordsDownloadResponseMessage extends CommonResponseMess
     private String AllCount;//	18位	总笔数
     private String TotalAmt;//	18位	总金额（单位：圆）
     private String Content;//		对账单内容，详细内容见备注说明
-    private String RetCode;//	4位	查询结果
-    private String RetMsg;//	200位	返回信息
 
     @Override
     public void resolveXMLPaylod() {

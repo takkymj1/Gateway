@@ -30,8 +30,6 @@ public class FundNavQueryResponseMessage extends CommonResponseMessage {
     private String BonusBefDate;//	8位	净值上一日期
     private String BonusBefAmt;//	9位	净值上一日期每万份收益
     private String BonusBefRatio;//	9位	净值上一日7日年化收益率
-    private String RetCode;//	4位	查询结果
-    private String RetMsg;//	200位	返回信息
 
     @Override
     public void resolveXMLPaylod() {

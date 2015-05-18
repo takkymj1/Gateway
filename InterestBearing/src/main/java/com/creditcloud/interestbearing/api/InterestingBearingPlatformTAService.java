@@ -19,12 +19,14 @@ import com.creditcloud.interestbearing.ta.message.asset.UserSubscribeRequestMess
 import com.creditcloud.interestbearing.ta.message.asset.UserSubscribeResponseMessage;
 import com.creditcloud.interestbearing.ta.message.product.ProductPlatformRegisterNewFundRequestMessage;
 import com.creditcloud.interestbearing.ta.message.product.ProductPlatformRegisterNewFundResponseMessage;
+import javax.ejb.Remote;
 
 /**
  * 余额生息TA服务接口
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestingBearingPlatformTAService {
 
     /**

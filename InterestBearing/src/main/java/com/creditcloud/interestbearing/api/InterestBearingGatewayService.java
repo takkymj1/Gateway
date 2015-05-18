@@ -5,12 +5,15 @@
  */
 package com.creditcloud.interestbearing.api;
 
+import javax.ejb.Remote;
+
 /**
  * 云信余额生息网关接口。<br>
  * 云信余额生息网关是云信余额生息系统的云服务，提供一些针对平台余额生息的必要的中转服务
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestBearingGatewayService {
 
     /**

@@ -6,11 +6,13 @@
 package com.creditcloud.interestbearing.api;
 
 import java.math.BigDecimal;
+import javax.ejb.Remote;
 
 /**
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestingBearingPlatformFundTradingService {
     // 申购
     void purchase(BigDecimal amount);
