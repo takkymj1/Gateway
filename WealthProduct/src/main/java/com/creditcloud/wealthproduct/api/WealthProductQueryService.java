@@ -21,7 +21,7 @@ import java.util.List;
 public interface WealthProductQueryService {
 
     /**
-     * 列出下标区间的基金产品
+     * 列出下标区间的基金产品 (前端)
      *
      * @param start          开始索引
      * @param end            结束索引
@@ -32,6 +32,7 @@ public interface WealthProductQueryService {
     
     /**
      * 根据产品目录和产品状态查询产品
+     * 
      * @param category 产品目录/类型 如私募、信托
      * @param pageInfo 分页信息
      * @param statusList 产品状态
@@ -41,7 +42,7 @@ public interface WealthProductQueryService {
     
     
     /**
-     * 搜索产品列表
+     * 搜索产品列表 (前端)
      * 
      * @param category          产品大类  
      * @param incomeType        收益类型
