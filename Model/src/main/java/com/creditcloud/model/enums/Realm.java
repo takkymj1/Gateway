@@ -103,6 +103,7 @@ public enum Realm implements BaseEnum {
     PAGES("页面"),
     BATCH("批量导入"),
     COUPON("奖券"),
+    SURVEY("问卷"),
     
     /**
      * 原始债权

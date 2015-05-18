@@ -57,6 +57,7 @@
         <module>LianLianPay</module>
         <module>InterestBearing</module>
         <module>UnionPay</module>
+        <module>Survey</module>
     </modules>
 </project>
 
