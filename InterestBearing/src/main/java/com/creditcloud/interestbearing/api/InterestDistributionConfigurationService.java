@@ -80,10 +80,10 @@ public interface InterestDistributionConfigurationService {
     String downloadAndKeepPlatformHuaAnFundTradingKey();
 
     /**
-     * 获取正在使用的交易密钥的路径
+     * 获取正在使用的交易密钥
      *
      * @return
      */
-    String pathOfPlatformHuaAnFundTradingKey();
+    String platformHuaAnFundTradingKey();
 
 }
