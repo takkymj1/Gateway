@@ -86,7 +86,7 @@ public class CreditAssignConfig extends BaseConfig {
     @Getter
     @Min(1)
     @XmlElement(required = false)
-    private int maxDaysBeforeAssign = Integer.MAX_VALUE;
+    private int minDaysBeforeAssign = 30;
 
     /**
      * 债权转让提交的发生时间离下次还款前最低天数
