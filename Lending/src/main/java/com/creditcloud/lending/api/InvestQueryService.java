@@ -12,6 +12,7 @@ import com.creditcloud.model.criteria.PageInfo;
 import com.creditcloud.model.enums.loan.BidMethod;
 import com.creditcloud.model.enums.loan.InvestStatus;
 import com.creditcloud.model.enums.loan.LoanPurpose;
+import com.creditcloud.model.enums.loan.LoanStatus;
 import com.creditcloud.model.loan.Invest;
 import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
@@ -196,5 +197,7 @@ public interface InvestQueryService {
                                                              List<InvestStatus> statusList,
                                                              List<LoanPurpose> purposeList,
                                                              PageInfo pageInfo);
+    
+    public PagedResult<Invest> listByLoanStatus(PageInfo pageInfo, String userId, LoanStatus... statusList);
 
 }
