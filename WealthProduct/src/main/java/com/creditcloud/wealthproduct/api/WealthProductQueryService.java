@@ -103,4 +103,13 @@ public interface WealthProductQueryService {
      * @return 产品ID列表
      */
     public PagedResult<String> listFavoriteByUser(String userId, PageInfo pageInfo);
+    
+    /**
+     * 获取产品列表
+     * 
+     * @param info
+     * @return 
+     */
+    public PagedResult<WealthProduct> list(PageInfo info);
+    
 }
