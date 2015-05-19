@@ -22,11 +22,11 @@ public class HuaAnFundAccountConfig extends ConfigObjBase {
     /**
      * 平台在华安的交易账号
      */
-    private String platformTradingAccount;
+    private String platformTradingAccount="";
     /**
      * 交易密钥
      */
-    private String platformTradingPrivateKey;
+    private String platformTradingPrivateKey="";
 
     @Override
     public String toString() {

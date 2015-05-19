@@ -30,7 +30,11 @@ public class InterestBearingConfig extends BaseConfig {
     @XmlElement(required = true)
     private String urlCreditCloudTAResourceBase;
 
-    //开通华安基金账号的云信网管系统
+    //开通华安基金账号的云信网关系统
     @XmlElement(required = true)
     private String urlCreditCloudGateWay;
+    
+    //访问云信网关系统用以开通华安基金账户，或者注册云信TA的邀请码
+    @XmlElement(required = true)
+    private String invitationCode;
 }
