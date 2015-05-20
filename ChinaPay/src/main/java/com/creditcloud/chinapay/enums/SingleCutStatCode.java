@@ -56,9 +56,9 @@ public enum SingleCutStatCode implements BaseEnum {
     PENDING_UNKNOWN("2045", "未知"),
     PENDING_TIMEOUT("2009", "超时未知");
 
-    private String key;
+    private final String key;
 
-    private String reason;
+    private final String reason;
 
     private SingleCutStatCode(final String key, final String reason) {
         this.key = key;
@@ -77,5 +77,14 @@ public enum SingleCutStatCode implements BaseEnum {
     public boolean isSameAs(String stat_code) {
         String stat = StringUtils.nonNull(stat_code);
         return getKey().equalsIgnoreCase(stat.trim());
+    }
+
+    public static SingleCutStatCode fromKey(String key) {
+        for (SingleCutStatCode status : SingleCutStatCode.values()) {
+            if (status.getKey().equalsIgnoreCase(key)) {
+                return status;
+            }
+        }
+        return null;
     }
 }
