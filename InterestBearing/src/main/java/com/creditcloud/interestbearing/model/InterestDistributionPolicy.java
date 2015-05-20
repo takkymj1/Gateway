@@ -15,22 +15,22 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author guohuazhang
  */
 @Data
-public class InterestDistributionPolicy {
+public class InterestDistributionPolicy extends ConfigObjBase {
 
     /**
      * 平台收费百分点 (0-100)
      */
-    private int platformChargeRatio = 0;
+    private BigDecimal platformChargeRatio = BigDecimal.ZERO;
 
     /**
      * 毛收益低于这个数值不收取手续费
      */
-    private BigDecimal nonChargeableGrossAmountCeiling;
+    private BigDecimal nonChargeableGrossAmountCeiling = BigDecimal.ZERO;
 
     /**
-     * 尝试扣除平台手续费之后的静收益如果低于这个值，则不收取手续费
+     * 尝试扣除平台手续费之后的净收益如果低于这个值，则不收取手续费
      */
-    private BigDecimal chargeableNetAmountFloor;
+    private BigDecimal nonChargeableNetAmountCeiling = BigDecimal.ZERO;
 
     @Override
     public String toString() {

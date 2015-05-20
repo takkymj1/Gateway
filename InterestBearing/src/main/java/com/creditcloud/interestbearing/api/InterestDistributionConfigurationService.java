@@ -8,12 +8,14 @@ package com.creditcloud.interestbearing.api;
 import com.creditcloud.interestbearing.model.CreditCloudTAConfig;
 import com.creditcloud.interestbearing.model.HuaAnFundAccountConfig;
 import com.creditcloud.interestbearing.model.InterestDistributionPolicy;
+import javax.ejb.Remote;
 
 /**
  * 生息余额分配策略配置服务
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestDistributionConfigurationService {
 
     /**
@@ -57,5 +59,33 @@ public interface InterestDistributionConfigurationService {
      * @param config
      */
     void setCreditCloudTAConfig(CreditCloudTAConfig config);
+
+    /**
+     * 是否已经注册开户 ？
+     *
+     * @return
+     */
+    boolean isPlatformHuaAnFundAccountReady();
+
+    /**
+     * 是否已经获得交易密钥 ?
+     *
+     * @return
+     */
+    boolean isPlatformHuaAnFundTradingKeyReady();
+
+    /**
+     * 获取交易密钥保存到本地
+     *
+     * @return
+     */
+    String downloadAndKeepPlatformHuaAnFundTradingKey();
+
+    /**
+     * 获取正在使用的交易密钥
+     *
+     * @return
+     */
+    String platformHuaAnFundTradingKey();
 
 }

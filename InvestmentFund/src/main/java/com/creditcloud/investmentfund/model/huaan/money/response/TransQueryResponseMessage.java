@@ -5,6 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
+import com.creditcloud.investmentfund.api.huaan.money.enums.HuaAnFundReturnCode;
 import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
 import java.util.Map;
 import lombok.Data;
@@ -27,8 +28,6 @@ public class TransQueryResponseMessage extends CommonResponseMessage {
     private String OrgTotalAmt;//	18位	原交易涉及金额
     private String OrgRetCode;//	4位	原交易返回码
     private String OrgRetMsg;//	200位	原交易返回信息
-    private String RetCode;//	4位	返回码(0000为成功)
-    private String RetMsg;//	200位	返回信息
     private String CommonReturn;//	200位	公共回传字段
 
     @Override
@@ -49,4 +48,20 @@ public class TransQueryResponseMessage extends CommonResponseMessage {
         CommonReturn = parameters.get("CommonReturn");
     }
 
+    public boolean isOrginalTransSuccess() {
+        boolean isSuccess = HuaAnFundReturnCode.SUCCESS.getCode().equalsIgnoreCase(OrgRetCode);
+        return isSuccess;
+    }
+
+    public boolean isOrginalTransPending() {
+        boolean isSuccess = HuaAnFundReturnCode.AWAITING_PAY.getCode().equalsIgnoreCase(OrgRetCode);
+        return isSuccess;
+    }
+
+    public boolean isOrginalTransFailed() {
+        boolean isSuccess = isOrginalTransSuccess();
+        boolean isPending = isOrginalTransPending();
+        boolean isFailed = !(isSuccess || isPending);
+        return isFailed;
+    }
 }
