@@ -74,4 +74,15 @@ public class ChinaPayConfig extends BaseConfig {
     private String signKeyForBankAccountValidating;
     @XmlElement(required = true)
     private String pathChinaPayPublicKey;
+    
+    /**
+     * 代扣对账文件地址
+     */
+    @XmlElement
+    private String cutReconFilePath;
+    /**
+     * 代付对账文件地址
+     */
+    @XmlElement
+    private String payReconFilePath;
 }
