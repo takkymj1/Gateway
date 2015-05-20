@@ -8,6 +8,7 @@ import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.enums.user.info.CareerStatus;
 import com.creditcloud.model.enums.user.info.MonthlySalary;
 import com.creditcloud.model.enums.user.info.YearOfService;
+import com.creditcloud.model.enums.user.info.YearlyIncome;
 import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -55,6 +56,11 @@ public class CareerInfo extends BaseObject {
     @XmlElement(name = "salary")
     private MonthlySalary salary;
 
+    //年收入
+    @FormParam("yearlyIncome")
+    @XmlElement(name = "yearlyIncome")
+    private YearlyIncome yearlyIncome;
+    
     //在现单位工作年限
     @FormParam("yearOfService")
     @XmlElement(name = "yearOfService")

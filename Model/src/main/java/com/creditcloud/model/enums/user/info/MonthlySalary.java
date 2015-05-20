@@ -24,16 +24,8 @@ public enum MonthlySalary implements BaseEnum {
     SALARY_50001_100000("50001-100000"),
     SALARY_100001_200000("100001-200000"),
     SALARY_200001_500000("200001-500000"),
-    SALARY_ABOVE_500001("500001以上"),
+    SALARY_ABOVE_500001("500001以上");
 
-    //jdlh 新增==================
-    SALARY_BELOW_50W("500000以下"),
-    SALARY_50W_100W("500001-1000000"),
-    SALARY_100W_300W("1000001-3000000"),
-    SALARY_300W_500W("3000001-5000000"),
-    SALARY_500W_1000W("5000001-10000000"),
-    SALARY_ABOVE_1000W("10000001以上");
-    
     private final String key;
 
     private MonthlySalary(String key) {
