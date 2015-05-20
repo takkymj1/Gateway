@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.api;
 
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -23,7 +24,7 @@ public interface InterestBearingGatewayService {
      * @param merchantDate
      * @return
      */
-    String newHuaAnFundTradingKey(String merchantId,String merchantDate);
+    String newHuaAnFundTradingKey(String merchantId,Date merchantDate);
 
     /**
      * 使用平台的营业执照号获取注册开户页面的自动提交页面(HTML,会帮用户自动跳转到注册开户界面)
