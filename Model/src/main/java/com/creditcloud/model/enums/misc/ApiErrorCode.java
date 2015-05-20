@@ -59,7 +59,7 @@ public enum ApiErrorCode implements BaseEnum {
     INVALID_PARAMS("无效的参数"),
     INVALID_CAPTCHA("无效的验证码"),
     INVALID_MOBILE("无效的手机号"),
-    INVALID_MOBILE_CAPTCHA("无效的手机验证码"),    
+    INVALID_MOBILE_CAPTCHA("无效的手机验证码"),  
     INVALID_UMP_TENDER_AMOUNT("无效的投标金额联动优势"),
     INVALID_AMOUNT("无效的金额"),
     INVALID_IDNUMBER("无效的身份证号"),
@@ -93,7 +93,8 @@ public enum ApiErrorCode implements BaseEnum {
     USER_NOT_FOUND("用户名不存在"),
     PASSWORD_RESET_FAILURE("更改密码失败"),
     PASSWORD_ERROR("登录密码错误"),
-   
+    PASSWORD_ORIGINAL_ERROR("原密码错误"),
+    
     CREDITASSIGN_ERROR("债权转让错误"),
     
     GROUP_NOT_EXIST("没有对应的组存在"),
