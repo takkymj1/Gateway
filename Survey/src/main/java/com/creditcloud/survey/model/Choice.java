@@ -8,7 +8,9 @@ package com.creditcloud.survey.model;
 import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 选择题的选项
@@ -16,6 +18,8 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Choice implements Serializable {
     
     /**

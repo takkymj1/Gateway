@@ -11,6 +11,7 @@ import com.creditcloud.model.misc.RealmEntity;
 import com.creditcloud.survey.model.enums.SurveyType;
 import com.creditcloud.survey.model.enums.SurveyStatus;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
@@ -55,5 +56,5 @@ public class Survey implements Serializable {
     /**
      * 题目列表
      */
-    private List<Question> questions;
+    private List<Question> questions = new ArrayList<>();
 }
