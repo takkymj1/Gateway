@@ -7,6 +7,7 @@ package com.creditcloud.chinapay.utils;
 
 import com.creditcloud.model.constant.NumberConstant;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -39,4 +40,21 @@ public class ChinaPayUtils {
         String f = "%0" + DEFAULT_PAD_LENGTH + "d";
         return String.format(f, number);
     }
+    
+    /**
+     * 从12为定长的ChinaPay定义的amount字面量获取2位有效数字的BigDecimal
+     * 
+     * @param amountString
+     * @return 
+     */
+    public static BigDecimal fromChinaPayAmountString(String amountString) {
+        try {
+            Integer intValue = Integer.parseInt(amountString);
+            BigDecimal result = new BigDecimal(intValue);
+            return result.divide(new BigDecimal(100), NumberConstant.DEFAULT_SCALE, NumberConstant.ROUNDING_MODE);
+        } catch (Exception e) {
+            return BigDecimal.ZERO;
+        }
+    }
+    
 }
