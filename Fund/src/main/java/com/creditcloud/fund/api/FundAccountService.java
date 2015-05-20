@@ -71,6 +71,30 @@ public interface FundAccountService {
                                boolean isDefault);
 
     /**
+     * 添加银行卡到用户名下.
+     *
+     * 重复添加也会返回true
+     *
+     * @param clientCode    商户简码
+     * @param userId        用户ID
+     * @param userName      开户姓名
+     * @param bank          所属银行
+     * @param account       银行卡号
+     * @param valid         是否有效
+     * @param isDefault     是否默认
+     * @param isExpress     是否是快捷
+     * @return
+     */
+    public boolean addBankCard(String clientCode,
+                               String userId,
+                               String userName,
+                               Bank bank,
+                               String account,
+                               boolean valid,
+                               boolean isDefault,
+                               boolean isExpress);
+    
+    /**
      * 批量添加一组卡
      *
      * @param clientCode

@@ -5,6 +5,7 @@
 package com.creditcloud.payment.model.chinapnr.query;
 
 import com.creditcloud.model.BaseObject;
+import com.creditcloud.payment.model.chinapnr.enums.ExpressFlag;
 import com.creditcloud.payment.model.chinapnr.enums.IsDefault;
 import com.creditcloud.payment.model.chinapnr.enums.RealFlag;
 import javax.validation.constraints.NotNull;
@@ -54,4 +55,11 @@ public class CardInfo extends BaseObject {
     @NotNull
     private IsDefault IsDefault;
 
+    /**
+     * 参数 UsrCardInfolist 的二级参数
+     * 
+     * @return
+     */
+    private ExpressFlag ExpressFlag;
+    
 }

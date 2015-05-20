@@ -13,15 +13,31 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement
 public class AppointRequestExt {
-    
+
     private User user;
     private String branch;
     private String status;
     private AppointRequest request;
+    /**
+     * 预约对象名称
+     */
+    private String targetName;
 
     public AppointRequestExt() {
     }
-    
+
+    public AppointRequestExt(User user,
+                             String branch,
+                             String status,
+                             AppointRequest request,
+                             String targetName) {
+        this.user = user;
+        this.branch = branch;
+        this.status = status;
+        this.request = request;
+        this.targetName = targetName;
+    }
+
     public AppointRequestExt(User user,
                              String branch,
                              String status,
@@ -62,5 +78,19 @@ public class AppointRequestExt {
 
     public AppointRequest getRequest() {
         return request;
+    }
+
+    /**
+     * @return the targetName
+     */
+    public String getTargetName() {
+        return targetName;
+    }
+
+    /**
+     * @param targetName the targetName to set
+     */
+    public void setTargetName(String targetName) {
+        this.targetName = targetName;
     }
 }

@@ -7,17 +7,27 @@
 package com.creditcloud.investmentfund.model.lion;
 
 import com.creditcloud.model.BaseObject;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- * 分红
+ * 分红记录
+ * 
  * @author suetming <suetming.ma at creditcloud.com>
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
 @NoArgsConstructor
 public class FundDividendRecord extends BaseObject {
 
+    /**
+     * 交易账号
+     */
+    private String transactionaccountid;
+    
     /**
      * 分红发放日 (YYYYMMDD)
      */
@@ -53,12 +63,12 @@ public class FundDividendRecord extends BaseObject {
     /**
      * 每10分份额收益
      */
-    private String tendivide;
+//    private String tendivide;
     
     /**
      * 参加分红份额
      */
-    private String totalshare;
+//    private String totalshare;
     
     /**
      * 分红份额单位净值
