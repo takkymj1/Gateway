@@ -11,7 +11,9 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * 资金账号
@@ -48,6 +50,15 @@ public class FundAccount extends BaseObject {
      */
     private boolean defaultAccount;
 
+    /**
+     * 是否为快捷充值卡
+     * 
+     * @return
+     */
+    @Setter
+    @Getter
+    private boolean expressAccount;
+    
     private Date timeRecorded;
 
     public FundAccount(String id,
@@ -62,8 +73,25 @@ public class FundAccount extends BaseObject {
         this.valid = valid;
         this.defaultAccount = defaultAccount;
         this.timeRecorded = timeRecorded;
+        this.expressAccount = false;
     }
 
+    public FundAccount(String id,
+                       String userId,
+                       BankAccount account,
+                       boolean valid,
+                       boolean defaultAccount,
+                       boolean expressAccount,
+                       Date timeRecorded) {
+        this.id = id;
+        this.userId = userId;
+        this.account = account;
+        this.valid = valid;
+        this.defaultAccount = defaultAccount;
+        this.timeRecorded = timeRecorded;
+        this.expressAccount = expressAccount;
+    }
+    
     public Realm getCategory() {
         //老数据没有category，默认是USER
         return category == null ? Realm.USER : category;
