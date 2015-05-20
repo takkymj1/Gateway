@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.ta.model;
 
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
  * @author guohuazhang
  */
 @Data
-public class ProductAssetGapMetadata {
+public class ProductAssetGapMetadata implements Serializable{
 
     // 资产类型
     private String type;

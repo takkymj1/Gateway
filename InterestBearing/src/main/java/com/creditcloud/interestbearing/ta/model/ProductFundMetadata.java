@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.ta.model;
 
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
  * @author guohuazhang
  */
 @Data
-public class ProductFundMetadata {
+public class ProductFundMetadata implements Serializable{
 
     private String fund_id;
     private String fund_name;

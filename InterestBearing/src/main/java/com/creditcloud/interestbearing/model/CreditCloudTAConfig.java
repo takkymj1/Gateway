@@ -23,11 +23,14 @@ public class CreditCloudTAConfig extends ConfigObjBase {
      */
     private String tenantId;
 
+    private String name;
+    private String desc;
+    private String url;
+
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this,
                                                   ToStringStyle.SHORT_PREFIX_STYLE, false, false);
     }
-
 
 }

@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.ta.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
@@ -15,7 +16,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author guohuazhang
  */
 @Data
-public class ProductFundRegistrationMetadata {
+public class ProductFundRegistrationMetadata implements Serializable{
 
     private String product_type;
     private String product_id;
