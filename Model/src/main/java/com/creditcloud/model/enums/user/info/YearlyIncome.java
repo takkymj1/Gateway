@@ -8,7 +8,8 @@ package com.creditcloud.model.enums.user.info;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
+ * 年收入
+ * 
  * @author chai
  */
 public enum YearlyIncome implements BaseEnum {
