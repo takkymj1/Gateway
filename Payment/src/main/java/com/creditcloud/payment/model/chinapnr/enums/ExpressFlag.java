@@ -13,11 +13,11 @@ package com.creditcloud.payment.model.chinapnr.enums;
 public enum ExpressFlag {
 
     /**
-     * 默认
+     * 快捷
      */
     Y,
     /**
-     * 不是默认
+     * 不是快捷
      */
     N;
 
