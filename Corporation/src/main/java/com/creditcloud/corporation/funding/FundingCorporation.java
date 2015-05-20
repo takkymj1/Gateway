@@ -68,6 +68,12 @@ public class FundingCorporation extends Corporation {
     private String businessIncome;
     
     /**
+     * 经营业务收入增长率
+     */
+    @FormParam("incomeIncreaseRate")
+    private String incomeIncreaseRate;
+    
+    /**
      * 核心产品
      */
     @FormParam("coreProduct")
