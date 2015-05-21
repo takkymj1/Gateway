@@ -39,6 +39,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("serial")
     @Size(max = MAX_SERIAL_LENGTH)
     private String serial;
     
@@ -47,9 +48,9 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("title")
     @Size(max = MAX_TITLE_LENGTH)
     @NotNull
-     @FormParam("title")
     private String title;
 
     /**
@@ -57,6 +58,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("shortTitle")
     @Size(max = MAX_TITLE_LENGTH)
     private String shortTitle;
     
@@ -65,6 +67,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("displayTitle")
     @Size(max = MAX_TITLE_LENGTH)
     private String displayTitle;
     
@@ -73,6 +76,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("status")
     @NotNull
     private ProductStatus status;
     
@@ -81,6 +85,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("incomeType")
     @NotNull
     private IncomeType incomeType;
     
@@ -96,12 +101,12 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("amount")
     @IncrementalInteger(min = MIN_RAISE_AMOUNT,
                         increment = AMOUNT_INCREMENT,
                         max = MAX_RAISE_AMOUNT,
                         groups = Default.class)
     @NotNull
-    @FormParam("amount")
     private Integer amount;
 
     /**
@@ -109,6 +114,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("minAmount")
     @IncrementalInteger(min = MIN_RAISE_AMOUNT,
                         increment = AMOUNT_INCREMENT,
                         max = MAX_RAISE_AMOUNT,
@@ -121,11 +127,6 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
-    @IncrementalInteger(min = MIN_RAISE_AMOUNT,
-                        increment = AMOUNT_INCREMENT,
-                        max = MAX_RAISE_AMOUNT,
-                        groups = Default.class)
-    @NotNull
     @FormParam("subscribeAmount")
     private Integer subscribeAmount;
     
@@ -134,7 +135,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
-    @NotNull
+    @FormParam("subscribeNumber")
     private Integer subscribeNumber;
     
     /**
@@ -149,7 +150,6 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
-    @NotNull
     @FormParam("employeeId")
     private String employeeId;
  
@@ -162,7 +162,6 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
                         increment = TIME_OUT_INCREMENT,
                         max = MAX_TRANSFER_TIME_OUT,
                         groups = Default.class)
-    @NotNull
     private Integer timeOut;
     
     /**
@@ -174,7 +173,6 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
                         increment = TIME_OUT_INCREMENT,
                         max = MAX_TIME_OUT,
                         groups = Default.class)
-    @NotNull
     private Integer transferTimeOut;
     
     /**
