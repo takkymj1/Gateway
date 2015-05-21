@@ -208,4 +208,15 @@ public interface UserInfoService {
      * @return 
      */
     boolean updatePersonalAndCareer(String clientCode, String userId, PersonalInfo personal, CareerInfo career);
+    
+    /**
+     * 根据userId更新用户和职业的部分信息
+     * 性别、地址、年收入
+     * @param clientCode
+     * @param userId
+     * @param personal
+     * @param career
+     * @return 
+     */
+    boolean updatePersonalAndIncome(String clientCode, String userId, PersonalInfo personal, CareerInfo career);
 }
