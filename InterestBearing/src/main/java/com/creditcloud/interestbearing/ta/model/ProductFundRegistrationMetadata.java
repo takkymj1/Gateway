@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.ta.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -16,16 +17,17 @@ import org.apache.commons.lang3.builder.ToStringStyle;
  * @author guohuazhang
  */
 @Data
-public class ProductFundRegistrationMetadata implements Serializable{
+public class ProductFundRegistrationMetadata implements Serializable {
 
-    private String product_type;
-    private String product_id;
-    private Integer status;
-    private Long register_time;
-    private Integer priority;
-    private Double quota;
+    private String product_type = "";
+    private String product_id = "";
+    private int status;
+    private long register_time = 0l;
+    private int priority;
+    private double quota;
     private ProductFundMetadata product;
 
+    @JsonIgnore
     public Date getRegisterTime() {
         return new Date(register_time);
     }

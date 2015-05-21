@@ -11,12 +11,12 @@ import com.creditcloud.interestbearing.model.InterestDistributionPolicy;
 import javax.ejb.Remote;
 
 /**
- * 生息余额分配策略配置服务
+ * 余额生息运行时配置服务
  *
  * @author guohuazhang
  */
 @Remote
-public interface InterestDistributionConfigurationService {
+public interface InterestBearingRuntimeConfigurationService {
 
     /**
      * 设置余额生息收益分配策略

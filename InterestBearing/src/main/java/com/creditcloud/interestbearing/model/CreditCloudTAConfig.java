@@ -24,13 +24,13 @@ public class CreditCloudTAConfig extends ConfigObjBase {
     /**
      * 平台在云信TA的租户账号
      */
-    private String tenantId;
+    private String tenantId="";
 
-    private String name;
-    private String desc;
-    private String url;
-
-    private List<ProductFundRegistrationMetadata> registeredProducts;
+    private String name="";
+    private String desc="";
+    private String url="";
+    
+    private List<ProductFundRegistrationMetadata> registeredProducts = new ArrayList<>();
 
     @Override
     public String toString() {
@@ -114,7 +114,7 @@ public class CreditCloudTAConfig extends ConfigObjBase {
             if (r.getProduct() == null) {
                 continue;
             }
-            
+
             if (r.getProduct().isOfSameProduct(brokerName, fundId)) {
                 return true;
             }
