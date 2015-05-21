@@ -5,9 +5,9 @@
  */
 package com.creditcloud.survey.model;
 
+import com.creditcloud.model.BaseObject;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.survey.model.enums.QuestionType;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.Min;
@@ -21,7 +21,7 @@ import lombok.Data;
  * @author sobranie
  */
 @Data
-public class Question implements Serializable {
+public class Question extends BaseObject {
     
     @UUID
     private String id;

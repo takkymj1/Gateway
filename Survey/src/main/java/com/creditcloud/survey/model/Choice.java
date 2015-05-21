@@ -5,7 +5,7 @@
  */
 package com.creditcloud.survey.model;
 
-import java.io.Serializable;
+import com.creditcloud.model.BaseObject;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Choice implements Serializable {
+public class Choice extends BaseObject {
     
     /**
      * A、B、C、D等
