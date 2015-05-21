@@ -11,6 +11,8 @@ import com.creditcloud.model.loan.Duration;
 import com.creditcloud.wealthproduct.WealthProductConstant;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+import javax.ws.rs.PathParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

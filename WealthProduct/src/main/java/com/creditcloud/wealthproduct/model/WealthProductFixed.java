@@ -16,6 +16,7 @@ import com.creditcloud.wealthproduct.enums.RateLevelType;
 import com.creditcloud.wealthproduct.enums.ReturnMethod;
 import java.util.Collection;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -53,6 +54,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * @return
      */
     @NotNull
+    @FormParam("repayMethod")
     private RepaymentMethod repayMethod;
     
     /**
@@ -61,6 +63,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * @return
      */
     @NotNull
+    @FormParam("returnMethod")
     private ReturnMethod returnMethod;
     
     /**
@@ -69,6 +72,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * @return
      */
     @NotNull
+    @FormParam("rateLevelType")
     private RateLevelType rateLevelType;
     
     /**
@@ -77,6 +81,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * @return
      */
     @NotNull
+    @FormParam("type")
     private ProductFixedType type;
     
     /**
@@ -98,6 +103,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * 
      * @return
      */
+    @FormParam("minRate")
     @IncrementalInteger(min = MIN_RATE,
                         increment = RATE_INCREMENT,
                         max = MAX_RATE)
@@ -108,6 +114,7 @@ public class WealthProductFixed extends BaseObject implements WealthProductConst
      * 
      * @return
      */
+    @FormParam("maxRate")
     @IncrementalInteger(min = MIN_RATE,
                         increment = RATE_INCREMENT,
                         max = MAX_RATE)

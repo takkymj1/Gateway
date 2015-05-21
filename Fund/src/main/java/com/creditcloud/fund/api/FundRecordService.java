@@ -65,6 +65,24 @@ public interface FundRecordService {
                                                             List<FundRecordType> typeList,
                                                             List<FundRecordStatus> statusList,
                                                             List<FundRecordOperation> operationList);
+    
+    /**
+     * 根据FundRecord中的typeList、statusList与operationList列出FundRecord
+     *
+     * @param isEntityNull
+     * @param clientCode
+     * @param pageInfo
+     * @param typeList
+     * @param statusList
+     * @param operationList
+     * @return
+     */
+    PagedResult<FundRecord> listByTypeAndStatusAndOperation(boolean isEntityNull,
+                                                            String clientCode,
+                                                            PageInfo pageInfo,
+                                                            List<FundRecordType> typeList,
+                                                            List<FundRecordStatus> statusList,
+                                                            List<FundRecordOperation> operationList);
 
     /**
      * 根据FundRecord中的entity来列出所有FundRecord
@@ -748,6 +766,27 @@ public interface FundRecordService {
                       boolean transferIn,
                       String orderId,
                       String description);
+    
+    /**
+     * 商户和用户之间转账
+     *
+     * @param clientCode
+     * @param account 商户子账户
+     * @param amount
+     * @param userId 用户
+     * @param transferIn true for transfer from client to user
+     * @param orderId
+     * @param description
+     * @param fundRecordId 所要关联的FundRecord，用于股票配资
+     */
+    void userTransfer(String clientCode,
+                      String account,
+                      BigDecimal amount,
+                      String userId,
+                      boolean transferIn,
+                      String orderId,
+                      String description,
+                      String fundRecordId);
 
     /**
      *

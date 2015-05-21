@@ -11,6 +11,7 @@ import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_DESCRIPTIO
 import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_KEY_LENGTH;
 import static com.creditcloud.wealthproduct.WealthProductConstant.MAX_TITLE_LENGTH;
 import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -37,6 +38,7 @@ public class WealthProductCategory extends BaseObject {
      * 
      * @return
      */
+    @FormParam("title")
     @Size(max=MAX_TITLE_LENGTH)
     private String title;
     
@@ -45,6 +47,7 @@ public class WealthProductCategory extends BaseObject {
      * 
      * @return
      */
+    @FormParam("category")
     @Size(max=MAX_KEY_LENGTH)
     private String category;
     
@@ -53,6 +56,7 @@ public class WealthProductCategory extends BaseObject {
      * 
      * @return
      */
+    @FormParam("description")
     @Size(max=MAX_DESCRIPTION_LENGTH)
     private String description;
     
