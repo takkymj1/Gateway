@@ -14,9 +14,11 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface InterestingBearingPlatformFundTradingService {
+
     // 申购
-    void purchase(BigDecimal amount);
+
+    void purchase(String broker, String fundId, BigDecimal amount);
     // 赎回
 
-    void redeem(BigDecimal amount);
+    void redeem(String broker, String fundId,BigDecimal amount);
 }

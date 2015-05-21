@@ -5,13 +5,17 @@
  */
 package com.creditcloud.interestbearing.model;
 
+import com.creditcloud.interestbearing.ta.model.ProductFundMetadata;
 import com.creditcloud.interestbearing.ta.model.ProductFundRegistrationMetadata;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 /**
  *
@@ -24,12 +28,12 @@ public class CreditCloudTAConfig extends ConfigObjBase {
     /**
      * 平台在云信TA的租户账号
      */
-    private String tenantId="";
+    private String tenantId = "";
 
-    private String name="";
-    private String desc="";
-    private String url="";
-    
+    private String name = "";
+    private String desc = "";
+    private String url = "";
+
     private List<ProductFundRegistrationMetadata> registeredProducts = new ArrayList<>();
 
     @Override
@@ -121,6 +125,21 @@ public class CreditCloudTAConfig extends ConfigObjBase {
         }
 
         return false;
+    }
+
+    public Pair<String, String> firstFund() {
+        if (registeredProducts == null || registeredProducts.isEmpty()) {
+            return null;
+        }
+        ProductFundMetadata p = registeredProducts.get(0).getProduct();
+        if (p == null) {
+            return null;
+        }
+
+        String broker = StringUtils.defaultString(p.getBroker());
+        String fundId = StringUtils.defaultString(p.getFund_id());
+
+        return ImmutablePair.of(broker, fundId);
     }
 
 }
