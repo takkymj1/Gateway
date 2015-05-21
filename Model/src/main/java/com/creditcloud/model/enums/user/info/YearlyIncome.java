@@ -8,17 +8,35 @@ package com.creditcloud.model.enums.user.info;
 import com.creditcloud.model.enums.BaseEnum;
 
 /**
- *
+ * 年收入
+ * 
  * @author chai
  */
 public enum YearlyIncome implements BaseEnum {
-    
-    SALARY_BELOW_50W("500000以下"),
-    SALARY_50W_100W("500001-1000000"),
-    SALARY_100W_300W("1000001-3000000"),
-    SALARY_300W_500W("3000001-5000000"),
-    SALARY_500W_1000W("5000001-10000000"),
-    SALARY_ABOVE_1000W("10000001以上");
+    /**
+     * 50万以下
+     */
+    SALARY_BELOW_50W("50万以下"),
+    /**
+     * 50万-100万
+     */
+    SALARY_50W_100W("50万-100万"),
+    /**
+     * 100万-300万
+     */
+    SALARY_100W_300W("100万-300万"),
+    /**
+     * 300万-500万
+     */
+    SALARY_300W_500W("300万-500万"),
+    /**
+     * 500万-1000万
+     */
+    SALARY_500W_1000W("500万-1000万"),
+    /**
+     * 1000万以上
+     */
+    SALARY_ABOVE_1000W("1000万以上");
     
     private final String key;
 
