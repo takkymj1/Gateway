@@ -28,8 +28,6 @@ public class SingleAccountSharesQueryResponseMessage extends CommonResponseMessa
     private String AvailQuty;//	18位	可用资产额
     private String TotalIncome;//	18位	累计收益
     private String LastIncome;//	18位	最新收益
-    private String RetCode;//	4位	返回码(0000为成功)
-    private String RetMsg;//	200位	返回信息
     private String CommonReturn;//	200位	公共回传字段
 
     @Override

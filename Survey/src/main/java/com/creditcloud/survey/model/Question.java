@@ -8,6 +8,7 @@ package com.creditcloud.survey.model;
 import com.creditcloud.model.constraints.UUID;
 import com.creditcloud.survey.model.enums.QuestionType;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -50,5 +51,5 @@ public class Question implements Serializable {
     /**
      * 选择题类型才有选项列表
      */
-    private List<Choice> choices;
+    private List<Choice> choices = new ArrayList<>();
 }

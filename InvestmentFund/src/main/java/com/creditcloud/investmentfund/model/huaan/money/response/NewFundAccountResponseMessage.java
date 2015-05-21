@@ -5,7 +5,7 @@
  */
 package com.creditcloud.investmentfund.model.huaan.money.response;
 
-import com.creditcloud.investmentfund.model.huaan.money.CommonResponseMessage;
+import com.creditcloud.investmentfund.model.huaan.money.CommonMessage;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,13 +17,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class NewFundAccountResponseMessage extends CommonResponseMessage {
+public class NewFundAccountResponseMessage extends CommonMessage {
 
     private String responseHTML;
-
-    @Override
-    public void resolveXMLPaylod() {
-
-    }
 
 }

@@ -11,7 +11,7 @@ package com.creditcloud.investmentfund.api.huaan.money.enums;
  */
 public enum HuaAnFundReturnCode {
 
-    SUCCESS("0000", "操作成功"), APPLICATION_ACCEPTED("0000", "委托成功"), AWAITING_PAY("9999", "委托成功待付款");
+    SUCCESS("0000", "操作成功"), AWAITING_PAY("9999", "委托成功待付款");
 
     private final String code;
     private final String message;

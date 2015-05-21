@@ -7,6 +7,7 @@ package com.creditcloud.interestbearing.api;
 
 import com.creditcloud.interestbearing.model.UserRegistrationInfo;
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  * 余额生息用户签约登记接口<br>
@@ -14,6 +15,7 @@ import java.util.List;
  *
  * @author guohuazhang
  */
+@Remote
 public interface InterestBearingUserRegistrationService {
 
     /**

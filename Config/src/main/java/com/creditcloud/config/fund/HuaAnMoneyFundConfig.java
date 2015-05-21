@@ -48,7 +48,7 @@ public class HuaAnMoneyFundConfig extends BaseObject {
      */
     @Getter
     @XmlElement(required = false)
-    private String platformID;
+    private String platformId;
 
     /**
      *
@@ -57,8 +57,8 @@ public class HuaAnMoneyFundConfig extends BaseObject {
      * @return
      */
     @Getter
-    @XmlElement(required = true)
-    private String merchantID;
+    @XmlElement(required = false)
+    private String merchantId;
 
     /**
      *
@@ -67,8 +67,8 @@ public class HuaAnMoneyFundConfig extends BaseObject {
      * @return
      */
     @Getter
-    @XmlElement(required = true)
-    private String merchantIDInCreditCloud;
+    @XmlElement(required = false)
+    private String merchantIdInCreditCloud;
 
     /**
      * 华安货币基金接口地址

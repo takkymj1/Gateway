@@ -32,6 +32,20 @@ import javax.ejb.Remote;
 public interface HuaAnMoneyFundService {
 
     /**
+     * 外部指定商户ID，因为商户ID是动态获取的
+     *
+     * @param merchantId
+     */
+    void setMerchantId(String merchantId);
+
+    /**
+     * 外部指定商户的交易密钥，因为交易密钥是动态获取的
+     *
+     * @param merchantPrivateKeyInBase64
+     */
+    void setMerchantPrivateKey(String merchantPrivateKeyInBase64);
+
+    /**
      * 赎回
      *
      * @param message

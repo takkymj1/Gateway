@@ -15,6 +15,8 @@ import com.creditcloud.chinapay.model.response.SinglePayPostResult;
 import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
 import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
+import com.creditcloud.chinapay.model.DailyCutRecon;
+import javax.ejb.Remote;
 
 /**
  * 银联在线接口,包含以下接口 :<br>
@@ -25,6 +27,7 @@ import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
  * @author GuohuaZhang
  *
  */
+@Remote
 public interface ChinaPayService {
 
     /**
@@ -182,4 +185,12 @@ public interface ChinaPayService {
     boolean verify(String respCode, String cardNo, String cerNo, String cardMobile, String cpSign);
 
     String getAppSysID();
+    
+    /**
+     * 读取代扣对账信息
+     * 
+     * @param dateString yyyyMMdd 格式的日期
+     * @return 没有对账文件则返回 null
+     */
+    DailyCutRecon getDailyCutRecon(String dateString);
 }

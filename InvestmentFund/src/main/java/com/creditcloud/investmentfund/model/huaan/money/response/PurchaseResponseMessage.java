@@ -31,8 +31,6 @@ public class PurchaseResponseMessage extends CommonResponseMessage {
     private String TradeIncomeDate;//	8位	计息日期
     private String Fee;//	18位	手续费(此处为0)
     private String FundType;//	1位	交易类型（1：申购；2：赎回）
-    private String RetCode;//	4位	返回码(0000为成功)
-    private String RetMsg;//	200位	返回信息
     private String CommonReturn;//	200位	公共回传字段
 
     @Override

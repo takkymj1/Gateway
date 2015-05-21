@@ -102,7 +102,7 @@ public class StockfinanceConfig extends BaseConfig {
      */
     @Getter
     @Setter
-    private BigDecimal dayPeriodServiceFeeRate = BigDecimal.valueOf(0.05);
+    private BigDecimal dayPeriodServiceFeeRate = BigDecimal.valueOf(0.03);
     
     /**
      * 月满盈每期服务费率（单位%）：月满盈每期=借款金额*monthPeriodServiceFeeRate%

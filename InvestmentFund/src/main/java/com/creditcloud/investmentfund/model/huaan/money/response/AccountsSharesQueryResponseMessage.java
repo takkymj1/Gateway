@@ -25,8 +25,6 @@ public class AccountsSharesQueryResponseMessage extends CommonResponseMessage {
     private String CurPageNo;//	10位	当前页码
     private String AllCount;//	18位	总笔数
     private String Content;//	对账单内容，详细内容见备注说明
-    private String RetCode;//	4位	查询结果
-    private String RetMsg;//	200位	返回信息
 
     @Override
     public void resolveXMLPaylod() {
