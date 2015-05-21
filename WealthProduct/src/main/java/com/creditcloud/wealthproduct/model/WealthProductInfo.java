@@ -31,7 +31,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-      @FormParam("guaranteeInfo")
+    @FormParam("guaranteeInfo")
     private String guaranteeInfo;
     
     /**
@@ -49,7 +49,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("assetManageInfo")
+    @FormParam("assetManageInfo")
     private String assetManageInfo;
     
     /**
@@ -58,7 +58,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("underwriterInfo")
+    @FormParam("underwriterInfo")
     private String underwriterInfo;
     
     /**
@@ -67,7 +67,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("consultantInfo")
+    @FormParam("consultantInfo")
     private String consultantInfo;
     
     /**
@@ -76,7 +76,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("riskInfo")
+    @FormParam("riskInfo")
     private String riskInfo;
     
     /**
@@ -85,7 +85,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("repaymentInfo")
+    @FormParam("repaymentInfo")
     private String repaymentInfo;
     
     /**
@@ -109,7 +109,7 @@ public class WealthProductInfo extends BaseObject {
      * @return
      */
     @Size(max = MAX_DESCRIPTION_LENGTH)
-     @FormParam("description")
+    @FormParam("description")
     private String description;
     
     /**
