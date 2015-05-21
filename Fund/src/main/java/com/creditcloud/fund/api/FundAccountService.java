@@ -29,6 +29,32 @@ public interface FundAccountService {
                                            String account);
 
     /**
+     * 标记卡是否已经验证通过
+     *
+     * @param clientCode
+     * @param userId
+     * @param account
+     * @param valid
+     * @return
+     */
+    public boolean validateAccount(String clientCode,
+                                   String userId,
+                                   String account,
+                                   boolean valid);
+
+    /**
+     * 将默认卡设置为非默认
+     *
+     * @param clientCode
+     * @param userId
+     * @param account
+     * @return
+     */
+    public boolean cancelDefaultAccount(String clientCode,
+                                        String userId,
+                                        String account);
+
+    /**
      *
      * @param clientCode
      * @param userId
@@ -75,14 +101,14 @@ public interface FundAccountService {
      *
      * 重复添加也会返回true
      *
-     * @param clientCode    商户简码
-     * @param userId        用户ID
-     * @param userName      开户姓名
-     * @param bank          所属银行
-     * @param account       银行卡号
-     * @param valid         是否有效
-     * @param isDefault     是否默认
-     * @param isExpress     是否是快捷
+     * @param clientCode 商户简码
+     * @param userId 用户ID
+     * @param userName 开户姓名
+     * @param bank 所属银行
+     * @param account 银行卡号
+     * @param valid 是否有效
+     * @param isDefault 是否默认
+     * @param isExpress 是否是快捷
      * @return
      */
     public boolean addBankCard(String clientCode,
@@ -93,7 +119,7 @@ public interface FundAccountService {
                                boolean valid,
                                boolean isDefault,
                                boolean isExpress);
-    
+
     /**
      * 批量添加一组卡
      *
@@ -107,28 +133,28 @@ public interface FundAccountService {
      * 添加银行卡到用户名下. <br>
      *
      * 重复添加也会返回true <br>
-     * 
-     * @param clientCode   商户简码
-     * @param userId       用户ID
-     * @param userName     开户姓名
-     * @param bank         所属银行
-     * @param account      银行卡号
-     * @param province     银行网点所属省份
-     * @param city         银行网点所属城市
-     * @param valid        是否有效
-     * @param isDefault    是否默认
-     * @return 
+     *
+     * @param clientCode 商户简码
+     * @param userId 用户ID
+     * @param userName 开户姓名
+     * @param bank 所属银行
+     * @param account 银行卡号
+     * @param province 银行网点所属省份
+     * @param city 银行网点所属城市
+     * @param valid 是否有效
+     * @param isDefault 是否默认
+     * @return
      */
-    public boolean addBankCard(String clientCode, 
-            String userId, 
-            String userName, 
-            Bank bank, 
-            String account, 
-            String province, 
-            String city, 
-            boolean valid, 
-            boolean isDefault);
-            
+    public boolean addBankCard(String clientCode,
+                               String userId,
+                               String userName,
+                               Bank bank,
+                               String account,
+                               String province,
+                               String city,
+                               boolean valid,
+                               boolean isDefault);
+
     /**
      *
      * @param clientCode
