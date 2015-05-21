@@ -150,6 +150,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * @return
      */
     @NotNull
+    @FormParam("employeeId")
     private String employeeId;
  
     /**
@@ -200,6 +201,7 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
+    @FormParam("categoryKey")
     private String categoryKey;
     
     /**
