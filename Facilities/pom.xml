@@ -195,12 +195,12 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
         </dependency>
-<!--        <dependency>
+        <dependency>
             <groupId>com.creditcloud.investmentfund</groupId>
             <artifactId>InvestmentFundService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type> 
-        </dependency>-->
+        </dependency>
    
         <dependency>
             <groupId>com.creditcloud.lianlianpay</groupId>
@@ -215,12 +215,12 @@
             <type>ejb</type> 
         </dependency> 
 
-<!--        <dependency>
+        <dependency>
             <groupId>com.creditcloud.interestbearing</groupId>
             <artifactId>InterestBearingService</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>             
-        </dependency>        -->
+        </dependency>        
         <dependency>
             <groupId>com.creditcloud.unionpay</groupId>
             <artifactId>UnionPayService</artifactId>
@@ -401,10 +401,10 @@
                             <groupId>com.creditcloud.insurance</groupId>
                             <artifactId>InsuranceService</artifactId>
                         </ejbModule>
-<!--                        <ejbModule>
+                        <ejbModule>
                             <groupId>com.creditcloud.investmentfund</groupId>
                             <artifactId>InvestmentFundService</artifactId>
-                        </ejbModule>-->
+                        </ejbModule>
   
                         <ejbModule>
                             <groupId>com.creditcloud.lianlianpay</groupId>
@@ -419,10 +419,10 @@
                             <groupId>com.creditcloud.unionpay</groupId>
                             <artifactId>UnionPayService</artifactId>
                         </ejbModule>                       
-<!--                        <ejbModule>
+                        <ejbModule>
                             <groupId>com.creditcloud.interestbearing</groupId>
                             <artifactId>InterestBearingService</artifactId>
-                        </ejbModule>                         -->
+                        </ejbModule>                         
                         
                         <ejbModule>
                             <groupId>com.creditcloud.wealthproduct</groupId>
