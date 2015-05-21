@@ -33,10 +33,7 @@ public class InvalidException extends RuntimeException {
     public String getMessage() {
         StringBuilder sb = new StringBuilder();
         for (Violation violation : violations) {
-            sb.append(String.format("[invalidValue=%s][propertyPath=%s][message=%s]\n",
-                                    violation.getInvalidValue(),
-                                    violation.getPropertyPath(),
-                                    violation.getMessage()));
+            sb.append(violation.getMessage().concat("\n"));
         }
         return sb.toString();
     }
