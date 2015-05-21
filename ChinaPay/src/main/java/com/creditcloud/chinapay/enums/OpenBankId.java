@@ -28,20 +28,30 @@ public enum OpenBankId implements BaseEnum {
     CIB("兴业银行", "0309"),
     PINGAN("平安银行", "0410");
 
-    private String key;
+    private final String key;
 
-    private String code;
+    private final String code;
 
     private OpenBankId(final String key, final String code) {
         this.key = key;
         this.code = code;
     }
 
+    @Override
     public String getKey() {
         return key;
     }
 
     public String getCode() {
         return code;
+    }
+
+    public static OpenBankId fromCode(String code) {
+        for (OpenBankId bank : OpenBankId.values()) {
+            if (bank.getCode().equalsIgnoreCase(code)) {
+                return bank;
+            }
+        }
+        return null;
     }
 }
