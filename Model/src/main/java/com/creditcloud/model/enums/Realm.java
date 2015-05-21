@@ -172,7 +172,10 @@ public enum Realm implements BaseEnum {
     /**
      * 理财产品收藏
      */
-    WEALTH_PRODUCT_FAVORITE("理财产品收藏");
+    WEALTH_PRODUCT_FAVORITE("理财产品收藏"),
+    
+    /**股票配资*/
+    STOCKFINANCE("股票配资");
     
     private final String key;
 
