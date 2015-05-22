@@ -9,7 +9,7 @@ import com.creditcloud.model.enums.BaseEnum;
 
 /**
  * 基金类型
- * 
+ *
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public enum FundType implements BaseEnum {
@@ -22,7 +22,7 @@ public enum FundType implements BaseEnum {
     INDEX("指数型基金"),
     QDII("QDII基金"),
     OTHER("其他型基金");
-    
+
     private final String key;
 
     private FundType(String key) {

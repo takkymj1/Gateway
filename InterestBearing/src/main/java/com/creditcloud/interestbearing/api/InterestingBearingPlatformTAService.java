@@ -17,6 +17,8 @@ import com.creditcloud.interestbearing.ta.message.asset.UserRedeemRequestMessage
 import com.creditcloud.interestbearing.ta.message.asset.UserRedeemResponseMessage;
 import com.creditcloud.interestbearing.ta.message.asset.UserSubscribeRequestMessage;
 import com.creditcloud.interestbearing.ta.message.asset.UserSubscribeResponseMessage;
+import com.creditcloud.interestbearing.ta.message.platform.PlatformRegisterNewRequestMessage;
+import com.creditcloud.interestbearing.ta.message.platform.PlatformRegisterNewResponseMessage;
 import com.creditcloud.interestbearing.ta.message.product.ProductPlatformRegisterNewFundRequestMessage;
 import com.creditcloud.interestbearing.ta.message.product.ProductPlatformRegisterNewFundResponseMessage;
 import javax.ejb.Remote;
@@ -36,7 +38,15 @@ public interface InterestingBearingPlatformTAService {
      * @param request
      * @return
      */
-    ProductPlatformRegisterNewFundResponseMessage registerNewProduct(String tenantId,ProductPlatformRegisterNewFundRequestMessage request);
+    ProductPlatformRegisterNewFundResponseMessage registerNewProduct(String tenantId, ProductPlatformRegisterNewFundRequestMessage request);
+
+    /**
+     * 注册新的平台信息
+     *
+     * @param request
+     * @return
+     */
+    PlatformRegisterNewResponseMessage registerNewPlatform(PlatformRegisterNewRequestMessage request);
 
     /**
      * 登记用户生息余额变动(申购)
@@ -69,7 +79,7 @@ public interface InterestingBearingPlatformTAService {
      * @param request
      * @return
      */
-    ReportPlatformSubscribeResponseMessage reportPlatformSubscribe(String tenantId,ReportPlatformSubscribeRequestMessage request);
+    ReportPlatformSubscribeResponseMessage reportPlatformSubscribe(String tenantId, ReportPlatformSubscribeRequestMessage request);
 
     /**
      * 登记平台赎回确认的资产
@@ -78,7 +88,7 @@ public interface InterestingBearingPlatformTAService {
      * @param request
      * @return
      */
-    ReportPlatformRedeemResponseMessage reportPlatformRedeem(String tenantId,ReportPlatformRedeemRequestMessage request);
+    ReportPlatformRedeemResponseMessage reportPlatformRedeem(String tenantId, ReportPlatformRedeemRequestMessage request);
 
     /**
      * 查询平台当日差额列表，用于指导申购或者赎回
@@ -87,5 +97,5 @@ public interface InterestingBearingPlatformTAService {
      * @param request
      * @return
      */
-    QueryPlatformAssetGapResponseMessage queryPlatformAssetGap(String tenantId,QueryPlatformAssetGapRequestMessage request);
+    QueryPlatformAssetGapResponseMessage queryPlatformAssetGap(String tenantId, QueryPlatformAssetGapRequestMessage request);
 }

@@ -229,13 +229,6 @@ public class ClientFeatures extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableUnionPayACP = false;
-
-    /**
-     * 当前平台是否打开余额生息功能。一旦打开余额生息功能，相应的用户端界面和管理端界面会有相应的页面出现。后台相应的服务也会响应这个参数。
-     */
-    @Getter
-    @XmlElement
-    private boolean enableInterestBearing = false;
     
     /**
      * 启用Manager理财产品菜单
@@ -246,6 +239,5 @@ public class ClientFeatures extends BaseObject {
      */
     @XmlElement
     @Getter
-    private boolean enableWealthProductSpecialMenu = false;
-    
+    private boolean enableWealthProductSpecialMenu = false;  
 }

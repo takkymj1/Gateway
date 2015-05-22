@@ -5,6 +5,7 @@
  */
 package com.creditcloud.interestbearing.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -22,11 +23,11 @@ public class HuaAnFundAccountConfig extends ConfigObjBase {
     /**
      * 平台在华安的交易账号
      */
-    private String platformTradingAccount="";
+    private String platformTradingAccount = "";
     /**
      * 交易密钥
      */
-    private String platformTradingPrivateKey="";
+    private String platformTradingPrivateKey = "";
 
     @Override
     public String toString() {
@@ -42,11 +43,13 @@ public class HuaAnFundAccountConfig extends ConfigObjBase {
         this.platformTradingPrivateKey = StringUtils.defaultString(v);
     }
 
+    @JsonIgnore
     public boolean isPlatformTradingAccountReady() {
         boolean isPlatformTradingAccountReady = !StringUtils.isEmpty(platformTradingAccount);
         return isPlatformTradingAccountReady;
     }
 
+    @JsonIgnore
     public boolean isPlatformTradingPrivateKeyReady() {
         boolean isPlatformTradingPrivateKeyReady = !StringUtils.isEmpty(platformTradingPrivateKey);
         return isPlatformTradingPrivateKeyReady;

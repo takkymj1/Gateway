@@ -334,4 +334,11 @@ public class Features extends BaseObject {
     @Getter
     @XmlElement
     private boolean generateLoanRepayment = false;
+
+    /**
+     * 当前平台是否打开余额生息功能。一旦打开余额生息功能，相应的用户端界面和管理端界面会有相应的页面出现。后台相应的服务也会响应这个参数。
+     */
+    @Getter
+    @XmlElement
+    private boolean enableInterestBearing = false;
 }

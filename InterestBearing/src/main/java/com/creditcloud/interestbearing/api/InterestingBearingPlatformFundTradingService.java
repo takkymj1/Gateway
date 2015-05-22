@@ -6,6 +6,7 @@
 package com.creditcloud.interestbearing.api;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -14,9 +15,32 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface InterestingBearingPlatformFundTradingService {
-    // 申购
-    void purchase(BigDecimal amount);
-    // 赎回
 
-    void redeem(BigDecimal amount);
+    /**
+     * 申购
+     *
+     * @param broker
+     * @param fundCode
+     * @param amount
+     */
+    void purchase(String broker, String fundCode, BigDecimal amount);
+
+    /**
+     * 赎回
+     *
+     * @param broker
+     * @param fundCode
+     * @param amount
+     */
+
+    void redeem(String broker, String fundCode, BigDecimal amount);
+
+    /**
+     * 查询某段时间内未确认状态的申购，如果这些记录的最终状态可获得，则作相应的更新
+     *
+     * @param broker
+     * @param startDate
+     * @param endDate
+     */
+    void queryAndUpdatePendingTradingRecords(String broker, Date startDate, Date endDate);
 }

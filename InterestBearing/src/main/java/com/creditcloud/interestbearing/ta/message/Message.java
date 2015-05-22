@@ -6,7 +6,6 @@
 package com.creditcloud.interestbearing.ta.message;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.Serializable;
 import lombok.extern.slf4j.Slf4j;
