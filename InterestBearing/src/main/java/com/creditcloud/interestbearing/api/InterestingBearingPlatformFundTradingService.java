@@ -5,6 +5,10 @@
  */
 package com.creditcloud.interestbearing.api;
 
+import com.creditcloud.interestbearing.model.InterestBearingFundTradingRecord;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.criteria.SortInfo;
+import com.creditcloud.model.misc.PagedResult;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.ejb.Remote;
@@ -32,7 +36,6 @@ public interface InterestingBearingPlatformFundTradingService {
      * @param fundCode
      * @param amount
      */
-
     void redeem(String broker, String fundCode, BigDecimal amount);
 
     /**
@@ -43,4 +46,6 @@ public interface InterestingBearingPlatformFundTradingService {
      * @param endDate
      */
     void queryAndUpdatePendingTradingRecords(String broker, Date startDate, Date endDate);
+
+    PagedResult<InterestBearingFundTradingRecord> listPlatformFundTransRecords(String search, PageInfo pageInfo, SortInfo sortInfo);
 }
