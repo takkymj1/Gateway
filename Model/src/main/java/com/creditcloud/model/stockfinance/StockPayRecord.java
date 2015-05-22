@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 
 /**
  * 配资人付款（保证金、服务费、利息）时，向数据库添加一条记录
+ * 
  * @author zhaobs
  */
 @XmlRootElement
@@ -74,6 +75,13 @@ public class StockPayRecord extends BaseObject {
     @NotNull
     @XmlElement(name = "timeSubmit")
     private Date timeSubmit;
+    
+    /**
+     * 配资到期时间
+     */
+    @NotNull
+    @XmlElement(name = "dueTime")
+    private Date dueTime;
 
     /**
      * 自定义（json string）
@@ -91,6 +99,7 @@ public class StockPayRecord extends BaseObject {
      * @param serviceFee   服务费
      * @param interestFee  利息
      * @param timeSubmit   支付时间
+     * @param dueTime      配资到期时间
      * @param clientPriv   自定义
      */
     public StockPayRecord(String requestId,
@@ -101,6 +110,7 @@ public class StockPayRecord extends BaseObject {
                        BigDecimal serviceFee,
                        BigDecimal interestFee,
                        Date timeSubmit,
+                       Date dueTime,
                        String clientPriv) {
         this.requestId = requestId;
         this.amount = amount;
@@ -110,6 +120,7 @@ public class StockPayRecord extends BaseObject {
         this.serviceFee = serviceFee;
         this.interestFee = interestFee;
         this.timeSubmit = timeSubmit;
+        this.dueTime = dueTime;
         this.clientPriv = clientPriv;
     }
 }
