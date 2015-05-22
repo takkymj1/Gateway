@@ -6,10 +6,11 @@
 package com.creditcloud.investmentfund.enums;
 
 import com.creditcloud.model.enums.BaseEnum;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 基金品牌
- * 
+ *
  * @author suetming <suetming.ma at creditcloud.com>
  */
 public enum FundBrand implements BaseEnum {
@@ -22,10 +23,18 @@ public enum FundBrand implements BaseEnum {
     private FundBrand(String key) {
         this.key = key;
     }
-    
+
     @Override
     public String getKey() {
         return key;
     }
-    
+
+    public static FundBrand fromKey(String k) {
+        for (FundBrand b : FundBrand.values()) {
+            if (b.getKey().equalsIgnoreCase(StringUtils.trim(k))) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
