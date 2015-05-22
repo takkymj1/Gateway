@@ -16,6 +16,7 @@ import com.creditcloud.chinapay.model.response.SinglePayQueryResult;
 import com.creditcloud.chinapay.bindcard.CardQueryResponse;
 import com.creditcloud.chinapay.bindcard.FrontendBindCardResponse;
 import com.creditcloud.chinapay.model.DailyCutRecon;
+import com.creditcloud.chinapay.model.DailyPayRecon;
 import javax.ejb.Remote;
 
 /**
@@ -193,4 +194,12 @@ public interface ChinaPayService {
      * @return 没有对账文件则返回 null
      */
     DailyCutRecon getDailyCutRecon(String dateString);
+    
+    /**
+     * 读取代付对账信息
+     * 
+     * @param dateString yyyyMMdd 格式的日期
+     * @return 没有对账文件则返回 null
+     */
+    DailyPayRecon getDailyPayRecon(String dateString);
 }
