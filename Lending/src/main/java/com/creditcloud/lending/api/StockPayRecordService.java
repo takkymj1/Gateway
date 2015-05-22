@@ -4,7 +4,10 @@
  */
 package com.creditcloud.lending.api;
 
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.misc.PagedResult;
 import com.creditcloud.model.stockfinance.StockPayRecord;
+import java.util.Date;
 import javax.ejb.Remote;
 
 /**
@@ -21,4 +24,5 @@ public interface StockPayRecordService {
 
     public StockPayRecord update(StockPayRecord stockPayRecord);
     
+    public PagedResult<StockPayRecord> listByDueTime(Date from, Date to, PageInfo pageInfo);
 }
