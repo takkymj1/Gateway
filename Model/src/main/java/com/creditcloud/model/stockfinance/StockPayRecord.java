@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 /**
- * 配资人付款（保证金、服务费、利息）时，向数据库添加一条记录
+ * 存储相对应的配资的最新信息（累计的保证金、杠杆、预警线、平仓线、累计的服务费、累计的利息）
  * 
  * @author zhaobs
  */
