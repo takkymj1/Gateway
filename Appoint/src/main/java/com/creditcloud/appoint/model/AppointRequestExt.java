@@ -19,6 +19,10 @@ public class AppointRequestExt {
     private String status;
     private AppointRequest request;
     /**
+     * 预约实体
+     */
+    private Object obj;
+    /**
      * 预约对象名称
      */
     private String targetName;
@@ -48,6 +52,20 @@ public class AppointRequestExt {
         this.request = request;
     }
 
+    public AppointRequestExt(User user,
+                             String branch,
+                             String status,
+                             AppointRequest request,
+                             String targetName,
+                             Object obj) {
+        this.user = user;
+        this.branch = branch;
+        this.status = status;
+        this.request = request;
+        this.targetName = targetName;
+        this.obj = obj;
+    }
+    
     public User getUser() {
         return user;
     }
@@ -92,5 +110,19 @@ public class AppointRequestExt {
      */
     public void setTargetName(String targetName) {
         this.targetName = targetName;
+    }
+
+    /**
+     * @return the obj
+     */
+    public Object getObj() {
+        return obj;
+    }
+
+    /**
+     * @param obj the obj to set
+     */
+    public void setObj(Object obj) {
+        this.obj = obj;
     }
 }
