@@ -8,12 +8,12 @@ package com.creditcloud.corporation.funding;
 import com.creditcloud.corporation.Corporation;
 import com.creditcloud.model.enums.misc.City;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.validation.constraints.Min;
 import javax.ws.rs.FormParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.LocalDate;
 
 /**
  *
@@ -52,8 +52,7 @@ public class FundingCorporation extends Corporation {
     /**
      * 成立时间
      */
-    @FormParam("timeEstablished")
-    private LocalDate timeEstablished;
+    private Date timeEstablished;
 
     /**
      * 经营范围
