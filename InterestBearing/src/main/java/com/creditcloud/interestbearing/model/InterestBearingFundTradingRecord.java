@@ -25,7 +25,7 @@ public class InterestBearingFundTradingRecord {
      */
     private FundBrand fundBrand;
 
-    private InterestBearingFundTransTriggerType requestTye;
+    private InterestBearingFundTransTriggerType requestType;
 
     /**
      * 基金类型
