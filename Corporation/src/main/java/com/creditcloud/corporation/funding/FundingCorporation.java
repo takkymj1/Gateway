@@ -52,7 +52,6 @@ public class FundingCorporation extends Corporation {
     /**
      * 成立时间
      */
-    @FormParam("timeEstablished")
     private Date timeEstablished;
 
     /**
