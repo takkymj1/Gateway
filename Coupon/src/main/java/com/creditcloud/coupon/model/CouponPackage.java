@@ -187,4 +187,17 @@ public class CouponPackage extends BaseObject {
             }
         }
     }
+    
+    /**
+     * 根据类型显示有意义的parValue
+     * 
+     * @return 
+     */
+    public String getFriendlyParValue() {
+        if (getType() == CouponType.INTEREST) {
+            return getParValue() + "%";
+        } else {
+            return getParValue() + "元";
+        }
+    }
 }

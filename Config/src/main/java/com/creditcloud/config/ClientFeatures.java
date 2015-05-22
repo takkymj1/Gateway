@@ -229,4 +229,15 @@ public class ClientFeatures extends BaseObject {
     @Getter
     @XmlElement
     private boolean enableUnionPayACP = false;
+    
+    /**
+     * 启用Manager理财产品菜单
+     * 
+     * 默认关闭
+     * 
+     * @return
+     */
+    @XmlElement
+    @Getter
+    private boolean enableWealthProductSpecialMenu = false;  
 }
