@@ -454,4 +454,19 @@ public interface CrowdFundingQueryService {
      * @return 
      */
      public long countProject(String clientCode,Date from,Date to,List<ProjectStatus> statusList);
+     
+     /**
+      * 根据企业ID和目标金额查询众筹项目列表
+      * @param clientCode
+      * @param pageInfo
+      * @param corporatinoIds
+      * @param fromGoalAmount
+      * @param toGoalAmount
+      * @return 
+      */
+     public PagedResult<FundingProject> listByCorporationIds(String clientCode,
+                                                             PageInfo pageInfo,
+                                                             List<String> corporatinoIds,
+                                                             BigDecimal fromGoalAmount,
+                                                             BigDecimal toGoalAmount);
 }

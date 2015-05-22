@@ -6,6 +6,10 @@
 package com.creditcloud.corporation.api;
 
 import com.creditcloud.corporation.funding.FundingCorporation;
+import com.creditcloud.model.criteria.PageInfo;
+import com.creditcloud.model.enums.misc.City;
+import com.creditcloud.model.misc.PagedResult;
+import java.util.List;
 import javax.ejb.Remote;
 
 /**
@@ -31,4 +35,12 @@ public interface FundingCorporationService {
      * @return
      */
     public FundingCorporation getById(String clientCode, String id);
+    
+    public PagedResult<FundingCorporation> listByCityAndIndustry(String ClientCode,
+                                                                 PageInfo pageInfo,
+                                                                 List<String> industryList,
+                                                                 List<City> cityList,
+                                                                 List<String> incomeList,
+                                                                 List<String> rateList,
+                                                                 List<String> positionList);
 }
