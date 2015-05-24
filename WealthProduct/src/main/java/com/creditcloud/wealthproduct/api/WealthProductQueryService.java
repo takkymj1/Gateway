@@ -112,4 +112,18 @@ public interface WealthProductQueryService {
      */
     public PagedResult<WealthProduct> list(PageInfo info);
     
+    /**
+     * 查询理财产品 模糊查询
+     * @param assetManageInfo  资产管理方、基金管理人
+     * @param repaymentInfo    还款来源、收益来源
+     * @param guaranteeInfo    担保实体信息
+     * @param pageInfo
+     * @return 
+     */
+    public PagedResult<WealthProduct> listByInfo(
+           String assetManageInfo,
+           String repaymentInfo,
+           String guaranteeInfo,
+           PageInfo pageInfo
+    );
 }
