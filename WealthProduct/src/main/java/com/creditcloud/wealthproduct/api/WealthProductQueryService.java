@@ -11,6 +11,7 @@ import com.creditcloud.wealthproduct.enums.IncomeType;
 import com.creditcloud.wealthproduct.enums.ProductStatus;
 import com.creditcloud.wealthproduct.model.WealthProduct;
 import com.creditcloud.wealthproduct.model.WealthProductFixed;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -113,17 +114,22 @@ public interface WealthProductQueryService {
     public PagedResult<WealthProduct> list(PageInfo info);
     
     /**
-     * 查询理财产品 模糊查询
-     * @param assetManageInfo  资产管理方、基金管理人
-     * @param repaymentInfo    还款来源、收益来源
-     * @param guaranteeInfo    担保实体信息
-     * @param pageInfo
-     * @return 
-     */
-    public PagedResult<WealthProduct> listByInfo(
-           String assetManageInfo,
-           String repaymentInfo,
-           String guaranteeInfo,
-           PageInfo pageInfo
+    * 查询理财产品
+    *
+    * @param assetManageInfo 投资机构 模糊查询
+    * @param strategyInfo 投资行业 
+    * @param minRate 预期收益最小值
+    * @param categoryKey 产品类别码
+    * @param maxRate 预期收益最大值
+    * @param pageInfo 查询分页
+    * @return
+    */
+    public PagedResult<WealthProduct> list(
+            String assetManageInfo,
+            String strategyInfo,
+            String categoryKey,
+            BigDecimal minRate,
+            BigDecimal maxRate,
+            PageInfo pageInfo
     );
 }

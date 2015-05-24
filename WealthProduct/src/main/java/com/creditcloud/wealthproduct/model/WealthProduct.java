@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import java.math.BigDecimal;
 
 /**
  * 理财产品
@@ -235,10 +236,64 @@ public class WealthProduct extends BaseObject implements WealthProductConstant {
      * 
      * @return
      */
-    private WealthProductInfo info; 
-    
+    private WealthProductInfo info;
+     
+    /**
+     * 预期收益率
+     */
+    @FormParam("expectedRate")
+    private BigDecimal expectedRate;
     /**
      * 是否预先生成还款计划，一般对于固定收益且线上统一结算的理财产品需要结算时预先生成，方便还款<p>
      */
 //    private boolean generateRepayment;
+    
+    public WealthProduct(String id,
+                         String serial,
+                         String title,
+                         String shortTitle,
+                         String displayTitle,
+                         ProductStatus status,
+                         IncomeType incomeType,
+                         Collection<InvestmentArea> investmentArea,
+                         Integer amount,
+                         Integer minAmount,
+                         Integer subscribeAmount,
+                         Integer subscribeNumber,
+                         WealthProductSchedule schedule,
+                         String employeeId,
+                         Integer timeOut,
+                         Integer transferTimeOut,
+                         Integer establishTimeOut,
+                         boolean subscribeOnly,
+                         String categoryKey,
+                         Integer ordinal,
+                         boolean enable,
+                         boolean scheduleOnly,
+                         WealthProductInvestRule investRule,
+                         WealthProductInfo info
+    ) {
+        this.id = id;
+        this.serial = serial;
+        this.title = title;
+        this.shortTitle = shortTitle;
+        this.displayTitle = displayTitle;
+        this.status = status;
+        this.incomeType = incomeType;
+        this.investmentArea = investmentArea;
+        this.amount = amount;
+        this.minAmount = minAmount;
+        this.subscribeAmount = subscribeAmount;
+        this.subscribeNumber = subscribeNumber;
+        this.schedule = schedule;
+        this.employeeId = employeeId;
+        this.timeOut = timeOut;
+        this.transferTimeOut = transferTimeOut;
+        this.establishTimeOut = establishTimeOut;
+        this.subscribeOnly = subscribeOnly;
+        this.categoryKey = categoryKey;
+        this.ordinal = ordinal;
+        this.investRule = investRule;
+        this.info = info;
+    }
 }
