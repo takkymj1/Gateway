@@ -109,4 +109,18 @@ public interface AppointService {
      * @return 
      */
     PagedResult<AppointRequest> listRequestByTargetRealm(PageInfo pageInfo, Realm realm, AppointRequestStatus... status);
+    /**
+     * 根据用户id和预约主体类型查询预约
+     *
+     * @param pageInfo 查询页码和每页显示数量
+     * @param realm 主体类型
+     * @param userId 用户id
+     * @param status 预约状态
+     * @return
+     */
+    public PagedResult<com.creditcloud.appoint.model.AppointRequest> listRequest(
+            PageInfo pageInfo,
+            Realm realm,
+            String userId,
+            AppointRequestStatus... status);
 }

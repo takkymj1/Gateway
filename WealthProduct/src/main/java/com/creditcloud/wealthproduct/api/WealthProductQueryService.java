@@ -117,7 +117,7 @@ public interface WealthProductQueryService {
     * 查询理财产品
     *
     * @param assetManageInfo 投资机构 模糊查询
-    * @param strategyInfo 投资行业 
+    * @param strategyInfo 投资行业 模糊查询
     * @param minRate 预期收益最小值
     * @param categoryKey 产品类别码
     * @param maxRate 预期收益最大值
